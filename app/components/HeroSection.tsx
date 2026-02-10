@@ -6,12 +6,12 @@ import { useState, useEffect } from 'react';
 
 const gradientColors = { from: '#60A5FA', via: '#A78BFA', to: '#F472B6' };
 const textPhrases = [
-  'zyskać spokój',
-  'zaoszczędzić czas',
-  'zwiększyć wydajność',
-  'zautomatyzować procesy',
-  'skupić się na biznesie',
-  'rozwijać się szybciej',
+  'spokój',
+  'oszczędność czasu',
+  'wydajność',
+  'automatyzację',
+  'rozwój biznesu',
+  'szybszy wzrost',
 ];
 
 export function HeroSection() {
@@ -52,18 +52,18 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 sm:mb-8 leading-[1.1] px-4"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-5 sm:mb-6 md:mb-8 leading-tight px-2 sm:px-4"
         >
           <span className="text-white block">Pomożemy Ci</span>
-          <div className="relative h-[1.2em] block">
+          <div className="relative min-h-[2.3em] sm:min-h-[1.2em] flex items-center justify-center">
             <AnimatePresence mode="wait">
               <motion.span
                 key={currentTextIndex}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-                className="bg-clip-text text-transparent absolute left-0 right-0"
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.4 }}
+                className="bg-clip-text text-transparent absolute inset-0 flex items-center justify-center text-center px-1"
                 style={{
                   backgroundImage: `linear-gradient(to right, ${gradientColors.from}, ${gradientColors.via}, ${gradientColors.to})`,
                 }}
@@ -79,11 +79,13 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-base sm:text-lg md:text-xl text-slate-400 mb-10 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4"
+          className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-400 mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto leading-relaxed px-3 sm:px-4"
         >
-          Automatyzujemy to, co powtarzalne. Ty weryfikujesz rezultaty.
-          <br />
-          Tworzymy strony internetowe gotowe na AI, abyś mógł skupić się na tym, co naprawdę ważne
+          <span className="hidden sm:inline">Automatyzujemy to, co powtarzalne. Ty weryfikujesz rezultaty.</span>
+          <span className="sm:hidden">Automatyzujemy powtarzalne. Ty weryfikujesz.</span>
+          <br className="hidden sm:block" />
+          <span className="hidden sm:inline">Strony gotowe na AI — skupiasz się na tym, co ważne.</span>
+          <span className="sm:hidden">Strony na AI. Skup się na biznesie.</span>
         </motion.p>
 
         <motion.div
