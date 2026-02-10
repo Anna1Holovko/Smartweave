@@ -1,11 +1,25 @@
+# SmartWeave - Vibe Coding & Automatyzacja
 
-  # Premium Enterprise Landing Page
+Next.js landing page for SmartWeave: modern web apps and business automation.
 
-  This is a code bundle for Premium Enterprise Landing Page. The original project is available at https://www.figma.com/design/6Xn2ROcyks19zkIgY1ZeJ2/Premium-Enterprise-Landing-Page.
+## Setup
 
-  ## Running the code
+```bash
+npm install
+```
 
-  Run `npm i` to install the dependencies.
+## Running the app
 
-  Run `npm run dev` to start the development server.
-  
+- **Development:** `npm run dev` — runs at [http://localhost:3000](http://localhost:3000)
+- **Production build:** `npm run build` then `npm start`
+- **Lint:** `npm run lint`
+
+The contact form saves submissions to the browser’s `localStorage` only (no backend).
+
+## Tech stack
+
+- **Next.js 15** (App Router)
+- **React 18**, **TypeScript**
+- **Tailwind CSS**
+- **Motion** (animations)
+- **Lucide React** (icons)
