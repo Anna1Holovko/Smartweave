@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'motion/react';
 import { Sparkles, ArrowRight } from 'lucide-react';
+import { Button } from './ui/Button';
 import { useState, useEffect } from 'react';
 
 const gradientColors = { from: '#60A5FA', via: '#A78BFA', to: '#F472B6' };
@@ -94,21 +95,13 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4"
         >
-          <button
-            type="button"
-            onClick={() => scrollTo('#contact')}
-            className="group relative px-8 sm:px-10 py-3.5 sm:py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-semibold text-sm sm:text-base hover:scale-105 hover:shadow-[0_0_40px_rgba(147,51,234,0.6)] transition-all flex items-center gap-2 w-full sm:w-auto justify-center"
-          >
+          <Button variant="primary" fullWidth className="sm:w-auto group" onClick={() => scrollTo('#contact')}>
             Porozmawiajmy
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
-          <button
-            type="button"
-            onClick={() => scrollTo('#portfolio')}
-            className="group px-8 sm:px-10 py-3.5 sm:py-4 bg-transparent backdrop-blur-sm border-2 border-slate-700 rounded-full text-white font-semibold text-sm sm:text-base hover:border-purple-500/50 hover:bg-slate-800/30 transition-all flex items-center gap-2 w-full sm:w-auto justify-center"
-          >
+          </Button>
+          <Button variant="secondary" fullWidth className="sm:w-auto" onClick={() => scrollTo('#portfolio')}>
             Zobacz Case Studies
-          </button>
+          </Button>
         </motion.div>
       </div>
 

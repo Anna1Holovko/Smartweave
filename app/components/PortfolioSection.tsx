@@ -109,7 +109,7 @@ export function PortfolioSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
               whileHover={{ scale: 1.1 }}
-              className="group/arrow absolute right-4 top-1/2 -translate-y-1/2 z-20 flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-full backdrop-blur-xl transition-all duration-300 hover:border-cyan-400/50 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]"
+              className="group/arrow absolute right-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center gap-3 h-12 min-h-12 px-4 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-full backdrop-blur-xl transition-all duration-300 hover:border-cyan-400/50 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]"
             >
               <span className="text-cyan-300 font-semibold text-sm">+{hiddenItemsRight}</span>
               <ArrowRight className="w-6 h-6 text-cyan-300" />
@@ -124,7 +124,7 @@ export function PortfolioSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
               whileHover={{ scale: 1.1 }}
-              className="group/arrow absolute left-4 top-1/2 -translate-y-1/2 z-20 flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-full backdrop-blur-xl transition-all duration-300 hover:border-cyan-400/50 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]"
+              className="group/arrow absolute left-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center gap-3 h-12 min-h-12 px-4 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-full backdrop-blur-xl transition-all duration-300 hover:border-cyan-400/50 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]"
             >
               <ArrowLeft className="w-6 h-6 text-cyan-300" />
               <span className="text-cyan-300 font-semibold text-sm">+{hiddenItemsLeft}</span>

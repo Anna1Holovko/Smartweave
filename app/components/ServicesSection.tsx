@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import { Globe, Workflow, TrendingUp, Check, Palette } from 'lucide-react';
+import { Button } from './ui/Button';
 
 const services = [
   { number: '01', icon: Globe, title: 'Projektowanie i wdrażanie stron www', description: 'Tworzymy nowoczesne strony internetowe dla małych i średnich firm, w pełni gotowe na AI. Szybko, przystępnie cenowo i w profesjonalnym stylu, który buduje zaufanie i sprzedaje.', features: ['Responsywne strony dostosowane do wszystkich urządzeń', 'Optymalizacja SEO i integracja z wyszukiwarkami AI', 'Spójna identyfikacja wizualna marki', 'Hosting i wsparcie techniczne'], gradient: 'from-blue-500 to-cyan-500' },
@@ -75,13 +76,12 @@ export function ServicesSection() {
             <p className="text-xl text-slate-400 mb-8 max-w-3xl mx-auto">
               Umów bezpłatną konsultację – porozmawiamy o Twoich wyzwaniach i zaproponujemy najlepsze rozwiązanie.
             </p>
-            <button
-              type="button"
+            <Button
+              variant="primary"
               onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-semibold text-lg hover:scale-105 hover:shadow-[0_0_40px_rgba(147,51,234,0.6)] transition-all"
             >
               Umów konsultację
-            </button>
+            </Button>
           </div>
         </motion.div>
       </div>
