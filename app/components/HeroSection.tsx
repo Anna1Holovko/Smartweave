@@ -32,9 +32,9 @@ const interval = setInterval(() => {
 setCurrentTextIndex((prev) => (prev + 1) % textPhrases.length);
 }, 3000);
 
-```
+
 return () => clearInterval(interval);
-```
+
 
 }, []);
 
@@ -46,11 +46,11 @@ const rect = measureRef.current.getBoundingClientRect();
 setTextHeight(rect.height);
 };
 
-```
+
 measure();
 window.addEventListener('resize', measure);
 return () => window.removeEventListener('resize', measure);
-```
+
 
 }, [currentTextIndex]);
 
@@ -64,15 +64,15 @@ block: 'start',
 return ( <section className="relative min-h-screen flex items-center justify-center overflow-x-hidden pt-24 sm:pt-28 pb-20 sm:pb-24 px-4 sm:px-8">
 {/* Background base */} <div className="absolute inset-0 bg-[#0f0a1a] sm:bg-[#0c0820]" />
 
-```
+
   {/* More visible purple grid */}
   <div
     className="absolute inset-0"
     style={{
-      backgroundImage: `
+      backgroundImage: '
         linear-gradient(rgba(168, 85, 247, 0.08) 1px, transparent 1px),
         linear-gradient(90deg, rgba(168, 85, 247, 0.08) 1px, transparent 1px)
-      `,
+      ',
       backgroundSize: '64px 64px',
       maskImage: 'radial-gradient(circle at center, black 40%, transparent 90%)',
       WebkitMaskImage:
@@ -213,7 +213,6 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
     </motion.div>
   </motion.div>
 </section>
-```
 
 );
 }
