@@ -23,8 +23,8 @@ const interval = setInterval(() => {
 setIndex((prev) => (prev + 1) % phrases.length);
 }, 3000);
 
-
 return () => clearInterval(interval);
+
 
 }, []);
 
@@ -36,13 +36,13 @@ block: 'start',
 };
 
 return ( <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-24 pb-20 sm:pt-28 sm:pb-24 lg:pt-24 lg:pb-20 xl:pt-20 xl:pb-16">
-{/* Base background */} <div className="absolute inset-0 bg-[#0b0a18]" />
+{/* Background */} <div className="absolute inset-0 bg-[#0b0a18]" />
 
 
-  {/* Center glow */}
+  {/* Glow */}
   <div className="absolute left-1/2 top-1/2 w-[1000px] h-[1000px] -translate-x-1/2 -translate-y-1/2 bg-purple-600/20 rounded-full blur-[180px]" />
 
-  {/* Grid with horizontal fade */}
+  {/* Grid */}
   <div
     className="absolute inset-0"
     style={{
@@ -65,25 +65,25 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
 
     {/* Line 1 */}
     <h1
-      className="text-white font-bold tracking-tight leading-[1.05]"
+      className="text-white font-bold tracking-tight leading-[1.1]"
       style={{ fontSize: 'clamp(2rem, 6vw, 7rem)' }}
     >
       Pomożemy Ci
     </h1>
 
-    {/* Animated phrase — higher frame */}
-    <p
-      className="my-4 font-bold text-center leading-[1.05] min-h-[1.4em] sm:min-h-[1.5em] xl:min-h-[1.6em]"
+    {/* Animated phrase — height hugs content */}
+    <div
+      className="my-4 flex justify-center"
       style={{ fontSize: 'clamp(2.2rem, 6.5vw, 7.5rem)' }}
     >
       <AnimatePresence mode="wait">
         <motion.span
           key={index}
-          initial={{ opacity: 0, y: 10, filter: 'blur(6px)' }}
+          initial={{ opacity: 0, y: 12, filter: 'blur(6px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          exit={{ opacity: 0, y: -10, filter: 'blur(6px)' }}
+          exit={{ opacity: 0, y: -12, filter: 'blur(6px)' }}
           transition={{ duration: 0.4 }}
-          className="inline-block whitespace-nowrap text-transparent bg-clip-text"
+          className="inline-block whitespace-nowrap font-bold text-transparent bg-clip-text leading-[1.2] py-[0.15em]"
           style={{
             backgroundImage:
               'linear-gradient(to right, #60A5FA, #A78BFA, #F472B6)',
@@ -92,11 +92,11 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
           {phrases[index]}
         </motion.span>
       </AnimatePresence>
-    </p>
+    </div>
 
     {/* Line 3 */}
     <h1
-      className="text-white font-bold tracking-tight leading-[1.05]"
+      className="text-white font-bold tracking-tight leading-[1.1]"
       style={{ fontSize: 'clamp(2rem, 6vw, 7rem)' }}
     >
       w codziennej pracy
@@ -153,6 +153,7 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
     </motion.div>
   </motion.div>
 </section>
+
 
 );
 }
