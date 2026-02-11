@@ -43,17 +43,14 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
   {/* Center glow */}
   <div className="absolute left-1/2 top-1/2 w-[900px] h-[900px] -translate-x-1/2 -translate-y-1/2 bg-purple-600/20 rounded-full blur-[160px]" />
 
-  {/* Grid with horizontal gradient visibility */}
+  {/* Grid with horizontal fade */}
   <div
     className="absolute inset-0"
     style={{
-      backgroundImage:
-        'linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)',
+      backgroundImage: 'linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)',
       backgroundSize: '64px 64px',
-      maskImage:
-        'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%)',
-      WebkitMaskImage:
-        'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%)',
+      maskImage: 'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%)',
+      WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%)',
     }}
   />
 
@@ -64,12 +61,12 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
       Design & Automatyzacja
     </div>
 
-    {/* Title */}
+    {/* Heading */}
     <h1 className="text-white font-bold text-4xl sm:text-6xl lg:text-7xl leading-tight">
       Pomożemy Ci
     </h1>
 
-    {/* Animated text */}
+    {/* Animated phrase */}
     <div className="relative h-[1.2em] flex justify-center my-3">
       <AnimatePresence mode="wait">
         <motion.span
@@ -80,8 +77,7 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
           transition={{ duration: 0.4 }}
           className="absolute whitespace-nowrap font-bold text-transparent bg-clip-text"
           style={{
-            backgroundImage:
-              'linear-gradient(to right, #60A5FA, #A78BFA, #F472B6)',
+            backgroundImage: 'linear-gradient(to right, #60A5FA, #A78BFA, #F472B6)',
             fontSize: 'clamp(1.5rem, 4vw, 5rem)',
           }}
         >
@@ -94,7 +90,7 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
       w codziennej pracy
     </h1>
 
-    {/* Subtext */}
+    {/* Description */}
     <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mt-6 mb-10 leading-relaxed">
       Automatyzujemy to, co powtarzalne. Ty weryfikujesz rezultaty.
       Tworzymy strony internetowe gotowe na AI, abyś mógł skupić się na tym,
