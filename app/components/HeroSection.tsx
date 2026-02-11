@@ -61,8 +61,6 @@ block: 'start',
 
 return ( <section className="relative min-h-screen flex items-center justify-center overflow-x-hidden pt-24 sm:pt-28 pb-20 sm:pb-24 px-4 sm:px-8">
 {/* Background base */} <div className="absolute inset-0 bg-[#0f0a1a] sm:bg-[#0c0820]" />
-
-```
   {/* Grid */}
   <div
     className="absolute inset-0 opacity-[0.4] sm:opacity-50"
@@ -190,7 +188,6 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
     </motion.div>
   </div>
 </section>
-```
 
 );
 }
