@@ -68,10 +68,10 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight overflow-hidden"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight"
         >
           <span className="text-white block">Pomożemy Ci</span>
-          <div className="relative h-[1.25em] flex items-center justify-center overflow-hidden my-0.5">
+          <div className="relative min-h-[1.2em] flex items-center justify-center overflow-visible py-0.5 my-0.5">
             <AnimatePresence mode="wait">
               <motion.span
                 key={currentTextIndex}
@@ -79,7 +79,7 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.4 }}
-                className="bg-clip-text text-transparent absolute whitespace-nowrap"
+                className="bg-clip-text text-transparent absolute whitespace-nowrap leading-none"
                 style={{
                   backgroundImage: `linear-gradient(to right, ${gradientColors.from}, ${gradientColors.via}, ${gradientColors.to})`,
                 }}
@@ -98,7 +98,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-slate-400 text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mt-8 sm:mt-10 mb-10 sm:mb-12"
         >
-          Automatyzujemy powtarzalne. Ty weryfikujesz. Strony na AI — skupiasz się na tym, co ważne.
+          Zostawiamy maszynom to, co powtarzalne. Ty decydujesz i sprawdzasz. Strony i automatyzacje po to, żebyś mógł skupić się na tym, co naprawdę ważne.
         </motion.p>
 
         {/* CTA buttons: horizontal, gap */}

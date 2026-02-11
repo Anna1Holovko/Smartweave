@@ -15,7 +15,7 @@ const tools = [
   { name: 'Slack', logo: 'https://logo.clearbit.com/slack.com', external: true },
   { name: 'HubSpot', logo: 'https://logo.clearbit.com/hubspot.com', external: true },
   { name: 'PostgreSQL', logo: 'https://logo.clearbit.com/postgresql.org', external: true },
-  { name: 'QuickBooks', logo: 'https://logo.clearbit.com/quickbooks.intuit.com', external: true },
+  { name: 'QuickBooks', logo: 'https://logo.clearbit.com/intuit.com', external: true },
   { name: 'Bubble', logo: 'https://logo.clearbit.com/bubble.io', external: true },
   { name: 'SendPulse', logo: 'https://logo.clearbit.com/sendpulse.com', external: true },
   { name: 'Make', logo: 'https://logo.clearbit.com/make.com', external: true },
@@ -27,9 +27,6 @@ const tools = [
 export function ToolsSection() {
   return (
     <section className="relative py-12 sm:py-20 px-4 sm:px-6 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-purple-950/20 to-slate-950" />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] sm:w-[800px] sm:h-[800px] bg-purple-500/10 rounded-full blur-3xl" />
-
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <motion.div
@@ -82,14 +79,14 @@ export function ToolsSection() {
                   key={`${tool.name}-${index}`}
                   className="flex-shrink-0 flex flex-row items-center justify-center gap-3 sm:gap-4 group cursor-pointer"
                 >
-                  <div className="relative h-8 sm:h-10 md:h-12 w-8 sm:w-10 md:w-12 flex items-center justify-center">
+                  <div className="relative h-10 w-10 flex-shrink-0 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 overflow-hidden">
                     <Image
                       src={tool.logo}
                       alt={tool.name}
-                      width={48}
-                      height={48}
+                      width={40}
+                      height={40}
                       unoptimized={tool.external}
-                      className="opacity-70 group-hover:opacity-100 transition-all duration-500 grayscale group-hover:grayscale-0 object-contain max-h-8 sm:max-h-10 md:max-h-12 w-auto"
+                      className="opacity-80 group-hover:opacity-100 transition-all duration-300 grayscale group-hover:grayscale-0 object-contain p-1"
                     />
                   </div>
                   <span className="text-slate-400 group-hover:text-white font-medium text-sm sm:text-base whitespace-nowrap transition-colors duration-300">
