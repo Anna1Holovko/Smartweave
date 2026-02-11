@@ -43,14 +43,17 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
   {/* Center glow */}
   <div className="absolute left-1/2 top-1/2 w-[900px] h-[900px] -translate-x-1/2 -translate-y-1/2 bg-purple-600/20 rounded-full blur-[160px]" />
 
-  {/* Grid with horizontal fade */}
+  {/* Grid with center visibility */}
   <div
     className="absolute inset-0"
     style={{
-      backgroundImage: 'linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)',
+      backgroundImage:
+        'linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)',
       backgroundSize: '64px 64px',
-      maskImage: 'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%)',
-      WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%)',
+      maskImage:
+        'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%)',
+      WebkitMaskImage:
+        'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%)',
     }}
   />
 
@@ -61,31 +64,34 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
       Design & Automatyzacja
     </div>
 
-    {/* Heading */}
+    {/* Line 1 */}
     <h1 className="text-white font-bold text-4xl sm:text-6xl lg:text-7xl leading-tight">
       Pomożemy Ci
     </h1>
 
-    {/* Animated phrase */}
-    <div className="relative h-[1.2em] flex justify-center my-3">
+    {/* Animated phrase (flow layout, no absolute) */}
+    <p className="my-3 font-bold text-center">
       <AnimatePresence mode="wait">
         <motion.span
           key={index}
-          initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
+          initial={{ opacity: 0, y: 10, filter: 'blur(6px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          exit={{ opacity: 0, y: -20, filter: 'blur(8px)' }}
+          exit={{ opacity: 0, y: -10, filter: 'blur(6px)' }}
           transition={{ duration: 0.4 }}
-          className="absolute whitespace-nowrap font-bold text-transparent bg-clip-text"
+          className="inline-block whitespace-nowrap text-transparent bg-clip-text"
           style={{
-            backgroundImage: 'linear-gradient(to right, #60A5FA, #A78BFA, #F472B6)',
+            backgroundImage:
+              'linear-gradient(to right, #60A5FA, #A78BFA, #F472B6)',
             fontSize: 'clamp(1.5rem, 4vw, 5rem)',
+            lineHeight: 1.2,
           }}
         >
           {phrases[index]}
         </motion.span>
       </AnimatePresence>
-    </div>
+    </p>
 
+    {/* Line 3 */}
     <h1 className="text-white font-bold text-4xl sm:text-6xl lg:text-7xl leading-tight">
       w codziennej pracy
     </h1>
