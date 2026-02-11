@@ -4,24 +4,24 @@ import { motion } from 'motion/react';
 import Image from 'next/image';
 
 const tools = [
-  { name: 'Figma', logo: '/assets/4680d4bfeaaa035e59431abad1f6e8df338068bc.png', external: false },
-  { name: 'Cursor', logo: '/assets/63577b90243f42742e55175922f8674339decbad.png', external: false },
-  { name: 'Google Sheets', logo: 'https://logo.clearbit.com/google.com', external: true },
-  { name: 'Gmail', logo: 'https://logo.clearbit.com/google.com', external: true },
-  { name: 'Google Drive', logo: 'https://logo.clearbit.com/google.com', external: true },
-  { name: 'Airtable', logo: 'https://logo.clearbit.com/airtable.com', external: true },
-  { name: 'Twilio', logo: 'https://logo.clearbit.com/twilio.com', external: true },
-  { name: 'PDF.co', logo: 'https://logo.clearbit.com/pdf.co', external: true },
-  { name: 'Slack', logo: 'https://logo.clearbit.com/slack.com', external: true },
-  { name: 'HubSpot', logo: 'https://logo.clearbit.com/hubspot.com', external: true },
-  { name: 'PostgreSQL', logo: 'https://logo.clearbit.com/postgresql.org', external: true },
-  { name: 'QuickBooks', logo: 'https://logo.clearbit.com/intuit.com', external: true },
-  { name: 'Bubble', logo: 'https://logo.clearbit.com/bubble.io', external: true },
-  { name: 'SendPulse', logo: 'https://logo.clearbit.com/sendpulse.com', external: true },
-  { name: 'Make', logo: 'https://logo.clearbit.com/make.com', external: true },
-  { name: 'n8n', logo: 'https://logo.clearbit.com/n8n.io', external: true },
-  { name: 'ElevenLabs', logo: 'https://logo.clearbit.com/elevenlabs.io', external: true },
-  { name: 'BigQuery', logo: 'https://logo.clearbit.com/cloud.google.com', external: true },
+  { name: 'Figma', logo: '/assets/tools/figma.png' },
+  { name: 'Cursor', logo: '/assets/tools/cursor.png' },
+  { name: 'Google Sheets', logo: '/assets/tools/google-sheets.png' },
+  { name: 'Gmail', logo: '/assets/tools/gmail.png' },
+  { name: 'Google Drive', logo: '/assets/tools/google-drive.png' },
+  { name: 'Airtable', logo: '/assets/tools/airtable.png' },
+  { name: 'Twilio', logo: '/assets/tools/twilio.png' },
+  { name: 'PDF.co', logo: '/assets/tools/pdfco.png' },
+  { name: 'Slack', logo: '/assets/tools/slack.png' },
+  { name: 'HubSpot', logo: '/assets/tools/hubspot.png' },
+  { name: 'PostgreSQL', logo: '/assets/tools/postgresql.png' },
+  { name: 'QuickBooks', logo: '/assets/tools/quickbooks.png' },
+  { name: 'Bubble', logo: '/assets/tools/bubble.png' },
+  { name: 'SendPulse', logo: '/assets/tools/sendpulse.png' },
+  { name: 'Make', logo: '/assets/tools/make.png' },
+  { name: 'n8n', logo: '/assets/tools/n8n.png' },
+  { name: 'ElevenLabs', logo: '/assets/tools/elevenlabs.png' },
+  { name: 'BigQuery', logo: '/assets/tools/bigquery.png' },
 ];
 
 export function ToolsSection() {
@@ -85,7 +85,7 @@ export function ToolsSection() {
                       alt={tool.name}
                       width={40}
                       height={40}
-                      unoptimized={tool.external}
+                      unoptimized={false}
                       className="opacity-80 group-hover:opacity-100 transition-all duration-300 grayscale group-hover:grayscale-0 object-contain p-1"
                     />
                   </div>

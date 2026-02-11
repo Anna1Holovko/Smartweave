@@ -30,7 +30,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 sm:pt-28 pb-20 sm:pb-24 px-4 sm:px-8">
+    <section className="relative min-h-screen flex items-center justify-center overflow-x-hidden pt-24 sm:pt-28 pb-20 sm:pb-24 px-4 sm:px-8">
       {/* Base: dark indigo / purple */}
       <div className="absolute inset-0 bg-[#0f0a1a] sm:bg-[#0c0820]" />
       {/* Subtle grid / mesh */}
@@ -68,9 +68,9 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight pb-[0.15em] overflow-visible"
         >
-          <span className="text-white block">Pomożemy Ci</span>
+          <span className="text-white block pt-[0.05em]">Pomożemy Ci</span>
           <div className="relative min-h-[1.2em] flex items-center justify-center overflow-visible py-0.5 my-0.5">
             <AnimatePresence mode="wait">
               <motion.span
@@ -88,7 +88,7 @@ export function HeroSection() {
               </motion.span>
             </AnimatePresence>
           </div>
-          <span className="text-white block">w codziennej pracy</span>
+          <span className="text-white block pb-[0.05em]">w codziennej pracy</span>
         </motion.h1>
 
         {/* Subheading: full text, generous spacing */}
@@ -98,7 +98,8 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-slate-400 text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mt-8 sm:mt-10 mb-10 sm:mb-12"
         >
-          Zostawiamy maszynom to, co powtarzalne. Ty decydujesz i sprawdzasz. Strony i automatyzacje po to, żebyś mógł skupić się na tym, co naprawdę ważne.
+          Zostawiamy maszynom to, co powtarzalne. Ty decydujesz i sprawdzasz. Strony i automatyzacje po to, żebyś mógł skupić się na tym,{' '}
+          <span className="whitespace-nowrap">co naprawdę ważne.</span>
         </motion.p>
 
         {/* CTA buttons: horizontal, gap */}
