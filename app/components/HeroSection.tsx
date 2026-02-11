@@ -23,7 +23,6 @@ const interval = setInterval(() => {
 setIndex((prev) => (prev + 1) % phrases.length);
 }, 3000);
 
-
 return () => clearInterval(interval);
 
 
@@ -36,14 +35,14 @@ block: 'start',
 });
 };
 
-return ( <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-24 pb-20 sm:pt-28 sm:pb-24 lg:pt-32 lg:pb-28">
+return ( <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-24 pb-20 sm:pt-28 sm:pb-24 lg:pt-24 lg:pb-20 xl:pt-20 xl:pb-16">
 {/* Base background */} <div className="absolute inset-0 bg-[#0b0a18]" />
 
 
   {/* Center glow */}
-  <div className="absolute left-1/2 top-1/2 w-[900px] h-[900px] -translate-x-1/2 -translate-y-1/2 bg-purple-600/20 rounded-full blur-[160px]" />
+  <div className="absolute left-1/2 top-1/2 w-[1000px] h-[1000px] -translate-x-1/2 -translate-y-1/2 bg-purple-600/20 rounded-full blur-[180px]" />
 
-  {/* Grid with horizontal fade (center visible) */}
+  {/* Grid with horizontal fade */}
   <div
     className="absolute inset-0"
     style={{
@@ -58,7 +57,7 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
   />
 
   {/* Content */}
-  <div className="relative z-10 text-center max-w-4xl mx-auto">
+  <div className="relative z-10 text-center max-w-4xl xl:max-w-5xl mx-auto">
     {/* Badge */}
     <div className="inline-flex items-center mb-8 px-4 py-2 rounded-full border border-purple-500/40 bg-purple-950/50 backdrop-blur-sm text-sm text-purple-200">
       Design & Automatyzacja
@@ -66,16 +65,16 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
 
     {/* Line 1 */}
     <h1
-      className="text-white font-bold tracking-tight leading-[1.1]"
-      style={{ fontSize: 'clamp(2rem, 6vw, 5.5rem)' }}
+      className="text-white font-bold tracking-tight leading-[1.05]"
+      style={{ fontSize: 'clamp(2rem, 6vw, 7rem)' }}
     >
       Pomożemy Ci
     </h1>
 
-    {/* Animated phrase (flow layout, responsive) */}
+    {/* Animated phrase */}
     <p
-      className="my-3 font-bold text-center leading-[1.1] min-h-[1.2em]"
-      style={{ fontSize: 'clamp(2.2rem, 6.5vw, 6rem)' }}
+      className="my-3 font-bold text-center leading-[1.05] min-h-[1.2em]"
+      style={{ fontSize: 'clamp(2.2rem, 6.5vw, 7.5rem)' }}
     >
       <AnimatePresence mode="wait">
         <motion.span
@@ -97,8 +96,8 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
 
     {/* Line 3 */}
     <h1
-      className="text-white font-bold tracking-tight leading-[1.1]"
-      style={{ fontSize: 'clamp(2rem, 6vw, 5.5rem)' }}
+      className="text-white font-bold tracking-tight leading-[1.05]"
+      style={{ fontSize: 'clamp(2rem, 6vw, 7rem)' }}
     >
       w codziennej pracy
     </h1>
@@ -106,11 +105,11 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
     {/* Description */}
     <p
       className="text-slate-400 mx-auto mt-6 mb-10 max-w-2xl leading-relaxed"
-      style={{ fontSize: 'clamp(1rem, 1.4vw, 1.25rem)' }}
+      style={{ fontSize: 'clamp(1rem, 1.2vw, 1.25rem)' }}
     >
       Automatyzujemy to, co powtarzalne. Ty weryfikujesz rezultaty.
       Tworzymy strony internetowe gotowe na AI, abyś mógł skupić się na tym,
-      co naprawdę ważne.
+      co naprawdę&nbsp;ważne.
     </p>
 
     {/* Buttons */}
