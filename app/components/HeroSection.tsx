@@ -7,12 +7,13 @@ import { useState, useEffect } from 'react';
 
 const gradientColors = { from: '#60A5FA', via: '#A78BFA', to: '#F472B6' };
 const textPhrases = [
-  'więcej spokoju',
-  'więcej czasu',
-  'mniej stresu',
-  'mniej pracy',
-  'rozwój biznesu',
-  'szybszy wzrost',
+  'odzyskać czas',
+  'uprościć pracę',
+  'zredukować chaos',
+  'uniknąć błędów',
+  'zyskać spokój',
+  'rozwiązać problemy',
+  'zyskać efektywność',
 ];
 
 export function HeroSection() {
@@ -30,7 +31,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 sm:pt-28 pb-20 sm:pb-24 px-4 sm:px-8">
+    <section className="relative min-h-screen flex items-center justify-center overflow-x-hidden pt-24 sm:pt-28 pb-20 sm:pb-24 px-4 sm:px-8">
       {/* Base: dark indigo / purple */}
       <div className="absolute inset-0 bg-[#0f0a1a] sm:bg-[#0c0820]" />
       {/* Subtle grid / mesh */}
@@ -49,7 +50,7 @@ export function HeroSection() {
       <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] bg-purple-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] bg-indigo-500/10 rounded-full blur-3xl" />
 
-      <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
+      <div className="relative z-10 w-full max-w-4xl mx-auto text-center px-4 sm:px-6">
         {/* Pill badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -63,15 +64,15 @@ export function HeroSection() {
           </span>
         </motion.div>
 
-        {/* H1: three lines, gradient on middle */}
+        {/* H1: three lines, gradient on middle — one line + no clipping of ą, ę */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight overflow-hidden"
+          className="font-bold leading-tight pb-[0.2em] overflow-visible"
         >
-          <span className="text-white block">Pomożemy Ci</span>
-          <div className="relative h-[1.25em] flex items-center justify-center overflow-hidden my-0.5">
+          <span className="text-white block pt-[0.08em] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Pomożemy Ci</span>
+          <div className="relative flex items-center justify-center overflow-visible my-0.5 min-h-[2.5rem] sm:min-h-[3rem] md:min-h-[3.5rem] lg:min-h-[4rem] xl:min-h-[5rem] py-[0.2rem]">
             <AnimatePresence mode="wait">
               <motion.span
                 key={currentTextIndex}
@@ -79,16 +80,19 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.4 }}
-                className="bg-clip-text text-transparent absolute whitespace-nowrap"
+                className="bg-clip-text text-transparent absolute whitespace-nowrap font-bold leading-none"
                 style={{
                   backgroundImage: `linear-gradient(to right, ${gradientColors.from}, ${gradientColors.via}, ${gradientColors.to})`,
+                  fontSize: 'clamp(1.125rem, 4.5vw + 1rem, 6rem)',
+                  paddingLeft: '0.05em',
+                  paddingRight: '0.05em',
                 }}
               >
                 {textPhrases[currentTextIndex]}
               </motion.span>
             </AnimatePresence>
           </div>
-          <span className="text-white block">w codziennej pracy</span>
+          <span className="text-white block pb-[0.08em] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">w codziennej pracy</span>
         </motion.h1>
 
         {/* Subheading: full text, generous spacing */}
@@ -98,7 +102,8 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-slate-400 text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mt-8 sm:mt-10 mb-10 sm:mb-12"
         >
-          Automatyzujemy powtarzalne. Ty weryfikujesz. Strony na AI — skupiasz się na tym, co ważne.
+          Zostawiamy maszynom to, co powtarzalne. Ty decydujesz i sprawdzasz. Strony i automatyzacje po to, żebyś mógł skupić się na tym,{' '}
+          <span className="whitespace-nowrap">co naprawdę ważne.</span>
         </motion.p>
 
         {/* CTA buttons: horizontal, gap */}
