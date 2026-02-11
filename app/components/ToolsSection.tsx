@@ -4,8 +4,24 @@ import { motion } from 'motion/react';
 import Image from 'next/image';
 
 const tools = [
-  { name: 'Figma', logo: '/assets/4680d4bfeaaa035e59431abad1f6e8df338068bc.png' },
-  { name: 'Cursor', logo: '/assets/63577b90243f42742e55175922f8674339decbad.png' },
+  { name: 'Figma', logo: '/assets/4680d4bfeaaa035e59431abad1f6e8df338068bc.png', external: false },
+  { name: 'Cursor', logo: '/assets/63577b90243f42742e55175922f8674339decbad.png', external: false },
+  { name: 'Google Sheets', logo: 'https://logo.clearbit.com/google.com', external: true },
+  { name: 'Gmail', logo: 'https://logo.clearbit.com/google.com', external: true },
+  { name: 'Google Drive', logo: 'https://logo.clearbit.com/google.com', external: true },
+  { name: 'Airtable', logo: 'https://logo.clearbit.com/airtable.com', external: true },
+  { name: 'Twilio', logo: 'https://logo.clearbit.com/twilio.com', external: true },
+  { name: 'PDF.co', logo: 'https://logo.clearbit.com/pdf.co', external: true },
+  { name: 'Slack', logo: 'https://logo.clearbit.com/slack.com', external: true },
+  { name: 'HubSpot', logo: 'https://logo.clearbit.com/hubspot.com', external: true },
+  { name: 'PostgreSQL', logo: 'https://logo.clearbit.com/postgresql.org', external: true },
+  { name: 'QuickBooks', logo: 'https://logo.clearbit.com/quickbooks.intuit.com', external: true },
+  { name: 'Bubble', logo: 'https://logo.clearbit.com/bubble.io', external: true },
+  { name: 'SendPulse', logo: 'https://logo.clearbit.com/sendpulse.com', external: true },
+  { name: 'Make', logo: 'https://logo.clearbit.com/make.com', external: true },
+  { name: 'n8n', logo: 'https://logo.clearbit.com/n8n.io', external: true },
+  { name: 'ElevenLabs', logo: 'https://logo.clearbit.com/elevenlabs.io', external: true },
+  { name: 'BigQuery', logo: 'https://logo.clearbit.com/cloud.google.com', external: true },
 ];
 
 export function ToolsSection() {
@@ -46,7 +62,7 @@ export function ToolsSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base sm:text-xl text-slate-400 max-w-3xl mx-auto px-4 mb-12"
           >
-            Mamy swoje sprawdzone metody, a Ty po prostu dostajesz gotowy efekt. Bez stresu.
+            Opieramy się na sprawdzonych aplikacjach i integracjach, a Ty dostajesz gotowy efekt. Bez stresu.
           </motion.p>
         </div>
 
@@ -66,13 +82,14 @@ export function ToolsSection() {
                   key={`${tool.name}-${index}`}
                   className="flex-shrink-0 flex flex-row items-center justify-center gap-3 sm:gap-4 group cursor-pointer"
                 >
-                  <div className="relative h-8 sm:h-10 md:h-12 w-auto">
+                  <div className="relative h-8 sm:h-10 md:h-12 w-8 sm:w-10 md:w-12 flex items-center justify-center">
                     <Image
                       src={tool.logo}
                       alt={tool.name}
                       width={48}
                       height={48}
-                      className="opacity-70 group-hover:opacity-100 transition-all duration-500 grayscale group-hover:grayscale-0 object-contain h-8 sm:h-10 md:h-12 w-auto"
+                      unoptimized={tool.external}
+                      className="opacity-70 group-hover:opacity-100 transition-all duration-500 grayscale group-hover:grayscale-0 object-contain max-h-8 sm:max-h-10 md:max-h-12 w-auto"
                     />
                   </div>
                   <span className="text-slate-400 group-hover:text-white font-medium text-sm sm:text-base whitespace-nowrap transition-colors duration-300">

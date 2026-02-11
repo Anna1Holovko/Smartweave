@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from './ui/Button';
 
-const LOGO = '/assets/589bb6d24e2281d8c0dded0c2d6d0bf8dc215aeb.png';
+const LOGO = '/assets/smartweave-logo.png';
 const navItems = [
   { name: 'Usługi', href: '#services' },
   { name: 'Jak działamy', href: '#how-we-work' },
@@ -54,8 +54,8 @@ export function Header() {
                 <Image
                   src={LOGO}
                   alt="SmartWeave"
-                  width={160}
-                  height={40}
+                  width={180}
+                  height={44}
                   className="h-8 sm:h-10 w-auto group-hover:scale-105 transition-transform"
                 />
               </motion.div>
