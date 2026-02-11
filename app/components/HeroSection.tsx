@@ -19,22 +19,37 @@ const textPhrases = [
 
 export function HeroSection() {
 const [currentTextIndex, setCurrentTextIndex] = useState(0);
-const [textHeight, setTextHeight] = useState(0);
+const [textHeight, setTextHeight] = useState<number>(0);
+
 const measureRef = useRef<HTMLSpanElement | null>(null);
 
+// Rotate phrases
 useEffect(() => {
 const interval = setInterval(() => {
 setCurrentTextIndex((prev) => (prev + 1) % textPhrases.length);
 }, 3000);
+
+```
 return () => clearInterval(interval);
+```
+
 }, []);
 
-// Auto-measure text height whenever phrase changes
+// Measure height (phrase change + resize)
 useLayoutEffect(() => {
-if (measureRef.current) {
+const measure = () => {
+if (!measureRef.current) return;
 const rect = measureRef.current.getBoundingClientRect();
 setTextHeight(rect.height);
-}
+};
+
+```
+measure();
+
+window.addEventListener('resize', measure);
+return () => window.removeEventListener('resize', measure);
+```
+
 }, [currentTextIndex]);
 
 const scrollTo = (id: string) => {
@@ -45,9 +60,10 @@ block: 'start',
 };
 
 return ( <section className="relative min-h-screen flex items-center justify-center overflow-x-hidden pt-24 sm:pt-28 pb-20 sm:pb-24 px-4 sm:px-8">
-{/* Background */} <div className="absolute inset-0 bg-[#0f0a1a] sm:bg-[#0c0820]" />
+{/* Background base */} <div className="absolute inset-0 bg-[#0f0a1a] sm:bg-[#0c0820]" />
 
 ```
+  {/* Grid */}
   <div
     className="absolute inset-0 opacity-[0.4] sm:opacity-50"
     style={{
@@ -59,7 +75,7 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
     }}
   />
 
-  {/* Glows */}
+  {/* Glow effects */}
   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] sm:w-[1200px] sm:h-[1200px] bg-purple-600/15 rounded-full blur-[140px]" />
   <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] bg-purple-500/10 rounded-full blur-3xl" />
   <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] bg-indigo-500/10 rounded-full blur-3xl" />
@@ -85,14 +101,15 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
       transition={{ duration: 0.6, delay: 0.1 }}
       className="font-bold leading-tight overflow-visible"
     >
+      {/* Line 1 */}
       <span className="text-white block pt-[0.08em] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
         Pomożemy Ci
       </span>
 
-      {/* Animated line with auto height */}
+      {/* Animated line (auto height) */}
       <motion.div
         className="relative flex items-center justify-center overflow-visible my-1"
-        animate={{ height: textHeight || 'auto' }}
+        animate={{ height: textHeight }}
         transition={{ duration: 0.35, ease: 'easeInOut' }}
       >
         {/* Hidden measuring element */}
@@ -127,12 +144,13 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
         </AnimatePresence>
       </motion.div>
 
+      {/* Line 3 */}
       <span className="text-white block pb-[0.08em] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
         w codziennej pracy
       </span>
     </motion.h1>
 
-    {/* Subtext */}
+    {/* Subheading */}
     <motion.p
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
