@@ -23,8 +23,8 @@ const interval = setInterval(() => {
 setIndex((prev) => (prev + 1) % phrases.length);
 }, 3000);
 
-return () => clearInterval(interval);
 
+return () => clearInterval(interval);
 
 }, []);
 
@@ -71,9 +71,9 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
       Pomożemy Ci
     </h1>
 
-    {/* Animated phrase */}
+    {/* Animated phrase — higher frame */}
     <p
-      className="my-3 font-bold text-center leading-[1.05] min-h-[1.2em]"
+      className="my-4 font-bold text-center leading-[1.05] min-h-[1.4em] sm:min-h-[1.5em] xl:min-h-[1.6em]"
       style={{ fontSize: 'clamp(2.2rem, 6.5vw, 7.5rem)' }}
     >
       <AnimatePresence mode="wait">
@@ -153,7 +153,6 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
     </motion.div>
   </motion.div>
 </section>
-
 
 );
 }
