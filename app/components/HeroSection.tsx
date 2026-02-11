@@ -23,9 +23,9 @@ const interval = setInterval(() => {
 setIndex((prev) => (prev + 1) % phrases.length);
 }, 3000);
 
-```
+
 return () => clearInterval(interval);
-```
+
 
 }, []);
 
@@ -39,7 +39,7 @@ block: 'start',
 return ( <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-28 pb-24">
 {/* Base background */} <div className="absolute inset-0 bg-[#0b0a18]" />
 
-```
+
   {/* Center glow */}
   <div className="absolute left-1/2 top-1/2 w-[900px] h-[900px] -translate-x-1/2 -translate-y-1/2 bg-purple-600/20 rounded-full blur-[160px]" />
 
@@ -138,7 +138,7 @@ return ( <section className="relative min-h-screen flex items-center justify-cen
     </motion.div>
   </motion.div>
 </section>
-```
+
 
 );
 }
