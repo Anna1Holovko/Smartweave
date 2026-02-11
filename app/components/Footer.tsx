@@ -1,7 +1,7 @@
 import { Mail } from 'lucide-react';
 import Image from 'next/image';
 
-const LOGO = '/assets/589bb6d24e2281d8c0dded0c2d6d0bf8dc215aeb.png';
+const LOGO = '/assets/smartweave-logo.png';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,8 +14,8 @@ export function Footer() {
             <Image
               src={LOGO}
               alt="SmartWeave"
-              width={160}
-              height={40}
+              width={180}
+              height={44}
               className="h-8 sm:h-10 w-auto mb-4"
             />
             <p className="text-sm sm:text-base text-slate-400 leading-relaxed mb-3">

@@ -5,8 +5,9 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Button } from './ui/Button';
 
-const LOGO = '/assets/589bb6d24e2281d8c0dded0c2d6d0bf8dc215aeb.png';
+const LOGO = '/assets/smartweave-logo.png';
 const navItems = [
   { name: 'Usługi', href: '#services' },
   { name: 'Jak działamy', href: '#how-we-work' },
@@ -53,8 +54,8 @@ export function Header() {
                 <Image
                   src={LOGO}
                   alt="SmartWeave"
-                  width={160}
-                  height={40}
+                  width={180}
+                  height={44}
                   className="h-8 sm:h-10 w-auto group-hover:scale-105 transition-transform"
                 />
               </motion.div>
@@ -83,13 +84,9 @@ export function Header() {
               transition={{ duration: 0.6 }}
               className="hidden md:block"
             >
-              <button
-                type="button"
-                onClick={() => scrollToSection('#contact')}
-                className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-semibold text-sm hover:scale-105 hover:shadow-[0_0_30px_rgba(147,51,234,0.6)] transition-all"
-              >
+              <Button variant="primary" onClick={() => scrollToSection('#contact')}>
                 Rozpocznij Projekt
-              </button>
+              </Button>
             </motion.div>
 
             <motion.button
@@ -148,13 +145,9 @@ export function Header() {
               transition={{ duration: 0.3, delay: navItems.length * 0.05 }}
               className="pt-4 border-t border-slate-800"
             >
-              <button
-                type="button"
-                onClick={() => scrollToSection('#contact')}
-                className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-semibold hover:shadow-[0_0_30px_rgba(147,51,234,0.6)] transition-all"
-              >
+              <Button variant="primary" fullWidth onClick={() => scrollToSection('#contact')}>
                 Rozpocznij Projekt
-              </button>
+              </Button>
             </motion.div>
           </nav>
         </div>

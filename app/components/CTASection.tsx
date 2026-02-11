@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Send } from 'lucide-react';
 import { useState } from 'react';
+import { Button } from './ui/Button';
 
 export function CTASection() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
@@ -80,27 +81,27 @@ export function CTASection() {
               <form onSubmit={handleSubmit} className="relative space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">Imię i nazwisko</label>
-                  <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Jan Kowalski" required className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all" />
+                  <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Jan Kowalski" required className="w-full h-12 min-h-12 px-4 rounded-xl text-white placeholder:text-slate-500 bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all" />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">Email</label>
-                  <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="jan@firma.pl" required className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all" />
+                  <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="jan@firma.pl" required className="w-full h-12 min-h-12 px-4 rounded-xl text-white placeholder:text-slate-500 bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all" />
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-2">Telefon</label>
-                  <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="+48 123 456 789" className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all" />
+                  <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="+48 123 456 789" className="w-full h-12 min-h-12 px-4 rounded-xl text-white placeholder:text-slate-500 bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all" />
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">Wiadomość</label>
-                  <textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Opisz swój problem lub co chcesz usprawnić..." rows={5} required className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all resize-none" />
+                  <textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Opisz swój problem lub co chcesz usprawnić..." rows={5} required className="w-full min-h-12 px-4 py-3 rounded-xl text-white placeholder:text-slate-500 bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all resize-none" />
                 </div>
-                <button type="submit" disabled={isSubmitting} className="group relative w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-bold text-lg overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(147,51,234,0.6)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100">
+                <Button type="submit" variant="primary" fullWidth disabled={isSubmitting} className="group relative overflow-hidden">
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     {isSubmitting ? 'Wysyłanie...' : 'Wyślij wiadomość'}
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </button>
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                </Button>
                 {submitStatus.type && (
                   <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className={`mt-4 px-4 py-3 rounded-xl text-center font-medium ${submitStatus.type === 'success' ? 'bg-green-500/10 text-green-400 border border-green-500/30' : 'bg-red-500/10 text-red-400 border border-red-500/30'}`}>
                     {submitStatus.message}
