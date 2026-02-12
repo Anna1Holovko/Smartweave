@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { Button } from './ui/Button';
 
 const LOGO = '/assets/smartweave-logo.png';
+
 const navItems = [
   { name: 'Usługi', href: '#services' },
   { name: 'Jak działamy', href: '#how-we-work' },
@@ -33,17 +34,19 @@ export function Header() {
 
   return (
     <>
+      {/* HEADER */}
       <motion.header
         style={{
-          backgroundColor: 'rgba(2, 6, 23, 0.8)',
+          backgroundColor: 'rgba(2, 6, 23, 0.6)', // lighter glass so logo has no "background feel"
           backdropFilter: 'blur(12px)',
         }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           mobileMenuOpen ? 'border-b border-slate-800/50' : ''
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
           <div className="flex items-center justify-between">
+            {/* LOGO */}
             <Link href="/">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -54,13 +57,16 @@ export function Header() {
                 <Image
                   src={LOGO}
                   alt="SmartWeave"
-                  width={120}
-                  height={32}
-                  className="h-6 w-auto group-hover:scale-105 transition-transform"
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  priority
+                  className="h-8 w-auto group-hover:scale-105 transition-transform"
                 />
               </motion.div>
             </Link>
 
+            {/* DESKTOP NAV */}
             <nav className="hidden md:flex items-center gap-8">
               {navItems.map((item, index) => (
                 <motion.a
@@ -78,17 +84,22 @@ export function Header() {
               ))}
             </nav>
 
+            {/* CTA */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               className="hidden md:block"
             >
-              <Button variant="primary" onClick={() => scrollToSection('#contact')}>
+              <Button
+                variant="primary"
+                onClick={() => scrollToSection('#contact')}
+              >
                 Rozpocznij Projekt
               </Button>
             </motion.div>
 
+            {/* MOBILE MENU BUTTON */}
             <motion.button
               type="button"
               initial={{ opacity: 0 }}
@@ -108,6 +119,7 @@ export function Header() {
         </div>
       </motion.header>
 
+      {/* MOBILE MENU */}
       <motion.div
         initial={false}
         animate={{
@@ -116,7 +128,7 @@ export function Header() {
           pointerEvents: mobileMenuOpen ? 'auto' : 'none',
         }}
         transition={{ duration: 0.3 }}
-        className="fixed top-[73px] left-0 right-0 z-40 md:hidden"
+        className="fixed top-[64px] left-0 right-0 z-40 md:hidden"
       >
         <div className="mx-4 mt-2 p-6 bg-slate-900/95 backdrop-blur-xl border border-slate-800 rounded-2xl shadow-2xl">
           <nav className="flex flex-col gap-4">
@@ -136,6 +148,7 @@ export function Header() {
                 {item.name}
               </motion.a>
             ))}
+
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{
@@ -145,7 +158,11 @@ export function Header() {
               transition={{ duration: 0.3, delay: navItems.length * 0.05 }}
               className="pt-4 border-t border-slate-800"
             >
-              <Button variant="primary" fullWidth onClick={() => scrollToSection('#contact')}>
+              <Button
+                variant="primary"
+                fullWidth
+                onClick={() => scrollToSection('#contact')}
+              >
                 Rozpocznij Projekt
               </Button>
             </motion.div>
@@ -153,6 +170,7 @@ export function Header() {
         </div>
       </motion.div>
 
+      {/* OVERLAY */}
       {mobileMenuOpen && (
         <motion.div
           initial={{ opacity: 0 }}
