@@ -45,16 +45,12 @@ export function HeroSection() {
           `,
         }}
       />
-      {/* Brighter square fills — soft highlight in each cell */}
+      {/* Squares with gradient: transparent at edges → white at center */}
       <div
         className="absolute inset-0"
         style={{
           backgroundSize: '64px 64px',
-          backgroundImage: `
-            linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px)
-          `,
-          backgroundPosition: '1px 1px',
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='64' height='64' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3CradialGradient id='sq' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='white' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='white' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='64' height='64' fill='url(%23sq)'/%3E%3C/svg%3E")`,
         }}
       />
       {/* Soft purple glows */}
