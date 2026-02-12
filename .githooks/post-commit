@@ -1,0 +1,3 @@
+#!/bin/sh
+# Auto-push current branch after commit (no PR).
+exec git push
