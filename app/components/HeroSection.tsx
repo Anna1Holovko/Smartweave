@@ -34,25 +34,25 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-x-hidden pt-24 sm:pt-28 pb-20 sm:pb-24 px-4 sm:px-8">
       {/* Base: dark indigo / purple */}
       <div className="absolute inset-0 bg-[#0f0a1a] sm:bg-[#0c0820]" />
-      {/* Grid lines with gradient along each line: transparent at ends → white at middle */}
+      {/* Grid lines with blue → purple → pink gradient along each line, glowing */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 opacity-90"
         style={{
           backgroundSize: '64px 64px',
           backgroundImage: `
-            linear-gradient(to right, transparent 63px, rgba(255,255,255,0.08) 64px),
-            linear-gradient(to bottom, transparent 0%, rgba(255,255,255,1) 50%, transparent 100%)
+            linear-gradient(to right, transparent 63px, rgba(255,255,255,1) 64px),
+            linear-gradient(to bottom, transparent 0%, ${gradientColors.from}50 15%, ${gradientColors.via}80 50%, ${gradientColors.to}50 85%, transparent 100%)
           `,
           backgroundBlendMode: 'multiply',
         }}
       />
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 opacity-90"
         style={{
           backgroundSize: '64px 64px',
           backgroundImage: `
-            linear-gradient(to bottom, transparent 63px, rgba(255,255,255,0.08) 64px),
-            linear-gradient(to right, transparent 0%, rgba(255,255,255,1) 50%, transparent 100%)
+            linear-gradient(to bottom, transparent 63px, rgba(255,255,255,1) 64px),
+            linear-gradient(to right, transparent 0%, ${gradientColors.from}50 15%, ${gradientColors.via}80 50%, ${gradientColors.to}50 85%, transparent 100%)
           `,
           backgroundBlendMode: 'multiply',
         }}
