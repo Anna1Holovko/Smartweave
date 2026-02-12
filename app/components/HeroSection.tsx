@@ -34,23 +34,27 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-x-hidden pt-24 sm:pt-28 pb-20 sm:pb-24 px-4 sm:px-8">
       {/* Base: dark indigo / purple */}
       <div className="absolute inset-0 bg-[#0f0a1a] sm:bg-[#0c0820]" />
-      {/* Brighter background squares — grid */}
+      {/* Grid lines with gradient along each line: transparent at ends → white at middle */}
       <div
         className="absolute inset-0"
         style={{
           backgroundSize: '64px 64px',
           backgroundImage: `
-            linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px)
+            linear-gradient(to right, transparent 63px, rgba(255,255,255,0.08) 64px),
+            linear-gradient(to bottom, transparent 0%, rgba(255,255,255,1) 50%, transparent 100%)
           `,
+          backgroundBlendMode: 'multiply',
         }}
       />
-      {/* Squares with gradient: transparent at edges → white at center */}
       <div
         className="absolute inset-0"
         style={{
           backgroundSize: '64px 64px',
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='64' height='64' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3CradialGradient id='sq' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='white' stop-opacity='0.08'/%3E%3Cstop offset='100%25' stop-color='white' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='64' height='64' fill='url(%23sq)'/%3E%3C/svg%3E")`,
+          backgroundImage: `
+            linear-gradient(to bottom, transparent 63px, rgba(255,255,255,0.08) 64px),
+            linear-gradient(to right, transparent 0%, rgba(255,255,255,1) 50%, transparent 100%)
+          `,
+          backgroundBlendMode: 'multiply',
         }}
       />
       {/* Soft purple glows */}
