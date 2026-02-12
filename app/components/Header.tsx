@@ -54,9 +54,9 @@ export function Header() {
                 <Image
                   src={LOGO}
                   alt="SmartWeave"
-                  width={140}
-                  height={28}
-                  className="h-6 w-auto max-w-[140px] sm:max-w-[160px] object-contain object-left group-hover:scale-105 transition-transform"
+                  width={200}
+                  height={40}
+                  className="h-10 w-auto max-w-[200px] sm:max-w-[220px] object-contain object-left group-hover:scale-105 transition-transform"
                 />
               </motion.div>
             </Link>
