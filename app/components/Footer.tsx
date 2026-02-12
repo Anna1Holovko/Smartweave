@@ -14,9 +14,9 @@ export function Footer() {
             <Image
               src={LOGO}
               alt="SmartWeave"
-              width={120}
-              height={24}
-              className="h-6 w-auto mb-4"
+              width={140}
+              height={28}
+              className="h-6 w-auto max-w-[140px] sm:max-w-[160px] object-contain object-left mb-4"
             />
             <p className="text-sm sm:text-base text-slate-400 leading-relaxed mb-3">
               Tworzymy nowoczesne strony i automatyzujemy procesy.

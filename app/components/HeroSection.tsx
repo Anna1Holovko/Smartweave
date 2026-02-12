@@ -69,10 +69,10 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-bold leading-tight pb-[0.2em] overflow-visible"
+          className="font-bold leading-tight overflow-visible"
         >
           <span className="text-white block pt-[0.08em] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Pomożemy Ci</span>
-          <div className="relative flex items-center justify-center overflow-visible my-0.5 min-h-[2.5rem] sm:min-h-[3rem] md:min-h-[3.5rem] lg:min-h-[4rem] xl:min-h-[5rem] py-[0.2rem]">
+          <div className="relative flex items-center justify-center overflow-visible my-1 min-h-[3rem] sm:min-h-[3.75rem] md:min-h-[4.5rem] lg:min-h-[5.5rem] xl:min-h-[7rem] py-[0.4rem]">
             <AnimatePresence mode="wait">
               <motion.span
                 key={currentTextIndex}
@@ -92,7 +92,7 @@ export function HeroSection() {
               </motion.span>
             </AnimatePresence>
           </div>
-          <span className="text-white block pb-[0.08em] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">w codziennej pracy</span>
+          <span className="text-white block pt-[0.05em] pb-[0.15em] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">w codziennej pracy</span>
         </motion.h1>
 
         {/* Subheading: full text, generous spacing */}
