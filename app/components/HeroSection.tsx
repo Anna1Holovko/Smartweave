@@ -34,15 +34,27 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-x-hidden pt-24 sm:pt-28 pb-20 sm:pb-24 px-4 sm:px-8">
       {/* Base: dark indigo / purple */}
       <div className="absolute inset-0 bg-[#0f0a1a] sm:bg-[#0c0820]" />
-      {/* Subtle grid / mesh */}
+      {/* Brighter background squares — grid */}
       <div
-        className="absolute inset-0 opacity-[0.4] sm:opacity-50"
+        className="absolute inset-0"
         style={{
-          backgroundImage: `
-            linear-gradient(rgba(148, 163, 184, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(148, 163, 184, 0.03) 1px, transparent 1px)
-          `,
           backgroundSize: '64px 64px',
+          backgroundImage: `
+            linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px)
+          `,
+        }}
+      />
+      {/* Brighter square fills — soft highlight in each cell */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundSize: '64px 64px',
+          backgroundImage: `
+            linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px)
+          `,
+          backgroundPosition: '1px 1px',
         }}
       />
       {/* Soft purple glows */}
