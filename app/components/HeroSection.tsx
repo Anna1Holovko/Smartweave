@@ -18,7 +18,7 @@ const phrases = [
 // Lighter premium grid
 const gridStyle = {
   backgroundImage:
-    'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+    'linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)',
   backgroundSize: '64px 64px',
   maskImage:
     'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%)',
