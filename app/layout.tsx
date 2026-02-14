@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     'SmartWeave projektuje nowoczesne aplikacje webowe i automatyzuje procesy biznesowe. Od pomysłu do działającego produktu.',
 
   icons: {
-    icon: '/assests/favicon.png',
+    icon: '/assets/favicon.png',
   },
 
   openGraph: {
