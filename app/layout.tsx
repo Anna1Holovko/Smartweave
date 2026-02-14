@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   description:
     'Projektujemy nowoczesne aplikacje webowe i automatyzujemy Twoje procesy biznesowe. Od koncepcji do działającego produktu.',
   icons: {
-    icon: '/favicon.png',
-    shortcut: '/favicon.png',
+    icon: '/assets/favicon.png',
+    shortcut: '/assets/favicon.png',
     apple: '/apple-touch-icon.png',
   },
 };
