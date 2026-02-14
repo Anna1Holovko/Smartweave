@@ -18,7 +18,7 @@ const phrases = [
 // Lighter premium grid
 const gridStyle = {
   backgroundImage:
-    'linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)',
+    'linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)',
   backgroundSize: '64px 64px',
   maskImage:
     'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%)',
@@ -82,7 +82,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               exit={{ opacity: 0, y: -12, filter: 'blur(6px)' }}
               transition={{ duration: 0.4 }}
-              className="inline-block whitespace-nowrap font-bold text-transparent bg-clip-text leading-[1.2] py-[0.15em]"
+              className="inline-block whitespace-nowrap font-bold text-transparent bg-clip-text leading-[1.2] py-[0.015em]"
               style={{
                 backgroundImage:
                   'linear-gradient(to right, #60A5FA, #A78BFA, #F472B6)',
