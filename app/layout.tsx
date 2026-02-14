@@ -4,7 +4,7 @@ import { ClientLayout } from './ClientLayout';
 
 export const metadata: Metadata = {
   title: {
-    default: 'SmartWeave',
+    default: 'SmartWeave – Design & Automatyzacja',
     template: '%s | SmartWeave',
   },
   description:
