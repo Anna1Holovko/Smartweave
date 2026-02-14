@@ -3,9 +3,14 @@ import './globals.css';
 import { ClientLayout } from './ClientLayout';
 
 export const metadata: Metadata = {
-  title: 'SmartWeave - Vibe Coding & Automatyzacja',
+  title: 'SmartWeave - Design & Automatyzacja',
   description:
     'Projektujemy nowoczesne aplikacje webowe i automatyzujemy Twoje procesy biznesowe. Od koncepcji do działającego produktu.',
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
