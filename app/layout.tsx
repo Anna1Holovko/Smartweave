@@ -4,21 +4,24 @@ import { ClientLayout } from './ClientLayout';
 
 export const metadata: Metadata = {
   title: {
-    default: 'SmartWeave – Design & Automatyzacja',
+    default:
+      'Tworzenie stron internetowych na AI i automatyzacja dla firm | SmartWeave',
     template: '%s | SmartWeave',
   },
+
   description:
-    'SmartWeave projektuje nowoczesne aplikacje webowe i automatyzuje procesy biznesowe. Od pomysłu do działającego produktu.',
+    'Tworzymy nowoczesne strony internetowe na AI i automatyzacje dla małych i średnich firm. Szybkie, responsywne i zoptymalizowane pod SEO, aby Twoja firma zdobywała klientów online.',
 
   icons: {
     icon: '/assets/favicon.png',
   },
 
   openGraph: {
-    title: 'SmartWeave – Design & Automatyzacja',
+    title:
+      'Strony internetowe na AI i automatyzacja dla firm – SmartWeave',
     description:
-      'Nowoczesne aplikacje webowe i automatyzacja procesów biznesowych. Szybko, nowocześnie, skutecznie.',
-    url: 'https://smartweave.pl', // change if needed
+      'Projektujemy strony WWW na AI i wdrażamy automatyzacje, które zwiększają widoczność w Google i pomagają firmom rosnąć.',
+    url: 'https://smartweave.pl',
     siteName: 'SmartWeave',
     locale: 'pl_PL',
     type: 'website',
@@ -26,9 +29,10 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'SmartWeave – Design & Automatyzacja',
+    title:
+      'Strony internetowe na AI i automatyzacja – SmartWeave',
     description:
-      'Projektujemy aplikacje webowe i automatyzujemy procesy biznesowe.',
+      'Nowoczesne strony WWW na AI i automatyzacje dla małych i średnich firm.',
   },
 };
 
