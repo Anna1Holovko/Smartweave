@@ -57,58 +57,39 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl xl:max-w-5xl mx-auto">
-        {/* Badge */}
-        <div className="inline-flex items-center mb-8 px-4 py-2 rounded-full border border-purple-500/40 bg-purple-950/50 backdrop-blur-sm text-sm text-purple-200">
-          Design & Automatyzacja
-        </div>
+        {/* Badge – Design & UTOMATYZACJA as core offer */}
+        <p className="inline-flex items-center mb-8 px-4 py-2 rounded-full border border-purple-500/40 bg-purple-950/50 backdrop-blur-sm text-sm text-purple-200" aria-hidden="true">
+          Design & UTOMATYZACJA
+        </p>
 
-        {/* Line 1 */}
-        <h1
-          className="text-white font-bold tracking-tight leading-[1.1]"
-          style={{ fontSize: 'clamp(2rem, 6vw, 7rem)' }}
-        >
-          Pomożemy Ci
-        </h1>
-
-        {/* Animated phrase */}
-        <div
-          className="my-4 flex justify-center"
-          style={{ fontSize: 'clamp(2.2rem, 6.5vw, 7.5rem)' }}
-        >
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={index}
-              initial={{ opacity: 0, y: 12, filter: 'blur(6px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, y: -12, filter: 'blur(6px)' }}
-              transition={{ duration: 0.4 }}
-              className="inline-block whitespace-nowrap font-bold text-transparent bg-clip-text leading-[1.2] py-[0.03em]"
-              style={{
-                backgroundImage:
-                  'linear-gradient(to right, #60A5FA, #A78BFA, #F472B6)',
-              }}
-            >
-              {phrases[index]}
-            </motion.span>
-          </AnimatePresence>
-        </div>
-
-        {/* Line 3 */}
-        <h1
-          className="text-white font-bold tracking-tight leading-[1.1]"
-          style={{ fontSize: 'clamp(2rem, 6vw, 7rem)' }}
-        >
+        {/* Single H1 for SEO: Design and Automatyzacja */}
+        <h1 className="text-white font-bold tracking-tight leading-[1.1] text-center" style={{ fontSize: 'var(--text-display)' }}>
+          Pomożemy Ci{' '}
+          <span className="block my-2 sm:inline sm:my-0" style={{ fontSize: 'clamp(2.2rem, 6.5vw, 7.5rem)' }}>
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, y: 12, filter: 'blur(6px)' }}
+                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                exit={{ opacity: 0, y: -12, filter: 'blur(6px)' }}
+                transition={{ duration: 0.4 }}
+                className="inline-block whitespace-nowrap font-bold text-transparent bg-clip-text leading-[1.2]"
+                style={{ backgroundImage: 'linear-gradient(to right, #60A5FA, #A78BFA, #F472B6)' }}
+                aria-live="polite"
+              >
+                {phrases[index]}
+              </motion.span>
+            </AnimatePresence>
+          </span>{' '}
           w codziennej pracy
         </h1>
 
-        {/* Description */}
+        {/* Description – Design + Automatyzacja */}
         <p
           className="text-slate-400 mx-auto mt-6 mb-10 max-w-2xl leading-relaxed"
-          style={{ fontSize: 'clamp(1rem, 1.2vw, 1.25rem)' }}
+          style={{ fontSize: 'var(--text-lead)' }}
         >
-          Automatyzujemy to, co powtarzalne. Ty weryfikujesz rezultaty.
-          Tworzymy strony internetowe gotowe na AI, abyś mógł skupić się na tym,
-          co naprawdę&nbsp;ważne.
+          UTOMATYZACJA procesów i design, który sprzedaje. Automatyzujemy to, co powtarzalne; projektujemy strony i branding. Ty weryfikujesz rezultaty i skupiasz się na tym, co naprawdę&nbsp;ważne.
         </p>
 
         {/* Buttons */}

@@ -14,14 +14,16 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <HeroSection />
-      <PainPointsSection />
-      <ServicesSection />
-      <ToolsSection />
-      <AutomationDetails />
-      <PortfolioSection />
-      <PhilosophySection />
-      <CTASection />
+      <main id="main-content" role="main">
+        <HeroSection />
+        <PainPointsSection />
+        <ServicesSection />
+        <ToolsSection />
+        <AutomationDetails />
+        <PortfolioSection />
+        <PhilosophySection />
+        <CTASection />
+      </main>
       <Footer />
       <ScrollToTop />
     </>

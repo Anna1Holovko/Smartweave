@@ -31,14 +31,13 @@ export function Footer() {
             </p>
           </div>
 
-          <div>
+          <address className="not-italic">
             <h3 className="text-base sm:text-lg font-semibold text-white mb-4">
               Kontakt
             </h3>
-
-            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-slate-400">
+            <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-slate-400" aria-label="Dane kontaktowe">
               <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                <Mail className="w-4 h-4 text-purple-400 flex-shrink-0" aria-hidden />
                 <a
                   href="mailto:hello@smartweave.com"
                   className="hover:text-purple-400 transition-colors"
@@ -47,7 +46,7 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </address>
         </div>
       </div>
     </footer>

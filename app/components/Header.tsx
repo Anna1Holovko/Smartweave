@@ -67,7 +67,7 @@ export function Header() {
             </Link>
 
             {/* DESKTOP NAV */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden md:flex items-center gap-8" aria-label="Główna nawigacja">
               {navItems.map((item, index) => (
                 <motion.a
                   key={item.name}
@@ -131,7 +131,7 @@ export function Header() {
         className="fixed top-[64px] left-0 right-0 z-40 md:hidden"
       >
         <div className="mx-4 mt-2 p-6 bg-slate-900/95 backdrop-blur-xl border border-slate-800 rounded-2xl shadow-2xl">
-          <nav className="flex flex-col gap-4">
+          <nav className="flex flex-col gap-4" aria-label="Menu mobilne">
             {navItems.map((item, index) => (
               <motion.a
                 key={item.name}
