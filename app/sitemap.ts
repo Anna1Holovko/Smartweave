@@ -1,14 +1,16 @@
 import { MetadataRoute } from 'next';
+import { SITE_URL, SITEMAP_ROUTES } from '@/lib/site';
 
-const BASE_URL = 'https://smartweave.pl';
-
+/**
+ * Generates the XML sitemap for Google Search Console and other crawlers.
+ * Submit this URL in GSC: https://smartweave.pl/sitemap.xml
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: BASE_URL,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 1,
-    },
-  ];
+  const now = new Date();
+  return SITEMAP_ROUTES.map(({ path, priority, changeFrequency }) => ({
+    url: path ? `${SITE_URL}/${path}` : SITE_URL,
+    lastModified: now,
+    changeFrequency,
+    priority,
+  }));
 }

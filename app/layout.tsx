@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { ClientLayout } from './ClientLayout';
-
-const SITE_URL = 'https://smartweave.pl';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+    : undefined,
   title: {
     default:
       'Design i automatyzacja dla firm | Strony WWW, branding, automatyzacja procesów | SmartWeave',
