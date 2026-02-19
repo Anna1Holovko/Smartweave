@@ -37,7 +37,10 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: SITE_URL },
   icons: {
-    icon: [{ url: '/assets/smartweave-logo.png', type: 'image/png' }],
+    icon: [
+      { url: '/assets/favicon.png', type: 'image/png' },
+      { url: '/assets/smartweave-logo.png', type: 'image/png', sizes: '512x512' },
+    ],
     apple: '/assets/smartweave-logo.png',
   },
   openGraph: {
