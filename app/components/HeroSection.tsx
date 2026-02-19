@@ -59,7 +59,7 @@ export function HeroSection() {
       <div className="relative z-10 text-center max-w-4xl xl:max-w-5xl mx-auto">
         {/* Badge – Design & UTOMATYZACJA as core offer */}
         <p className="inline-flex items-center mb-8 px-4 py-2 rounded-full border border-purple-500/40 bg-purple-950/50 backdrop-blur-sm text-sm text-purple-200" aria-hidden="true">
-          Design & UTOMATYZACJA
+          Design & Automatyzacja
         </p>
 
         {/* Single H1 for SEO: Design and Automatyzacja */}
@@ -89,7 +89,7 @@ export function HeroSection() {
           className="text-slate-400 mx-auto mt-6 mb-10 max-w-2xl leading-relaxed"
           style={{ fontSize: 'var(--text-lead)' }}
         >
-          UTOMATYZACJA procesów i design, który sprzedaje. Automatyzujemy to, co powtarzalne; projektujemy strony i branding. Ty weryfikujesz rezultaty i skupiasz się na tym, co naprawdę&nbsp;ważne.
+Automatyzujemy to, co powtarzalne. Ty weryfikujesz rezultaty. Tworzymy strony internetowe gotowe na AI, abyś mógł skupić się na tym, co naprawdę ważne.
         </p>
 
         {/* Buttons */}
