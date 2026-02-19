@@ -8,9 +8,9 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-gradient-to-b from-purple-950/30 to-slate-950 border-t border-slate-800/50 py-6 sm:py-8 px-4 sm:px-6">
-      <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+    <footer className="relative bg-gradient-to-b from-purple-950/30 to-slate-950 border-t border-slate-800/50 py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
+      <div className="relative z-10 max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
           <div>
             {/* Logo — same settings as Header */}
             <Image
@@ -30,6 +30,7 @@ export function Footer() {
               <a href="#services" className="hover:text-purple-400 transition-colors">Usługi – design i automatyzacja</a>
               <a href="#how-we-work" className="hover:text-purple-400 transition-colors">Jak działamy</a>
               <Link href="/realizacje" className="hover:text-purple-400 transition-colors">Realizacje</Link>
+              <Link href="/blog" className="hover:text-purple-400 transition-colors">Blog</Link>
               <a href="#contact" className="hover:text-purple-400 transition-colors">Kontakt</a>
             </nav>
             <p className="text-xs sm:text-sm text-slate-500">

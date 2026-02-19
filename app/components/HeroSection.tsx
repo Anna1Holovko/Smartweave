@@ -46,7 +46,7 @@ export function HeroSection() {
   };
 
   return (
-    <section aria-label="Strona główna – SmartWeave, design i automatyzacja dla firm" className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-24 pb-20 sm:pt-28 sm:pb-24 lg:pt-24 lg:pb-20 xl:pt-20 xl:pb-16">
+    <section aria-label="Strona główna – SmartWeave, design i automatyzacja dla firm" className="relative min-h-[100dvh] min-h-screen flex items-center justify-center overflow-hidden px-4 pt-20 pb-16 sm:px-6 sm:pt-28 sm:pb-24 lg:pt-24 lg:pb-20 lg:px-8 xl:pt-20 xl:pb-16 xl:px-10 2xl:px-12 3xl:px-16">
       {/* Base background */}
       <div className="absolute inset-0 bg-[#0b0a18]" />
 
@@ -57,7 +57,7 @@ export function HeroSection() {
       <div className="absolute inset-0" style={gridStyle} />
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl xl:max-w-5xl mx-auto">
+      <div className="relative z-10 text-center max-w-4xl xl:max-w-5xl 2xl:max-w-6xl mx-auto">
         {/* Badge – Design & UTOMATYZACJA as core offer */}
         <p className="inline-flex items-center mb-8 px-4 py-2 rounded-full border border-purple-500/40 bg-purple-950/50 backdrop-blur-sm text-sm text-purple-200" aria-hidden="true">
           Design & Automatyzacja
@@ -94,7 +94,7 @@ Automatyzujemy to, co powtarzalne. Ty weryfikujesz rezultaty. Tworzymy strony in
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <Button
             variant="primary"
             className="sm:w-auto group"
