@@ -9,7 +9,10 @@ import { dirname, join } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://smartweave.pl';
-const routes = [{ path: '', priority: 1, changeFrequency: 'weekly' }];
+const routes = [
+  { path: '', priority: 1, changeFrequency: 'weekly' },
+  { path: 'realizacje', priority: 0.9, changeFrequency: 'weekly' },
+];
 
 const now = new Date().toISOString();
 const urls = routes

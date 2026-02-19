@@ -12,7 +12,7 @@ const LOGO = '/assets/smartweave-logo.png';
 const navItems = [
   { name: 'Usługi', href: '#services' },
   { name: 'Jak działamy', href: '#how-we-work' },
-  { name: 'Realizacje', href: '#portfolio' },
+  { name: 'Realizacje', href: '/realizacje' },
   { name: 'Kontakt', href: '#contact' },
 ];
 
@@ -28,8 +28,12 @@ export function Header() {
   };
 
   const handleNavClick = (e: React.MouseEvent, item: (typeof navItems)[0]) => {
-    e.preventDefault();
-    scrollToSection(item.href);
+    if (item.href.startsWith('#')) {
+      e.preventDefault();
+      scrollToSection(item.href);
+    } else {
+      setMobileMenuOpen(false);
+    }
   };
 
   return (
@@ -68,20 +72,34 @@ export function Header() {
 
             {/* DESKTOP NAV */}
             <nav className="hidden md:flex items-center gap-8" aria-label="Główna nawigacja">
-              {navItems.map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item)}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="relative text-slate-300 hover:text-white transition-colors group cursor-pointer"
-                >
-                  {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-300" />
-                </motion.a>
-              ))}
+              {navItems.map((item, index) =>
+                item.href.startsWith('/') ? (
+                  <Link key={item.name} href={item.href}>
+                    <motion.span
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      className="relative text-slate-300 hover:text-white transition-colors group cursor-pointer block"
+                    >
+                      {item.name}
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-300" />
+                    </motion.span>
+                  </Link>
+                ) : (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item)}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className="relative text-slate-300 hover:text-white transition-colors group cursor-pointer"
+                  >
+                    {item.name}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-300" />
+                  </motion.a>
+                )
+              )}
             </nav>
 
             {/* CTA */}
@@ -132,22 +150,42 @@ export function Header() {
       >
         <div className="mx-4 mt-2 p-6 bg-slate-900/95 backdrop-blur-xl border border-slate-800 rounded-2xl shadow-2xl">
           <nav className="flex flex-col gap-4" aria-label="Menu mobilne">
-            {navItems.map((item, index) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{
-                  opacity: mobileMenuOpen ? 1 : 0,
-                  x: mobileMenuOpen ? 0 : -20,
-                }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                onClick={(e) => handleNavClick(e, item)}
-                className="text-slate-300 hover:text-white py-2 px-4 rounded-lg hover:bg-slate-800/50 transition-all"
-              >
-                {item.name}
-              </motion.a>
-            ))}
+            {navItems.map((item, index) =>
+              item.href.startsWith('/') ? (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <motion.span
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{
+                      opacity: mobileMenuOpen ? 1 : 0,
+                      x: mobileMenuOpen ? 0 : -20,
+                    }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    className="block text-slate-300 hover:text-white py-2 px-4 rounded-lg hover:bg-slate-800/50 transition-all"
+                  >
+                    {item.name}
+                  </motion.span>
+                </Link>
+              ) : (
+                <motion.a
+                  key={item.name}
+                  href={item.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{
+                    opacity: mobileMenuOpen ? 1 : 0,
+                    x: mobileMenuOpen ? 0 : -20,
+                  }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  onClick={(e) => handleNavClick(e, item)}
+                  className="text-slate-300 hover:text-white py-2 px-4 rounded-lg hover:bg-slate-800/50 transition-all"
+                >
+                  {item.name}
+                </motion.a>
+              )
+            )}
 
             <motion.div
               initial={{ opacity: 0, y: 10 }}
