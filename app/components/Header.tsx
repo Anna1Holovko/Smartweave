@@ -47,7 +47,7 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
           <div className="flex items-center justify-between">
             {/* LOGO */}
-            <Link href="/">
+            <Link href="/" title="SmartWeave – strona główna">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}

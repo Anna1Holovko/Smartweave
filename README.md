@@ -1,6 +1,6 @@
-# SmartWeave - Vibe Coding & Automatyzacja
+# SmartWeave – Design & Automatyzacja
 
-Next.js landing page for SmartWeave: modern web apps and business automation.
+Next.js landing page for SmartWeave: design, strony WWW i automatyzacja procesów dla firm.
 
 ## Setup
 

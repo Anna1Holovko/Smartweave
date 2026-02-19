@@ -25,7 +25,12 @@ export function Footer() {
             <p className="text-sm sm:text-base text-slate-400 leading-relaxed mb-3">
               Tworzymy nowoczesne strony i automatyzujemy procesy.
             </p>
-
+            <nav className="flex flex-wrap gap-x-6 gap-y-1 mb-4 text-sm text-slate-400" aria-label="Nawigacja w stopce">
+              <a href="#services" className="hover:text-purple-400 transition-colors">Usługi – design i automatyzacja</a>
+              <a href="#how-we-work" className="hover:text-purple-400 transition-colors">Jak działamy</a>
+              <a href="#portfolio" className="hover:text-purple-400 transition-colors">Realizacje</a>
+              <a href="#contact" className="hover:text-purple-400 transition-colors">Kontakt</a>
+            </nav>
             <p className="text-xs sm:text-sm text-slate-500">
               © {currentYear} SmartWeave. Wszystkie prawa zastrzeżone.
             </p>
@@ -41,6 +46,7 @@ export function Footer() {
                 <a
                   href="mailto:hello@smartweave.com"
                   className="hover:text-purple-400 transition-colors"
+                  title="Napisz do SmartWeave"
                 >
                   hello@smartweave.com
                 </a>

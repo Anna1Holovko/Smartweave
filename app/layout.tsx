@@ -1,20 +1,23 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { ClientLayout } from './ClientLayout';
-import { SITE_URL } from '@/lib/site';
+import {
+  SITE_URL,
+  SITE_NAME,
+  SITE_LOGO_URL,
+  META_TITLE,
+  META_DESCRIPTION,
+  OG_TITLE,
+  OG_DESCRIPTION,
+} from '@/lib/site';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   verification: process.env.GOOGLE_SITE_VERIFICATION
     ? { google: process.env.GOOGLE_SITE_VERIFICATION }
     : undefined,
-  title: {
-    default:
-      'Design i automatyzacja dla firm | Strony WWW, branding, automatyzacja procesów | SmartWeave',
-    template: '%s | SmartWeave',
-  },
-  description:
-    'SmartWeave: design i automatyzacja dla biznesu. Tworzymy strony internetowe, identyfikację wizualną oraz wdrażamy automatyzację procesów i agentów AI. SEO, branding, integracje.',
+  title: { default: META_TITLE, template: `%s | ${SITE_NAME}` },
+  description: META_DESCRIPTION,
   keywords: [
     'automatyzacja',
     'automatyzacja procesów',
@@ -24,7 +27,7 @@ export const metadata: Metadata = {
     'identyfikacja wizualna',
     'agenci AI',
     'SEO',
-    'SmartWeave',
+    SITE_NAME,
     'strony WWW dla firm',
   ],
   robots: {
@@ -33,48 +36,91 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   alternates: { canonical: SITE_URL },
-  icons: { icon: '/assets/favicon.png' },
+  icons: {
+    icon: [{ url: '/assets/smartweave-logo.png', type: 'image/png' }],
+    apple: '/assets/smartweave-logo.png',
+  },
   openGraph: {
-    title: 'Design i automatyzacja dla firm – strony WWW, branding, automatyzacja | SmartWeave',
-    description: 'Projektujemy strony i wdrażamy automatyzację procesów. Design i UTOMATYZACJA dla małych i średnich firm.',
+    title: OG_TITLE,
+    description: OG_DESCRIPTION,
     url: SITE_URL,
-    siteName: 'SmartWeave',
+    siteName: SITE_NAME,
     locale: 'pl_PL',
     type: 'website',
+    images: [{ url: '/assets/smartweave-logo.png', width: 512, height: 512, alt: SITE_NAME }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Design i automatyzacja – SmartWeave',
-    description: 'Strony WWW, branding i automatyzacja procesów dla firm.',
+    title: OG_TITLE,
+    description: OG_DESCRIPTION,
+    images: ['/assets/smartweave-logo.png'],
   },
+  formatDetection: { email: true, telephone: true },
+  other: { 'geo.region': 'PL' },
 };
 
+export const viewport = { width: 'device-width', initialScale: 1, themeColor: '#0f172a' };
+
+/** Structured data for Google Search (Organization, WebSite, WebPage, etc.) */
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
       '@type': 'Organization',
       '@id': `${SITE_URL}/#organization`,
-      name: 'SmartWeave',
+      name: SITE_NAME,
       url: SITE_URL,
+      logo: { '@type': 'ImageObject', url: SITE_LOGO_URL },
       description: 'Design i automatyzacja dla biznesu: strony internetowe, branding, automatyzacja procesów i agenci AI.',
     },
     {
       '@type': 'WebSite',
       '@id': `${SITE_URL}/#website`,
       url: SITE_URL,
-      name: 'SmartWeave',
+      name: SITE_NAME,
       publisher: { '@id': `${SITE_URL}/#organization` },
       inLanguage: 'pl-PL',
+      mainEntity: { '@id': `${SITE_URL}/#webpage` },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}/#webpage`,
+      url: SITE_URL,
+      name: META_TITLE,
+      description: META_DESCRIPTION,
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      about: { '@id': `${SITE_URL}/#service` },
+      inLanguage: 'pl-PL',
+      dateModified: new Date().toISOString().split('T')[0],
+      primaryImageOfPage: { '@type': 'ImageObject', url: SITE_LOGO_URL },
+      potentialAction: {
+        '@type': 'ReadAction',
+        target: { '@type': 'EntryPoint', urlTemplate: SITE_URL },
+      },
     },
     {
       '@type': 'ProfessionalService',
       '@id': `${SITE_URL}/#service`,
-      name: 'SmartWeave – Design i automatyzacja',
+      name: `${SITE_NAME} – Design i automatyzacja`,
       description: 'Usługi: projektowanie stron WWW, identyfikacja wizualna i branding, automatyzacja procesów i agenci AI, marketing internetowy i SEO.',
       url: SITE_URL,
-      areaServed: 'PL',
+      areaServed: { '@type': 'Country', name: 'Poland' },
       serviceType: ['Design', 'Automatyzacja procesów', 'Strony internetowe', 'Branding', 'SEO'],
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Strona główna', item: SITE_URL }],
+    },
+    {
+      '@type': 'ItemList',
+      name: 'Usługi SmartWeave',
+      description: 'Główne usługi: strony WWW, design, automatyzacja, marketing.',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Projektowanie i wdrażanie stron www' },
+        { '@type': 'ListItem', position: 2, name: 'Identyfikacja wizualna i branding' },
+        { '@type': 'ListItem', position: 3, name: 'Automatyzacja procesów i agenci AI' },
+        { '@type': 'ListItem', position: 4, name: 'Marketing internetowy i SEO' },
+      ],
     },
   ],
 };
@@ -87,6 +133,9 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <body className="bg-slate-950 text-white antialiased">
+        <a href="#main-content" className="skip-link">
+          Przejdź do treści
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

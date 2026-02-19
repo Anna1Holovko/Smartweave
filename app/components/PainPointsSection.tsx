@@ -48,7 +48,7 @@ function PainPointCard({
 
 export function PainPointsSection() {
   return (
-    <section className="relative py-16 sm:py-20 px-4 sm:px-6 overflow-hidden">
+    <section id="problems" aria-labelledby="pain-points-heading" className="relative py-16 sm:py-20 px-4 sm:px-6 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950" />
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] sm:w-[800px] sm:h-[800px] bg-red-500/10 rounded-full blur-3xl" />
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -56,7 +56,7 @@ export function PainPointsSection() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="inline-block mb-4 px-3 py-1.5 sm:px-4 sm:py-2 bg-red-500/10 border border-red-500/30 rounded-full">
             <span className="text-red-300 text-xs sm:text-sm font-medium uppercase tracking-wider">Co czujesz?</span>
           </motion.div>
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 px-4">
+          <motion.h2 id="pain-points-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 px-4">
             Znamy to <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">uczucie...</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-slate-400 max-w-3xl mx-auto px-4">

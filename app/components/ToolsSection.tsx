@@ -26,7 +26,7 @@ const tools = [
 
 export function ToolsSection() {
   return (
-    <section className="relative py-12 sm:py-20 px-4 sm:px-6 overflow-hidden">
+    <section id="tools" aria-labelledby="tools-heading" className="relative py-12 sm:py-20 px-4 sm:px-6 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <motion.div
@@ -41,6 +41,7 @@ export function ToolsSection() {
             </span>
           </motion.div>
           <motion.h2
+            id="tools-heading"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
