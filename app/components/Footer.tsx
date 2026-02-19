@@ -1,5 +1,6 @@
 import { Mail } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const LOGO = '/assets/smartweave-logo.png';
 
@@ -28,7 +29,7 @@ export function Footer() {
             <nav className="flex flex-wrap gap-x-6 gap-y-1 mb-4 text-sm text-slate-400" aria-label="Nawigacja w stopce">
               <a href="#services" className="hover:text-purple-400 transition-colors">Usługi – design i automatyzacja</a>
               <a href="#how-we-work" className="hover:text-purple-400 transition-colors">Jak działamy</a>
-              <a href="#portfolio" className="hover:text-purple-400 transition-colors">Realizacje</a>
+              <Link href="/realizacje" className="hover:text-purple-400 transition-colors">Realizacje</Link>
               <a href="#contact" className="hover:text-purple-400 transition-colors">Kontakt</a>
             </nav>
             <p className="text-xs sm:text-sm text-slate-500">

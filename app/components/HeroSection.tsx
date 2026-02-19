@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 import { Button } from './ui/Button';
 
 const phrases = [
@@ -103,13 +104,11 @@ export function HeroSection() {
             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
 
-          <Button
-            variant="secondary"
-            className="sm:w-auto"
-            onClick={() => scrollTo('#portfolio')}
-          >
-            Zobacz Case Studies
-          </Button>
+          <Link href="/realizacje" className="inline-block">
+            <Button variant="secondary" className="sm:w-auto">
+              Zobacz Case Studies
+            </Button>
+          </Link>
         </div>
       </div>
 

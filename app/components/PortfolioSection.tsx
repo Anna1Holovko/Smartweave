@@ -4,15 +4,8 @@ import { motion } from 'motion/react';
 import { ExternalLink, ArrowRight, ArrowLeft } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-
-const portfolioItems = [
-  { title: 'Kepller - IT & Telekomunikacja', category: 'Design', description: 'Profesjonalna strona dla firmy telekomunikacyjnej z nowoczesnym designem i strukturą', image: '/assets/bc67d64e07c0a8fb8946fd8f02586a2ee5ac3b44.png', gradient: 'from-slate-500 to-zinc-600', link: 'https://kepller.pl/' },
-  { title: 'DentalMint', category: 'Design', description: 'Nowoczesna strona brandowa z unikalnym designem, premium animacjami i UX', image: '/assets/e7cd7cd8e24ecba92aa8cfa2a809b07cc35fe561.png', gradient: 'from-purple-500 to-pink-500', link: 'https://dentalmint.figma.site' },
-  { title: 'Orthomedica', category: 'Design', description: 'Nowoczesna strona brandowa z unikalnym designem, premium animacjami i UX', image: '/assets/orthomedicaCover.png', gradient: 'from-purple-500 to-pink-500', link: 'https://orthomedicav2.figma.site' },
-  { title: 'Bagiety - Playful Brand Experience', category: 'Design', description: 'Kreatywna strona z interaktywnymi elementami oraz świeżym podejściem do brandu', image: '/assets/5cf7f576ebbcf82b1eb1506d9ebfc2d7e8073ada.png', gradient: 'from-blue-500 to-cyan-500', link: 'https://bagiety.figma.site' },
-  { title: 'Maison - Baked with Soul', category: 'Design', description: 'Elegancka strona dla piekarni z artystyczną prezentacją produktów i ciepłą, craftową atmosferą', image: '/assets/6fca7eaf2914fc7dc12d64abb36a99add525826d.png', gradient: 'from-amber-500 to-orange-500', link: 'https://maisonbakery.figma.site' },
- 
-];
+import Link from 'next/link';
+import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 
 export function PortfolioSection() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -42,10 +35,10 @@ export function PortfolioSection() {
     return () => ref.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const itemWidth = containerRef.current ? containerRef.current.scrollWidth / portfolioItems.length : 0;
+  const itemWidth = containerRef.current ? containerRef.current.scrollWidth / PORTFOLIO_ITEMS.length : 0;
   const visibleStartIndex = Math.floor(scrollPosition / itemWidth) || 0;
   const hiddenItemsLeft = visibleStartIndex;
-  const hiddenItemsRight = Math.max(0, portfolioItems.length - visibleStartIndex - 3);
+  const hiddenItemsRight = Math.max(0, PORTFOLIO_ITEMS.length - visibleStartIndex - 3);
 
   return (
     <section id="portfolio" aria-labelledby="portfolio-heading" className="relative py-12 sm:py-20 px-4 sm:px-6 overflow-visible">
@@ -60,14 +53,23 @@ export function PortfolioSection() {
           <motion.h2 id="portfolio-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 px-4">
             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Zobacz, jak wspieramy rozwój innych firm</span>
           </motion.h2>
-          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-slate-400 max-w-3xl mx-auto px-4">
+          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-slate-400 max-w-3xl mx-auto px-4 mb-6">
             Każdy projekt to wyjątkowa historia. Sprawdź kilka przykładów, w których nasze strony i automatyzacje realnie usprawniły pracę i rozwój biznesu naszych klientów.
           </motion.p>
+          <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }} className="flex justify-center">
+            <Link
+              href="/realizacje"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cyan-500/50 bg-cyan-500/10 text-cyan-300 font-medium hover:bg-cyan-500/20 hover:border-cyan-400/60 transition-colors"
+            >
+              Zobacz wszystkie realizacje
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
         </div>
 
         <div className="relative py-8">
           <div ref={containerRef} className="flex gap-4 sm:gap-8 overflow-x-auto scroll-smooth pb-4 scrollbar-hide py-4 px-4 sm:px-0" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-            {portfolioItems.map((item, index) => (
+            {PORTFOLIO_ITEMS.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 40 }}
