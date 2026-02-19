@@ -21,8 +21,11 @@
   --space-16: 4rem;
   --space-20: 5rem;
   --container-max: 80rem;
+  --container-wide: 96rem;
   --text-lead: 1.25rem;
   --text-display: clamp(2rem, 6vw, 7rem);
+  --section-padding-x: clamp(1rem, 4vw, 3rem);
+  --section-padding-y: clamp(3rem, 8vw, 7rem);
 }
 
 @layer base {
@@ -111,5 +114,20 @@
     clip-path: none;
     margin: 0;
     overflow: visible;
+  }
+
+  /* Responsive container: mobile → tablet → desktop → wide */
+  .container-adaptive {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--section-padding-x);
+    padding-right: var(--section-padding-x);
+  }
+  @media (min-width: 1536px) {
+    .container-adaptive {
+      max-width: var(--container-wide);
+    }
   }
 }

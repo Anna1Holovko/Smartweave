@@ -13,11 +13,11 @@ const workflowSteps = [
 
 export function AutomationDetails() {
   return (
-    <section id="how-we-work" aria-labelledby="how-we-work-heading" className="relative py-16 sm:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section id="how-we-work" aria-labelledby="how-we-work-heading" className="relative py-10 sm:py-20 md:py-24 lg:py-32 xl:py-36 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-purple-950/20 to-slate-950" />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] sm:w-[1000px] sm:h-[1000px] bg-purple-500/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] sm:w-[1000px] sm:h-[1000px] 2xl:w-[1200px] 2xl:h-[1200px] bg-purple-500/10 rounded-full blur-3xl" />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto">
         <div className="text-center mb-12 sm:mb-20">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="inline-block mb-4 px-3 py-1.5 sm:px-4 sm:py-2 bg-purple-500/10 border border-purple-500/30 rounded-full">
             <span className="text-purple-300 text-xs sm:text-sm font-medium uppercase tracking-wider">Jak działamy</span>

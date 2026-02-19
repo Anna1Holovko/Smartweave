@@ -5,6 +5,7 @@ import { ServicesSection } from './components/ServicesSection';
 import { ToolsSection } from './components/ToolsSection';
 import { AutomationDetails } from './components/AutomationDetails';
 import { PortfolioSection } from './components/PortfolioSection';
+import { BlogSection } from './components/BlogSection';
 import { PhilosophySection } from './components/PhilosophySection';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
@@ -21,6 +22,7 @@ export default function HomePage() {
         <ToolsSection />
         <AutomationDetails />
         <PortfolioSection />
+        <BlogSection />
         <PhilosophySection />
         <CTASection />
       </main>

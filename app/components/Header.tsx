@@ -13,6 +13,7 @@ const navItems = [
   { name: 'Usługi', href: '#services' },
   { name: 'Jak działamy', href: '#how-we-work' },
   { name: 'Realizacje', href: '/realizacje' },
+  { name: 'Blog', href: '/blog' },
   { name: 'Kontakt', href: '#contact' },
 ];
 
@@ -48,7 +49,7 @@ export function Header() {
           mobileMenuOpen ? 'border-b border-slate-800/50' : ''
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+        <div className="max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 py-3 sm:py-3.5">
           <div className="flex items-center justify-between">
             {/* LOGO */}
             <Link href="/" title="SmartWeave – strona główna">
@@ -71,7 +72,7 @@ export function Header() {
             </Link>
 
             {/* DESKTOP NAV */}
-            <nav className="hidden md:flex items-center gap-8" aria-label="Główna nawigacja">
+            <nav className="hidden md:flex items-center gap-6 lg:gap-8 xl:gap-10 2xl:gap-12" aria-label="Główna nawigacja">
               {navItems.map((item, index) =>
                 item.href.startsWith('/') ? (
                   <Link key={item.name} href={item.href}>
@@ -124,8 +125,8 @@ export function Header() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden w-10 h-10 flex items-center justify-center border border-slate-700 rounded-lg hover:border-purple-500/50 transition-colors"
-              aria-label="Toggle menu"
+                className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center border border-slate-700 rounded-lg hover:border-purple-500/50 transition-colors"
+              aria-label="Otwórz menu"
             >
               {mobileMenuOpen ? (
                 <X className="w-5 h-5 text-white" />
