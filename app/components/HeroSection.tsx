@@ -8,7 +8,7 @@ import { Button } from './ui/Button';
 
 const phrases = [
   'odzyskać czas',
-  'uprościć pracę',
+  'uprościć procesy',
   'zredukować chaos',
   'uniknąć błędów',
   'zyskać spokój',
@@ -82,7 +82,7 @@ export function HeroSection() {
               </motion.span>
             </AnimatePresence>
           </span>{' '}
-          w codziennej pracy
+          <br></br>w codziennej pracy
         </h1>
 
         {/* Description – Design + Automatyzacja */}
