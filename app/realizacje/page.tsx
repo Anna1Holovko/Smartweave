@@ -62,37 +62,31 @@ export default function RealizacjePage() {
                     className="flex flex-col h-full"
                     title={`Zobacz realizację: ${item.title}`}
                   >
-                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-800">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        sizes="(max-width: 479px) 100vw, (max-width: 1023px) 50vw, (max-width: 1535px) 33.33vw, (max-width: 1919px) 25vw, 20vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
-                      <div className="absolute top-3 left-3">
-                        <span
-                          className={`px-3 py-1 bg-gradient-to-r ${item.gradient} rounded-full text-white text-xs font-semibold`}
-                        >
-                          {item.category}
-                        </span>
-                      </div>
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-purple-900/30">
-                        <ExternalLink className="w-8 h-8 text-white" />
+                    <div className="relative flex-1 min-h-[200px] p-3 sm:p-4">
+                      <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-slate-800 border border-white/10 shadow-inner">
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          sizes="(max-width: 479px) 100vw, (max-width: 1023px) 50vw, (max-width: 1535px) 33.33vw, (max-width: 1919px) 25vw, 20vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900/40">
+                          <ExternalLink className="w-8 h-8 text-white" />
+                        </div>
                       </div>
                     </div>
-                    <div className="flex flex-col flex-1 p-4 sm:p-5 lg:p-6">
-                      <h2 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-1.5 sm:mb-2 group-hover:text-purple-300 transition-colors line-clamp-2">
+                    <div className="relative bg-slate-900 border-t border-slate-700/50 px-4 sm:px-5 py-4 sm:py-5 flex flex-col">
+                      <span className="text-slate-400 text-sm font-normal mb-1">{item.category}</span>
+                      <h2 className="text-xl sm:text-2xl font-bold text-white group-hover:text-purple-300 transition-colors pr-10">
                         {item.title}
                       </h2>
-                      <p className="text-slate-400 text-xs sm:text-sm lg:text-base leading-relaxed line-clamp-3 flex-1">
-                        {item.description}
-                      </p>
+                      <div className="absolute right-4 bottom-4 flex items-center justify-center w-9 h-9 rounded-lg border border-slate-600 bg-slate-800/80 text-white group-hover:border-purple-500/50 transition-colors">
+                        <ExternalLink className="w-4 h-4" aria-hidden />
+                      </div>
                     </div>
-                    <div
-                      className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                    />
+                    <div className={`absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r ${item.gradient} group-hover:w-full transition-all duration-500`} />
                   </a>
                 </article>
               ))}
