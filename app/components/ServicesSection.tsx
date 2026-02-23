@@ -87,7 +87,7 @@ export function ServicesSection() {
           <div className="relative overflow-hidden rounded-2xl p-8 md:p-12 text-center">
             <h3 className="text-3xl font-bold text-white mb-4">Nie jesteś pewien, które rozwiązanie jest dla Ciebie?</h3>
             <p className="text-xl text-slate-400 mb-8 max-w-3xl mx-auto">
-              Umów bezpłatną konsultację – porozmawiamy o Twoich wyzwaniach i zaproponujemy najlepsze rozwiązanie.
+              Umów bezpłatną konsultację — porozmawiamy o wyzwaniach i zaproponujemy rozwiązanie.
             </p>
             <Button
               variant="primary"

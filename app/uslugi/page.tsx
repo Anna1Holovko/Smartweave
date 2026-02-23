@@ -85,7 +85,7 @@ export default function UslugiPage() {
             <div className="relative overflow-hidden rounded-2xl p-8 md:p-12 text-center border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl">
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Nie jesteś pewien, które rozwiązanie jest dla Ciebie?</h2>
               <p className="text-lg sm:text-xl text-slate-400 mb-8 max-w-3xl mx-auto">
-                Umów bezpłatną konsultację – porozmawiamy o Twoich wyzwaniach i zaproponujemy najlepsze rozwiązanie.
+                Umów bezpłatną konsultację — porozmawiamy o wyzwaniach i zaproponujemy rozwiązanie.
               </p>
               <Link href="/#contact">
                 <Button variant="primary">Umów konsultację</Button>
