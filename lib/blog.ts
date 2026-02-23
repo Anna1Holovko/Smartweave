@@ -24,13 +24,6 @@ export const BLOG_POSTS = [
     date: '2025-01-10',
   },
   {
-    slug: 'jak-mapowac-procesy-biznesowe',
-    title: 'Jak mapować procesy biznesowe: Praktyczny przewodnik pod AI i automatyzację',
-    excerpt: 'Wielu przedsiębiorców popełnia ten sam błąd: rzuca się na głęboką wodę technologii bez uporządkowania procesów. Oto przewodnik.',
-    image: `${BLOG_COVER_DIR}/jak-mapowac-procesy-biznesowe-cover.png`,
-    date: '2025-01-05',
-  },
-  {
     slug: 'automatyzacja-procesow-biznesowych',
     title: 'Automatyzacja procesów biznesowych: czym jest i jak zacząć ją wdrażać w firmie?',
     excerpt: 'Automatyzacja procesów biznesowych to oddanie technologii powtarzalnych zadań. Jak zacząć i na co zwrócić uwagę – w skrócie.',
