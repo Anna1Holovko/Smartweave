@@ -51,16 +51,16 @@ export function ServicesSection() {
                   href={`/uslugi/${service.slug}`}
                   className="relative flex flex-col w-full h-full min-h-0 p-8 bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl transition-all duration-300 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(147,51,234,0.2)] overflow-hidden"
                 >
-                  <div className="absolute top-4 right-4 flex-shrink-0 w-9 h-9 rounded-lg border border-slate-600/50 bg-slate-800/80 flex items-center justify-center text-slate-400 group-hover:text-purple-400 group-hover:border-purple-500/50 transition-colors" aria-hidden>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </div>
-                  <div className="flex items-center gap-4 mb-6 flex-shrink-0 pr-10">
+                  <div className="flex items-center gap-4 mb-6 flex-shrink-0 min-h-14">
                     <div className={`flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} p-0.5`}>
                       <div className="w-full h-full bg-slate-900 rounded-xl flex items-center justify-center">
                         <Icon className="w-7 h-7 text-white" />
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold text-white">{service.title}</h3>
+                    <h3 className="text-xl font-bold text-white flex-1 min-w-0">{service.title}</h3>
+                    <div className="flex-shrink-0 w-9 h-9 rounded-lg border border-slate-600/50 bg-slate-800/80 flex items-center justify-center text-slate-400 group-hover:text-purple-400 group-hover:border-purple-500/50 transition-colors" aria-hidden>
+                      <ArrowUpRight className="w-4 h-4" />
+                    </div>
                   </div>
                   <p className="text-slate-400 leading-relaxed flex-shrink-0">{service.description}</p>
                   {service.features && (
