@@ -44,7 +44,7 @@ export default function BlogPage() {
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-3 sm:mb-4 lg:mb-6 px-2 sm:px-4">
                 Zdobądź wiedzę na temat AI i automatyzacji!
               </h1>
-              <p className="text-sm sm:text-base lg:text-xl text-slate-400 max-w-3xl mx-auto px-2">
+              <p className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2">
                 Praktyczne artykuły o automatyzacji, narzędziach i procesach — dla firm, które chcą się rozwijać.
               </p>
             </div>

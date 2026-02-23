@@ -58,7 +58,7 @@ export function ToolsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-xl text-slate-400 max-w-3xl mx-auto px-2 mb-12"
+            className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2 mb-12"
           >
             Sprawdzone aplikacje i integracje. Ty dostajesz gotowy efekt — bez stresu.
           </motion.p>

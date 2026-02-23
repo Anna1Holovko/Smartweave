@@ -46,7 +46,7 @@ export default function UslugiPage() {
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-3 sm:mb-4 lg:mb-6 px-2 sm:px-4">
                 Pełna oferta <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">usług</span>
               </h1>
-              <p className="text-sm sm:text-base lg:text-xl text-slate-400 max-w-3xl mx-auto px-2">
+              <p className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2">
                 Strony, branding i automatyzacja — wszystko, czego potrzebuje Twoja firma w internecie.
               </p>
             </div>
@@ -84,7 +84,7 @@ export default function UslugiPage() {
 
             <div className="relative overflow-hidden rounded-2xl p-8 md:p-12 text-center border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl">
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Nie jesteś pewien, które rozwiązanie jest dla Ciebie?</h2>
-              <p className="text-lg sm:text-xl text-slate-400 mb-8 max-w-3xl mx-auto">
+              <p className="text-base sm:text-xl text-slate-400 mb-8 max-w-[80ch] mx-auto px-2">
                 Umów bezpłatną konsultację — porozmawiamy o wyzwaniach i zaproponujemy rozwiązanie.
               </p>
               <Link href="/#contact">
