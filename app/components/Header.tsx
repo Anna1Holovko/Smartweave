@@ -11,9 +11,9 @@ import { Button } from './ui/Button';
 const LOGO = '/assets/smartweave-logo.png';
 
 const uslugiDropdownItems = [
-  { name: 'Strony WWW', href: '/uslugi#strony' },
-  { name: 'Branding', href: '/uslugi#branding' },
-  { name: 'Automatyzacja i AI', href: '/uslugi#automatyzacja' },
+  { name: 'Strony WWW', href: '/uslugi/strony' },
+  { name: 'Branding', href: '/uslugi/branding' },
+  { name: 'Automatyzacja i AI', href: '/uslugi/automatyzacja' },
 ] as const;
 
 const navItems = [
@@ -143,19 +143,12 @@ export function Header() {
                           transition={{ duration: 0.2 }}
                           className="absolute top-full left-0 mt-2 min-w-[220px] py-2 rounded-xl border border-slate-700/50 bg-slate-900/95 backdrop-blur-xl shadow-xl z-50"
                         >
-                          <Link
-                            href="/uslugi"
-                            onClick={() => setUslugiDropdownOpen(false)}
-                            className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors first:rounded-t-xl"
-                          >
-                            Pełna oferta
-                          </Link>
                           {uslugiDropdownItems.map((sub) => (
                             <Link
                               key={sub.href}
                               href={sub.href}
                               onClick={() => setUslugiDropdownOpen(false)}
-                              className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors"
+                              className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors first:rounded-t-xl"
                             >
                               {sub.name}
                             </Link>
@@ -225,9 +218,6 @@ export function Header() {
             <nav className="flex flex-col gap-4">
               <div>
                 <span className="block text-slate-400 text-sm font-medium py-2 px-4">Usługi</span>
-                <Link href="/uslugi" onClick={() => setMobileMenuOpen(false)} className="block text-slate-300 hover:text-white py-2 px-4 pl-6 rounded-lg">
-                  Pełna oferta
-                </Link>
                 {uslugiDropdownItems.map((sub) => (
                   <Link
                     key={sub.href}

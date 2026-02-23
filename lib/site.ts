@@ -31,6 +31,9 @@ export const OG_DESCRIPTION =
 export const SITEMAP_ROUTES = [
   { path: '', priority: 1, changeFrequency: 'weekly' as const },
   { path: 'uslugi', priority: 0.9, changeFrequency: 'weekly' as const },
+  { path: 'uslugi/strony', priority: 0.85, changeFrequency: 'weekly' as const },
+  { path: 'uslugi/branding', priority: 0.85, changeFrequency: 'weekly' as const },
+  { path: 'uslugi/automatyzacja', priority: 0.85, changeFrequency: 'weekly' as const },
   { path: 'realizacje', priority: 0.9, changeFrequency: 'weekly' as const },
   { path: 'blog', priority: 0.9, changeFrequency: 'weekly' as const },
 ] as const;

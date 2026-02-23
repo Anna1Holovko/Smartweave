@@ -48,3 +48,10 @@ export const SERVICES = [
     gradient: 'from-purple-500 to-pink-500',
   },
 ] as const;
+
+export const SERVICE_SLUGS = ['strony', 'branding', 'automatyzacja'] as const;
+export type ServiceSlug = (typeof SERVICE_SLUGS)[number];
+
+export function getServiceBySlug(slug: string): (typeof SERVICES)[number] | undefined {
+  return SERVICES.find((s) => s.slug === slug);
+}

@@ -4,7 +4,7 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { SERVICES } from '@/lib/services';
 import { SITE_URL } from '@/lib/site';
-import { ArrowLeft, Globe, Workflow, Palette, Check } from 'lucide-react';
+import { ArrowLeft, Globe, Workflow, Palette, Check, ArrowUpRight } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 
 export const metadata: Metadata = {
@@ -55,12 +55,15 @@ export default function UslugiPage() {
               {SERVICES.map((service, index) => {
                 const Icon = SERVICE_ICONS[index];
                 return (
-                  <article
+                  <Link
                     key={index}
-                    id={service.slug}
-                    className="group relative flex flex-col w-full min-h-0 p-8 bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)] overflow-hidden scroll-mt-24"
+                    href={`/uslugi/${service.slug}`}
+                    className="group relative flex flex-col w-full min-h-0 p-8 bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)] overflow-hidden"
                   >
-                    <div className="flex items-center gap-4 mb-6 flex-shrink-0">
+                    <div className="absolute top-4 right-4 flex-shrink-0 w-9 h-9 rounded-lg border border-slate-600/50 bg-slate-800/80 flex items-center justify-center text-slate-400 group-hover:text-purple-400 group-hover:border-purple-500/50 transition-colors" aria-hidden>
+                      <ArrowUpRight className="w-4 h-4" />
+                    </div>
+                    <div className="flex items-center gap-4 mb-6 flex-shrink-0 pr-10">
                       <div className={`flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} p-0.5`}>
                         <div className="w-full h-full bg-slate-900 rounded-xl flex items-center justify-center">
                           <Icon className="w-7 h-7 text-white" />
@@ -78,7 +81,7 @@ export default function UslugiPage() {
                       ))}
                     </ul>
                     <div className={`absolute bottom-0 left-0 right-0 h-1 w-0 bg-gradient-to-r ${service.gradient} group-hover:w-full transition-all duration-500 rounded-b-2xl`} />
-                  </article>
+                  </Link>
                 );
               })}
             </div>
