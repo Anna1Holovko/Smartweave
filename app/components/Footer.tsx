@@ -1,4 +1,4 @@
-import { Mail } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -36,6 +36,10 @@ export function Footer() {
               Kontakt
             </h3>
             <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-slate-400" aria-label="Dane kontaktowe">
+              <li className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-purple-400 flex-shrink-0" aria-hidden />
+                <span>Legnicka 48, 54-430 Wrocław, Polska</span>
+              </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-purple-400 flex-shrink-0" aria-hidden />
                 <a
