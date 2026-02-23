@@ -4,6 +4,7 @@
 export const SERVICES = [
   {
     number: '01',
+    slug: 'strony',
     title: 'Projektowanie i wdrażanie stron internetowych',
     description:
       'Strony www dla firm — nowoczesne, szybkie i skuteczne. Tworzymy strony, które pomagają klientom łatwo Cię znaleźć i budują zaufanie do Twojej marki od pierwszego kontaktu.',
@@ -20,6 +21,7 @@ export const SERVICES = [
   },
   {
     number: '02',
+    slug: 'branding',
     title: 'Identyfikacja wizualna i branding',
     description:
       'Spójny wizerunek marki — na stronie, w reklamach i w komunikacji. Tworzymy identyfikację wizualną, która zwiększa rozpoznawalność marki i buduje zaufanie klientów.',
@@ -33,6 +35,7 @@ export const SERVICES = [
   },
   {
     number: '03',
+    slug: 'automatyzacja',
     title: 'Automatyzacja procesów i agenci AI',
     description:
       'Procesy działają za Ciebie. Oszczędzasz czas i skupiasz się na tym, co ważne.',

@@ -57,7 +57,8 @@ export default function UslugiPage() {
                 return (
                   <article
                     key={index}
-                    className="group relative flex flex-col w-full min-h-0 p-8 bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)] overflow-hidden"
+                    id={service.slug}
+                    className="group relative flex flex-col w-full min-h-0 p-8 bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)] overflow-hidden scroll-mt-24"
                   >
                     <div className="flex items-center gap-4 mb-6 flex-shrink-0">
                       <div className={`flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} p-0.5`}>
