@@ -46,7 +46,7 @@ export function BlogSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm sm:text-base lg:text-xl text-slate-400 max-w-3xl mx-auto px-2 sm:px-4 mb-6 sm:mb-8"
+            className="text-sm sm:text-base lg:text-xl text-slate-400 max-w-3xl mx-auto px-2 mb-6 sm:mb-8"
           >
             Praktyczne artykuły o wdrażaniu automatyzacji, narzędziach i procesach biznesowych.
           </motion.p>
