@@ -60,20 +60,20 @@ export function ToolsSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base sm:text-xl text-slate-400 max-w-3xl mx-auto px-4 mb-12"
           >
-            Opieramy się na sprawdzonych aplikacjach i integracjach, a Ty dostajesz gotowy efekt. Bez stresu.
+            Sprawdzone aplikacje i integracje. Ty dostajesz gotowy efekt — bez stresu.
           </motion.p>
         </div>
 
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-slate-950 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-slate-950 to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none" />
           <div className="flex overflow-hidden py-8">
             <motion.div
-              animate={{ x: [0, -100 * tools.length] }}
+              animate={{ x: ['0%', '-25%'] }}
               transition={{
-                x: { repeat: Infinity, repeatType: 'loop', duration: 30, ease: 'linear' },
+                x: { repeat: Infinity, repeatType: 'loop', duration: 50, ease: 'linear' },
               }}
-              className="flex gap-16 sm:gap-20 md:gap-24 pr-16 sm:pr-20 md:pr-24"
+              className="flex gap-16 sm:gap-20 md:gap-24 pr-16 sm:pr-20 md:pr-24 w-max"
             >
               {[...tools, ...tools, ...tools, ...tools].map((tool, index) => (
                 <div

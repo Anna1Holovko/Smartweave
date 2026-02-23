@@ -45,7 +45,7 @@ export default function BlogPage() {
                 Zdobądź wiedzę na temat AI i automatyzacji!
               </h1>
               <p className="text-sm sm:text-base lg:text-xl text-slate-400 max-w-3xl mx-auto px-2">
-                Praktyczne artykuły o wdrażaniu automatyzacji, narzędziach i procesach biznesowych – dla firm, które chcą oszczędzać czas i rozwijać się.
+                Praktyczne artykuły o automatyzacji, narzędziach i procesach — dla firm, które chcą się rozwijać.
               </p>
             </div>
 

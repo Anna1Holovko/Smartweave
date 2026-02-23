@@ -4,8 +4,11 @@ import { motion } from 'motion/react';
 import Link from 'next/link';
 import { Globe, Workflow, Check, Palette, ArrowRight } from 'lucide-react';
 import { Button } from './ui/Button';
+import { SERVICES } from '@/lib/services';
 
-const services = [
+const SERVICE_ICONS = [Globe, Palette, Workflow] as const;
+
+const _servicesRemoved = [
   { number: '01', icon: Globe, title: 'Projektowanie i wdrażanie stron internetowych', description: 'Strony www dla firm — nowoczesne, szybkie i skuteczne.  Tworzymy strony, które pomagają klientom łatwo Cię znaleźć i budują zaufanie do Twojej marki od pierwszego kontaktu.', features: ['Tworzenie responsywnych stron dopasowanych do wszystkich urządzeń', 'Strona zoptymalizowana pod SEO i GEO (wyszukiwarki oraz systemy AI)', 'Projekt spójnej identyfikacji wizualnej marki', 'Hosting oraz bieżące wsparcie techniczne', 'Prowadzenie kampanii Google Ads', 'Integracja z narzędziami Google (Search Console, GA4, Google Maps)', 'Strona zaprojektowana pod skuteczną konwersję'], gradient: 'from-blue-500 to-cyan-500' },
   { number: '02', icon: Palette, title: 'Identyfikacja wizualna i branding', description: 'Spójny wizerunek marki — na stronie, w reklamach i w komunikacji.  Tworzymy identyfikację wizualną, która zwiększa rozpoznawalność marki i buduje zaufanie klientów.', features: ['Projekt logo i znaku graficznego', 'Dobór kolorystyki i typografii marki', 'Materiały graficzne i szablony do komunikacji', 'Księga identyfikacji wizualnej'], gradient: 'from-emerald-500 to-teal-500' },
   { number: '03', icon: Workflow, title: 'Automatyzacja procesów i agenci AI', description: 'Procesy działają za Ciebie. Oszczędzasz czas i skupiasz się na tym, co ważne.', features: ['Automatyczne przetwarzanie danych i raportów', 'Powiadomienia i alerty', 'Integracje z narzędziami biznesowymi', 'Agenci AI do zadań powtarzalnych'], gradient: 'from-purple-500 to-pink-500' },
@@ -32,8 +35,8 @@ export function ServicesSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 items-stretch">
-          {services.map((service, index) => {
-            const Icon = service.icon;
+          {SERVICES.map((service, index) => {
+            const Icon = SERVICE_ICONS[index];
             return (
               <motion.div
                 key={index}
@@ -63,7 +66,7 @@ export function ServicesSection() {
                       ))}
                     </div>
                   )}
-                  <div className={`flex-shrink-0 w-full h-1 bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-2xl mt-auto`} />
+                  <div className={`absolute bottom-0 left-0 right-0 h-1 w-0 bg-gradient-to-r ${service.gradient} group-hover:w-full transition-all duration-500 rounded-b-2xl`} />
                 </div>
               </motion.div>
             );

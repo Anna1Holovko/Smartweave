@@ -45,7 +45,7 @@ export default function RealizacjePage() {
                 Zobacz, jak wspieramy rozwój innych firm
               </h1>
               <p className="text-sm sm:text-base lg:text-xl text-slate-400 max-w-3xl mx-auto px-2">
-                Każdy projekt to wyjątkowa historia. Strony internetowe, branding i design – sprawdź nasze realizacje.
+                Każdy projekt to wyjątkowa historia. Strony, branding i design — sprawdź realizacje.
               </p>
             </div>
 

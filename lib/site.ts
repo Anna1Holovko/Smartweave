@@ -30,6 +30,7 @@ export const OG_DESCRIPTION =
 /** Routes included in the sitemap (path only, no leading slash for root) */
 export const SITEMAP_ROUTES = [
   { path: '', priority: 1, changeFrequency: 'weekly' as const },
+  { path: 'uslugi', priority: 0.9, changeFrequency: 'weekly' as const },
   { path: 'realizacje', priority: 0.9, changeFrequency: 'weekly' as const },
   { path: 'blog', priority: 0.9, changeFrequency: 'weekly' as const },
 ] as const;

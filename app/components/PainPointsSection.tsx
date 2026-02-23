@@ -60,7 +60,7 @@ export function PainPointsSection() {
             Znamy to <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">uczucie...</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-slate-400 max-w-3xl mx-auto px-4">
-            Każdy dzień wygląda podobnie: te same zadania, coraz więcej chaosu i narastający stres. Samodzielnie trudno to uporządkować
+            Te same zadania, chaos i stres. Samodzielnie trudno to uporządkować — pomożemy.
           </motion.p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

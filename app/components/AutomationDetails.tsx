@@ -27,7 +27,7 @@ export function AutomationDetails() {
             <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">dla biznesu</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-slate-400 max-w-3xl mx-auto px-4">
-            Tworzymy inteligentne systemy, które działają za Ciebie — bez potrzeby ciągłego nadzoru. Oszczędzaj czas i skup się na rozwoju swojej firmy, podczas gdy procesy wykonują się same.
+            Systemy, które działają za Ciebie. Oszczędzasz czas, procesy wykonują się same.
           </motion.p>
         </div>
 

@@ -99,10 +99,7 @@ export function HeroSection() {
         </h1>
 
         {/* Description */}
-        <p
-          className="text-slate-400 mx-auto mt-6 mb-10 max-w-2xl leading-relaxed"
-          style={{ fontSize: 'var(--text-lead)' }}
-        >
+        <p className="text-slate-400 text-base mx-auto mt-6 mb-10 max-w-2xl leading-relaxed">
           Automatyzujemy to, co powtarzalne. Ty weryfikujesz rezultaty.
           Tworzymy strony internetowe gotowe na AI, abyś mógł skupić się
           na tym, co naprawdę ważne.
