@@ -42,11 +42,12 @@ export function ServicesSection() {
                 key={index}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -8 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.15 }}
                 className="relative group flex"
               >
-                <div className="relative flex flex-col w-full h-full min-h-0 p-8 bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl hover:border-purple-500/50 transition-all hover:shadow-[0_0_30px_rgba(147,51,234,0.2)] overflow-hidden">
+                <div className="relative flex flex-col w-full h-full min-h-0 p-8 bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl transition-all duration-300 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(147,51,234,0.2)] overflow-hidden">
                   <div className="flex items-center gap-4 mb-6 flex-shrink-0">
                     <div className={`flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} p-0.5`}>
                       <div className="w-full h-full bg-slate-900 rounded-xl flex items-center justify-center">

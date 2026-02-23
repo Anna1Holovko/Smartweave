@@ -57,7 +57,7 @@ export default function UslugiPage() {
                 return (
                   <article
                     key={index}
-                    className="relative flex flex-col w-full min-h-0 p-8 bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl hover:border-purple-500/50 transition-all hover:shadow-[0_0_30px_rgba(147,51,234,0.2)] overflow-hidden"
+                    className="group relative flex flex-col w-full min-h-0 p-8 bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)] overflow-hidden"
                   >
                     <div className="flex items-center gap-4 mb-6 flex-shrink-0">
                       <div className={`flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} p-0.5`}>
@@ -76,7 +76,7 @@ export default function UslugiPage() {
                         </li>
                       ))}
                     </ul>
-                    <div className={`flex-shrink-0 w-full h-1 bg-gradient-to-r ${service.gradient} rounded-b-2xl mt-6 opacity-60`} />
+                    <div className={`absolute bottom-0 left-0 right-0 h-1 w-0 bg-gradient-to-r ${service.gradient} group-hover:w-full transition-all duration-500 rounded-b-2xl`} />
                   </article>
                 );
               })}

@@ -71,7 +71,7 @@ export function PortfolioSection() {
                 className="group relative flex-shrink-0 w-[85vw] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)] min-w-[280px] sm:min-w-[320px]"
               >
                 <a href={item.link} target="_blank" rel="noopener noreferrer" className="block h-full" title={`Zobacz realizację: ${item.title}`}>
-                  <div className="relative overflow-hidden rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl transition-all duration-300 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(147,51,234,0.3)] flex flex-col h-full">
+                  <div className="relative overflow-hidden rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl transition-all duration-300 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(147,51,234,0.2)] flex flex-col h-full">
                     {/* Top: image in frame (browser-style) */}
                     <div className="relative flex-1 min-h-[200px] sm:min-h-[240px] p-3 sm:p-4">
                       <div className="relative w-full h-full min-h-[180px] sm:min-h-[220px] rounded-lg overflow-hidden bg-slate-800 border border-white/10 shadow-inner">
