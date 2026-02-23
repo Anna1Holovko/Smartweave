@@ -2,9 +2,10 @@
 
 import { motion } from 'motion/react';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter, usePathname } from 'next/navigation';
 import { Button } from './ui/Button';
 
 const LOGO = '/assets/smartweave-logo.png';
@@ -19,38 +20,65 @@ const navItems = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
+  // 🔥 smooth scroll function
+  const scrollToSection = (hash: string) => {
+    const element = document.querySelector(hash);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setMobileMenuOpen(false);
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
     }
   };
 
-  const handleNavClick = (e: React.MouseEvent, item: (typeof navItems)[0]) => {
+  // 🔥 handle clicks (works everywhere)
+  const handleNavClick = (
+    e: React.MouseEvent,
+    item: (typeof navItems)[0]
+  ) => {
     if (item.href.startsWith('#')) {
       e.preventDefault();
-      scrollToSection(item.href);
+
+      if (pathname === '/') {
+        scrollToSection(item.href);
+      } else {
+        router.push(`/${item.href}`);
+      }
+
+      setMobileMenuOpen(false);
     } else {
       setMobileMenuOpen(false);
     }
   };
+
+  // 🔥 auto-scroll after redirect with hash
+  useEffect(() => {
+    if (pathname === '/' && window.location.hash) {
+      const hash = window.location.hash;
+      setTimeout(() => {
+        scrollToSection(hash);
+      }, 100); // small delay for layout render
+    }
+  }, [pathname]);
 
   return (
     <>
       {/* HEADER */}
       <motion.header
         style={{
-          backgroundColor: 'rgba(2, 6, 23, 0.6)', // lighter glass so logo has no "background feel"
+          backgroundColor: 'rgba(2, 6, 23, 0.6)',
           backdropFilter: 'blur(12px)',
         }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           mobileMenuOpen ? 'border-b border-slate-800/50' : ''
         }`}
       >
-        <div className="max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 py-3 sm:py-3.5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex items-center justify-between">
+            
             {/* LOGO */}
             <Link href="/" title="SmartWeave – strona główna">
               <motion.div
@@ -62,9 +90,8 @@ export function Header() {
                 <Image
                   src={LOGO}
                   alt="SmartWeave"
-                  width={0}
-                  height={0}
-                  sizes="100vw"
+                  width={120}
+                  height={32}
                   priority
                   className="h-8 w-auto group-hover:scale-105 transition-transform"
                 />
@@ -72,7 +99,7 @@ export function Header() {
             </Link>
 
             {/* DESKTOP NAV */}
-            <nav className="hidden md:flex items-center gap-6 lg:gap-8 xl:gap-10 2xl:gap-12" aria-label="Główna nawigacja">
+            <nav className="hidden md:flex items-center gap-8">
               {navItems.map((item, index) =>
                 item.href.startsWith('/') ? (
                   <Link key={item.name} href={item.href}>
@@ -80,10 +107,9 @@ export function Header() {
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
-                      className="relative text-slate-300 hover:text-white transition-colors group cursor-pointer block"
+                      className="relative text-slate-300 hover:text-white transition-colors group cursor-pointer"
                     >
                       {item.name}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-300" />
                     </motion.span>
                   </Link>
                 ) : (
@@ -97,128 +123,80 @@ export function Header() {
                     className="relative text-slate-300 hover:text-white transition-colors group cursor-pointer"
                   >
                     {item.name}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-300" />
                   </motion.a>
                 )
               )}
             </nav>
 
             {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="hidden md:block"
-            >
+            <div className="hidden md:block">
               <Button
                 variant="primary"
-                onClick={() => scrollToSection('#contact')}
+                onClick={(e) =>
+                  handleNavClick(e as any, { name: '', href: '#contact' })
+                }
               >
                 Rozpocznij Projekt
               </Button>
-            </motion.div>
+            </div>
 
-            {/* MOBILE MENU BUTTON */}
-            <motion.button
-              type="button"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6 }}
+            {/* MOBILE BUTTON */}
+            <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center border border-slate-700 rounded-lg hover:border-purple-500/50 transition-colors"
-              aria-label="Otwórz menu"
+              className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center border border-slate-700 rounded-lg"
             >
               {mobileMenuOpen ? (
                 <X className="w-5 h-5 text-white" />
               ) : (
                 <Menu className="w-5 h-5 text-white" />
               )}
-            </motion.button>
+            </button>
           </div>
         </div>
       </motion.header>
 
       {/* MOBILE MENU */}
-      <motion.div
-        initial={false}
-        animate={{
-          opacity: mobileMenuOpen ? 1 : 0,
-          y: mobileMenuOpen ? 0 : -20,
-          pointerEvents: mobileMenuOpen ? 'auto' : 'none',
-        }}
-        transition={{ duration: 0.3 }}
-        className="fixed top-[64px] left-0 right-0 z-40 md:hidden"
-      >
-        <div className="mx-4 mt-2 p-6 bg-slate-900/95 backdrop-blur-xl border border-slate-800 rounded-2xl shadow-2xl">
-          <nav className="flex flex-col gap-4" aria-label="Menu mobilne">
-            {navItems.map((item, index) =>
-              item.href.startsWith('/') ? (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <motion.span
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{
-                      opacity: mobileMenuOpen ? 1 : 0,
-                      x: mobileMenuOpen ? 0 : -20,
-                    }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="block text-slate-300 hover:text-white py-2 px-4 rounded-lg hover:bg-slate-800/50 transition-all"
+      {mobileMenuOpen && (
+        <div className="fixed top-[64px] left-0 right-0 z-40 md:hidden">
+          <div className="mx-4 mt-2 p-6 bg-slate-900 border border-slate-800 rounded-2xl">
+            <nav className="flex flex-col gap-4">
+              {navItems.map((item) =>
+                item.href.startsWith('/') ? (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <span className="block text-slate-300 hover:text-white py-2 px-4 rounded-lg">
+                      {item.name}
+                    </span>
+                  </Link>
+                ) : (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item)}
+                    className="text-slate-300 hover:text-white py-2 px-4 rounded-lg"
                   >
                     {item.name}
-                  </motion.span>
-                </Link>
-              ) : (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{
-                    opacity: mobileMenuOpen ? 1 : 0,
-                    x: mobileMenuOpen ? 0 : -20,
-                  }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  onClick={(e) => handleNavClick(e, item)}
-                  className="text-slate-300 hover:text-white py-2 px-4 rounded-lg hover:bg-slate-800/50 transition-all"
+                  </a>
+                )
+              )}
+
+              <div className="pt-4 border-t border-slate-800">
+                <Button
+                  variant="primary"
+                  fullWidth
+                  onClick={(e) =>
+                    handleNavClick(e as any, { name: '', href: '#contact' })
+                  }
                 >
-                  {item.name}
-                </motion.a>
-              )
-            )}
-
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{
-                opacity: mobileMenuOpen ? 1 : 0,
-                y: mobileMenuOpen ? 0 : 10,
-              }}
-              transition={{ duration: 0.3, delay: navItems.length * 0.05 }}
-              className="pt-4 border-t border-slate-800"
-            >
-              <Button
-                variant="primary"
-                fullWidth
-                onClick={() => scrollToSection('#contact')}
-              >
-                Rozpocznij Projekt
-              </Button>
-            </motion.div>
-          </nav>
+                  Rozpocznij Projekt
+                </Button>
+              </div>
+            </nav>
+          </div>
         </div>
-      </motion.div>
-
-      {/* OVERLAY */}
-      {mobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={() => setMobileMenuOpen(false)}
-          className="fixed inset-0 bg-black/50 z-30 md:hidden"
-          aria-hidden
-        />
       )}
     </>
   );
