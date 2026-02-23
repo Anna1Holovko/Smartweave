@@ -26,8 +26,8 @@ export function AutomationDetails() {
             <span className="text-white">Automatyzacja</span>{' '}
             <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">dla biznesu</span>
           </motion.h2>
-          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-slate-400 max-w-3xl mx-auto px-4">
-            Tworzymy inteligentne systemy, które działają za Ciebie — bez potrzeby ciągłego nadzoru. Oszczędzaj czas i skup się na rozwoju swojej firmy, podczas gdy procesy wykonują się same.
+          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2">
+            Systemy, które działają za Ciebie. Oszczędzasz czas, procesy wykonują się same.
           </motion.p>
         </div>
 
@@ -51,8 +51,8 @@ export function AutomationDetails() {
                     {isLeft ? (
                       <>
                         <div className="flex justify-end">
-                          <div className="relative group max-w-md w-full">
-                            <div className="relative p-6 rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl hover:border-purple-500/50 transition-all hover:shadow-[0_0_30px_rgba(147,51,234,0.2)] overflow-hidden">
+                          <div className="relative group max-w-md w-full transition-transform duration-300 hover:-translate-y-2">
+                            <div className="relative p-6 rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)] overflow-hidden">
                               <div className="flex items-center gap-4 mb-4">
                                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${step.gradient} p-0.5 flex-shrink-0`}>
                                   <div className="w-full h-full bg-slate-950 rounded-xl flex items-center justify-center">
@@ -62,7 +62,7 @@ export function AutomationDetails() {
                                 <h3 className="text-xl font-bold text-white">{step.title}</h3>
                               </div>
                               <p className="text-slate-400 leading-relaxed">{step.description}</p>
-                              <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${step.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-2xl`} />
+                              <div className={`absolute bottom-0 left-0 right-0 h-1 w-0 bg-gradient-to-r ${step.gradient} group-hover:w-full transition-all duration-500 rounded-b-2xl`} />
                             </div>
                           </div>
                         </div>
@@ -90,8 +90,8 @@ export function AutomationDetails() {
                           </motion.div>
                         </div>
                         <div className="flex justify-start">
-                          <div className="relative group max-w-md w-full">
-                            <div className="relative p-6 rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl hover:border-purple-500/50 transition-all hover:shadow-[0_0_30px_rgba(147,51,234,0.2)] overflow-hidden">
+                          <div className="relative group max-w-md w-full transition-transform duration-300 hover:-translate-y-2">
+                            <div className="relative p-6 rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)] overflow-hidden">
                               <div className="flex items-center gap-4 mb-4">
                                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${step.gradient} p-0.5 flex-shrink-0`}>
                                   <div className="w-full h-full bg-slate-950 rounded-xl flex items-center justify-center">
@@ -101,7 +101,7 @@ export function AutomationDetails() {
                                 <h3 className="text-xl font-bold text-white">{step.title}</h3>
                               </div>
                               <p className="text-slate-400 leading-relaxed">{step.description}</p>
-                              <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${step.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-2xl`} />
+                              <div className={`absolute bottom-0 left-0 right-0 h-1 w-0 bg-gradient-to-r ${step.gradient} group-hover:w-full transition-all duration-500 rounded-b-2xl`} />
                             </div>
                           </div>
                         </div>
@@ -109,8 +109,8 @@ export function AutomationDetails() {
                     )}
                   </div>
 
-                  <div className="lg:hidden relative group">
-                    <div className="relative p-6 rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl hover:border-purple-500/50 transition-all hover:shadow-[0_0_30px_rgba(147,51,234,0.2)] overflow-hidden">
+                  <div className="lg:hidden relative group transition-transform duration-300 hover:-translate-y-2">
+                    <div className="relative p-6 rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)] overflow-hidden">
                       <div className="absolute -top-3 -left-3">
                         <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-0.5">
                           <div className="w-full h-full rounded-full bg-slate-950 flex items-center justify-center">
@@ -127,7 +127,7 @@ export function AutomationDetails() {
                         <h3 className="text-xl font-bold text-white">{step.title}</h3>
                       </div>
                       <p className="text-slate-400 leading-relaxed">{step.description}</p>
-                      <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${step.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-2xl`} />
+                      <div className={`absolute bottom-0 left-0 right-0 h-1 w-0 bg-gradient-to-r ${step.gradient} group-hover:w-full transition-all duration-500 rounded-b-2xl`} />
                     </div>
                   </div>
                 </motion.div>

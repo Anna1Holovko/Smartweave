@@ -46,7 +46,7 @@ export function BlogSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm sm:text-base lg:text-xl text-slate-400 max-w-3xl mx-auto px-2 sm:px-4 mb-6 sm:mb-8"
+            className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2 mb-6 sm:mb-8"
           >
             Praktyczne artykuły o wdrażaniu automatyzacji, narzędziach i procesach biznesowych.
           </motion.p>
@@ -73,6 +73,7 @@ export function BlogSection() {
               key={post.slug}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -8 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group relative flex flex-col rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl overflow-hidden transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)]"
@@ -96,7 +97,7 @@ export function BlogSection() {
                     {post.excerpt}
                   </p>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 h-1 w-0 bg-gradient-to-r from-purple-500 to-pink-500 group-hover:w-full transition-all duration-500" />
               </Link>
             </motion.article>
           ))}

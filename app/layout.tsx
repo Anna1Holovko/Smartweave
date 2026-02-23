@@ -38,8 +38,7 @@ export const metadata: Metadata = {
   alternates: { canonical: SITE_URL },
   icons: {
     icon: [
-      { url: '/assets/favicon.png', type: 'image/png' },
-      { url: '/assets/smartweave-logo.png', type: 'image/png', sizes: '512x512' },
+      { url: `${SITE_URL}/assets/favicon.png`, type: 'image/png', sizes: '48x48' },
     ],
     apple: '/assets/smartweave-logo.png',
   },

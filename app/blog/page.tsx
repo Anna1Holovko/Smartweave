@@ -44,8 +44,8 @@ export default function BlogPage() {
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-3 sm:mb-4 lg:mb-6 px-2 sm:px-4">
                 Zdobądź wiedzę na temat AI i automatyzacji!
               </h1>
-              <p className="text-sm sm:text-base lg:text-xl text-slate-400 max-w-3xl mx-auto px-2">
-                Praktyczne artykuły o wdrażaniu automatyzacji, narzędziach i procesach biznesowych – dla firm, które chcą oszczędzać czas i rozwijać się.
+              <p className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2">
+                Praktyczne artykuły o automatyzacji, narzędziach i procesach — dla firm, które chcą się rozwijać.
               </p>
             </div>
 
@@ -53,7 +53,7 @@ export default function BlogPage() {
               {BLOG_POSTS.map((post, index) => (
                 <article
                   key={post.slug}
-                  className="group relative flex flex-col rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl overflow-hidden transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)]"
+                  className="group relative flex flex-col rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)]"
                 >
                   <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
                     <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-800">
@@ -75,7 +75,7 @@ export default function BlogPage() {
                       </p>
                       <span className="text-slate-500 text-xs mt-2 sm:mt-3">{post.date}</span>
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-0 left-0 right-0 h-1 w-0 bg-gradient-to-r from-purple-500 to-pink-500 group-hover:w-full transition-all duration-500" />
                   </Link>
                 </article>
               ))}
