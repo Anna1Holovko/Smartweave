@@ -16,9 +16,9 @@ export function Footer() {
             <Image
               src={LOGO}
               alt="SmartWeave"
-              width={0}
-              height={0}
-              sizes="100vw"
+              width={120}
+              height={32}
+              sizes="120px"
               priority
               className="h-8 w-auto mb-4"
             />
