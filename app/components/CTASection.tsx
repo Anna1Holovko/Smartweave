@@ -14,36 +14,40 @@ export function CTASection() {
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
     try {
-      if (!formData.name || !formData.email || !formData.message) {
+      if (!formData.name?.trim() || !formData.email?.trim() || !formData.message?.trim()) {
         setSubmitStatus({ type: 'error', message: 'Imię, email i wiadomość są wymagane.' });
         setIsSubmitting(false);
         return;
       }
-      const timestamp = new Date().toISOString();
-      const key = `contact:${Date.now()}:${formData.email}`;
-      const submissionData = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone || null,
-        message: formData.message,
-        timestamp,
-        status: 'new',
-      };
-      try {
-        const existingData = localStorage.getItem('contact_submissions');
-        const submissions = existingData ? JSON.parse(existingData) : [];
-        submissions.push({ key, ...submissionData });
-        localStorage.setItem('contact_submissions', JSON.stringify(submissions));
-      } catch {
-        // ignore
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          form: 'contact',
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone?.trim() || undefined,
+          message: formData.message.trim(),
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setSubmitStatus({
+          type: 'error',
+          message: data.error || 'Nie udało się wysłać wiadomości. Spróbuj później.',
+        });
+        return;
       }
       setSubmitStatus({
         type: 'success',
-        message: '✅ Dziękujemy za wiadomość! Odpowiemy wkrótce.',
+        message: data.message || '✅ Dziękujemy za wiadomość! Odpowiemy wkrótce.',
       });
       setFormData({ name: '', email: '', phone: '', message: '' });
     } catch (err) {
-      setSubmitStatus({ type: 'error', message: 'Błąd: ' + (err instanceof Error ? err.message : 'Nieznany błąd') });
+      setSubmitStatus({
+        type: 'error',
+        message: 'Błąd połączenia. Sprawdź internet i spróbuj ponownie.',
+      });
     } finally {
       setIsSubmitting(false);
     }
