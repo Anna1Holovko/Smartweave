@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react';
 import { BLOG_POSTS } from '@/lib/blog';
 
 export function BlogSection() {
-  const featuredPosts = BLOG_POSTS.slice(0, 4);
+  const featuredPosts = BLOG_POSTS.slice(0, 3);
 
   return (
     <section id="blog" aria-labelledby="blog-heading" className="relative py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-hidden">
