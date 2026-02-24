@@ -14,7 +14,59 @@ npm install
 - **Production build:** `npm run build` then `npm start`
 - **Lint:** `npm run lint`
 
-The contact form saves submissions to the browser’s `localStorage` only (no backend).
+The contact form saves submissions to Neon (DB) and/or sends email via Resend or Formspree; configure at least one in `.env.local` (see section below).
+
+## Formularz kontaktowy – konfiguracja
+
+Formularz zapisuje zgłoszenia do bazy (Neon) i/lub wysyła powiadomienia e-mail (Resend lub Formspree). Wystarczy skonfigurować **Neon** albo **e-mail** (albo oba). Skopiuj `.env.example` do `.env.local` i uzupełnij zmienne.
+
+### Neon (zapisy do bazy)
+
+1. Wejdź na [neon.tech](https://neon.tech) i zaloguj się.
+2. **New project** → wybierz region, nazwę projektu.
+3. W projekcie: **Connection details** → skopiuj **Connection string**.
+4. W `.env.local` ustaw:
+   ```bash
+   POSTGRES_URL=postgresql://user:password@ep-xxx.region.aws.neon.tech/neondb?sslmode=require
+   ```
+   (albo `DATABASE_URL` – tabela `contact_submissions` tworzy się przy pierwszym zgłoszeniu.)
+
+### Powiadomienia e-mail
+
+**Opcja A – Formspree** (darmowo ok. 50 zgłoszeń/miesiąc na formularz):
+
+1. [formspree.io](https://formspree.io) → utwórz formularz, skopiuj ID (np. `xyzabc`).
+2. W `.env.local`:
+   ```bash
+   FORMSPREE_FORM_ID=xyzabc
+   ```
+   Dla wielu formularzy (np. kontakt + newsletter):
+   ```bash
+   FORMSPREE_FORM_ID_contact=xyzabc
+   FORMSPREE_FORM_ID_newsletter=yyyzzz
+   ```
+
+**Opcja B – Resend** (darmowo ok. 100 e-maili/dzień):
+
+1. [resend.com](https://resend.com) → API Keys → utwórz klucz.
+2. W `.env.local`:
+   ```bash
+   RESEND_API_KEY=re_xxxxxxxxxxxx
+   CONTACT_EMAIL_TO=hello@smartweave.com,ann7golovko@gmail.com
+   ```
+   Opcjonalnie nadawca (domyślnie Resend):
+   ```bash
+   RESEND_FROM=SmartWeave <noreply@twoja-domena.com>
+   ```
+   Dla różnych formularzy:
+   ```bash
+   CONTACT_EMAIL_TO_contact=hello@smartweave.com
+   CONTACT_EMAIL_TO_newsletter=newsletter@smartweave.com
+   ```
+
+Na Vercelu (lub innym hostingu) ustaw te same zmienne w ustawieniach projektu (Environment Variables).
+
+Dane w Neon, ale brak maila? Dodaj w tym samym miejscu co POSTGRES_URL zmienne e-mail: Resend (RESEND_API_KEY i CONTACT_EMAIL_TO) lub Formspree (FORMSPREE_FORM_ID lub FORMSPREE_FORM_ID_contact). Bez nich e-mail nie jest wysyłany.
 
 ## Tech stack
 

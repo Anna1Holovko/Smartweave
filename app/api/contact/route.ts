@@ -51,6 +51,12 @@ export async function POST(request: Request) {
     );
   }
 
+  if (hasDb && !hasEmail) {
+    console.warn(
+      '[Contact] Email not configured: set RESEND_API_KEY + CONTACT_EMAIL_TO (or CONTACT_EMAIL_TO_contact), or FORMSPREE_FORM_ID / FORMSPREE_FORM_ID_contact'
+    );
+  }
+
   // Run DB insert and email notification in parallel (CTA: save to Neon + notify emails at once)
   const dbPromise = hasDb
     ? insertContactSubmission({ name, email, phone, message }, form)
@@ -68,7 +74,8 @@ export async function POST(request: Request) {
     console.error('Contact form DB insert error:', dbResult.reason);
   }
   if (!emailOk && emailResult.status === 'rejected') {
-    console.error('Contact form send error:', emailResult.reason);
+    const err = emailResult.reason;
+    console.error('Contact form email error:', err instanceof Error ? err.message : err);
   }
 
   if (dbOk && emailOk) {
