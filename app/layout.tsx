@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { ClientLayout } from './ClientLayout';
 import {
@@ -13,11 +13,18 @@ import {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+
   verification: process.env.GOOGLE_SITE_VERIFICATION
     ? { google: process.env.GOOGLE_SITE_VERIFICATION }
     : undefined,
-  title: { default: META_TITLE, template: `%s | ${SITE_NAME}` },
+
+  title: {
+    default: META_TITLE,
+    template: `%s | ${SITE_NAME}`,
+  },
+
   description: META_DESCRIPTION,
+
   keywords: [
     'automatyzacja',
     'automatyzacja procesów',
@@ -30,18 +37,27 @@ export const metadata: Metadata = {
     SITE_NAME,
     'strony WWW dla firm',
   ],
+
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true },
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
-  alternates: { canonical: SITE_URL },
+
+  alternates: {
+    canonical: SITE_URL,
+  },
+
+  // ✅ GOOGLE-FRIENDLY FAVICON SETUP
   icons: {
-    icon: [
-      { url: `${SITE_URL}/assets/favicon.png`, type: 'image/png', sizes: '48x48' },
-    ],
-    apple: '/assets/smartweave-logo.png',
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
+
   openGraph: {
     title: OG_TITLE,
     description: OG_DESCRIPTION,
@@ -49,21 +65,43 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     locale: 'pl_PL',
     type: 'website',
-    images: [{ url: '/assets/smartweave-logo.png', width: 512, height: 512, alt: SITE_NAME }],
+    images: [
+      {
+        url: SITE_LOGO_URL,
+        width: 512,
+        height: 512,
+        alt: SITE_NAME,
+      },
+    ],
   },
+
   twitter: {
     card: 'summary_large_image',
     title: OG_TITLE,
     description: OG_DESCRIPTION,
-    images: ['/assets/smartweave-logo.png'],
+    images: [SITE_LOGO_URL],
   },
-  formatDetection: { email: true, telephone: true },
-  other: { 'geo.region': 'PL' },
+
+  formatDetection: {
+    email: true,
+    telephone: true,
+  },
+
+  other: {
+    'geo.region': 'PL',
+  },
 };
 
-export const viewport = { width: 'device-width', initialScale: 1, themeColor: '#0f172a' };
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#0f172a',
+};
 
-/** Structured data for Google Search (Organization, WebSite, WebPage, etc.) */
+/* ============================= */
+/*        STRUCTURED DATA        */
+/* ============================= */
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -72,17 +110,25 @@ const jsonLd = {
       '@id': `${SITE_URL}/#organization`,
       name: SITE_NAME,
       url: SITE_URL,
-      logo: { '@type': 'ImageObject', url: SITE_LOGO_URL },
-      description: 'Design i automatyzacja dla biznesu: strony internetowe, branding, automatyzacja procesów i agenci AI.',
+      logo: {
+        '@type': 'ImageObject',
+        url: SITE_LOGO_URL,
+      },
+      description:
+        'Design i automatyzacja dla biznesu: strony internetowe, branding, automatyzacja procesów i agenci AI.',
     },
     {
       '@type': 'WebSite',
       '@id': `${SITE_URL}/#website`,
       url: SITE_URL,
       name: SITE_NAME,
-      publisher: { '@id': `${SITE_URL}/#organization` },
+      publisher: {
+        '@id': `${SITE_URL}/#organization`,
+      },
       inLanguage: 'pl-PL',
-      mainEntity: { '@id': `${SITE_URL}/#webpage` },
+      mainEntity: {
+        '@id': `${SITE_URL}/#webpage`,
+      },
     },
     {
       '@type': 'WebPage',
@@ -90,33 +136,61 @@ const jsonLd = {
       url: SITE_URL,
       name: META_TITLE,
       description: META_DESCRIPTION,
-      isPartOf: { '@id': `${SITE_URL}/#website` },
-      about: { '@id': `${SITE_URL}/#service` },
+      isPartOf: {
+        '@id': `${SITE_URL}/#website`,
+      },
+      about: {
+        '@id': `${SITE_URL}/#service`,
+      },
       inLanguage: 'pl-PL',
       dateModified: new Date().toISOString().split('T')[0],
-      primaryImageOfPage: { '@type': 'ImageObject', url: SITE_LOGO_URL },
+      primaryImageOfPage: {
+        '@type': 'ImageObject',
+        url: SITE_LOGO_URL,
+      },
       potentialAction: {
         '@type': 'ReadAction',
-        target: { '@type': 'EntryPoint', urlTemplate: SITE_URL },
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: SITE_URL,
+        },
       },
     },
     {
       '@type': 'ProfessionalService',
       '@id': `${SITE_URL}/#service`,
       name: `${SITE_NAME} – Design i automatyzacja`,
-      description: 'Usługi: projektowanie stron WWW, identyfikacja wizualna i branding, automatyzacja procesów i agenci AI, marketing internetowy i SEO.',
+      description:
+        'Usługi: projektowanie stron WWW, identyfikacja wizualna i branding, automatyzacja procesów i agenci AI, marketing internetowy i SEO.',
       url: SITE_URL,
-      areaServed: { '@type': 'Country', name: 'Poland' },
-      serviceType: ['Design', 'Automatyzacja procesów', 'Strony internetowe', 'Branding', 'SEO'],
+      areaServed: {
+        '@type': 'Country',
+        name: 'Poland',
+      },
+      serviceType: [
+        'Design',
+        'Automatyzacja procesów',
+        'Strony internetowe',
+        'Branding',
+        'SEO',
+      ],
     },
     {
       '@type': 'BreadcrumbList',
-      itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Strona główna', item: SITE_URL }],
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Strona główna',
+          item: SITE_URL,
+        },
+      ],
     },
     {
       '@type': 'ItemList',
       name: 'Usługi SmartWeave',
-      description: 'Główne usługi: strony WWW, design, automatyzacja, marketing.',
+      description:
+        'Główne usługi: strony WWW, design, automatyzacja, marketing.',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Projektowanie i wdrażanie stron www' },
         { '@type': 'ListItem', position: 2, name: 'Identyfikacja wizualna i branding' },
@@ -126,6 +200,10 @@ const jsonLd = {
     },
   ],
 };
+
+/* ============================= */
+/*           LAYOUT              */
+/* ============================= */
 
 export default function RootLayout({
   children,
@@ -138,10 +216,14 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">
           Przejdź do treści
         </a>
+
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd),
+          }}
         />
+
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
