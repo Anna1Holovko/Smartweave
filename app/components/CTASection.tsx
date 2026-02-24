@@ -74,7 +74,8 @@ export function CTASection() {
 
       <motion.div className="relative z-10 max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="space-y-6">
+          <div className="relative overflow-hidden rounded-2xl lg:rounded-3xl py-8 px-6 sm:py-10 sm:px-8 lg:py-12 lg:px-10 bg-gradient-to-r from-[#200A38] via-[#2a0a48] to-[#400B68]">
+            <div className="space-y-6 relative z-10">
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full">
               <Send className="w-4 h-4 text-purple-400" />
               <span className="text-purple-300 text-sm font-medium">Chcesz spróbować?</span>
@@ -82,9 +83,10 @@ export function CTASection() {
             <motion.h2 id="contact-heading" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
               <span className="cta-gradient-animated bg-clip-text text-transparent">Toniesz w codziennych zadaniach? Czas to zmienić.</span>
             </motion.h2>
-            <motion.p initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2 leading-relaxed">
+            <motion.p initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto lg:mx-0 px-0 leading-relaxed">
               Powiedz, co zabiera Ci czas — zautomatyzujemy procesy i przyspieszymy pracę Twojej firmy.
             </motion.p>
+            </div>
           </div>
 
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} className="relative">
