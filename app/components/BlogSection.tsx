@@ -10,7 +10,7 @@ export function BlogSection() {
   const featuredPosts = BLOG_POSTS.slice(0, 4);
 
   return (
-    <section id="blog" aria-labelledby="blog-heading" className="relative py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 3xl:px-16 overflow-hidden">
+    <section id="blog" aria-labelledby="blog-heading" className="relative py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950" />
       <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] lg:w-[700px] lg:h-[700px] bg-purple-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] bg-cyan-500/10 rounded-full blur-3xl" />
@@ -67,7 +67,7 @@ export function BlogSection() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {featuredPosts.map((post, index) => (
             <motion.article
               key={post.slug}

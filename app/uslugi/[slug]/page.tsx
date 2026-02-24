@@ -3,9 +3,12 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Header } from '@/app/components/Header';
 import { Footer } from '@/app/components/Footer';
+import { ScrollToTop } from '@/app/components/ScrollToTop';
+import { MotionFadeIn } from '@/app/components/MotionFadeIn';
 import { Button } from '@/app/components/ui/Button';
 import { SERVICES, getServiceBySlug, SERVICE_SLUGS } from '@/lib/services';
 import { SITE_URL } from '@/lib/site';
+import { SECTION_CLASS, CONTAINER_CLASS } from '@/lib/layout';
 import { ArrowLeft, Globe, Workflow, Palette, Check } from 'lucide-react';
 
 const SERVICE_ICONS = [Globe, Palette, Workflow] as const;
@@ -56,21 +59,22 @@ export default async function UslugiSlugPage({
     <>
       <Header />
       <main id="main-content" role="main" className="min-h-screen">
-        <section className="relative py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-hidden">
+        <section className={SECTION_CLASS}>
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-blue-950/30 to-slate-950" />
           <div className="absolute top-0 left-1/4 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-blue-500/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-purple-500/10 rounded-full blur-3xl" />
 
-          <div className="relative z-10 max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto">
-            <Link
-              href="/uslugi"
-              className="inline-flex items-center gap-2 text-slate-400 hover:text-purple-400 transition-colors mb-6 sm:mb-8 lg:mb-12 min-h-[44px] min-w-[44px] items-center justify-center sm:min-h-0 sm:min-w-0 sm:justify-start"
-            >
-              <ArrowLeft className="w-4 h-4 flex-shrink-0" />
-              <span>Wszystkie usługi</span>
-            </Link>
-
-            <div className="mb-10 sm:mb-12 lg:mb-16">
+          <div className={CONTAINER_CLASS}>
+            <MotionFadeIn>
+              <Link
+                href="/uslugi"
+                className="inline-flex items-center gap-2 text-slate-400 hover:text-purple-400 transition-colors mb-6 sm:mb-8 lg:mb-12 min-h-[44px] min-w-[44px] items-center justify-center sm:min-h-0 sm:min-w-0 sm:justify-start"
+              >
+                <ArrowLeft className="w-4 h-4 flex-shrink-0" />
+                <span>Wszystkie usługi</span>
+              </Link>
+            </MotionFadeIn>
+            <MotionFadeIn delay={0.1} className="mb-12 sm:mb-20">
               <span className="inline-block mb-3 sm:mb-4 px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-300 text-xs sm:text-sm font-medium uppercase tracking-wider">
                 Oferta
               </span>
@@ -87,7 +91,7 @@ export default async function UslugiSlugPage({
               <p className="text-base sm:text-xl text-slate-400 max-w-[80ch]">
                 {service.description}
               </p>
-            </div>
+            </MotionFadeIn>
 
             <div className="max-w-3xl">
               <h2 className="text-lg sm:text-xl font-semibold text-white mb-4">Zakres usługi</h2>
@@ -114,6 +118,7 @@ export default async function UslugiSlugPage({
         </section>
       </main>
       <Footer />
+      <ScrollToTop />
     </>
   );
 }

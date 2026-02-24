@@ -68,7 +68,7 @@ export function PortfolioSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="group relative flex-shrink-0 w-[85vw] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)] min-w-[280px] sm:min-w-[320px]"
+                className="group relative flex-shrink-0 w-[85vw] sm:w-[calc(50%-1rem)] lg:w-[calc((100%-4rem)/3)] min-w-[280px] sm:min-w-[320px]"
               >
                 <a href={item.link} target="_blank" rel="noopener noreferrer" className="block h-full" title={`Zobacz realizację: ${item.title}`}>
                   <div className="relative overflow-hidden rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl transition-all duration-300 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(147,51,234,0.2)] flex flex-col h-full">

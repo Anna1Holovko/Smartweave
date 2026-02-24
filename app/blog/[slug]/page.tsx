@@ -4,9 +4,12 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
+import { ScrollToTop } from '../../components/ScrollToTop';
+import { MotionFadeIn } from '../../components/MotionFadeIn';
 import { BLOG_POSTS, getBlogCoverUrl, getPostBySlug } from '@/lib/blog';
 import { BLOG_CONTENT } from '@/lib/blog-content';
 import { SITE_URL } from '@/lib/site';
+import { CONTAINER_CLASS } from '@/lib/layout';
 import { ArrowLeft } from 'lucide-react';
 
 type Props = { params: Promise<{ slug: string }> };
@@ -77,40 +80,49 @@ export default async function BlogPostPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Header />
       <main id="main-content" role="main" className="min-h-screen">
-        <article className="relative py-10 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-hidden">
+        <article className="relative py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950" />
-          <div className="relative z-10 max-w-3xl mx-auto">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 min-h-[44px] items-center text-slate-400 hover:text-purple-400 transition-colors mb-6 sm:mb-8"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Wróć do bloga
-            </Link>
-            <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-800 mb-8">
-              <Image
-                src={post.image}
-                alt=""
-                fill
-                className="object-cover"
-                priority
-                sizes="(max-width: 768px) 100vw, 48rem"
-              />
+          <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] bg-purple-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 left-1/4 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] bg-cyan-500/10 rounded-full blur-3xl" />
+          <div className={CONTAINER_CLASS}>
+            <div className="max-w-3xl mx-auto">
+              <MotionFadeIn>
+                <Link
+                  href="/blog"
+                  className="inline-flex items-center gap-2 min-h-[44px] items-center text-slate-400 hover:text-purple-400 transition-colors mb-6 sm:mb-8 lg:mb-12"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  Wróć do bloga
+                </Link>
+              </MotionFadeIn>
+              <MotionFadeIn delay={0.1}>
+                <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-slate-800 mb-8">
+                  <Image
+                    src={post.image}
+                    alt=""
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="(max-width: 768px) 100vw, 48rem"
+                  />
+                </div>
+                <header>
+                  <time dateTime={post.date} className="text-slate-500 text-sm mb-2 block">{post.date}</time>
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-4">
+                    {post.title}
+                  </h1>
+                  <p className="text-base sm:text-xl text-slate-400 leading-relaxed mb-8 max-w-[80ch]">
+                    {post.excerpt}
+                  </p>
+                </header>
+              </MotionFadeIn>
+              <ArticleBody slug={slug} />
             </div>
-            <header>
-              <time dateTime={post.date} className="text-slate-500 text-sm mb-2 block">{post.date}</time>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
-                {post.title}
-              </h1>
-              <p className="text-slate-400 text-lg leading-relaxed mb-8">
-                {post.excerpt}
-              </p>
-            </header>
-            <ArticleBody slug={slug} />
           </div>
         </article>
       </main>
       <Footer />
+      <ScrollToTop />
     </>
   );
 }
