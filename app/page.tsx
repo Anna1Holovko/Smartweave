@@ -28,6 +28,7 @@ export default function HomePage() {
           <CTASection />
           <Footer />
         </div>
+      </main>
       <ScrollToTop />
     </>
   );
