@@ -16,8 +16,14 @@ export type ContactSubmission = {
 
 const DEFAULT_FORM_TYPE = 'contact';
 
-/** Create the contact_submissions table if it doesn't exist (Neon). Safe to call before insert. */
-async function ensureTable(sql: ReturnType<typeof neon>): Promise<void> {
+/** Insert a form submission. formType identifies the form (e.g. contact, newsletter). Returns new id or null if DB not configured. */
+export async function insertContactSubmission(
+  data: ContactSubmission,
+  formType: string = DEFAULT_FORM_TYPE
+): Promise<number | null> {
+  const sql = getSql();
+  if (!sql) return null;
+
   await sql`
     CREATE TABLE IF NOT EXISTS contact_submissions (
       id SERIAL PRIMARY KEY,
@@ -33,17 +39,6 @@ async function ensureTable(sql: ReturnType<typeof neon>): Promise<void> {
     CREATE INDEX IF NOT EXISTS contact_submissions_form_type_idx
     ON contact_submissions (form_type)
   `;
-}
-
-/** Insert a form submission. formType identifies the form (e.g. contact, newsletter). Returns new id or null if DB not configured. */
-export async function insertContactSubmission(
-  data: ContactSubmission,
-  formType: string = DEFAULT_FORM_TYPE
-): Promise<number | null> {
-  const sql = getSql();
-  if (!sql) return null;
-
-  await ensureTable(sql);
   const rows = await sql`
     INSERT INTO contact_submissions (form_type, name, email, phone, message)
     VALUES (${formType}, ${data.name}, ${data.email}, ${data.phone ?? null}, ${data.message})
