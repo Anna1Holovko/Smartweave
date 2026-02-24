@@ -44,6 +44,34 @@ export const BLOG_POSTS = [
     image: `${BLOG_COVER_DIR}/seo-i-ai-wyszukiwarki-cover.png`,
     date: '2024-12-01',
   },
+  {
+    slug: 'projektowanie-stron-www-gotowe-na-ai',
+    title: 'Projektowanie i wdrażanie stron www – gotowe na AI',
+    excerpt: 'Strona www w 2026 roku powinna być przygotowana na wyszukiwarki AI i asystentów. Jak projektować i wdrażać strony, które są gotowe na AI?',
+    image: `${BLOG_COVER_DIR}/projektowanie-stron-www-gotowe-na-ai-cover.png`,
+    date: '2025-02-10',
+  },
+  {
+    slug: 'identyfikacja-wizualna-branding-rozpoznawalnosc-zaufanie',
+    title: 'Identyfikacja wizualna i branding – rozpoznawalność i zaufanie',
+    excerpt: 'Spójna identyfikacja wizualna i branding budują rozpoznawalność oraz zaufanie klientów. Dlaczego to ważne i od czego zacząć?',
+    image: `${BLOG_COVER_DIR}/identyfikacja-wizualna-branding-cover.png`,
+    date: '2025-02-08',
+  },
+  {
+    slug: 'automatyzacja-procesow-agenci-ai-odzyskaj-czas',
+    title: 'Automatyzacja procesów i agenci AI – odzyskaj czas',
+    excerpt: 'Automatyzacja procesów i agenci AI pozwalają odzyskać godziny na to, co naprawdę ważne. Jak zacząć i na co zwrócić uwagę?',
+    image: `${BLOG_COVER_DIR}/automatyzacja-agenci-ai-odzyskaj-czas-cover.png`,
+    date: '2025-02-05',
+  },
+  {
+    slug: 'design-na-ai-strona-branding-wyszukiwarki-ai',
+    title: 'Design na AI: jak przygotować stronę i branding pod wyszukiwarki AI',
+    excerpt: 'Wyszukiwarki AI i asystenci cytują treści i wybierają źródła. Jak przygotować stronę i branding, żeby być widocznym w erze AI?',
+    image: `${BLOG_COVER_DIR}/design-na-ai-wyszukiwarki-cover.png`,
+    date: '2025-02-01',
+  },
 ] as const;
 
 export type BlogPost = (typeof BLOG_POSTS)[number];
