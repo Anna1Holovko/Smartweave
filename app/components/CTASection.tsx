@@ -57,6 +57,11 @@ export function CTASection() {
   return (
     <section id="contact" aria-labelledby="contact-heading" className="relative py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-purple-950/30 to-slate-950" />
+      {/* Logo-like animated gradient overlay (soft) */}
+      <div
+        className="absolute inset-0 cta-gradient-animated opacity-[0.12] mix-blend-screen pointer-events-none"
+        aria-hidden
+      />
       <motion.div
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[1000px] sm:h-[1000px] bg-purple-500/20 rounded-full blur-3xl"
         animate={{ opacity: [0.6, 1, 0.6], scale: [1, 1.05, 1] }}
@@ -76,7 +81,7 @@ export function CTASection() {
               <span className="text-purple-300 text-sm font-medium">Chcesz spróbować?</span>
             </motion.div>
             <motion.h2 id="contact-heading" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Toniesz w codziennych zadaniach? Czas to zmienić.</span>
+              <span className="cta-gradient-animated bg-clip-text text-transparent">Toniesz w codziennych zadaniach? Czas to zmienić.</span>
             </motion.h2>
             <motion.p initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2 leading-relaxed">
               Powiedz, co zabiera Ci czas — zautomatyzujemy procesy i przyspieszymy pracę Twojej firmy.
@@ -85,7 +90,7 @@ export function CTASection() {
 
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} className="relative">
             <div className="relative overflow-hidden rounded-3xl border border-slate-700/50 bg-slate-900/60 backdrop-blur-xl p-8 shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-blue-500/5 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-blue-500/5 via-purple-500/5 to-pink-500/5 pointer-events-none" />
               <form onSubmit={handleSubmit} className="relative space-y-6" aria-label="Formularz kontaktowy SmartWeave">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">Imię i nazwisko</label>
@@ -108,7 +113,7 @@ export function CTASection() {
                     {isSubmitting ? 'Wysyłanie...' : 'Wyślij wiadomość'}
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                  <div className="absolute inset-0 cta-gradient-animated opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 </Button>
                 {submitStatus.type && (
                   <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className={`mt-4 px-4 py-3 rounded-xl text-center font-medium ${submitStatus.type === 'success' ? 'bg-green-500/10 text-green-400 border border-green-500/30' : 'bg-red-500/10 text-red-400 border border-red-500/30'}`}>

@@ -130,4 +130,25 @@
       max-width: var(--container-wide);
     }
   }
+
+  /* Logo-like gradient (cyan → blue → purple → magenta) with soft flow animation */
+  @keyframes cta-gradient-flow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  .cta-gradient-animated {
+    background: linear-gradient(
+      110deg,
+      #c1e9fb 0%,
+      #a5e0ff 15%,
+      #3a5df4 35%,
+      #486df9 50%,
+      #7c4ff0 65%,
+      #8f62f8 80%,
+      #d76ffb 92%,
+      #ea80fc 100%
+    );
+    background-size: 200% 100%;
+    animation: cta-gradient-flow 12s ease-in-out infinite;
+  }
 }

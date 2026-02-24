@@ -72,7 +72,7 @@ export function HeroSection() {
         >
           Pomożemy Ci{' '}
           <span
-            className="inline-block my-2"
+            className="inline-block my-2 pb-1"
             style={{ fontSize: 'clamp(2.2rem, 6.5vw, 7.5rem)' }}
           >
             <AnimatePresence mode="wait">
@@ -82,7 +82,7 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, y: -12, filter: 'blur(6px)' }}
                 transition={{ duration: 0.4 }}
-                className="inline-block whitespace-nowrap font-bold text-transparent bg-clip-text leading-[1.2]"
+                className="inline-block whitespace-nowrap font-bold text-transparent bg-clip-text leading-[1.35] pb-0.5"
                 style={{
                   backgroundImage:
                     'linear-gradient(to right, #60A5FA, #A78BFA, #F472B6)',

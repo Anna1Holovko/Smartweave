@@ -5,7 +5,7 @@ const base =
 
 const variants = {
   primary:
-    'bg-gradient-to-r from-sky-500 via-indigo-400 to-purple-500 text-white hover:scale-105 hover:shadow-[0_0_28px_rgba(129,140,248,0.4)]',
+    'bg-gradient-to-r from-cyan-300 via-blue-500 to-fuchsia-400 text-white hover:scale-105 hover:shadow-[0_0_28px_rgba(139,92,246,0.4)]',
   secondary:
     'bg-transparent border-2 border-slate-700 text-white hover:border-purple-500/50 hover:bg-slate-800/30',
 };
