@@ -3,7 +3,7 @@ import { Resend } from 'resend';
 import { insertContactSubmission } from '@/lib/db';
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const RESEND_FROM = process.env.RESEND_FROM || 'SmartWeave <onboarding@resend.dev>';
+const RESEND_FROM = process.env.RESEND_FROM || 'SmartWeave <hello@smartweave.com>';
 const DEFAULT_FORM = 'contact';
 
 function getFormspreeId(form: string): string | undefined {
