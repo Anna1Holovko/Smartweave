@@ -131,24 +131,37 @@
     }
   }
 
-  /* Logo-like gradient (cyan → blue → purple → magenta) with soft flow animation */
+  /* CTA gradient (#6BA1FB → #A18DFA → #EB75BD) with soft flow animation */
   @keyframes cta-gradient-flow {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
   }
   .cta-gradient-animated {
-    background: linear-gradient(
-      110deg,
-      #c1e9fb 0%,
-      #a5e0ff 15%,
-      #3a5df4 35%,
-      #486df9 50%,
-      #7c4ff0 65%,
-      #8f62f8 80%,
-      #d76ffb 92%,
-      #ea80fc 100%
-    );
+    background: linear-gradient(110deg, #6ba1fb 0%, #a18dfa 50%, #eb75bd 100%);
     background-size: 200% 100%;
     animation: cta-gradient-flow 12s ease-in-out infinite;
+  }
+
+  /* Single gradient from Philosophy block through form to footer — no visible section seams */
+  .gradient-philosophy-to-footer {
+    background: linear-gradient(
+      to bottom,
+      #0f172a 0%,
+      #0d1424 5%,
+      #0f1528 10%,
+      #12162c 16%,
+      #151730 22%,
+      #171836 28%,
+      #191a3b 35%,
+      #1a1a3c 42%,
+      #1a193a 50%,
+      #181836 58%,
+      #161632 65%,
+      #14142e 72%,
+      #111328 80%,
+      #0e1226 88%,
+      #0c1124 94%,
+      #020617 100%
+    );
   }
 }

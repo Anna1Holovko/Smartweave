@@ -199,7 +199,7 @@ export function Header() {
             {/* MOBILE BUTTON */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center border border-slate-700 rounded-lg"
+              className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center border border-slate-700 rounded-full"
             >
               {mobileMenuOpen ? (
                 <X className="w-5 h-5 text-white" />

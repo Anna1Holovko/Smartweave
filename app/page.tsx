@@ -23,10 +23,11 @@ export default function HomePage() {
         <AutomationDetails />
         <PortfolioSection />
         <BlogSection />
-        <PhilosophySection />
-        <CTASection />
-      </main>
-      <Footer />
+        <div className="gradient-philosophy-to-footer">
+          <PhilosophySection />
+          <CTASection />
+          <Footer />
+        </div>
       <ScrollToTop />
     </>
   );

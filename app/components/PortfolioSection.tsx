@@ -132,7 +132,7 @@ export function PortfolioSection() {
         <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }} className="flex justify-center mt-8 sm:mt-12">
           <Link
             href="/realizacje"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cyan-500/50 bg-cyan-500/10 text-cyan-300 font-medium hover:bg-cyan-500/20 hover:border-cyan-400/60 transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-cyan-500/50 bg-cyan-500/10 text-cyan-300 font-medium hover:bg-cyan-500/20 hover:border-cyan-400/60 transition-colors"
           >
             Zobacz wszystkie realizacje
             <ArrowRight className="w-4 h-4" />
