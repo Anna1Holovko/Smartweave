@@ -56,10 +56,9 @@ export function CTASection() {
 
   return (
     <section id="contact" aria-labelledby="contact-heading" className="relative py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-purple-950/30 to-slate-950" />
-      {/* Logo-like animated gradient overlay (soft) */}
+      {/* Soft animated gradient overlay only — main background comes from .gradient-philosophy-to-footer */}
       <div
-        className="absolute inset-0 cta-gradient-animated opacity-[0.12] mix-blend-screen pointer-events-none"
+        className="absolute inset-0 cta-gradient-animated opacity-[0.08] mix-blend-screen pointer-events-none"
         aria-hidden
       />
       <motion.div
