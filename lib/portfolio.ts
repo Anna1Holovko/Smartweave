@@ -3,7 +3,7 @@
  */
 export const PORTFOLIO_ITEMS = [
   {
-    title: 'Kepller - IT & Telekomunikacja',
+    title: 'Kepller',
     category: 'Design',
     description: 'Profesjonalna strona dla firmy telekomunikacyjnej z nowoczesnym designem i strukturą.',
     image: '/assets/kepller-cover.png',
@@ -11,28 +11,12 @@ export const PORTFOLIO_ITEMS = [
     link: 'https://kepller.pl/',
   },
   {
-    title: 'DentalMint',
-    category: 'Design',
-    description: 'Nowoczesna strona brandowa z unikalnym designem, premium animacjami i UX.',
-    image: '/assets/dentalmint-cover.png',
-    gradient: 'from-purple-500 to-pink-500',
-    link: 'https://dentalmint.figma.site',
-  },
-  {
-    title: 'Orthomedica',
+    title: 'OrthoMedica',
     category: 'Design',
     description: 'Nowoczesna strona brandowa z unikalnym designem, premium animacjami i UX.',
     image: '/assets/orthomedicaCover.png',
     gradient: 'from-purple-500 to-pink-500',
-    link: 'https://orthomedicav2.figma.site',
-  },
-  {
-    title: 'Bagiety - Playful Brand Experience',
-    category: 'Design',
-    description: 'Kreatywna strona z interaktywnymi elementami oraz świeżym podejściem do brandu.',
-    image: '/assets/bagiety-cover.png',
-    gradient: 'from-blue-500 to-cyan-500',
-    link: 'https://bagiety.figma.site',
+    link: 'https://orthomedicav5.figma.site',
   },
   {
     title: 'Maison - Baked with Soul',
@@ -41,6 +25,22 @@ export const PORTFOLIO_ITEMS = [
     image: '/assets/maison-cover.png',
     gradient: 'from-amber-500 to-orange-500',
     link: 'https://maisonbakery.figma.site',
+  },
+  {
+    title: 'Bagiety',
+    category: 'Design',
+    description: 'Kreatywna strona z interaktywnymi elementami oraz świeżym podejściem do brandu.',
+    image: '/assets/bagiety-cover.png',
+    gradient: 'from-blue-500 to-cyan-500',
+    link: 'https://bagiety.figma.site',
+  },
+   {
+    title: 'DentalMint',
+    category: 'Design',
+    description: 'Nowoczesna strona brandowa z unikalnym designem, premium animacjami i UX.',
+    image: '/assets/dentalmint-cover.png',
+    gradient: 'from-purple-500 to-pink-500',
+    link: 'https://dentalmint.figma.site',
   },
   {
     title: 'AIYO',
