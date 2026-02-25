@@ -47,7 +47,7 @@ export function Footer() {
                   className="hover:text-purple-400 transition-colors"
                   title="Napisz do SmartWeave"
                 >
-                  hello@smartweave.com
+                  hello@smartweave.pl
                 </a>
               </li>
             </ul>
