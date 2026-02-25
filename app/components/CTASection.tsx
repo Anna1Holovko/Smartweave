@@ -23,7 +23,7 @@ export function CTASection() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          form: 'contact',
+          form: 'cta',
           name: formData.name.trim(),
           email: formData.email.trim(),
           phone: formData.phone?.trim() || undefined,

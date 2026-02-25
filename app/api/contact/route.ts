@@ -1,9 +1,12 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 import { insertContactSubmission } from '@/lib/db';
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const RESEND_FROM = process.env.RESEND_FROM || 'SmartWeave <hello@smartweave.com>';
+const GMAIL_USER = process.env.GMAIL_USER;
+const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD;
 const DEFAULT_FORM = 'contact';
 
 function getFormspreeId(form: string): string | undefined {
@@ -40,12 +43,13 @@ export async function POST(request: Request) {
   const hasDb = !!(process.env.POSTGRES_URL || process.env.DATABASE_URL);
   const formspreeId = getFormspreeId(form);
   const emailTo = getEmailTo(form);
-  const hasEmail = !!(RESEND_API_KEY && emailTo) || !!formspreeId;
+  const hasGmail = !!(GMAIL_USER && GMAIL_APP_PASSWORD && emailTo);
+  const hasEmail = !!(RESEND_API_KEY && emailTo) || hasGmail || !!formspreeId;
 
   if (!hasDb && !hasEmail) {
     return NextResponse.json(
       {
-        error: `Skonfiguruj Neon (POSTGRES_URL – zapisy do bazy) i/lub powiadomienia e-mail: Resend (RESEND_API_KEY + CONTACT_EMAIL_TO) lub Formspree (FORMSPREE_FORM_ID lub FORMSPREE_FORM_ID_${form}).`,
+        error: `Skonfiguruj Neon (POSTGRES_URL) i/lub e-mail: Gmail (GMAIL_USER + GMAIL_APP_PASSWORD + CONTACT_EMAIL_TO_cta), Resend (RESEND_API_KEY + CONTACT_EMAIL_TO), lub Formspree (FORMSPREE_FORM_ID_${form}).`,
       },
       { status: 503 }
     );
@@ -53,7 +57,7 @@ export async function POST(request: Request) {
 
   if (hasDb && !hasEmail) {
     console.warn(
-      '[Contact] Email not configured: set RESEND_API_KEY + CONTACT_EMAIL_TO (or CONTACT_EMAIL_TO_contact), or FORMSPREE_FORM_ID / FORMSPREE_FORM_ID_contact'
+      '[Contact] Email not configured: Gmail (GMAIL_USER + GMAIL_APP_PASSWORD + CONTACT_EMAIL_TO_cta), Resend, or Formspree'
     );
   }
 
@@ -103,7 +107,11 @@ async function sendContactEmail(
   emailTo: string | undefined
 ): Promise<void> {
   if (RESEND_API_KEY && emailTo) {
-    await sendViaResend(data, emailTo);
+    await sendViaResend(data, emailTo, form);
+    return;
+  }
+  if (GMAIL_USER && GMAIL_APP_PASSWORD && emailTo) {
+    await sendViaGmail(data, emailTo, form);
     return;
   }
   if (formspreeId) {
@@ -114,13 +122,15 @@ async function sendContactEmail(
 
 async function sendViaResend(
   data: { name: string; email: string; phone?: string; message: string },
-  emailTo: string
+  emailTo: string,
+  form: string
 ): Promise<void> {
   if (!RESEND_API_KEY) return;
 
   const resend = new Resend(RESEND_API_KEY);
   const to = emailTo.split(',').map((e) => e.trim()).filter(Boolean);
-  const subject = `[SmartWeave] Wiadomość od ${data.name}`;
+  const prefix = form === 'cta' ? '[SmartWeave CTA]' : '[SmartWeave]';
+  const subject = `${prefix} Wiadomość od ${data.name}`;
   const html = [
     `<p><strong>Imię i nazwisko:</strong> ${escapeHtml(data.name)}</p>`,
     `<p><strong>Email:</strong> <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></p>`,
@@ -140,6 +150,43 @@ async function sendViaResend(
   });
 
   if (error) throw new Error(error.message);
+}
+
+/** Free option: send via your Gmail (use App password from Google Account → Security). */
+async function sendViaGmail(
+  data: { name: string; email: string; phone?: string; message: string },
+  emailTo: string,
+  form: string
+): Promise<void> {
+  if (!GMAIL_USER || !GMAIL_APP_PASSWORD) return;
+
+  const prefix = form === 'cta' ? '[SmartWeave CTA]' : '[SmartWeave]';
+  const subject = `${prefix} Wiadomość od ${data.name}`;
+  const html = [
+    `<p><strong>Imię i nazwisko:</strong> ${escapeHtml(data.name)}</p>`,
+    `<p><strong>Email:</strong> <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></p>`,
+    data.phone ? `<p><strong>Telefon:</strong> ${escapeHtml(data.phone)}</p>` : '',
+    '<p><strong>Wiadomość:</strong></p>',
+    `<p>${escapeHtml(data.message).replace(/\n/g, '<br>')}</p>`,
+  ]
+    .filter(Boolean)
+    .join('');
+
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
+    auth: { user: GMAIL_USER, pass: GMAIL_APP_PASSWORD },
+  });
+
+  const toList = emailTo.split(',').map((e) => e.trim()).filter(Boolean);
+  await transporter.sendMail({
+    from: `SmartWeave <${GMAIL_USER}>`,
+    to: toList,
+    replyTo: data.email,
+    subject,
+    html,
+  });
 }
 
 async function sendViaFormspree(
