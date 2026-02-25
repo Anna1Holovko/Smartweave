@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   // ✅ GOOGLE-FRIENDLY FAVICON SETUP
   icons: {
     icon: [
-      { url: '/favicon.png', type: 'image/png' },
+      { url: '/favicon.png', type: 'image/png', sizes: 'any' },
       { url: '/favicon.ico', type: 'image/x-icon' },
       { url: '/assets/smartweave-logo.png', type: 'image/png', sizes: '512x512' },
     ],
