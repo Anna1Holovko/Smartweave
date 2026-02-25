@@ -19,7 +19,7 @@ export function CTASection() {
         setIsSubmitting(false);
         return;
       }
-      const form = e.currentTarget;
+      const form = e.currentTarget as HTMLFormElement;
       const website = (form.elements.namedItem('website') as HTMLInputElement | null)?.value ?? '';
       const res = await fetch('/api/contact', {
         method: 'POST',
