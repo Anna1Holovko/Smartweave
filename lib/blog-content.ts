@@ -100,7 +100,7 @@ export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
     { t: 'h3', c: 'Integracje i rozszerzalność' },
     {
       t: 'p',
-      c: 'Obie platformy oferują dziesiątki gotowych integracji. n8n pozwala łatwo dodać własny węzeł (kod), co ułatwia łączenie z wewnętrznymi systemami i niestandardowymi API.',
+      c: 'Obie platformy oferują dziesiątki gotowych integracji. Make a n8n pozwala łatwo dodać własny węzeł (kod), co ułatwia łączenie z wewnętrznymi systemami i niestandardowymi API.',
     },
     { t: 'h2', c: 'Wnioski na 2026 rok' },
     {
