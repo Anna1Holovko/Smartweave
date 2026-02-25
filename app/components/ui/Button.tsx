@@ -5,9 +5,9 @@ const base =
 
 const variants = {
   primary:
-    'bg-gradient-to-r from-sky-500 via-indigo-400 to-purple-500 text-white hover:scale-105 hover:shadow-[0_0_28px_rgba(129,140,248,0.4)]',
+    'cta-gradient-animated text-white hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]',
   secondary:
-    'bg-transparent border-2 border-slate-700 text-white hover:border-purple-500/50 hover:bg-slate-800/30',
+    'bg-transparent border-2 border-slate-700 text-white hover:border-purple-500/50 hover:bg-slate-800/30 rounded-full',
 };
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {

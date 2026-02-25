@@ -3,7 +3,6 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Send } from 'lucide-react';
 import { useState } from 'react';
-import { Button } from './ui/Button';
 
 export function CTASection() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
@@ -15,36 +14,40 @@ export function CTASection() {
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
     try {
-      if (!formData.name || !formData.email || !formData.message) {
+      if (!formData.name?.trim() || !formData.email?.trim() || !formData.message?.trim()) {
         setSubmitStatus({ type: 'error', message: 'Imię, email i wiadomość są wymagane.' });
         setIsSubmitting(false);
         return;
       }
-      const timestamp = new Date().toISOString();
-      const key = `contact:${Date.now()}:${formData.email}`;
-      const submissionData = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone || null,
-        message: formData.message,
-        timestamp,
-        status: 'new',
-      };
-      try {
-        const existingData = localStorage.getItem('contact_submissions');
-        const submissions = existingData ? JSON.parse(existingData) : [];
-        submissions.push({ key, ...submissionData });
-        localStorage.setItem('contact_submissions', JSON.stringify(submissions));
-      } catch {
-        // ignore
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          form: 'contact',
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone?.trim() || undefined,
+          message: formData.message.trim(),
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setSubmitStatus({
+          type: 'error',
+          message: data.error || 'Nie udało się wysłać wiadomości. Spróbuj później.',
+        });
+        return;
       }
       setSubmitStatus({
         type: 'success',
-        message: '✅ Dziękujemy za wiadomość! Odpowiemy wkrótce.',
+        message: data.message || '✅ Dziękujemy za wiadomość! Odpowiemy wkrótce.',
       });
       setFormData({ name: '', email: '', phone: '', message: '' });
     } catch (err) {
-      setSubmitStatus({ type: 'error', message: 'Błąd: ' + (err instanceof Error ? err.message : 'Nieznany błąd') });
+      setSubmitStatus({
+        type: 'error',
+        message: 'Błąd połączenia. Sprawdź internet i spróbuj ponownie.',
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -68,7 +71,7 @@ export function CTASection() {
               <span className="text-purple-300 text-sm font-medium">Chcesz spróbować?</span>
             </motion.div>
             <motion.h2 id="contact-heading" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Toniesz w codziennych zadaniach? Czas to zmienić.</span>
+              <span className="cta-gradient-animated bg-clip-text text-transparent">Toniesz w codziennych zadaniach? Czas to zmienić.</span>
             </motion.h2>
             <motion.p initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-lg text-slate-400 leading-relaxed">
               Powiedz nam, co zabiera Ci najwięcej czasu - my zautomatyzujemy te procesy i przyspieszymy pracę Twojej firmy. Dzięki inteligentnym rozwiązaniom i AI odzyskasz godziny każdego dnia i skupisz się na tym, co naprawdę przynosi zysk.
@@ -77,7 +80,7 @@ export function CTASection() {
 
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} className="relative">
             <div className="relative overflow-hidden rounded-3xl border border-slate-700/50 bg-slate-900/60 backdrop-blur-xl p-8 shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-blue-500/5 to-transparent" />
+              <div className="absolute inset-0 cta-gradient-animated opacity-[0.08] pointer-events-none" />
               <form onSubmit={handleSubmit} className="relative space-y-6" aria-label="Formularz kontaktowy SmartWeave">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">Imię i nazwisko</label>
@@ -95,13 +98,16 @@ export function CTASection() {
                   <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">Wiadomość</label>
                   <textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Opisz swój problem lub co chcesz usprawnić..." rows={5} required className="w-full min-h-12 px-4 py-3 rounded-xl text-white placeholder:text-slate-500 bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all resize-none" />
                 </div>
-                <Button type="submit" variant="primary" fullWidth disabled={isSubmitting} className="group relative overflow-hidden">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="group relative overflow-hidden w-full inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 disabled:opacity-50 disabled:cursor-not-allowed text-white cta-gradient-animated hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]"
+                >
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     {isSubmitting ? 'Wysyłanie...' : 'Wyślij wiadomość'}
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                </Button>
+                </button>
                 {submitStatus.type && (
                   <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className={`mt-4 px-4 py-3 rounded-xl text-center font-medium ${submitStatus.type === 'success' ? 'bg-green-500/10 text-green-400 border border-green-500/30' : 'bg-red-500/10 text-red-400 border border-red-500/30'}`}>
                     {submitStatus.message}

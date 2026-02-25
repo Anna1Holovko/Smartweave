@@ -53,18 +53,9 @@ export function PortfolioSection() {
           <motion.h2 id="portfolio-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 px-4">
             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Zobacz, jak wspieramy rozwój innych firm</span>
           </motion.h2>
-          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-slate-400 max-w-3xl mx-auto px-4 mb-6">
-            Każdy projekt to wyjątkowa historia. Sprawdź kilka przykładów, w których nasze strony i automatyzacje realnie usprawniły pracę i rozwój biznesu naszych klientów.
+          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2 mb-6">
+            Każdy projekt to wyjątkowa historia. Strony i automatyzacje, które realnie wspierają firmy.
           </motion.p>
-          <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }} className="flex justify-center">
-            <Link
-              href="/realizacje"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-cyan-500/50 bg-cyan-500/10 text-cyan-300 font-medium hover:bg-cyan-500/20 hover:border-cyan-400/60 transition-colors"
-            >
-              Zobacz wszystkie realizacje
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </motion.div>
         </div>
 
         <div className="relative py-8">
@@ -77,25 +68,27 @@ export function PortfolioSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="group relative flex-shrink-0 w-[85vw] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)] min-w-[280px] sm:min-w-[320px]"
+                className="group relative flex-shrink-0 w-[85vw] sm:w-[calc(50%-1rem)] lg:w-[calc((100%-4rem)/3)] min-w-[280px] sm:min-w-[320px]"
               >
-                <a href={item.link} target="_blank" rel="noopener noreferrer" className="block" title={`Zobacz realizację: ${item.title}`}>
-                  <div className="relative overflow-hidden rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl transition-all duration-300 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(147,51,234,0.3)]">
-                    <div className="relative h-64 overflow-hidden p-4">
-                      <div className="relative w-full h-full rounded-lg overflow-hidden">
+                <a href={item.link} target="_blank" rel="noopener noreferrer" className="block h-full" title={`Zobacz realizację: ${item.title}`}>
+                  <div className="relative overflow-hidden rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl transition-all duration-300 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(147,51,234,0.2)] flex flex-col h-full">
+                    {/* Top: image in frame (browser-style) */}
+                    <div className="relative flex-1 min-h-[200px] sm:min-h-[240px] p-3 sm:p-4">
+                      <div className="relative w-full h-full min-h-[180px] sm:min-h-[220px] rounded-lg overflow-hidden bg-slate-800 border border-white/10 shadow-inner">
                         <Image src={item.image} alt={item.title} fill className="object-cover" sizes="(max-width: 640px) 85vw, 50vw" />
-                      </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
-                      <div className="absolute top-4 left-4 z-10">
-                        <div className={`px-3 py-1 bg-gradient-to-r ${item.gradient} rounded-full text-white text-xs font-semibold`}>{item.category}</div>
-                      </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <ExternalLink className="w-8 h-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900/40">
+                          <ExternalLink className="w-8 h-8 text-white" />
+                        </div>
                       </div>
                     </div>
-                    <div className="p-6">
-                      <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">{item.title}</h3>
-                      <p className="text-slate-400 leading-relaxed">{item.description}</p>
+                    {/* Bottom: dark text block – caption above, project name below, arrow bottom-right */}
+                    <div className="relative bg-slate-900 border-t border-slate-700/50 px-4 sm:px-5 py-4 sm:py-5 flex flex-col">
+                      <span className="text-slate-400 text-sm font-normal mb-1">{item.category}</span>
+                      <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-purple-300 transition-colors pr-10">{item.title}</h3>
+                      <div className="absolute right-4 bottom-4 flex items-center justify-center w-9 h-9 rounded-lg border border-slate-600 bg-slate-800/80 text-white group-hover:border-purple-500/50 transition-colors">
+                        <ExternalLink className="w-4 h-4" aria-hidden />
+                      </div>
                     </div>
                     <div className={`absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r ${item.gradient} group-hover:w-full transition-all duration-500`} />
                   </div>
@@ -135,6 +128,16 @@ export function PortfolioSection() {
             </motion.button>
           )}
         </div>
+
+        <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }} className="flex justify-center mt-8 sm:mt-12">
+          <Link
+            href="/realizacje"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-cyan-500/50 bg-cyan-500/10 text-cyan-300 font-medium hover:bg-cyan-500/20 hover:border-cyan-400/60 transition-colors"
+          >
+            Zobacz wszystkie realizacje
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

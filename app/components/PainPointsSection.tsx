@@ -26,10 +26,10 @@ function PainPointCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -8, scale: 1.02 }}
+      whileHover={{ y: -8 }}
       className="group relative"
     >
-      <div className="relative h-full p-8 bg-slate-900/40 backdrop-blur-xl border border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(147,51,234,0.3)]">
+      <div className="relative h-full p-8 bg-slate-900/40 backdrop-blur-xl border border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(147,51,234,0.2)]">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         <div className="relative flex items-center gap-4 mb-6">
           <div className={`flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br ${point.gradient} p-0.5`}>
@@ -40,7 +40,7 @@ function PainPointCard({
           <h3 className="text-xl font-bold text-white">{point.title}</h3>
         </div>
         <p className="relative text-slate-400 leading-relaxed">{point.description}</p>
-        <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${point.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-2xl`} />
+        <div className={`absolute bottom-0 left-0 right-0 h-1 w-0 bg-gradient-to-r ${point.gradient} group-hover:w-full transition-all duration-500 rounded-b-2xl`} />
       </div>
     </motion.div>
   );
@@ -59,8 +59,8 @@ export function PainPointsSection() {
           <motion.h2 id="pain-points-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 px-4">
             Znamy to <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">uczucie...</span>
           </motion.h2>
-          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-slate-400 max-w-3xl mx-auto px-4">
-            Każdy dzień wygląda podobnie: te same zadania, coraz więcej chaosu i narastający stres. Samodzielnie trudno to uporządkować
+          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2">
+            Te same zadania, chaos i stres. Samodzielnie trudno to uporządkować — pomożemy.
           </motion.p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

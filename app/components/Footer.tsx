@@ -1,4 +1,4 @@
-import { Mail } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -8,7 +8,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-gradient-to-b from-purple-950/30 to-slate-950 border-t border-slate-800/50 py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
+    <footer className="relative border-t border-slate-800/50 py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
       <div className="relative z-10 max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
           <div>
@@ -16,9 +16,9 @@ export function Footer() {
             <Image
               src={LOGO}
               alt="SmartWeave"
-              width={0}
-              height={0}
-              sizes="100vw"
+              width={120}
+              height={32}
+              sizes="120px"
               priority
               className="h-8 w-auto mb-4"
             />
@@ -36,6 +36,10 @@ export function Footer() {
               Kontakt
             </h3>
             <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-slate-400" aria-label="Dane kontaktowe">
+              <li className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-purple-400 flex-shrink-0" aria-hidden />
+                <span>Legnicka 48, 54-430 Wrocław, Polska</span>
+              </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-purple-400 flex-shrink-0" aria-hidden />
                 <a

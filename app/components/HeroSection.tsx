@@ -72,7 +72,7 @@ export function HeroSection() {
         >
           Pomożemy Ci{' '}
           <span
-            className="inline-block my-2"
+            className="inline-block my-2 pb-1"
             style={{ fontSize: 'clamp(2.2rem, 6.5vw, 7.5rem)' }}
           >
             <AnimatePresence mode="wait">
@@ -82,7 +82,7 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, y: -12, filter: 'blur(6px)' }}
                 transition={{ duration: 0.4 }}
-                className="inline-block whitespace-nowrap font-bold text-transparent bg-clip-text leading-[1.2]"
+                className="inline-block whitespace-nowrap font-bold text-transparent bg-clip-text leading-[1.35] pb-0.5"
                 style={{
                   backgroundImage:
                     'linear-gradient(to right, #60A5FA, #A78BFA, #F472B6)',
@@ -99,10 +99,7 @@ export function HeroSection() {
         </h1>
 
         {/* Description */}
-        <p
-          className="text-slate-400 mx-auto mt-6 mb-10 max-w-2xl leading-relaxed"
-          style={{ fontSize: 'var(--text-lead)' }}
-        >
+        <p className="text-slate-400 text-base sm:text-xl mx-auto mt-6 mb-10 max-w-[80ch] leading-relaxed px-2">
           Automatyzujemy to, co powtarzalne. Ty weryfikujesz rezultaty.
           Tworzymy strony internetowe gotowe na AI, abyś mógł skupić się
           na tym, co naprawdę ważne.
