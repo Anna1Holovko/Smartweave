@@ -135,9 +135,11 @@ export async function POST(request: Request) {
   if (!dbOk && dbResult.status === 'rejected') {
     console.error('Contact form DB insert error:', dbResult.reason);
   }
+  let emailErr: string | undefined;
   if (!emailOk && emailResult.status === 'rejected') {
     const err = emailResult.reason;
-    console.error('Contact form email error:', err instanceof Error ? err.message : err);
+    emailErr = err instanceof Error ? err.message : String(err);
+    console.error('Contact form email error:', emailErr);
   }
 
   if (dbOk && emailOk) {
@@ -147,10 +149,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
   }
   if (dbOk) {
-    return NextResponse.json({
-      success: true,
-      message: 'Wiadomość zapisana. Powiadomienie e-mail nie zostało wysłane.',
-    });
+    const isDev = process.env.NODE_ENV === 'development';
+    const message =
+      'Wiadomość zapisana. Powiadomienie e-mail nie zostało wysłane.' +
+      (isDev && emailErr ? ` (${emailErr})` : '');
+    return NextResponse.json({ success: true, message });
   }
   return NextResponse.json(
     { error: 'Nie udało się zapisać wiadomości ani wysłać e-maila. Spróbuj później.' },
