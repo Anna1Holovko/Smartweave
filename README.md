@@ -64,7 +64,23 @@ Formularz zapisuje zgłoszenia do bazy (Neon) i/lub wysyła powiadomienia e-mail
    CONTACT_EMAIL_TO_newsletter=newsletter@smartweave.com
    ```
 
-Na Vercelu (lub innym hostingu) ustaw te same zmienne w ustawieniach projektu (Environment Variables).
+### Vercel – sterowanie Resend z poziomu Vercel
+
+Żeby formularz kontaktowy / CTA wysyłał e-maile na produkcji, ustaw w Vercel te same zmienne co w `.env.local`:
+
+1. **Vercel Dashboard** → Twój projekt → **Settings** → **Environment Variables**.
+2. Dodaj (dla **Production**, **Preview** i/lub **Development**, według potrzeb):
+
+| Zmienna | Opis | Przykład |
+|--------|------|----------|
+| `RESEND_API_KEY` | Klucz API z [resend.com](https://resend.com) → API Keys | `re_xxxxxxxxxxxx` |
+| `RESEND_FROM` | Adres nadawcy (zweryfikowana domena lub `onboarding@resend.dev`) | `SmartWeave <hello@smartweave.pl>` |
+| `CONTACT_EMAIL_TO` | Domyślny odbiorca (wiele adresów: po przecinku) | `hello@smartweave.pl` |
+| `CONTACT_EMAIL_TO_cta` | Odbiorcy zgłoszeń z sekcji CTA | `ann7golovko@gmail.com,partner@firma.pl` |
+
+3. **Save** i zrób **Redeploy** (lub poczekaj na kolejny deploy), żeby zmienne zostały wzięte pod uwagę.
+
+Dzięki temu cała konfiguracja Resend (klucz, nadawca, odbiorcy) jest w Vercel – bez commitu `.env.local`.
 
 Dane w Neon, ale brak maila? Dodaj w tym samym miejscu co POSTGRES_URL zmienne e-mail: Resend (RESEND_API_KEY i CONTACT_EMAIL_TO) lub Formspree (FORMSPREE_FORM_ID lub FORMSPREE_FORM_ID_contact). Bez nich e-mail nie jest wysyłany.
 

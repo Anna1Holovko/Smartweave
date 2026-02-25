@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 import { insertContactSubmission } from '@/lib/db';
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const RESEND_FROM = process.env.RESEND_FROM || 'SmartWeave <hello@smartweave.com>';
+const RESEND_FROM = process.env.RESEND_FROM || 'SmartWeave <onboarding@resend.dev>';
 const GMAIL_USER = process.env.GMAIL_USER;
 const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD;
 const DEFAULT_FORM = 'contact';
