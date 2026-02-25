@@ -9,6 +9,34 @@ const GMAIL_USER = process.env.GMAIL_USER;
 const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD;
 const DEFAULT_FORM = 'contact';
 
+const MAX_NAME = 200;
+const MAX_EMAIL = 320;
+const MAX_PHONE = 50;
+const MAX_MESSAGE = 5000;
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const RATE_LIMIT_MAX = 5;
+
+const rateLimitMap = new Map<string, number[]>();
+
+function getClientIp(request: Request): string {
+  const xff = request.headers.get('x-forwarded-for');
+  if (xff) return xff.split(',')[0].trim();
+  const xri = request.headers.get('x-real-ip');
+  if (xri) return xri.trim();
+  return 'unknown';
+}
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const cut = now - RATE_LIMIT_WINDOW_MS;
+  let times = rateLimitMap.get(ip) ?? [];
+  times = times.filter((t) => t > cut);
+  if (times.length >= RATE_LIMIT_MAX) return true;
+  times.push(now);
+  rateLimitMap.set(ip, times);
+  return false;
+}
+
 function getFormspreeId(form: string): string | undefined {
   const key = `FORMSPREE_FORM_ID_${form}`;
   return process.env[key] || process.env.FORMSPREE_FORM_ID;
@@ -19,12 +47,34 @@ function getEmailTo(form: string): string | undefined {
   return process.env[key] || process.env.CONTACT_EMAIL_TO;
 }
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export async function POST(request: Request) {
-  let body: { form?: string; name?: string; email?: string; phone?: string; message?: string };
+  const ip = getClientIp(request);
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: 'Zbyt wiele prób. Spróbuj za chwilę.' },
+      { status: 429 }
+    );
+  }
+
+  let body: {
+    form?: string;
+    name?: string;
+    email?: string;
+    phone?: string;
+    message?: string;
+    website?: string;
+    _hp?: string;
+  };
   try {
     body = await request.json();
   } catch {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
+  }
+
+  if (body.website?.trim() || body._hp?.trim()) {
+    return NextResponse.json({ success: true });
   }
 
   const form = (body.form?.trim() || DEFAULT_FORM).toLowerCase().replace(/\s+/g, '_');
@@ -40,6 +90,16 @@ export async function POST(request: Request) {
     );
   }
 
+  if (name.length > MAX_NAME || email.length > MAX_EMAIL || !EMAIL_REGEX.test(email)) {
+    return NextResponse.json({ error: 'Nieprawidłowe dane.' }, { status: 400 });
+  }
+  if (phone && phone.length > MAX_PHONE) {
+    return NextResponse.json({ error: 'Nieprawidłowe dane.' }, { status: 400 });
+  }
+  if (message.length > MAX_MESSAGE) {
+    return NextResponse.json({ error: 'Wiadomość jest za długa.' }, { status: 400 });
+  }
+
   const hasDb = !!(process.env.POSTGRES_URL || process.env.DATABASE_URL);
   const formspreeId = getFormspreeId(form);
   const emailTo = getEmailTo(form);
@@ -48,9 +108,7 @@ export async function POST(request: Request) {
 
   if (!hasDb && !hasEmail) {
     return NextResponse.json(
-      {
-        error: `Skonfiguruj Neon (POSTGRES_URL) i/lub e-mail: Gmail (GMAIL_USER + GMAIL_APP_PASSWORD + CONTACT_EMAIL_TO_cta), Resend (RESEND_API_KEY + CONTACT_EMAIL_TO), lub Formspree (FORMSPREE_FORM_ID_${form}).`,
-      },
+      { error: 'Formularz jest tymczasowo niedostępny. Spróbuj później.' },
       { status: 503 }
     );
   }

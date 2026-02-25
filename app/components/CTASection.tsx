@@ -19,6 +19,8 @@ export function CTASection() {
         setIsSubmitting(false);
         return;
       }
+      const form = e.currentTarget;
+      const website = (form.elements.namedItem('website') as HTMLInputElement | null)?.value ?? '';
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -28,6 +30,7 @@ export function CTASection() {
           email: formData.email.trim(),
           phone: formData.phone?.trim() || undefined,
           message: formData.message.trim(),
+          website,
         }),
       });
       const data = await res.json().catch(() => ({}));
@@ -82,6 +85,10 @@ export function CTASection() {
             <div className="relative overflow-hidden rounded-3xl border border-slate-700/50 bg-slate-900/60 backdrop-blur-xl p-8 shadow-2xl">
               <div className="absolute inset-0 cta-gradient-animated opacity-[0.08] pointer-events-none" />
               <form onSubmit={handleSubmit} className="relative space-y-6" aria-label="Formularz kontaktowy SmartWeave">
+                <div className="absolute -left-[9999px] opacity-0 pointer-events-none h-0 overflow-hidden" aria-hidden="true">
+                  <label htmlFor="website">Nie wypełniaj</label>
+                  <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+                </div>
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">Imię i nazwisko</label>
                   <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Jan Kowalski" required className="w-full h-12 min-h-12 px-4 rounded-xl text-white placeholder:text-slate-500 bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all" />
