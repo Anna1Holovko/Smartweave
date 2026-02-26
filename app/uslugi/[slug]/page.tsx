@@ -11,6 +11,7 @@ import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS } from '@/lib/layout';
 import { ArrowLeft, Check, ExternalLink } from 'lucide-react';
 import { UslugiConsultationBlock } from '@/app/components/UslugiConsultationBlock';
+import { AiAnimationSection } from '@/app/components/AiAnimationSection';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 
 const SLUG_TITLES: Record<string, string> = {
@@ -74,34 +75,37 @@ export default async function UslugiSlugPage({
               </Link>
             </MotionFadeIn>
 
-            <MotionFadeIn delay={0.1} className="text-center mb-12 sm:mb-20">
-              <span className="inline-block mb-3 sm:mb-4 px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-300 text-xs sm:text-sm font-medium uppercase tracking-wider">
-                Oferta
-              </span>
-              <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent px-2 break-words`}>
-                {service.title}
-              </h1>
-              <p className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2 mt-4">
-                {service.description}
-              </p>
-            </MotionFadeIn>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start">
+              {/* Left: text */}
+              <div className="order-2 lg:order-1 space-y-6 lg:space-y-8">
+                <MotionFadeIn delay={0.1} className="text-center lg:text-left">
+                  <span className="inline-block mb-3 sm:mb-4 px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-300 text-xs sm:text-sm font-medium uppercase tracking-wider">
+                    Oferta
+                  </span>
+                  <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent px-2 pb-[0.2em] break-words leading-snug mt-3 sm:mt-4`}>
+                    {service.title}
+                  </h1>
+                  <p className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto lg:mx-0 px-2 mt-4">
+                    {service.description}
+                  </p>
+                </MotionFadeIn>
 
-            <MotionFadeIn delay={0.2}>
-              <div className="relative overflow-hidden rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl p-8 md:p-10 transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)]">
-                <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} rounded-b-2xl`} />
-                <h2 className="text-lg sm:text-xl font-semibold text-white mb-6">Zakres usługi</h2>
-                <ul className="space-y-4 text-slate-400">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-sm sm:text-base">
-                      <Check className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" aria-hidden />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </MotionFadeIn>
+                <MotionFadeIn delay={0.2}>
+                  <div className="relative overflow-hidden rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl p-8 md:p-10 transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)]">
+                    <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} rounded-b-2xl`} />
+                    <h2 className="text-lg sm:text-xl font-semibold text-white mb-6">Zakres usługi</h2>
+                    <ul className="space-y-4 text-slate-400">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-3 text-sm sm:text-base">
+                          <Check className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" aria-hidden />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </MotionFadeIn>
 
-            {slug === 'strony' && (
+                {slug === 'strony' && (
               <MotionFadeIn delay={0.25} className="mt-12 sm:mt-16 lg:mt-20">
                 <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">Realizacje</h2>
                 <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
@@ -156,6 +160,13 @@ export default async function UslugiSlugPage({
                 </div>
               </MotionFadeIn>
             )}
+              </div>
+
+              {/* Right: AI animation */}
+              <MotionFadeIn delay={0.15} className="order-1 lg:order-2 w-full lg:sticky lg:top-24">
+                <AiAnimationSection />
+              </MotionFadeIn>
+            </div>
           </div>
         </section>
 
