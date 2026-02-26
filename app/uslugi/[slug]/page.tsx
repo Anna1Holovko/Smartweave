@@ -95,8 +95,8 @@ export default async function UslugiSlugPage({
                   <div
                     className={
                       slug === 'automatyzacja'
-                        ? 'relative overflow-hidden rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl p-8 md:p-10 transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)]'
-                        : 'relative p-8 md:p-10 border border-slate-700/30 bg-transparent'
+                        ? 'relative overflow-hidden rounded-2xl bg-slate-900/40 backdrop-blur-xl p-8 md:p-10 transition-all duration-300 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)]'
+                        : 'relative p-8 md:p-10 bg-transparent'
                     }
                   >
                     {slug === 'automatyzacja' && (
