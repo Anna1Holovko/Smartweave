@@ -76,7 +76,7 @@ export default function BlogPage() {
             <div className="mt-10 sm:mt-12 lg:mt-16 text-center">
               <Link
                 href="/#contact"
-                className="inline-flex items-center justify-center gap-2 min-h-[48px] px-5 sm:px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm sm:text-base font-semibold hover:opacity-90 transition-opacity"
+                className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 text-white cta-gradient-animated hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]"
               >
                 Skontaktuj się z nami
               </Link>
