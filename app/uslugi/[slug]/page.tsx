@@ -88,12 +88,20 @@ export default async function UslugiSlugPage({
               </p>
             </MotionFadeIn>
 
-            {/* One row: text (left) + animation (right) */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start">
-              <div className="order-2 lg:order-1 space-y-6 lg:space-y-8">
+            {/* One row on automatyzacja: text (left) + animation (right); other slugs: single column, transparent style */}
+            <div className={`grid gap-8 lg:gap-12 xl:gap-16 items-start ${slug === 'automatyzacja' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
+              <div className={slug === 'automatyzacja' ? 'order-2 lg:order-1 space-y-6 lg:space-y-8' : 'space-y-6 lg:space-y-8'}>
                 <MotionFadeIn delay={0.2}>
-                  <div className="relative overflow-hidden rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl p-8 md:p-10 transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)]">
-                    <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} rounded-b-2xl`} />
+                  <div
+                    className={
+                      slug === 'automatyzacja'
+                        ? 'relative overflow-hidden rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl p-8 md:p-10 transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)]'
+                        : 'relative p-8 md:p-10 border border-slate-700/30 bg-transparent'
+                    }
+                  >
+                    {slug === 'automatyzacja' && (
+                      <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} rounded-b-2xl`} />
+                    )}
                     <h2 className="text-lg sm:text-xl font-semibold text-white mb-6">Zakres usługi</h2>
                     <ul className="space-y-4 text-slate-400">
                       {service.features.map((feature, idx) => (
@@ -105,10 +113,20 @@ export default async function UslugiSlugPage({
                     </ul>
                   </div>
                 </MotionFadeIn>
+              </div>
 
-                {slug === 'strony' && (
-              <MotionFadeIn delay={0.25} className="mt-12 sm:mt-16 lg:mt-20">
-                <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">Realizacje</h2>
+              {/* Right: AI animation only on Automatyzacja procesów i agenci AI */}
+              {slug === 'automatyzacja' && (
+                <MotionFadeIn delay={0.15} className="order-1 lg:order-2 w-full lg:sticky lg:top-24 hidden lg:block">
+                  <AiAnimationSection />
+                </MotionFadeIn>
+              )}
+            </div>
+
+            {/* Realizacje – full-width section, 3 columns (only on strony) */}
+            {slug === 'strony' && (
+              <MotionFadeIn delay={0.25} className="w-full mt-12 sm:mt-16 lg:mt-20">
+                <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">Realizacje na stronach internetowych</h2>
                 <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                   {PORTFOLIO_ITEMS.map((item, index) => (
                     <article
@@ -161,13 +179,6 @@ export default async function UslugiSlugPage({
                 </div>
               </MotionFadeIn>
             )}
-              </div>
-
-              {/* Right: AI animation */}
-              <MotionFadeIn delay={0.15} className="order-1 lg:order-2 w-full lg:sticky lg:top-24 hidden lg:block">
-                <AiAnimationSection />
-              </MotionFadeIn>
-            </div>
           </div>
         </section>
 
