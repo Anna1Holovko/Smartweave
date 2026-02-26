@@ -88,7 +88,7 @@ export default function RealizacjePage() {
             <div className="mt-10 sm:mt-12 lg:mt-16 text-center">
               <Link
                 href="/#contact"
-                className="inline-flex items-center justify-center gap-2 min-h-[48px] px-5 sm:px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm sm:text-base font-semibold hover:opacity-90 transition-opacity"
+                className="inline-flex items-center justify-center gap-2 min-h-[48px] px-5 sm:px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm sm:text-base font-semibold hover:opacity-90 transition-opacity"
               >
                 Porozmawiajmy o Twoim projekcie
               </Link>

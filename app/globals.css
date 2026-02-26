@@ -107,7 +107,7 @@
     clip-path: inset(50%);
   }
   .skip-link:focus {
-    @apply fixed top-4 left-4 z-[100] px-4 py-2 bg-purple-600 text-white rounded-lg outline-none;
+    @apply fixed top-4 left-4 z-[100] px-4 py-2 bg-purple-600 text-white rounded-full outline-none;
     width: auto;
     height: auto;
     clip: auto;

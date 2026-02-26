@@ -121,7 +121,7 @@ export default async function UslugiSlugPage({
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 bg-transparent border-2 border-slate-700 text-white hover:border-purple-500/50 hover:bg-slate-800/30"
                   >
-                    Umów spotkanie (Calendly)
+                    Umów spotkanie
                   </a>
                 )}
               </div>

@@ -84,7 +84,7 @@ export function ServicesSection() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="flex justify-center mb-12">
           <Link
             href="/uslugi"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-blue-500/50 bg-blue-500/10 text-blue-300 font-medium hover:bg-blue-500/20 hover:border-blue-400/60 transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-blue-500/50 bg-blue-500/10 text-blue-300 font-medium hover:bg-blue-500/20 hover:border-blue-400/60 transition-colors"
           >
             Zobacz pełną ofertę usług
             <ArrowRight className="w-4 h-4" />
