@@ -39,6 +39,7 @@ export function ServicesSection() {
           {SERVICES.filter((s) => s.slug !== 'agenci-ai').map((service, index) => {
             const iconIndex = SERVICES.findIndex((s) => s.slug === service.slug);
             const Icon = SERVICE_ICONS[iconIndex] ?? Globe;
+            const displayTitle = service.slug === 'automatyzacja' ? 'Automatyzacja procesów' : service.title;
             return (
               <motion.div
                 key={service.slug}
@@ -59,7 +60,7 @@ export function ServicesSection() {
                         <Icon className="w-7 h-7 text-white" />
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold text-white flex-1 min-w-0">{service.title}</h3>
+                    <h3 className="text-xl font-bold text-white flex-1 min-w-0">{displayTitle}</h3>
                     <div className="flex-shrink-0 w-9 h-9 rounded-lg border border-slate-600/50 bg-slate-800/80 flex items-center justify-center text-slate-400 group-hover:text-purple-400 group-hover:border-purple-500/50 transition-colors" aria-hidden>
                       <ArrowUpRight className="w-4 h-4" />
                     </div>
