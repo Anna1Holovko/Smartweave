@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ScrollToTop } from '../components/ScrollToTop';
+import { PhilosophySection } from '../components/PhilosophySection';
+import { CTASection } from '../components/CTASection';
 import { PageIntro } from '../components/PageIntro';
 import { SERVICES } from '@/lib/services';
 import { SITE_URL, CALENDLY_URL } from '@/lib/site';
@@ -27,7 +29,7 @@ export default function UslugiPage() {
   return (
     <>
       <Header />
-      <main id="main-content" role="main" className="min-h-screen">
+      <main id="main-content" role="main">
         <section className={SECTION_CLASS}>
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-blue-950/30 to-slate-950" />
           <div className="absolute top-0 left-1/4 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-blue-500/10 rounded-full blur-3xl" />
@@ -83,12 +85,13 @@ export default function UslugiPage() {
               })}
             </div>
 
-            <div className="relative overflow-hidden rounded-2xl p-8 md:p-12 text-center border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Nie jesteś pewien, które rozwiązanie jest dla Ciebie?</h2>
-              <p className="text-base sm:text-xl text-slate-400 mb-8 max-w-[80ch] mx-auto px-2">
+            <div className="relative overflow-hidden rounded-3xl border border-slate-700/50 bg-slate-900/60 backdrop-blur-xl p-8 md:p-12 text-center shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5 pointer-events-none" />
+              <h2 className="relative text-2xl sm:text-3xl font-bold text-white mb-4">Nie jesteś pewien, które rozwiązanie jest dla Ciebie?</h2>
+              <p className="relative text-base sm:text-xl text-slate-400 mb-8 max-w-[80ch] mx-auto px-2">
                 Umów bezpłatną konsultację — porozmawiamy o wyzwaniach i zaproponujemy rozwiązanie.
               </p>
-              <div className="flex flex-wrap items-center justify-center gap-4">
+              <div className="relative flex flex-wrap items-center justify-center gap-4">
                 <Link href="/#contact">
                   <Button variant="primary">Napisz do nas</Button>
                 </Link>
@@ -106,8 +109,13 @@ export default function UslugiPage() {
             </div>
           </div>
         </section>
+
+        <div className="gradient-philosophy-to-footer">
+          <PhilosophySection />
+          <CTASection />
+          <Footer />
+        </div>
       </main>
-      <Footer />
       <ScrollToTop />
     </>
   );

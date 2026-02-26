@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import { Header } from '@/app/components/Header';
 import { Footer } from '@/app/components/Footer';
 import { ScrollToTop } from '@/app/components/ScrollToTop';
+import { PhilosophySection } from '@/app/components/PhilosophySection';
+import { CTASection } from '@/app/components/CTASection';
 import { MotionFadeIn } from '@/app/components/MotionFadeIn';
 import { Button } from '@/app/components/ui/Button';
 import { SERVICES, getServiceBySlug, SERVICE_SLUGS } from '@/lib/services';
@@ -59,7 +61,8 @@ export default async function UslugiSlugPage({
   return (
     <>
       <Header />
-      <main id="main-content" role="main" className="min-h-screen">
+      <main id="main-content" role="main">
+        {/* Service intro – same section style as home */}
         <section className={SECTION_CLASS}>
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-blue-950/30 to-slate-950" />
           <div className="absolute top-0 left-1/4 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-blue-500/10 rounded-full blur-3xl" />
@@ -94,7 +97,7 @@ export default async function UslugiSlugPage({
               </p>
             </MotionFadeIn>
 
-            <div className="max-w-3xl">
+            <MotionFadeIn delay={0.2} className="max-w-3xl">
               <h2 className="text-lg sm:text-xl font-semibold text-white mb-4">Zakres usługi</h2>
               <ul className="space-y-3 text-slate-400">
                 {service.features.map((feature, idx) => (
@@ -104,33 +107,42 @@ export default async function UslugiSlugPage({
                   </li>
                 ))}
               </ul>
-            </div>
+            </MotionFadeIn>
 
-            <div className="mt-12 sm:mt-16 lg:mt-20 relative overflow-hidden rounded-2xl p-8 md:p-12 text-center border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Zainteresowała Cię ta usługa?</h2>
-              <p className="text-base sm:text-xl text-slate-400 mb-8 max-w-[80ch] mx-auto px-2">
-                Umów bezpłatną konsultację — opowiemy o szczegółach i dopasujemy rozwiązanie do Twoich potrzeb.
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-4">
-                <Link href="/#contact">
-                  <Button variant="primary">Napisz do nas</Button>
-                </Link>
-                {CALENDLY_URL && (
-                  <a
-                    href={CALENDLY_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 bg-transparent border-2 border-slate-700 text-white hover:border-purple-500/50 hover:bg-slate-800/30"
-                  >
-                    Umów spotkanie
-                  </a>
-                )}
+            <MotionFadeIn delay={0.3} className="mt-12 sm:mt-16 lg:mt-20">
+              <div className="relative overflow-hidden rounded-3xl border border-slate-700/50 bg-slate-900/60 backdrop-blur-xl p-8 md:p-12 text-center shadow-2xl">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5 pointer-events-none" />
+                <h2 className="relative text-2xl sm:text-3xl font-bold text-white mb-4">Zainteresowała Cię ta usługa?</h2>
+                <p className="relative text-base sm:text-xl text-slate-400 mb-8 max-w-[80ch] mx-auto px-2">
+                  Umów bezpłatną konsultację — opowiemy o szczegółach i dopasujemy rozwiązanie do Twoich potrzeb.
+                </p>
+                <div className="relative flex flex-wrap items-center justify-center gap-4">
+                  <Link href="/#contact">
+                    <Button variant="primary">Napisz do nas</Button>
+                  </Link>
+                  {CALENDLY_URL && (
+                    <a
+                      href={CALENDLY_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 bg-transparent border-2 border-slate-700 text-white hover:border-purple-500/50 hover:bg-slate-800/30"
+                    >
+                      Umów spotkanie
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
+            </MotionFadeIn>
           </div>
         </section>
+
+        {/* Same bottom block as home: gradient + Philosophy + CTA + Footer */}
+        <div className="gradient-philosophy-to-footer">
+          <PhilosophySection />
+          <CTASection />
+          <Footer />
+        </div>
       </main>
-      <Footer />
       <ScrollToTop />
     </>
   );

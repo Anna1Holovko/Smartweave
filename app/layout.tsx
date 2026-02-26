@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import './globals.css';
 import { ClientLayout } from './ClientLayout';
 import {
@@ -217,6 +218,13 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <body className="bg-slate-950 text-white antialiased">
+        <Script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="ffa403a8-8585-416e-8368-83968786fece"
+          data-blockingmode="auto"
+          strategy="beforeInteractive"
+        />
         <a href="#main-content" className="skip-link">
           Przejdź do treści
         </a>
