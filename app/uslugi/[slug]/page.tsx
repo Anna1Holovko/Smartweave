@@ -160,6 +160,7 @@ export default async function UslugiSlugPage({
         </section>
 
         <UslugiConsultationBlock
+          variant="centered"
           title="Zainteresowała Cię ta usługa?"
           description="Umów bezpłatną konsultację — opowiemy o szczegółach i dopasujemy rozwiązanie do Twoich potrzeb."
         />
