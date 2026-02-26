@@ -4,7 +4,6 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ScrollToTop } from '../components/ScrollToTop';
 import { PhilosophySection } from '../components/PhilosophySection';
-import { CTASection } from '../components/CTASection';
 import { PageIntro } from '../components/PageIntro';
 import { UslugiServiceCards } from '../components/UslugiServiceCards';
 import { MotionFadeIn } from '../components/MotionFadeIn';
@@ -79,7 +78,6 @@ export default function UslugiPage() {
 
         <div className="gradient-philosophy-to-footer">
           <PhilosophySection />
-          <CTASection />
           <Footer />
         </div>
       </main>
