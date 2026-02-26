@@ -27,6 +27,9 @@ export const OG_TITLE = 'Design i automatyzacja dla firm – SmartWeave';
 export const OG_DESCRIPTION =
   'Projektujemy strony i wdrażamy automatyzację procesów. Design i automatyzacja dla małych i średnich firm.';
 
+/** Calendly booking URL. Override with NEXT_PUBLIC_CALENDLY_URL in env. */
+export const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? 'https://calendly.com/hello-smartweave/30min';
+
 /** Routes included in the sitemap (path only, no leading slash for root) */
 export const SITEMAP_ROUTES = [
   { path: '', priority: 1, changeFrequency: 'weekly' as const },

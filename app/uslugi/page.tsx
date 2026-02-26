@@ -5,7 +5,7 @@ import { Footer } from '../components/Footer';
 import { ScrollToTop } from '../components/ScrollToTop';
 import { PageIntro } from '../components/PageIntro';
 import { SERVICES } from '@/lib/services';
-import { SITE_URL } from '@/lib/site';
+import { SITE_URL, CALENDLY_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 import { Globe, Workflow, Palette, Check, ArrowUpRight } from 'lucide-react';
 import { Button } from '../components/ui/Button';
@@ -88,9 +88,21 @@ export default function UslugiPage() {
               <p className="text-base sm:text-xl text-slate-400 mb-8 max-w-[80ch] mx-auto px-2">
                 Umów bezpłatną konsultację — porozmawiamy o wyzwaniach i zaproponujemy rozwiązanie.
               </p>
-              <Link href="/#contact">
-                <Button variant="primary">Umów konsultację</Button>
-              </Link>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <Link href="/#contact">
+                  <Button variant="primary">Napisz do nas</Button>
+                </Link>
+                {CALENDLY_URL && (
+                  <a
+                    href={CALENDLY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 bg-transparent border-2 border-slate-700 text-white hover:border-purple-500/50 hover:bg-slate-800/30"
+                  >
+                    Umów spotkanie (Calendly)
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         </section>
