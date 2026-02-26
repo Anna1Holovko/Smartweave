@@ -11,9 +11,10 @@ import { Button } from './ui/Button';
 const LOGO = '/assets/smartweave-logo.png';
 
 const uslugiDropdownItems = [
-  { name: 'Strony WWW', href: '/uslugi/strony' },
-  { name: 'Branding', href: '/uslugi/branding' },
-  { name: 'Automatyzacja i AI', href: '/uslugi/automatyzacja' },
+  { name: 'Automatyzacja procesów biznesowych', href: '/uslugi/automatyzacja' },
+  { name: 'Agenci AI', href: '/uslugi/agenci-ai' },
+  { name: 'Strony internetowe', href: '/uslugi/strony' },
+  { name: 'Logo i identyfikacja wizualna', href: '/uslugi/branding' },
 ] as const;
 
 const navItems = [

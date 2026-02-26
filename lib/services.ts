@@ -47,9 +47,23 @@ export const SERVICES = [
     ],
     gradient: 'from-purple-500 to-pink-500',
   },
+  {
+    number: '04',
+    slug: 'agenci-ai',
+    title: 'Agenci AI',
+    description:
+      'Inteligentni asystenci, którzy wykonują powtarzalne zadania: obsługa zapytań, analiza dokumentów, wsparcie w komunikacji z klientami. Wdrażamy rozwiązania oparte na modelach językowych i automatyzacji opartej na AI.',
+    features: [
+      'Asystenci AI do obsługi klienta i wewnętrznych zapytań',
+      'Automatyczna analiza dokumentów i raportów',
+      'Integracja z chatem, e-mailem i narzędziami zespołowymi',
+      'Szyte na miarę przepływy (workflows) z użyciem AI',
+    ],
+    gradient: 'from-violet-500 to-fuchsia-500',
+  },
 ] as const;
 
-export const SERVICE_SLUGS = ['strony', 'branding', 'automatyzacja'] as const;
+export const SERVICE_SLUGS = ['strony', 'branding', 'automatyzacja', 'agenci-ai'] as const;
 export type ServiceSlug = (typeof SERVICE_SLUGS)[number];
 
 export function getServiceBySlug(slug: string): (typeof SERVICES)[number] | undefined {

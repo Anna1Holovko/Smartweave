@@ -7,7 +7,7 @@ import { PageIntro } from '../components/PageIntro';
 import { SERVICES } from '@/lib/services';
 import { SITE_URL, CALENDLY_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
-import { Globe, Workflow, Palette, Check, ArrowUpRight } from 'lucide-react';
+import { Globe, Workflow, Palette, Bot, Check, ArrowUpRight } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
 };
 
-const SERVICE_ICONS = [Globe, Palette, Workflow] as const;
+const SERVICE_ICONS = [Globe, Palette, Workflow, Bot] as const;
 
 export default function UslugiPage() {
   return (
@@ -48,7 +48,7 @@ export default function UslugiPage() {
               className={INTRO_MB_CLASS}
             />
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16 items-stretch">
               {SERVICES.map((service, index) => {
                 const Icon = SERVICE_ICONS[index];
                 return (

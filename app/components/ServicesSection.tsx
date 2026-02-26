@@ -2,12 +2,12 @@
 
 import { motion } from 'motion/react';
 import Link from 'next/link';
-import { Globe, Workflow, Check, Palette, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Globe, Workflow, Check, Palette, Bot, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Button } from './ui/Button';
 import { SERVICES } from '@/lib/services';
 import { CALENDLY_URL } from '@/lib/site';
 
-const SERVICE_ICONS = [Globe, Palette, Workflow] as const;
+const SERVICE_ICONS = [Globe, Palette, Workflow, Bot] as const;
 
 const _servicesRemoved = [
   { number: '01', icon: Globe, title: 'Projektowanie i wdrażanie stron internetowych', description: 'Strony www dla firm — nowoczesne, szybkie i skuteczne.  Tworzymy strony, które pomagają klientom łatwo Cię znaleźć i budują zaufanie do Twojej marki od pierwszego kontaktu.', features: ['Tworzenie responsywnych stron dopasowanych do wszystkich urządzeń', 'Strona zoptymalizowana pod SEO i GEO (wyszukiwarki oraz systemy AI)', 'Projekt spójnej identyfikacji wizualnej marki', 'Hosting oraz bieżące wsparcie techniczne', 'Prowadzenie kampanii Google Ads', 'Integracja z narzędziami Google (Search Console, GA4, Google Maps)', 'Strona zaprojektowana pod skuteczną konwersję'], gradient: 'from-blue-500 to-cyan-500' },
@@ -35,7 +35,7 @@ export function ServicesSection() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16 items-stretch">
           {SERVICES.map((service, index) => {
             const Icon = SERVICE_ICONS[index];
             return (

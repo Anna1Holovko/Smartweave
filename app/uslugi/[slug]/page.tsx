@@ -9,14 +9,15 @@ import { Button } from '@/app/components/ui/Button';
 import { SERVICES, getServiceBySlug, SERVICE_SLUGS } from '@/lib/services';
 import { SITE_URL, CALENDLY_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS } from '@/lib/layout';
-import { ArrowLeft, Globe, Workflow, Palette, Check } from 'lucide-react';
+import { ArrowLeft, Globe, Workflow, Palette, Check, Bot } from 'lucide-react';
 
-const SERVICE_ICONS = [Globe, Palette, Workflow] as const;
+const SERVICE_ICONS = [Globe, Palette, Workflow, Bot] as const;
 
 const SLUG_TITLES: Record<string, string> = {
-  strony: 'Strony WWW',
-  branding: 'Branding',
-  automatyzacja: 'Automatyzacja i AI',
+  strony: 'Strony internetowe',
+  branding: 'Logo i identyfikacja wizualna',
+  automatyzacja: 'Automatyzacja procesów biznesowych',
+  'agenci-ai': 'Agenci AI',
 };
 
 export async function generateStaticParams() {
