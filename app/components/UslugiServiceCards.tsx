@@ -9,7 +9,7 @@ const SERVICE_ICONS = [Globe, Palette, Workflow, Bot] as const;
 
 export function UslugiServiceCards() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16 items-stretch">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 items-stretch">
       {SERVICES.map((service, index) => {
         const Icon = SERVICE_ICONS[index];
         return (
