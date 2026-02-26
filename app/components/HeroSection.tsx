@@ -2,9 +2,9 @@
 
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
-import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from './ui/Button';
+import { CALENDLY_URL } from '@/lib/site';
 
 const phrases = [
   'odzyskać czas',
@@ -36,13 +36,6 @@ export function HeroSection() {
 
     return () => clearInterval(interval);
   }, []);
-
-  const scrollTo = (id: string) => {
-    document.querySelector(id)?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
-  };
 
   return (
     <section
@@ -107,20 +100,21 @@ export function HeroSection() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-          <Button
-            variant="primary"
-            className="sm:w-auto group"
-            onClick={() => scrollTo('#contact')}
-          >
-            Porozmawiajmy
-            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
-
-          <Link href="/realizacje" className="inline-block">
-            <Button variant="secondary" className="sm:w-auto">
-              Zobacz Case Studies
+          <Link href="/#contact">
+            <Button variant="primary" className="sm:w-auto">
+              Napisz do nas
             </Button>
           </Link>
+          {CALENDLY_URL && (
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 bg-transparent border-2 border-slate-700 text-white hover:border-purple-500/50 hover:bg-slate-800/30"
+            >
+              Umów spotkanie
+            </a>
+          )}
         </div>
       </div>
 
