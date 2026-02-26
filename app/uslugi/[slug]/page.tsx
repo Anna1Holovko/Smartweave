@@ -75,21 +75,22 @@ export default async function UslugiSlugPage({
               </Link>
             </MotionFadeIn>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start">
-              {/* Left: text */}
-              <div className="order-2 lg:order-1 space-y-6 lg:space-y-8">
-                <MotionFadeIn delay={0.1} className="text-center lg:text-left">
-                  <span className="inline-block mb-3 sm:mb-4 px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-300 text-xs sm:text-sm font-medium uppercase tracking-wider">
-                    Oferta
-                  </span>
-                  <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent px-2 pb-[0.2em] break-words leading-snug mt-3 sm:mt-4`}>
-                    {service.title}
-                  </h1>
-                  <p className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto lg:mx-0 px-2 mt-4">
-                    {service.description}
-                  </p>
-                </MotionFadeIn>
+            {/* Centred title and description */}
+            <MotionFadeIn delay={0.1} className="text-center mb-10 sm:mb-12 lg:mb-14">
+              <span className="inline-block mb-3 sm:mb-4 px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-300 text-xs sm:text-sm font-medium uppercase tracking-wider">
+                Oferta
+              </span>
+              <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent px-2 pb-[0.2em] break-words leading-snug mt-3 sm:mt-4`}>
+                {service.title}
+              </h1>
+              <p className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2 mt-4">
+                {service.description}
+              </p>
+            </MotionFadeIn>
 
+            {/* One row: text (left) + animation (right) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start">
+              <div className="order-2 lg:order-1 space-y-6 lg:space-y-8">
                 <MotionFadeIn delay={0.2}>
                   <div className="relative overflow-hidden rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl p-8 md:p-10 transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)]">
                     <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} rounded-b-2xl`} />
@@ -163,7 +164,7 @@ export default async function UslugiSlugPage({
               </div>
 
               {/* Right: AI animation */}
-              <MotionFadeIn delay={0.15} className="order-1 lg:order-2 w-full lg:sticky lg:top-24">
+              <MotionFadeIn delay={0.15} className="order-1 lg:order-2 w-full lg:sticky lg:top-24 hidden lg:block">
                 <AiAnimationSection />
               </MotionFadeIn>
             </div>

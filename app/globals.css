@@ -174,20 +174,20 @@
     max-height: 520px;
     border-radius: 1rem;
     overflow: hidden;
-    background: linear-gradient(135deg, #14002a, #1a0a4a, #2b0f80);
+    background: transparent;
   }
   .ai-animation-grid {
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
     background-size: 60px 60px;
     opacity: 0;
     animation: aiGridFade 1.5s ease forwards;
   }
   @keyframes aiGridFade {
-    to { opacity: 0.25; }
+    to { opacity: 0.15; }
   }
   .ai-animation-svg {
     position: absolute;
@@ -196,13 +196,20 @@
     height: 100%;
     pointer-events: none;
   }
+  .ai-outer-ring {
+    stroke: rgba(34,211,238,0.4);
+    stroke-width: 1.5;
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+    animation: aiDrawLine 2s ease forwards 0.5s;
+  }
   .ai-conn {
     stroke: url(#aiLineGlow);
     stroke-width: 1.5;
     fill: none;
     stroke-dasharray: 600;
     stroke-dashoffset: 600;
-    opacity: 0.7;
+    opacity: 0.85;
     animation: aiDrawLine 1.5s ease forwards 1.5s, aiPulseLine 6s linear infinite 3s;
   }
   @keyframes aiDrawLine {
@@ -220,13 +227,14 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(123,97,255,0.6), rgba(0,229,255,0.2));
+    background: linear-gradient(145deg, rgba(0,229,255,0.35), rgba(123,97,255,0.4));
+    border: 1px solid rgba(0,229,255,0.5);
     backdrop-filter: blur(10px);
-    box-shadow: 0 0 40px #7B61FF, 0 0 80px rgba(0,229,255,0.4);
+    box-shadow: 0 0 30px rgba(0,229,255,0.4), 0 0 60px rgba(123,97,255,0.25);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.25rem;
     color: white;
     animation: aiCoreAppear 1.2s ease forwards 1s, aiFloatCore 6s ease-in-out infinite;
@@ -243,21 +251,42 @@
     left: var(--ai-x, 50%);
     top: var(--ai-y, 50%);
     transform: translate(-50%, -50%);
-    padding: 10px 16px;
-    border-radius: 18px;
-    background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(14px);
-    border: 1px solid rgba(123,97,255,0.4);
-    box-shadow: 0 0 20px rgba(123,97,255,0.25), inset 0 0 10px rgba(0,229,255,0.1);
-    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px 10px 12px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(230,220,255,0.9) 100%);
+    border: 1px solid rgba(0,229,255,0.35);
+    box-shadow:
+      0 4px 20px rgba(0,0,0,0.15),
+      0 0 0 1px rgba(255,255,255,0.5) inset;
+    font-size: 11px;
+    font-weight: 500;
     white-space: nowrap;
-    color: white;
+    color: #1e1b4b;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: aiFloatCard 7s ease-in-out infinite;
   }
+  .ai-float-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(0,229,255,0.2), rgba(123,97,255,0.2));
+    color: #5b21b6;
+  }
+  .ai-float-card-label {
+    line-height: 1.2;
+  }
   .ai-float-card:hover {
     transform: translate(-50%, -50%) translateY(-6px) scale(1.03);
-    box-shadow: 0 0 35px #7B61FF, 0 0 20px #00E5FF;
+    box-shadow:
+      0 8px 28px rgba(0,0,0,0.2),
+      0 0 24px rgba(0,229,255,0.25);
   }
   @keyframes aiFloatCard {
     0%, 100% { transform: translate(-50%, -50%) translateY(0); }
@@ -269,8 +298,13 @@
       max-height: 560px;
     }
     .ai-float-card {
-      font-size: 14px;
-      padding: 14px 20px;
+      font-size: 13px;
+      padding: 12px 18px 12px 14px;
+      gap: 10px;
+    }
+    .ai-float-card-icon {
+      width: 32px;
+      height: 32px;
     }
     .ai-core-node {
       width: 100px;
