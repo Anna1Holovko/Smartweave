@@ -35,12 +35,13 @@ export function ServicesSection() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16 items-stretch">
-          {SERVICES.map((service, index) => {
-            const Icon = SERVICE_ICONS[index];
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 items-stretch">
+          {SERVICES.filter((s) => s.slug !== 'agenci-ai').map((service, index) => {
+            const iconIndex = SERVICES.findIndex((s) => s.slug === service.slug);
+            const Icon = SERVICE_ICONS[iconIndex] ?? Globe;
             return (
               <motion.div
-                key={index}
+                key={service.slug}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -8 }}
