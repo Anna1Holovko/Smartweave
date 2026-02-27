@@ -14,10 +14,11 @@ import { UslugiConsultationBlock } from '@/app/components/UslugiConsultationBloc
 import { AiAnimationSection } from '@/app/components/AiAnimationSection';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 
+/** Page/SEO titles – aligned with SERVICES titles (provided text) */
 const SLUG_TITLES: Record<string, string> = {
-  strony: 'Strony internetowe',
-  branding: 'Logo i identyfikacja wizualna',
-  automatyzacja: 'Automatyzacja procesów biznesowych',
+  strony: 'Projektowanie i wdrażanie stron internetowych',
+  branding: 'Identyfikacja wizualna i branding',
+  automatyzacja: 'Automatyzacja procesów i AI',
   'agenci-ai': 'Agenci AI',
 };
 

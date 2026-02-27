@@ -9,12 +9,12 @@ import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 
 export const metadata: Metadata = {
-  title: 'Usługi – strony WWW, branding i automatyzacja',
+  title: 'Usługi – strony, branding, automatyzacja i agenci AI',
   description:
-    'Pełna oferta SmartWeave: projektowanie stron internetowych, identyfikacja wizualna i branding, automatyzacja procesów i agenci AI. Dla małych i średnich firm.',
+    'Pełna oferta SmartWeave: projektowanie i wdrażanie stron internetowych, identyfikacja wizualna i branding, automatyzacja procesów i AI, agenci AI. Dla małych i średnich firm.',
   openGraph: {
-    title: 'Usługi – strony WWW, design i automatyzacja',
-    description: 'Strony internetowe, branding i automatyzacja procesów dla firm.',
+    title: 'Usługi – strony, branding, automatyzacja i agenci AI',
+    description: 'Projektowanie stron, identyfikacja wizualna, automatyzacja procesów i AI, agenci AI.',
     url: `${SITE_URL}/uslugi`,
   },
 };
@@ -40,7 +40,7 @@ export default function UslugiPage() {
                   Pełna oferta <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">usług</span>
                 </>
               }
-              description="Strony, branding i automatyzacja — wszystko, czego potrzebuje Twoja firma w internecie."
+              description="Projektowanie stron, identyfikacja wizualna, automatyzacja procesów i AI, agenci AI — wszystko, czego potrzebuje Twoja firma w internecie."
               className={INTRO_MB_CLASS}
             />
 
