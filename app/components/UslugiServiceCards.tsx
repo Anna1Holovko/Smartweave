@@ -5,13 +5,22 @@ import Link from 'next/link';
 import { Globe, Workflow, Palette, Bot, Check, ArrowUpRight } from 'lucide-react';
 import { SERVICES } from '@/lib/services';
 
-const SERVICE_ICONS = [Globe, Palette, Workflow, Bot] as const;
+/** Same order as Usługi dropdown in Header: automatyzacja, agenci-ai, strony, branding */
+const USLUGI_DISPLAY_ORDER = ['automatyzacja', 'agenci-ai', 'strony', 'branding'] as const;
+const SERVICE_ICONS: Record<(typeof USLUGI_DISPLAY_ORDER)[number], typeof Globe> = {
+  automatyzacja: Workflow,
+  'agenci-ai': Bot,
+  strony: Globe,
+  branding: Palette,
+};
 
 export function UslugiServiceCards() {
+  const orderedServices = USLUGI_DISPLAY_ORDER.map((slug) => SERVICES.find((s) => s.slug === slug)).filter(Boolean) as (typeof SERVICES)[number][];
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 items-stretch">
-      {SERVICES.map((service, index) => {
-        const Icon = SERVICE_ICONS[index];
+      {orderedServices.map((service, index) => {
+        const Icon = SERVICE_ICONS[service.slug as keyof typeof SERVICE_ICONS] ?? Globe;
         return (
           <motion.div
             key={service.slug}

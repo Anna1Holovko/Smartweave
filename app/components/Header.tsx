@@ -190,7 +190,7 @@ export function Header() {
               <Button
                 variant="primary"
                 onClick={(e) =>
-                  handleNavClick(e as any, { name: '', href: '#contact' })
+                  handleNavClick(e as React.MouseEvent<HTMLButtonElement>, { name: 'Kontakt', href: '#contact' })
                 }
               >
                 Rozpocznij Projekt
@@ -258,7 +258,7 @@ export function Header() {
                   variant="primary"
                   fullWidth
                   onClick={(e) =>
-                    handleNavClick(e as any, { name: '', href: '#contact' })
+                    handleNavClick(e as React.MouseEvent<HTMLButtonElement>, { name: 'Kontakt', href: '#contact' })
                   }
                 >
                   Rozpocznij Projekt
