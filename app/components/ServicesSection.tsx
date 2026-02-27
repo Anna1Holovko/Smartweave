@@ -7,8 +7,8 @@ import { Button } from './ui/Button';
 import { SERVICES, USLUGI_DISPLAY_ORDER } from '@/lib/services';
 import { CALENDLY_URL } from '@/lib/site';
 
-/** Same order as header dropdown (automatyzacja, agenci-ai, strony, branding) */
-const HOME_SERVICES_ORDER = USLUGI_DISPLAY_ORDER;
+/** Dropdown order, excluding agenci-ai on home (3 cards) */
+const HOME_SERVICES_ORDER = USLUGI_DISPLAY_ORDER.filter((slug) => slug !== 'agenci-ai');
 const SERVICE_ICONS: Record<string, typeof Globe> = {
   strony: Globe,
   branding: Palette,

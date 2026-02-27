@@ -63,7 +63,7 @@ export const SERVICES = [
 export const SERVICE_SLUGS = ['strony', 'branding', 'automatyzacja', 'agenci-ai'] as const;
 export type ServiceSlug = (typeof SERVICE_SLUGS)[number];
 
-/** Order used in Header dropdown, home section "Jak możemy Ci pomóc?", and /uslugi. */
+/** Order used in Header dropdown and /uslugi. Home section uses this minus agenci-ai (3 cards). */
 export const USLUGI_DISPLAY_ORDER = ['automatyzacja', 'agenci-ai', 'strony', 'branding'] as const;
 
 export function getServiceBySlug(slug: string): (typeof SERVICES)[number] | undefined {
