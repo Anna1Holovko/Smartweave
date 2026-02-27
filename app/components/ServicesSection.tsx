@@ -46,7 +46,12 @@ export function ServicesSection() {
           {HOME_SERVICES_ORDER.map((slug) => SERVICES.find((s) => s.slug === slug)).filter(Boolean).map((service, index) => {
             const s = service!;
             const Icon = SERVICE_ICONS[s.slug] ?? Globe;
-            const displayTitle = s.slug === 'automatyzacja' ? 'Automatyzacja procesów' : s.title;
+            const displayTitle =
+              s.slug === 'automatyzacja'
+                ? 'Automatyzacja procesów'
+                : s.slug === 'strony'
+                  ? 'Strony internetowe'
+                  : s.title;
             return (
               <motion.div
                 key={s.slug}
