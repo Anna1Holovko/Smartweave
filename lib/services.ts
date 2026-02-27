@@ -5,7 +5,7 @@ export const SERVICES = [
   {
     number: '01',
     slug: 'strony',
-    title: 'Projektowanie i wdrażanie stron internetowych',
+    title: 'Strony internetowe',
     description:
       'Tworzymy nowoczesne, szybkie i skuteczne strony internetowe dla firm. Projektujemy rozwiązania, które pomagają klientom łatwo Cię znaleźć, budują zaufanie od pierwszego kontaktu i realnie wspierają sprzedaż oraz rozwój marki.',
     features: [

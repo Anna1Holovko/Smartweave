@@ -197,7 +197,7 @@ const jsonLd = {
       description:
         'Główne usługi: strony WWW, design, automatyzacja, marketing.',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Projektowanie i wdrażanie stron www' },
+        { '@type': 'ListItem', position: 1, name: 'Strony internetowe' },
         { '@type': 'ListItem', position: 2, name: 'Identyfikacja wizualna i branding' },
         { '@type': 'ListItem', position: 3, name: 'Automatyzacja procesów i agenci AI' },
         { '@type': 'ListItem', position: 4, name: 'Marketing internetowy i SEO' },
