@@ -4,11 +4,11 @@ import { motion } from 'motion/react';
 import Link from 'next/link';
 import { Globe, Workflow, Check, Palette, Bot, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Button } from './ui/Button';
-import { SERVICES } from '@/lib/services';
+import { SERVICES, USLUGI_DISPLAY_ORDER } from '@/lib/services';
 import { CALENDLY_URL } from '@/lib/site';
 
-/** Same order as Usługi dropdown in Header (excluding agenci-ai on home): automatyzacja, strony, branding */
-const HOME_SERVICES_ORDER = ['automatyzacja', 'strony', 'branding'] as const;
+/** Dropdown order, excluding agenci-ai on home */
+const HOME_SERVICES_ORDER = USLUGI_DISPLAY_ORDER.filter((slug) => slug !== 'agenci-ai');
 const SERVICE_ICONS: Record<string, typeof Globe> = {
   strony: Globe,
   branding: Palette,

@@ -3,10 +3,7 @@
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import { Globe, Workflow, Palette, Bot, Check, ArrowUpRight } from 'lucide-react';
-import { SERVICES } from '@/lib/services';
-
-/** Same order as Usługi dropdown in Header: automatyzacja, agenci-ai, strony, branding */
-const USLUGI_DISPLAY_ORDER = ['automatyzacja', 'agenci-ai', 'strony', 'branding'] as const;
+import { SERVICES, USLUGI_DISPLAY_ORDER } from '@/lib/services';
 const SERVICE_ICONS: Record<(typeof USLUGI_DISPLAY_ORDER)[number], typeof Globe> = {
   automatyzacja: Workflow,
   'agenci-ai': Bot,

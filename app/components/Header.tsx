@@ -7,15 +7,21 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import { Button } from './ui/Button';
+import { USLUGI_DISPLAY_ORDER } from '@/lib/services';
 
 const LOGO = '/assets/smartweave-logo.png';
 
-const uslugiDropdownItems = [
-  { name: 'Automatyzacja procesów biznesowych', href: '/uslugi/automatyzacja' },
-  { name: 'Agenci AI', href: '/uslugi/agenci-ai' },
-  { name: 'Strony internetowe', href: '/uslugi/strony' },
-  { name: 'Logo i identyfikacja wizualna', href: '/uslugi/branding' },
-] as const;
+const USLUGI_DROPDOWN_NAMES: Record<(typeof USLUGI_DISPLAY_ORDER)[number], string> = {
+  automatyzacja: 'Automatyzacja procesów biznesowych',
+  'agenci-ai': 'Agenci AI',
+  strony: 'Strony internetowe',
+  branding: 'Logo i identyfikacja wizualna',
+};
+
+const uslugiDropdownItems = USLUGI_DISPLAY_ORDER.map((slug) => ({
+  name: USLUGI_DROPDOWN_NAMES[slug],
+  href: `/uslugi/${slug}` as const,
+}));
 
 const navItems = [
   { name: 'Usługi', href: '#services' },
