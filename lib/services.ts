@@ -10,7 +10,7 @@ export const SERVICES = [
       'Tworzymy nowoczesne, szybkie i skuteczne strony internetowe dla firm. Projektujemy rozwiązania, które pomagają klientom łatwo Cię znaleźć, budują zaufanie od pierwszego kontaktu i realnie wspierają sprzedaż oraz rozwój marki.',
     features: [
       'Projektowanie nowoczesnych stron firmowych',
-      'Tworzenie sklepów internetowych (e-commerce)',
+      'Tworzenie stron usługowych i korporacyjnych',
       'Projektowanie UX/UI nastawione na konwersję',
       'Optymalizacja SEO i GEO (AI Search Optimization)',
       'Integracje z systemami zewnętrznymi i narzędziami Google',
