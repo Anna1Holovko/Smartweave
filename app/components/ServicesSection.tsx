@@ -48,7 +48,7 @@ export function ServicesSection() {
             const Icon = SERVICE_ICONS[s.slug] ?? Globe;
             const displayTitle =
               s.slug === 'automatyzacja'
-                ? 'Automatyzacja procesów'
+                ? 'Automatyzacja procesów biznesowych'
                 : s.slug === 'strony'
                   ? 'Strony internetowe'
                   : s.title;

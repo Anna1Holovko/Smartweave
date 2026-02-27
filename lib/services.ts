@@ -39,7 +39,7 @@ export const SERVICES = [
   {
     number: '03',
     slug: 'automatyzacja',
-    title: 'Automatyzacja procesów i AI',
+    title: 'Automatyzacja procesów biznesowych',
     description:
       'Wdrażamy inteligentne systemy, które automatyzują powtarzalne procesy i usprawniają codzienną pracę zespołu. Redukujemy koszty operacyjne i pozwalamy skupić się na kluczowych obszarach rozwoju firmy.',
     features: [

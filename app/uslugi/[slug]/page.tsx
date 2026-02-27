@@ -18,7 +18,7 @@ import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 const SLUG_TITLES: Record<string, string> = {
   strony: 'Projektowanie i wdrażanie stron internetowych',
   branding: 'Identyfikacja wizualna i branding',
-  automatyzacja: 'Automatyzacja procesów i AI',
+  automatyzacja: 'Automatyzacja procesów biznesowych',
   'agenci-ai': 'Agenci AI',
 };
 
@@ -93,16 +93,7 @@ export default async function UslugiSlugPage({
             <div className={`grid gap-8 lg:gap-12 xl:gap-16 items-start ${slug === 'automatyzacja' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
               <div className={slug === 'automatyzacja' ? 'order-2 lg:order-1 space-y-6 lg:space-y-8' : 'space-y-6 lg:space-y-8'}>
                 <MotionFadeIn delay={0.2}>
-                  <div
-                    className={
-                      slug === 'automatyzacja'
-                        ? 'relative overflow-hidden rounded-2xl bg-slate-900/40 backdrop-blur-xl p-8 md:p-10 transition-all duration-300 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)]'
-                        : 'relative p-8 md:p-10 bg-transparent'
-                    }
-                  >
-                    {slug === 'automatyzacja' && (
-                      <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} rounded-b-2xl`} />
-                    )}
+                  <div className="relative p-8 md:p-10 bg-transparent">
                     <h2 className="text-lg sm:text-xl font-semibold text-white mb-6">Zakres usługi</h2>
                     <ul className="space-y-4 text-slate-400">
                       {service.features.map((feature, idx) => (
