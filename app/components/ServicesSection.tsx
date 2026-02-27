@@ -7,7 +7,14 @@ import { Button } from './ui/Button';
 import { SERVICES } from '@/lib/services';
 import { CALENDLY_URL } from '@/lib/site';
 
-const SERVICE_ICONS = [Globe, Palette, Workflow, Bot] as const;
+/** Same order as Usługi dropdown in Header (excluding agenci-ai on home): automatyzacja, strony, branding */
+const HOME_SERVICES_ORDER = ['automatyzacja', 'strony', 'branding'] as const;
+const SERVICE_ICONS: Record<string, typeof Globe> = {
+  strony: Globe,
+  branding: Palette,
+  automatyzacja: Workflow,
+  'agenci-ai': Bot,
+};
 
 const _servicesRemoved = [
   { number: '01', icon: Globe, title: 'Projektowanie i wdrażanie stron internetowych', description: 'Strony www dla firm — nowoczesne, szybkie i skuteczne.  Tworzymy strony, które pomagają klientom łatwo Cię znaleźć i budują zaufanie do Twojej marki od pierwszego kontaktu.', features: ['Tworzenie responsywnych stron dopasowanych do wszystkich urządzeń', 'Strona zoptymalizowana pod SEO i GEO (wyszukiwarki oraz systemy AI)', 'Projekt spójnej identyfikacji wizualnej marki', 'Hosting oraz bieżące wsparcie techniczne', 'Prowadzenie kampanii Google Ads', 'Integracja z narzędziami Google (Search Console, GA4, Google Maps)', 'Strona zaprojektowana pod skuteczną konwersję'], gradient: 'from-blue-500 to-cyan-500' },
@@ -36,13 +43,13 @@ export function ServicesSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 items-stretch">
-          {SERVICES.filter((s) => s.slug !== 'agenci-ai').map((service, index) => {
-            const iconIndex = SERVICES.findIndex((s) => s.slug === service.slug);
-            const Icon = SERVICE_ICONS[iconIndex] ?? Globe;
-            const displayTitle = service.slug === 'automatyzacja' ? 'Automatyzacja procesów' : service.title;
+          {HOME_SERVICES_ORDER.map((slug) => SERVICES.find((s) => s.slug === slug)).filter(Boolean).map((service, index) => {
+            const s = service!;
+            const Icon = SERVICE_ICONS[s.slug] ?? Globe;
+            const displayTitle = s.slug === 'automatyzacja' ? 'Automatyzacja procesów' : s.title;
             return (
               <motion.div
-                key={service.slug}
+                key={s.slug}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -8 }}
@@ -51,11 +58,11 @@ export function ServicesSection() {
                 className="relative group flex"
               >
                 <Link
-                  href={`/uslugi/${service.slug}`}
+                  href={`/uslugi/${s.slug}`}
                   className="relative flex flex-col w-full h-full min-h-0 p-8 bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl transition-all duration-300 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(147,51,234,0.2)] overflow-hidden"
                 >
                   <div className="flex items-center gap-4 mb-6 flex-shrink-0 min-h-14">
-                    <div className={`flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} p-0.5`}>
+                    <div className={`flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br ${s.gradient} p-0.5`}>
                       <div className="w-full h-full bg-slate-900 rounded-xl flex items-center justify-center">
                         <Icon className="w-7 h-7 text-white" />
                       </div>
@@ -65,10 +72,10 @@ export function ServicesSection() {
                       <ArrowUpRight className="w-4 h-4" />
                     </div>
                   </div>
-                  <p className="text-slate-400 leading-relaxed flex-shrink-0">{service.description}</p>
-                  {service.features && (
+                  <p className="text-slate-400 leading-relaxed flex-shrink-0">{s.description}</p>
+                  {s.features && (
                     <div className="space-y-3 mt-6 flex-1 min-h-0 overflow-y-auto">
-                      {service.features.map((feature, idx) => (
+                      {s.features.map((feature, idx) => (
                         <div key={idx} className="flex items-start gap-3 text-sm text-slate-400">
                           <Check className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" />
                           <span>{feature}</span>
@@ -76,7 +83,7 @@ export function ServicesSection() {
                       ))}
                     </div>
                   )}
-                  <div className={`absolute bottom-0 left-0 right-0 h-1 w-0 bg-gradient-to-r ${service.gradient} group-hover:w-full transition-all duration-500 rounded-b-2xl`} />
+                  <div className={`absolute bottom-0 left-0 right-0 h-1 w-0 bg-gradient-to-r ${s.gradient} group-hover:w-full transition-all duration-500 rounded-b-2xl`} />
                 </Link>
               </motion.div>
             );
