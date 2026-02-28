@@ -12,6 +12,7 @@ import { SECTION_CLASS, CONTAINER_CLASS } from '@/lib/layout';
 import { ArrowLeft, Check, ExternalLink } from 'lucide-react';
 import { UslugiConsultationBlock } from '@/app/components/UslugiConsultationBlock';
 import { AiAnimationSection } from '@/app/components/AiAnimationSection';
+import { AutomationWorkflowSection } from '@/app/components/AutomationWorkflowSection';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 
 /** Page/SEO titles – aligned with SERVICES titles (provided text) */
@@ -114,6 +115,13 @@ export default async function UslugiSlugPage({
                 </MotionFadeIn>
               )}
             </div>
+
+            {/* Premium workflow visual (automatyzacja only) – light section */}
+            {slug === 'automatyzacja' && (
+              <MotionFadeIn delay={0.2} className="w-full mt-12 sm:mt-16 lg:mt-20 rounded-2xl overflow-hidden">
+                <AutomationWorkflowSection />
+              </MotionFadeIn>
+            )}
 
             {/* Realizacje – full-width section, 3 columns (only on strony) */}
             {slug === 'strony' && (
