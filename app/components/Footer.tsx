@@ -59,7 +59,7 @@ export function Footer() {
                   className="hover:text-purple-400 transition-colors"
                   title="SmartWeave na LinkedIn"
                 >
-                  LinkedIn
+                  Smart Weave
                 </a>
               </li>
               <li className="flex items-center gap-2">
@@ -71,7 +71,7 @@ export function Footer() {
                   className="hover:text-purple-400 transition-colors"
                   title="SmartWeave na Instagramie"
                 >
-                  Instagram
+                  @smart.weave
                 </a>
               </li>
             </ul>
