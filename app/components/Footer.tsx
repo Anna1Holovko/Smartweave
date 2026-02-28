@@ -1,4 +1,4 @@
-import { Mail, MapPin } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Instagram } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -48,6 +48,30 @@ export function Footer() {
                   title="Napisz do SmartWeave"
                 >
                   hello@smartweave.pl
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Linkedin className="w-4 h-4 text-purple-400 flex-shrink-0" aria-hidden />
+                <a
+                  href="https://www.linkedin.com/in/smart-weave-72995a3b3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-purple-400 transition-colors"
+                  title="SmartWeave na LinkedIn"
+                >
+                  LinkedIn
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Instagram className="w-4 h-4 text-purple-400 flex-shrink-0" aria-hidden />
+                <a
+                  href="https://www.instagram.com/smart.weave?igsh=MTZ6eWhpZTh6b2hocw=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-purple-400 transition-colors"
+                  title="SmartWeave na Instagramie"
+                >
+                  Instagram
                 </a>
               </li>
             </ul>
