@@ -1,65 +1,66 @@
 'use client';
 
-import {
-  motion,
-  useAnimationFrame,
-  useMotionValue,
-  useSpring,
-} from 'motion/react';
+import { motion, useAnimationFrame, useMotionValue } from 'motion/react';
 import { useRef } from 'react';
+import {
+  FileSpreadsheet,
+  GitBranch,
+  Mail,
+  Bot,
+  Wrench,
+  type LucideIcon,
+} from 'lucide-react';
 
-type Node = {
-  id: number;
-  label: string;
+/*
+  Layout (Make-style):
+  Sheets → Router
+            ↗ AI → Sheets
+            ↘ AI → AI → Gmail
+                    ↘ Tools
+*/
+
+type NodeType = {
+  id: string;
   x: number;
   y: number;
+  icon: LucideIcon;
+  color: string;
 };
 
-const nodes: Node[] = [
-  { id: 0, label: 'Webhook', x: 40, y: 200 },
-  { id: 1, label: 'CRM', x: 180, y: 200 },
-  { id: 2, label: 'Router', x: 340, y: 200 },
-  { id: 3, label: 'Email', x: 520, y: 80 },
-  { id: 4, label: 'Report', x: 700, y: 80 },
-  { id: 5, label: 'AI', x: 520, y: 200 },
-  { id: 6, label: 'Database', x: 700, y: 200 },
-  { id: 7, label: 'Notification', x: 520, y: 320 },
-  { id: 8, label: 'Archive', x: 700, y: 320 },
+const nodes: NodeType[] = [
+  { id: 'start', x: 80, y: 260, icon: FileSpreadsheet, color: 'bg-green-500' },
+  { id: 'router1', x: 260, y: 260, icon: GitBranch, color: 'bg-lime-400' },
+  { id: 'ai1', x: 440, y: 120, icon: Bot, color: 'bg-emerald-500' },
+  { id: 'sheet2', x: 640, y: 120, icon: FileSpreadsheet, color: 'bg-green-500' },
+  { id: 'ai2', x: 440, y: 260, icon: Bot, color: 'bg-emerald-500' },
+  { id: 'ai3', x: 640, y: 260, icon: Bot, color: 'bg-emerald-500' },
+  { id: 'mail', x: 840, y: 260, icon: Mail, color: 'bg-red-500' },
+  { id: 'router2', x: 640, y: 400, icon: GitBranch, color: 'bg-lime-400' },
+  { id: 'tools', x: 840, y: 400, icon: Wrench, color: 'bg-purple-400' },
 ];
 
-const connections: [number, number][] = [
-  [0, 1],
-  [1, 2],
-  [2, 3],
-  [3, 4],
-  [2, 5],
-  [5, 6],
-  [2, 7],
-  [7, 8],
+const connections: [string, string][] = [
+  ['start', 'router1'],
+  ['router1', 'ai1'],
+  ['ai1', 'sheet2'],
+  ['router1', 'ai2'],
+  ['ai2', 'ai3'],
+  ['ai3', 'mail'],
+  ['ai2', 'router2'],
+  ['router2', 'tools'],
 ];
+
+function curvedPath(x1: number, y1: number, x2: number, y2: number): string {
+  const midX = (x1 + x2) / 2;
+  return `M${x1} ${y1} C ${midX} ${y1}, ${midX} ${y2}, ${x2} ${y2}`;
+}
 
 export function AutomationWorkflowSection() {
-  const pathRefs = useRef<(SVGPathElement | null)[]>([]);
   const progress = useMotionValue(0);
-
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springX = useSpring(mouseX, { stiffness: 40, damping: 20 });
-  const springY = useSpring(mouseY, { stiffness: 40, damping: 20 });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    mouseX.set((e.clientX - rect.left - rect.width / 2) / 40);
-    mouseY.set((e.clientY - rect.top - rect.height / 2) / 40);
-  };
-
-  const handleMouseLeave = () => {
-    mouseX.set(0);
-    mouseY.set(0);
-  };
+  const pathRefs = useRef<(SVGPathElement | null)[]>([]);
 
   useAnimationFrame((_t, delta) => {
-    progress.set((progress.get() + delta * 0.0001) % 1);
+    progress.set((progress.get() + delta * 0.00012) % 1);
   });
 
   return (
@@ -68,7 +69,7 @@ export function AutomationWorkflowSection() {
       style={{ backgroundColor: '#FAFAFA' }}
       aria-labelledby="workflow-heading"
     >
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           id="workflow-heading"
           className="text-2xl sm:text-3xl font-semibold text-slate-900 text-center mb-12 sm:mb-16"
@@ -80,38 +81,32 @@ export function AutomationWorkflowSection() {
           Automatyzacja procesów biznesowych
         </motion.h2>
 
-        <motion.div
-          className="relative h-[420px] hidden md:block"
-          style={{ x: springX, y: springY }}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-        >
+        <div className="relative h-[520px] hidden md:block">
           <svg className="absolute inset-0 w-full h-full">
             <defs>
               <filter id="flow-dot-glow" x="-100%" y="-100%" width="300%" height="300%">
                 <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
                 <feMerge>
                   <feMergeNode in="blur" />
-                  <feMergeNode in="blur" />
                   <feMergeNode in="SourceGraphic" />
                 </feMerge>
               </filter>
             </defs>
-            {connections.map(([a, b], i) => {
-              const n1 = nodes.find((n) => n.id === a)!;
-              const n2 = nodes.find((n) => n.id === b)!;
-              const path = `M${n1.x} ${n1.y} L${n2.x} ${n2.y}`;
+            {connections.map(([from, to], i) => {
+              const a = nodes.find((n) => n.id === from)!;
+              const b = nodes.find((n) => n.id === to)!;
+              const path = curvedPath(a.x, a.y, b.x, b.y);
 
               return (
-                <g key={`${a}-${b}`}>
+                <g key={`${from}-${to}`}>
                   <path
                     d={path}
-                    stroke="#d1d5db"
+                    stroke="#cbd5e1"
                     strokeWidth="2"
-                    strokeDasharray="4 6"
+                    strokeDasharray="4 8"
                     fill="none"
                     ref={(el) => {
-                      pathRefs.current[i] = el;
+                      if (el) pathRefs.current[i] = el;
                     }}
                   />
                   <FlowDot
@@ -130,17 +125,17 @@ export function AutomationWorkflowSection() {
           </svg>
 
           {nodes.map((node) => (
-            <NodeCircle key={node.id} node={node} />
+            <Node key={node.id} {...node} />
           ))}
-        </motion.div>
+        </div>
 
-        <div className="md:hidden space-y-3">
+        <div className="md:hidden space-y-4">
           {nodes.map((n) => (
             <div
               key={n.id}
-              className="bg-white border border-slate-100 rounded-xl p-4 shadow-soft text-slate-700"
+              className="bg-white rounded-xl border border-slate-100 p-4 shadow-soft text-slate-700"
             >
-              {n.label}
+              {n.id}
             </div>
           ))}
         </div>
@@ -159,16 +154,24 @@ export function AutomationWorkflowSection() {
   );
 }
 
-function NodeCircle({ node }: { node: Node }) {
+function Node({
+  x,
+  y,
+  icon: Icon,
+  color,
+}: NodeType) {
   return (
     <motion.div
-      className="absolute flex items-center justify-center pointer-events-none"
-      style={{ left: node.x - 30, top: node.y - 30 }}
-      animate={{ y: [0, -4, 0] }}
+      className="absolute"
+      style={{ left: x - 32, top: y - 32 }}
+      animate={{ y: [0, -6, 0] }}
       transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+      whileHover={{ scale: 1.08 }}
     >
-      <div className="w-[60px] h-[60px] rounded-full bg-white border border-slate-200 shadow-soft flex items-center justify-center text-xs text-slate-700 text-center px-2">
-        {node.label}
+      <div
+        className={`w-[64px] h-[64px] rounded-full ${color} shadow-lg flex items-center justify-center border-4 border-white`}
+      >
+        <Icon className="w-6 h-6 text-white" />
       </div>
     </motion.div>
   );
@@ -199,11 +202,11 @@ function FlowDot({
   return (
     <motion.circle
       r="5"
-      fill="#4f46e5"
+      fill="#6366f1"
       cx={x}
       cy={y}
       filter="url(#flow-dot-glow)"
-      className="drop-shadow-[0_0_8px_rgba(79,70,229,0.9)]"
+      className="drop-shadow-[0_0_8px_rgba(99,102,241,0.8)]"
     />
   );
 }
