@@ -2,38 +2,45 @@
 
 import {
   motion,
+  useAnimationFrame,
   useMotionValue,
   useSpring,
-  useAnimationFrame,
-  useMotionValueEvent,
 } from 'motion/react';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
-const modules = [
-  { id: 0, label: 'Lead Source', x: 0, y: 0 },
-  { id: 1, label: 'CRM', x: 240, y: 0 },
-  { id: 2, label: 'Email automation', x: 480, y: 0 },
-  { id: 3, label: 'Notification', x: 0, y: 180 },
-  { id: 4, label: 'AI processing', x: 240, y: 180 },
-  { id: 5, label: 'Database', x: 480, y: 180 },
-  { id: 6, label: 'Report', x: 240, y: 360 },
+type Node = {
+  id: number;
+  label: string;
+  x: number;
+  y: number;
+};
+
+const nodes: Node[] = [
+  { id: 0, label: 'Webhook', x: 40, y: 200 },
+  { id: 1, label: 'CRM', x: 180, y: 200 },
+  { id: 2, label: 'Router', x: 340, y: 200 },
+  { id: 3, label: 'Email', x: 520, y: 80 },
+  { id: 4, label: 'Report', x: 700, y: 80 },
+  { id: 5, label: 'AI', x: 520, y: 200 },
+  { id: 6, label: 'Database', x: 700, y: 200 },
+  { id: 7, label: 'Notification', x: 520, y: 320 },
+  { id: 8, label: 'Archive', x: 700, y: 320 },
 ];
 
-const pathD = `
-M100 60
-H340
-H580
-V240
-H340
-H100
-V420
-H340
-`;
+const connections: [number, number][] = [
+  [0, 1],
+  [1, 2],
+  [2, 3],
+  [3, 4],
+  [2, 5],
+  [5, 6],
+  [2, 7],
+  [7, 8],
+];
 
 export function AutomationWorkflowSection() {
-  const pathRef = useRef<SVGPathElement>(null);
+  const pathRefs = useRef<(SVGPathElement | null)[]>([]);
   const progress = useMotionValue(0);
-  const [activeModule, setActiveModule] = useState(0);
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -52,17 +59,7 @@ export function AutomationWorkflowSection() {
   };
 
   useAnimationFrame((_t, delta) => {
-    const speed = 0.00008;
-    progress.set((progress.get() + delta * speed) % 1);
-  });
-
-  const lastIndexRef = useRef(0);
-  useMotionValueEvent(progress, 'change', (v) => {
-    const index = Math.min(6, Math.floor(v * 7));
-    if (index !== lastIndexRef.current) {
-      lastIndexRef.current = index;
-      setActiveModule(index);
-    }
+    progress.set((progress.get() + delta * 0.0001) % 1);
   });
 
   return (
@@ -84,47 +81,50 @@ export function AutomationWorkflowSection() {
         </motion.h2>
 
         <motion.div
-          className="relative h-[520px] max-w-[720px] mx-auto hidden md:block"
+          className="relative h-[420px] hidden md:block"
           style={{ x: springX, y: springY }}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         >
-          {modules.map((mod) => (
-            <ModuleCard
-              key={mod.id}
-              label={mod.label}
-              x={mod.x}
-              y={mod.y}
-              active={activeModule === mod.id}
-            />
-          ))}
+          <svg className="absolute inset-0 w-full h-full">
+            {connections.map(([a, b], i) => {
+              const n1 = nodes.find((n) => n.id === a)!;
+              const n2 = nodes.find((n) => n.id === b)!;
+              const path = `M${n1.x} ${n1.y} L${n2.x} ${n2.y}`;
 
-          <svg className="absolute inset-0 w-full h-full pointer-events-none">
-            <defs>
-              <linearGradient id="workflow-line-gradient">
-                <stop offset="0%" stopColor="#6366f1" stopOpacity="0.2" />
-                <stop offset="50%" stopColor="#6366f1" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#6366f1" stopOpacity="0.2" />
-              </linearGradient>
-            </defs>
-            <path
-              ref={pathRef}
-              d={pathD}
-              stroke="url(#workflow-line-gradient)"
-              strokeWidth="2"
-              fill="none"
-            />
-            <MovingDot pathRef={pathRef} progress={progress} />
+              return (
+                <g key={`${a}-${b}`}>
+                  <path
+                    d={path}
+                    stroke="#d1d5db"
+                    strokeWidth="2"
+                    strokeDasharray="4 6"
+                    fill="none"
+                    ref={(el) => {
+                      pathRefs.current[i] = el;
+                    }}
+                  />
+                  <FlowDot
+                    pathRef={() => pathRefs.current[i] ?? undefined}
+                    progress={progress}
+                  />
+                </g>
+              );
+            })}
           </svg>
+
+          {nodes.map((node) => (
+            <NodeCircle key={node.id} node={node} />
+          ))}
         </motion.div>
 
-        <div className="md:hidden space-y-4">
-          {modules.map((m) => (
+        <div className="md:hidden space-y-3">
+          {nodes.map((n) => (
             <div
-              key={m.id}
-              className="bg-white rounded-2xl p-5 shadow-soft border border-slate-100 text-slate-700 font-medium"
+              key={n.id}
+              className="bg-white border border-slate-100 rounded-xl p-4 shadow-soft text-slate-700"
             >
-              {m.label}
+              {n.label}
             </div>
           ))}
         </div>
@@ -143,18 +143,33 @@ export function AutomationWorkflowSection() {
   );
 }
 
-function MovingDot({
+function NodeCircle({ node }: { node: Node }) {
+  return (
+    <motion.div
+      className="absolute flex items-center justify-center pointer-events-none"
+      style={{ left: node.x - 30, top: node.y - 30 }}
+      animate={{ y: [0, -4, 0] }}
+      transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+    >
+      <div className="w-[60px] h-[60px] rounded-full bg-white border border-slate-200 shadow-soft flex items-center justify-center text-xs text-slate-700 text-center px-2">
+        {node.label}
+      </div>
+    </motion.div>
+  );
+}
+
+function FlowDot({
   pathRef,
   progress,
 }: {
-  pathRef: React.RefObject<SVGPathElement | null>;
+  pathRef: () => SVGPathElement | undefined;
   progress: ReturnType<typeof useMotionValue<number>>;
 }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
   useAnimationFrame(() => {
-    const path = pathRef.current;
+    const path = pathRef();
     if (!path) return;
     const length = path.getTotalLength();
     const point = path.getPointAtLength(progress.get() * length);
@@ -164,52 +179,11 @@ function MovingDot({
 
   return (
     <motion.circle
-      r="6"
-      fill="#6366f1"
+      r="4"
+      fill="#4f46e5"
       cx={x}
       cy={y}
-      className="drop-shadow-[0_0_8px_rgba(99,102,241,0.8)]"
+      className="drop-shadow-[0_0_6px_rgba(79,70,229,0.8)]"
     />
-  );
-}
-
-function ModuleCard({
-  label,
-  x,
-  y,
-  active,
-}: {
-  label: string;
-  x: number;
-  y: number;
-  active: boolean;
-}) {
-  return (
-    <motion.div
-      className="absolute w-[200px] h-[120px] bg-white rounded-2xl border border-slate-100 flex items-center justify-center text-slate-700 font-medium shadow-soft"
-      style={{ left: x, top: y }}
-      animate={{
-        y: [0, -6, 0],
-        scale: active ? 1.04 : 1,
-        boxShadow: active
-          ? '0 25px 60px rgba(99,102,241,0.18)'
-          : '0 10px 30px rgba(0,0,0,0.06)',
-      }}
-      transition={{
-        y: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
-        scale: { duration: 0.3 },
-      }}
-      whileHover={{ scale: 1.05 }}
-    >
-      {active && (
-        <motion.div
-          className="absolute inset-0 rounded-2xl bg-indigo-500/5 pointer-events-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 1, 0] }}
-          transition={{ duration: 1, repeat: Infinity }}
-        />
-      )}
-      {label}
-    </motion.div>
   );
 }
