@@ -39,7 +39,7 @@ export function HeroSection() {
 
   return (
     <section
-      aria-label="Strona główna – SmartWeave, design i automatyzacja dla firm"
+      aria-label="SmartWeave – projektowanie stron www dla firm, automatyzacja procesów AI, strony pod leada B2B"
       className="relative min-h-[100dvh] min-h-screen flex items-center justify-center overflow-hidden px-4 pt-20 pb-16 sm:px-6 sm:pt-28 sm:pb-24 lg:pt-24 lg:pb-20 lg:px-8 xl:pt-20 xl:pb-16 xl:px-10 2xl:px-12 3xl:px-16"
     >
       {/* Background */}
@@ -93,9 +93,7 @@ export function HeroSection() {
 
         {/* Description */}
         <p className="text-slate-400 text-base sm:text-xl mx-auto mt-6 mb-10 max-w-[80ch] leading-relaxed px-2">
-          Automatyzujemy to, co powtarzalne. Ty weryfikujesz rezultaty.
-          Tworzymy strony internetowe gotowe na AI, abyś mógł skupić się
-          na tym, co naprawdę ważne.
+          Projektowanie stron www dla firm i strony pod leada B2B. Automatyzacja procesów AI — Ty weryfikujesz rezultaty, my wdrażamy rozwiązania.
         </p>
 
         {/* Buttons */}

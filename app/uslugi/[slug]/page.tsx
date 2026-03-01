@@ -14,11 +14,11 @@ import { UslugiConsultationBlock } from '@/app/components/UslugiConsultationBloc
 import { AutomationWorkflowSection } from '@/app/components/AutomationWorkflowSection';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 
-/** Page/SEO titles – aligned with SERVICES titles (provided text) */
+/** Page/SEO titles – aligned with search phrases (projektowanie stron www dla firm, automatyzacja procesów AI, strony pod leada B2B) */
 const SLUG_TITLES: Record<string, string> = {
-  strony: 'Projektowanie i wdrażanie stron internetowych',
+  strony: 'Projektowanie stron www dla firm',
   branding: 'Identyfikacja wizualna i branding',
-  automatyzacja: 'Automatyzacja procesów biznesowych',
+  automatyzacja: 'Automatyzacja procesów AI',
   'agenci-ai': 'Agenci AI',
 };
 

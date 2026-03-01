@@ -27,16 +27,18 @@ export const metadata: Metadata = {
   description: META_DESCRIPTION,
 
   keywords: [
-    'automatyzacja',
+    'projektowanie stron www dla firm',
+    'strony pod leada B2B',
+    'automatyzacja procesów AI',
     'automatyzacja procesów',
-    'design',
+    'strony WWW dla firm',
     'strony internetowe',
+    'design',
     'branding',
     'identyfikacja wizualna',
     'agenci AI',
     'SEO',
     SITE_NAME,
-    'strony WWW dla firm',
   ],
 
   robots: {
@@ -120,7 +122,7 @@ const jsonLd = {
         url: SITE_LOGO_URL,
       },
       description:
-        'Design i automatyzacja dla biznesu: strony internetowe, branding, automatyzacja procesów i agenci AI.',
+        'Projektowanie stron www dla firm, strony pod leada B2B, automatyzacja procesów AI. Design i automatyzacja dla biznesu.',
     },
     {
       '@type': 'WebSite',
@@ -166,16 +168,16 @@ const jsonLd = {
       '@id': `${SITE_URL}/#service`,
       name: `${SITE_NAME} – Design i automatyzacja`,
       description:
-        'Usługi: projektowanie stron WWW, identyfikacja wizualna i branding, automatyzacja procesów i agenci AI, marketing internetowy i SEO.',
+        'Projektowanie stron www dla firm, strony pod leada B2B, automatyzacja procesów AI. Branding, agenci AI, SEO.',
       url: SITE_URL,
       areaServed: {
         '@type': 'Country',
         name: 'Poland',
       },
       serviceType: [
-        'Design',
-        'Automatyzacja procesów',
-        'Strony internetowe',
+        'Projektowanie stron www dla firm',
+        'Strony pod leada B2B',
+        'Automatyzacja procesów AI',
         'Branding',
         'SEO',
       ],
@@ -195,12 +197,12 @@ const jsonLd = {
       '@type': 'ItemList',
       name: 'Usługi SmartWeave',
       description:
-        'Główne usługi: strony WWW, design, automatyzacja, marketing.',
+        'Projektowanie stron www dla firm, strony pod leada B2B, automatyzacja procesów AI, branding, agenci AI.',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Strony internetowe' },
+        { '@type': 'ListItem', position: 1, name: 'Projektowanie stron www dla firm' },
         { '@type': 'ListItem', position: 2, name: 'Identyfikacja wizualna i branding' },
-        { '@type': 'ListItem', position: 3, name: 'Automatyzacja procesów i agenci AI' },
-        { '@type': 'ListItem', position: 4, name: 'Marketing internetowy i SEO' },
+        { '@type': 'ListItem', position: 3, name: 'Automatyzacja procesów AI' },
+        { '@type': 'ListItem', position: 4, name: 'Agenci AI' },
       ],
     },
   ],
