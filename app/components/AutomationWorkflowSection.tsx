@@ -87,6 +87,16 @@ export function AutomationWorkflowSection() {
           onMouseLeave={handleMouseLeave}
         >
           <svg className="absolute inset-0 w-full h-full">
+            <defs>
+              <filter id="flow-dot-glow" x="-100%" y="-100%" width="300%" height="300%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
             {connections.map(([a, b], i) => {
               const n1 = nodes.find((n) => n.id === a)!;
               const n2 = nodes.find((n) => n.id === b)!;
@@ -107,6 +117,12 @@ export function AutomationWorkflowSection() {
                   <FlowDot
                     pathRef={() => pathRefs.current[i] ?? undefined}
                     progress={progress}
+                    offset={0}
+                  />
+                  <FlowDot
+                    pathRef={() => pathRefs.current[i] ?? undefined}
+                    progress={progress}
+                    offset={0.5}
                   />
                 </g>
               );
@@ -161,9 +177,11 @@ function NodeCircle({ node }: { node: Node }) {
 function FlowDot({
   pathRef,
   progress,
+  offset,
 }: {
   pathRef: () => SVGPathElement | undefined;
   progress: ReturnType<typeof useMotionValue<number>>;
+  offset: number;
 }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -172,18 +190,20 @@ function FlowDot({
     const path = pathRef();
     if (!path) return;
     const length = path.getTotalLength();
-    const point = path.getPointAtLength(progress.get() * length);
+    const t = (progress.get() + offset) % 1;
+    const point = path.getPointAtLength(t * length);
     x.set(point.x);
     y.set(point.y);
   });
 
   return (
     <motion.circle
-      r="4"
+      r="5"
       fill="#4f46e5"
       cx={x}
       cy={y}
-      className="drop-shadow-[0_0_6px_rgba(79,70,229,0.8)]"
+      filter="url(#flow-dot-glow)"
+      className="drop-shadow-[0_0_8px_rgba(79,70,229,0.9)]"
     />
   );
 }
