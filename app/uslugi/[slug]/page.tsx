@@ -115,13 +115,6 @@ export default async function UslugiSlugPage({
               )}
             </div>
 
-            {/* Premium workflow visual (automatyzacja only) – light section */}
-            {slug === 'automatyzacja' && (
-              <MotionFadeIn delay={0.2} className="w-full mt-12 sm:mt-16 lg:mt-20 rounded-2xl overflow-hidden">
-                <AutomationWorkflowSection />
-              </MotionFadeIn>
-            )}
-
             {/* Realizacje – full-width section, 3 columns (only on strony) */}
             {slug === 'strony' && (
               <MotionFadeIn delay={0.25} className="w-full mt-12 sm:mt-16 lg:mt-20">
