@@ -17,6 +17,9 @@ const config: Config = {
       '3xl': '1920px',
     },
     extend: {
+      boxShadow: {
+        soft: '0 10px 30px rgba(0,0,0,0.06)',
+      },
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
