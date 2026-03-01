@@ -11,7 +11,6 @@ import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS } from '@/lib/layout';
 import { ArrowLeft, Check, ExternalLink } from 'lucide-react';
 import { UslugiConsultationBlock } from '@/app/components/UslugiConsultationBlock';
-import { AIHubSection } from '@/app/components/AIHubSection';
 import { AutomationWorkflowSection } from '@/app/components/AutomationWorkflowSection';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 
@@ -110,8 +109,8 @@ export default async function UslugiSlugPage({
 
               {/* Right: AI animation only on Automatyzacja procesów i agenci AI */}
               {slug === 'automatyzacja' && (
-                <MotionFadeIn delay={0.15} className="order-1 lg:order-2 w-full lg:sticky lg:top-24 hidden lg:block">
-                  <AIHubSection />
+                <MotionFadeIn delay={0.15} className="order-1 lg:order-2 w-full lg:sticky lg:top-24 hidden lg:block cursor-auto">
+                  <AutomationWorkflowSection embedded />
                 </MotionFadeIn>
               )}
             </div>

@@ -55,13 +55,76 @@ function curvedPath(x1: number, y1: number, x2: number, y2: number): string {
   return `M${x1} ${y1} C ${midX} ${y1}, ${midX} ${y2}, ${x2} ${y2}`;
 }
 
-export function AutomationWorkflowSection() {
+export function AutomationWorkflowSection({ embedded = false }: { embedded?: boolean }) {
   const progress = useMotionValue(0);
   const pathRefs = useRef<(SVGPathElement | null)[]>([]);
+  const filterId = embedded ? 'flow-dot-glow-embed' : 'flow-dot-glow';
 
   useAnimationFrame((_t, delta) => {
     progress.set((progress.get() + delta * 0.00012) % 1);
   });
+
+  const diagram = (
+    <div className="relative h-[520px] w-full min-w-0">
+      <svg className="absolute inset-0 w-full h-full">
+        <defs>
+          <filter id={filterId} x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        {connections.map(([from, to], i) => {
+          const a = nodes.find((n) => n.id === from)!;
+          const b = nodes.find((n) => n.id === to)!;
+          const path = curvedPath(a.x, a.y, b.x, b.y);
+
+          return (
+            <g key={`${from}-${to}`}>
+              <path
+                d={path}
+                stroke={embedded ? 'rgba(203,213,225,0.7)' : '#cbd5e1'}
+                strokeWidth="2"
+                strokeDasharray="4 8"
+                fill="none"
+                ref={(el) => {
+                  if (el) pathRefs.current[i] = el;
+                }}
+              />
+              <FlowDot
+                pathRef={() => pathRefs.current[i] ?? undefined}
+                progress={progress}
+                offset={0}
+                filterId={filterId}
+              />
+              <FlowDot
+                pathRef={() => pathRefs.current[i] ?? undefined}
+                progress={progress}
+                offset={0.5}
+                filterId={filterId}
+              />
+            </g>
+          );
+        })}
+      </svg>
+
+      {nodes.map((node) => (
+        <Node key={node.id} {...node} />
+      ))}
+    </div>
+  );
+
+  if (embedded) {
+    return (
+      <div className="relative overflow-hidden bg-transparent cursor-auto" style={{ cursor: 'auto' }}>
+        <div className="relative max-w-full">
+          {diagram}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <section
@@ -82,51 +145,7 @@ export function AutomationWorkflowSection() {
         </motion.h2>
 
         <div className="relative h-[520px] hidden md:block">
-          <svg className="absolute inset-0 w-full h-full">
-            <defs>
-              <filter id="flow-dot-glow" x="-100%" y="-100%" width="300%" height="300%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-            {connections.map(([from, to], i) => {
-              const a = nodes.find((n) => n.id === from)!;
-              const b = nodes.find((n) => n.id === to)!;
-              const path = curvedPath(a.x, a.y, b.x, b.y);
-
-              return (
-                <g key={`${from}-${to}`}>
-                  <path
-                    d={path}
-                    stroke="#cbd5e1"
-                    strokeWidth="2"
-                    strokeDasharray="4 8"
-                    fill="none"
-                    ref={(el) => {
-                      if (el) pathRefs.current[i] = el;
-                    }}
-                  />
-                  <FlowDot
-                    pathRef={() => pathRefs.current[i] ?? undefined}
-                    progress={progress}
-                    offset={0}
-                  />
-                  <FlowDot
-                    pathRef={() => pathRefs.current[i] ?? undefined}
-                    progress={progress}
-                    offset={0.5}
-                  />
-                </g>
-              );
-            })}
-          </svg>
-
-          {nodes.map((node) => (
-            <Node key={node.id} {...node} />
-          ))}
+          {diagram}
         </div>
 
         <div className="md:hidden space-y-4">
@@ -181,10 +200,12 @@ function FlowDot({
   pathRef,
   progress,
   offset,
+  filterId,
 }: {
   pathRef: () => SVGPathElement | undefined;
   progress: ReturnType<typeof useMotionValue<number>>;
   offset: number;
+  filterId: string;
 }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -205,7 +226,7 @@ function FlowDot({
       fill="#6366f1"
       cx={x}
       cy={y}
-      filter="url(#flow-dot-glow)"
+      filter={`url(#${filterId})`}
       className="drop-shadow-[0_0_8px_rgba(99,102,241,0.8)]"
     />
   );
