@@ -122,7 +122,7 @@ const jsonLd = {
         url: SITE_LOGO_URL,
       },
       description:
-        'Projektowanie stron www dla firm, strony pod leada B2B, automatyzacja procesów AI. Design i automatyzacja dla biznesu.',
+        'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Design i automatyzacja dla biznesu.',
     },
     {
       '@type': 'WebSite',
@@ -168,17 +168,17 @@ const jsonLd = {
       '@id': `${SITE_URL}/#service`,
       name: `${SITE_NAME} – Design i automatyzacja`,
       description:
-        'Projektowanie stron www dla firm, strony pod leada B2B, automatyzacja procesów AI. Branding, agenci AI, SEO.',
+        'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Branding, SEO.',
       url: SITE_URL,
       areaServed: {
         '@type': 'Country',
         name: 'Poland',
       },
       serviceType: [
-        'Projektowanie stron www dla firm',
-        'Strony pod leada B2B',
-        'Automatyzacja procesów AI',
-        'Branding',
+        'Automatyzacja procesów biznesowych',
+        'Agenci AI',
+        'Strony internetowe',
+        'Identyfikacja wizualna i branding',
         'SEO',
       ],
     },
@@ -197,12 +197,12 @@ const jsonLd = {
       '@type': 'ItemList',
       name: 'Usługi SmartWeave',
       description:
-        'Projektowanie stron www dla firm, strony pod leada B2B, automatyzacja procesów AI, branding, agenci AI.',
+        'Automatyzacja procesów biznesowych, agenci AI, strony internetowe. Identyfikacja wizualna i branding.',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Projektowanie stron www dla firm' },
-        { '@type': 'ListItem', position: 2, name: 'Identyfikacja wizualna i branding' },
-        { '@type': 'ListItem', position: 3, name: 'Automatyzacja procesów AI' },
-        { '@type': 'ListItem', position: 4, name: 'Agenci AI' },
+        { '@type': 'ListItem', position: 1, name: 'Automatyzacja procesów biznesowych' },
+        { '@type': 'ListItem', position: 2, name: 'Agenci AI' },
+        { '@type': 'ListItem', position: 3, name: 'Strony internetowe' },
+        { '@type': 'ListItem', position: 4, name: 'Identyfikacja wizualna i branding' },
       ],
     },
   ],

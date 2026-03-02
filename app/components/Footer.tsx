@@ -23,7 +23,7 @@ export function Footer() {
             />
 
             <p className="text-sm sm:text-base text-slate-400 leading-relaxed mb-3">
-              Projektowanie stron www dla firm, strony pod leada B2B i automatyzacja procesów AI. Design i wdrożenia dla biznesu.
+              Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Design i wdrożenia dla biznesu.
             </p>
             <p className="text-xs sm:text-sm text-slate-500">
               © {currentYear} SmartWeave. Wszystkie prawa zastrzeżone.
