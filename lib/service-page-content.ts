@@ -46,7 +46,7 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
       },
     ],
     whySmartWeave:
-      'SmartWeave łączy projektowanie stron z automatyzacją i widocznością w AI. Nie „stronka na szablonie” — strona zaprojektowana pod Twoją ofertę, leady B2B i długoterminową widoczność. Od analizy po wdrożenie i ewentualne połączenie z automatyzacją leadów.',
+      'SmartWeave łączy projektowanie stron www dla firm z automatyzacją i widocznością w AI. Nie „stronka na szablonie” — strona zaprojektowana pod Twoją ofertę, strony pod leada B2B i długoterminową widoczność. Od analizy po wdrożenie i ewentualne połączenie z automatyzacją leadów.',
   },
 
   branding: {
@@ -90,7 +90,7 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
     problem:
       'Godziny zjadane przez powtarzalne zadania — kopiowanie danych, wysyłanie tych samych maili, ręczne raporty — to koszt, który można zamienić na czas na klientów i rozwój. Brak automatyzacji oznacza też większe ryzyko błędów i wolniejszą reakcję na leady oraz zlecenia.',
     solution:
-      'Automatyzacja procesów biznesowych przenosi powtarzalne kroki na systemy: workflowy, integracje i powiadomienia działają zamiast ręcznej pracy. Zespół skupia się na tym, co wymaga wiedzy i relacji; rutyna idzie przez zdefiniowane scenariusze. Efekt: oszczędność czasu, mniej błędów i możliwość obsłużenia większego wolumenu bez proporcjonalnego wzrostu zatrudnienia.',
+      'Automatyzacja procesów AI i procesów biznesowych przenosi powtarzalne kroki na systemy: workflowy, integracje i powiadomienia działają zamiast ręcznej pracy. Zespół skupia się na tym, co wymaga wiedzy i relacji; rutyna idzie przez zdefiniowane scenariusze. Efekt: oszczędność czasu, mniej błędów i możliwość obsłużenia większego wolumenu bez proporcjonalnego wzrostu zatrudnienia.',
     benefits: [
       'Oszczędność czasu — powtarzalne zadania wykonuje system, nie ludzie.',
       'Mniej błędów przy przepisywaniu, synchronizacji i raportowaniu.',
