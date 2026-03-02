@@ -71,15 +71,11 @@ function ArticleBody({ slug }: { slug: string }) {
           );
         }
         if (block.t === 'cta') {
+          const cta = (block as { t: 'cta'; c: { text: string; href: string; label: string } }).c;
           return (
-            <section key={i} className="mt-10 mb-8 text-center max-w-[80ch] mx-auto" aria-labelledby="blog-cta-heading">
-              <h2 id="blog-cta-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
-                Nie jesteś pewien, które rozwiązanie jest dla Ciebie?
-              </h2>
-              <p className="text-base sm:text-xl text-slate-400 mb-8 px-2">
-                Umów bezpłatną konsultację — porozmawiamy o wyzwaniach i zaproponujemy rozwiązanie.
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-4">
+            <div key={i} className="mt-10 mb-8">
+              <p className="text-slate-400 leading-relaxed mb-6">{cta.text}</p>
+              <div className="flex flex-wrap items-center gap-4">
                 <Link href="/#contact">
                   <Button variant="primary">Napisz do nas</Button>
                 </Link>
@@ -94,7 +90,7 @@ function ArticleBody({ slug }: { slug: string }) {
                   </a>
                 )}
               </div>
-            </section>
+            </div>
           );
         }
         return null;
