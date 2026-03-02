@@ -8,8 +8,9 @@ import { ScrollToTop } from '../../components/ScrollToTop';
 import { MotionFadeIn } from '../../components/MotionFadeIn';
 import { BLOG_POSTS, getBlogCoverUrl, getPostBySlug } from '@/lib/blog';
 import { BLOG_CONTENT, type ContentBlock } from '@/lib/blog-content';
-import { SITE_URL } from '@/lib/site';
+import { SITE_URL, CALENDLY_URL } from '@/lib/site';
 import { CONTAINER_CLASS } from '@/lib/layout';
+import { Button } from '@/app/components/ui/Button';
 import { ArrowLeft } from 'lucide-react';
 
 type Props = { params: Promise<{ slug: string }> };
@@ -70,14 +71,30 @@ function ArticleBody({ slug }: { slug: string }) {
           );
         }
         if (block.t === 'cta') {
-          const cta = (block as { t: 'cta'; c: { text: string; href: string; label: string } }).c;
           return (
-            <div key={i} className="mt-10 mb-8 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-purple-500/30">
-              <p className="text-slate-300 mb-4">{cta.text}</p>
-              <Link href={cta.href} className="inline-flex items-center justify-center rounded-full font-semibold text-sm sm:text-base h-12 min-h-12 px-6 sm:px-8 bg-purple-500 hover:bg-purple-600 text-white transition-colors">
-                {cta.label}
-              </Link>
-            </div>
+            <section key={i} className="mt-10 mb-8 text-center max-w-[80ch] mx-auto" aria-labelledby="blog-cta-heading">
+              <h2 id="blog-cta-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+                Nie jesteś pewien, które rozwiązanie jest dla Ciebie?
+              </h2>
+              <p className="text-base sm:text-xl text-slate-400 mb-8 px-2">
+                Umów bezpłatną konsultację — porozmawiamy o wyzwaniach i zaproponujemy rozwiązanie.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <Link href="/#contact">
+                  <Button variant="primary">Napisz do nas</Button>
+                </Link>
+                {CALENDLY_URL && (
+                  <a
+                    href={CALENDLY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 bg-transparent border-2 border-slate-700 text-white hover:border-purple-500/50 hover:bg-slate-800/30"
+                  >
+                    Umów spotkanie
+                  </a>
+                )}
+              </div>
+            </section>
           );
         }
         return null;
