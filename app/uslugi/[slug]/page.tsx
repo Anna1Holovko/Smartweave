@@ -7,6 +7,7 @@ import { Footer } from '@/app/components/Footer';
 import { ScrollToTop } from '@/app/components/ScrollToTop';
 import { MotionFadeIn } from '@/app/components/MotionFadeIn';
 import { SERVICES, getServiceBySlug, SERVICE_SLUGS } from '@/lib/services';
+import { SERVICE_PAGE_CONTENT } from '@/lib/service-page-content';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS } from '@/lib/layout';
 import { ArrowLeft, Check, ExternalLink } from 'lucide-react';
@@ -54,6 +55,7 @@ export default async function UslugiSlugPage({
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) notFound();
+  const pageContent = SERVICE_PAGE_CONTENT[slug];
 
   return (
     <>
@@ -89,12 +91,24 @@ export default async function UslugiSlugPage({
               </p>
             </MotionFadeIn>
 
-            {/* One row on automatyzacja: text (left) + animation (right); other slugs: single column, transparent style */}
+            {pageContent && (
+              <>
+                <MotionFadeIn delay={0.15} className="mb-10 sm:mb-12 lg:mb-14">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Z jakim problemem wychodzimy?</h2>
+                  <p className="text-slate-400 leading-relaxed max-w-[80ch]">{pageContent.problem}</p>
+                </MotionFadeIn>
+                <MotionFadeIn delay={0.2} className="mb-10 sm:mb-12 lg:mb-14">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Nasze podejście do rozwiązania</h2>
+                  <p className="text-slate-400 leading-relaxed max-w-[80ch]">{pageContent.solution}</p>
+                </MotionFadeIn>
+              </>
+            )}
+
             <div className={`grid gap-8 lg:gap-12 xl:gap-16 items-start ${slug === 'automatyzacja' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
               <div className={slug === 'automatyzacja' ? 'order-2 lg:order-1 space-y-6 lg:space-y-8' : 'space-y-6 lg:space-y-8'}>
                 <MotionFadeIn delay={0.2}>
                   <div className="relative p-8 md:p-10 bg-transparent">
-                    <h2 className="text-lg sm:text-xl font-semibold text-white mb-6">Zakres usługi</h2>
+                    <h2 className="text-lg sm:text-xl font-semibold text-white mb-6">Co wdrażamy</h2>
                     <ul className="space-y-4 text-slate-400">
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-3 text-sm sm:text-base">
@@ -114,6 +128,43 @@ export default async function UslugiSlugPage({
                 </MotionFadeIn>
               )}
             </div>
+
+            {pageContent && (
+              <>
+                <MotionFadeIn delay={0.25} className="mt-12 sm:mt-16 lg:mt-20 mb-10 sm:mb-12 lg:mb-14">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">Korzyści dla Twojej firmy</h2>
+                  <ul className="space-y-3 text-slate-400 max-w-[80ch]">
+                    {pageContent.benefits.map((benefit, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-sm sm:text-base">
+                        <Check className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" aria-hidden />
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </MotionFadeIn>
+                <MotionFadeIn delay={0.3} className="mb-10 sm:mb-12 lg:mb-14">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">Jak wygląda proces współpracy</h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                    {pageContent.process.map((item) => (
+                      <div
+                        key={item.step}
+                        className="relative p-5 sm:p-6 rounded-xl border border-slate-700/50 bg-slate-900/30 backdrop-blur-sm"
+                      >
+                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-purple-500/20 text-purple-300 text-sm font-bold mb-3">
+                          {item.step}
+                        </span>
+                        <h3 className="text-white font-semibold mb-2">{item.title}</h3>
+                        <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </MotionFadeIn>
+                <MotionFadeIn delay={0.35} className="mb-10 sm:mb-12 lg:mb-14">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Dlaczego SmartWeave?</h2>
+                  <p className="text-slate-400 leading-relaxed max-w-[80ch]">{pageContent.whySmartWeave}</p>
+                </MotionFadeIn>
+              </>
+            )}
 
             {/* Realizacje – full-width section, 3 columns (only on strony) */}
             {slug === 'strony' && (
@@ -144,6 +195,51 @@ export default async function UslugiSlugPage({
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900/40">
                               <ExternalLink className="w-8 h-8 text-white" />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="relative bg-slate-900 border-t border-slate-700/50 px-4 sm:px-5 py-4 sm:py-5 flex flex-col">
+                          <span className="text-slate-400 text-sm font-normal mb-1">{item.category}</span>
+                          <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-purple-300 transition-colors pr-10">
+                            {item.title}
+                          </h3>
+                          <div className="absolute right-4 bottom-4 flex items-center justify-center w-9 h-9 rounded-lg border border-slate-600 bg-slate-800/80 text-white group-hover:border-purple-500/50 transition-colors">
+                            <ExternalLink className="w-4 h-4" aria-hidden />
+                          </div>
+                        </div>
+                        <div className={`absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r ${item.gradient} group-hover:w-full transition-all duration-500`} />
+                      </a>
+                    </article>
+                  ))}
+                </div>
+                <div className="mt-8 sm:mt-10 text-center">
+                  <Link
+                    href="/realizacje"
+                    className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 text-white cta-gradient-animated hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]"
+                  >
+                    Zobacz wszystkie realizacje
+                  </Link>
+                </div>
+              </MotionFadeIn>
+            )}
+          </div>
+        </section>
+
+        <UslugiConsultationBlock
+          variant="centered"
+          title="Zainteresowała Cię ta usługa?"
+          description="Umów bezpłatną konsultację — opowiemy o szczegółach i dopasujemy rozwiązanie do Twoich potrzeb."
+        />
+
+        <div className="gradient-philosophy-to-footer">
+          <Footer />
+        </div>
+      </main>
+      <ScrollToTop />
+    </>
+  );
+}
+         <ExternalLink className="w-8 h-8 text-white" />
                             </div>
                           </div>
                         </div>
