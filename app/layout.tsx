@@ -30,14 +30,11 @@ export const metadata: Metadata = {
     'projektowanie stron www dla firm',
     'strony pod leada B2B',
     'automatyzacja procesów AI',
-    'automatyzacja procesów',
-    'strony WWW dla firm',
-    'strony internetowe',
-    'design',
-    'branding',
-    'identyfikacja wizualna',
-    'agenci AI',
-    'SEO',
+    'wdrożenia AI',
+    'architektura automatyzacji',
+    'agenci AI dla firm',
+    'strony internetowe generujące leady',
+    'AI dla biznesu',
     SITE_NAME,
   ],
 
@@ -122,7 +119,7 @@ const jsonLd = {
         url: SITE_LOGO_URL,
       },
       description:
-        'Projektowanie stron www dla firm, strony pod leada B2B, automatyzacja procesów AI. Design i automatyzacja dla biznesu.',
+        'Projektowanie stron www dla firm, automatyzacja procesów AI, strony pod leada B2B, agenci AI. Partner strategiczny.',
     },
     {
       '@type': 'WebSite',
@@ -166,9 +163,9 @@ const jsonLd = {
     {
       '@type': 'ProfessionalService',
       '@id': `${SITE_URL}/#service`,
-      name: `${SITE_NAME} – Design i automatyzacja`,
+      name: `${SITE_NAME} – strony B2B, automatyzacja AI, agenci AI`,
       description:
-        'Projektowanie stron www dla firm, strony pod leada B2B, automatyzacja procesów AI. Branding, agenci AI, SEO.',
+        'Projektowanie stron www dla firm, automatyzacja procesów AI, strony pod leada B2B, wdrożenia AI, agenci AI. Partner strategiczny.',
       url: SITE_URL,
       areaServed: {
         '@type': 'Country',
@@ -178,8 +175,9 @@ const jsonLd = {
         'Projektowanie stron www dla firm',
         'Strony pod leada B2B',
         'Automatyzacja procesów AI',
-        'Branding',
-        'SEO',
+        'Agenci AI dla firm',
+        'Wdrożenia AI',
+        'Architektura automatyzacji',
       ],
     },
     {
@@ -197,12 +195,11 @@ const jsonLd = {
       '@type': 'ItemList',
       name: 'Usługi SmartWeave',
       description:
-        'Projektowanie stron www dla firm, strony pod leada B2B, automatyzacja procesów AI, branding, agenci AI.',
+        'Projektowanie stron www dla firm, automatyzacja procesów AI, strony pod leada B2B, agenci AI.',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Projektowanie stron www dla firm' },
-        { '@type': 'ListItem', position: 2, name: 'Identyfikacja wizualna i branding' },
-        { '@type': 'ListItem', position: 3, name: 'Automatyzacja procesów AI' },
-        { '@type': 'ListItem', position: 4, name: 'Agenci AI' },
+        { '@type': 'ListItem', position: 2, name: 'Automatyzacja procesów AI' },
+        { '@type': 'ListItem', position: 3, name: 'Agenci AI dla firm' },
       ],
     },
   ],

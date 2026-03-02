@@ -1,5 +1,6 @@
 import { Mail, MapPin, Linkedin, Instagram } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const LOGO = '/assets/smartweave-logo.png';
 
@@ -11,7 +12,6 @@ export function Footer() {
       <div className="relative z-10 max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
           <div>
-            {/* Logo — same settings as Header */}
             <Image
               src={LOGO}
               alt="SmartWeave"
@@ -23,7 +23,32 @@ export function Footer() {
             />
 
             <p className="text-sm sm:text-base text-slate-400 leading-relaxed mb-3">
-              Projektowanie stron www dla firm, strony pod leada B2B i automatyzacja procesów AI. Design i wdrożenia dla biznesu.
+              Strony B2B, automatyzacja procesów AI i agenci AI — partner strategiczny dla firm, które chcą skalować szybciej.
+            </p>
+
+            <nav aria-label="Usługi w stopce" className="mb-4">
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">Usługi</p>
+              <ul className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-400">
+                <li>
+                  <Link href="/uslugi/strony" className="hover:text-purple-400 transition-colors">
+                    Projektowanie stron www dla firm
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/uslugi/automatyzacja" className="hover:text-purple-400 transition-colors">
+                    Automatyzacja procesów AI
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/uslugi/agenci-ai" className="hover:text-purple-400 transition-colors">
+                    Agenci AI dla firm
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+
+            <p className="text-xs sm:text-sm text-slate-500 mb-2">
+              <Link href="/blog" className="hover:text-purple-400 transition-colors">Blog</Link> — automatyzacja, AI, strony B2B. Chcesz omówić strategię? Skontaktuj się z nami.
             </p>
             <p className="text-xs sm:text-sm text-slate-500">
               © {currentYear} SmartWeave. Wszystkie prawa zastrzeżone.
