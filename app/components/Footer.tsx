@@ -1,6 +1,5 @@
 import { Mail, MapPin, Linkedin, Instagram } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 const LOGO = '/assets/smartweave-logo.png';
 
@@ -26,13 +25,6 @@ export function Footer() {
             <p className="text-sm sm:text-base text-slate-400 leading-relaxed mb-3">
               Projektowanie stron www dla firm, strony pod leada B2B i automatyzacja procesów AI. Design i wdrożenia dla biznesu.
             </p>
-            <nav aria-label="Usługi" className="mt-3">
-              <ul className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-500">
-                <li><Link href="/uslugi/strony" className="hover:text-purple-400 transition-colors">Projektowanie stron www dla firm</Link></li>
-                <li><Link href="/uslugi/automatyzacja" className="hover:text-purple-400 transition-colors">Automatyzacja procesów AI</Link></li>
-                <li><Link href="/uslugi/strony" className="hover:text-purple-400 transition-colors">Strony pod leada B2B</Link></li>
-              </ul>
-            </nav>
             <p className="text-xs sm:text-sm text-slate-500">
               © {currentYear} SmartWeave. Wszystkie prawa zastrzeżone.
             </p>
