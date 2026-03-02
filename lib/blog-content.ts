@@ -1,58 +1,82 @@
 /**
  * Full article content for blog posts. SEO- and Google-oriented: clear headings,
  * keyword-rich intro, semantic structure (H2/H3), scannable paragraphs.
+ * faq: for Google FAQ rich snippets. cta: prominent call-to-action with link.
  */
 export type ContentBlock =
   | { t: 'h2'; c: string }
   | { t: 'h3'; c: string }
   | { t: 'p'; c: string }
-  | { t: 'ul'; c: string[] };
+  | { t: 'ul'; c: string[] }
+  | { t: 'faq'; c: { q: string; a: string }[] }
+  | { t: 'cta'; c: { text: string; href: string; label: string } };
 
 export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
   'czy-firma-potrzebuje-automatyzacji': [
     {
       t: 'p',
-      c: 'Wdrożenie automatyzacji w firmie to jedna z najważniejszych decyzji operacyjnych. Zanim zainwestujesz w narzędzia i procesy, warto sprawdzić, czy Twoja organizacja jest na to gotowa. Poniżej siedem sygnałów, które wskazują, że to właściwy moment na automatyzację.',
+      c: 'Zespół tonie w powtarzalnych zadaniach, a Ty wiesz, że część pracy mogłaby iść szybciej – ale nie masz pewności, czy to już moment na automatyzację. Inwestycja w procesy i narzędzia ma sens wtedy, gdy firma jest na to gotowa. Oto siedem sygnałów, które pokazują, że warto działać teraz.',
+    },
+    { t: 'h2', c: 'Dlaczego moment na automatyzację ma znaczenie?' },
+    {
+      t: 'p',
+      c: 'Wdrożenie automatyzacji bez przygotowania kończy się nieużywanymi licencjami i rozczarowaniem. Z drugiej strony – zwlekanie, gdy firma już „dusi się” powtarzalnymi procesami, kosztuje czas, pieniądze i konkurencyjność. Kluczowe jest rozpoznanie właściwego momentu.',
     },
     { t: 'h2', c: '1. Powtarzasz te same zadania ręcznie' },
     {
       t: 'p',
       c: 'Jeśli Ty lub zespół spędzacie godziny na kopiowaniu danych między arkuszami, wysyłaniu tych samych maili czy uzupełnianiu formularzy – to klasyczny sygnał. Automatyzacja procesów biznesowych pozwala przenieść takie zadania na systemy i odzyskać czas na pracę twórczą.',
     },
-    { t: 'h2', c: '2. Błędy ludzkie zdarzają się często' },
+    { t: 'h2', c: '2. Błędy ludzkie zdarzają się regularnie' },
     {
       t: 'p',
-      c: 'Gdy w powtarzalnych procesach pojawiają się pomyłki (np. w zamówieniach, fakturach, synchronizacji danych), koszty rosną. Zautomatyzowane workflowy ograniczają ryzyko błędów i zwiększają spójność operacji.',
+      c: 'Pomyłki w zamówieniach, fakturach czy synchronizacji danych generują koszty i utratę zaufania. Zdefiniowane workflowy ograniczają ryzyko błędów i utrzymują spójność operacji przy rosnącym wolumenie.',
     },
-    { t: 'h2', c: '3. Nie nadążasz z zadaniami' },
+    { t: 'h2', c: '3. Nie nadążasz z wolumenem zleceń i leadów' },
     {
       t: 'p',
-      c: 'Stały wzrost liczby zleceń, leadów czy dokumentów przy tym samym zespole to znak, że potrzebujesz wsparcia technologii. Automatyzacja w firmie pozwala obsłużyć większy wolumen bez proporcjonalnego wzrostu zatrudnienia.',
+      c: 'Więcej zapytań, zleceń czy dokumentów przy tym samym zespole to sygnał, że potrzebujesz wsparcia technologii. Automatyzacja w firmie pozwala obsłużyć większy ruch bez proporcjonalnego wzrostu zatrudnienia – i przygotować fundament pod dalszy wzrost.',
     },
-    { t: 'h2', c: '4. Informacje „gubią się” między narzędziami' },
+    { t: 'h2', c: '4. Informacje „gubią się” między systemami' },
     {
       t: 'p',
-      c: 'Dane w wielu systemach (CRM, e-mail, arkusze) bez integracji oznaczają straty czasu i przeoczenia. Integracje i automatyzacja przepływu informacji sprawiają, że wszystko trafia we właściwe miejsce w jednym obiegu.',
+      c: 'Dane rozproszone w CRM, mailu i arkuszach bez integracji oznaczają przeoczenia i straty czasu. Jednolity przepływ informacji sprawia, że każdy lead i zlecenie trafia we właściwe miejsce – bez ręcznego przenoszenia.',
     },
-    { t: 'h2', c: '5. Klienci czekają na odpowiedzi' },
+    { t: 'h2', c: '5. Klienci czekają zbyt długo na odpowiedź' },
     {
       t: 'p',
-      c: 'Długi czas reakcji na zapytania czy zlecenia obniża satysfakcję i konkurencyjność. Proste automatyzacje (potwierdzenia, przypomnienia, przekierowanie do właściwej osoby) skracają czas obsługi i poprawiają wizerunek firmy.',
+      c: 'Długi czas reakcji na zapytania obniża satysfakcję i odstrasza od współpracy. Proste automatyzacje: potwierdzenia, przypomnienia i przekierowanie do właściwej osoby skracają czas obsługi i budują wizerunek firmy, która ma wszystko pod kontrolą.',
     },
-    { t: 'h2', c: '6. Chcesz lepiej wykorzystać dane' },
+    { t: 'h2', c: '6. Chcesz podejmować decyzje w oparciu o dane' },
     {
       t: 'p',
-      c: 'Raporty, analizy i decyzje oparte na danych wymagają uporządkowanych, aktualnych informacji. Automatyzacja zbierania i przetwarzania danych ułatwia raportowanie i wspiera rozwój biznesu w oparciu o fakty.',
+      c: 'Raporty i analizy wymagają uporządkowanych, aktualnych danych. Automatyzacja zbierania i przetwarzania informacji daje realny obraz sytuacji i pozwala rozwijać biznes w oparciu o fakty zamiast intuicji.',
     },
-    { t: 'h2', c: '7. Planujesz skalować działalność' },
+    { t: 'h2', c: '7. Planujesz skalować sprzedaż lub zespół' },
     {
       t: 'p',
-      c: 'Przed znacznym wzrostem sprzedaży, zespołu czy oferty warto ustabilizować procesy. Wdrożenie automatyzacji teraz ułatwi późniejsze skalowanie bez chaosu i nadmiernych kosztów operacyjnych.',
+      c: 'Przed znacznym wzrostem warto ustabilizować procesy. Wdrożenie automatyzacji teraz ułatwi późniejsze skalowanie bez chaosu, nadgodzin i lawinowo rosnących kosztów operacyjnych.',
     },
-    { t: 'h2', c: 'Podsumowanie' },
+    { t: 'h2', c: 'Co dalej? Strategia zamiast narzędzia na ślepo' },
     {
       t: 'p',
-      c: 'Jeśli rozpoznajesz u siebie kilka z powyższych sygnałów, to dobry moment, by zaplanować pierwsze kroki w kierunku automatyzacji. Zacznij od jednego, dobrze zdefiniowanego procesu – np. obsługi leadów lub raportów – i stopniowo rozszerzaj zakres. W razie potrzeby warto skorzystać z pomocy ekspertów od automatyzacji procesów biznesowych.',
+      c: 'Rozpoznanie kilku z powyższych sygnałów to dobry moment na pierwsze kroki. Kluczowe jest wybranie jednego, dobrze zdefiniowanego procesu – np. obsługi leadów z formularza lub comiesięcznego raportu – i stopniowe rozszerzanie. W SmartWeave pomagamy firmom w wyborze właściwych procesów i wdrożeniu automatyzacji, która od razu przekłada się na oszczędność czasu i mierzalne efekty.',
+    },
+    {
+      t: 'cta',
+      c: {
+        text: 'Chcesz sprawdzić, które procesy w Twojej firmie warto zautomatyzować jako pierwsze? Umów bezpłatną konsultację – przeanalizujemy Twoją sytuację i zaproponujemy konkretne kroki.',
+        href: '/uslugi/automatyzacja',
+        label: 'Porozmawiajmy o automatyzacji',
+      },
+    },
+    {
+      t: 'faq',
+      c: [
+        { q: 'Czy automatyzacja w firmie ma sens przy małym zespole?', a: 'Tak. Nawet w małej firmie powtarzalne zadania (np. obsługa formularza, raporty, powiadomienia) można przenieść na systemy. Zyskujesz czas na rozwój i klientów zamiast na ręczną, powtarzalną pracę.' },
+        { q: 'Od czego zacząć wdrożenie automatyzacji?', a: 'Od jednego, dobrze opisanego procesu – np. przepływ leadów z formularza do CRM i powiadomienie handlowca. Sukces pierwszego wdrożenia buduje zaufanie i pokazuje ROI, co ułatwia kolejne kroki.' },
+        { q: 'Ile trwa wdrożenie pierwszej automatyzacji?', a: 'Proste procesy (formularz → mail/CRM, raport tygodniowy) można wdrożyć w ciągu kilku dni do kilku tygodni. Złożone integracje i wiele wyjątków wydłużają czas – dlatego zaczynamy od jednego, klarownego procesu.' },
+      ],
     },
   ],
 
@@ -105,7 +129,22 @@ export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
     { t: 'h2', c: 'Wnioski na 2026 rok' },
     {
       t: 'p',
-      c: 'Dla małych i średnich firm, które chcą szybko wdrożyć automatyzację bez hostingu – Make pozostaje prostym wyborem. Dla organizacji z większą liczbą procesów, wymogami bezpieczeństwa danych lub potrzebą zaawansowanej rozbudowy – n8n (zwłaszcza self-hosted) jest często lepszym długoterminowym rozwiązaniem. Warto przetestować obie platformy na jednym, konkretnym procesie, zanim podejmie się finalną decyzję.',
+      c: 'Dla małych i średnich firm, które chcą szybko wdrożyć automatyzację bez hostingu – Make pozostaje prostym wyborem. Dla organizacji z większą liczbą procesów, wymogami bezpieczeństwa danych lub potrzebą zaawansowanej rozbudowy – n8n (zwłaszcza self-hosted) jest często lepszym długoterminowym rozwiązaniem. W SmartWeave pomagamy dobrać narzędzie i wdrożyć pierwsze workflowy – tak, żeby automatyzacja od razu przynosiła mierzalny efekt.',
+    },
+    {
+      t: 'cta',
+      c: {
+        text: 'Nie wiesz, czy Make, n8n czy inne narzędzie pasuje do Twoich procesów? Umów konsultację – przeanalizujemy potrzeby i zaproponujemy pierwszy scenariusz.',
+        href: '/uslugi/automatyzacja',
+        label: 'Porozmawiajmy o automatyzacji',
+      },
+    },
+    {
+      t: 'faq',
+      c: [
+        { q: 'Make czy n8n – co wybrać dla małej firmy?', a: 'Jeśli chcesz szybko wdrożyć automatyzację bez hostingu i korzystasz z popularnych aplikacji (Google, CRM, e-mail) – Make. Jeśli wolisz kontrolę nad danymi lub planujesz wiele złożonych workflowów – n8n (cloud lub self-hosted).' },
+        { q: 'Czy n8n wymaga programowania?', a: 'Podstawowe scenariusze buduje się wizualnie, podobnie jak w Make. Węzły z kodem (JavaScript) pozwalają rozszerzyć logikę – przydatne przy własnych API lub złożonych transformacjach.' },
+      ],
     },
   ],
 
@@ -198,10 +237,31 @@ export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
       t: 'p',
       c: 'Kluczowe jest bezpieczeństwo danych (kto ma dostęp, gdzie są przechowywane), obsługa wyjątków (co robi system, gdy coś pójdzie nie tak) oraz akceptacja zespołu – automatyzacja ma odciążać, a nie zastępować ludzi bez jasnej komunikacji. Warto też planować koszty licencji i utrzymania oraz czas na ewentualne zmiany przy rozwoju firmy.',
     },
+    { t: 'h2', c: 'Dlaczego warto powierzyć wdrożenie ekspertom?' },
+    {
+      t: 'p',
+      c: 'SmartWeave działa jako strategiczny partner wdrożeń: nie sprzedajemy wyłącznie licencji, tylko projektujemy i wdrażamy automatyzację pod Twoje procesy. Zaczynamy od analizy i jednego, mierzalnego procesu – tak, żeby efekt (oszczędność czasu, mniej błędów) był widoczny szybko. Dla małych i średnich firm to bezpieczna ścieżka do skalowania bez nadmiernych kosztów.',
+    },
     { t: 'h2', c: 'Podsumowanie' },
     {
       t: 'p',
       c: 'Automatyzacja procesów biznesowych to skuteczny sposób na oszczędność czasu, ograniczenie błędów i lepsze wykorzystanie danych. Start od jednego, dobrze zdefiniowanego procesu i stopniowe rozszerzanie to bezpieczna ścieżka wdrożenia w każdej firmie – małej i średniej.',
+    },
+    {
+      t: 'cta',
+      c: {
+        text: 'Chcesz wdrożyć automatyzację procesów w swojej firmie? Opowiedz nam o swoich wyzwaniach – zaproponujemy konkretne kroki i pierwszy proces do zautomatyzowania.',
+        href: '/uslugi/automatyzacja',
+        label: 'Umów konsultację – automatyzacja',
+      },
+    },
+    {
+      t: 'faq',
+      c: [
+        { q: 'Czym jest automatyzacja procesów biznesowych (BPA)?', a: 'BPA to przeniesienie powtarzalnych, zdefiniowanych regułami zadań na systemy (workflowy, integracje). Ludzie zajmują się oceną, relacjami i wyjątkami; rutyna idzie przez systemy.' },
+        { q: 'Od którego procesu zacząć automatyzację?', a: 'Od procesu dobrze opisanego, powtarzalnego i uciążliwego dla zespołu – np. obsługa leadów z formularza, comiesięczny raport, synchronizacja CRM z innymi narzędziami.' },
+        { q: 'Ile kosztuje wdrożenie automatyzacji?', a: 'Zależy od złożoności: proste workflowy (formularz → CRM, raport) to zwykle kilka–kilkanaście godzin pracy. Złożone integracje i wiele wyjątków wymagają dłuższego projektu. W SmartWeave zaczynamy od konsultacji i jednego procesu.' },
+      ],
     },
   ],
 
@@ -249,7 +309,22 @@ export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
     { t: 'h2', c: 'Podsumowanie' },
     {
       t: 'p',
-      c: 'Design i automatyzacja dla małych firm to nie luksus, tylko narzędzia wspierające rozwój i codzienną pracę. Od dobrej strony i jednego, prostego workflowu można zacząć już dziś – bez wielkich nakładów – i stopniowo dodawać kolejne elementy w miarę potrzeb i budżetu.',
+      c: 'Design i automatyzacja dla małych firm to nie luksus, tylko narzędzia wspierające rozwój i codzienną pracę. Od dobrej strony i jednego, prostego workflowu można zacząć już dziś – bez wielkich nakładów – i stopniowo dodawać kolejne elementy w miarę potrzeb i budżetu. W SmartWeave łączymy projektowanie stron, branding i wdrożenia automatyzacji pod jednym dachem – tak, żeby firma mogła rozwijać się spójnie.',
+    },
+    {
+      t: 'cta',
+      c: {
+        text: 'Chcesz zacząć od strony, brandingu czy pierwszej automatyzacji? Opowiedz nam o swojej firmie – zaproponujemy konkretny pierwszy krok.',
+        href: '/uslugi',
+        label: 'Zobacz nasze usługi',
+      },
+    },
+    {
+      t: 'faq',
+      c: [
+        { q: 'Od czego lepiej zacząć – strona czy automatyzacja?', a: 'Zależy od priorytetu. Jeśli brakuje Ci leadów lub wizerunek jest słaby – najpierw strona i spójność. Jeśli masz leady, ale gubią się w chaosie – pierwsza automatyzacja (np. formularz → CRM) szybko odciąży zespół.' },
+        { q: 'Ile kosztuje minimalna strona dla małej firmy?', a: 'W SmartWeave dopasowujemy zakres do budżetu. Można zacząć od jednej, dobrze zaprojektowanej strony głównej z sekcjami: usługi, o nas, kontakt – i rozbudowywać później.' },
+      ],
     },
   ],
 
@@ -292,7 +367,225 @@ export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
     { t: 'h2', c: 'Podsumowanie' },
     {
       t: 'p',
-      c: 'SEO w erze wyszukiwarek AI to połączenie klasycznej optymalizacji (słowa kluczowe, linki, technika) z przygotowaniem treści pod cytowanie i podsumowania: konkretne odpowiedzi, czytelna struktura, dane strukturalne i wiarygodność. Warto już teraz traktować wyszukiwarki AI jako kolejny kanał dotarcia do odbiorców i stopniowo dostosowywać stronę tak, by była wartościowym źródłem dla użytkowników i dla modeli.',
+      c: 'SEO w erze wyszukiwarek AI to połączenie klasycznej optymalizacji (słowa kluczowe, linki, technika) z przygotowaniem treści pod cytowanie i podsumowania: konkretne odpowiedzi, czytelna struktura, dane strukturalne i wiarygodność. W SmartWeave projektujemy i wdrażamy strony gotowe na wyszukiwarki AI – od struktury treści po dane strukturalne i audyt cytowań.',
+    },
+    {
+      t: 'cta',
+      c: {
+        text: 'Chcesz, żeby Twoja strona była widoczna w ChatGPT, Perplexity i Google AI? Opowiedz nam o swojej działalności – zaproponujemy konkretne zmiany i kolejne kroki.',
+        href: '/uslugi/strony',
+        label: 'Porozmawiajmy o stronie i SEO',
+      },
+    },
+    {
+      t: 'faq',
+      c: [
+        { q: 'Czym różni się SEO od optymalizacji pod wyszukiwarki AI?', a: 'Klasyczne SEO skupia się na słowach kluczowych, linkach i sygnałach dla crawlera. Wyszukiwarki AI agregują treść i formułują odpowiedzi – ważna jest jasna struktura, konkretne odpowiedzi na pytania oraz dane strukturalne i wiarygodność źródła.' },
+        { q: 'Czy warto inwestować w SEO pod AI już teraz?', a: 'Tak. Użytkownicy coraz częściej szukają odpowiedzi w ChatGPT, Perplexity czy podsumowaniach Google. Strona przygotowana pod cytowanie i podsumowania zyskuje dodatkowy kanał dotarcia i buduje pozycję na przyszłość.' },
+        { q: 'Jak sprawdzić, czy moja strona jest cytowana w AI?', a: 'Wpisuj w ChatGPT lub Perplexity zapytania, na które Twoja strona powinna odpowiadać, i sprawdzaj, czy jest wymieniana jako źródło. Na tej podstawie można dostosować treść i strukturę.' },
+      ],
+    },
+  ],
+
+  'automatyzacja-procesow-agenci-ai-odzyskaj-czas': [
+    {
+      t: 'p',
+      c: 'Godziny zjadane przez powtarzalne zadania to koszt, który można zamienić na czas na rozwój i klientów. Automatyzacja procesów i agenci AI pozwalają odzyskać ten czas – pod warunkiem, że wdrożenie jest przemyślane i mierzalne. W tym artykule: po co łączyć automatyzację z AI, jakie efekty są realne i od czego zacząć.',
+    },
+    { t: 'h2', c: 'Dlaczego automatyzacja i agenci AI w jednym zdaniu?' },
+    {
+      t: 'p',
+      c: 'Automatyzacja wykonuje zdefiniowane kroki (przepływ danych, powiadomienia, raporty). Agenci AI dodają warstwę „rozumienia”: analiza treści, odpowiedzi na pytania, klasyfikacja, ekstrakcja informacji. Razem dają efekt: mniej ręcznej pracy, szybsza reakcja, lepsze wykorzystanie danych.',
+    },
+    { t: 'h2', c: 'Gdzie w firmie to ma największy sens?' },
+    {
+      t: 'ul',
+      c: [
+        'Obsługa zapytań i leadów – pierwsza odpowiedź, kwalifikacja, przekierowanie do osoby.',
+        'Dokumenty i dane – wyciąganie informacji z faktur, umów, formularzy.',
+        'Raporty i podsumowania – automatyczne zestawienia z wielu źródeł zamiast ręcznego zbierania.',
+        'Komunikacja wewnętrzna – przypomnienia, statusy, powiadomienia w jednym obiegu.',
+      ],
+    },
+    { t: 'h2', c: 'Korzyści: czas i skalowalność' },
+    {
+      t: 'p',
+      c: 'Efekt to nie tylko „szybsza praca”, ale realna oszczędność godzin tygodniowo i możliwość obsłużenia większego wolumenu bez proporcjonalnego wzrostu zatrudnienia. Dodatkowo: mniej błędów przy powtarzalnych operacjach i lepsza widoczność danych do decyzji.',
+    },
+    { t: 'h2', c: 'Od czego zacząć – bez przepalenia budżetu' },
+    {
+      t: 'p',
+      c: 'Zacznij od jednego, dobrze opisanego procesu: np. lead z formularza → kwalifikacja (lub pierwsza odpowiedź) → przekazanie do CRM i handlowca. Sukces pierwszego wdrożenia pokazuje ROI i buduje zaufanie do kolejnych kroków. Dopiero potem warto rozszerzać na agenci AI do dokumentów czy raportów.',
+    },
+    { t: 'h2', c: 'Dlaczego SmartWeave?' },
+    {
+      t: 'p',
+      c: 'SmartWeave łączy projektowanie stron www dla firm z automatyzacją procesów i wdrożeniami agentów AI. Nie sprzedajemy „magii AI” – projektujemy konkretne workflowy i asystentów pod Twoje procesy, tak żeby efekt (odzyskany czas, mniej błędów) był mierzalny od pierwszego wdrożenia.',
+    },
+    {
+      t: 'cta',
+      c: {
+        text: 'Chcesz odzyskać godziny i wdrożyć automatyzację lub agenci AI w swojej firmie? Umów bezpłatną konsultację – przeanalizujemy Twoje procesy i zaproponujemy pierwszy krok.',
+        href: '/uslugi/automatyzacja',
+        label: 'Umów konsultację – automatyzacja i agenci AI',
+      },
+    },
+    {
+      t: 'faq',
+      c: [
+        { q: 'Czym różni się automatyzacja od agenta AI?', a: 'Automatyzacja wykonuje z góry zdefiniowane kroki (np. „gdy X, zrób Y”). Agent AI może analizować treść, odpowiadać na pytania, klasyfikować – czyli wspierać tam, gdzie potrzebna jest elastyczność i „zrozumienie” treści.' },
+        { q: 'Ile czasu zajmuje wdrożenie agenta AI?', a: 'Zależy od zakresu: prosta kwalifikacja leadów lub odpowiedzi na FAQ to tygodnie; złożone analizy dokumentów lub dedykowane workflowy – kilka tygodni do kilku miesięcy. Zaczynamy od jednego procesu, żeby szybko pokazać wartość.' },
+        { q: 'Czy agenci AI zastąpią pracowników?', a: 'Nie – mają odciążyć od powtarzalnych zadań i błędów. Decyzje, relacje z klientem i wyjątki nadal leżą po stronie ludzi. Cel to większa efektywność i czas na to, co naprawdę buduje firmę.' },
+      ],
+    },
+  ],
+
+  'design-na-ai-strona-branding-wyszukiwarki-ai': [
+    {
+      t: 'p',
+      c: 'Wyszukiwarki AI i asystenci nie tylko pokazują linki – cytują fragmenty i wybierają źródła. Strona i branding przygotowane „pod AI” zwiększają szansę, że Twoja firma będzie wymieniana i polecana. W tym artykule: jak dostosować treść, strukturę i wizerunek, żeby być widocznym w erze AI.',
+    },
+    { t: 'h2', c: 'Dlaczego design i branding mają znaczenie dla AI?' },
+    {
+      t: 'p',
+      c: 'Modele AI oceniają wiarygodność i dopasowanie źródła. Spójna strona, jasna struktura treści, konkretne informacje (kto, co, dla kogo) i profesjonalny wizerunek budują sygnał „wartościowe źródło”. To przekłada się na cytowania i rekomendacje w odpowiedziach.',
+    },
+    { t: 'h2', c: 'Strona: struktura i treść pod cytowanie' },
+    {
+      t: 'p',
+      c: 'Nagłówki (H1, H2, H3), sekcje FAQ, krótkie akapity z konkretnymi odpowiedziami i dane strukturalne (Schema.org) ułatwiają AI zrozumienie i wybór Twojej strony. Unikaj wyłącznie ogólników – pisz wprost, co oferujesz i dla kogo.',
+    },
+    { t: 'h2', c: 'Branding: spójność i rozpoznawalność' },
+    {
+      t: 'p',
+      c: 'Spójna identyfikacja wizualna i ten sam ton komunikacji na stronie, w materiałach i w opisach budują zaufanie – także w oczach systemów oceniających wiarygodność. To nie „ozdoba”, tylko element pozycjonowania firmy jako poważnego gracza.',
+    },
+    { t: 'h2', c: 'Konkretne kroki na teraz' },
+    {
+      t: 'ul',
+      c: [
+        'Sprawdź, jak Twoja strona jest cytowana w ChatGPT i Perplexity – wpisz typowe zapytania i zobacz, czy jesteś źródłem.',
+        'Dodaj lub rozbuduj FAQ z pytaniami, które realnie zadają klienci – i odpowiadaj wprost.',
+        'Uzupełnij dane strukturalne (Organization, usługi, artykuły) – ułatwia to indeksację i wybór przez AI.',
+      ],
+    },
+    { t: 'h2', c: 'SmartWeave: strona i branding pod AI' },
+    {
+      t: 'p',
+      c: 'W SmartWeave projektujemy strony www dla firm i identyfikację wizualną z myślą o wyszukiwarkach AI: od struktury treści i GEO po branding, który buduje rozpoznawalność. Chcesz być widoczny tam, gdzie klienci szukają odpowiedzi – pomożemy to wdrożyć.',
+    },
+    {
+      t: 'cta',
+      c: {
+        text: 'Chcesz przygotować stronę i branding pod wyszukiwarki AI? Opowiedz nam o swojej firmie – zaproponujemy konkretne zmiany i kolejne kroki.',
+        href: '/uslugi/strony',
+        label: 'Porozmawiajmy o stronie i brandingu',
+      },
+    },
+    {
+      t: 'faq',
+      c: [
+        { q: 'Czy muszę mieć osobną wersję strony „pod AI”?', a: 'Nie. Jedna, dobrze zbudowana strona z czytelną strukturą, konkretną treścią i danymi strukturalnymi służy zarówno użytkownikom, jak i wyszukiwarkom AI. Chodzi o jakość i przejrzystość, nie o duplikaty.' },
+        { q: 'Jak często sprawdzać cytowania w AI?', a: 'Warto robić to kwartalnie lub po większych zmianach na stronie. Wpisuj typowe zapytania klientów w ChatGPT, Perplexity i sprawdzaj, czy Twoja firma jest wymieniana i jak.' },
+      ],
+    },
+  ],
+
+  'identyfikacja-wizualna-branding-rozpoznawalnosc-zaufanie': [
+    {
+      t: 'p',
+      c: 'Spójna identyfikacja wizualna i branding to nie „kosmetyka” – to narzędzie budowania rozpoznawalności i zaufania. Klienci i partnerzy oceniają firmę m.in. po tym, jak się prezentuje. W tym artykule: dlaczego to ma znaczenie dla rozwoju biznesu i od czego zacząć.',
+    },
+    { t: 'h2', c: 'Po co firmie spójna identyfikacja i branding?' },
+    {
+      t: 'p',
+      c: 'Jednolity wizerunek – logo, kolory, typografia, ton komunikacji – na stronie, w mailach, w social media i w materiałach drukowanych buduje wrażenie profesjonalizmu i przewidywalności. To przekłada się na zaufanie i na to, że klienci wybierają Cię zamiast konkurencji z „pierwszym lepszym” wyglądem.',
+    },
+    { t: 'h2', c: 'Rozpoznawalność i zaufanie – konkretne korzyści' },
+    {
+      t: 'ul',
+      c: [
+        'Szybsze rozpoznanie marki wśród setek komunikatów – klient wie, że to Ty.',
+        'Wyższa skłonność do poleceń i współpracy przy profesjonalnym wizerunku.',
+        'Lepsze pierwsze wrażenie przy leadach B2B i przy współpracy z większymi firmami.',
+      ],
+    },
+    { t: 'h2', c: 'Od czego zacząć?' },
+    {
+      t: 'p',
+      c: 'Nie musisz od razu robić pełnego rebrandingu. Wystarczy uporządkować to, co jest: jeden zestaw kolorów i fontów, spójne zdjęcia i ikony, ten sam ton na stronie i w mailach. Następny krok to prosty brandbook (zasady użycia logo i kolorów), żeby wszyscy w firmie i na zewnątrz trzymali ten sam standard.',
+    },
+    { t: 'h2', c: 'Dlaczego SmartWeave?' },
+    {
+      t: 'p',
+      c: 'SmartWeave łączy projektowanie stron www z identyfikacją wizualną i brandingiem. Tworzymy spójny wizerunek pod rozwój firmy – od logo i kolorystyki po stronę i materiały, które budują rozpoznawalność i zaufanie. Bez pustych obietnic – konkretny output i zasady, których możesz się trzymać.',
+    },
+    {
+      t: 'cta',
+      c: {
+        text: 'Chcesz uporządkować lub odświeżyć wizerunek swojej firmy? Opowiedz nam o marce i celach – zaproponujemy zakres i pierwsze kroki.',
+        href: '/uslugi/branding',
+        label: 'Porozmawiajmy o brandingu',
+      },
+    },
+    {
+      t: 'faq',
+      c: [
+        { q: 'Czy branding ma sens w małej firmie?', a: 'Tak. Spójny wizerunek buduje zaufanie już na starcie. Nie chodzi o wielkie budżety – o jednolite logo, kolory i ton komunikacji, żeby klient od razu wiedział, z kim ma do czynienia.' },
+        { q: 'Ile trwa opracowanie identyfikacji wizualnej?', a: 'Prosty zestaw (logo, kolory, fonty, podstawowe zasady) to zwykle kilka tygodni. Pełny brandbook i materiały – dłużej. W SmartWeave dopasowujemy zakres do budżetu i potrzeb – można zacząć od minimum.' },
+      ],
+    },
+  ],
+
+  'projektowanie-stron-www-gotowe-na-ai': [
+    {
+      t: 'p',
+      c: 'Strona www w 2026 roku to nie tylko wizytówka – to narzędzie do pozyskiwania leadów i budowania pozycji w wyszukiwarkach, w tym w ChatGPT i Perplexity. Projektowanie i wdrażanie stron „gotowych na AI” oznacza: czytelną strukturę, treść pod cytowanie i konwersję. W tym artykule – na co zwrócić uwagę i co realnie daje efekt.',
+    },
+    { t: 'h2', c: 'Strona pod leady B2B i konwersję' },
+    {
+      t: 'p',
+      c: 'Strona dla firm powinna jasno mówić, co oferujesz, dla kogo i jak skontaktować się z Tobą. Formularze, CTA i ścieżka od „odwiedzam” do „zostawiam dane” muszą być przemyślane. To nie kwestia mody – to fundament generowania leadów bez polegania wyłącznie na płatnych kampaniach.',
+    },
+    { t: 'h2', c: 'Gotowość na wyszukiwarki AI' },
+    {
+      t: 'p',
+      c: 'Wyszukiwarki AI cytują fragmenty i wybierają źródła. Strona z jasną strukturą (H1, H2, H3), sekcjami FAQ i konkretnymi odpowiedziami ma większą szansę być wymieniana. Dodatkowo: dane strukturalne (Schema.org) i aktualna treść wzmacniają sygnał wiarygodności.',
+    },
+    { t: 'h2', c: 'Co wdrażamy w SmartWeave?' },
+    {
+      t: 'ul',
+      c: [
+        'Projektowanie stron www dla firm – od koncepcji po wdrożenie.',
+        'Strony pod leada B2B: UX/UI nastawione na konwersję i formularze.',
+        'SEO i GEO: optymalizacja pod Google i wyszukiwarki AI.',
+        'Integracje z CRM, narzędziami analitycznymi i automatyzacją.',
+      ],
+    },
+    { t: 'h2', c: 'Efekt: leady, widoczność, oszczędność czasu' },
+    {
+      t: 'p',
+      c: 'Dobra strona generuje zapytania i buduje zaufanie. Po wdrożeniu można ją połączyć z automatyzacją (np. lead → CRM, powiadomienie) – wtedy cały obieg od wizyty do kontaktu z handlowcem działa bez ręcznego przenoszenia danych.',
+    },
+    { t: 'h2', c: 'Dlaczego SmartWeave?' },
+    {
+      t: 'p',
+      c: 'SmartWeave specjalizuje się w projektowaniu stron www dla firm i automatyzacji procesów. Nie „stronka na szablonie” – strona zaprojektowana pod Twoją ofertę, leady B2B i widoczność w wyszukiwarkach, w tym AI. Od analizy potrzeb po wdrożenie i ewentualne połączenie z automatyzacją.',
+    },
+    {
+      t: 'cta',
+      c: {
+        text: 'Chcesz stronę, która generuje leady i jest gotowa na wyszukiwarki AI? Opowiedz nam o swojej firmie i celach – zaproponujemy zakres i pierwszy krok.',
+        href: '/uslugi/strony',
+        label: 'Porozmawiajmy o stronie',
+      },
+    },
+    {
+      t: 'faq',
+      c: [
+        { q: 'Czym różni się strona „pod leady” od zwykłej wizytówki?', a: 'Strona pod leady ma przemyślaną ścieżkę: jasna oferta, zaufanie (case’y, opinie), wyraźne CTA i formularze. Celem jest nie tylko informacja, ale zachęcenie do kontaktu i zbieranie zapytań.' },
+        { q: 'Czy muszę mieć osobny budżet na SEO pod AI?', a: 'Nie. Jedna, dobrze zbudowana strona z czytelną strukturą i konkretną treścią służy i użytkownikom, i wyszukiwarkom AI. W SmartWeave projektujemy od razu z myślą o obu.' },
+      ],
     },
   ],
 };
