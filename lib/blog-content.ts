@@ -66,7 +66,7 @@ export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
       t: 'cta',
       c: {
         text: 'Chcesz sprawdzić, które procesy w Twojej firmie warto zautomatyzować jako pierwsze? Umów bezpłatną konsultację – przeanalizujemy Twoją sytuację i zaproponujemy konkretne kroki.',
-        href: '/uslugi/automatyzacja',
+        href: '/#contact',
         label: 'Porozmawiajmy o automatyzacji',
       },
     },
@@ -135,7 +135,7 @@ export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
       t: 'cta',
       c: {
         text: 'Nie wiesz, czy Make, n8n czy inne narzędzie pasuje do Twoich procesów? Umów konsultację – przeanalizujemy potrzeby i zaproponujemy pierwszy scenariusz.',
-        href: '/uslugi/automatyzacja',
+        href: '/#contact',
         label: 'Porozmawiajmy o automatyzacji',
       },
     },
@@ -251,7 +251,7 @@ export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
       t: 'cta',
       c: {
         text: 'Chcesz wdrożyć automatyzację procesów w swojej firmie? Opowiedz nam o swoich wyzwaniach – zaproponujemy konkretne kroki i pierwszy proces do zautomatyzowania.',
-        href: '/uslugi/automatyzacja',
+        href: '/#contact',
         label: 'Umów konsultację – automatyzacja',
       },
     },
@@ -315,7 +315,7 @@ export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
       t: 'cta',
       c: {
         text: 'Chcesz zacząć od strony, brandingu czy pierwszej automatyzacji? Opowiedz nam o swojej firmie – zaproponujemy konkretny pierwszy krok.',
-        href: '/uslugi',
+        href: '/#contact',
         label: 'Zobacz nasze usługi',
       },
     },
@@ -373,7 +373,7 @@ export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
       t: 'cta',
       c: {
         text: 'Chcesz, żeby Twoja strona była widoczna w ChatGPT, Perplexity i Google AI? Opowiedz nam o swojej działalności – zaproponujemy konkretne zmiany i kolejne kroki.',
-        href: '/uslugi/strony',
+        href: '/#contact',
         label: 'Porozmawiajmy o stronie i SEO',
       },
     },
@@ -426,7 +426,7 @@ export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
       t: 'cta',
       c: {
         text: 'Chcesz odzyskać godziny i wdrożyć automatyzację lub agenci AI w swojej firmie? Umów bezpłatną konsultację – przeanalizujemy Twoje procesy i zaproponujemy pierwszy krok.',
-        href: '/uslugi/automatyzacja',
+        href: '/#contact',
         label: 'Umów konsultację – automatyzacja i agenci AI',
       },
     },
@@ -478,7 +478,7 @@ export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
       t: 'cta',
       c: {
         text: 'Chcesz przygotować stronę i branding pod wyszukiwarki AI? Opowiedz nam o swojej firmie – zaproponujemy konkretne zmiany i kolejne kroki.',
-        href: '/uslugi/strony',
+        href: '/#contact',
         label: 'Porozmawiajmy o stronie i brandingu',
       },
     },
@@ -524,7 +524,7 @@ export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
       t: 'cta',
       c: {
         text: 'Chcesz uporządkować lub odświeżyć wizerunek swojej firmy? Opowiedz nam o marce i celach – zaproponujemy zakres i pierwsze kroki.',
-        href: '/uslugi/branding',
+        href: '/#contact',
         label: 'Porozmawiajmy o brandingu',
       },
     },
@@ -576,7 +576,7 @@ export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
       t: 'cta',
       c: {
         text: 'Chcesz stronę, która generuje leady i jest gotowa na wyszukiwarki AI? Opowiedz nam o swojej firmie i celach – zaproponujemy zakres i pierwszy krok.',
-        href: '/uslugi/strony',
+        href: '/#contact',
         label: 'Porozmawiajmy o stronie',
       },
     },
