@@ -24,8 +24,8 @@ const uslugiDropdownItems = USLUGI_DISPLAY_ORDER.map((slug) => ({
 }));
 
 const navItems = [
-  { name: 'Usługi', href: '#capabilities' },
-  { name: 'Jak pracujemy', href: '#jak-pracujemy' },
+  { name: 'Usługi', href: '#services' },
+  { name: 'Jak działamy', href: '#how-we-work' },
   { name: 'Realizacje', href: '/realizacje' },
   { name: 'Blog', href: '/blog' },
   { name: 'Kontakt', href: '#contact' },
@@ -199,7 +199,7 @@ export function Header() {
                   handleNavClick(e as React.MouseEvent<HTMLButtonElement>, { name: 'Kontakt', href: '#contact' })
                 }
               >
-                Umów rozmowę
+                Rozpocznij Projekt
               </Button>
             </div>
 
@@ -267,7 +267,7 @@ export function Header() {
                     handleNavClick(e as React.MouseEvent<HTMLButtonElement>, { name: 'Kontakt', href: '#contact' })
                   }
                 >
-                  Umów rozmowę
+                  Rozpocznij Projekt
                 </Button>
               </div>
             </nav>

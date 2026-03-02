@@ -71,13 +71,13 @@ export function CTASection() {
           <div className="space-y-6">
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full">
               <Send className="w-4 h-4 text-purple-400" />
-              <span className="text-purple-300 text-sm font-medium">Konsultacja strategiczna</span>
+              <span className="text-purple-300 text-sm font-medium">Chcesz spróbować?</span>
             </motion.div>
             <motion.h2 id="contact-heading" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
-              <span className="cta-gradient-animated bg-clip-text text-transparent">Omówmy architekturę automatyzacji i wdrożenia AI.</span>
+              <span className="cta-gradient-animated bg-clip-text text-transparent">Toniesz w codziennych zadaniach? Czas to zmienić.</span>
             </motion.h2>
             <motion.p initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-lg text-slate-400 leading-relaxed">
-              Opisz wyzwania operacyjne lub cele — przygotujemy propozycję analizy i kolejnych kroków. Bez zobowiązań.
+              Powiedz nam, co zabiera Ci najwięcej czasu - my zautomatyzujemy te procesy i przyspieszymy pracę Twojej firmy. Dzięki inteligentnym rozwiązaniom i AI odzyskasz godziny każdego dnia i skupisz się na tym, co naprawdę przynosi zysk.
             </motion.p>
           </div>
 
