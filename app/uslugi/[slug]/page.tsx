@@ -158,10 +158,6 @@ export default async function UslugiSlugPage({
                     ))}
                   </div>
                 </MotionFadeIn>
-                <MotionFadeIn delay={0.35} className="mb-10 sm:mb-12 lg:mb-14">
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4">Dlaczego SmartWeave?</h2>
-                  <p className="text-white/90 leading-relaxed max-w-[80ch]">{pageContent.whySmartWeave}</p>
-                </MotionFadeIn>
               </>
             )}
 
