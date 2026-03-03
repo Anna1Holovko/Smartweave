@@ -141,7 +141,7 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          Automatyzacja procesów biznesowych
+          Automatyzacja procesów biznesowych i agenci AI
         </motion.h2>
 
         <div className="relative h-[520px] hidden md:block">

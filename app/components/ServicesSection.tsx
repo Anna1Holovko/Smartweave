@@ -2,18 +2,17 @@
 
 import { motion } from 'motion/react';
 import Link from 'next/link';
-import { Globe, Workflow, Check, Palette, Bot, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Globe, Workflow, Check, Palette, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Button } from './ui/Button';
 import { SERVICES, USLUGI_DISPLAY_ORDER } from '@/lib/services';
 import { CALENDLY_URL } from '@/lib/site';
 
-/** Home: first 3 from dropdown order — Automatyzacja, Agenci AI, Strony (no Branding) */
+/** Home: first 3 from dropdown order — Automatyzacja i agenci AI, Strony, Branding */
 const HOME_SERVICES_ORDER = USLUGI_DISPLAY_ORDER.slice(0, 3);
 const SERVICE_ICONS: Record<string, typeof Globe> = {
   strony: Globe,
   branding: Palette,
   automatyzacja: Workflow,
-  'agenci-ai': Bot,
 };
 
 const _servicesRemoved = [
@@ -46,12 +45,7 @@ export function ServicesSection() {
           {HOME_SERVICES_ORDER.map((slug) => SERVICES.find((s) => s.slug === slug)).filter(Boolean).map((service, index) => {
             const s = service!;
             const Icon = SERVICE_ICONS[s.slug] ?? Globe;
-            const displayTitle =
-              s.slug === 'automatyzacja'
-                ? 'Automatyzacja procesów biznesowych'
-                : s.slug === 'strony'
-                  ? 'Strony internetowe'
-                  : s.title;
+            const displayTitle = s.slug === 'strony' ? 'Strony internetowe' : s.title;
             return (
               <motion.div
                 key={s.slug}

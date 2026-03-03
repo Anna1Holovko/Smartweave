@@ -18,8 +18,7 @@ import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 const SLUG_TITLES: Record<string, string> = {
   strony: 'Projektowanie i wdrażanie stron internetowych',
   branding: 'Identyfikacja wizualna i branding',
-  automatyzacja: 'Automatyzacja procesów biznesowych',
-  'agenci-ai': 'Agenci AI',
+  automatyzacja: 'Automatyzacja procesów biznesowych i agenci AI',
 };
 
 export async function generateStaticParams() {
