@@ -107,7 +107,7 @@ export default async function UslugiSlugPage({
               <div className={slug === 'automatyzacja' ? 'order-2 lg:order-1 space-y-6 lg:space-y-8' : 'space-y-6 lg:space-y-8'}>
                 <MotionFadeIn delay={0.2}>
                   <div className="relative p-8 md:p-10 bg-transparent">
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-6">Co wdrażamy</h2>
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-6">{slug === 'automatyzacja' ? 'Co możemy zautomatyzować w Twojej firmie' : 'Co wdrażamy'}</h2>
                     <ul className="space-y-4 text-white/90">
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-3 text-sm sm:text-base">
