@@ -88,20 +88,20 @@ export default async function UslugiSlugPage({
               <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent px-2 pb-[0.2em] break-words leading-snug mt-3 sm:mt-4`}>
                 {service.title}
               </h1>
-              <p className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2 mt-4">
+              <p className="text-base sm:text-xl text-white/90 max-w-[80ch] mx-auto px-2 mt-4 leading-relaxed">
                 {service.description}
               </p>
             </MotionFadeIn>
 
             {pageContent && (
               <>
-                <MotionFadeIn delay={0.15} className="mb-10 sm:mb-12 lg:mb-14">
-                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Z jakim problemem wychodzimy?</h2>
-                  <p className="text-slate-400 leading-relaxed max-w-[80ch]">{pageContent.problem}</p>
+                <MotionFadeIn delay={0.15} className="mb-10 sm:mb-12 lg:mb-14 max-w-[80ch] mx-auto lg:mx-0">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4">Z jakim problemem wychodzimy?</h2>
+                  <p className="text-white/90 leading-relaxed">{pageContent.problem}</p>
                 </MotionFadeIn>
-                <MotionFadeIn delay={0.2} className="mb-10 sm:mb-12 lg:mb-14">
-                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Nasze podejście do rozwiązania</h2>
-                  <p className="text-slate-400 leading-relaxed max-w-[80ch]">{pageContent.solution}</p>
+                <MotionFadeIn delay={0.2} className="mb-10 sm:mb-12 lg:mb-14 max-w-[80ch] mx-auto lg:mx-0">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4">Nasze podejście do rozwiązania</h2>
+                  <p className="text-white/90 leading-relaxed">{pageContent.solution}</p>
                 </MotionFadeIn>
               </>
             )}
@@ -110,8 +110,8 @@ export default async function UslugiSlugPage({
               <div className={slug === 'automatyzacja' ? 'order-2 lg:order-1 space-y-6 lg:space-y-8' : 'space-y-6 lg:space-y-8'}>
                 <MotionFadeIn delay={0.2}>
                   <div className="relative p-8 md:p-10 bg-transparent">
-                    <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">Co wdrażamy</h2>
-                    <ul className="space-y-4 text-slate-400">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-6">Co wdrażamy</h2>
+                    <ul className="space-y-4 text-white/90">
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-3 text-sm sm:text-base">
                           <Check className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" aria-hidden />
@@ -134,8 +134,8 @@ export default async function UslugiSlugPage({
             {pageContent && (
               <>
                 <MotionFadeIn delay={0.25} className="mt-12 sm:mt-16 lg:mt-20 mb-10 sm:mb-12 lg:mb-14">
-                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">Korzyści dla Twojej firmy</h2>
-                  <ul className="space-y-3 text-slate-400 max-w-[80ch]">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-6">Korzyści dla Twojej firmy</h2>
+                  <ul className="space-y-4 text-white/90 max-w-[80ch]">
                     {pageContent.benefits.map((benefit, idx) => (
                       <li key={idx} className="flex items-start gap-3 text-sm sm:text-base">
                         <Check className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" aria-hidden />
@@ -145,25 +145,26 @@ export default async function UslugiSlugPage({
                   </ul>
                 </MotionFadeIn>
                 <MotionFadeIn delay={0.3} className="mb-10 sm:mb-12 lg:mb-14">
-                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">Jak wygląda proces współpracy</h2>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-6">Jak wygląda proces współpracy</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                     {pageContent.process.map((item) => (
                       <div
                         key={item.step}
-                        className="relative p-5 sm:p-6 rounded-xl border border-slate-700/50 bg-gradient-to-b from-slate-800/50 to-slate-900/60 backdrop-blur-sm"
+                        className="relative p-5 sm:p-6 rounded-xl border border-slate-700/40 bg-gradient-to-b from-purple-950/40 via-slate-800/50 to-slate-900/60 backdrop-blur-sm"
                       >
-                        <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-500/40 text-white text-sm font-bold mb-3">
+                        <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-500/30 text-white text-sm font-bold mb-3" aria-hidden>
                           {item.step}
                         </span>
+                        <span className="absolute top-3 right-3 w-2 h-2 rounded-full bg-purple-400/50" aria-hidden />
                         <h3 className="text-white font-semibold mb-2">{item.title}</h3>
-                        <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>
+                        <p className="text-white/80 text-sm leading-relaxed">{item.description}</p>
                       </div>
                     ))}
                   </div>
                 </MotionFadeIn>
                 <MotionFadeIn delay={0.35} className="mb-10 sm:mb-12 lg:mb-14">
-                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Dlaczego SmartWeave?</h2>
-                  <p className="text-slate-400 leading-relaxed max-w-[80ch]">{pageContent.whySmartWeave}</p>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4">Dlaczego SmartWeave?</h2>
+                  <p className="text-white/90 leading-relaxed max-w-[80ch]">{pageContent.whySmartWeave}</p>
                 </MotionFadeIn>
               </>
             )}
