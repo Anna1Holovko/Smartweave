@@ -1,6 +1,5 @@
 import { Mail, MapPin, Linkedin, Instagram } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 const LOGO = '/assets/smartweave-logo.png';
 
@@ -24,7 +23,7 @@ export function Footer() {
             />
 
             <p className="text-sm sm:text-base text-slate-400 leading-relaxed mb-3">
-              Tworzymy nowoczesne strony i automatyzujemy procesy.
+              Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Design i wdrożenia dla biznesu.
             </p>
             <p className="text-xs sm:text-sm text-slate-500">
               © {currentYear} SmartWeave. Wszystkie prawa zastrzeżone.

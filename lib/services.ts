@@ -7,9 +7,9 @@ export const SERVICES = [
     slug: 'strony',
     title: 'Projektowanie i wdrażanie stron internetowych',
     description:
-      'Tworzymy nowoczesne, szybkie i skuteczne strony internetowe dla firm. Projektujemy rozwiązania, które pomagają klientom łatwo Cię znaleźć, budują zaufanie od pierwszego kontaktu i realnie wspierają sprzedaż oraz rozwój marki.',
+      'Projektowanie stron www dla firm — nowoczesne, szybkie strony pod leada B2B. Tworzymy strony, które pomagają klientom Cię znaleźć, budują zaufanie i wspierają sprzedaż oraz rozwój marki.',
     features: [
-      'Projektowanie nowoczesnych stron firmowych',
+      'Projektowanie stron www dla firm i stron pod leada B2B',
       'Tworzenie stron usługowych i korporacyjnych',
       'Projektowanie UX/UI nastawione na konwersję',
       'Optymalizacja SEO i GEO (AI Search Optimization)',

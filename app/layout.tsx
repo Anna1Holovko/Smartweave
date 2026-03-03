@@ -27,16 +27,18 @@ export const metadata: Metadata = {
   description: META_DESCRIPTION,
 
   keywords: [
-    'automatyzacja',
+    'projektowanie stron www dla firm',
+    'strony pod leada B2B',
+    'automatyzacja procesów AI',
     'automatyzacja procesów',
-    'design',
+    'strony WWW dla firm',
     'strony internetowe',
+    'design',
     'branding',
     'identyfikacja wizualna',
     'agenci AI',
     'SEO',
     SITE_NAME,
-    'strony WWW dla firm',
   ],
 
   robots: {
@@ -120,7 +122,7 @@ const jsonLd = {
         url: SITE_LOGO_URL,
       },
       description:
-        'Design i automatyzacja dla biznesu: strony internetowe, branding, automatyzacja procesów i agenci AI.',
+        'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Design i automatyzacja dla biznesu.',
     },
     {
       '@type': 'WebSite',
@@ -166,17 +168,17 @@ const jsonLd = {
       '@id': `${SITE_URL}/#service`,
       name: `${SITE_NAME} – Design i automatyzacja`,
       description:
-        'Usługi: projektowanie stron WWW, identyfikacja wizualna i branding, automatyzacja procesów i agenci AI, marketing internetowy i SEO.',
+        'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Branding, SEO.',
       url: SITE_URL,
       areaServed: {
         '@type': 'Country',
         name: 'Poland',
       },
       serviceType: [
-        'Design',
-        'Automatyzacja procesów',
+        'Automatyzacja procesów biznesowych',
+        'Agenci AI',
         'Strony internetowe',
-        'Branding',
+        'Identyfikacja wizualna i branding',
         'SEO',
       ],
     },
@@ -195,7 +197,7 @@ const jsonLd = {
       '@type': 'ItemList',
       name: 'Usługi SmartWeave',
       description:
-        'Główne usługi: strony WWW, design, automatyzacja, marketing.',
+        'Automatyzacja procesów biznesowych, agenci AI, strony internetowe. Identyfikacja wizualna i branding.',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Strony internetowe' },
         { '@type': 'ListItem', position: 2, name: 'Identyfikacja wizualna i branding' },

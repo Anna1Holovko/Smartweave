@@ -1,6 +1,6 @@
 # SmartWeave – Design & Automatyzacja
 
-Next.js landing page for SmartWeave: design, strony WWW i automatyzacja procesów dla firm.
+Next.js landing page for SmartWeave: automatyzacja procesów biznesowych, agenci AI, strony internetowe.
 
 ## Setup
 
