@@ -110,8 +110,7 @@ export function CTASection() {
                 </div>
                 <div>
                   <label htmlFor="nip" className="block text-sm font-medium text-slate-300 mb-2">NIP</label>
-                  <input type="text" inputMode="numeric" id="nip" name="nip" value={formData.nip} onChange={handleChange} placeholder="10 cyfr" maxLength={10} pattern="[0-9]{10}" className="w-full h-12 min-h-12 px-4 rounded-xl text-white placeholder:text-slate-500 bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all" aria-describedby="nip-hint" />
-                  <span id="nip-hint" className="text-xs text-slate-500 mt-1 block">Tylko 10 cyfr</span>
+                  <input type="text" inputMode="numeric" id="nip" name="nip" value={formData.nip} onChange={handleChange} placeholder="NIP" maxLength={10} pattern="[0-9]{10}" className="w-full h-12 min-h-12 px-4 rounded-xl text-white placeholder:text-slate-500 bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all" />
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">Wiadomość</label>
