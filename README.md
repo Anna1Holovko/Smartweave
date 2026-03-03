@@ -10,7 +10,7 @@ npm install
 
 ## Running the app
 
-- **Development:** `npm run dev` — runs at [http://localhost:3000](http://localhost:3000)
+- **Development:** `npm run dev` - runs at [http://localhost:3000](http://localhost:3000)
 - **Production build:** `npm run build` then `npm start`
 - **Lint:** `npm run lint`
 

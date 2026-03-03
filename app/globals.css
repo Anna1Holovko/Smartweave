@@ -142,7 +142,7 @@
     animation: cta-gradient-flow 12s ease-in-out infinite;
   }
 
-  /* Single gradient from Philosophy block through form to footer — no visible section seams */
+  /* Single gradient from Philosophy block through form to footer - no visible section seams */
   .gradient-philosophy-to-footer {
     background: linear-gradient(
       to bottom,

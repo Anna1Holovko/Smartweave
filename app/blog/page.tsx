@@ -37,7 +37,7 @@ export default function BlogPage() {
               badge="Blog"
               badgeVariant="purple"
               title="Zdobądź wiedzę na temat AI i automatyzacji!"
-              description="Praktyczne artykuły o automatyzacji, narzędziach i procesach — dla firm, które chcą się rozwijać."
+              description="Praktyczne artykuły o automatyzacji, narzędziach i procesach - dla firm, które chcą się rozwijać."
               className={INTRO_MB_CLASS}
             />
 

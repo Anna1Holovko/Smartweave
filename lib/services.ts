@@ -7,7 +7,7 @@ export const SERVICES = [
     slug: 'strony',
     title: 'Projektowanie i wdrażanie stron internetowych',
     description:
-      'Projektowanie stron www dla firm — nowoczesne, szybkie strony pod leada B2B. Tworzymy strony, które pomagają klientom Cię znaleźć, budują zaufanie i wspierają sprzedaż oraz rozwój marki.',
+      'Projektowanie stron www dla firm - nowoczesne, szybkie strony pod leada B2B. Tworzymy strony, które pomagają klientom Cię znaleźć, budują zaufanie i wspierają sprzedaż oraz rozwój marki.',
     features: [
       'Projektowanie stron www dla firm i stron pod leada B2B',
       'Tworzenie stron usługowych i korporacyjnych',
@@ -24,7 +24,7 @@ export const SERVICES = [
     slug: 'branding',
     title: 'Identyfikacja wizualna i branding',
     description:
-      'Budujemy spójny i profesjonalny wizerunek marki — na stronie, w reklamach i w komunikacji. Tworzymy identyfikację wizualną, która zwiększa rozpoznawalność, wzmacnia pozycję rynkową i buduje długoterminowe zaufanie klientów.',
+      'Budujemy spójny i profesjonalny wizerunek marki - na stronie, w reklamach i w komunikacji. Tworzymy identyfikację wizualną, która zwiększa rozpoznawalność, wzmacnia pozycję rynkową i buduje długoterminowe zaufanie klientów.',
     features: [
       'Projekt logo i systemu identyfikacji wizualnej',
       'Opracowanie kolorystyki i typografii marki',

@@ -11,7 +11,7 @@ export function Footer() {
       <div className="relative z-10 max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
           <div>
-            {/* Logo — same settings as Header */}
+            {/* Logo - same settings as Header */}
             <Image
               src={LOGO}
               alt="SmartWeave"

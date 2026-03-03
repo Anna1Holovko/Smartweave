@@ -16,11 +16,11 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
     problem:
       'Strona, która nie buduje zaufania ani nie prowadzi do kontaktu, to stracony potencjał. W B2B klienci szukają konkretów: co oferujesz, dla kogo i dlaczego warto z Tobą współpracować. Bez jasnej oferty i ścieżki do kontaktu tracisz leady na rzecz konkurencji.',
     solution:
-      'Projektowanie stron www dla firm to nie tylko wizytówka — to narzędzie do generowania zapytań i budowania pozycji w wyszukiwarkach. Strona zaprojektowana pod leady B2B, z czytelną strukturą i optymalizacją pod Google oraz wyszukiwarki AI, pracuje na Ciebie 24/7.',
+      'Projektowanie stron www dla firm to nie tylko wizytówka - to narzędzie do generowania zapytań i budowania pozycji w wyszukiwarkach. Strona zaprojektowana pod leady B2B, z czytelną strukturą i optymalizacją pod Google oraz wyszukiwarki AI, pracuje na Ciebie 24/7.',
     benefits: [
       'Więcej zapytań i leadów dzięki stronie nastawionej na konwersję.',
-      'Widoczność w Google i wyszukiwarkach AI (ChatGPT, Perplexity) — długoterminowy ruch bez płatnych kampanii.',
-      'Profesjonalny wizerunek od pierwszego kontaktu — zaufanie klientów i partnerów.',
+      'Widoczność w Google i wyszukiwarkach AI (ChatGPT, Perplexity) - długoterminowy ruch bez płatnych kampanii.',
+      'Profesjonalny wizerunek od pierwszego kontaktu - zaufanie klientów i partnerów.',
       'Oszczędność czasu: jedna, spójna baza informacji zamiast rozproszonych materiałów.',
     ],
     process: [
@@ -46,16 +46,16 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
       },
     ],
     whySmartWeave:
-      'SmartWeave łączy projektowanie stron www dla firm z automatyzacją i widocznością w AI. Nie „stronka na szablonie” — strona zaprojektowana pod Twoją ofertę, strony pod leada B2B i długoterminową widoczność. Od analizy po wdrożenie i ewentualne połączenie z automatyzacją leadów.',
+      'SmartWeave łączy projektowanie stron www dla firm z automatyzacją i widocznością w AI. Nie „stronka na szablonie” - strona zaprojektowana pod Twoją ofertę, strony pod leada B2B i długoterminową widoczność. Od analizy po wdrożenie i ewentualne połączenie z automatyzacją leadów.',
   },
 
   branding: {
     problem:
-      'Rozproszony wizerunek — inne kolory, fonty i ton w różnych miejscach — osłabia rozpoznawalność i zaufanie. Klienci i partnerzy oceniają firmę także po tym, jak się prezentuje. Brak spójnej identyfikacji utrudnia budowanie pozycji i wybór Ciebie zamiast konkurencji.',
+      'Rozproszony wizerunek - inne kolory, fonty i ton w różnych miejscach - osłabia rozpoznawalność i zaufanie. Klienci i partnerzy oceniają firmę także po tym, jak się prezentuje. Brak spójnej identyfikacji utrudnia budowanie pozycji i wybór Ciebie zamiast konkurencji.',
     solution:
-      'Identyfikacja wizualna i branding to system: logo, kolorystyka, typografia i zasady użycia we wszystkich materiałach. Spójny wizerunek buduje rozpoznawalność i sygnalizuje profesjonalizm — na stronie, w social media, w mailach i w druku.',
+      'Identyfikacja wizualna i branding to system: logo, kolorystyka, typografia i zasady użycia we wszystkich materiałach. Spójny wizerunek buduje rozpoznawalność i sygnalizuje profesjonalizm - na stronie, w social media, w mailach i w druku.',
     benefits: [
-      'Szybsze rozpoznanie marki — klient wie od razu, że to Ty.',
+      'Szybsze rozpoznanie marki - klient wie od razu, że to Ty.',
       'Wyższa skłonność do współpracy i poleceń przy profesjonalnym, spójnym wizerunku.',
       'Lepsze pierwsze wrażenie w kontaktach B2B i przy rozmowach z większymi partnerami.',
       'Oszczędność czasu: jeden zestaw zasad zamiast improwizacji przy każdym materiale.',
@@ -74,7 +74,7 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
       {
         step: 3,
         title: 'Brandbook i materiały',
-        description: 'Przekazujemy zestaw wytycznych (brandbook) oraz — w zależności od zakresu — szablony lub kluczowe materiały, żeby cała komunikacja trzymała jeden standard.',
+        description: 'Przekazujemy zestaw wytycznych (brandbook) oraz - w zależności od zakresu - szablony lub kluczowe materiały, żeby cała komunikacja trzymała jeden standard.',
       },
       {
         step: 4,
@@ -83,16 +83,16 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
       },
     ],
     whySmartWeave:
-      'SmartWeave łączy branding z projektowaniem stron i automatyzacją. Nie „ładne obrazki” — konkretny system wizualny pod rozwój firmy. Od logo i kolorów po stronę i materiały, które budują rozpoznawalność i zaufanie.',
+      'SmartWeave łączy branding z projektowaniem stron i automatyzacją. Nie „ładne obrazki” - konkretny system wizualny pod rozwój firmy. Od logo i kolorów po stronę i materiały, które budują rozpoznawalność i zaufanie.',
   },
 
   automatyzacja: {
     problem:
-      'Godziny zjadane przez powtarzalne zadania — kopiowanie danych, wysyłanie tych samych maili, ręczne raporty — to koszt, który można zamienić na czas na klientów i rozwój. Brak automatyzacji oznacza też większe ryzyko błędów i wolniejszą reakcję na leady oraz zlecenia.',
+      'Godziny zjadane przez powtarzalne zadania - kopiowanie danych, wysyłanie tych samych maili, ręczne raporty - to koszt, który można zamienić na czas na klientów i rozwój. Brak automatyzacji oznacza też większe ryzyko błędów i wolniejszą reakcję na leady oraz zlecenia.',
     solution:
       'Automatyzacja procesów AI i procesów biznesowych przenosi powtarzalne kroki na systemy: workflowy, integracje i powiadomienia działają zamiast ręcznej pracy. Zespół skupia się na tym, co wymaga wiedzy i relacji; rutyna idzie przez zdefiniowane scenariusze. Efekt: oszczędność czasu, mniej błędów i możliwość obsłużenia większego wolumenu bez proporcjonalnego wzrostu zatrudnienia.',
     benefits: [
-      'Oszczędność czasu — powtarzalne zadania wykonuje system, nie ludzie.',
+      'Oszczędność czasu - powtarzalne zadania wykonuje system, nie ludzie.',
       'Mniej błędów przy przepisywaniu, synchronizacji i raportowaniu.',
       'Szybsza reakcja na leady i zlecenia (potwierdzenia, przypomnienia, przekierowania).',
       'Skalowalność: większy wolumen bez lawinowego wzrostu kosztów operacyjnych.',
@@ -120,16 +120,16 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
       },
     ],
     whySmartWeave:
-      'SmartWeave działa jako partner wdrożeń: nie sprzedajemy wyłącznie licencji, tylko projektujemy i wdrażamy automatyzację pod Twoje procesy. Zaczynamy od jednego, mierzalnego kroku — tak, żeby efekt (oszczędność czasu, mniej błędów) był widoczny szybko. Dla SME to bezpieczna ścieżka do skalowania bez chaosu.',
+      'SmartWeave działa jako partner wdrożeń: nie sprzedajemy wyłącznie licencji, tylko projektujemy i wdrażamy automatyzację pod Twoje procesy. Zaczynamy od jednego, mierzalnego kroku - tak, żeby efekt (oszczędność czasu, mniej błędów) był widoczny szybko. Dla SME to bezpieczna ścieżka do skalowania bez chaosu.',
   },
 
   'agenci-ai': {
     problem:
-      'Rutynowe zapytania, powtarzalna analiza dokumentów i ręczna kwalifikacja leadów pochłaniają czas zespołu. Tam, gdzie można wspomóc ludzi „rozumieniem” treści i szybką odpowiedzią, wchodzą agenci AI — asystenci, którzy wykonują zdefiniowane zadania 24/7 i przekazują sprawy ludziom tam, gdzie potrzebna jest decyzja lub relacja.',
+      'Rutynowe zapytania, powtarzalna analiza dokumentów i ręczna kwalifikacja leadów pochłaniają czas zespołu. Tam, gdzie można wspomóc ludzi „rozumieniem” treści i szybką odpowiedzią, wchodzą agenci AI - asystenci, którzy wykonują zdefiniowane zadania 24/7 i przekazują sprawy ludziom tam, gdzie potrzebna jest decyzja lub relacja.',
     solution:
-      'Agenci AI to systemy oparte na modelach językowych i automatyzacji: odpowiadają na pytania, klasyfikują dokumenty, wspierają sprzedaż i obsługę klienta. Nie zastępują ludzi — odciążają od powtarzalnych zadań i błędów, dając czas na rozwój i budowanie relacji. Wdrażamy rozwiązania dopasowane do Twoich procesów i danych.',
+      'Agenci AI to systemy oparte na modelach językowych i automatyzacji: odpowiadają na pytania, klasyfikują dokumenty, wspierają sprzedaż i obsługę klienta. Nie zastępują ludzi - odciążają od powtarzalnych zadań i błędów, dając czas na rozwój i budowanie relacji. Wdrażamy rozwiązania dopasowane do Twoich procesów i danych.',
     benefits: [
-      'Szybsza reakcja na zapytania klientów — pierwsza odpowiedź lub kwalifikacja bez oczekiwania.',
+      'Szybsza reakcja na zapytania klientów - pierwsza odpowiedź lub kwalifikacja bez oczekiwania.',
       'Oszczędność czasu na analizie dokumentów i ekstrakcji danych.',
       'Lepsze wykorzystanie leadów dzięki automatycznej kwalifikacji i przekierowaniu.',
       'Skalowalność obsługi bez proporcjonalnego wzrostu zatrudnienia.',
@@ -153,10 +153,10 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
       {
         step: 4,
         title: 'Wdrożenie i rozwój',
-        description: 'Uruchamiamy na produkcji, monitorujemy jakość i rozszerzamy zakres w miarę potrzeb — np. nowe typy zapytań lub kolejne procesy.',
+        description: 'Uruchamiamy na produkcji, monitorujemy jakość i rozszerzamy zakres w miarę potrzeb - np. nowe typy zapytań lub kolejne procesy.',
       },
     ],
     whySmartWeave:
-      'SmartWeave łączy automatyzację procesów z wdrożeniami agentów AI. Nie „magia AI” — konkretne use case’y pod Twoje procesy, z mierzalnym efektem od pierwszego wdrożenia. Od kwalifikacji leadów po analizę dokumentów: projektujemy, budujemy i wdrażamy tak, żeby AI realnie odciążało zespół.',
+      'SmartWeave łączy automatyzację procesów z wdrożeniami agentów AI. Nie „magia AI” - konkretne use case’y pod Twoje procesy, z mierzalnym efektem od pierwszego wdrożenia. Od kwalifikacji leadów po analizę dokumentów: projektujemy, budujemy i wdrażamy tak, żeby AI realnie odciążało zespół.',
   },
 };
