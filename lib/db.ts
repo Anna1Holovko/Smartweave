@@ -11,6 +11,7 @@ export type ContactSubmission = {
   name: string;
   email: string;
   phone?: string | null;
+  nip?: string | null;
   message: string;
 };
 
@@ -31,17 +32,19 @@ export async function insertContactSubmission(
       name TEXT NOT NULL,
       email TEXT NOT NULL,
       phone TEXT,
+      nip TEXT,
       message TEXT NOT NULL,
       created_at TIMESTAMPTZ DEFAULT NOW()
     )
   `;
+  await sql`ALTER TABLE contact_submissions ADD COLUMN IF NOT EXISTS nip TEXT`;
   await sql`
     CREATE INDEX IF NOT EXISTS contact_submissions_form_type_idx
     ON contact_submissions (form_type)
   `;
   const rows = await sql`
-    INSERT INTO contact_submissions (form_type, name, email, phone, message)
-    VALUES (${formType}, ${data.name}, ${data.email}, ${data.phone ?? null}, ${data.message})
+    INSERT INTO contact_submissions (form_type, name, email, phone, nip, message)
+    VALUES (${formType}, ${data.name}, ${data.email}, ${data.phone ?? null}, ${data.nip ?? null}, ${data.message})
     RETURNING id
   `;
   const row = rows[0] as { id: number } | undefined;

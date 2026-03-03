@@ -5,7 +5,7 @@ import { ArrowRight, Send } from 'lucide-react';
 import { useState } from 'react';
 
 export function CTASection() {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', nip: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
 
@@ -29,6 +29,7 @@ export function CTASection() {
           name: formData.name.trim(),
           email: formData.email.trim(),
           phone: formData.phone?.trim() || undefined,
+          nip: formData.nip?.trim() || undefined,
           message: formData.message.trim(),
           website,
         }),
@@ -45,7 +46,7 @@ export function CTASection() {
         type: 'success',
         message: data.message || '✅ Dziękujemy za wiadomość! Odpowiemy wkrótce.',
       });
-      setFormData({ name: '', email: '', phone: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', nip: '', message: '' });
     } catch (err) {
       setSubmitStatus({
         type: 'error',
@@ -57,7 +58,13 @@ export function CTASection() {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    if (name === 'nip') {
+      const digits = value.replace(/\D/g, '').slice(0, 10);
+      setFormData({ ...formData, nip: digits });
+      return;
+    }
+    setFormData({ ...formData, [name]: value });
   };
 
   return (
@@ -90,8 +97,8 @@ export function CTASection() {
                   <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
                 </div>
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">Imię i nazwisko</label>
-                  <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Jan Kowalski" required className="w-full h-12 min-h-12 px-4 rounded-xl text-white placeholder:text-slate-500 bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all" />
+                  <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">Imię i Nazwisko / Nazwa firmy</label>
+                  <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Jan Kowalski lub Nazwa firmy" required className="w-full h-12 min-h-12 px-4 rounded-xl text-white placeholder:text-slate-500 bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all" />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">Email</label>
@@ -100,6 +107,11 @@ export function CTASection() {
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-2">Telefon</label>
                   <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="+48 123 456 789" className="w-full h-12 min-h-12 px-4 rounded-xl text-white placeholder:text-slate-500 bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all" />
+                </div>
+                <div>
+                  <label htmlFor="nip" className="block text-sm font-medium text-slate-300 mb-2">NIP</label>
+                  <input type="text" inputMode="numeric" id="nip" name="nip" value={formData.nip} onChange={handleChange} placeholder="10 cyfr" maxLength={10} pattern="[0-9]{10}" className="w-full h-12 min-h-12 px-4 rounded-xl text-white placeholder:text-slate-500 bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all" aria-describedby="nip-hint" />
+                  <span id="nip-hint" className="text-xs text-slate-500 mt-1 block">Tylko 10 cyfr</span>
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">Wiadomość</label>

@@ -52,7 +52,7 @@ Formularz zapisuje zgłoszenia do bazy (Neon) i/lub wysyła powiadomienia e-mail
 2. W `.env.local`:
    ```bash
    RESEND_API_KEY=re_xxxxxxxxxxxx
-   CONTACT_EMAIL_TO=hello@smartweave.com,ann7golovko@gmail.com
+   CONTACT_EMAIL_TO=hello@smartweave.pl,ann7golovko@gmail.com
    ```
    Opcjonalnie nadawca (domyślnie Resend):
    ```bash
@@ -60,8 +60,8 @@ Formularz zapisuje zgłoszenia do bazy (Neon) i/lub wysyła powiadomienia e-mail
    ```
    Dla różnych formularzy:
    ```bash
-   CONTACT_EMAIL_TO_contact=hello@smartweave.com
-   CONTACT_EMAIL_TO_newsletter=newsletter@smartweave.com
+   CONTACT_EMAIL_TO_contact=hello@smartweave.pl
+   CONTACT_EMAIL_TO_newsletter=newsletter@smartweave.pl
    ```
 
 ### Vercel – sterowanie Resend z poziomu Vercel

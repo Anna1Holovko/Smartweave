@@ -38,12 +38,20 @@ export function Footer() {
             <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-slate-400" aria-label="Dane kontaktowe">
               <li className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-purple-400 flex-shrink-0" aria-hidden />
-                <span>Legnicka 48, 54-430 Wrocław, Polska</span>
+                <a
+                  href="https://maps.app.goo.gl/xQ72zRziawDf4Eub9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-purple-400 transition-colors"
+                  title="Zobacz na mapie"
+                >
+                  Legnicka 16, 53-673 Wrocław, Polska
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-purple-400 flex-shrink-0" aria-hidden />
                 <a
-                  href="mailto:hello@smartweave.com"
+                  href="mailto:hello@smartweave.pl"
                   className="hover:text-purple-400 transition-colors"
                   title="Napisz do SmartWeave"
                 >

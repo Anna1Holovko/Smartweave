@@ -12,6 +12,7 @@ const DEFAULT_FORM = 'contact';
 const MAX_NAME = 200;
 const MAX_EMAIL = 320;
 const MAX_PHONE = 50;
+const NIP_LENGTH = 10;
 const MAX_MESSAGE = 5000;
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 5;
@@ -63,6 +64,7 @@ export async function POST(request: Request) {
     name?: string;
     email?: string;
     phone?: string;
+    nip?: string;
     message?: string;
     website?: string;
     _hp?: string;
@@ -81,6 +83,8 @@ export async function POST(request: Request) {
   const name = body.name?.trim();
   const email = body.email?.trim();
   const phone = body.phone?.trim() || undefined;
+  const nipRaw = body.nip?.replace(/\D/g, '') ?? '';
+  const nip = nipRaw.length === NIP_LENGTH ? nipRaw : undefined;
   const message = body.message?.trim();
 
   if (!name || !email || !message) {
@@ -95,6 +99,9 @@ export async function POST(request: Request) {
   }
   if (phone && phone.length > MAX_PHONE) {
     return NextResponse.json({ error: 'Nieprawidłowe dane.' }, { status: 400 });
+  }
+  if (body.nip != null && body.nip.trim() !== '' && !nip) {
+    return NextResponse.json({ error: 'NIP musi składać się z 10 cyfr.' }, { status: 400 });
   }
   if (message.length > MAX_MESSAGE) {
     return NextResponse.json({ error: 'Wiadomość jest za długa.' }, { status: 400 });
@@ -121,10 +128,10 @@ export async function POST(request: Request) {
 
   // Run DB insert and email notification in parallel (CTA: save to Neon + notify emails at once)
   const dbPromise = hasDb
-    ? insertContactSubmission({ name, email, phone, message }, form)
+    ? insertContactSubmission({ name, email, phone, nip, message }, form)
     : Promise.resolve(null);
   const emailPromise = hasEmail
-    ? sendContactEmail({ name, email, phone, message }, form, formspreeId ?? undefined, emailTo)
+    ? sendContactEmail({ name, email, phone, nip, message }, form, formspreeId ?? undefined, emailTo)
     : Promise.resolve();
 
   const [dbResult, emailResult] = await Promise.allSettled([dbPromise, emailPromise]);
@@ -162,7 +169,7 @@ export async function POST(request: Request) {
 }
 
 async function sendContactEmail(
-  data: { name: string; email: string; phone?: string; message: string },
+  data: { name: string; email: string; phone?: string; nip?: string; message: string },
   form: string,
   formspreeId: string | undefined,
   emailTo: string | undefined
@@ -182,7 +189,7 @@ async function sendContactEmail(
 }
 
 async function sendViaResend(
-  data: { name: string; email: string; phone?: string; message: string },
+  data: { name: string; email: string; phone?: string; nip?: string; message: string },
   emailTo: string,
   form: string
 ): Promise<void> {
@@ -193,9 +200,10 @@ async function sendViaResend(
   const prefix = form === 'cta' ? '[SmartWeave CTA]' : '[SmartWeave]';
   const subject = `${prefix} Wiadomość od ${data.name}`;
   const html = [
-    `<p><strong>Imię i nazwisko:</strong> ${escapeHtml(data.name)}</p>`,
+    `<p><strong>Imię i Nazwisko / Nazwa firmy:</strong> ${escapeHtml(data.name)}</p>`,
     `<p><strong>Email:</strong> <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></p>`,
     data.phone ? `<p><strong>Telefon:</strong> ${escapeHtml(data.phone)}</p>` : '',
+    data.nip ? `<p><strong>NIP:</strong> ${escapeHtml(data.nip)}</p>` : '',
     '<p><strong>Wiadomość:</strong></p>',
     `<p>${escapeHtml(data.message).replace(/\n/g, '<br>')}</p>`,
   ]
@@ -215,7 +223,7 @@ async function sendViaResend(
 
 /** Free option: send via your Gmail (use App password from Google Account → Security). */
 async function sendViaGmail(
-  data: { name: string; email: string; phone?: string; message: string },
+  data: { name: string; email: string; phone?: string; nip?: string; message: string },
   emailTo: string,
   form: string
 ): Promise<void> {
@@ -224,9 +232,10 @@ async function sendViaGmail(
   const prefix = form === 'cta' ? '[SmartWeave CTA]' : '[SmartWeave]';
   const subject = `${prefix} Wiadomość od ${data.name}`;
   const html = [
-    `<p><strong>Imię i nazwisko:</strong> ${escapeHtml(data.name)}</p>`,
+    `<p><strong>Imię i Nazwisko / Nazwa firmy:</strong> ${escapeHtml(data.name)}</p>`,
     `<p><strong>Email:</strong> <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></p>`,
     data.phone ? `<p><strong>Telefon:</strong> ${escapeHtml(data.phone)}</p>` : '',
+    data.nip ? `<p><strong>NIP:</strong> ${escapeHtml(data.nip)}</p>` : '',
     '<p><strong>Wiadomość:</strong></p>',
     `<p>${escapeHtml(data.message).replace(/\n/g, '<br>')}</p>`,
   ]
@@ -251,7 +260,7 @@ async function sendViaGmail(
 }
 
 async function sendViaFormspree(
-  data: { name: string; email: string; phone?: string; message: string },
+  data: { name: string; email: string; phone?: string; nip?: string; message: string },
   formspreeId: string
 ): Promise<void> {
   const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
@@ -261,6 +270,7 @@ async function sendViaFormspree(
       name: data.name,
       email: data.email,
       phone: data.phone || '',
+      nip: data.nip || '',
       message: data.message,
       _subject: `[SmartWeave] Wiadomość od ${data.name}`,
     }),

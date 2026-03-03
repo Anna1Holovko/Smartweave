@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS contact_submissions (
   name TEXT NOT NULL,
   email TEXT NOT NULL,
   phone TEXT,
+  nip TEXT,
   message TEXT NOT NULL,
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
