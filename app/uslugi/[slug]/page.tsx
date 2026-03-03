@@ -110,11 +110,11 @@ export default async function UslugiSlugPage({
               <div className={slug === 'automatyzacja' ? 'order-2 lg:order-1 space-y-6 lg:space-y-8' : 'space-y-6 lg:space-y-8'}>
                 <MotionFadeIn delay={0.2}>
                   <div className="relative p-8 md:p-10 bg-transparent">
-                    <h2 className="text-lg sm:text-xl font-semibold text-white mb-6">Co wdrażamy</h2>
+                    <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">Co wdrażamy</h2>
                     <ul className="space-y-4 text-slate-400">
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-3 text-sm sm:text-base">
-                          <Check className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" aria-hidden />
+                          <Check className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" aria-hidden />
                           <span>{feature}</span>
                         </li>
                       ))}
@@ -150,9 +150,9 @@ export default async function UslugiSlugPage({
                     {pageContent.process.map((item) => (
                       <div
                         key={item.step}
-                        className="relative p-5 sm:p-6 rounded-xl border border-slate-700/50 bg-slate-900/30 backdrop-blur-sm"
+                        className="relative p-5 sm:p-6 rounded-xl border border-slate-700/50 bg-gradient-to-b from-slate-800/50 to-slate-900/60 backdrop-blur-sm"
                       >
-                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-purple-500/20 text-purple-300 text-sm font-bold mb-3">
+                        <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-500/40 text-white text-sm font-bold mb-3">
                           {item.step}
                         </span>
                         <h3 className="text-white font-semibold mb-2">{item.title}</h3>
