@@ -4,6 +4,8 @@
  */
 
 export type ServicePageContent = {
+  /** Optional custom heading for the problem section (e.g. "Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?") */
+  problemHeading?: string;
   problem: string;
   solution: string;
   benefits: string[];
@@ -87,10 +89,11 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
   },
 
   automatyzacja: {
+    problemHeading: 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?',
     problem:
-      'Godziny zjadane przez powtarzalne zadania — kopiowanie danych, wysyłanie tych samych maili, ręczne raporty — to koszt, który można zamienić na czas na klientów i rozwój. Brak automatyzacji oznacza też większe ryzyko błędów i wolniejszą reakcję na leady oraz zlecenia.',
+      'Powtarzalne zadania pochłaniają cenne godziny pracy. Ręczne kopiowanie danych, wysyłanie tych samych wiadomości e-mail czy przygotowywanie raportów to ukryty koszt, który można zamienić na czas przeznaczony na obsługę klientów i rozwój firmy. Brak automatyzacji to nie tylko strata czasu, ale także większe ryzyko błędów oraz wolniejsza reakcja na nowe leady i zlecenia.',
     solution:
-      'Automatyzacja procesów AI i procesów biznesowych przenosi powtarzalne kroki na systemy: workflowy, integracje i powiadomienia działają zamiast ręcznej pracy. Zespół skupia się na tym, co wymaga wiedzy i relacji; rutyna idzie przez zdefiniowane scenariusze. Efekt: oszczędność czasu, mniej błędów i możliwość obsłużenia większego wolumenu bez proporcjonalnego wzrostu zatrudnienia.',
+      'Automatyzujemy procesy biznesowe oraz wdrażamy rozwiązania AI, które przejmują powtarzalne i czasochłonne zadania. Workflowy, integracje i inteligentne powiadomienia zastępują ręczną pracę, zapewniając płynny i przewidywalny przebieg działań. Dzięki temu zespół może skupić się na tym, co naprawdę wymaga wiedzy, doświadczenia i budowania relacji, podczas gdy rutynowe czynności realizowane są według jasno zdefiniowanych scenariuszy. Efekt? Oszczędność czasu, mniej błędów oraz możliwość obsługi większego wolumenu zleceń bez konieczności proporcjonalnego zwiększania zatrudnienia.',
     benefits: [
       'Oszczędność czasu — powtarzalne zadania wykonuje system, nie ludzie.',
       'Mniej błędów przy przepisywaniu, synchronizacji i raportowaniu.',

@@ -93,7 +93,7 @@ export default async function UslugiSlugPage({
             {pageContent && (
               <>
                 <MotionFadeIn delay={0.15} className="mb-10 sm:mb-12 lg:mb-14 max-w-[80ch] mx-auto lg:mx-0">
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4">Z jakim problemem wychodzimy?</h2>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4">{pageContent.problemHeading ?? 'Z jakim problemem wychodzimy?'}</h2>
                   <p className="text-white/90 leading-relaxed">{pageContent.problem}</p>
                 </MotionFadeIn>
                 <MotionFadeIn delay={0.2} className="mb-10 sm:mb-12 lg:mb-14 max-w-[80ch] mx-auto lg:mx-0">
