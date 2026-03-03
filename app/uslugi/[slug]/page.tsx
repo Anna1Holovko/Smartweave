@@ -150,14 +150,13 @@ export default async function UslugiSlugPage({
                     {pageContent.process.map((item) => (
                       <div
                         key={item.step}
-                        className="relative p-5 sm:p-6 rounded-xl border border-slate-700/40 bg-gradient-to-b from-purple-950/40 via-slate-800/50 to-slate-900/60 backdrop-blur-sm"
+                        className="relative p-6 sm:p-8 rounded-xl bg-purple-900/90 shadow-lg"
                       >
-                        <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-500/30 text-white text-sm font-bold mb-3" aria-hidden>
+                        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-purple-950 text-white text-base font-bold mb-4" aria-hidden>
                           {item.step}
                         </span>
-                        <span className="absolute top-3 right-3 w-2 h-2 rounded-full bg-purple-400/50" aria-hidden />
-                        <h3 className="text-white font-semibold mb-2">{item.title}</h3>
-                        <p className="text-white/80 text-sm leading-relaxed">{item.description}</p>
+                        <h3 className="text-white font-bold mb-2 text-base sm:text-lg">{item.title}</h3>
+                        <p className="text-white/90 text-sm leading-relaxed">{item.description}</p>
                       </div>
                     ))}
                   </div>
