@@ -4,6 +4,8 @@
  */
 
 export type ServicePageContent = {
+  /** Optional heading for problem section (e.g. "Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?") */
+  problemHeading?: string;
   problem: string;
   solution: string;
   benefits: string[];
@@ -13,36 +15,37 @@ export type ServicePageContent = {
 
 export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
   strony: {
+    problemHeading: 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?',
     problem:
-      'Strona, która nie buduje zaufania ani nie prowadzi do kontaktu, to stracony potencjał. W B2B klienci szukają konkretów: co oferujesz, dla kogo i dlaczego warto z Tobą współpracować. Bez jasnej oferty i ścieżki do kontaktu tracisz leady na rzecz konkurencji.',
+      'Strona internetowa, która nie buduje zaufania ani nie prowadzi do kontaktu, to stracony potencjał. Klienci szukają konkretów: co oferujesz, dla kogo i dlaczego warto z Tobą współpracować. Brak przejrzystej oferty i intuicyjnej ścieżki kontaktu powoduje utratę leadów i zainteresowania na rzecz konkurencji.',
     solution:
-      'Projektowanie stron www dla firm to nie tylko wizytówka - to narzędzie do generowania zapytań i budowania pozycji w wyszukiwarkach. Strona zaprojektowana pod leady B2B, z czytelną strukturą i optymalizacją pod Google oraz wyszukiwarki AI, pracuje na Ciebie 24/7.',
+      'Projektowanie stron www w SmartWeave traktujemy jako tworzenie narzędzia wspierającego cele biznesowe i wizerunkowe, a nie tylko wizytówki online. Każdy projekt rozpoczynamy od analizy potrzeb firmy i jej klientów, aby strona skutecznie przyciągała uwagę, budowała zaufanie i wspierała działania marketingowe oraz sprzedażowe.\n\nNasze rozwiązania są dopasowane do charakteru działalności klienta – od stron informacyjnych po serwisy generujące kontakty i zapytania ofertowe. Projektujemy je z myślą o przejrzystej strukturze, intuicyjnej nawigacji, responsywności i optymalizacji pod SEO oraz wyszukiwarki AI, tak aby działały dla Twojej firmy 24/7, wspierając rozwój i profesjonalny wizerunek marki.',
     benefits: [
-      'Więcej zapytań i leadów dzięki stronie nastawionej na konwersję.',
-      'Widoczność w Google i wyszukiwarkach AI (ChatGPT, Perplexity) - długoterminowy ruch bez płatnych kampanii.',
-      'Profesjonalny wizerunek od pierwszego kontaktu - zaufanie klientów i partnerów.',
-      'Oszczędność czasu: jedna, spójna baza informacji zamiast rozproszonych materiałów.',
+      'Więcej zapytań i leadów – dzięki stronie zaprojektowanej pod konwersję i pozyskiwanie kontaktów.',
+      'Widoczność w Google i wyszukiwarkach AI – długoterminowy ruch organiczny bez konieczności płatnych kampanii.',
+      'Profesjonalny wizerunek od pierwszego kontaktu – budowanie zaufania klientów i partnerów biznesowych.',
+      'Oszczędność czasu – wszystkie informacje w jednej, spójnej bazie zamiast rozproszonych materiałów.',
     ],
     process: [
       {
         step: 1,
         title: 'Analiza potrzeb i celów',
-        description: 'Określamy, dla kogo jest strona, jakie działania ma wywołać (kontakt, zapytanie ofertowe) i jak ma współgrać z Twoją strategią sprzedaży.',
+        description: 'Określamy grupę docelową, cele strony (np. kontakt, zapytanie ofertowe) oraz sposób, w jaki strona ma wspierać Twoją strategię sprzedaży i wizerunku.',
       },
       {
         step: 2,
         title: 'Projekt i struktura',
-        description: 'Tworzymy koncepcję strony: układ, ścieżki użytkownika, sekcje i wezwania do działania. UX/UI nastawione na konwersję i czytelność.',
+        description: 'Tworzymy koncepcję strony: układ, ścieżki użytkownika, sekcje informacyjne i wezwania do działania. Projekt UX/UI nastawiamy na czytelność i maksymalną konwersję.',
       },
       {
         step: 3,
         title: 'Wdrożenie i optymalizacja',
-        description: 'Kodujemy, integrujemy (formularze, analityka, ewentualnie CRM) i optymalizujemy pod SEO oraz wyszukiwarki AI. Strona gotowa do publikacji.',
+        description: 'Kodujemy stronę, integrujemy formularze, analitykę oraz systemy CRM (jeśli są potrzebne), a następnie optymalizujemy pod SEO i wyszukiwarki AI. Strona jest gotowa do publikacji i działa sprawnie na wszystkich urządzeniach.',
       },
       {
         step: 4,
         title: 'Uruchomienie i rozwój',
-        description: 'Wdrażamy na produkcję, przekazujemy dokumentację i oferujemy opiekę techniczną oraz rozwój w miarę potrzeb firmy.',
+        description: 'Wdrażamy stronę w środowisku produkcyjnym, przekazujemy pełną dokumentację i oferujemy wsparcie techniczne oraz rozwój funkcjonalności w miarę potrzeb firmy.',
       },
     ],
     whySmartWeave:

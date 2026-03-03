@@ -96,12 +96,16 @@ export default async function UslugiSlugPage({
             {pageContent && (
               <>
                 <MotionFadeIn delay={0.15} className="mb-10 sm:mb-12 lg:mb-14">
-                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Z jakim problemem wychodzimy?</h2>
+                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">{pageContent.problemHeading ?? 'Z jakim problemem wychodzimy?'}</h2>
                   <p className="text-slate-400 leading-relaxed max-w-[80ch]">{pageContent.problem}</p>
                 </MotionFadeIn>
                 <MotionFadeIn delay={0.2} className="mb-10 sm:mb-12 lg:mb-14">
                   <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Nasze podejście do rozwiązania</h2>
-                  <p className="text-slate-400 leading-relaxed max-w-[80ch]">{pageContent.solution}</p>
+                  <div className="text-slate-400 leading-relaxed max-w-[80ch] space-y-4">
+                    {pageContent.solution.split(/\n\n+/).map((paragraph, i) => (
+                      <p key={i}>{paragraph}</p>
+                    ))}
+                  </div>
                 </MotionFadeIn>
               </>
             )}
