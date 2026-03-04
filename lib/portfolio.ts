@@ -45,7 +45,7 @@ export const PORTFOLIO_ITEMS = [
   {
     title: 'AIYO',
     category: 'Design',
-    description: 'Nowoczesna agencja łącząca AI automation, design stron i vibe coding — dla firm, które chcą skalować szybciej i mądrzej.',
+    description: 'Nowoczesna agencja łącząca AI automation, design stron i vibe coding - dla firm, które chcą skalować szybciej i mądrzej.',
     image: '/assets/aiyo-cover.png',
     gradient: 'from-cyan-500 to-blue-500',
     link: 'https://aiyo.figma.site/',

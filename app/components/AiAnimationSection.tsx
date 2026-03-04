@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { Bot, Workflow, MessageCircle, FileText, Plug, BarChart3, Users } from 'lucide-react';
 
-/* Positions in % – arranged in a circle around center (50%, 50%) so cards don’t overlap */
+/* Positions in % - arranged in a circle around center (50%, 50%) so cards don’t overlap */
 const CARDS = [
   { label: 'Agenci AI', x: 50, y: 10, icon: Bot },
   { label: 'Automatyzacja procesów', x: 78, y: 18, icon: Workflow },

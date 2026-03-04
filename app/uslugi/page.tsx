@@ -9,11 +9,11 @@ import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 
 export const metadata: Metadata = {
-  title: 'Usługi – Automatyzacja procesów biznesowych, agenci AI, strony internetowe',
+  title: 'Usługi - Automatyzacja procesów biznesowych, agenci AI, strony internetowe',
   description:
     'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Branding. Pełna oferta SmartWeave dla małych i średnich firm.',
   openGraph: {
-    title: 'Usługi – Automatyzacja procesów biznesowych, agenci AI, strony internetowe',
+    title: 'Usługi - Automatyzacja procesów biznesowych, agenci AI, strony internetowe',
     description: 'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Branding.',
     url: `${SITE_URL}/uslugi`,
   },
@@ -40,7 +40,7 @@ export default function UslugiPage() {
                   Pełna oferta <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">usług</span>
                 </>
               }
-              description="Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Branding — wszystko, czego potrzebuje Twoja firma w internecie."
+              description="Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Branding - wszystko, czego potrzebuje Twoja firma w internecie."
               className={INTRO_MB_CLASS}
             />
 
@@ -51,7 +51,7 @@ export default function UslugiPage() {
         <UslugiConsultationBlock
           variant="centered"
           title="Zainteresowała Cię ta usługa?"
-          description="Umów bezpłatną konsultację — opowiemy o szczegółach i dopasujemy rozwiązanie do Twoich potrzeb."
+          description="Umów bezpłatną konsultację - opowiemy o szczegółach i dopasujemy rozwiązanie do Twoich potrzeb."
         />
 
         <div className="gradient-philosophy-to-footer">

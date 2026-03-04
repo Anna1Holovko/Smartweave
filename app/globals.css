@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design system tokens – intentional scale, not ad-hoc values */
+/* Design system tokens - intentional scale, not ad-hoc values */
 :root {
   --font-size: 16px;
   --font-weight-normal: 400;
@@ -142,7 +142,7 @@
     animation: cta-gradient-flow 12s ease-in-out infinite;
   }
 
-  /* Single gradient from Philosophy block through form to footer — no visible section seams */
+  /* Single gradient from Philosophy block through form to footer - no visible section seams */
   .gradient-philosophy-to-footer {
     background: linear-gradient(
       to bottom,
@@ -165,7 +165,7 @@
     );
   }
 
-  /* AI animation section (service subpages – right column) */
+  /* AI animation section (service subpages - right column) */
   .ai-animation-wrap {
     position: relative;
     width: 100%;

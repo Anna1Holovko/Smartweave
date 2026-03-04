@@ -12,9 +12,9 @@ import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 export const metadata: Metadata = {
   title: 'Blog',
   description:
-    'Wiedza o AI i automatyzacji dla firm. Artykuły o wdrażaniu automatyzacji, narzędziach, procesach biznesowych i designie – SmartWeave.',
+    'Wiedza o AI i automatyzacji dla firm. Artykuły o wdrażaniu automatyzacji, narzędziach, procesach biznesowych i designie - SmartWeave.',
   openGraph: {
-    title: 'Blog | SmartWeave – AI i automatyzacja',
+    title: 'Blog | SmartWeave - AI i automatyzacja',
     description: 'Zdobądź wiedzę na temat AI i automatyzacji. Praktyczne artykuły dla firm.',
     url: `${SITE_URL}/blog`,
   },
@@ -37,7 +37,7 @@ export default function BlogPage() {
               badge="Blog"
               badgeVariant="purple"
               title="Zdobądź wiedzę na temat AI i automatyzacji!"
-              description="Praktyczne artykuły o automatyzacji, narzędziach i procesach — dla firm, które chcą się rozwijać."
+              description="Praktyczne artykuły o automatyzacji, narzędziach i procesach - dla firm, które chcą się rozwijać."
               className={INTRO_MB_CLASS}
             />
 

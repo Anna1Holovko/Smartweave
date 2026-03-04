@@ -1,4 +1,4 @@
-# SmartWeave – Design & Automatyzacja
+# SmartWeave - Design & Automatyzacja
 
 Next.js landing page for SmartWeave: automatyzacja procesów biznesowych, agenci AI, strony internetowe.
 
@@ -10,13 +10,13 @@ npm install
 
 ## Running the app
 
-- **Development:** `npm run dev` — runs at [http://localhost:3000](http://localhost:3000)
+- **Development:** `npm run dev` - runs at [http://localhost:3000](http://localhost:3000)
 - **Production build:** `npm run build` then `npm start`
 - **Lint:** `npm run lint`
 
 The contact form saves submissions to Neon (DB) and/or sends email via Resend or Formspree; configure at least one in `.env.local` (see section below).
 
-## Formularz kontaktowy – konfiguracja
+## Formularz kontaktowy - konfiguracja
 
 Formularz zapisuje zgłoszenia do bazy (Neon) i/lub wysyła powiadomienia e-mail (Resend lub Formspree). Wystarczy skonfigurować **Neon** albo **e-mail** (albo oba). Skopiuj `.env.example` do `.env.local` i uzupełnij zmienne.
 
@@ -29,11 +29,11 @@ Formularz zapisuje zgłoszenia do bazy (Neon) i/lub wysyła powiadomienia e-mail
    ```bash
    POSTGRES_URL=postgresql://user:password@ep-xxx.region.aws.neon.tech/neondb?sslmode=require
    ```
-   (albo `DATABASE_URL` – tabela `contact_submissions` tworzy się przy pierwszym zgłoszeniu.)
+   (albo `DATABASE_URL` - tabela `contact_submissions` tworzy się przy pierwszym zgłoszeniu.)
 
 ### Powiadomienia e-mail
 
-**Opcja A – Formspree** (darmowo ok. 50 zgłoszeń/miesiąc na formularz):
+**Opcja A - Formspree** (darmowo ok. 50 zgłoszeń/miesiąc na formularz):
 
 1. [formspree.io](https://formspree.io) → utwórz formularz, skopiuj ID (np. `xyzabc`).
 2. W `.env.local`:
@@ -46,7 +46,7 @@ Formularz zapisuje zgłoszenia do bazy (Neon) i/lub wysyła powiadomienia e-mail
    FORMSPREE_FORM_ID_newsletter=yyyzzz
    ```
 
-**Opcja B – Resend** (darmowo ok. 100 e-maili/dzień):
+**Opcja B - Resend** (darmowo ok. 100 e-maili/dzień):
 
 1. [resend.com](https://resend.com) → API Keys → utwórz klucz.
 2. W `.env.local`:
@@ -64,7 +64,7 @@ Formularz zapisuje zgłoszenia do bazy (Neon) i/lub wysyła powiadomienia e-mail
    CONTACT_EMAIL_TO_newsletter=newsletter@smartweave.pl
    ```
 
-### Vercel – sterowanie Resend z poziomu Vercel
+### Vercel - sterowanie Resend z poziomu Vercel
 
 Żeby formularz kontaktowy / CTA wysyłał e-maile na produkcji, ustaw w Vercel te same zmienne co w `.env.local`:
 
@@ -80,7 +80,7 @@ Formularz zapisuje zgłoszenia do bazy (Neon) i/lub wysyła powiadomienia e-mail
 
 3. **Save** i zrób **Redeploy** (lub poczekaj na kolejny deploy), żeby zmienne zostały wzięte pod uwagę.
 
-Dzięki temu cała konfiguracja Resend (klucz, nadawca, odbiorcy) jest w Vercel – bez commitu `.env.local`.
+Dzięki temu cała konfiguracja Resend (klucz, nadawca, odbiorcy) jest w Vercel - bez commitu `.env.local`.
 
 Dane w Neon, ale brak maila? Dodaj w tym samym miejscu co POSTGRES_URL zmienne e-mail: Resend (RESEND_API_KEY i CONTACT_EMAIL_TO) lub Formspree (FORMSPREE_FORM_ID lub FORMSPREE_FORM_ID_contact). Bez nich e-mail nie jest wysyłany.
 

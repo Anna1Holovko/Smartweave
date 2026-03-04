@@ -12,7 +12,7 @@ import { USLUGI_DISPLAY_ORDER } from '@/lib/services';
 const LOGO = '/assets/smartweave-logo.png';
 
 const USLUGI_DROPDOWN_NAMES: Record<(typeof USLUGI_DISPLAY_ORDER)[number], string> = {
-  automatyzacja: 'Automatyzacja procesów biznesowych i agenci AI',
+  automatyzacja: 'Automatyzacja procesów biznesowych z wykorzystaniem AI',
   strony: 'Strony internetowe',
   branding: 'Logo i identyfikacja wizualna',
 };
@@ -106,7 +106,7 @@ export function Header() {
           <div className="flex items-center justify-between">
             
             {/* LOGO */}
-            <Link href="/" title="SmartWeave – strona główna">
+            <Link href="/" title="SmartWeave - strona główna">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}

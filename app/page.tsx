@@ -23,8 +23,8 @@ export default function HomePage() {
         <AutomationDetails />
         <PortfolioSection />
         <BlogSection />
+        <PhilosophySection />
         <div className="gradient-philosophy-to-footer">
-          <PhilosophySection />
           <CTASection />
           <Footer />
         </div>

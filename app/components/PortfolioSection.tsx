@@ -82,7 +82,7 @@ export function PortfolioSection() {
                         </div>
                       </div>
                     </div>
-                    {/* Bottom: dark text block – caption above, project name below, arrow bottom-right */}
+                    {/* Bottom: dark text block - caption above, project name below, arrow bottom-right */}
                     <div className="relative bg-slate-900 border-t border-slate-700/50 px-4 sm:px-5 py-4 sm:py-5 flex flex-col">
                       <span className="text-slate-400 text-sm font-normal mb-1">{item.category}</span>
                       <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-purple-300 transition-colors pr-10">{item.title}</h3>
