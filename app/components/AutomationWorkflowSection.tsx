@@ -2,7 +2,6 @@
 
 import { motion, useAnimationFrame, useMotionValue } from 'motion/react';
 import { useRef } from 'react';
-<<<<<<< HEAD
 
 import {
   SiGooglesheets,
@@ -53,46 +52,10 @@ const nodes: NodeType[] = [
   { id: 'tools', x: 640, y: 560, icon: Wrench, color: '#a855f7' },
   { id: 'buffer1', x: 820, y: 560, icon: Layers, color: '#374151' },
   { id: 'sheetsEnd', x: 1000, y: 560, icon: SiGooglesheets, color: '#16a34a' },
-=======
-import { SiGooglesheets, SiOpenai, SiGooglecloud, SiCloudinary } from 'react-icons/si';
-import { GitBranch, Wrench } from 'lucide-react';
-
-/*
-  Structure:
-  Sheets → Router
-            ↗ HTTP → Parser → Router → GPT → Sheets (TOP)
-            ↘ Sheets → Gemini → Cloudinary → Sheets (MIDDLE)
-            ↘ Sheets → Tools → Buffer → Buffer → Sheets (BOTTOM)
-*/
-
-const DIAGRAM_WIDTH = 1260;
-const DIAGRAM_HEIGHT = 620;
-
-type NodeType = { id: string; x: number; y: number; icon: React.ComponentType<{ className?: string }>; color: string };
-
-const nodes: NodeType[] = [
-  { id: 'start', x: 80, y: 320, icon: SiGooglesheets, color: '#16a34a' },
-  { id: 'router1', x: 260, y: 320, icon: GitBranch, color: '#84cc16' },
-  { id: 'http', x: 460, y: 80, icon: SiGooglecloud, color: '#1d4ed8' },
-  { id: 'parser', x: 640, y: 80, icon: Wrench, color: '#f97316' },
-  { id: 'router2', x: 820, y: 80, icon: GitBranch, color: '#84cc16' },
-  { id: 'gpt', x: 1000, y: 80, icon: SiOpenai, color: '#ef4444' },
-  { id: 'sheets2', x: 1180, y: 80, icon: SiGooglesheets, color: '#16a34a' },
-  { id: 'sheetsMid', x: 460, y: 320, icon: SiGooglesheets, color: '#16a34a' },
-  { id: 'gemini', x: 640, y: 320, icon: SiGooglecloud, color: '#2563eb' },
-  { id: 'cloudinary', x: 820, y: 320, icon: SiCloudinary, color: '#0284c7' },
-  { id: 'sheets3', x: 1000, y: 320, icon: SiGooglesheets, color: '#16a34a' },
-  { id: 'sheets4', x: 460, y: 560, icon: SiGooglesheets, color: '#16a34a' },
-  { id: 'tools', x: 640, y: 560, icon: Wrench, color: '#a855f7' },
-  { id: 'buffer1', x: 820, y: 560, icon: Wrench, color: '#374151' },
-  { id: 'buffer2', x: 1000, y: 560, icon: Wrench, color: '#374151' },
-  { id: 'sheets5', x: 1180, y: 560, icon: SiGooglesheets, color: '#16a34a' },
->>>>>>> 4d06c9478214b0c3f408276f5604c251ab3fc61e
 ];
 
 const connections: [string, string][] = [
   ['start', 'router1'],
-<<<<<<< HEAD
 
   // TOP
   ['router1', 'http'],
@@ -114,25 +77,6 @@ const connections: [string, string][] = [
 ];
 
 function curvedPath(x1: number, y1: number, x2: number, y2: number) {
-=======
-  ['router1', 'http'],
-  ['http', 'parser'],
-  ['parser', 'router2'],
-  ['router2', 'gpt'],
-  ['gpt', 'sheets2'],
-  ['router1', 'sheetsMid'],
-  ['sheetsMid', 'gemini'],
-  ['gemini', 'cloudinary'],
-  ['cloudinary', 'sheets3'],
-  ['router1', 'sheets4'],
-  ['sheets4', 'tools'],
-  ['tools', 'buffer1'],
-  ['buffer1', 'buffer2'],
-  ['buffer2', 'sheets5'],
-];
-
-function curvedPath(x1: number, y1: number, x2: number, y2: number): string {
->>>>>>> 4d06c9478214b0c3f408276f5604c251ab3fc61e
   const offset = Math.abs(x2 - x1) * 0.45;
   return `M ${x1} ${y1} C ${x1 + offset} ${y1}, ${x2 - offset} ${y2}, ${x2} ${y2}`;
 }
@@ -154,10 +98,6 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
       <svg
         className="absolute inset-0 w-full h-full"
         viewBox={`0 0 ${DIAGRAM_WIDTH} ${DIAGRAM_HEIGHT}`}
-<<<<<<< HEAD
-=======
-        preserveAspectRatio="xMidYMid meet"
->>>>>>> 4d06c9478214b0c3f408276f5604c251ab3fc61e
       >
         <defs>
           <filter id={filterId} x="-100%" y="-100%" width="300%" height="300%">
@@ -186,16 +126,11 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
                   if (el) pathRefs.current[i] = el;
                 }}
               />
-<<<<<<< HEAD
-
               <FlowDot
                 pathRef={() => pathRefs.current[i] ?? undefined}
                 progress={progress}
                 filterId={filterId}
               />
-=======
-              <FlowDot pathRef={() => pathRefs.current[i] ?? undefined} progress={progress} filterId={filterId} />
->>>>>>> 4d06c9478214b0c3f408276f5604c251ab3fc61e
             </g>
           );
         })}
@@ -210,10 +145,6 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
           color={node.color}
           viewBoxWidth={DIAGRAM_WIDTH}
           viewBoxHeight={DIAGRAM_HEIGHT}
-<<<<<<< HEAD
-=======
-          embedded={embedded}
->>>>>>> 4d06c9478214b0c3f408276f5604c251ab3fc61e
         />
       ))}
     </div>
@@ -221,11 +152,7 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
 
   if (embedded) {
     return (
-<<<<<<< HEAD
       <div className="relative overflow-hidden bg-transparent">
-=======
-      <div className="relative overflow-hidden bg-transparent cursor-auto" style={{ cursor: 'auto' }}>
->>>>>>> 4d06c9478214b0c3f408276f5604c251ab3fc61e
         <div className="relative max-w-full min-h-[520px]">{diagram}</div>
       </div>
     );
@@ -237,7 +164,6 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
       style={{ backgroundColor: '#FAFAFA' }}
       aria-labelledby="workflow-heading"
     >
-<<<<<<< HEAD
       <div className="max-w-[1400px] mx-auto px-6">
         <motion.h2
           id="workflow-heading"
@@ -272,14 +198,6 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
         >
           Inteligentny przepływ danych w czasie rzeczywistym — od leada do raportu.
         </motion.p>
-=======
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6">
-        <h2 id="workflow-heading" className="text-3xl font-semibold text-gray-900 mb-16">
-          Automatyzacja procesów biznesowych z wykorzystaniem AI
-        </h2>
-
-        <div className="relative h-[720px] hidden md:block">{diagram}</div>
->>>>>>> 4d06c9478214b0c3f408276f5604c251ab3fc61e
       </div>
     </section>
   );
@@ -292,10 +210,6 @@ function Node({
   color,
   viewBoxWidth,
   viewBoxHeight,
-<<<<<<< HEAD
-=======
-  embedded,
->>>>>>> 4d06c9478214b0c3f408276f5604c251ab3fc61e
 }: {
   x: number;
   y: number;
@@ -303,17 +217,10 @@ function Node({
   color: string;
   viewBoxWidth: number;
   viewBoxHeight: number;
-<<<<<<< HEAD
 }) {
   const leftPct = (x / viewBoxWidth) * 100;
   const topPct = (y / viewBoxHeight) * 100;
 
-=======
-  embedded: boolean;
-}) {
-  const leftPct = (x / viewBoxWidth) * 100;
-  const topPct = (y / viewBoxHeight) * 100;
->>>>>>> 4d06c9478214b0c3f408276f5604c251ab3fc61e
   return (
     <motion.div
       className="absolute w-[68px] h-[68px]"
@@ -353,10 +260,7 @@ function FlowDot({
 
     const length = path.getTotalLength();
     const point = path.getPointAtLength(progress.get() * length);
-<<<<<<< HEAD
 
-=======
->>>>>>> 4d06c9478214b0c3f408276f5604c251ab3fc61e
     x.set(point.x);
     y.set(point.y);
   });
