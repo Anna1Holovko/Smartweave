@@ -106,7 +106,7 @@ export function Header() {
           <div className="flex items-center justify-between">
             
             {/* LOGO */}
-            <Link href="/" title="SmartWeave – strona główna">
+            <Link href="/" title="SmartWeave - strona główna">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}

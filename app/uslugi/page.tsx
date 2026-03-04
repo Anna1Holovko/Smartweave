@@ -9,11 +9,11 @@ import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 
 export const metadata: Metadata = {
-  title: 'Usługi – Automatyzacja procesów biznesowych, agenci AI, strony internetowe',
+  title: 'Usługi - Automatyzacja procesów biznesowych, agenci AI, strony internetowe',
   description:
     'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Branding. Pełna oferta SmartWeave dla małych i średnich firm.',
   openGraph: {
-    title: 'Usługi – Automatyzacja procesów biznesowych, agenci AI, strony internetowe',
+    title: 'Usługi - Automatyzacja procesów biznesowych, agenci AI, strony internetowe',
     description: 'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Branding.',
     url: `${SITE_URL}/uslugi`,
   },

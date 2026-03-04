@@ -15,7 +15,7 @@ import { UslugiConsultationBlock } from '@/app/components/UslugiConsultationBloc
 import { AutomationWorkflowSection } from '@/app/components/AutomationWorkflowSection';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 
-/** Page/SEO titles – aligned with search phrases (projektowanie stron www dla firm, automatyzacja procesów AI, strony pod leada B2B) */
+/** Page/SEO titles - aligned with search phrases (projektowanie stron www dla firm, automatyzacja procesów AI, strony pod leada B2B) */
 const SLUG_TITLES: Record<string, string> = {
   strony: 'Projektowanie stron www dla firm',
   branding: 'Identyfikacja wizualna i branding',
@@ -36,10 +36,10 @@ export async function generateMetadata({
   if (!service) return { title: 'Usługa | SmartWeave' };
   const shortTitle = SLUG_TITLES[slug] ?? service.title;
   return {
-    title: `${shortTitle} – usługi`,
+    title: `${shortTitle} - usługi`,
     description: service.description,
     openGraph: {
-      title: `${shortTitle} – usługi`,
+      title: `${shortTitle} - usługi`,
       description: service.description,
       url: `${SITE_URL}/uslugi/${slug}`,
     },
@@ -60,7 +60,7 @@ export default async function UslugiSlugPage({
     <>
       <Header />
       <main id="main-content" role="main">
-        {/* Service intro – home-style: centered, gradient title, badge */}
+        {/* Service intro - home-style: centered, gradient title, badge */}
         <section className={SECTION_CLASS}>
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-blue-950/30 to-slate-950" />
           <div className="absolute top-0 left-1/4 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-blue-500/10 rounded-full blur-3xl" />
@@ -173,7 +173,7 @@ export default async function UslugiSlugPage({
               </>
             )}
 
-            {/* Realizacje – full-width section, 3 columns (only on strony) */}
+            {/* Realizacje - full-width section, 3 columns (only on strony) */}
             {slug === 'strony' && (
               <MotionFadeIn delay={0.25} className="w-full mt-12 sm:mt-16 lg:mt-20">
                 <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">Realizacje na stronach internetowych</h2>

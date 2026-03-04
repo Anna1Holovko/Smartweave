@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description:
     'Zobacz realizacje SmartWeave: strony WWW, design i projekty dla firm. Kepller, DentalMint, Orthomedica, Bagiety, Maison i inne.',
   openGraph: {
-    title: 'Realizacje | SmartWeave – strony WWW i design',
+    title: 'Realizacje | SmartWeave - strony WWW i design',
     description: 'Portfolio projektów: strony internetowe, branding i design dla firm.',
     url: `${SITE_URL}/realizacje`,
   },

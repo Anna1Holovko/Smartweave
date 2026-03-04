@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design system tokens – intentional scale, not ad-hoc values */
+/* Design system tokens - intentional scale, not ad-hoc values */
 :root {
   --font-size: 16px;
   --font-weight-normal: 400;
@@ -165,7 +165,7 @@
     );
   }
 
-  /* AI animation section (service subpages – right column) */
+  /* AI animation section (service subpages - right column) */
   .ai-animation-wrap {
     position: relative;
     width: 100%;

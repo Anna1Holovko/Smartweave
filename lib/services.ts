@@ -9,12 +9,12 @@ export const SERVICES = [
     description:
       'Projektowanie stron www dla firm - nowoczesne, szybkie strony pod leada B2B. Tworzymy strony, które pomagają klientom Cię znaleźć, budują zaufanie i wspierają sprzedaż oraz rozwój marki.',
     features: [
-      'Projektowanie stron www – od stron generujących kontakty i leady B2B, po strony informacyjne i wizerunkowe, które budują zaufanie, prezentują ofertę i wspierają rozwój marki.',
-      'Projektowanie UX/UI nastawione na konwersję – intuicyjna nawigacja, czytelna struktura i atrakcyjny interfejs zwiększają zaangażowanie użytkowników.',
-      'Optymalizacja SEO i GEO (AI Search Optimization) – poprawa widoczności w wyszukiwarkach internetowych oraz systemach AI, aby klienci łatwo odnajdywali Twoją firmę.',
-      'Integracje z systemami zewnętrznymi i narzędziami Google – automatyzacja procesów, formularze kontaktowe, analityka i raportowanie danych.',
-      'Wydajność, bezpieczeństwo i optymalizacja techniczna – szybkie, stabilne i bezpieczne strony, które działają niezawodnie.',
-      'Opieka techniczna, rozwój i utrzymanie strony – wsparcie po wdrożeniu, aktualizacje i rozwój funkcjonalności zgodnie z potrzebami firmy.',
+      'Projektowanie stron www - od stron generujących kontakty i leady B2B, po strony informacyjne i wizerunkowe, które budują zaufanie, prezentują ofertę i wspierają rozwój marki.',
+      'Projektowanie UX/UI nastawione na konwersję - intuicyjna nawigacja, czytelna struktura i atrakcyjny interfejs zwiększają zaangażowanie użytkowników.',
+      'Optymalizacja SEO i GEO (AI Search Optimization) - poprawa widoczności w wyszukiwarkach internetowych oraz systemach AI, aby klienci łatwo odnajdywali Twoją firmę.',
+      'Integracje z systemami zewnętrznymi i narzędziami Google - automatyzacja procesów, formularze kontaktowe, analityka i raportowanie danych.',
+      'Wydajność, bezpieczeństwo i optymalizacja techniczna - szybkie, stabilne i bezpieczne strony, które działają niezawodnie.',
+      'Opieka techniczna, rozwój i utrzymanie strony - wsparcie po wdrożeniu, aktualizacje i rozwój funkcjonalności zgodnie z potrzebami firmy.',
     ],
     gradient: 'from-blue-500 to-cyan-500',
   },

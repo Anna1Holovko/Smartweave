@@ -39,7 +39,7 @@ export function HeroSection() {
 
   return (
     <section
-      aria-label="SmartWeave – Automatyzacja procesów biznesowych, agenci AI, strony internetowe"
+      aria-label="SmartWeave - Automatyzacja procesów biznesowych, agenci AI, strony internetowe"
       className="relative min-h-[100dvh] min-h-screen flex items-center justify-center overflow-hidden px-4 pt-20 pb-16 sm:px-6 sm:pt-28 sm:pb-24 lg:pt-24 lg:pb-20 lg:px-8 xl:pt-20 xl:pb-16 xl:px-10 2xl:px-12 3xl:px-16"
     >
       {/* Background */}

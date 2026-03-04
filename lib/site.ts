@@ -9,18 +9,18 @@ export const SITE_NAME = 'SmartWeave';
 export const SITE_LOGO_URL = `${SITE_URL}/assets/smartweave-logo.png`;
 
 /**
- * Meta title for default page. Google typically shows ~50–60 chars; keep under 60 for full display.
+ * Meta title for default page. Google typically shows ~50-60 chars; keep under 60 for full display.
  */
 export const META_TITLE = 'SmartWeave - Automatyzacja procesów biznesowych, agenci AI, strony internetowe';
 
 /**
- * Meta description. Google shows ~155–158 chars; keep in 150–158 for full snippet.
+ * Meta description. Google shows ~155-158 chars; keep in 150-158 for full snippet.
  */
 export const META_DESCRIPTION =
   'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Strategiczne wdrożenia dla firm - wzrost i leady B2B.';
 
 /** Open Graph / Twitter title (can be same or variant) */
-export const OG_TITLE = 'SmartWeave – Automatyzacja procesów i wdrożenia AI dla firm';
+export const OG_TITLE = 'SmartWeave - Automatyzacja procesów i wdrożenia AI dla firm';
 
 /** Open Graph / Twitter description */
 export const OG_DESCRIPTION =

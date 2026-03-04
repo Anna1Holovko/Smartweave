@@ -166,7 +166,7 @@ const jsonLd = {
     {
       '@type': 'ProfessionalService',
       '@id': `${SITE_URL}/#service`,
-      name: `${SITE_NAME} – Design i automatyzacja`,
+      name: `${SITE_NAME} - Design i automatyzacja`,
       description:
         'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Branding, SEO.',
       url: SITE_URL,

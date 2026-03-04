@@ -2,9 +2,9 @@
 
 Use **one image per article**, generated with AI and **related to the article content**. The same image is used in:
 
-- **Home** – Blog section cards  
-- **Blog listing** – `/blog`  
-- **Article page** – `/blog/[slug]` hero and social (Open Graph / Twitter)
+- **Home** - Blog section cards  
+- **Blog listing** - `/blog`  
+- **Article page** - `/blog/[slug]` hero and social (Open Graph / Twitter)
 
 ## Naming
 
