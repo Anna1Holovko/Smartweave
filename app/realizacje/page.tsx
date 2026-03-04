@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { CTASection } from '../components/CTASection';
+import { SimpleCTASection } from '../components/SimpleCTASection';
 import { ScrollToTop } from '../components/ScrollToTop';
 import { PageIntro } from '../components/PageIntro';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
@@ -97,7 +97,7 @@ export default function RealizacjePage() {
           </div>
         </section>
         <div className="gradient-philosophy-to-footer">
-          <CTASection />
+          <SimpleCTASection />
           <Footer />
         </div>
       </main>

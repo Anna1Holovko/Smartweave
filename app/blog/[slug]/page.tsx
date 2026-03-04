@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-import { CTASection } from '../../components/CTASection';
+import { SimpleCTASection } from '../../components/SimpleCTASection';
 import { ScrollToTop } from '../../components/ScrollToTop';
 import { MotionFadeIn } from '../../components/MotionFadeIn';
 import { BLOG_POSTS, getBlogCoverUrl, getPostBySlug } from '@/lib/blog';
@@ -179,7 +179,7 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </article>
         <div className="gradient-philosophy-to-footer">
-          <CTASection />
+          <SimpleCTASection />
           <Footer />
         </div>
       </main>
