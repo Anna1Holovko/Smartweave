@@ -93,10 +93,10 @@ export function HeroSection() {
 
         {/* Description */}
         <p className="text-slate-400 text-base sm:text-xl mx-auto mt-6 max-w-[80ch] leading-relaxed px-2">
-          Automatyzujemy to, co powtarzalne - Ty weryfikujesz rezultaty. Tworzymy strony internetowe gotowe na AI, abyś mógł skupić się na tym, co naprawdę ważne.
+          Automatyzujemy to, co powtarzalne - Ty weryfikujesz rezultaty. Tworzymy strony internetowe gotowe na AI, abyś mógł skupić się na tym, co naprawdę ważne
         </p>
         <p className="text-slate-500 text-sm sm:text-base mx-auto mt-3 mb-10 px-2" aria-hidden="true">
-          Automatyzacja procesów biznesowych • Agenci AI • Strony internetowe.
+          Automatyzacja procesów biznesowych • Agenci AI • Strony internetowe
         </p>
 
         {/* Buttons */}
