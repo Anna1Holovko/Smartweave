@@ -8,6 +8,7 @@ import {
   SiOpenai,
   SiHubspot,
   SiSlack,
+  SiGmail,
 } from 'react-icons/si';
 
 import {
@@ -38,7 +39,7 @@ const nodes: NodeType[] = [
   { id: 'http', x: 460, y: 80, icon: Globe, color: '#2563eb' },
   { id: 'parser', x: 640, y: 80, icon: Brackets, color: '#f97316' },
   { id: 'gptTop', x: 820, y: 80, icon: SiOpenai, color: '#74AA9C' },
-  { id: 'sheetsTop', x: 1000, y: 80, icon: SiGooglesheets, color: '#16a34a' },
+  { id: 'email', x: 1000, y: 80, icon: SiGmail, color: '#EA4335' },
 
   // MIDDLE FLOW
   { id: 'hubspot', x: 460, y: 320, icon: SiHubspot, color: '#FF7A59' },
@@ -55,18 +56,19 @@ const nodes: NodeType[] = [
 const connections: [string, string][] = [
   ['start', 'router1'],
 
-  // TOP
+  // TOP FLOW
   ['router1', 'http'],
   ['http', 'parser'],
   ['parser', 'gptTop'],
-  ['gptTop', 'sheetsTop'],
+  ['gptTop', 'email'],
 
-  // MIDDLE
+  // MIDDLE FLOW
+
   ['router1', 'hubspot'],
   ['hubspot', 'gptMid'],
   ['gptMid', 'slack'],
 
-  // BOTTOM
+  // BOTTOM FLOW
   ['router1', 'sheetsBottom'],
   ['sheetsBottom', 'tools'],
   ['tools', 'buffer1'],
@@ -159,42 +161,13 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
     <section
       className="relative overflow-hidden py-20"
       style={{ backgroundColor: '#FAFAFA' }}
-      aria-labelledby="workflow-heading"
     >
       <div className="max-w-[1400px] mx-auto px-6">
-        <motion.h2
-          id="workflow-heading"
-          className="text-3xl font-semibold text-gray-900 mb-16"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <h2 className="text-3xl font-semibold text-gray-900 mb-16">
           Automatyzacja procesów biznesowych z wykorzystaniem AI
-        </motion.h2>
+        </h2>
 
         <div className="relative h-[720px] hidden md:block">{diagram}</div>
-
-        <div className="md:hidden space-y-4">
-          {nodes.map((n) => (
-            <div
-              key={n.id}
-              className="bg-white rounded-xl border border-slate-100 p-4 shadow-sm text-slate-700"
-            >
-              {n.id}
-            </div>
-          ))}
-        </div>
-
-        <motion.p
-          className="mt-10 text-center text-sm sm:text-base text-slate-500 max-w-xl mx-auto"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-        >
-          Inteligentny przepływ danych w czasie rzeczywistym — od leada do raportu.
-        </motion.p>
       </div>
     </section>
   );
