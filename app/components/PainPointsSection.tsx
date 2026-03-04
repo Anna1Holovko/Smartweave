@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 import { Copy, MessageSquare, FileText, Clock, AlertCircle, Sparkles } from 'lucide-react';
 
 const painPoints = [
-  { icon: Copy, title: 'Zbyt dużo pracy ręcznej', description: 'Przestań ręcznie przenosić dane między systemami. Automatyzujemy synchronizację i aktualizację danych, dzięki czemu oszczędzasz godziny każdego dnia.', gradient: 'from-pink-500 to-purple-500' },
+  { icon: Copy, title: 'Zbyt dużo pracy ręcznej', description: 'Przestań ręcznie przenosić dane między systemami. Automatycznie synchronizujemy i aktualizujemy dane, dzięki czemu oszczędzasz godziny każdego dnia.', gradient: 'from-pink-500 to-purple-500' },
   { icon: MessageSquare, title: 'Tracisz wiadomości i informacje', description: 'Wszystkie ważne wiadomości automatycznie trafiają we właściwe miejsca - do CRM, tabel i zadań. Nigdy więcej nie przegapisz leada ani zlecenia.', gradient: 'from-blue-500 to-cyan-500' },
   { icon: FileText, title: 'Zbyt dużo dokumentów', description: 'Zbieramy wszystko w jeden uporządkowany system. Koniec z godzinami szukania - wszystko masz pod ręką w kilka sekund.', gradient: 'from-purple-500 to-indigo-500' },
   { icon: Clock, title: 'Wszystko trwa za długo', description: 'Gdy każdy proces ciągnie się w nieskończoność, trudno myśleć o rozwoju. Automatyzujemy powtarzalne zadania, żebyś odzyskał czas na to, co naprawdę ważne.', gradient: 'from-amber-500 to-orange-500' },
