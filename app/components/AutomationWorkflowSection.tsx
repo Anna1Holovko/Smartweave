@@ -44,7 +44,7 @@ const nodes: NodeType[] = [
   // MIDDLE FLOW
   { id: 'hubspot', x: 460, y: 320, icon: SiHubspot, color: '#FF7A59' },
   { id: 'gptMid', x: 640, y: 320, icon: SiOpenai, color: '#74AA9C' },
-  { id: 'slack', x: 1000, y: 320, icon: SiSlack, color: '#4A154B' },
+  { id: 'slack', x: 820, y: 320, icon: SiSlack, color: '#4A154B' },
 
   // BOTTOM FLOW
   { id: 'sheetsBottom', x: 460, y: 560, icon: SiGooglesheets, color: '#16a34a' },
