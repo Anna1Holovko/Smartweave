@@ -231,10 +231,12 @@ export default async function UslugiSlugPage({
           </div>
         </section>
 
-        <UslugiPartnerzyBlock
-          content={USLUGI_PAGE_CONTENT[slug as ServiceSlug]}
-          gradient={service.gradient}
-        />
+        {slug !== 'strony' && (
+          <UslugiPartnerzyBlock
+            content={USLUGI_PAGE_CONTENT[slug as ServiceSlug]}
+            gradient={service.gradient}
+          />
+        )}
 
         <UslugiConsultationBlock
           variant="centered"
