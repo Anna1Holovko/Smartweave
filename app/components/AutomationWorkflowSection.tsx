@@ -2,52 +2,50 @@
 
 import { motion, useAnimationFrame, useMotionValue } from 'motion/react';
 import { useRef } from 'react';
-import {
-  FileSpreadsheet,
-  GitBranch,
-  Mail,
-  Bot,
-  Wrench,
-  type LucideIcon,
-} from 'lucide-react';
 
 /*
-  Layout (Make-style):
+  Structure:
   Sheets → Router
-            ↗ AI → Sheets
-            ↘ AI → AI → Gmail
-                    ↘ Tools
+            ↗ HTTP → Parser → Router → Gmail → Sheets
+            ↘ Sheets → Gemini → Cloud → Sheets
+            ↘ Sheets → Tools → Buffer → Buffer → Sheets
 */
 
-type NodeType = {
-  id: string;
-  x: number;
-  y: number;
-  icon: LucideIcon;
-  color: string;
-};
-
-const nodes: NodeType[] = [
-  { id: 'start', x: 80, y: 260, icon: FileSpreadsheet, color: 'bg-green-500' },
-  { id: 'router1', x: 260, y: 260, icon: GitBranch, color: 'bg-lime-400' },
-  { id: 'ai1', x: 440, y: 120, icon: Bot, color: 'bg-emerald-500' },
-  { id: 'sheet2', x: 640, y: 120, icon: FileSpreadsheet, color: 'bg-green-500' },
-  { id: 'ai2', x: 440, y: 260, icon: Bot, color: 'bg-emerald-500' },
-  { id: 'ai3', x: 640, y: 260, icon: Bot, color: 'bg-emerald-500' },
-  { id: 'mail', x: 840, y: 260, icon: Mail, color: 'bg-red-500' },
-  { id: 'router2', x: 640, y: 400, icon: GitBranch, color: 'bg-lime-400' },
-  { id: 'tools', x: 840, y: 400, icon: Wrench, color: 'bg-purple-400' },
+const nodes = [
+  { id: 'sheetsStart', x: 80, y: 260, logo: '/logos/google-sheets.png' },
+  { id: 'router1', x: 240, y: 260, logo: '/logos/router.png' },
+  { id: 'http1', x: 420, y: 120, logo: '/logos/http.png' },
+  { id: 'parser1', x: 580, y: 120, logo: '/logos/parser.png' },
+  { id: 'router2', x: 740, y: 120, logo: '/logos/router.png' },
+  { id: 'gmail', x: 900, y: 120, logo: '/logos/gmail.png' },
+  { id: 'sheetsTop', x: 1060, y: 120, logo: '/logos/google-sheets.png' },
+  { id: 'sheetsMid', x: 420, y: 260, logo: '/logos/google-sheets.png' },
+  { id: 'gemini', x: 580, y: 260, logo: '/logos/gemini.png' },
+  { id: 'cloud', x: 740, y: 260, logo: '/logos/cloudinary.png' },
+  { id: 'sheetsMidEnd', x: 900, y: 260, logo: '/logos/google-sheets.png' },
+  { id: 'sheetsBottom', x: 420, y: 400, logo: '/logos/google-sheets.png' },
+  { id: 'tools', x: 580, y: 400, logo: '/logos/tools.png' },
+  { id: 'buffer1', x: 740, y: 400, logo: '/logos/buffer.png' },
+  { id: 'buffer2', x: 900, y: 400, logo: '/logos/buffer.png' },
+  { id: 'sheetsBottomEnd', x: 1060, y: 400, logo: '/logos/google-sheets.png' },
 ];
 
 const connections: [string, string][] = [
-  ['start', 'router1'],
-  ['router1', 'ai1'],
-  ['ai1', 'sheet2'],
-  ['router1', 'ai2'],
-  ['ai2', 'ai3'],
-  ['ai3', 'mail'],
-  ['ai2', 'router2'],
-  ['router2', 'tools'],
+  ['sheetsStart', 'router1'],
+  ['router1', 'http1'],
+  ['http1', 'parser1'],
+  ['parser1', 'router2'],
+  ['router2', 'gmail'],
+  ['gmail', 'sheetsTop'],
+  ['router1', 'sheetsMid'],
+  ['sheetsMid', 'gemini'],
+  ['gemini', 'cloud'],
+  ['cloud', 'sheetsMidEnd'],
+  ['router1', 'sheetsBottom'],
+  ['sheetsBottom', 'tools'],
+  ['tools', 'buffer1'],
+  ['buffer1', 'buffer2'],
+  ['buffer2', 'sheetsBottomEnd'],
 ];
 
 function curvedPath(x1: number, y1: number, x2: number, y2: number): string {
@@ -60,13 +58,13 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
   const pathRefs = useRef<(SVGPathElement | null)[]>([]);
   const filterId = embedded ? 'flow-dot-glow-embed' : 'flow-dot-glow';
 
-  useAnimationFrame((_t, delta) => {
+  useAnimationFrame((_, delta) => {
     progress.set((progress.get() + delta * 0.00012) % 1);
   });
 
   const diagram = (
-    <div className="relative h-[520px] w-full min-w-0">
-      <svg className="absolute inset-0 w-full h-full">
+    <div className="relative w-full min-w-0" style={{ aspectRatio: '1140/520' }}>
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1140 520" preserveAspectRatio="xMidYMid meet">
         <defs>
           <filter id={filterId} x="-100%" y="-100%" width="300%" height="300%">
             <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
@@ -85,33 +83,30 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
             <g key={`${from}-${to}`}>
               <path
                 d={path}
-                stroke={embedded ? 'rgba(203,213,225,0.7)' : '#cbd5e1'}
+                stroke={embedded ? 'rgba(203,213,225,0.4)' : '#e2e8f0'}
                 strokeWidth="2"
-                strokeDasharray="4 8"
+                strokeDasharray="6 10"
                 fill="none"
                 ref={(el) => {
                   if (el) pathRefs.current[i] = el;
                 }}
               />
-              <FlowDot
-                pathRef={() => pathRefs.current[i] ?? undefined}
-                progress={progress}
-                offset={0}
-                filterId={filterId}
-              />
-              <FlowDot
-                pathRef={() => pathRefs.current[i] ?? undefined}
-                progress={progress}
-                offset={0.5}
-                filterId={filterId}
-              />
+              <FlowDot pathRef={() => pathRefs.current[i] ?? undefined} progress={progress} filterId={filterId} />
             </g>
           );
         })}
       </svg>
 
       {nodes.map((node) => (
-        <Node key={node.id} {...node} />
+        <Node
+          key={node.id}
+          x={node.x}
+          y={node.y}
+          logo={node.logo}
+          embedded={embedded}
+          viewBoxWidth={1140}
+          viewBoxHeight={520}
+        />
       ))}
     </div>
   );
@@ -119,9 +114,7 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
   if (embedded) {
     return (
       <div className="relative overflow-hidden bg-transparent cursor-auto" style={{ cursor: 'auto' }}>
-        <div className="relative max-w-full">
-          {diagram}
-        </div>
+        <div className="relative max-w-full min-h-[520px]">{diagram}</div>
       </div>
     );
   }
@@ -132,42 +125,12 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
       style={{ backgroundColor: '#FAFAFA' }}
       aria-labelledby="workflow-heading"
     >
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2
-          id="workflow-heading"
-          className="text-2xl sm:text-3xl font-semibold text-slate-900 text-center mb-12 sm:mb-16"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6">
+        <h2 id="workflow-heading" className="text-3xl font-semibold text-gray-900 mb-16">
           Automatyzacja procesów biznesowych z wykorzystaniem AI
-        </motion.h2>
+        </h2>
 
-        <div className="relative h-[520px] hidden md:block">
-          {diagram}
-        </div>
-
-        <div className="md:hidden space-y-4">
-          {nodes.map((n) => (
-            <div
-              key={n.id}
-              className="bg-white rounded-xl border border-slate-100 p-4 shadow-soft text-slate-700"
-            >
-              {n.id}
-            </div>
-          ))}
-        </div>
-
-        <motion.p
-          className="mt-10 text-center text-sm sm:text-base text-slate-500 max-w-xl mx-auto"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-        >
-          Inteligentny przepływ danych w czasie rzeczywistym - od leada do raportu.
-        </motion.p>
+        <div className="relative hidden md:block">{diagram}</div>
       </div>
     </section>
   );
@@ -176,21 +139,40 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
 function Node({
   x,
   y,
-  icon: Icon,
-  color,
-}: NodeType) {
+  logo,
+  embedded,
+  viewBoxWidth,
+  viewBoxHeight,
+}: {
+  x: number;
+  y: number;
+  logo: string;
+  embedded: boolean;
+  viewBoxWidth: number;
+  viewBoxHeight: number;
+}) {
+  const leftPct = (x / viewBoxWidth) * 100;
+  const topPct = (y / viewBoxHeight) * 100;
   return (
     <motion.div
-      className="absolute"
-      style={{ left: x - 32, top: y - 32 }}
+      className="absolute w-[68px] h-[68px]"
+      style={{
+        left: `calc(${leftPct}% - 34px)`,
+        top: `calc(${topPct}% - 34px)`,
+      }}
       animate={{ y: [0, -6, 0] }}
-      transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+      transition={{ duration: 5, repeat: Infinity }}
       whileHover={{ scale: 1.08 }}
     >
       <div
-        className={`w-[64px] h-[64px] rounded-full ${color} shadow-lg flex items-center justify-center border-4 border-white`}
+        className={`w-[68px] h-[68px] rounded-full flex items-center justify-center overflow-hidden ${
+          embedded
+            ? 'bg-slate-800/80 border border-slate-600/80 shadow-lg'
+            : 'bg-white shadow-md border border-gray-100'
+        }`}
       >
-        <Icon className="w-6 h-6 text-white" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={logo} alt="" width={32} height={32} className="object-contain" />
       </div>
     </motion.div>
   );
@@ -199,12 +181,10 @@ function Node({
 function FlowDot({
   pathRef,
   progress,
-  offset,
   filterId,
 }: {
   pathRef: () => SVGPathElement | undefined;
   progress: ReturnType<typeof useMotionValue<number>>;
-  offset: number;
   filterId: string;
 }) {
   const x = useMotionValue(0);
@@ -214,20 +194,19 @@ function FlowDot({
     const path = pathRef();
     if (!path) return;
     const length = path.getTotalLength();
-    const t = (progress.get() + offset) % 1;
-    const point = path.getPointAtLength(t * length);
+    const point = path.getPointAtLength(progress.get() * length);
     x.set(point.x);
     y.set(point.y);
   });
 
   return (
     <motion.circle
-      r="5"
+      r="4"
       fill="#6366f1"
       cx={x}
       cy={y}
       filter={`url(#${filterId})`}
-      className="drop-shadow-[0_0_8px_rgba(99,102,241,0.8)]"
+      className="drop-shadow-[0_0_6px_rgba(99,102,241,0.5)]"
     />
   );
 }
