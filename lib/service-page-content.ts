@@ -53,40 +53,41 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
   },
 
   branding: {
+    problemHeading: 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?',
     problem:
-      'Rozproszony wizerunek - inne kolory, fonty i ton w różnych miejscach - osłabia rozpoznawalność i zaufanie. Klienci i partnerzy oceniają firmę także po tym, jak się prezentuje. Brak spójnej identyfikacji utrudnia budowanie pozycji i wybór Ciebie zamiast konkurencji.',
+      'Rozproszony wizerunek - różne kolory, fonty i ton komunikacji w materiałach firmy - osłabia rozpoznawalność i zaufanie. Klienci i partnerzy oceniają firmę również po tym, jak się prezentuje. Brak spójnej identyfikacji utrudnia budowanie pozycji rynkowej i może skutkować wyborem konkurencji zamiast Twojej firmy.',
     solution:
-      'Identyfikacja wizualna i branding to system: logo, kolorystyka, typografia i zasady użycia we wszystkich materiałach. Spójny wizerunek buduje rozpoznawalność i sygnalizuje profesjonalizm - na stronie, w social media, w mailach i w druku.',
+      'Identyfikacja wizualna i branding to system obejmujący logo, kolorystykę, typografię oraz zasady spójnego stosowania w wszystkich materiałach firmy. Spójny wizerunek wzmacnia rozpoznawalność i sygnalizuje profesjonalizm - zarówno na stronie internetowej, w social media, w mailach, jak i w materiałach drukowanych.',
     benefits: [
-      'Szybsze rozpoznanie marki - klient wie od razu, że to Ty.',
-      'Wyższa skłonność do współpracy i poleceń przy profesjonalnym, spójnym wizerunku.',
-      'Lepsze pierwsze wrażenie w kontaktach B2B i przy rozmowach z większymi partnerami.',
-      'Oszczędność czasu: jeden zestaw zasad zamiast improwizacji przy każdym materiale.',
+      'Szybsze rozpoznanie marki - klient od razu identyfikuje Twoją firmę.',
+      'Większa skłonność do współpracy i poleceń - spójny, profesjonalny wizerunek wzmacnia zaufanie.',
+      'Lepsze pierwsze wrażenie w kontaktach B2B - oraz w rozmowach z większymi partnerami.',
+      'Oszczędność czasu - jeden zestaw zasad zamiast improwizacji przy każdym materiale.',
     ],
     process: [
       {
         step: 1,
         title: 'Brief i kierunek wizualny',
-        description: 'Określamy charakter marki, grupę docelową i oczekiwania. Na tej podstawie wybieramy kierunek: odświeżenie istniejącego logo czy budowa identyfikacji od zera.',
+        description: 'Określamy charakter marki, grupę docelową i oczekiwania. Wybieramy kierunek: odświeżenie istniejącego logo czy budowa identyfikacji od zera.',
       },
       {
         step: 2,
         title: 'Projekt identyfikacji',
-        description: 'Tworzymy lub dopracowujemy logo, kolorystykę i typografię. Opracowujemy zasady użycia i przykładowe zastosowania (strona, social, dokumenty).',
+        description: 'Tworzymy lub dopracowujemy logo, kolorystykę i typografię. Opracowujemy zasady użycia i przykładowe zastosowania w różnych kanałach - stronie, social media i dokumentach.',
       },
       {
         step: 3,
         title: 'Brandbook i materiały',
-        description: 'Przekazujemy zestaw wytycznych (brandbook) oraz - w zależności od zakresu - szablony lub kluczowe materiały, żeby cała komunikacja trzymała jeden standard.',
+        description: 'Przekazujemy zestaw wytycznych (brandbook) oraz - w zależności od zakresu - szablony lub kluczowe materiały, aby cała komunikacja trzymała spójny standard.',
       },
       {
         step: 4,
         title: 'Wdrożenie i spójność',
-        description: 'Pomagamy wdrożyć nowy wizerunek na stronie i w kluczowych kanałach. Zostajesz z jasnymi zasadami na kolejne lata.',
+        description: 'Pomagamy wdrożyć nowy wizerunek na stronie i w kluczowych kanałach. Zostajesz z jasnymi zasadami, które zapewnią spójność marki na kolejne lata.',
       },
     ],
     whySmartWeave:
-      'SmartWeave łączy branding z projektowaniem stron i automatyzacją. Nie „ładne obrazki” - konkretny system wizualny pod rozwój firmy. Od logo i kolorów po stronę i materiały, które budują rozpoznawalność i zaufanie.',
+      'SmartWeave łączy branding z projektowaniem stron i automatyzacją procesów. Nie oferujemy „ładnych obrazków” - tworzymy konkretny system wizualny dopasowany do rozwoju firmy. Od logo i kolorów, przez stronę internetową, po materiały marketingowe - wszystko działa spójnie, budując rozpoznawalność i zaufanie klientów.',
   },
 
   automatyzacja: {
