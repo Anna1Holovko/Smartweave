@@ -4,10 +4,10 @@ import { motion } from 'motion/react';
 import { MessageSquare, PenTool, Cpu, Search, Rocket } from 'lucide-react';
 
 const workflowSteps = [
-  { number: '01', icon: MessageSquare, title: 'Poznajemy Twoje potrzeby', description: 'Rozmawiamy z Tobą, aby dokładnie zrozumieć, czego potrzebujesz — zarówno jeśli chodzi o stronę internetową, jak i automatyzację procesów.', gradient: 'from-blue-500 to-cyan-500' },
+  { number: '01', icon: MessageSquare, title: 'Poznajemy Twoje potrzeby', description: 'Rozmawiamy z Tobą, aby dokładnie zrozumieć, czego potrzebujesz - zarówno jeśli chodzi o stronę internetową, jak i automatyzację procesów.', gradient: 'from-blue-500 to-cyan-500' },
   { number: '02', icon: PenTool, title: 'Projektujemy i planujemy', description: 'Tworzymy projekt strony gotowej na współczesne standardy internetu i wyszukiwarki AI oraz plan automatyzacji procesów w Twojej firmie.', gradient: 'from-cyan-500 to-teal-500' },
   { number: '03', icon: Cpu, title: 'Wdrażamy i kodujemy', description: 'Strony są responsywne, zoptymalizowane pod SEO i przygotowane pod marketing, a procesy biznesowe działają automatycznie dzięki integracjom i kodowaniu dedykowanych rozwiązań.', gradient: 'from-teal-500 to-emerald-500' },
-  { number: '04', icon: Search, title: 'Testujemy i dopracowujemy', description: 'Sprawdzamy, czy wszystko działa perfekcyjnie — od funkcjonalności strony po automatyczne procesy. Wprowadzamy poprawki i dopracowujemy szczegóły.', gradient: 'from-emerald-500 to-green-500' },
+  { number: '04', icon: Search, title: 'Testujemy i dopracowujemy', description: 'Sprawdzamy, czy wszystko działa perfekcyjnie - od funkcjonalności strony po automatyczne procesy. Wprowadzamy poprawki i dopracowujemy szczegóły.', gradient: 'from-emerald-500 to-green-500' },
   { number: '05', icon: Rocket, title: 'Oddajemy gotowy system', description: 'Ty otrzymujesz kompletny produkt: stronę internetową i automatyzacje, które działają bez nadzoru, pozwalając Ci skupić się na rozwoju biznesu.', gradient: 'from-purple-500 to-pink-500' },
 ];
 

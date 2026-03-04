@@ -17,14 +17,14 @@ export const META_TITLE = 'SmartWeave - Automatyzacja procesów biznesowych, age
  * Meta description. Google shows ~155–158 chars; keep in 150–158 for full snippet.
  */
 export const META_DESCRIPTION =
-  'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Strategiczne wdrożenia dla firm — wzrost i leady B2B.';
+  'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Strategiczne wdrożenia dla firm - wzrost i leady B2B.';
 
 /** Open Graph / Twitter title (can be same or variant) */
 export const OG_TITLE = 'SmartWeave – Automatyzacja procesów i wdrożenia AI dla firm';
 
 /** Open Graph / Twitter description */
 export const OG_DESCRIPTION =
-  'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Strategiczne wdrożenia dla firm — wzrost i leady B2B.';
+  'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Strategiczne wdrożenia dla firm - wzrost i leady B2B.';
 
 /** Kolejność usług wszędzie: marketing, SEO, meta, OG, stopka, bio. */
 export const SERVICES_ORDER_LABEL = 'Automatyzacja procesów biznesowych • Agenci AI • Strony internetowe';

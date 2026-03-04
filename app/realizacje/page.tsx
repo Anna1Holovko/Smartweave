@@ -38,7 +38,7 @@ export default function RealizacjePage() {
               badge="Realizacje"
               badgeVariant="cyan"
               title="Zobacz, jak wspieramy rozwój innych firm"
-              description="Każdy projekt to wyjątkowa historia. Strony, branding i design — sprawdź realizacje."
+              description="Każdy projekt to wyjątkowa historia. Strony, branding i design - sprawdź realizacje."
               className={INTRO_MB_CLASS}
             />
 

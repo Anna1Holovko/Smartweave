@@ -166,7 +166,7 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          Inteligentny przepływ danych w czasie rzeczywistym — od leada do raportu.
+          Inteligentny przepływ danych w czasie rzeczywistym - od leada do raportu.
         </motion.p>
       </div>
     </section>

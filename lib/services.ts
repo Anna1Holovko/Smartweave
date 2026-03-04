@@ -5,17 +5,16 @@ export const SERVICES = [
   {
     number: '01',
     slug: 'strony',
-    title: 'Projektowanie i wdrażanie stron internetowych',
+    title: 'Projektowanie stron www dla firm',
     description:
-      'Projektowanie stron www dla firm — nowoczesne, szybkie strony pod leada B2B. Tworzymy strony, które pomagają klientom Cię znaleźć, budują zaufanie i wspierają sprzedaż oraz rozwój marki.',
+      'Tworzymy nowoczesne, szybkie strony internetowe zoptymalizowane pod pozyskiwanie leadów B2B. Nasze strony pomagają klientom Cię znaleźć, budują zaufanie i wspierają sprzedaż oraz rozwój marki.',
     features: [
-      'Projektowanie stron www dla firm i stron pod leada B2B',
-      'Tworzenie stron usługowych i korporacyjnych',
-      'Projektowanie UX/UI nastawione na konwersję',
-      'Optymalizacja SEO i GEO (AI Search Optimization)',
-      'Integracje z systemami zewnętrznymi i narzędziami Google',
-      'Wydajność, bezpieczeństwo i optymalizacja techniczna',
-      'Opieka techniczna, rozwój i utrzymanie strony',
+      'Projektowanie stron www – od stron generujących kontakty i leady B2B, po strony informacyjne i wizerunkowe, które budują zaufanie, prezentują ofertę i wspierają rozwój marki.',
+      'Projektowanie UX/UI nastawione na konwersję – intuicyjna nawigacja, czytelna struktura i atrakcyjny interfejs zwiększają zaangażowanie użytkowników.',
+      'Optymalizacja SEO i GEO (AI Search Optimization) – poprawa widoczności w wyszukiwarkach internetowych oraz systemach AI, aby klienci łatwo odnajdywali Twoją firmę.',
+      'Integracje z systemami zewnętrznymi i narzędziami Google – automatyzacja procesów, formularze kontaktowe, analityka i raportowanie danych.',
+      'Wydajność, bezpieczeństwo i optymalizacja techniczna – szybkie, stabilne i bezpieczne strony, które działają niezawodnie.',
+      'Opieka techniczna, rozwój i utrzymanie strony – wsparcie po wdrożeniu, aktualizacje i rozwój funkcjonalności zgodnie z potrzebami firmy.',
     ],
     gradient: 'from-blue-500 to-cyan-500',
   },
@@ -24,7 +23,7 @@ export const SERVICES = [
     slug: 'branding',
     title: 'Identyfikacja wizualna i branding',
     description:
-      'Budujemy spójny i profesjonalny wizerunek marki — na stronie, w reklamach i w komunikacji. Tworzymy identyfikację wizualną, która zwiększa rozpoznawalność, wzmacnia pozycję rynkową i buduje długoterminowe zaufanie klientów.',
+      'Budujemy spójny i profesjonalny wizerunek marki - na stronie, w reklamach i w komunikacji. Tworzymy identyfikację wizualną, która zwiększa rozpoznawalność, wzmacnia pozycję rynkową i buduje długoterminowe zaufanie klientów.',
     features: [
       'Projekt logo i systemu identyfikacji wizualnej',
       'Opracowanie kolorystyki i typografii marki',

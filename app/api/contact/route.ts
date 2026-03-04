@@ -203,7 +203,7 @@ async function sendViaResend(
     `<p><strong>Imię i Nazwisko / Nazwa firmy:</strong> ${escapeHtml(data.name)}</p>`,
     `<p><strong>Email:</strong> <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></p>`,
     data.phone ? `<p><strong>Telefon:</strong> ${escapeHtml(data.phone)}</p>` : '',
-    data.nip ? `<p><strong>NIP:</strong> ${escapeHtml(data.nip)}</p>` : '',
+    `<p><strong>NIP:</strong> ${data.nip ? escapeHtml(data.nip) : '-'}</p>`,
     '<p><strong>Wiadomość:</strong></p>',
     `<p>${escapeHtml(data.message).replace(/\n/g, '<br>')}</p>`,
   ]
@@ -235,7 +235,7 @@ async function sendViaGmail(
     `<p><strong>Imię i Nazwisko / Nazwa firmy:</strong> ${escapeHtml(data.name)}</p>`,
     `<p><strong>Email:</strong> <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></p>`,
     data.phone ? `<p><strong>Telefon:</strong> ${escapeHtml(data.phone)}</p>` : '',
-    data.nip ? `<p><strong>NIP:</strong> ${escapeHtml(data.nip)}</p>` : '',
+    `<p><strong>NIP:</strong> ${data.nip ? escapeHtml(data.nip) : '-'}</p>`,
     '<p><strong>Wiadomość:</strong></p>',
     `<p>${escapeHtml(data.message).replace(/\n/g, '<br>')}</p>`,
   ]

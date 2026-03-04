@@ -32,18 +32,18 @@ export async function insertContactSubmission(
       name TEXT NOT NULL,
       email TEXT NOT NULL,
       phone TEXT,
-      nip TEXT,
+      "NIP" TEXT,
       message TEXT NOT NULL,
       created_at TIMESTAMPTZ DEFAULT NOW()
     )
   `;
-  await sql`ALTER TABLE contact_submissions ADD COLUMN IF NOT EXISTS nip TEXT`;
+  await sql`ALTER TABLE contact_submissions ADD COLUMN IF NOT EXISTS "NIP" TEXT`;
   await sql`
     CREATE INDEX IF NOT EXISTS contact_submissions_form_type_idx
     ON contact_submissions (form_type)
   `;
   const rows = await sql`
-    INSERT INTO contact_submissions (form_type, name, email, phone, nip, message)
+    INSERT INTO contact_submissions (form_type, name, email, phone, "NIP", message)
     VALUES (${formType}, ${data.name}, ${data.email}, ${data.phone ?? null}, ${data.nip ?? null}, ${data.message})
     RETURNING id
   `;

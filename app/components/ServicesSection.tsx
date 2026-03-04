@@ -7,7 +7,7 @@ import { Button } from './ui/Button';
 import { SERVICES, USLUGI_DISPLAY_ORDER } from '@/lib/services';
 import { CALENDLY_URL } from '@/lib/site';
 
-/** Home: first 3 from dropdown order — Automatyzacja i agenci AI, Strony, Branding */
+/** Home: first 3 from dropdown order - Automatyzacja i agenci AI, Strony, Branding */
 const HOME_SERVICES_ORDER = USLUGI_DISPLAY_ORDER.slice(0, 3);
 const SERVICE_ICONS: Record<string, typeof Globe> = {
   strony: Globe,
@@ -16,8 +16,8 @@ const SERVICE_ICONS: Record<string, typeof Globe> = {
 };
 
 const _servicesRemoved = [
-  { number: '01', icon: Globe, title: 'Projektowanie i wdrażanie stron internetowych', description: 'Strony www dla firm — nowoczesne, szybkie i skuteczne.  Tworzymy strony, które pomagają klientom łatwo Cię znaleźć i budują zaufanie do Twojej marki od pierwszego kontaktu.', features: ['Tworzenie responsywnych stron dopasowanych do wszystkich urządzeń', 'Strona zoptymalizowana pod SEO i GEO (wyszukiwarki oraz systemy AI)', 'Projekt spójnej identyfikacji wizualnej marki', 'Hosting oraz bieżące wsparcie techniczne', 'Prowadzenie kampanii Google Ads', 'Integracja z narzędziami Google (Search Console, GA4, Google Maps)', 'Strona zaprojektowana pod skuteczną konwersję'], gradient: 'from-blue-500 to-cyan-500' },
-  { number: '02', icon: Palette, title: 'Identyfikacja wizualna i branding', description: 'Spójny wizerunek marki — na stronie, w reklamach i w komunikacji.  Tworzymy identyfikację wizualną, która zwiększa rozpoznawalność marki i buduje zaufanie klientów.', features: ['Projekt logo i znaku graficznego', 'Dobór kolorystyki i typografii marki', 'Materiały graficzne i szablony do komunikacji', 'Księga identyfikacji wizualnej'], gradient: 'from-emerald-500 to-teal-500' },
+  { number: '01', icon: Globe, title: 'Projektowanie i wdrażanie stron internetowych', description: 'Strony www dla firm - nowoczesne, szybkie i skuteczne.  Tworzymy strony, które pomagają klientom łatwo Cię znaleźć i budują zaufanie do Twojej marki od pierwszego kontaktu.', features: ['Tworzenie responsywnych stron dopasowanych do wszystkich urządzeń', 'Strona zoptymalizowana pod SEO i GEO (wyszukiwarki oraz systemy AI)', 'Projekt spójnej identyfikacji wizualnej marki', 'Hosting oraz bieżące wsparcie techniczne', 'Prowadzenie kampanii Google Ads', 'Integracja z narzędziami Google (Search Console, GA4, Google Maps)', 'Strona zaprojektowana pod skuteczną konwersję'], gradient: 'from-blue-500 to-cyan-500' },
+  { number: '02', icon: Palette, title: 'Identyfikacja wizualna i branding', description: 'Spójny wizerunek marki - na stronie, w reklamach i w komunikacji.  Tworzymy identyfikację wizualną, która zwiększa rozpoznawalność marki i buduje zaufanie klientów.', features: ['Projekt logo i znaku graficznego', 'Dobór kolorystyki i typografii marki', 'Materiały graficzne i szablony do komunikacji', 'Księga identyfikacji wizualnej'], gradient: 'from-emerald-500 to-teal-500' },
   { number: '03', icon: Workflow, title: 'Automatyzacja procesów i agenci AI', description: 'Procesy działają za Ciebie. Oszczędzasz czas i skupiasz się na tym, co ważne.', features: ['Automatyczne przetwarzanie danych i raportów', 'Powiadomienia i alerty', 'Integracje z narzędziami biznesowymi', 'Agenci AI do zadań powtarzalnych'], gradient: 'from-purple-500 to-pink-500' },
 ];
 
@@ -103,7 +103,7 @@ export function ServicesSection() {
           <div className="relative overflow-hidden rounded-2xl p-8 md:p-12 text-center">
             <h3 className="text-3xl font-bold text-white mb-4">Nie jesteś pewien, które rozwiązanie jest dla Ciebie?</h3>
             <p className="text-base sm:text-xl text-slate-400 mb-8 max-w-[80ch] mx-auto px-2">
-              Umów bezpłatną konsultację — porozmawiamy o wyzwaniach i zaproponujemy rozwiązanie.
+              Umów bezpłatną konsultację - porozmawiamy o wyzwaniach i zaproponujemy rozwiązanie.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link href="/#contact">
