@@ -12,11 +12,8 @@ import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS } from '@/lib/layout';
 import { ArrowLeft, Check, ExternalLink } from 'lucide-react';
 import { UslugiConsultationBlock } from '@/app/components/UslugiConsultationBlock';
-import { UslugiPartnerzyBlock } from '@/app/components/UslugiPartnerzyBlock';
 import { AutomationWorkflowSection } from '@/app/components/AutomationWorkflowSection';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
-import { USLUGI_PAGE_CONTENT } from '@/lib/uslugi-page-content';
-import type { ServiceSlug } from '@/lib/services';
 
 /** Page/SEO titles – aligned with search phrases (projektowanie stron www dla firm, automatyzacja procesów AI, strony pod leada B2B) */
 const SLUG_TITLES: Record<string, string> = {
@@ -93,23 +90,6 @@ export default async function UslugiSlugPage({
               </p>
             </MotionFadeIn>
 
-            {pageContent && (
-              <>
-                <MotionFadeIn delay={0.15} className="mb-10 sm:mb-12 lg:mb-14">
-                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">{pageContent.problemHeading ?? 'Z jakim problemem wychodzimy?'}</h2>
-                  <p className="text-slate-400 leading-relaxed max-w-[80ch]">{pageContent.problem}</p>
-                </MotionFadeIn>
-                <MotionFadeIn delay={0.2} className="mb-10 sm:mb-12 lg:mb-14">
-                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Nasze podejście do rozwiązania</h2>
-                  <div className="text-slate-400 leading-relaxed max-w-[80ch] space-y-4">
-                    {pageContent.solution.split(/\n\n+/).map((paragraph, i) => (
-                      <p key={i}>{paragraph}</p>
-                    ))}
-                  </div>
-                </MotionFadeIn>
-              </>
-            )}
-
             <div className={`grid gap-8 lg:gap-12 xl:gap-16 items-start ${slug === 'automatyzacja' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
               <div className={slug === 'automatyzacja' ? 'order-2 lg:order-1 space-y-6 lg:space-y-8' : 'space-y-6 lg:space-y-8'}>
                 <MotionFadeIn delay={0.2}>
@@ -136,40 +116,10 @@ export default async function UslugiSlugPage({
             </div>
 
             {pageContent && (
-              <>
-                <MotionFadeIn delay={0.25} className="mt-12 sm:mt-16 lg:mt-20 mb-10 sm:mb-12 lg:mb-14">
-                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">Korzyści dla Twojej firmy</h2>
-                  <ul className="space-y-3 text-slate-400 max-w-[80ch]">
-                    {pageContent.benefits.map((benefit, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-sm sm:text-base">
-                        <Check className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" aria-hidden />
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </MotionFadeIn>
-                <MotionFadeIn delay={0.3} className="mb-10 sm:mb-12 lg:mb-14">
-                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">Jak wygląda proces współpracy</h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                    {pageContent.process.map((item) => (
-                      <div
-                        key={item.step}
-                        className="relative p-5 sm:p-6 rounded-xl border border-slate-700/50 bg-slate-900/30 backdrop-blur-sm"
-                      >
-                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-purple-500/20 text-purple-300 text-sm font-bold mb-3">
-                          {item.step}
-                        </span>
-                        <h3 className="text-white font-semibold mb-2">{item.title}</h3>
-                        <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>
-                      </div>
-                    ))}
-                  </div>
-                </MotionFadeIn>
-                <MotionFadeIn delay={0.35} className="mb-10 sm:mb-12 lg:mb-14">
-                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Dlaczego SmartWeave?</h2>
-                  <p className="text-slate-400 leading-relaxed max-w-[80ch]">{pageContent.whySmartWeave}</p>
-                </MotionFadeIn>
-              </>
+              <MotionFadeIn delay={0.25} className="mt-12 sm:mt-16 lg:mt-20 mb-10 sm:mb-12 lg:mb-14">
+                <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Dlaczego SmartWeave?</h2>
+                <p className="text-slate-400 leading-relaxed max-w-[80ch]">{pageContent.whySmartWeave}</p>
+              </MotionFadeIn>
             )}
 
             {/* Realizacje – full-width section, 3 columns (only on strony) */}
@@ -230,13 +180,6 @@ export default async function UslugiSlugPage({
             )}
           </div>
         </section>
-
-        {slug !== 'strony' && (
-          <UslugiPartnerzyBlock
-            content={USLUGI_PAGE_CONTENT[slug as ServiceSlug]}
-            gradient={service.gradient}
-          />
-        )}
 
         <UslugiConsultationBlock
           variant="centered"
