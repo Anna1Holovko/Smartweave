@@ -29,7 +29,7 @@ export function Footer() {
             />
 
             <p className="text-sm sm:text-base text-slate-400 leading-relaxed mb-3">
-              Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Design i wdrożenia dla biznesu.
+              Automatyzacja procesów biznesowych • Agenci AI • Strony internetowe
             </p>
             <p className="text-xs sm:text-sm text-slate-500">
               © {currentYear} SmartWeave. Wszystkie prawa zastrzeżone.
