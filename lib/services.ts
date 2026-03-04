@@ -7,7 +7,7 @@ export const SERVICES = [
     slug: 'strony',
     title: 'Projektowanie stron www dla firm',
     description:
-      'Tworzymy nowoczesne, szybkie strony internetowe zoptymalizowane pod pozyskiwanie leadów B2B. Nasze strony pomagają klientom Cię znaleźć, budują zaufanie i wspierają sprzedaż oraz rozwój marki.',
+      'Projektowanie stron www dla firm - nowoczesne, szybkie strony pod leada B2B. Tworzymy strony, które pomagają klientom Cię znaleźć, budują zaufanie i wspierają sprzedaż oraz rozwój marki.',
     features: [
       'Projektowanie stron www – od stron generujących kontakty i leady B2B, po strony informacyjne i wizerunkowe, które budują zaufanie, prezentują ofertę i wspierają rozwój marki.',
       'Projektowanie UX/UI nastawione na konwersję – intuicyjna nawigacja, czytelna struktura i atrakcyjny interfejs zwiększają zaangażowanie użytkowników.',
