@@ -226,6 +226,38 @@ export default function RootLayout({
           data-blockingmode="auto"
           strategy="beforeInteractive"
         />
+        {/* Google tag (gtag.js) with Consent Mode – respect Cookiebot */}
+        <Script id="gtag-consent-default" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', {
+              'analytics_storage': 'denied',
+              'ad_storage': 'denied',
+              'ad_personalization': 'denied',
+              'ad_user_data': 'denied',
+              'wait_for_update': 500
+            });
+          `}
+        </Script>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-Y5RJCLXP2Z"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            gtag('js', new Date());
+            gtag('config', 'G-Y5RJCLXP2Z');
+            window.addEventListener('CookiebotOnConsentReady', function() {
+              if (window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.statistics) {
+                gtag('consent', 'update', { 'analytics_storage': 'granted' });
+              }
+            });
+            if (window.Cookiebot && window.Cookiebot.consent && window.Cookiebot.consent.statistics) {
+              gtag('consent', 'update', { 'analytics_storage': 'granted' });
+            }
+          `}
+        </Script>
         <a href="#main-content" className="skip-link">
           Przejdź do treści
         </a>
