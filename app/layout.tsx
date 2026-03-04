@@ -201,7 +201,7 @@ const jsonLd = {
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Strony internetowe' },
         { '@type': 'ListItem', position: 2, name: 'Identyfikacja wizualna i branding' },
-        { '@type': 'ListItem', position: 3, name: 'Automatyzacja procesów biznesowych i agenci AI' },
+        { '@type': 'ListItem', position: 3, name: 'Automatyzacja procesów biznesowych z wykorzystaniem AI' },
       ],
     },
   ],

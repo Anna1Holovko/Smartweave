@@ -12,7 +12,7 @@ import { USLUGI_DISPLAY_ORDER } from '@/lib/services';
 const LOGO = '/assets/smartweave-logo.png';
 
 const USLUGI_DROPDOWN_NAMES: Record<(typeof USLUGI_DISPLAY_ORDER)[number], string> = {
-  automatyzacja: 'Automatyzacja procesów biznesowych i agenci AI',
+  automatyzacja: 'Automatyzacja procesów biznesowych z wykorzystaniem AI',
   strony: 'Strony internetowe',
   branding: 'Logo i identyfikacja wizualna',
 };
