@@ -4,10 +4,8 @@ import { Footer } from '../components/Footer';
 import { ScrollToTop } from '../components/ScrollToTop';
 import { PageIntro } from '../components/PageIntro';
 import { UslugiServiceCards } from '../components/UslugiServiceCards';
-import { UslugiPartnerzyBlock } from '../components/UslugiPartnerzyBlock';
 import { UslugiConsultationBlock } from '../components/UslugiConsultationBlock';
 import { SITE_URL } from '@/lib/site';
-import { USLUGI_LISTING_CONTENT } from '@/lib/uslugi-page-content';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 
 export const metadata: Metadata = {
@@ -49,8 +47,6 @@ export default function UslugiPage() {
             <UslugiServiceCards />
           </div>
         </section>
-
-        <UslugiPartnerzyBlock content={USLUGI_LISTING_CONTENT} />
 
         <UslugiConsultationBlock
           variant="centered"
