@@ -12,11 +12,8 @@ import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS } from '@/lib/layout';
 import { ArrowLeft, Check, ExternalLink } from 'lucide-react';
 import { UslugiConsultationBlock } from '@/app/components/UslugiConsultationBlock';
-import { UslugiPartnerzyBlock } from '@/app/components/UslugiPartnerzyBlock';
 import { AutomationWorkflowSection } from '@/app/components/AutomationWorkflowSection';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
-import { USLUGI_PAGE_CONTENT } from '@/lib/uslugi-page-content';
-import type { ServiceSlug } from '@/lib/services';
 
 /** Page/SEO titles – aligned with search phrases (projektowanie stron www dla firm, automatyzacja procesów AI, strony pod leada B2B) */
 const SLUG_TITLES: Record<string, string> = {
@@ -230,13 +227,6 @@ export default async function UslugiSlugPage({
             )}
           </div>
         </section>
-
-        {slug !== 'strony' && (
-          <UslugiPartnerzyBlock
-            content={USLUGI_PAGE_CONTENT[slug as ServiceSlug]}
-            gradient={service.gradient}
-          />
-        )}
 
         <UslugiConsultationBlock
           variant="centered"
