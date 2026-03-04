@@ -2,6 +2,8 @@
 
 import { motion, useAnimationFrame, useMotionValue } from 'motion/react';
 import { useRef } from 'react';
+import { SiGooglesheets, SiOpenai, SiGooglecloud, SiCloudinary } from 'react-icons/si';
+import { GitBranch, Wrench } from 'lucide-react';
 
 /*
   Structure:
@@ -12,43 +14,45 @@ import { useRef } from 'react';
 */
 
 const DIAGRAM_WIDTH = 1260;
-const DIAGRAM_HEIGHT = 600;
+const DIAGRAM_HEIGHT = 620;
 
-const nodes = [
-  { id: 'sheetsStart', x: 80, y: 300, logo: '/logos/google-sheets.svg' },
-  { id: 'router1', x: 260, y: 300, logo: '/logos/router.svg' },
-  { id: 'http1', x: 460, y: 80, logo: '/logos/http.svg' },
-  { id: 'parser1', x: 640, y: 80, logo: '/logos/parser.svg' },
-  { id: 'router2', x: 820, y: 80, logo: '/logos/router.svg' },
-  { id: 'gpt', x: 1000, y: 80, logo: '/logos/gpt.svg' },
-  { id: 'sheetsTop', x: 1180, y: 80, logo: '/logos/google-sheets.svg' },
-  { id: 'sheetsMid', x: 460, y: 300, logo: '/logos/google-sheets.svg' },
-  { id: 'gemini', x: 640, y: 300, logo: '/logos/gemini.svg' },
-  { id: 'cloudinary', x: 820, y: 300, logo: '/logos/cloudinary.svg' },
-  { id: 'sheetsMidEnd', x: 1000, y: 300, logo: '/logos/google-sheets.svg' },
-  { id: 'sheetsBottom', x: 460, y: 520, logo: '/logos/google-sheets.svg' },
-  { id: 'tools', x: 640, y: 520, logo: '/logos/tools.svg' },
-  { id: 'buffer1', x: 820, y: 520, logo: '/logos/buffer.svg' },
-  { id: 'buffer2', x: 1000, y: 520, logo: '/logos/buffer.svg' },
-  { id: 'sheetsBottomEnd', x: 1180, y: 520, logo: '/logos/google-sheets.svg' },
+type NodeType = { id: string; x: number; y: number; icon: React.ComponentType<{ className?: string }>; color: string };
+
+const nodes: NodeType[] = [
+  { id: 'start', x: 80, y: 320, icon: SiGooglesheets, color: '#16a34a' },
+  { id: 'router1', x: 260, y: 320, icon: GitBranch, color: '#84cc16' },
+  { id: 'http', x: 460, y: 80, icon: SiGooglecloud, color: '#1d4ed8' },
+  { id: 'parser', x: 640, y: 80, icon: Wrench, color: '#f97316' },
+  { id: 'router2', x: 820, y: 80, icon: GitBranch, color: '#84cc16' },
+  { id: 'gpt', x: 1000, y: 80, icon: SiOpenai, color: '#ef4444' },
+  { id: 'sheets2', x: 1180, y: 80, icon: SiGooglesheets, color: '#16a34a' },
+  { id: 'sheetsMid', x: 460, y: 320, icon: SiGooglesheets, color: '#16a34a' },
+  { id: 'gemini', x: 640, y: 320, icon: SiGooglecloud, color: '#2563eb' },
+  { id: 'cloudinary', x: 820, y: 320, icon: SiCloudinary, color: '#0284c7' },
+  { id: 'sheets3', x: 1000, y: 320, icon: SiGooglesheets, color: '#16a34a' },
+  { id: 'sheets4', x: 460, y: 560, icon: SiGooglesheets, color: '#16a34a' },
+  { id: 'tools', x: 640, y: 560, icon: Wrench, color: '#a855f7' },
+  { id: 'buffer1', x: 820, y: 560, icon: Wrench, color: '#374151' },
+  { id: 'buffer2', x: 1000, y: 560, icon: Wrench, color: '#374151' },
+  { id: 'sheets5', x: 1180, y: 560, icon: SiGooglesheets, color: '#16a34a' },
 ];
 
 const connections: [string, string][] = [
-  ['sheetsStart', 'router1'],
-  ['router1', 'http1'],
-  ['http1', 'parser1'],
-  ['parser1', 'router2'],
+  ['start', 'router1'],
+  ['router1', 'http'],
+  ['http', 'parser'],
+  ['parser', 'router2'],
   ['router2', 'gpt'],
-  ['gpt', 'sheetsTop'],
+  ['gpt', 'sheets2'],
   ['router1', 'sheetsMid'],
   ['sheetsMid', 'gemini'],
   ['gemini', 'cloudinary'],
-  ['cloudinary', 'sheetsMidEnd'],
-  ['router1', 'sheetsBottom'],
-  ['sheetsBottom', 'tools'],
+  ['cloudinary', 'sheets3'],
+  ['router1', 'sheets4'],
+  ['sheets4', 'tools'],
   ['tools', 'buffer1'],
   ['buffer1', 'buffer2'],
-  ['buffer2', 'sheetsBottomEnd'],
+  ['buffer2', 'sheets5'],
 ];
 
 function curvedPath(x1: number, y1: number, x2: number, y2: number): string {
@@ -112,7 +116,8 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
           key={node.id}
           x={node.x}
           y={node.y}
-          logo={node.logo}
+          icon={node.icon}
+          color={node.color}
           viewBoxWidth={DIAGRAM_WIDTH}
           viewBoxHeight={DIAGRAM_HEIGHT}
           embedded={embedded}
@@ -140,7 +145,7 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
           Automatyzacja procesów biznesowych z wykorzystaniem AI
         </h2>
 
-        <div className="relative h-[680px] hidden md:block">{diagram}</div>
+        <div className="relative h-[720px] hidden md:block">{diagram}</div>
       </div>
     </section>
   );
@@ -149,14 +154,16 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
 function Node({
   x,
   y,
-  logo,
+  icon: Icon,
+  color,
   viewBoxWidth,
   viewBoxHeight,
   embedded,
 }: {
   x: number;
   y: number;
-  logo: string;
+  icon: React.ComponentType<{ className?: string }>;
+  color: string;
   viewBoxWidth: number;
   viewBoxHeight: number;
   embedded: boolean;
@@ -165,21 +172,20 @@ function Node({
   const topPct = (y / viewBoxHeight) * 100;
   return (
     <motion.div
-      className="absolute w-[72px] h-[72px]"
+      className="absolute w-[68px] h-[68px]"
       style={{
-        left: `calc(${leftPct}% - 36px)`,
-        top: `calc(${topPct}% - 36px)`,
+        left: `calc(${leftPct}% - 34px)`,
+        top: `calc(${topPct}% - 34px)`,
       }}
-      animate={{ y: [0, -5, 0] }}
+      animate={{ y: [0, -6, 0] }}
       transition={{ duration: 6, repeat: Infinity }}
+      whileHover={{ scale: 1.1 }}
     >
       <div
-        className={`w-[72px] h-[72px] rounded-full flex items-center justify-center border shadow-sm ${
-          embedded ? 'bg-slate-800/80 border-slate-600/80' : 'bg-white border-gray-200'
-        }`}
+        className="w-[68px] h-[68px] rounded-full shadow-lg flex items-center justify-center border-4 border-white"
+        style={{ backgroundColor: color }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={logo} alt="" className="w-9 h-9 object-contain" />
+        <Icon className="w-7 h-7 text-white" />
       </div>
     </motion.div>
   );
