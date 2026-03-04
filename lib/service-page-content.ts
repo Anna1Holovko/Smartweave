@@ -49,7 +49,7 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
       },
     ],
     whySmartWeave:
-      'SmartWeave łączy projektowanie stron www dla firm z automatyzacją i widocznością w AI. Nie „stronka na szablonie” - strona zaprojektowana pod Twoją ofertę, strony pod leada B2B i długoterminową widoczność. Od analizy po wdrożenie i ewentualne połączenie z automatyzacją leadów.',
+      'SmartWeave łączy projektowanie profesjonalnych stron www z automatyzacją procesów i widocznością w wyszukiwarkach AI. Nie oferujemy „stron na szablonie" - każda strona jest projektowana pod Twoją ofertę, grupę docelową i cele biznesowe.\n\nOferujemy pełny proces: od analizy, przez projekt, wdrożenie, aż po integrację z systemami automatyzacji leadów. Efekt to strona, która generuje kontakty, buduje wizerunek i wspiera rozwój firmy w długim terminie.',
   },
 
   branding: {
