@@ -23,7 +23,7 @@ export const SERVICES = [
     slug: 'branding',
     title: 'Identyfikacja wizualna i branding',
     description:
-      'Budujemy spójny i profesjonalny wizerunek marki - na stronie, w reklamach i w komunikacji. Tworzymy identyfikację wizualną, która zwiększa rozpoznawalność, wzmacnia pozycję rynkową i buduje długoterminowe zaufanie klientów.',
+      'Budujemy spójny i profesjonalny wizerunek marki - na stronie, w reklamach i w komunikacji. Tworzymy identyfikację wizualną, która zwiększa rozpoznawalność, wzmacnia pozycję rynkową i buduje zaufanie klientów.',
     features: [
       'Projekt logo i systemu identyfikacji wizualnej - stworzenie unikalnego znaku i spójnego systemu graficznego dla marki.',
       'Opracowanie kolorystyki i typografii marki - dopasowanie palety barw i kroju pisma do charakteru firmy i jej komunikacji.',
