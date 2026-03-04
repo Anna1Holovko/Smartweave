@@ -4,11 +4,11 @@ import { motion } from 'motion/react';
 import { MessageSquare, PenTool, Cpu, Search, Rocket } from 'lucide-react';
 
 const workflowSteps = [
-  { number: '01', icon: MessageSquare, title: 'Poznajemy Twoje potrzeby', description: 'Rozmawiamy z Tobą, aby dokładnie zrozumieć, czego potrzebujesz - zarówno jeśli chodzi o stronę internetową, jak i automatyzację procesów.', gradient: 'from-blue-500 to-cyan-500' },
-  { number: '02', icon: PenTool, title: 'Projektujemy i planujemy', description: 'Tworzymy projekt strony gotowej na współczesne standardy internetu i wyszukiwarki AI oraz plan automatyzacji procesów w Twojej firmie.', gradient: 'from-cyan-500 to-teal-500' },
-  { number: '03', icon: Cpu, title: 'Wdrażamy i kodujemy', description: 'Strony są responsywne, zoptymalizowane pod SEO i przygotowane pod marketing, a procesy biznesowe działają automatycznie dzięki integracjom i kodowaniu dedykowanych rozwiązań.', gradient: 'from-teal-500 to-emerald-500' },
-  { number: '04', icon: Search, title: 'Testujemy i dopracowujemy', description: 'Sprawdzamy, czy wszystko działa perfekcyjnie - od funkcjonalności strony po automatyczne procesy. Wprowadzamy poprawki i dopracowujemy szczegóły.', gradient: 'from-emerald-500 to-green-500' },
-  { number: '05', icon: Rocket, title: 'Oddajemy gotowy system', description: 'Ty otrzymujesz kompletny produkt: stronę internetową i automatyzacje, które działają bez nadzoru, pozwalając Ci skupić się na rozwoju biznesu.', gradient: 'from-purple-500 to-pink-500' },
+  { number: '01', icon: MessageSquare, title: 'Poznajemy Twoje potrzeby', description: 'Rozmawiamy z Tobą, aby dokładnie zrozumieć cele biznesowe, grupę docelową i oczekiwane efekty - zarówno w kontekście strony internetowej, jak i automatyzacji procesów w firmie.', gradient: 'from-blue-500 to-cyan-500' },
+  { number: '02', icon: PenTool, title: 'Projektowanie i planowanie', description: 'Tworzymy projekt strony zgodny z nowoczesnymi standardami internetu i wyszukiwarek AI oraz przygotowujemy plan automatyzacji procesów biznesowych dopasowany do Twojej działalności. Projekt obejmuje UX/UI nastawione na konwersję, strukturę treści, key visuale i spójny wizerunek marki.', gradient: 'from-cyan-500 to-teal-500' },
+  { number: '03', icon: Cpu, title: 'Wdrożenie i kodowanie', description: 'Strony są responsywne, szybkie i zoptymalizowane pod SEO. Integrujemy systemy CRM, narzędzia analityczne i automatyzacje procesów, aby działały samodzielnie i wspierały codzienne działania firmy.', gradient: 'from-teal-500 to-emerald-500' },
+  { number: '04', icon: Search, title: 'Testowanie i dopracowywanie', description: 'Sprawdzamy działanie strony i automatyzacji w rzeczywistych warunkach, wprowadzamy poprawki i dopracowujemy szczegóły, aby wszystko funkcjonowało bez zarzutu.', gradient: 'from-emerald-500 to-green-500' },
+  { number: '05', icon: Rocket, title: 'Oddanie gotowego systemu', description: 'Otrzymujesz kompletny produkt: nowoczesną stronę internetową oraz automatyzacje, które działają bez nadzoru. Dzięki temu możesz w pełni skupić się na rozwoju biznesu, obsłudze klientów i zwiększaniu przychodów.', gradient: 'from-purple-500 to-pink-500' },
 ];
 
 export function AutomationDetails() {
@@ -23,11 +23,11 @@ export function AutomationDetails() {
             <span className="text-purple-300 text-xs sm:text-sm font-medium uppercase tracking-wider">Jak działamy</span>
           </motion.div>
           <motion.h2 id="how-we-work-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 px-4">
-            <span className="text-white">Automatyzacja</span>{' '}
-            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">dla biznesu</span>
+            <span className="text-white">Automatyzacja i strony www,</span>{' '}
+            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">które działają za Ciebie</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2">
-            Systemy, które działają za Ciebie. Oszczędzasz czas, procesy wykonują się same.
+            Tworzymy procesy i strony internetowe, które wspierają rozwój Twojej firmy.
           </motion.p>
         </div>
 
