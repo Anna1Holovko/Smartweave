@@ -40,7 +40,7 @@ export const SERVICES = [
     slug: 'automatyzacja',
     title: 'Automatyzacja procesów biznesowych i agenci AI',
     description:
-      'Wdrażamy inteligentne systemy, które automatyzują powtarzalne procesy i usprawniają codzienną pracę zespołu. Tworzymy także asystentów AI do obsługi zapytań, analizy dokumentów i wsparcia sprzedaży. Redukujemy koszty operacyjne i pozwalamy skupić się na kluczowych obszarach rozwoju firmy.',
+      'Automatyzacja procesów AI - wdrażamy inteligentne systemy, które automatyzują powtarzalne procesy i usprawniają pracę zespołu. Redukujemy koszty i pozwalamy skupić się na rozwoju firmy.',
     features: [
       'Procesy operacyjne i administracyjne - powtarzalne zadania, przepisywanie danych, zatwierdzanie dokumentów.',
       'Integracje systemów CRM, ERP i innych narzędzi firmowych - automatyczne przenoszenie i synchronizacja danych między systemami.',
