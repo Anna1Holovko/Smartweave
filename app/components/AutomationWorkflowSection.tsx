@@ -6,7 +6,6 @@ import { useRef } from 'react';
 import {
   SiGooglesheets,
   SiOpenai,
-  SiCloudinary,
   SiHubspot,
   SiSlack,
 } from 'react-icons/si';
@@ -44,7 +43,6 @@ const nodes: NodeType[] = [
   // MIDDLE FLOW
   { id: 'hubspot', x: 460, y: 320, icon: SiHubspot, color: '#FF7A59' },
   { id: 'gptMid', x: 640, y: 320, icon: SiOpenai, color: '#74AA9C' },
-  { id: 'cloudinary', x: 820, y: 320, icon: SiCloudinary, color: '#0284c7' },
   { id: 'slack', x: 1000, y: 320, icon: SiSlack, color: '#4A154B' },
 
   // BOTTOM FLOW
@@ -66,8 +64,7 @@ const connections: [string, string][] = [
   // MIDDLE
   ['router1', 'hubspot'],
   ['hubspot', 'gptMid'],
-  ['gptMid', 'cloudinary'],
-  ['cloudinary', 'slack'],
+  ['gptMid', 'slack'],
 
   // BOTTOM
   ['router1', 'sheetsBottom'],
