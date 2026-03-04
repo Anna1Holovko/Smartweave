@@ -48,7 +48,7 @@ export function BlogSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2 mb-6 sm:mb-8"
           >
-            Praktyczne artykuły o wdrażaniu automatyzacji, narzędziach i procesach biznesowych.
+            Praktyczne artykuły o wdrażaniu automatyzacji, narzędziach i procesach biznesowych
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 10 }}

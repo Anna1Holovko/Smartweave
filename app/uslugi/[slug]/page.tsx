@@ -235,7 +235,7 @@ export default async function UslugiSlugPage({
         <UslugiConsultationBlock
           variant="centered"
           title="Zainteresowała Cię ta usługa?"
-          description="Umów bezpłatną konsultację - opowiemy o szczegółach i dopasujemy rozwiązanie do Twoich potrzeb."
+          description="Umów bezpłatną konsultację - opowiemy o szczegółach i dopasujemy rozwiązanie do Twoich potrzeb"
         />
 
         <div className="gradient-philosophy-to-footer">

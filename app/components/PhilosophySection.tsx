@@ -17,7 +17,7 @@ export function PhilosophySection() {
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Proste. Przejrzyste. Skuteczne.</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2">
-            Proste, przejrzyste rozwiązania. Dostosowujemy narzędzia do Twoich potrzeb i wymiernych efektów.
+            Proste, przejrzyste rozwiązania. Dostosowujemy narzędzia do Twoich potrzeb i wymiernych efektów
           </motion.p>
         </div>
       </div>
