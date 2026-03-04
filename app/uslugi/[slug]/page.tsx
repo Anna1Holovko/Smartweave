@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Header } from '@/app/components/Header';
 import { Footer } from '@/app/components/Footer';
+import { CTASection } from '@/app/components/CTASection';
 import { ScrollToTop } from '@/app/components/ScrollToTop';
 import { MotionFadeIn } from '@/app/components/MotionFadeIn';
 import { SERVICES, getServiceBySlug, SERVICE_SLUGS } from '@/lib/services';
@@ -239,6 +240,7 @@ export default async function UslugiSlugPage({
         />
 
         <div className="gradient-philosophy-to-footer">
+          <CTASection />
           <Footer />
         </div>
       </main>

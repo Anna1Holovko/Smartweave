@@ -27,7 +27,7 @@ export function AutomationDetails() {
             <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">które działają za Ciebie</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2">
-            Tworzymy procesy i strony internetowe, które wspierają rozwój Twojej firmy.
+            Tworzymy procesy i strony internetowe, które wspierają rozwój Twojej firmy
           </motion.p>
         </div>
 
