@@ -90,40 +90,41 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
   },
 
   automatyzacja: {
+    problemHeading: 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?',
     problem:
-      'Godziny zjadane przez powtarzalne zadania - kopiowanie danych, wysyłanie tych samych maili, ręczne raporty - to koszt, który można zamienić na czas na klientów i rozwój. Brak automatyzacji oznacza też większe ryzyko błędów i wolniejszą reakcję na leady oraz zlecenia.',
+      'Powtarzalne zadania pochłaniają cenne godziny pracy. Ręczne kopiowanie danych, wysyłanie tych samych wiadomości e-mail czy przygotowywanie raportów to ukryty koszt, który można zamienić na czas przeznaczony na obsługę klientów i rozwój firmy. Brak automatyzacji to nie tylko strata czasu, ale także większe ryzyko błędów oraz wolniejsza reakcja na nowe leady i zlecenia.',
     solution:
-      'Automatyzacja procesów AI i procesów biznesowych przenosi powtarzalne kroki na systemy: workflowy, integracje i powiadomienia działają zamiast ręcznej pracy. Zespół skupia się na tym, co wymaga wiedzy i relacji; rutyna idzie przez zdefiniowane scenariusze. Efekt: oszczędność czasu, mniej błędów i możliwość obsłużenia większego wolumenu bez proporcjonalnego wzrostu zatrudnienia.',
+      'Automatyzujemy procesy biznesowe oraz wdrażamy rozwiązania AI, które przejmują powtarzalne i czasochłonne zadania. Workflowy, integracje i inteligentne powiadomienia zastępują ręczną pracę, zapewniając płynny i przewidywalny przebieg działań.\n\nDzięki temu zespół może skupić się na tym, co naprawdę wymaga wiedzy, doświadczenia i budowania relacji, podczas gdy rutynowe czynności realizowane są według jasno zdefiniowanych scenariuszy.\n\nEfekt? Oszczędność czasu, mniej błędów oraz możliwość obsługi większego wolumenu zleceń bez konieczności proporcjonalnego zwiększania zatrudnienia.',
     benefits: [
-      'Oszczędność czasu - powtarzalne zadania wykonuje system, nie ludzie.',
-      'Mniej błędów przy przepisywaniu, synchronizacji i raportowaniu.',
-      'Szybsza reakcja na leady i zlecenia (potwierdzenia, przypomnienia, przekierowania).',
-      'Skalowalność: większy wolumen bez lawinowego wzrostu kosztów operacyjnych.',
+      'Oszczędność czasu - powtarzalne zadania wykonuje system, a nie pracownicy.',
+      'Mniej błędów - automatyzacja eliminuje pomyłki przy przepisywaniu, synchronizacji i raportowaniu.',
+      'Szybsza reakcja - leady i zlecenia obsługiwane są natychmiast dzięki automatycznym potwierdzeniom, przypomnieniom i przekierowaniom.',
+      'Skalowalność - możesz obsłużyć większy wolumen pracy bez proporcjonalnego wzrostu kosztów operacyjnych.',
     ],
     process: [
       {
         step: 1,
         title: 'Analiza procesów',
-        description: 'Wspólnie mapujemy wybrane procesy: kto co robi, w jakiej kolejności i w jakich systemach. Szukamy wąskich gardeł i powtarzalnych zadań do automatyzacji.',
+        description: 'Przeprowadzamy szczegółową analizę wybranych procesów biznesowych: identyfikujemy kolejność działań, używane systemy oraz powtarzalne i czasochłonne zadania, które można zautomatyzować.',
       },
       {
         step: 2,
         title: 'Projekt rozwiązania',
-        description: 'Proponujemy scenariusze: które kroki zautomatyzować, jakie narzędzia (Make, n8n, dedykowane integracje) i jak połączyć je z Twoimi systemami.',
+        description: 'Na podstawie analizy opracowujemy scenariusze automatyzacji, dobieramy odpowiednie narzędzia (Make, n8n, dedykowane integracje) i definiujemy sposób ich integracji z istniejącymi systemami firmy.',
       },
       {
         step: 3,
         title: 'Wdrożenie i testy',
-        description: 'Budujemy workflowy, integrujemy systemy i testujemy na rzeczywistych przypadkach. Dopracowujemy wyjątki i przekazujemy wiedzę zespołowi.',
+        description: 'Tworzymy workflowy, integrujemy systemy i testujemy rozwiązania na rzeczywistych danych. Dostosowujemy obsługę wyjątków i przekazujemy pełną dokumentację oraz wiedzę zespołowi, aby zapewnić płynne użytkowanie systemu.',
       },
       {
         step: 4,
         title: 'Uruchomienie i rozwój',
-        description: 'Wdrażamy na stałe, monitorujemy działanie i rozszerzamy automatyzację na kolejne procesy w miarę potrzeb.',
+        description: 'Wdrażamy rozwiązanie w środowisku produkcyjnym, monitorujemy jego efektywność i stopniowo rozszerzamy automatyzację na kolejne procesy w firmie w miarę potrzeb.',
       },
     ],
     whySmartWeave:
-      'SmartWeave działa jako partner wdrożeń: nie sprzedajemy wyłącznie licencji, tylko projektujemy i wdrażamy automatyzację pod Twoje procesy. Zaczynamy od jednego, mierzalnego kroku - tak, żeby efekt (oszczędność czasu, mniej błędów) był widoczny szybko. Dla SME to bezpieczna ścieżka do skalowania bez chaosu.',
+      'SmartWeave to partner w pełnym procesie automatyzacji - nie sprzedajemy jedynie produktu, lecz projektujemy i wdrażamy rozwiązania dopasowane do specyfiki Twojej firmy. Rozpoczynamy od jednego, mierzalnego kroku, aby efekty - oszczędność czasu i redukcja błędów - były widoczne już na wczesnym etapie. Dla małych i średnich przedsiębiorstw to bezpieczna i kontrolowana ścieżka do skalowania procesów bez ryzyka chaosu.',
   },
 
   'agenci-ai': {
