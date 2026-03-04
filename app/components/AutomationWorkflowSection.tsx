@@ -2,6 +2,18 @@
 
 import { motion, useAnimationFrame, useMotionValue } from 'motion/react';
 import { useRef } from 'react';
+import {
+  FileSpreadsheet,
+  GitBranch,
+  Globe,
+  FileCode,
+  Mail,
+  Bot,
+  Cloud,
+  Wrench,
+  Copy,
+  type LucideIcon,
+} from 'lucide-react';
 
 /*
   Structure:
@@ -11,23 +23,25 @@ import { useRef } from 'react';
             ↘ Sheets → Tools → Buffer → Buffer → Sheets
 */
 
-const nodes = [
-  { id: 'sheetsStart', x: 80, y: 260, logo: '/logos/google-sheets.png' },
-  { id: 'router1', x: 240, y: 260, logo: '/logos/router.png' },
-  { id: 'http1', x: 420, y: 120, logo: '/logos/http.png' },
-  { id: 'parser1', x: 580, y: 120, logo: '/logos/parser.png' },
-  { id: 'router2', x: 740, y: 120, logo: '/logos/router.png' },
-  { id: 'gmail', x: 900, y: 120, logo: '/logos/gmail.png' },
-  { id: 'sheetsTop', x: 1060, y: 120, logo: '/logos/google-sheets.png' },
-  { id: 'sheetsMid', x: 420, y: 260, logo: '/logos/google-sheets.png' },
-  { id: 'gemini', x: 580, y: 260, logo: '/logos/gemini.png' },
-  { id: 'cloud', x: 740, y: 260, logo: '/logos/cloudinary.png' },
-  { id: 'sheetsMidEnd', x: 900, y: 260, logo: '/logos/google-sheets.png' },
-  { id: 'sheetsBottom', x: 420, y: 400, logo: '/logos/google-sheets.png' },
-  { id: 'tools', x: 580, y: 400, logo: '/logos/tools.png' },
-  { id: 'buffer1', x: 740, y: 400, logo: '/logos/buffer.png' },
-  { id: 'buffer2', x: 900, y: 400, logo: '/logos/buffer.png' },
-  { id: 'sheetsBottomEnd', x: 1060, y: 400, logo: '/logos/google-sheets.png' },
+type NodeType = { id: string; x: number; y: number; icon: LucideIcon; color: string };
+
+const nodes: NodeType[] = [
+  { id: 'sheetsStart', x: 80, y: 260, icon: FileSpreadsheet, color: 'bg-green-500' },
+  { id: 'router1', x: 240, y: 260, icon: GitBranch, color: 'bg-lime-400' },
+  { id: 'http1', x: 420, y: 120, icon: Globe, color: 'bg-blue-500' },
+  { id: 'parser1', x: 580, y: 120, icon: FileCode, color: 'bg-amber-500' },
+  { id: 'router2', x: 740, y: 120, icon: GitBranch, color: 'bg-lime-400' },
+  { id: 'gmail', x: 900, y: 120, icon: Mail, color: 'bg-red-500' },
+  { id: 'sheetsTop', x: 1060, y: 120, icon: FileSpreadsheet, color: 'bg-green-500' },
+  { id: 'sheetsMid', x: 420, y: 260, icon: FileSpreadsheet, color: 'bg-green-500' },
+  { id: 'gemini', x: 580, y: 260, icon: Bot, color: 'bg-emerald-500' },
+  { id: 'cloud', x: 740, y: 260, icon: Cloud, color: 'bg-sky-500' },
+  { id: 'sheetsMidEnd', x: 900, y: 260, icon: FileSpreadsheet, color: 'bg-green-500' },
+  { id: 'sheetsBottom', x: 420, y: 400, icon: FileSpreadsheet, color: 'bg-green-500' },
+  { id: 'tools', x: 580, y: 400, icon: Wrench, color: 'bg-purple-400' },
+  { id: 'buffer1', x: 740, y: 400, icon: Copy, color: 'bg-orange-400' },
+  { id: 'buffer2', x: 900, y: 400, icon: Copy, color: 'bg-orange-400' },
+  { id: 'sheetsBottomEnd', x: 1060, y: 400, icon: FileSpreadsheet, color: 'bg-green-500' },
 ];
 
 const connections: [string, string][] = [
@@ -102,7 +116,8 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
           key={node.id}
           x={node.x}
           y={node.y}
-          logo={node.logo}
+          icon={node.icon}
+          color={node.color}
           embedded={embedded}
           viewBoxWidth={1140}
           viewBoxHeight={520}
@@ -139,14 +154,16 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
 function Node({
   x,
   y,
-  logo,
+  icon: Icon,
+  color,
   embedded,
   viewBoxWidth,
   viewBoxHeight,
 }: {
   x: number;
   y: number;
-  logo: string;
+  icon: LucideIcon;
+  color: string;
   embedded: boolean;
   viewBoxWidth: number;
   viewBoxHeight: number;
@@ -165,14 +182,11 @@ function Node({
       whileHover={{ scale: 1.08 }}
     >
       <div
-        className={`w-[68px] h-[68px] rounded-full flex items-center justify-center overflow-hidden ${
-          embedded
-            ? 'bg-slate-800/80 border border-slate-600/80 shadow-lg'
-            : 'bg-white shadow-md border border-gray-100'
+        className={`w-[68px] h-[68px] rounded-full flex items-center justify-center shadow-lg border-4 ${
+          embedded ? `${color} border-slate-600/80` : `${color} border-white`
         }`}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={logo} alt="" width={32} height={32} className="object-contain" />
+        <Icon className="w-6 h-6 text-white" />
       </div>
     </motion.div>
   );
