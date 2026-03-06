@@ -42,6 +42,17 @@ export const USLUGI_PAGE_CONTENT: Record<ServiceSlug, UslugiPageContent> = {
     benefits: 'Mniej błędów, szybsze reakcje i oszczędność czasu. Zespół zajmuje się rozwojem i klientami zamiast powtarzalnymi zadaniami, a firma lepiej skaluje się bez proporcjonalnego wzrostu zatrudnienia.',
     process: 'Rozpoczynamy od mapowania procesów i ustalenia priorytetów. Następnie projektujemy i wdrażamy pierwszy scenariusz (np. synchronizacja danych, raporty, chatbot). Po testach rozwijamy kolejne automatyzacje i uczymy zespół korzystania z narzędzi.',
   },
+  'e-ksiazki': {
+    problems: [
+      { title: 'Brak atrakcyjnego materiału do pobrania', description: 'Chcesz budować eksperckość i zbierać kontakty, ale brakuje narzędzia - publikacji, która przyciąga leady i pokazuje wiedzę Twojej firmy.' },
+      { title: 'Rozproszone treści zamiast jednej publikacji', description: 'Artykuły czy prezentacje nie tworzą spójnego e-booka - trudno je zebrać i zaproponować klientom.' },
+      { title: 'Brak czasu i umiejętności na projekt', description: 'Samodzielne przygotowanie profesjonalnego e-booka zabiera czas i wymaga umiejętności graficznych i redakcyjnych.' },
+      { title: 'Potrzeba spójności z marką', description: 'E-book ma reprezentować firmę - layout i grafika powinny być zgodne z identyfikacją wizualną.' },
+    ],
+    approach: 'Tworzymy e-booki dopasowane do Twojej marki i grupy docelowej. Na podstawie Twojej wiedzy, artykułów lub materiałów opracowujemy spójną treść i profesjonalny layout - jako lead magnet, element ścieżki sprzedażowej lub narzędzie budujące autorytet. E-book jest gotowy do publikacji na stronie lub w kampaniach.',
+    benefits: 'Więcej leadów dzięki materiałowi do pobrania. Wzrost eksperckości - jedna, dopracowana publikacja. Spójność z marką i oszczędność czasu - my zajmujemy się projektem i opracowaniem.',
+    process: 'Określamy cel e-booka (leady, edukacja, sprzedaż) i grupę docelową. Opracowujemy strukturę i treść (na podstawie Twoich materiałów lub od zera), projektujemy layout w spójności z marką, a na koniec dostarczamy gotowy plik do wykorzystania na stronie lub w kampaniach.',
+  },
 };
 
 /** Generic content for main /uslugi listing (no single service context) */
