@@ -3,9 +3,7 @@
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import { Globe, Workflow, Check, Palette, ArrowRight, ArrowUpRight } from 'lucide-react';
-import { Button } from './ui/Button';
 import { SERVICES, USLUGI_DISPLAY_ORDER } from '@/lib/services';
-import { CALENDLY_URL } from '@/lib/site';
 
 /** Home: first 3 from dropdown order - Automatyzacja i agenci AI, Strony, Branding */
 const HOME_SERVICES_ORDER = USLUGI_DISPLAY_ORDER.slice(0, 3);
@@ -89,7 +87,7 @@ export function ServicesSection() {
           })}
         </div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="flex justify-center mb-12">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="flex justify-center">
           <Link
             href="/uslugi"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-blue-500/50 bg-blue-500/10 text-blue-300 font-medium hover:bg-blue-500/20 hover:border-blue-400/60 transition-colors"
@@ -97,30 +95,6 @@ export function ServicesSection() {
             Zobacz pełną ofertę usług
             <ArrowRight className="w-4 h-4" />
           </Link>
-        </motion.div>
-
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative">
-          <div className="relative overflow-hidden rounded-2xl p-8 md:p-12 text-center">
-            <h3 className="text-3xl font-bold text-white mb-4">Nie jesteś pewien, które rozwiązanie jest dla Ciebie?</h3>
-            <p className="text-base sm:text-xl text-slate-400 mb-8 max-w-[80ch] mx-auto px-2">
-              Umów bezpłatną konsultację - porozmawiamy o wyzwaniach i zaproponujemy rozwiązanie.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link href="/#contact">
-                <Button variant="primary">Napisz do nas</Button>
-              </Link>
-              {CALENDLY_URL && (
-                <a
-                  href={CALENDLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 bg-transparent border-2 border-slate-700 text-white hover:border-purple-500/50 hover:bg-slate-800/30"
-                >
-                  Umów spotkanie
-                </a>
-              )}
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>
