@@ -53,28 +53,13 @@ export const SERVICES = [
     ],
     gradient: 'from-purple-500 to-pink-500',
   },
-  {
-    number: '04',
-    slug: 'e-ksiazki',
-    title: 'E-booki',
-    description:
-      'E-booki dla firm - profesjonalne publikacje cyfrowe, które budują eksperckość, generują leady i wspierają sprzedaż. Tworzymy e-booki dopasowane do Twojej marki i grupy docelowej.',
-    features: [
-      'Projekt i treść e-booka - od koncepcji po gotowy plik PDF lub format cyfrowy dopasowany do celów (leady, edukacja, budowanie autorytetu).',
-      'Spójność z identyfikacją wizualną - layout, kolory i typografia zgodne z Twoją marką.',
-      'Optymalizacja pod czytanie na ekranie - czytelna struktura, nagłówki, infografiki i wezwania do działania.',
-      'Wersje do pobrania i integracja z landingami - e-book jako lead magnet lub element ścieżki sprzedażowej.',
-      'Opracowanie na podstawie istniejących materiałów - przekształcenie artykułów, prezentacji lub wiedzy eksperckiej w spójną publikację.',
-    ],
-    gradient: 'from-amber-500 to-orange-500',
-  },
 ] as const;
 
-export const SERVICE_SLUGS = ['strony', 'branding', 'automatyzacja', 'e-ksiazki'] as const;
+export const SERVICE_SLUGS = ['strony', 'branding', 'automatyzacja'] as const;
 export type ServiceSlug = (typeof SERVICE_SLUGS)[number];
 
 /** Order used in Header dropdown and /uslugi. Home section uses first 3. */
-export const USLUGI_DISPLAY_ORDER = ['automatyzacja', 'strony', 'branding', 'e-ksiazki'] as const;
+export const USLUGI_DISPLAY_ORDER = ['automatyzacja', 'strony', 'branding'] as const;
 
 export function getServiceBySlug(slug: string): (typeof SERVICES)[number] | undefined {
   return SERVICES.find((s) => s.slug === slug);

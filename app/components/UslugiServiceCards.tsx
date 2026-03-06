@@ -2,13 +2,12 @@
 
 import { motion } from 'motion/react';
 import Link from 'next/link';
-import { Globe, Workflow, Palette, BookOpen, Check, ArrowUpRight } from 'lucide-react';
+import { Globe, Workflow, Palette, Check, ArrowUpRight } from 'lucide-react';
 import { SERVICES, USLUGI_DISPLAY_ORDER } from '@/lib/services';
 const SERVICE_ICONS: Record<(typeof USLUGI_DISPLAY_ORDER)[number], typeof Globe> = {
   automatyzacja: Workflow,
   strony: Globe,
   branding: Palette,
-  'e-ksiazki': BookOpen,
 };
 
 export function UslugiServiceCards() {

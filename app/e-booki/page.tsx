@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Image from 'next/image';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -89,15 +88,6 @@ export default function EbookiPage() {
                   <div className={`absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r ${book.gradient} group-hover:w-full transition-all duration-500`} />
                 </article>
               ))}
-            </div>
-
-            <div className="mt-10 sm:mt-12 lg:mt-16 text-center">
-              <Link
-                href="/uslugi/e-ksiazki"
-                className="inline-flex items-center justify-center gap-2 text-slate-400 hover:text-white transition-colors text-sm sm:text-base"
-              >
-                Zamów e-book na miarę
-              </Link>
             </div>
           </div>
         </section>
