@@ -23,10 +23,15 @@ const uslugiDropdownItems = USLUGI_DISPLAY_ORDER.map((slug) => ({
   href: `/uslugi/${slug}` as const,
 }));
 
+const realizacjeDropdownItems = [
+  { name: 'Projekty', href: '/realizacje' },
+  { name: 'E-booki', href: '/e-booki' },
+];
+
 const navItems = [
-  { name: 'Usługi', href: '#services' },
+  { name: 'Usługi', href: '#services', dropdown: 'uslugi' as const },
   { name: 'Jak działamy', href: '#how-we-work' },
-  { name: 'Realizacje', href: '/realizacje' },
+  { name: 'Realizacje', href: '/realizacje', dropdown: 'realizacje' as const },
   { name: 'Blog', href: '/blog' },
   { name: 'Kontakt', href: '#contact' },
 ];
@@ -34,21 +39,27 @@ const navItems = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [uslugiDropdownOpen, setUslugiDropdownOpen] = useState(false);
+  const [realizacjeDropdownOpen, setRealizacjeDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const realizacjeDropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const pathname = usePathname();
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+      if (dropdownRef.current && !dropdownRef.current.contains(target)) {
         setUslugiDropdownOpen(false);
       }
+      if (realizacjeDropdownRef.current && !realizacjeDropdownRef.current.contains(target)) {
+        setRealizacjeDropdownOpen(false);
+      }
     };
-    if (uslugiDropdownOpen) {
+    if (uslugiDropdownOpen || realizacjeDropdownOpen) {
       document.addEventListener('click', handleClickOutside);
       return () => document.removeEventListener('click', handleClickOutside);
     }
-  }, [uslugiDropdownOpen]);
+  }, [uslugiDropdownOpen, realizacjeDropdownOpen]);
 
   // 🔥 smooth scroll function
   const scrollToSection = (hash: string) => {
@@ -128,7 +139,7 @@ export function Header() {
             {/* DESKTOP NAV */}
             <nav className="hidden md:flex items-center gap-8">
               {navItems.map((item, index) =>
-                item.name === 'Usługi' ? (
+                item.dropdown === 'uslugi' ? (
                   <div key={item.name} ref={dropdownRef} className="relative">
                     <motion.button
                       type="button"
@@ -155,6 +166,42 @@ export function Header() {
                               key={sub.href}
                               href={sub.href}
                               onClick={() => setUslugiDropdownOpen(false)}
+                              className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors first:rounded-t-xl"
+                            >
+                              {sub.name}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : item.dropdown === 'realizacje' ? (
+                  <div key={item.name} ref={realizacjeDropdownRef} className="relative">
+                    <motion.button
+                      type="button"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      onClick={() => setRealizacjeDropdownOpen((v) => !v)}
+                      className="flex items-center gap-1 text-slate-300 hover:text-white transition-colors cursor-pointer"
+                    >
+                      {item.name}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${realizacjeDropdownOpen ? 'rotate-180' : ''}`} />
+                    </motion.button>
+                    <AnimatePresence>
+                      {realizacjeDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -8 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute top-full left-0 mt-2 min-w-[200px] py-2 rounded-xl border border-slate-700/50 bg-slate-900/95 backdrop-blur-xl shadow-xl z-50"
+                        >
+                          {realizacjeDropdownItems.map((sub) => (
+                            <Link
+                              key={sub.href}
+                              href={sub.href}
+                              onClick={() => setRealizacjeDropdownOpen(false)}
                               className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors first:rounded-t-xl"
                             >
                               {sub.name}
@@ -236,7 +283,20 @@ export function Header() {
                   </Link>
                 ))}
               </div>
-              {navItems.filter((i) => i.name !== 'Usługi').map((item) =>
+              <div>
+                <span className="block text-slate-400 text-sm font-medium py-2 px-4">Realizacje</span>
+                {realizacjeDropdownItems.map((sub) => (
+                  <Link
+                    key={sub.href}
+                    href={sub.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block text-slate-300 hover:text-white py-2 px-4 pl-6 rounded-lg"
+                  >
+                    {sub.name}
+                  </Link>
+                ))}
+              </div>
+              {navItems.filter((i) => !i.dropdown).map((item) =>
                 item.href.startsWith('/') ? (
                   <Link
                     key={item.name}

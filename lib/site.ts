@@ -41,5 +41,6 @@ export const SITEMAP_ROUTES = [
   { path: 'uslugi/automatyzacja', priority: 0.85, changeFrequency: 'weekly' as const },
   { path: 'uslugi/e-ksiazki', priority: 0.85, changeFrequency: 'weekly' as const },
   { path: 'realizacje', priority: 0.9, changeFrequency: 'weekly' as const },
+  { path: 'e-booki', priority: 0.9, changeFrequency: 'weekly' as const },
   { path: 'blog', priority: 0.9, changeFrequency: 'weekly' as const },
 ] as const;
