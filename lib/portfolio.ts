@@ -50,4 +50,12 @@ export const PORTFOLIO_ITEMS = [
     gradient: 'from-cyan-500 to-blue-500',
     link: 'https://aiyo.figma.site/',
   },
+  {
+    title: 'E-booki',
+    category: 'E-booki',
+    description: 'Sklep z e-bookami SmartWeave - profesjonalne publikacje dla firm: lead magnet, edukacja, budowanie autorytetu.',
+    image: '/assets/aiyo-cover.png',
+    gradient: 'from-amber-500 to-orange-500',
+    link: '/e-booki',
+  },
 ] as const;
