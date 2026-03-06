@@ -12,7 +12,7 @@ import { USLUGI_DISPLAY_ORDER } from '@/lib/services';
 const LOGO = '/assets/smartweave-logo.png';
 
 const USLUGI_DROPDOWN_NAMES: Record<(typeof USLUGI_DISPLAY_ORDER)[number], string> = {
-  automatyzacja: 'Automatyzacja procesów biznesowych z wykorzystaniem AI',
+  automatyzacja: 'Automatyzacja procesów biznesowych',
   strony: 'Strony internetowe',
   branding: 'Logo i identyfikacja wizualna',
 };
@@ -165,7 +165,7 @@ export function Header() {
                               key={sub.href}
                               href={sub.href}
                               onClick={() => setUslugiDropdownOpen(false)}
-                              className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors first:rounded-t-xl"
+                              className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors first:rounded-t-xl whitespace-nowrap"
                             >
                               {sub.name}
                             </Link>
