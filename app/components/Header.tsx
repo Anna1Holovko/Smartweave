@@ -22,15 +22,13 @@ const uslugiDropdownItems = USLUGI_DISPLAY_ORDER.map((slug) => ({
   href: `/uslugi/${slug}` as const,
 }));
 
-const realizacjeDropdownItems = [
-  { name: 'Projekty', href: '/realizacje' },
-  { name: 'E-booki', href: '/e-booki' },
-];
+const realizacjeDropdownItems = [{ name: 'Projekty', href: '/realizacje' }];
 
 const navItems = [
   { name: 'Usługi', href: '#services', dropdown: 'uslugi' as const },
   { name: 'Jak działamy', href: '#how-we-work' },
   { name: 'Realizacje', href: '/realizacje', dropdown: 'realizacje' as const },
+  { name: 'E-booki', href: '/e-booki' },
   { name: 'Blog', href: '/blog' },
   { name: 'Kontakt', href: '#contact' },
 ];
