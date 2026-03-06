@@ -15,6 +15,7 @@ const USLUGI_DROPDOWN_NAMES: Record<(typeof USLUGI_DISPLAY_ORDER)[number], strin
   automatyzacja: 'Automatyzacja procesów biznesowych z wykorzystaniem AI',
   strony: 'Strony internetowe',
   branding: 'Logo i identyfikacja wizualna',
+  'e-ksiazki': 'E-booki',
 };
 
 const uslugiDropdownItems = USLUGI_DISPLAY_ORDER.map((slug) => ({

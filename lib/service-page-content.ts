@@ -128,6 +128,44 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
       'SmartWeave to partner w pełnym procesie automatyzacji - nie sprzedajemy jedynie produktu, lecz projektujemy i wdrażamy rozwiązania dopasowane do specyfiki Twojej firmy. Rozpoczynamy od jednego, mierzalnego kroku, aby efekty - oszczędność czasu i redukcja błędów - były widoczne już na wczesnym etapie. Dla małych i średnich przedsiębiorstw to bezpieczna i kontrolowana ścieżka do skalowania procesów bez ryzyka chaosu.',
   },
 
+  'e-ksiazki': {
+    problemHeading: 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?',
+    problem:
+      'Chcesz budować eksperckość i zbierać kontakty, ale brakuje Ci atrakcyjnego narzędzia - materiału do pobrania, który przyciąga leady i pokazuje wiedzę Twojej firmy. Rozproszone artykuły czy prezentacje nie tworzą spójnej publikacji, a samodzielne przygotowanie profesjonalnego e-booka zabiera czas i wymaga umiejętności projektowych.',
+    solution:
+      'E-booki w SmartWeave to gotowe publikacje cyfrowe dopasowane do Twojej marki i grupy docelowej. Na podstawie Twojej wiedzy, artykułów lub materiałów tworzymy spójną treść, profesjonalny layout i wersję do pobrania - jako lead magnet, element ścieżki sprzedażowej lub narzędzie budujące autorytet. E-book jest spójny wizualnie z Twoją identyfikacją i gotowy do publikacji na stronie lub w kampaniach.',
+    benefits: [
+      'Więcej leadów - e-book jako materiał do pobrania przyciąga zapytania i buduje bazę kontaktów.',
+      'Wzrost eksperckości - jedna, dopracowana publikacja zamiast rozproszonych treści.',
+      'Spójność z marką - layout i grafika zgodne z Twoją identyfikacją wizualną.',
+      'Oszczędność czasu - my zajmujemy się projektem i opracowaniem, Ty przekazujesz wiedzę i zatwierdzasz.',
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Cel i zakres',
+        description: 'Określamy cel e-booka (leady, edukacja, sprzedaż), grupę docelową i to, czy wykorzystujemy istniejące materiały, czy tworzymy treść od podstaw.',
+      },
+      {
+        step: 2,
+        title: 'Treść i struktura',
+        description: 'Opracowujemy strukturę rozdziałów, nagłówki i kluczowe przekazy. Na podstawie Twoich materiałów lub briefu przygotowujemy lub redagujemy treść.',
+      },
+      {
+        step: 3,
+        title: 'Projekt i layout',
+        description: 'Projektujemy layout e-booka w spójności z Twoją marką: typografia, kolory, infografiki i wezwania do działania. Dostarczamy wersję do zatwierdzenia.',
+      },
+      {
+        step: 4,
+        title: 'Finalizacja i dostawa',
+        description: 'Wprowadzamy ewentualne poprawki, finalizujemy plik (PDF lub inny format) i przekazujemy gotowy e-book do wykorzystania na stronie, w mailingu lub w kampaniach.',
+      },
+    ],
+    whySmartWeave:
+      'SmartWeave łączy treść z projektem graficznym i identyfikacją wizualną. Nie sprzedajemy szablonu - tworzymy e-book dopasowany do Twojej oferty i marki. Możesz oprzeć go na istniejących materiałach lub powierzyć nam opracowanie treści. Efekt to profesjonalna publikacja, która buduje zaufanie i wspiera pozyskiwanie leadów.',
+  },
+
   'agenci-ai': {
     problem:
       'Rutynowe zapytania, powtarzalna analiza dokumentów i ręczna kwalifikacja leadów pochłaniają czas zespołu. Tam, gdzie można wspomóc ludzi „rozumieniem” treści i szybką odpowiedzią, wchodzą agenci AI - asystenci, którzy wykonują zdefiniowane zadania 24/7 i przekazują sprawy ludziom tam, gdzie potrzebna jest decyzja lub relacja.',
