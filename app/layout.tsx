@@ -57,12 +57,12 @@ export const metadata: Metadata = {
   // ✅ GOOGLE-FRIENDLY FAVICON SETUP
   icons: {
     icon: [
-      { url: '/favicon.png', type: 'image/png', sizes: 'any' },
-      { url: '/favicon.ico', type: 'image/x-icon' },
+      { url: '/favicon.png?v=2', type: 'image/png', sizes: 'any' },
+      { url: '/favicon.ico?v=2', type: 'image/x-icon' },
       { url: '/assets/smartweave-logo.png', type: 'image/png', sizes: '512x512' },
     ],
-    shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    shortcut: '/favicon.ico?v=2',
+    apple: '/apple-touch-icon.png?v=2',
   },
 
   openGraph: {
