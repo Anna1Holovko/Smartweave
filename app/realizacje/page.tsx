@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { SimpleCTASection } from '../components/SimpleCTASection';
 import { ScrollToTop } from '../components/ScrollToTop';
 import { PageIntro } from '../components/PageIntro';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
@@ -44,12 +43,18 @@ export default function RealizacjePage() {
             />
 
             <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-              {PORTFOLIO_ITEMS.map((item, index) => {
-                const isInternal = item.link.startsWith('/');
-                const wrapperClassName =
-                  'group relative flex flex-col rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)]';
-                const content = (
-                  <>
+              {PORTFOLIO_ITEMS.map((item, index) => (
+                <article
+                  key={index}
+                  className="group relative flex flex-col rounded-2xl border border-slate-700/50 bg-slate-900/40 backdrop-blur-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(147,51,234,0.2)]"
+                >
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col h-full"
+                    title={`Zobacz realizację: ${item.title}`}
+                  >
                     <div className="relative flex-1 min-h-[200px] p-3 sm:p-4">
                       <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-slate-800 border border-white/10 shadow-inner">
                         <Image
@@ -75,28 +80,9 @@ export default function RealizacjePage() {
                       </div>
                     </div>
                     <div className={`absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r ${item.gradient} group-hover:w-full transition-all duration-500`} />
-                  </>
-                );
-                return (
-                  <article key={index} className={wrapperClassName}>
-                    {isInternal ? (
-                      <Link href={item.link} className="flex flex-col h-full" title={`Zobacz: ${item.title}`}>
-                        {content}
-                      </Link>
-                    ) : (
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex flex-col h-full"
-                        title={`Zobacz realizację: ${item.title}`}
-                      >
-                        {content}
-                      </a>
-                    )}
-                  </article>
-                );
-              })}
+                  </a>
+                </article>
+              ))}
             </div>
 
             <div className="mt-10 sm:mt-12 lg:mt-16 text-center">
@@ -110,7 +96,6 @@ export default function RealizacjePage() {
           </div>
         </section>
         <div className="gradient-philosophy-to-footer">
-          <SimpleCTASection />
           <Footer />
         </div>
       </main>
