@@ -83,6 +83,16 @@ export const BLOG_POSTS = [
     metaDescription: 'Automatyzacja i sztuczna inteligencja zmieniają rynek pracy. Firma technologiczna zwalnia 4000 pracowników po wdrożeniu AI.',
     keywords: ['AI', 'sztuczna inteligencja', 'automatyzacja biznesu', 'agenci AI', 'przyszłość pracy', 'transformacja cyfrowa'],
   },
+  {
+    slug: 'marketing-internetowy-seo-era-wyszukiwarek-ai',
+    title: 'Marketing internetowy i SEO w erze wyszukiwarek AI – jak zmienia się widoczność w internecie',
+    excerpt: 'Sztuczna inteligencja zmienia sposób wyszukiwania informacji w internecie. Firmy muszą dostosować strategie marketingu i SEO do wyszukiwarek AI – w artykule wyjaśniamy, co to oznacza w praktyce.',
+    image: `${BLOG_COVER_DIR}/marketing-internetowy-seo-era-wyszukiwarek-ai-cover.png`,
+    date: '2025-03-10',
+    metaTitle: 'SEO w erze AI – jak zmienia się marketing internetowy',
+    metaDescription: 'Sztuczna inteligencja zmienia sposób wyszukiwania informacji w internecie. Sprawdź jak firmy powinny dostosować SEO i marketing internetowy do wyszukiwarek AI.',
+    keywords: ['SEO', 'marketing internetowy', 'AI w marketingu', 'wyszukiwarki AI', 'automatyzacja marketingu', 'SmartWeave'],
+  },
 ] as const;
 
 export type BlogPost = (typeof BLOG_POSTS)[number];
