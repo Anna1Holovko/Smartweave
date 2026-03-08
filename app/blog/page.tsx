@@ -65,7 +65,7 @@ export default function BlogPage() {
                       <p className="text-slate-400 text-xs sm:text-sm lg:text-base leading-relaxed line-clamp-3 flex-1">
                         {post.excerpt}
                       </p>
-                      <span className="text-slate-500 text-xs mt-2 sm:mt-3">{post.date}</span>
+                      <span className="text-slate-500 text-xs mt-2 sm:mt-3">Dodano: {post.date}</span>
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 h-1 w-0 bg-gradient-to-r from-purple-500 to-pink-500 group-hover:w-full transition-all duration-500" />
                   </Link>

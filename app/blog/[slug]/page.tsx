@@ -186,7 +186,7 @@ export default async function BlogPostPage({ params }: Props) {
                   />
                 </div>
                 <header>
-                  <time dateTime={post.date} className="text-slate-500 text-sm mb-2 block">{post.date}</time>
+                  <time dateTime={post.date} className="text-slate-500 text-sm mb-2 block">Dodano: {post.date}</time>
                   <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-4">
                     {post.title}
                   </h1>
