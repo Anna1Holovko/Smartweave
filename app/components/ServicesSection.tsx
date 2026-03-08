@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react';
 import Link from 'next/link';
-import { Globe, Workflow, Check, Palette, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Globe, Workflow, Palette, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { SERVICES, USLUGI_DISPLAY_ORDER } from '@/lib/services';
 
 /** Home: first 3 from dropdown order - Automatyzacja i agenci AI, Strony, Branding */
@@ -12,12 +12,6 @@ const SERVICE_ICONS: Record<string, typeof Globe> = {
   branding: Palette,
   automatyzacja: Workflow,
 };
-
-const _servicesRemoved = [
-  { number: '01', icon: Globe, title: 'Projektowanie i wdrażanie stron internetowych', description: 'Strony www dla firm - nowoczesne, szybkie i skuteczne.  Tworzymy strony, które pomagają klientom łatwo Cię znaleźć i budują zaufanie do Twojej marki od pierwszego kontaktu.', features: ['Tworzenie responsywnych stron dopasowanych do wszystkich urządzeń', 'Strona zoptymalizowana pod SEO i GEO (wyszukiwarki oraz systemy AI)', 'Projekt spójnej identyfikacji wizualnej marki', 'Hosting oraz bieżące wsparcie techniczne', 'Prowadzenie kampanii Google Ads', 'Integracja z narzędziami Google (Search Console, GA4, Google Maps)', 'Strona zaprojektowana pod skuteczną konwersję'], gradient: 'from-blue-500 to-cyan-500' },
-  { number: '02', icon: Palette, title: 'Identyfikacja wizualna i branding', description: 'Spójny wizerunek marki - na stronie, w reklamach i w komunikacji.  Tworzymy identyfikację wizualną, która zwiększa rozpoznawalność marki i buduje zaufanie klientów.', features: ['Projekt logo i znaku graficznego', 'Dobór kolorystyki i typografii marki', 'Materiały graficzne i szablony do komunikacji', 'Księga identyfikacji wizualnej'], gradient: 'from-emerald-500 to-teal-500' },
-  { number: '03', icon: Workflow, title: 'Automatyzacja procesów i agenci AI', description: 'Procesy działają za Ciebie. Oszczędzasz czas i skupiasz się na tym, co ważne.', features: ['Automatyczne przetwarzanie danych i raportów', 'Powiadomienia i alerty', 'Integracje z narzędziami biznesowymi', 'Agenci AI do zadań powtarzalnych'], gradient: 'from-purple-500 to-pink-500' },
-];
 
 export function ServicesSection() {
   return (
@@ -35,7 +29,7 @@ export function ServicesSection() {
             Jak możemy <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Ci pomóc?</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2">
-            Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Ty skupiasz się na klientach i rozwoju biznesu.
+            Strony internetowe, branding i automatyzacja z AI. Ty skupiasz się na klientach i rozwoju firmy – my dostarczamy narzędzia i wdrożenia.
           </motion.p>
         </div>
 
@@ -69,17 +63,7 @@ export function ServicesSection() {
                       <ArrowUpRight className="w-4 h-4" />
                     </div>
                   </div>
-                  <p className="text-slate-400 leading-relaxed flex-shrink-0">{s.description}</p>
-                  {s.features && (
-                    <div className="space-y-3 mt-6 flex-1 min-h-0 overflow-y-auto">
-                      {s.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-start gap-3 text-sm text-slate-400">
-                          <Check className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" />
-                          <span>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                  <p className="text-slate-400 leading-relaxed flex-shrink-0">{s.cardDescription ?? s.description}</p>
                   <div className={`absolute bottom-0 left-0 right-0 h-1 w-0 bg-gradient-to-r ${s.gradient} group-hover:w-full transition-all duration-500 rounded-b-2xl`} />
                 </Link>
               </motion.div>

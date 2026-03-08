@@ -6,8 +6,9 @@ export const SERVICES = [
     number: '01',
     slug: 'strony',
     title: 'Projektowanie stron www dla firm',
+    cardDescription: 'Nowoczesne strony pod leady B2B i budowanie zaufania.',
     description:
-      'Projektowanie stron www dla firm - nowoczesne, szybkie strony pod leada B2B. Tworzymy strony, które pomagają klientom Cię znaleźć, budują zaufanie i wspierają sprzedaż oraz rozwój marki',
+      'Projektowanie stron www dla firm - nowoczesne, szybkie strony pod leada B2B. Tworzymy strony, które pomagają klientom Cię znaleźć, budują zaufanie i wspierają sprzedaż oraz rozwój marki.',
     features: [
       'Projektowanie stron www - od stron generujących kontakty i leady B2B, po strony informacyjne i wizerunkowe, które budują zaufanie, prezentują ofertę i wspierają rozwój marki.',
       'Projektowanie UX/UI nastawione na konwersję - intuicyjna nawigacja, czytelna struktura i atrakcyjny interfejs zwiększają zaangażowanie użytkowników.',
@@ -22,8 +23,9 @@ export const SERVICES = [
     number: '02',
     slug: 'branding',
     title: 'Identyfikacja wizualna i branding',
+    cardDescription: 'Spójna identyfikacja wizualna i profesjonalny wizerunek marki.',
     description:
-      'Budujemy spójny i profesjonalny wizerunek marki - na stronie, w reklamach i w komunikacji. Tworzymy identyfikację wizualną, która zwiększa rozpoznawalność, wzmacnia pozycję rynkową i buduje zaufanie klientów',
+      'Budujemy spójny i profesjonalny wizerunek marki - na stronie, w reklamach i w komunikacji. Tworzymy identyfikację wizualną, która zwiększa rozpoznawalność, wzmacnia pozycję rynkową i buduje zaufanie klientów.',
     features: [
       'Projekt logo i systemu identyfikacji wizualnej - stworzenie unikalnego znaku i spójnego systemu graficznego dla marki.',
       'Opracowanie kolorystyki i typografii marki - dopasowanie palety barw i kroju pisma do charakteru firmy i jej komunikacji.',
@@ -39,8 +41,9 @@ export const SERVICES = [
     number: '03',
     slug: 'automatyzacja',
     title: 'Automatyzacja procesów biznesowych z wykorzystaniem AI',
+    cardDescription: 'Automatyzacja procesów i agenci AI – mniej pracy ręcznej, więcej czasu na biznes.',
     description:
-      'Automatyzacja procesów AI - wdrażamy inteligentne systemy, które automatyzują powtarzalne procesy i usprawniają pracę zespołu. Redukujemy koszty i pozwalamy skupić się na rozwoju firmy',
+      'Automatyzacja procesów AI - wdrażamy inteligentne systemy, które automatyzują powtarzalne procesy i usprawniają pracę zespołu. Redukujemy koszty i pozwalamy skupić się na rozwoju firmy.',
     features: [
       'Procesy operacyjne i administracyjne - powtarzalne zadania, przepisywanie danych, zatwierdzanie dokumentów.',
       'Integracje systemów CRM, ERP i innych narzędzi firmowych - automatyczne przenoszenie i synchronizacja danych między systemami.',
