@@ -6,7 +6,6 @@ import { ToolsSection } from './components/ToolsSection';
 import { AutomationDetails } from './components/AutomationDetails';
 import { PortfolioSection } from './components/PortfolioSection';
 import { BlogSection } from './components/BlogSection';
-import { PhilosophySection } from './components/PhilosophySection';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
@@ -23,7 +22,6 @@ export default function HomePage() {
         <AutomationDetails />
         <PortfolioSection />
         <BlogSection />
-        <PhilosophySection />
         <div className="gradient-philosophy-to-footer">
           <CTASection />
           <Footer />
