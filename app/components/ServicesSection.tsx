@@ -3,9 +3,7 @@
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import { Globe, Workflow, Palette, ArrowRight, ArrowUpRight } from 'lucide-react';
-import { SERVICES, USLUGI_DISPLAY_ORDER } from '@/lib/services';
-
-type ServiceItem = (typeof SERVICES)[number];
+import { SERVICES, USLUGI_DISPLAY_ORDER, type ServiceItem } from '@/lib/services';
 
 /** Home: first 3 from dropdown order - Automatyzacja i agenci AI, Strony, Branding */
 const HOME_SERVICES_ORDER = USLUGI_DISPLAY_ORDER.slice(0, 3);
@@ -65,7 +63,7 @@ export function ServicesSection() {
                       <ArrowUpRight className="w-4 h-4" />
                     </div>
                   </div>
-                  <p className="text-slate-400 leading-relaxed flex-shrink-0">{s.cardDescription ?? s.description}</p>
+                  <p className="text-slate-400 leading-relaxed flex-shrink-0">{(s as ServiceItem).cardDescription ?? (s as ServiceItem).description}</p>
                   <div className={`absolute bottom-0 left-0 right-0 h-1 w-0 bg-gradient-to-r ${s.gradient} group-hover:w-full transition-all duration-500 rounded-b-2xl`} />
                 </Link>
               </motion.div>

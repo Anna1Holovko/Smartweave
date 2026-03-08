@@ -58,6 +58,8 @@ export const SERVICES = [
   },
 ] as const;
 
+export type ServiceItem = (typeof SERVICES)[number];
+
 export const SERVICE_SLUGS = ['strony', 'branding', 'automatyzacja'] as const;
 export type ServiceSlug = (typeof SERVICE_SLUGS)[number];
 
