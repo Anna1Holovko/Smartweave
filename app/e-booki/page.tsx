@@ -7,7 +7,7 @@ import { PageIntro } from '../components/PageIntro';
 import { EBOOKS } from '@/lib/ebooks';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
-import { BookOpen, ShoppingCart } from 'lucide-react';
+import { BookOpen, ShoppingCart, Download } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'E-booki - SmartWeave',
@@ -76,13 +76,23 @@ export default function EbookiPage() {
                       {book.description}
                     </p>
                     <a
-                      href={book.buyUrl}
-                      target={book.buyUrl.startsWith('http') ? '_blank' : undefined}
-                      rel={book.buyUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      href={book.downloadUrl ?? book.buyUrl}
+                      download={book.downloadUrl ? true : undefined}
+                      target={book.downloadUrl ? '_blank' : book.buyUrl.startsWith('http') ? '_blank' : undefined}
+                      rel={book.downloadUrl ? 'noopener noreferrer' : book.buyUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
                       className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 text-white cta-gradient-animated hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]"
                     >
-                      <ShoppingCart className="w-4 h-4" aria-hidden />
-                      Kup e-book
+                      {book.downloadUrl ? (
+                        <>
+                          <Download className="w-4 h-4" aria-hidden />
+                          Pobierz e-book
+                        </>
+                      ) : (
+                        <>
+                          <ShoppingCart className="w-4 h-4" aria-hidden />
+                          Kup e-book
+                        </>
+                      )}
                     </a>
                   </div>
                   <div className={`absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r ${book.gradient} group-hover:w-full transition-all duration-500`} />
