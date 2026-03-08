@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { Globe, Workflow, Palette, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { SERVICES, USLUGI_DISPLAY_ORDER } from '@/lib/services';
 
+type ServiceItem = (typeof SERVICES)[number];
+
 /** Home: first 3 from dropdown order - Automatyzacja i agenci AI, Strony, Branding */
 const HOME_SERVICES_ORDER = USLUGI_DISPLAY_ORDER.slice(0, 3);
 const SERVICE_ICONS: Record<string, typeof Globe> = {
@@ -34,8 +36,8 @@ export function ServicesSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 items-stretch">
-          {HOME_SERVICES_ORDER.map((slug) => SERVICES.find((s) => s.slug === slug)).filter(Boolean).map((service, index) => {
-            const s = service!;
+          {HOME_SERVICES_ORDER.map((slug) => SERVICES.find((s) => s.slug === slug)).filter((x): x is ServiceItem => Boolean(x)).map((service, index) => {
+            const s = service;
             const Icon = SERVICE_ICONS[s.slug] ?? Globe;
             const displayTitle = s.slug === 'strony' ? 'Strony internetowe' : s.title;
             return (
