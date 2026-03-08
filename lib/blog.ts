@@ -73,6 +73,16 @@ export const BLOG_POSTS = [
     image: `${BLOG_COVER_DIR}/design-na-ai-wyszukiwarki-cover.png`,
     date: '2025-02-01',
   },
+  {
+    slug: 'firma-zwolnila-4000-pracownikow-przez-ai',
+    title: 'Firma zwolniła 4000 pracowników przez AI – nowa rzeczywistość rynku pracy',
+    excerpt: 'Sztuczna inteligencja i automatyzacja zmieniają globalny rynek pracy. Wielkie firmy technologiczne redukują etaty po wdrożeniu AI – co to oznacza dla biznesu i pracowników?',
+    image: `${BLOG_COVER_DIR}/firma-zwolnila-4000-pracownikow-przez-ai-cover.png`,
+    date: '2025-03-03',
+    metaTitle: 'AI zwalnia pracowników? 4000 osób traci pracę przez sztuczną inteligencję',
+    metaDescription: 'Automatyzacja i sztuczna inteligencja zmieniają rynek pracy. Firma technologiczna zwalnia 4000 pracowników po wdrożeniu AI.',
+    keywords: ['AI', 'sztuczna inteligencja', 'automatyzacja biznesu', 'agenci AI', 'przyszłość pracy', 'transformacja cyfrowa'],
+  },
 ] as const;
 
 export type BlogPost = (typeof BLOG_POSTS)[number];

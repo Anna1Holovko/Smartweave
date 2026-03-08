@@ -9,7 +9,8 @@ export type ContentBlock =
   | { t: 'p'; c: string }
   | { t: 'ul'; c: string[] }
   | { t: 'faq'; c: { q: string; a: string }[] }
-  | { t: 'cta'; c: { text: string; href: string; label: string } };
+  | { t: 'cta'; c: { text: string; href: string; label: string } }
+  | { t: 'sources'; c: { label: string; url: string }[] };
 
 export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
   'czy-firma-potrzebuje-automatyzacji': [
@@ -585,6 +586,117 @@ export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
       c: [
         { q: 'Czym różni się strona „pod leady” od zwykłej wizytówki?', a: 'Strona pod leady ma przemyślaną ścieżkę: jasna oferta, zaufanie (case’y, opinie), wyraźne CTA i formularze. Celem jest nie tylko informacja, ale zachęcenie do kontaktu i zbieranie zapytań.' },
         { q: 'Czy muszę mieć osobny budżet na SEO pod AI?', a: 'Nie. Jedna, dobrze zbudowana strona z czytelną strukturą i konkretną treścią służy i użytkownikom, i wyszukiwarkom AI. W SmartWeave projektujemy od razu z myślą o obu.' },
+      ],
+    },
+  ],
+
+  'firma-zwolnila-4000-pracownikow-przez-ai': [
+    {
+      t: 'p',
+      c: 'Sztuczna inteligencja i automatyzacja przekształcają globalny rynek pracy. Jedna z wielkich firm technologicznych ogłosiła zwolnienie około 4000 pracowników w związku z wdrożeniem systemów AI i automatyzacji. W artykule wyjaśniamy kontekst, przyczyny i konsekwencje – oraz co to oznacza dla firm i pracowników.',
+    },
+    { t: 'h2', c: 'Czym jest sytuacja, o której mówi cały świat technologii?' },
+    {
+      t: 'p',
+      c: 'Duża firma technologiczna ogłosiła redukcję zatrudnienia o około 4000 osób. Bezpośrednią przyczyną jest wdrożenie sztucznej inteligencji i systemów automatyzacji, które przejęły część zadań dotychczas wykonywanych przez ludzi. To nie odosobniony przypadek – podobne decyzje podejmują inne koncerny, co potwierdza, że AI i automatyzacja stały się realnym czynnikiem kształtującym rynek pracy.',
+    },
+    { t: 'h2', c: 'Dlaczego firmy zastępują pracowników AI?' },
+    {
+      t: 'p',
+      c: 'Przedsiębiorstwa sięgają po AI i automatyzację z kilku głównych powodów. Poniżej najważniejsze z nich.',
+    },
+    { t: 'h3', c: 'Automatyzacja obsługi klienta' },
+    {
+      t: 'p',
+      c: 'Chatboty i asystenci AI obsługują zapytania, kwalifikują leady i odpowiadają na powtarzalne pytania. Dzięki temu firmy ograniczają obciążenie zespołów i skracają czas reakcji.',
+    },
+    { t: 'h3', c: 'Zautomatyzowana analiza danych' },
+    {
+      t: 'p',
+      c: 'AI analizuje duże zbiory danych, generuje raporty i wspiera decyzje biznesowe. Zadania, które wcześniej wymagały wielu godzin pracy analityków, są realizowane w ułamku czasu.',
+    },
+    { t: 'h3', c: 'Agenci AI w powtarzalnych procesach' },
+    {
+      t: 'p',
+      c: 'Agenci AI wykonują powtarzalne procesy biznesowe: od przenoszenia danych między systemami po klasyfikację dokumentów i obsługę standardowych workflowów. To pozwala firmom utrzymać lub zwiększyć wolumen przy mniejszym zaangażowaniu ludzkim.',
+    },
+    { t: 'h3', c: 'Optymalizacja kosztów' },
+    {
+      t: 'p',
+      c: 'W dłuższej perspektywie automatyzacja i AI obniżają koszty operacyjne. Firmy redukują etaty tam, gdzie procesy można zdefiniować i powierzyć systemom – stąd decyzje o zwolnieniach w połączeniu z inwestycjami w technologię.',
+    },
+    { t: 'h2', c: 'Jakie stanowiska są najbardziej zagrożone?' },
+    {
+      t: 'p',
+      c: 'Największe zmiany dotyczą ról opartych na powtarzalnych zadaniach i obsłudze standardowych procesów. Do najbardziej narażonych należą:',
+    },
+    {
+      t: 'ul',
+      c: [
+        'Obsługa klienta – pierwszy kontakt, odpowiedzi na FAQ, proste zgłoszenia.',
+        'Analitycy danych wykonujący rutynowe zadania – raporty, zestawienia, podstawowe analizy.',
+        'Operacje administracyjne – wprowadzanie danych, obieg dokumentów, powtarzalna korespondencja.',
+        'Powtarzalne procesy biznesowe – zadania z jasno zdefiniowanymi krokami, które można zautomatyzować.',
+      ],
+    },
+    { t: 'h2', c: 'Czy AI zabiera pracę czy tworzy nowe zawody?' },
+    {
+      t: 'p',
+      c: 'AI nie tylko redukuje część stanowisk – równolegle tworzy zapotrzebowanie na nowe role. Rynek pracy się przekształca: znikają jedne zawody, pojawiają się inne.',
+    },
+    { t: 'h3', c: 'Nowe role związane z AI' },
+    {
+      t: 'ul',
+      c: [
+        'Inżynierowie AI i ML – projektowanie, wdrażanie i utrzymanie modeli.',
+        'Specjaliści od automatyzacji – budowanie i optymalizacja workflowów (np. Make, n8n, agenci).',
+        'Projektanci produktów AI – definiowanie funkcji i doświadczenia użytkownika w produktach opartych na AI.',
+        'Eksperci od integracji AI – łączenie AI z istniejącymi systemami i procesami w firmach.',
+      ],
+    },
+    {
+      t: 'p',
+      c: 'Firmy, które wcześniej inwestują w automatyzację i AI, zyskują przewagę konkurencyjną – i jednocześnie potrzebują ludzi do projektowania, wdrażania i nadzoru nad tymi systemami.',
+    },
+    { t: 'h2', c: 'Co to oznacza dla firm?' },
+    {
+      t: 'p',
+      c: 'Transformacja rynku pracy to także szansa dla firm, które chcą rozwijać się dzięki technologii. SmartWeave pomaga w trzech obszarach spójnych z tym trendem: automatyzacja procesów biznesowych, agenci AI oraz inteligentne strony internetowe.',
+    },
+    { t: 'h3', c: 'Automatyzacja procesów biznesowych' },
+    {
+      t: 'p',
+      c: 'Wdrażamy procesy i workflowy, które odciążają zespół z powtarzalnych zadań – od obsługi leadów po raporty i obieg dokumentów. Efekt: mniej błędów, szybsza realizacja i oszczędność czasu.',
+    },
+    { t: 'h3', c: 'Agenci AI' },
+    {
+      t: 'p',
+      c: 'Agenci AI wspierają w kwalifikacji leadów, odpowiedziach na zapytania, analizie dokumentów i w codziennych procesach. Nie chodzi o zastępowanie ludzi, lecz o wsparcie tam, gdzie AI realnie odciąża i przyspiesza pracę.',
+    },
+    { t: 'h3', c: 'Inteligentne strony internetowe' },
+    {
+      t: 'p',
+      c: 'Strony zaprojektowane z myślą o konwersji, leadach i widoczności – w tym w wyszukiwarkach AI. Połączenie dobrej strony z automatyzacją i AI daje firmom narzędzia do rozwoju w zmieniającym się rynku.',
+    },
+    {
+      t: 'p',
+      c: 'Firmy, które wdrażają automatyzację i AI wcześniej, zyskują przewagę: niższe koszty, szybsze procesy i możliwość skupienia ludzi na zadaniach o wyższej wartości. To nie tylko reakcja na trendy – to strategiczna inwestycja w przyszłość firmy.',
+    },
+    {
+      t: 'cta',
+      c: {
+        text: 'Chcesz wdrożyć automatyzację procesów, agenci AI lub zbudować stronę gotową na przyszłość? Skontaktuj się z nami – przeanalizujemy Twoje potrzeby i zaproponujemy konkretne kroki.',
+        href: '/#contact',
+        label: 'Porozmawiajmy o automatyzacji i AI',
+      },
+    },
+    {
+      t: 'sources',
+      c: [
+        { label: 'Cyfrowa RP – Firma twórcy Twittera tnie tysiące miejsc pracy. Powód: sztuczna inteligencja', url: 'https://cyfrowa.rp.pl/ai/art43882531-firma-tworcy-twittera-tnie-tysiace-miejsc-pracy-powod-sztuczna-inteligencja' },
+        { label: 'Cryps.pl – Square, AI', url: 'https://cryps.pl/square-ai/' },
+        { label: 'ITwiz – AI zmienia biznes. Block zwalnia 40% pracowników', url: 'https://itwiz.pl/ai-zmienia-biznes-block-zwalnia-40-pracownikow/' },
+        { label: 'Portal Technologiczny – To początek końca wielu zawodów. 4 tys. osób traci pracę przez AI', url: 'https://portaltechnologiczny.pl/to-poczatek-konca-wielu-zawodow-4-tys-osob-traci-prace-przez-ai/' },
       ],
     },
   ],

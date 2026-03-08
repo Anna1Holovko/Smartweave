@@ -26,20 +26,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return { title: 'Nie znaleziono' };
   const coverUrl = getBlogCoverUrl(post);
   const canonicalUrl = `${SITE_URL}/blog/${post.slug}`;
+  const title = 'metaTitle' in post && post.metaTitle ? post.metaTitle : post.title;
+  const description = 'metaDescription' in post && post.metaDescription ? post.metaDescription : post.excerpt;
+  const keywords = 'keywords' in post && Array.isArray(post.keywords) ? post.keywords : undefined;
   return {
-    title: post.title,
-    description: post.excerpt,
+    title,
+    description,
+    keywords: keywords?.join(', '),
     alternates: { canonical: canonicalUrl },
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
+      title,
+      description,
       url: canonicalUrl,
       images: [{ url: coverUrl, alt: post.title }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
-      description: post.excerpt,
+      title,
+      description,
       images: [coverUrl],
     },
   };
@@ -92,6 +96,23 @@ function ArticleBody({ slug }: { slug: string }) {
                 )}
               </div>
             </div>
+          );
+        }
+        if (block.t === 'sources') {
+          const sources = (block as { t: 'sources'; c: { label: string; url: string }[] }).c;
+          return (
+            <section key={i} className="mt-10 mb-8" aria-labelledby="sources-heading">
+              <h2 id="sources-heading" className="text-xl sm:text-2xl font-bold text-white mb-4">Źródła</h2>
+              <ul className="list-none space-y-2 text-slate-400">
+                {sources.map((src, j) => (
+                  <li key={j}>
+                    <a href={src.url} target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline underline-offset-2 break-all">
+                      {src.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
           );
         }
         return null;
