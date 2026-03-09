@@ -59,7 +59,7 @@ export default async function UslugiSlugPage({
   return (
     <>
       <Header />
-      <main id="main-content" role="main">
+      <main id="main-content" role="main" className="subpage-main">
         {/* Service intro - home-style: centered, gradient title, badge */}
         <section className={SECTION_CLASS}>
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-blue-950/30 to-slate-950" />

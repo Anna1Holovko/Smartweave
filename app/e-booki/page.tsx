@@ -33,8 +33,8 @@ export default function EbookiPage() {
 
           <div className={CONTAINER_CLASS}>
             <PageIntro
-              backHref="/realizacje"
-              backLabel="Realizacje"
+              backHref="/"
+              backLabel="Strona główna"
               badge="E-booki"
               badgeVariant="blue"
               title="E-booki dla firm"
