@@ -19,15 +19,6 @@ export type Ebook = {
 
 export const EBOOKS: Ebook[] = [
   {
-    id: 'jak-przygotowac-firme-na-ai-w-20',
-    title: 'Jak przygotować firmę na AI w 20 krokach',
-    description: 'Praktyczny przewodnik po wdrażaniu AI w firmie. Od strategii po pierwsze wdrożenia – konkretne kroki',
-    price: 'Bezpłatny',
-    gradient: 'from-violet-500 to-purple-600',
-    buyUrl: '/#contact',
-    protected: true,
-  },
-  {
     id: 'firma-w-erze-ai',
     title: 'Firma w Erze AI',
     description: 'SmartWeave – jak budować firmę w erze sztucznej inteligencji. Praktyczne podejście do wdrożeń i strategii',

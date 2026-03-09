@@ -6,7 +6,6 @@ const PASSWORD = process.env.EBOOK_DOWNLOAD_PASSWORD;
 
 /** Map e-book id to filename in private/ebooks/ */
 const EBOOK_FILES: Record<string, string> = {
-  'jak-przygotowac-firme-na-ai-w-20': 'Jak-przygotowac-firme-na-AI-w-20.epub',
   'firma-w-erze-ai': 'SmartWeave_Firma_w_Erze_AI.pdf',
 };
 
