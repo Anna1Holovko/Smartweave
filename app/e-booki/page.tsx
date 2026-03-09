@@ -69,10 +69,12 @@ export default function EbookiPage() {
                     </div>
                   </div>
                   <div className="relative bg-slate-900 border-t border-slate-700/50 px-4 sm:px-5 py-4 sm:py-5 flex flex-col flex-1">
-                    <span className="text-slate-400 text-sm font-normal mb-1">{book.price}</span>
-                    <h2 className="text-xl sm:text-2xl font-bold text-white group-hover:text-purple-300 transition-colors mb-2">
-                      {book.title}
-                    </h2>
+                    <div className="flex items-baseline justify-between gap-3 mb-2">
+                      <h2 className="text-xl sm:text-2xl font-bold text-white group-hover:text-purple-300 transition-colors min-w-0">
+                        {book.title}
+                      </h2>
+                      <span className="text-slate-400 text-sm font-normal flex-shrink-0">{book.price}</span>
+                    </div>
                     <p className="text-slate-400 text-sm sm:text-base leading-relaxed flex-1 mb-4">
                       {book.description}
                     </p>
