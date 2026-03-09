@@ -73,7 +73,7 @@ export default function EbookiPage() {
                       <h2 className="text-xl sm:text-2xl font-bold text-white group-hover:text-purple-300 transition-colors min-w-0">
                         {book.title}
                       </h2>
-                      <span className="text-slate-400 text-sm font-normal flex-shrink-0">{book.price}</span>
+                      <span className="text-xl sm:text-2xl font-bold text-white flex-shrink-0">{book.price}</span>
                     </div>
                     <p className="text-slate-400 text-sm sm:text-base leading-relaxed flex-1 mb-4">
                       {book.description}
