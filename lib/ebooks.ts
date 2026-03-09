@@ -28,6 +28,15 @@ export const EBOOKS: Ebook[] = [
     protected: true,
   },
   {
+    id: 'firma-w-erze-ai',
+    title: 'Firma w Erze AI',
+    description: 'SmartWeave – jak budować firmę w erze sztucznej inteligencji. Praktyczne podejście do wdrożeń i strategii',
+    price: 'Bezpłatny',
+    gradient: 'from-indigo-500 to-violet-600',
+    buyUrl: '/#contact',
+    protected: true,
+  },
+  {
     id: 'placeholder',
     title: 'E-book w przygotowaniu',
     description: 'Wkrótce w sprzedaży - e-booki dla firm: lead magnet, edukacja, budowanie autorytetu',

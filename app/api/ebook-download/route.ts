@@ -7,7 +7,10 @@ const PASSWORD = process.env.EBOOK_DOWNLOAD_PASSWORD;
 /** Map e-book id to filename in private/ebooks/ */
 const EBOOK_FILES: Record<string, string> = {
   'jak-przygotowac-firme-na-ai-w-20': 'Jak-przygotowac-firme-na-AI-w-20.epub',
+  'firma-w-erze-ai': 'SmartWeave_Firma_w_Erze_AI.pdf',
 };
+
+const PDF_IDS = new Set(['firma-w-erze-ai']);
 
 export async function POST(request: Request) {
   if (!PASSWORD) {
@@ -59,10 +62,12 @@ export async function POST(request: Request) {
   }
 
   const buffer = fs.readFileSync(filePath);
+  const isPdf = PDF_IDS.has(id);
+  const contentType = isPdf ? 'application/pdf' : 'application/epub+zip';
   return new NextResponse(buffer, {
     status: 200,
     headers: {
-      'Content-Type': 'application/epub+zip',
+      'Content-Type': contentType,
       'Content-Disposition': `attachment; filename="${filename}"`,
       'Content-Length': String(buffer.length),
     },

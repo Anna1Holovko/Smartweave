@@ -34,7 +34,7 @@ export function EbookDownloadButton({ book }: Props) {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = res.headers.get('Content-Disposition')?.match(/filename="(.+)"/)?.[1] || `${book.id}.epub`;
+      a.download = res.headers.get('Content-Disposition')?.match(/filename="(.+)"/)?.[1] || (book.id === 'firma-w-erze-ai' ? 'SmartWeave_Firma_w_Erze_AI.pdf' : `${book.id}.epub`);
       a.click();
       URL.revokeObjectURL(url);
       setOpen(false);
