@@ -116,9 +116,29 @@
     overflow: visible;
   }
 
-  /* Section spacing - large breathing room. On mobile ensure content (e.g. breadcrumbs) starts below the nav bar. */
+  /* Subpages with breadcrumb: on mobile push entire main below the fixed nav bar */
+  #main-content.subpage-main {
+    padding-top: calc(var(--top-banner-height, 0px) + 64px);
+  }
+  @media (min-width: 768px) {
+    #main-content.subpage-main {
+      padding-top: 0;
+    }
+  }
+
+  /* First section on subpages: smaller top padding on mobile (main already has offset) */
+  #main-content.subpage-main > section.section-space:first-of-type {
+    padding-top: 24px;
+  }
+  @media (min-width: 768px) {
+    #main-content.subpage-main > section.section-space:first-of-type {
+      padding-top: var(--section-padding-y);
+    }
+  }
+
+  /* Section spacing - large breathing room */
   .section-space {
-    padding-top: calc(var(--top-banner-height, 0px) + 64px + 16px);
+    padding-top: var(--section-padding-y);
     padding-bottom: var(--section-padding-y);
   }
   @media (min-width: 768px) {

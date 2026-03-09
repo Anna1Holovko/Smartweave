@@ -24,7 +24,7 @@ export default function BlogPage() {
   return (
     <>
       <Header />
-      <main id="main-content" role="main" className="min-h-screen">
+      <main id="main-content" role="main" className="min-h-screen subpage-main">
         <section className={SECTION_CLASS}>
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950" />
           <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] lg:w-[700px] lg:h-[700px] 2xl:w-[800px] 2xl:h-[800px] bg-purple-500/10 rounded-full blur-3xl" />

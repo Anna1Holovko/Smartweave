@@ -24,7 +24,7 @@ export default function UslugiPage() {
   return (
     <>
       <Header />
-      <main id="main-content" role="main">
+      <main id="main-content" role="main" className="subpage-main">
         <section className={SECTION_CLASS}>
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-blue-950/30 to-slate-950" />
           <div className="absolute top-0 left-1/4 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-blue-500/10 rounded-full blur-3xl" />
