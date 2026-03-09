@@ -6,7 +6,7 @@ export const SERVICES = [
     number: '01',
     slug: 'strony',
     title: 'Projektowanie stron www dla firm',
-    cardDescription: 'Nowoczesne strony pod leady B2B i budowanie zaufania.',
+    cardDescription: 'Nowoczesne strony pod leady B2B i budowanie zaufania',
     cardPoints: [
       'Projektowanie stron www - strony pod leady B2B, wizerunek i konwersja.',
       'SEO i GEO (AI Search) - widoczność w wyszukiwarkach i systemach AI.',
@@ -28,7 +28,7 @@ export const SERVICES = [
     number: '02',
     slug: 'branding',
     title: 'Identyfikacja wizualna i branding',
-    cardDescription: 'Spójna identyfikacja wizualna i profesjonalny wizerunek marki.',
+    cardDescription: 'Spójna identyfikacja wizualna i profesjonalny wizerunek marki',
     cardPoints: [
       'Logo i identyfikacja wizualna - unikalny znak i spójny system graficzny.',
       'Kolorystyka i typografia - dopasowanie do charakteru firmy i komunikacji.',
@@ -51,7 +51,7 @@ export const SERVICES = [
     number: '03',
     slug: 'automatyzacja',
     title: 'Automatyzacja procesów biznesowych z wykorzystaniem AI',
-    cardDescription: 'Automatyzacja procesów i agenci AI – mniej pracy ręcznej, więcej czasu na biznes.',
+    cardDescription: 'Automatyzacja procesów i agenci AI – mniej pracy ręcznej, więcej czasu na biznes',
     cardPoints: [
       'Procesy operacyjne i administracyjne - powtarzalne zadania, przepisywanie danych, zatwierdzanie dokumentów.',
       'Integracje systemów CRM, ERP i innych - automatyczne przenoszenie i synchronizacja danych.',

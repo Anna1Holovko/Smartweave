@@ -122,7 +122,7 @@ const jsonLd = {
         url: SITE_LOGO_URL,
       },
       description:
-        'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Design i automatyzacja dla biznesu.',
+        'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Design i wdrożenia dla biznesu',
     },
     {
       '@type': 'WebSite',
@@ -168,7 +168,7 @@ const jsonLd = {
       '@id': `${SITE_URL}/#service`,
       name: `${SITE_NAME} - Design i automatyzacja`,
       description:
-        'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Branding, SEO.',
+        'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Branding, SEO',
       url: SITE_URL,
       areaServed: {
         '@type': 'Country',
@@ -197,7 +197,7 @@ const jsonLd = {
       '@type': 'ItemList',
       name: 'Usługi SmartWeave',
       description:
-        'Automatyzacja procesów biznesowych, agenci AI, strony internetowe. Identyfikacja wizualna i branding.',
+        'Automatyzacja procesów biznesowych, agenci AI, strony internetowe. Identyfikacja i branding',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Strony internetowe' },
         { '@type': 'ListItem', position: 2, name: 'Identyfikacja wizualna i branding' },

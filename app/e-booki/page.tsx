@@ -13,10 +13,10 @@ import { EbookDownloadButton } from './EbookDownloadButton';
 export const metadata: Metadata = {
   title: 'E-booki - SmartWeave',
   description:
-    'Kup e-booki SmartWeave - publikacje dla firm: lead magnet, edukacja, budowanie autorytetu. Profesjonalne e-booki w spójności z Twoją marką.',
+    'Kup e-booki SmartWeave - publikacje dla firm: lead magnet, edukacja, budowanie autorytetu',
   openGraph: {
     title: 'E-booki | SmartWeave',
-    description: 'Profesjonalne e-booki dla firm - lead magnet, edukacja, budowanie autorytetu.',
+    description: 'Profesjonalne e-booki dla firm - lead magnet, edukacja, budowanie autorytetu',
     url: `${SITE_URL}/e-booki`,
   },
 };
@@ -38,7 +38,7 @@ export default function EbookiPage() {
               badge="E-booki"
               badgeVariant="blue"
               title="E-booki dla firm"
-              description="Profesjonalne publikacje cyfrowe - lead magnet, edukacja, budowanie autorytetu. Kup e-book i wykorzystaj go w swojej strategii."
+              description="Profesjonalne publikacje cyfrowe - lead magnet, edukacja, budowanie autorytetu"
               className={INTRO_MB_CLASS}
             />
 

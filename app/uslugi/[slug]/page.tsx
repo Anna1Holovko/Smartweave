@@ -35,12 +35,13 @@ export async function generateMetadata({
   const service = getServiceBySlug(slug);
   if (!service) return { title: 'Usługa | SmartWeave' };
   const shortTitle = SLUG_TITLES[slug] ?? service.title;
+  const metaDesc = service.description.replace(/\.$/, '').slice(0, 100);
   return {
     title: `${shortTitle} - usługi`,
-    description: service.description,
+    description: metaDesc,
     openGraph: {
       title: `${shortTitle} - usługi`,
-      description: service.description,
+      description: metaDesc,
       url: `${SITE_URL}/uslugi/${slug}`,
     },
   };
@@ -235,7 +236,7 @@ export default async function UslugiSlugPage({
         <UslugiConsultationBlock
           variant="centered"
           title="Zainteresowała Cię ta usługa?"
-          description="Umów bezpłatną konsultację - opowiemy o szczegółach i dopasujemy rozwiązanie do Twoich potrzeb"
+          description="Umów bezpłatną konsultację - opowiemy o szczegółach i dopasujemy rozwiązanie"
         />
 
         <div className="gradient-philosophy-to-footer">

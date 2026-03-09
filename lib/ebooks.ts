@@ -21,7 +21,7 @@ export const EBOOKS: Ebook[] = [
   {
     id: 'jak-przygotowac-firme-na-ai-w-20',
     title: 'Jak przygotować firmę na AI w 20 krokach',
-    description: 'Praktyczny przewodnik po wdrażaniu sztucznej inteligencji w firmie. Od strategii po pierwsze wdrożenia – konkretne kroki dla małych i średnich przedsiębiorstw.',
+    description: 'Praktyczny przewodnik po wdrażaniu AI w firmie. Od strategii po pierwsze wdrożenia – konkretne kroki',
     price: 'Bezpłatny',
     gradient: 'from-violet-500 to-purple-600',
     buyUrl: '/#contact',
@@ -30,7 +30,7 @@ export const EBOOKS: Ebook[] = [
   {
     id: 'placeholder',
     title: 'E-book w przygotowaniu',
-    description: 'Wkrótce w sprzedaży - profesjonalne e-booki dla firm: lead magnet, edukacja, budowanie autorytetu. Zapytaj o dostęp.',
+    description: 'Wkrótce w sprzedaży - e-booki dla firm: lead magnet, edukacja, budowanie autorytetu',
     price: '—',
     gradient: 'from-amber-500 to-orange-500',
     buyUrl: '/#contact',
