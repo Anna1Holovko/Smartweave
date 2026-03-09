@@ -4,11 +4,11 @@ import { motion } from 'motion/react';
 import { MessageSquare, PenTool, Cpu, Search, Rocket } from 'lucide-react';
 
 const workflowSteps = [
-  { number: '01', icon: MessageSquare, title: 'Poznajemy Twoje potrzeby', description: 'Rozmawiamy z Tobą, aby zrozumieć cele biznesowe, grupę docelową i oczekiwane efekty', gradient: 'from-blue-500 to-cyan-500' },
-  { number: '02', icon: PenTool, title: 'Projektowanie i planowanie', description: 'Projekt strony i plan automatyzacji dopasowany do Twojej działalności', gradient: 'from-cyan-500 to-teal-500' },
-  { number: '03', icon: Cpu, title: 'Wdrożenie i kodowanie', description: 'Strony responsywne i zoptymalizowane. Integrujemy CRM i automatyzacje', gradient: 'from-teal-500 to-emerald-500' },
-  { number: '04', icon: Search, title: 'Testowanie i dopracowywanie', description: 'Sprawdzamy działanie w rzeczywistych warunkach i dopracowujemy szczegóły', gradient: 'from-emerald-500 to-green-500' },
-  { number: '05', icon: Rocket, title: 'Oddanie gotowego systemu', description: 'Otrzymujesz gotowy produkt. Możesz skupić się na rozwoju biznesu', gradient: 'from-purple-500 to-pink-500' },
+  { number: '01', icon: MessageSquare, title: 'Poznajemy Twoje potrzeby', description: 'Rozmawiamy z Tobą, aby dokładnie zrozumieć cele biznesowe, grupę docelową i oczekiwane efekty – zarówno w kontekście strony internetowej, jak i automatyzacji procesów w firmie', gradient: 'from-blue-500 to-cyan-500' },
+  { number: '02', icon: PenTool, title: 'Projektowanie i planowanie', description: 'Tworzymy projekt strony zgodny z nowoczesnymi standardami internetu i wyszukiwarek AI oraz przygotowujemy plan automatyzacji procesów biznesowych dopasowany do Twojej działalności. Projekt obejmuje UX/UI nastawione na konwersję, strukturę treści, key visuale i spójny wizerunek marki', gradient: 'from-cyan-500 to-teal-500' },
+  { number: '03', icon: Cpu, title: 'Wdrożenie i kodowanie', description: 'Strony są responsywne, szybkie i zoptymalizowane pod SEO. Integrujemy systemy CRM, narzędzia analityczne i automatyzacje procesów, aby działały samodzielnie i wspierały codzienne działania firmy', gradient: 'from-teal-500 to-emerald-500' },
+  { number: '04', icon: Search, title: 'Testowanie i dopracowywanie', description: 'Sprawdzamy działanie strony i automatyzacji w rzeczywistych warunkach, wprowadzamy poprawki i dopracowujemy szczegóły, aby wszystko funkcjonowało bez zarzutu', gradient: 'from-emerald-500 to-green-500' },
+  { number: '05', icon: Rocket, title: 'Oddanie gotowego systemu', description: 'Otrzymujesz kompletny produkt: nowoczesną stronę internetową oraz automatyzacje, które działają bez nadzoru. Dzięki temu możesz w pełni skupić się na rozwoju biznesu, obsłudze klientów i zwiększaniu przychodów', gradient: 'from-purple-500 to-pink-500' },
 ];
 
 export function AutomationDetails() {
