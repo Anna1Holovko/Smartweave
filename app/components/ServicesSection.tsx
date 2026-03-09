@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react';
 import Link from 'next/link';
-import { Globe, Workflow, Palette, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Globe, Workflow, Palette, ArrowRight, Check } from 'lucide-react';
 import { SERVICES, USLUGI_DISPLAY_ORDER, type ServiceItem } from '@/lib/services';
 
 /** Home: first 3 from dropdown order - Automatyzacja i agenci AI, Strony, Branding */
@@ -37,7 +37,13 @@ export function ServicesSection() {
           {HOME_SERVICES_ORDER.map((slug) => SERVICES.find((s) => s.slug === slug)).filter((x): x is ServiceItem => Boolean(x)).map((service, index) => {
             const s = service;
             const Icon = SERVICE_ICONS[s.slug] ?? Globe;
-            const displayTitle = s.slug === 'strony' ? 'Strony internetowe' : s.title;
+            const displayTitle =
+              s.slug === 'strony'
+                ? 'Strony internetowe'
+                : s.slug === 'automatyzacja'
+                  ? 'Automatyzacja procesów biznesowych'
+                  : s.title;
+            const points = (s as ServiceItem).cardPoints ?? [];
             return (
               <motion.div
                 key={s.slug}
@@ -48,24 +54,35 @@ export function ServicesSection() {
                 transition={{ duration: 0.5, delay: index * 0.15 }}
                 className="relative group flex"
               >
-                <Link
-                  href={`/uslugi/${s.slug}`}
-                  className="relative flex flex-col w-full h-full min-h-0 p-8 bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl transition-all duration-300 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(147,51,234,0.2)] overflow-hidden"
-                >
-                  <div className="flex items-center gap-4 mb-6 flex-shrink-0 min-h-14">
+                <div className="relative flex flex-col w-full h-full min-h-0 p-8 bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl transition-all duration-300 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(147,51,234,0.2)] overflow-hidden">
+                  <div className="flex items-center gap-4 mb-4 flex-shrink-0 min-h-14">
                     <div className={`flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br ${s.gradient} p-0.5`}>
                       <div className="w-full h-full bg-slate-900 rounded-xl flex items-center justify-center">
                         <Icon className="w-7 h-7 text-white" />
                       </div>
                     </div>
                     <h3 className="text-xl font-bold text-white flex-1 min-w-0">{displayTitle}</h3>
-                    <div className="flex-shrink-0 w-9 h-9 rounded-lg border border-slate-600/50 bg-slate-800/80 flex items-center justify-center text-slate-400 group-hover:text-purple-400 group-hover:border-purple-500/50 transition-colors" aria-hidden>
-                      <ArrowUpRight className="w-4 h-4" />
-                    </div>
                   </div>
-                  <p className="text-slate-400 leading-relaxed flex-shrink-0">{(s as ServiceItem).cardDescription ?? (s as ServiceItem).description}</p>
+                  <p className="text-slate-400 text-sm leading-relaxed mb-4 flex-shrink-0">{(s as ServiceItem).cardDescription ?? (s as ServiceItem).description}</p>
+                  {points.length > 0 && (
+                    <ul className="space-y-2 mb-6 flex-shrink-0" aria-hidden>
+                      {points.map((point, i) => (
+                        <li key={i} className="flex items-start gap-3 text-sm text-slate-400">
+                          <Check className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" aria-hidden />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <Link
+                    href={`/uslugi/${s.slug}`}
+                    className="inline-flex items-center justify-center gap-2 mt-auto w-full sm:w-auto rounded-full font-semibold text-sm px-5 py-2.5 border border-purple-500/50 bg-purple-500/10 text-purple-300 hover:bg-purple-500/20 hover:border-purple-400/60 transition-colors"
+                  >
+                    Czytaj więcej
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
                   <div className={`absolute bottom-0 left-0 right-0 h-1 w-0 bg-gradient-to-r ${s.gradient} group-hover:w-full transition-all duration-500 rounded-b-2xl`} />
-                </Link>
+                </div>
               </motion.div>
             );
           })}

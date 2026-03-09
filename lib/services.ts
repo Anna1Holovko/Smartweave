@@ -7,6 +7,11 @@ export const SERVICES = [
     slug: 'strony',
     title: 'Projektowanie stron www dla firm',
     cardDescription: 'Nowoczesne strony pod leady B2B i budowanie zaufania.',
+    cardPoints: [
+      'Projektowanie stron www - strony pod leady B2B, wizerunek i konwersja.',
+      'SEO i GEO (AI Search) - widoczność w wyszukiwarkach i systemach AI.',
+      'Integracje i wsparcie - formularze, analityka, utrzymanie po wdrożeniu.',
+    ],
     description:
       'Projektowanie stron www dla firm - nowoczesne, szybkie strony pod leada B2B. Tworzymy strony, które pomagają klientom Cię znaleźć, budują zaufanie i wspierają sprzedaż oraz rozwój marki.',
     features: [
@@ -24,6 +29,11 @@ export const SERVICES = [
     slug: 'branding',
     title: 'Identyfikacja wizualna i branding',
     cardDescription: 'Spójna identyfikacja wizualna i profesjonalny wizerunek marki.',
+    cardPoints: [
+      'Logo i identyfikacja wizualna - unikalny znak i spójny system graficzny.',
+      'Kolorystyka i typografia - dopasowanie do charakteru firmy i komunikacji.',
+      'Materiały i szablony - ulotki, prezentacje, social media, brandbook.',
+    ],
     description:
       'Budujemy spójny i profesjonalny wizerunek marki - na stronie, w reklamach i w komunikacji. Tworzymy identyfikację wizualną, która zwiększa rozpoznawalność, wzmacnia pozycję rynkową i buduje zaufanie klientów.',
     features: [
@@ -42,6 +52,11 @@ export const SERVICES = [
     slug: 'automatyzacja',
     title: 'Automatyzacja procesów biznesowych z wykorzystaniem AI',
     cardDescription: 'Automatyzacja procesów i agenci AI – mniej pracy ręcznej, więcej czasu na biznes.',
+    cardPoints: [
+      'Procesy operacyjne i administracyjne - powtarzalne zadania, przepisywanie danych, zatwierdzanie dokumentów.',
+      'Integracje systemów CRM, ERP i innych - automatyczne przenoszenie i synchronizacja danych.',
+      'Raportowanie i analiza danych - zestawienia, KPI, monitorowanie wyników w czasie rzeczywistym.',
+    ],
     description:
       'Automatyzacja procesów AI - wdrażamy inteligentne systemy, które automatyzują powtarzalne procesy i usprawniają pracę zespołu. Redukujemy koszty i pozwalamy skupić się na rozwoju firmy.',
     features: [
