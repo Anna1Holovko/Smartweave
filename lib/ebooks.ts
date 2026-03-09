@@ -28,12 +28,4 @@ export const EBOOKS: Ebook[] = [
     buyUrl: '/#contact',
     protected: true,
   },
-  {
-    id: 'placeholder',
-    title: 'E-book w przygotowaniu',
-    description: 'Wkrótce w sprzedaży - e-booki dla firm: lead magnet, edukacja, budowanie autorytetu',
-    price: '—',
-    gradient: 'from-amber-500 to-orange-500',
-    buyUrl: '/#contact',
-  },
 ];
