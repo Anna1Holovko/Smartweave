@@ -11,8 +11,10 @@ export type Ebook = {
   gradient: string;
   /** URL for "Kup" button - e.g. Calendly, Stripe, or /#contact */
   buyUrl: string;
-  /** Optional direct download URL for the EPUB file. When set, the main CTA becomes "Pobierz e-book". */
+  /** Optional direct download URL for the EPUB file. When set and not protected, the main CTA becomes "Pobierz e-book". */
   downloadUrl?: string;
+  /** When true, download is served via API and requires password (EBOOK_DOWNLOAD_PASSWORD). */
+  protected?: boolean;
 };
 
 export const EBOOKS: Ebook[] = [
@@ -23,7 +25,7 @@ export const EBOOKS: Ebook[] = [
     price: 'Bezpłatny',
     gradient: 'from-violet-500 to-purple-600',
     buyUrl: '/#contact',
-    downloadUrl: '/assets/ebooks/Jak-przygotowac-firme-na-AI-w-20.epub',
+    protected: true,
   },
   {
     id: 'placeholder',
