@@ -25,7 +25,7 @@ export function Footer() {
               height={32}
               sizes="120px"
               priority
-              className="h-8 w-auto mb-4"
+              className="h-[32px] w-auto mb-4"
             />
 
             <p className="text-sm sm:text-base text-slate-400 leading-relaxed mb-3">

@@ -128,7 +128,7 @@ export function Header() {
                   width={120}
                   height={32}
                   priority
-                  className="h-8 w-auto group-hover:scale-105 transition-transform"
+                  className="h-[32px] w-auto group-hover:scale-105 transition-transform"
                 />
               </motion.div>
             </Link>
