@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import nodemailer from 'nodemailer';
-import { insertContactSubmission } from '@/lib/db';
 import { appendContactSubmission } from '@/lib/airtable';
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
@@ -113,35 +112,29 @@ export async function POST(request: Request) {
     process.env.AIRTABLE_BASE_ID &&
     (process.env.AIRTABLE_TABLE_NAME || process.env.AIRTABLE_TABLE_ID)
   );
-  const hasDb = !!(process.env.POSTGRES_URL || process.env.DATABASE_URL);
   const formspreeId = getFormspreeId(form);
   const emailTo = getEmailTo(form);
   const hasGmail = !!(GMAIL_USER && GMAIL_APP_PASSWORD && emailTo);
   const hasEmail = !!(RESEND_API_KEY && emailTo) || hasGmail || !!formspreeId;
 
-  // Prefer Airtable for storage when configured; otherwise fall back to Neon
+  // Use only Airtable for storage (CTA and contact forms); Neon not used
   const useAirtable = hasAirtable;
-  const useDb = hasDb && !useAirtable;
 
-  if (!useAirtable && !useDb && !hasEmail) {
+  if (!useAirtable && !hasEmail) {
     return NextResponse.json(
       { error: 'Formularz jest tymczasowo niedostępny. Spróbuj później.' },
       { status: 503 }
     );
   }
 
-  if ((useAirtable || useDb) && !hasEmail) {
+  if (useAirtable && !hasEmail) {
     console.warn(
       '[Contact] Email not configured: Gmail (GMAIL_USER + GMAIL_APP_PASSWORD + CONTACT_EMAIL_TO_cta), Resend, or Formspree'
     );
   }
 
   const payload = { name, email, phone, nip, message };
-  const storagePromise = useAirtable
-    ? appendContactSubmission(payload, form)
-    : useDb
-      ? insertContactSubmission(payload, form)
-      : Promise.resolve(null);
+  const storagePromise = useAirtable ? appendContactSubmission(payload, form) : Promise.resolve(null);
   const emailPromise = hasEmail
     ? sendContactEmail(payload, form, formspreeId ?? undefined, emailTo)
     : Promise.resolve();
@@ -152,7 +145,7 @@ export async function POST(request: Request) {
   const emailOk = emailResult.status === 'fulfilled';
 
   if (!storageOk && storageResult.status === 'rejected') {
-    console.error('Contact form storage error (Airtable/Neon):', storageResult.reason);
+    console.error('Contact form Airtable error:', storageResult.reason);
   }
   let emailErr: string | undefined;
   if (!emailOk && emailResult.status === 'rejected') {
