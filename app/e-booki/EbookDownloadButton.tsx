@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Download, ShoppingCart, Lock, X } from 'lucide-react';
+import { ShoppingCart, Lock, X } from 'lucide-react';
 import type { Ebook } from '@/lib/ebooks';
 
 type Props = { book: Ebook };
@@ -52,8 +52,8 @@ export function EbookDownloadButton({ book }: Props) {
           onClick={() => setOpen(true)}
           className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 text-white cta-gradient-animated hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]"
         >
-          <Download className="w-4 h-4" aria-hidden />
-          Pobierz e-book
+          <ShoppingCart className="w-4 h-4" aria-hidden />
+          Dodaj do koszyka
         </button>
         {open && (
           <div
@@ -120,8 +120,8 @@ export function EbookDownloadButton({ book }: Props) {
         rel="noopener noreferrer"
         className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 text-white cta-gradient-animated hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]"
       >
-        <Download className="w-4 h-4" aria-hidden />
-        Pobierz e-book
+        <ShoppingCart className="w-4 h-4" aria-hidden />
+        Dodaj do koszyka
       </a>
     );
   }
