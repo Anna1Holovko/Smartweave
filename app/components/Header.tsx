@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
+import { Button } from './ui/Button';
 import { USLUGI_DISPLAY_ORDER } from '@/lib/services';
 
 const LOGO = '/assets/smartweave-logo.png';
@@ -21,326 +22,317 @@ const uslugiDropdownItems = USLUGI_DISPLAY_ORDER.map((slug) => ({
   href: `/uslugi/${slug}` as const,
 }));
 
-const realizacjeDropdownItems = [
-  { name: 'Projekty', href: '/realizacje' },
-  { name: 'E-booki', href: '/e-booki' },
-];
+const realizacjeDropdownItems = [{ name: 'Projekty', href: '/realizacje' }];
 
 const navItems = [
   { name: 'Usługi', href: '#services', dropdown: 'uslugi' as const },
   { name: 'Jak działamy', href: '#how-we-work' },
   { name: 'Realizacje', href: '/realizacje', dropdown: 'realizacje' as const },
+  { name: 'E-booki', href: '/e-booki' },
   { name: 'Blog', href: '/blog' },
   { name: 'Kontakt', href: '#contact' },
 ];
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [uslugiOpen, setUslugiOpen] = useState(false);
-  const [realizacjeOpen, setRealizacjeOpen] = useState(false);
+  const [uslugiDropdownOpen, setUslugiDropdownOpen] = useState(false);
+  const [realizacjeDropdownOpen, setRealizacjeDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const realizacjeRef = useRef<HTMLDivElement>(null);
+  const realizacjeDropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const pathname = usePathname();
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       const target = e.target as Node;
-      if (dropdownRef.current && !dropdownRef.current.contains(target)) setUslugiOpen(false);
-      if (realizacjeRef.current && !realizacjeRef.current.contains(target)) setRealizacjeOpen(false);
+      if (dropdownRef.current && !dropdownRef.current.contains(target)) {
+        setUslugiDropdownOpen(false);
+      }
+      if (realizacjeDropdownRef.current && !realizacjeDropdownRef.current.contains(target)) {
+        setRealizacjeDropdownOpen(false);
+      }
     };
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, []);
+    if (uslugiDropdownOpen || realizacjeDropdownOpen) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [uslugiDropdownOpen, realizacjeDropdownOpen]);
 
-  const scrollTo = (hash: string) => {
-    const el = document.querySelector(hash);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // 🔥 smooth scroll function
+  const scrollToSection = (hash: string) => {
+    const element = document.querySelector(hash);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
   };
 
-  const onNavClick = (e: React.MouseEvent, item: (typeof navItems)[0]) => {
+  // 🔥 handle clicks (works everywhere)
+  const handleNavClick = (
+    e: React.MouseEvent,
+    item: (typeof navItems)[0]
+  ) => {
     if (item.href.startsWith('#')) {
       e.preventDefault();
-      pathname === '/' ? scrollTo(item.href) : router.push(`/${item.href}`);
+
+      if (pathname === '/') {
+        scrollToSection(item.href);
+      } else {
+        router.push(`/${item.href}`);
+      }
+
       setMobileMenuOpen(false);
-    } else setMobileMenuOpen(false);
+    } else {
+      setMobileMenuOpen(false);
+    }
   };
 
+  // 🔥 auto-scroll after redirect with hash
   useEffect(() => {
-    if (pathname === '/' && typeof window !== 'undefined' && window.location.hash) {
-      setTimeout(() => scrollTo(window.location.hash), 100);
+    if (pathname === '/' && window.location.hash) {
+      const hash = window.location.hash;
+      setTimeout(() => {
+        scrollToSection(hash);
+      }, 100); // small delay for layout render
     }
   }, [pathname]);
 
-  const navLinkClass =
-    'text-[var(--text-sm)] font-medium text-white/80 hover:text-white transition-colors duration-300';
-  const dropdownPanelClass =
-    'absolute top-full left-0 mt-3 min-w-[200px] py-2 rounded-[var(--radius-lg)] bg-white/95 backdrop-blur-xl border border-white/20 shadow-2xl z-50';
-
   return (
     <>
+      {/* HEADER */}
       <motion.header
-        initial={{ opacity: 0, y: -8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed left-0 right-0 z-50 bg-black/40 backdrop-blur-xl border-b border-white/10"
-        style={{ top: 'var(--top-banner-height, 0)' }}
+        style={{
+          backgroundColor: 'rgba(2, 6, 23, 0.6)',
+          backdropFilter: 'blur(12px)',
+        }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          mobileMenuOpen ? 'border-b border-slate-800/50' : ''
+        }`}
       >
-        <div
-          className="w-full max-w-[var(--container)] mx-auto flex items-center justify-between px-6 md:px-10"
-          style={{ height: 'var(--s64)' }}
-        >
-          <Link
-            href="/"
-            title="SmartWeave - strona główna"
-            className="flex items-center shrink-0"
-          >
-            <Image
-              src={LOGO}
-              alt="SmartWeave"
-              width={120}
-              height={32}
-              priority
-              className="h-[32px] w-auto opacity-95 hover:opacity-100 transition-opacity"
-            />
-          </Link>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <div className="flex items-center justify-between">
+            
+            {/* LOGO */}
+            <Link href="/" title="SmartWeave - strona główna">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center group"
+              >
+                <Image
+                  src={LOGO}
+                  alt="SmartWeave"
+                  width={120}
+                  height={32}
+                  priority
+                  className="h-[32px] w-auto group-hover:scale-105 transition-transform"
+                />
+              </motion.div>
+            </Link>
 
-          <nav className="hidden md:flex items-center gap-10">
-            {navItems.map((item) =>
-              item.dropdown === 'uslugi' ? (
-                <div key={item.name} ref={dropdownRef} className="relative">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setUslugiOpen((v) => !v);
-                      setRealizacjeOpen(false);
-                    }}
-                    className={`${navLinkClass} flex items-center gap-1`}
+            {/* DESKTOP NAV */}
+            <nav className="hidden md:flex items-center gap-8">
+              {navItems.map((item, index) =>
+                item.dropdown === 'uslugi' ? (
+                  <div key={item.name} ref={dropdownRef} className="relative">
+                    <motion.button
+                      type="button"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      onClick={() => setUslugiDropdownOpen((v) => !v)}
+                      className="flex items-center gap-1 text-slate-300 hover:text-white transition-colors cursor-pointer"
+                    >
+                      {item.name}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${uslugiDropdownOpen ? 'rotate-180' : ''}`} />
+                    </motion.button>
+                    <AnimatePresence>
+                      {uslugiDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -8 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute top-full left-0 mt-2 min-w-[220px] py-2 rounded-xl border border-slate-700/50 bg-slate-900/95 backdrop-blur-xl shadow-xl z-50"
+                        >
+                          {uslugiDropdownItems.map((sub) => (
+                            <Link
+                              key={sub.href}
+                              href={sub.href}
+                              onClick={() => setUslugiDropdownOpen(false)}
+                              className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors first:rounded-t-xl whitespace-nowrap"
+                            >
+                              {sub.name}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : item.dropdown === 'realizacje' ? (
+                  <div key={item.name} ref={realizacjeDropdownRef} className="relative">
+                    <motion.button
+                      type="button"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      onClick={() => setRealizacjeDropdownOpen((v) => !v)}
+                      className="flex items-center gap-1 text-slate-300 hover:text-white transition-colors cursor-pointer"
+                    >
+                      {item.name}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${realizacjeDropdownOpen ? 'rotate-180' : ''}`} />
+                    </motion.button>
+                    <AnimatePresence>
+                      {realizacjeDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -8 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute top-full left-0 mt-2 min-w-[200px] py-2 rounded-xl border border-slate-700/50 bg-slate-900/95 backdrop-blur-xl shadow-xl z-50"
+                        >
+                          {realizacjeDropdownItems.map((sub) => (
+                            <Link
+                              key={sub.href}
+                              href={sub.href}
+                              onClick={() => setRealizacjeDropdownOpen(false)}
+                              className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors first:rounded-t-xl"
+                            >
+                              {sub.name}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : item.href.startsWith('/') ? (
+                  <Link key={item.name} href={item.href}>
+                    <motion.span
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      className="relative text-slate-300 hover:text-white transition-colors group cursor-pointer"
+                    >
+                      {item.name}
+                    </motion.span>
+                  </Link>
+                ) : (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item)}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className="relative text-slate-300 hover:text-white transition-colors group cursor-pointer"
                   >
                     {item.name}
-                    <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-200 ${uslugiOpen ? 'rotate-180' : ''}`}
-                    />
-                  </button>
-                  <AnimatePresence>
-                    {uslugiOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -4 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -4 }}
-                        transition={{ duration: 0.2 }}
-                        className={dropdownPanelClass}
-                      >
-                        {uslugiDropdownItems.map((sub) => (
-                          <Link
-                            key={sub.href}
-                            href={sub.href}
-                            onClick={() => setUslugiOpen(false)}
-                            className="block px-5 py-2.5 text-[var(--text-sm)] text-gray-700 hover:text-black hover:bg-black/5 transition-colors"
-                          >
-                            {sub.name}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ) : item.dropdown === 'realizacje' ? (
-                <div key={item.name} ref={realizacjeRef} className="relative">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setRealizacjeOpen((v) => !v);
-                      setUslugiOpen(false);
-                    }}
-                    className={`${navLinkClass} flex items-center gap-1`}
-                  >
-                    {item.name}
-                    <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-200 ${realizacjeOpen ? 'rotate-180' : ''}`}
-                    />
-                  </button>
-                  <AnimatePresence>
-                    {realizacjeOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -4 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -4 }}
-                        transition={{ duration: 0.2 }}
-                        className={dropdownPanelClass}
-                      >
-                        {realizacjeDropdownItems.map((sub) => (
-                          <Link
-                            key={sub.href}
-                            href={sub.href}
-                            onClick={() => setRealizacjeOpen(false)}
-                            className="block px-5 py-2.5 text-[var(--text-sm)] text-gray-700 hover:text-black hover:bg-black/5 transition-colors"
-                          >
-                            {sub.name}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ) : item.href.startsWith('/') ? (
-                <Link key={item.name} href={item.href} className={navLinkClass}>
-                  {item.name}
-                </Link>
+                  </motion.a>
+                )
+              )}
+            </nav>
+
+            {/* CTA */}
+            <div className="hidden md:flex items-center gap-4">
+              <Link href="/e-booki" className="text-slate-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-slate-800/50" title="E-booki" aria-label="E-booki"><ShoppingCart className="w-4 h-4" /></Link>
+              <Button
+                variant="primary"
+                onClick={(e) =>
+                  handleNavClick(e as React.MouseEvent<HTMLButtonElement>, { name: 'Kontakt', href: '#contact' })
+                }
+              >
+                Rozpocznij Projekt
+              </Button>
+            </div>
+
+            {/* MOBILE BUTTON */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center border border-slate-700 rounded-full"
+            >
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5 text-white" />
               ) : (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => onNavClick(e, item)}
-                  className={navLinkClass}
-                >
-                  {item.name}
-                </a>
-              )
-            )}
-          </nav>
-
-          <div className="hidden md:flex items-center gap-3 shrink-0">
-            <Link
-              href="/e-booki"
-              className="inline-flex items-center justify-center text-white/80 hover:text-white transition-colors p-2 rounded-[var(--radius-md)] hover:bg-white/10"
-              title="E-booki"
-              aria-label="E-booki"
-            >
-              <ShoppingCart className="w-4 h-4" aria-hidden />
-            </Link>
-            <Link
-              href="/blog"
-              className="inline-flex items-center justify-center font-medium text-white/80 hover:text-white transition-colors"
-              style={{ padding: 'var(--s8) var(--s16)', fontSize: 'var(--text-sm)' }}
-            >
-              Blog
-            </Link>
-            <a
-              href="/#contact"
-              onClick={(e) =>
-                onNavClick(e as unknown as React.MouseEvent, { name: 'Kontakt', href: '#contact' })
-              }
-              className="inline-flex items-center justify-center gap-2 font-semibold text-white rounded-[var(--radius-md)] border border-white/40 bg-transparent hover:bg-white/10 transition-colors uppercase tracking-[var(--tracking-wide)]"
-              style={{ padding: 'var(--s8) var(--s24)', fontSize: 'var(--text-sm)' }}
-            >
-              Rozpocznij projekt
-              <span className="flex items-center justify-center w-6 h-6 rounded-full border border-current">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="ml-0.5" aria-hidden>
-                  <path d="M2 2l6 3-6 3V2z" fill="currentColor" />
-                </svg>
-              </span>
-            </a>
+                <Menu className="w-5 h-5 text-white" />
+              )}
+            </button>
           </div>
-
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center rounded-[var(--radius-md)] border border-white/20 text-white"
-            aria-expanded={mobileMenuOpen}
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
         </div>
       </motion.header>
 
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed left-0 right-0 z-40 md:hidden bg-[var(--bg-hero)]/95 backdrop-blur-xl border-b border-white/[0.05]"
-            style={{ top: 'calc(var(--top-banner-height, 0px) + var(--s64))' }}
-          >
-            <nav
-              className="w-full max-w-[var(--container)] mx-auto flex flex-col px-6 py-6"
-              style={{ gap: 'var(--s8)' }}
-            >
-              <div
-                className="text-[var(--text-xs)] font-semibold uppercase tracking-wider text-white/60 mb-1"
-                style={{ paddingLeft: 'var(--s8)' }}
-              >
-                Usługi
+      {/* MOBILE MENU */}
+      {mobileMenuOpen && (
+        <div className="fixed top-[64px] left-0 right-0 z-40 md:hidden">
+          <div className="mx-4 mt-2 p-6 bg-slate-900 border border-slate-800 rounded-2xl">
+            <nav className="flex flex-col gap-4">
+              <div>
+                <span className="block text-slate-400 text-sm font-medium py-2 px-4">Usługi</span>
+                {uslugiDropdownItems.map((sub) => (
+                  <Link
+                    key={sub.href}
+                    href={sub.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block text-slate-300 hover:text-white py-2 px-4 pl-6 rounded-lg"
+                  >
+                    {sub.name}
+                  </Link>
+                ))}
               </div>
-              {uslugiDropdownItems.map((sub) => (
-                <Link
-                  key={sub.href}
-                  href={sub.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="py-3 text-white hover:text-white/80 transition-colors"
-                  style={{ paddingLeft: 'var(--s24)' }}
-                >
-                  {sub.name}
-                </Link>
-              ))}
-              <div
-                className="text-[var(--text-xs)] font-semibold uppercase tracking-wider text-white/60 mt-4 mb-1"
-                style={{ paddingLeft: 'var(--s8)' }}
-              >
-                Realizacje
+              <div>
+                <span className="block text-slate-400 text-sm font-medium py-2 px-4">Realizacje</span>
+                {realizacjeDropdownItems.map((sub) => (
+                  <Link
+                    key={sub.href}
+                    href={sub.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block text-slate-300 hover:text-white py-2 px-4 pl-6 rounded-lg"
+                  >
+                    {sub.name}
+                  </Link>
+                ))}
               </div>
-              {realizacjeDropdownItems.map((sub) => (
-                <Link
-                  key={sub.href}
-                  href={sub.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="py-3 text-white hover:text-white/80 transition-colors"
-                  style={{ paddingLeft: 'var(--s24)' }}
-                >
-                  {sub.name}
-                </Link>
-              ))}
-              {navItems
-                .filter((i) => !i.dropdown)
-                .map((item) =>
-                  item.href.startsWith('/') ? (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="py-3 text-white hover:text-white/80 transition-colors"
-                      style={{ paddingLeft: 'var(--s24)' }}
-                    >
+              {navItems.filter((i) => !i.dropdown).map((item) =>
+                item.href.startsWith('/') ? (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <span className="block text-slate-300 hover:text-white py-2 px-4 rounded-lg">
                       {item.name}
-                    </Link>
-                  ) : (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      onClick={(e) => onNavClick(e, item)}
-                      className="py-3 text-white hover:text-white/80 transition-colors"
-                      style={{ paddingLeft: 'var(--s24)' }}
-                    >
-                      {item.name}
-                    </a>
-                  )
-                )}
-              <div className="pt-6 mt-4 border-t border-white/10 flex items-center gap-3">
-                <Link
-                  href="/e-booki"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="inline-flex items-center justify-center text-white p-3 rounded-[var(--radius-md)] border border-white/20 hover:bg-white/10"
-                  aria-label="E-booki"
+                    </span>
+                  </Link>
+                ) : (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item)}
+                    className="text-slate-300 hover:text-white py-2 px-4 rounded-lg"
+                  >
+                    {item.name}
+                  </a>
+                )
+              )}
+
+              <div className="pt-4 border-t border-slate-800 flex items-center gap-3">
+                <Link href="/e-booki" onClick={() => setMobileMenuOpen(false)} className="inline-flex items-center justify-center text-slate-300 hover:text-white p-3 rounded-lg border border-slate-700 hover:bg-slate-800/50" aria-label="E-booki"><ShoppingCart className="w-5 h-5" /></Link>
+                <Button
+                  variant="primary"
+                  fullWidth
+                  onClick={(e) =>
+                    handleNavClick(e as React.MouseEvent<HTMLButtonElement>, { name: 'Kontakt', href: '#contact' })
+                  }
                 >
-                  <ShoppingCart className="w-5 h-5" aria-hidden />
-                </Link>
-                <a
-                  href="/#contact"
-                  onClick={(e) => {
-                    onNavClick(e as unknown as React.MouseEvent, { name: 'Kontakt', href: '#contact' });
-                    setMobileMenuOpen(false);
-                  }}
-                  className="flex-1 text-center font-semibold text-white rounded-[var(--radius-md)] bg-black border border-white/20 py-3 uppercase tracking-[var(--tracking-wide)]"
-                >
-                  Rozpocznij projekt
-                </a>
+                  Rozpocznij Projekt
+                </Button>
               </div>
             </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      )}
     </>
   );
 }
