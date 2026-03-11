@@ -32,23 +32,85 @@ type TableSchema = { id: string; name: string; fields: { id: string; name: strin
 const schemaCache = new Map<string, { table: TableSchema; at: number }>();
 const SCHEMA_CACHE_MS = 60_000;
 
-async function getTableSchema(config: { token: string; baseId: string; tableId: string }): Promise<TableSchema | null> {
+async function getTableSchema(
+  config: { token: string; baseId: string; tableId: string },
+  skipCache = false
+): Promise<TableSchema | null> {
   const cacheKey = `${config.baseId}:${config.tableId}`;
-  const cached = schemaCache.get(cacheKey);
-  if (cached && Date.now() - cached.at < SCHEMA_CACHE_MS) return cached.table;
+  if (!skipCache) {
+    const cached = schemaCache.get(cacheKey);
+    if (cached && Date.now() - cached.at < SCHEMA_CACHE_MS) return cached.table;
+  }
 
   const metaUrl = `${BASE_URL}/meta/bases/${config.baseId}/tables`;
   const res = await fetch(metaUrl, {
     headers: { Authorization: `Bearer ${config.token}` },
   });
   if (!res.ok) {
-    console.warn('[Airtable] Meta API failed', res.status, '- using env/default field names');
+    const body = await res.text();
+    console.warn('[Airtable] Meta API failed', res.status, body || '- using env/default field names');
     return null;
   }
   const json = (await res.json()) as { tables?: TableSchema[] };
   const table = json.tables?.find((t) => t.id === config.tableId || t.name === config.tableId);
   if (table) schemaCache.set(cacheKey, { table, at: Date.now() });
   return table ?? null;
+}
+
+/** For debugging: return config, schema, and the field names we would use. Call with skipCache. */
+export async function getAirtableDebugInfo(): Promise<{
+  configured: boolean;
+  baseId?: string;
+  tableId?: string;
+  metaOk: boolean;
+  metaError?: string;
+  metaStatus?: number;
+  tableName?: string;
+  schemaFieldNames: string[];
+  resolvedFieldNames: Record<string, string>;
+}> {
+  const config = getConfig();
+  if (!config) {
+    return {
+      configured: false,
+      metaOk: false,
+      schemaFieldNames: [],
+      resolvedFieldNames: {},
+    };
+  }
+  const metaUrl = `${BASE_URL}/meta/bases/${config.baseId}/tables`;
+  const metaRes = await fetch(metaUrl, {
+    headers: { Authorization: `Bearer ${config.token}` },
+  });
+  let schema: TableSchema | null = null;
+  let metaError: string | undefined;
+  if (metaRes.ok) {
+    const json = (await metaRes.json()) as { tables?: TableSchema[] };
+    schema = json.tables?.find((t) => t.id === config.tableId || t.name === config.tableId) ?? null;
+  } else {
+    metaError = `${metaRes.status} ${metaRes.statusText}: ${await metaRes.text()}`;
+  }
+  const schemaFields = schema?.fields ?? null;
+  const schemaFieldNames = schema?.fields?.map((f) => f.name) ?? [];
+  const resolvedFieldNames: Record<string, string> = {
+    name: resolveFieldName('name', schemaFields),
+    email: resolveFieldName('email', schemaFields),
+    phone: resolveFieldName('phone', schemaFields),
+    message: resolveFieldName('message', schemaFields),
+    form: resolveFieldName('form', schemaFields),
+    nip: resolveFieldName('nip', schemaFields),
+  };
+  return {
+    configured: true,
+    baseId: config.baseId,
+    tableId: config.tableId,
+    metaOk: !!schema,
+    metaError,
+    metaStatus: metaRes.ok ? undefined : metaRes.status,
+    tableName: schema?.name,
+    schemaFieldNames,
+    resolvedFieldNames,
+  };
 }
 
 /** Resolve Airtable field name: env override, or match from schema, or default. */
@@ -105,14 +167,17 @@ export async function appendContactSubmission(
   const phoneKey = resolveFieldName('phone', schemaFields);
   const nipKey = resolveFieldName('nip', schemaFields);
 
+  const schemaFieldSet = schemaFields ? new Set(schemaFields.map((f) => f.name)) : null;
+  const includeField = (key: string) => !schemaFieldSet || schemaFieldSet.has(key);
+
   const fields: Record<string, string> = {
     [nameKey]: data.name,
     [emailKey]: data.email,
     [messageKey]: data.message,
-    [formKey]: formType,
   };
-  if (data.phone != null && data.phone !== '') fields[phoneKey] = data.phone;
-  if (data.nip != null && data.nip !== '') fields[nipKey] = data.nip;
+  if (includeField(formKey)) fields[formKey] = formType;
+  if (data.phone != null && data.phone !== '' && includeField(phoneKey)) fields[phoneKey] = data.phone;
+  if (data.nip != null && data.nip !== '' && includeField(nipKey)) fields[nipKey] = data.nip;
 
   const tableIdEncoded = encodeURIComponent(config.tableId);
   const url = `${BASE_URL}/${config.baseId}/${tableIdEncoded}`;
