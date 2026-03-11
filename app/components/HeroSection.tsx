@@ -43,10 +43,10 @@ export function HeroSection() {
       className="relative min-h-[100dvh] min-h-screen flex items-center justify-center overflow-hidden px-4 pt-20 pb-16 sm:px-6 sm:pt-28 sm:pb-24 lg:pt-24 lg:pb-20 lg:px-8 xl:pt-20 xl:pb-16 xl:px-10 2xl:px-12 3xl:px-16"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-[#0b0a18]" />
+      <div className="absolute inset-0 bg-[var(--bg-graphite)]" />
 
       {/* Glow */}
-      <div className="absolute left-1/2 top-1/2 w-[1000px] h-[1000px] -translate-x-1/2 -translate-y-1/2 bg-purple-600/20 rounded-full blur-[180px]" />
+      <div className="absolute left-1/2 top-1/2 w-[1000px] h-[1000px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[180px] opacity-30" style={{ background: 'var(--accent-glow)' }} />
 
       {/* Grid */}
       <div className="absolute inset-0" style={gridStyle} />
@@ -54,13 +54,13 @@ export function HeroSection() {
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl xl:max-w-5xl 2xl:max-w-6xl mx-auto">
         {/* Badge */}
-        <p className="inline-flex items-center mb-8 px-4 py-2 rounded-full border border-purple-500/40 bg-purple-950/50 backdrop-blur-sm text-sm text-purple-200">
+        <p className="inline-flex items-center mb-8 px-4 py-2 rounded-full border border-[#d8f17b]/30 bg-[#d8f17b]/5 backdrop-blur-sm text-sm text-[#d8f17b]">
           Design & Automatyzacja
         </p>
 
         {/* Headline */}
         <h1
-          className="text-white font-bold tracking-tight leading-[1.1]"
+          className="text-[#e4e4e7] font-bold tracking-tight leading-[1.1]"
           style={{ fontSize: 'var(--text-display)' }}
         >
           Pomożemy Ci{' '}
@@ -75,11 +75,7 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, y: -12, filter: 'blur(6px)' }}
                 transition={{ duration: 0.4 }}
-                className="inline-block whitespace-nowrap font-bold text-transparent bg-clip-text leading-[1.35] pb-0.5"
-                style={{
-                  backgroundImage:
-                    'linear-gradient(to right, #60A5FA, #A78BFA, #F472B6)',
-                }}
+                className="inline-block whitespace-nowrap font-bold text-[#d8f17b] leading-[1.35] pb-0.5"
                 aria-live="polite"
               >
                 {phrases[index]}
@@ -92,10 +88,10 @@ export function HeroSection() {
         </h1>
 
         {/* Description */}
-        <p className="text-slate-400 text-base sm:text-xl mx-auto mt-6 max-w-[80ch] leading-relaxed px-2">
+        <p className="text-zinc-400 text-base sm:text-xl mx-auto mt-6 max-w-[80ch] leading-relaxed px-2">
           Automatyzujemy to, co powtarzalne - Ty weryfikujesz rezultaty. Tworzymy strony internetowe gotowe na AI, abyś mógł skupić się na tym, co naprawdę ważne
         </p>
-        <p className="text-slate-500 text-sm sm:text-base mx-auto mt-3 mb-10 px-2" aria-hidden="true">
+        <p className="text-zinc-500 text-sm sm:text-base mx-auto mt-3 mb-10 px-2" aria-hidden="true">
           Automatyzacja procesów biznesowych • Agenci AI • Strony internetowe
         </p>
 
@@ -111,7 +107,7 @@ export function HeroSection() {
               href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 bg-transparent border-2 border-slate-700 text-white hover:border-purple-500/50 hover:bg-slate-800/30"
+              className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 bg-transparent border-2 border-white/15 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:bg-white/5"
             >
               Umów spotkanie
             </a>
@@ -129,12 +125,12 @@ export function HeroSection() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-7 h-11 rounded-full border border-purple-400/60 flex items-start justify-center p-1"
+          className="w-7 h-11 rounded-full border border-[#d8f17b]/50 flex items-start justify-center p-1"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-1.5 h-2 rounded-full bg-purple-300"
+            className="w-1.5 h-2 rounded-full bg-[#d8f17b]"
           />
         </motion.div>
       </motion.div>

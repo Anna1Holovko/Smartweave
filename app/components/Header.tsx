@@ -9,7 +9,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import { Button } from './ui/Button';
 import { USLUGI_DISPLAY_ORDER } from '@/lib/services';
 
-const LOGO = '/assets/smartweave-logo.png';
+const LOGO = '/assets/smartweave-logo-ai.png';
 
 const USLUGI_DROPDOWN_NAMES: Record<(typeof USLUGI_DISPLAY_ORDER)[number], string> = {
   automatyzacja: 'Automatyzacja procesów biznesowych',
@@ -103,13 +103,10 @@ export function Header() {
     <>
       {/* HEADER */}
       <motion.header
-        style={{
-          backgroundColor: 'rgba(2, 6, 23, 0.6)',
-          backdropFilter: 'blur(12px)',
-        }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          mobileMenuOpen ? 'border-b border-slate-800/50' : ''
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-card rounded-none border-x-0 border-t-0 ${
+          mobileMenuOpen ? 'border-b border-white/10' : ''
         }`}
+        style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex items-center justify-between">
@@ -125,10 +122,10 @@ export function Header() {
                 <Image
                   src={LOGO}
                   alt="SmartWeave"
-                  width={120}
-                  height={32}
+                  width={140}
+                  height={36}
                   priority
-                  className="h-[32px] w-auto group-hover:scale-105 transition-transform"
+                  className="h-8 sm:h-9 w-auto max-h-10 group-hover:opacity-90 transition-opacity"
                 />
               </motion.div>
             </Link>
@@ -144,7 +141,7 @@ export function Header() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       onClick={() => setUslugiDropdownOpen((v) => !v)}
-                      className="flex items-center gap-1 text-slate-300 hover:text-white transition-colors cursor-pointer"
+                      className="flex items-center gap-1 text-zinc-400 hover:text-[#d8f17b] transition-colors cursor-pointer"
                     >
                       {item.name}
                       <ChevronDown className={`w-4 h-4 transition-transform ${uslugiDropdownOpen ? 'rotate-180' : ''}`} />
@@ -156,14 +153,14 @@ export function Header() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -8 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 min-w-[220px] py-2 rounded-xl border border-slate-700/50 bg-slate-900/95 backdrop-blur-xl shadow-xl z-50"
+                          className="absolute top-full left-0 mt-2 min-w-[220px] py-2 rounded-xl border border-white/10 bg-[var(--bg-graphite-card)] backdrop-blur-xl shadow-xl z-50"
                         >
                           {uslugiDropdownItems.map((sub) => (
                             <Link
                               key={sub.href}
                               href={sub.href}
                               onClick={() => setUslugiDropdownOpen(false)}
-                              className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors first:rounded-t-xl whitespace-nowrap"
+                              className="block px-4 py-2.5 text-sm text-zinc-300 hover:text-[#d8f17b] hover:bg-white/5 transition-colors first:rounded-t-xl whitespace-nowrap"
                             >
                               {sub.name}
                             </Link>
@@ -180,7 +177,7 @@ export function Header() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       onClick={() => setRealizacjeDropdownOpen((v) => !v)}
-                      className="flex items-center gap-1 text-slate-300 hover:text-white transition-colors cursor-pointer"
+                      className="flex items-center gap-1 text-zinc-400 hover:text-[#d8f17b] transition-colors cursor-pointer"
                     >
                       {item.name}
                       <ChevronDown className={`w-4 h-4 transition-transform ${realizacjeDropdownOpen ? 'rotate-180' : ''}`} />
@@ -192,14 +189,14 @@ export function Header() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -8 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 min-w-[200px] py-2 rounded-xl border border-slate-700/50 bg-slate-900/95 backdrop-blur-xl shadow-xl z-50"
+                          className="absolute top-full left-0 mt-2 min-w-[200px] py-2 rounded-xl border border-white/10 bg-[var(--bg-graphite-card)] backdrop-blur-xl shadow-xl z-50"
                         >
                           {realizacjeDropdownItems.map((sub) => (
                             <Link
                               key={sub.href}
                               href={sub.href}
                               onClick={() => setRealizacjeDropdownOpen(false)}
-                              className="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800/50 transition-colors first:rounded-t-xl"
+                              className="block px-4 py-2.5 text-sm text-zinc-300 hover:text-[#d8f17b] hover:bg-white/5 transition-colors first:rounded-t-xl"
                             >
                               {sub.name}
                             </Link>
@@ -214,7 +211,7 @@ export function Header() {
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
-                      className="relative text-slate-300 hover:text-white transition-colors group cursor-pointer"
+                      className="relative text-zinc-400 hover:text-[#d8f17b] transition-colors group cursor-pointer"
                     >
                       {item.name}
                     </motion.span>
@@ -227,7 +224,7 @@ export function Header() {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="relative text-slate-300 hover:text-white transition-colors group cursor-pointer"
+                    className="relative text-zinc-400 hover:text-[#d8f17b] transition-colors group cursor-pointer"
                   >
                     {item.name}
                   </motion.a>
@@ -245,18 +242,18 @@ export function Header() {
               >
                 Rozpocznij Projekt
               </Button>
-              <Link href="/e-booki" className="text-slate-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-slate-800/50" title="E-booki" aria-label="E-booki"><ShoppingCart className="w-4 h-4" /></Link>
+              <Link href="/e-booki" className="text-zinc-400 hover:text-[#d8f17b] transition-colors p-2 rounded-lg hover:bg-white/5" title="E-booki" aria-label="E-booki"><ShoppingCart className="w-4 h-4" /></Link>
             </div>
 
             {/* MOBILE BUTTON */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center border border-slate-700 rounded-full"
+              className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center border border-white/15 rounded-full text-zinc-300 hover:text-[#d8f17b] hover:border-[#d8f17b]/30 transition-colors"
             >
               {mobileMenuOpen ? (
-                <X className="w-5 h-5 text-white" />
+                <X className="w-5 h-5" />
               ) : (
-                <Menu className="w-5 h-5 text-white" />
+                <Menu className="w-5 h-5" />
               )}
             </button>
           </div>
@@ -266,29 +263,29 @@ export function Header() {
       {/* MOBILE MENU */}
       {mobileMenuOpen && (
         <div className="fixed top-[64px] left-0 right-0 z-40 md:hidden">
-          <div className="mx-4 mt-2 p-6 bg-slate-900 border border-slate-800 rounded-2xl">
+          <div className="mx-4 mt-2 p-6 glass-card">
             <nav className="flex flex-col gap-4">
               <div>
-                <span className="block text-slate-400 text-sm font-medium py-2 px-4">Usługi</span>
+                <span className="block text-zinc-500 text-sm font-medium py-2 px-4">Usługi</span>
                 {uslugiDropdownItems.map((sub) => (
                   <Link
                     key={sub.href}
                     href={sub.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block text-slate-300 hover:text-white py-2 px-4 pl-6 rounded-lg"
+                    className="block text-zinc-300 hover:text-[#d8f17b] py-2 px-4 pl-6 rounded-lg transition-colors"
                   >
                     {sub.name}
                   </Link>
                 ))}
               </div>
               <div>
-                <span className="block text-slate-400 text-sm font-medium py-2 px-4">Realizacje</span>
+                <span className="block text-zinc-500 text-sm font-medium py-2 px-4">Realizacje</span>
                 {realizacjeDropdownItems.map((sub) => (
                   <Link
                     key={sub.href}
                     href={sub.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block text-slate-300 hover:text-white py-2 px-4 pl-6 rounded-lg"
+                    className="block text-zinc-300 hover:text-[#d8f17b] py-2 px-4 pl-6 rounded-lg transition-colors"
                   >
                     {sub.name}
                   </Link>
@@ -301,7 +298,7 @@ export function Header() {
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <span className="block text-slate-300 hover:text-white py-2 px-4 rounded-lg">
+                    <span className="block text-zinc-300 hover:text-[#d8f17b] py-2 px-4 rounded-lg transition-colors">
                       {item.name}
                     </span>
                   </Link>
@@ -310,15 +307,15 @@ export function Header() {
                     key={item.name}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item)}
-                    className="text-slate-300 hover:text-white py-2 px-4 rounded-lg"
+                    className="text-zinc-300 hover:text-[#d8f17b] py-2 px-4 rounded-lg transition-colors"
                   >
                     {item.name}
                   </a>
                 )
               )}
 
-              <div className="pt-4 border-t border-slate-800 flex items-center gap-3">
-                <Link href="/e-booki" onClick={() => setMobileMenuOpen(false)} className="inline-flex items-center justify-center text-slate-300 hover:text-white p-3 rounded-lg border border-slate-700 hover:bg-slate-800/50" aria-label="E-booki"><ShoppingCart className="w-5 h-5" /></Link>
+              <div className="pt-4 border-t border-white/10 flex items-center gap-3">
+                <Link href="/e-booki" onClick={() => setMobileMenuOpen(false)} className="inline-flex items-center justify-center text-zinc-400 hover:text-[#d8f17b] p-3 rounded-lg border border-white/15 hover:bg-white/5 transition-colors" aria-label="E-booki"><ShoppingCart className="w-5 h-5" /></Link>
                 <Button
                   variant="primary"
                   fullWidth
