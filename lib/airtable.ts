@@ -1,12 +1,12 @@
 /**
- * Airtable API helpers for contact/CTA form submissions.
+ * Airtable API for contact submissions (no "Form" column sent).
  *
  * Required env: AIRTABLE_ACCESS_TOKEN (or AIRTABLE_API_KEY), AIRTABLE_BASE_ID, AIRTABLE_TABLE_ID
- * - BASE_ID: from the Airtable URL (e.g. app9YUgvYfBCLgsjq)
- * - TABLE_ID: the table ID from the URL (e.g. tbl4c56AhviFwOJlu), not the table name
+ * - BASE_ID from URL (e.g. app9YUgvYfBCLgsjq), TABLE_ID from URL (e.g. tbl4c56AhviFwOJlu)
  *
- * Field names are resolved from the table schema (Meta API) so they always match your base.
- * Optional env overrides: AIRTABLE_FIELD_NAME, AIRTABLE_FIELD_EMAIL, etc. (exact Airtable names).
+ * Field names: we send exactly these (copy from your Airtable column headers if different):
+ * - Imię i Nazwisko, Email, Telefon, NIP, Wiadomość
+ * Override with AIRTABLE_FIELD_NAME, AIRTABLE_FIELD_EMAIL, etc.
  */
 
 export type ContactSubmission = {
@@ -19,6 +19,9 @@ export type ContactSubmission = {
 
 const BASE_URL = 'https://api.airtable.com/v0';
 
+// Exact column names for "Formularz kontaktowy" – override with AIRTABLE_FIELD_* if your base differs
+const FIELD_KEYS = ['name', 'email', 'phone', 'message', 'nip'] as const;
+
 function getConfig(): { token: string; baseId: string; tableId: string } | null {
   const token = process.env.AIRTABLE_ACCESS_TOKEN || process.env.AIRTABLE_API_KEY;
   const baseId = process.env.AIRTABLE_BASE_ID;
@@ -27,165 +30,64 @@ function getConfig(): { token: string; baseId: string; tableId: string } | null 
   return { token, baseId, tableId };
 }
 
-type TableSchema = { id: string; name: string; fields: { id: string; name: string; type: string }[] };
-
-const schemaCache = new Map<string, { table: TableSchema; at: number }>();
-const SCHEMA_CACHE_MS = 60_000;
-
-async function getTableSchema(
-  config: { token: string; baseId: string; tableId: string },
-  skipCache = false
-): Promise<TableSchema | null> {
-  const cacheKey = `${config.baseId}:${config.tableId}`;
-  if (!skipCache) {
-    const cached = schemaCache.get(cacheKey);
-    if (cached && Date.now() - cached.at < SCHEMA_CACHE_MS) return cached.table;
-  }
-
-  const metaUrl = `${BASE_URL}/meta/bases/${config.baseId}/tables`;
-  const res = await fetch(metaUrl, {
-    headers: { Authorization: `Bearer ${config.token}` },
-  });
-  if (!res.ok) {
-    const body = await res.text();
-    console.warn('[Airtable] Meta API failed', res.status, body || '- using env/default field names');
-    return null;
-  }
-  const json = (await res.json()) as { tables?: TableSchema[] };
-  const table = json.tables?.find((t) => t.id === config.tableId || t.name === config.tableId);
-  if (table) schemaCache.set(cacheKey, { table, at: Date.now() });
-  return table ?? null;
+function getFieldName(key: (typeof FIELD_KEYS)[number]): string {
+  const envKey = `AIRTABLE_FIELD_${key.toUpperCase()}` as keyof NodeJS.ProcessEnv;
+  const v = process.env[envKey];
+  if (typeof v === 'string' && v.trim()) return v.trim();
+  const names: Record<string, string> = {
+    name: 'Imię i Nazwisko / Nazwa firmy',
+    email: 'Email',
+    phone: 'Telefon',
+    message: 'Wiadomość',
+    nip: 'NIP',
+  };
+  return names[key];
 }
 
-/** For debugging: return config, schema, and the field names we would use. Call with skipCache. */
+/** Debug: config status and field names we use (no Meta API). */
 export async function getAirtableDebugInfo(): Promise<{
   configured: boolean;
   baseId?: string;
   tableId?: string;
-  metaOk: boolean;
-  metaError?: string;
-  metaStatus?: number;
-  tableName?: string;
-  schemaFieldNames: string[];
-  resolvedFieldNames: Record<string, string>;
+  fieldNames: Record<string, string>;
 }> {
   const config = getConfig();
   if (!config) {
-    return {
-      configured: false,
-      metaOk: false,
-      schemaFieldNames: [],
-      resolvedFieldNames: {},
-    };
+    return { configured: false, fieldNames: {} };
   }
-  const metaUrl = `${BASE_URL}/meta/bases/${config.baseId}/tables`;
-  const metaRes = await fetch(metaUrl, {
-    headers: { Authorization: `Bearer ${config.token}` },
-  });
-  let schema: TableSchema | null = null;
-  let metaError: string | undefined;
-  if (metaRes.ok) {
-    const json = (await metaRes.json()) as { tables?: TableSchema[] };
-    schema = json.tables?.find((t) => t.id === config.tableId || t.name === config.tableId) ?? null;
-  } else {
-    metaError = `${metaRes.status} ${metaRes.statusText}: ${await metaRes.text()}`;
-  }
-  const schemaFields = schema?.fields ?? null;
-  const schemaFieldNames = schema?.fields?.map((f) => f.name) ?? [];
-  const resolvedFieldNames: Record<string, string> = {
-    name: resolveFieldName('name', schemaFields),
-    email: resolveFieldName('email', schemaFields),
-    phone: resolveFieldName('phone', schemaFields),
-    message: resolveFieldName('message', schemaFields),
-    form: resolveFieldName('form', schemaFields),
-    nip: resolveFieldName('nip', schemaFields),
-  };
+  const fieldNames: Record<string, string> = {};
+  for (const k of FIELD_KEYS) fieldNames[k] = getFieldName(k);
   return {
     configured: true,
     baseId: config.baseId,
     tableId: config.tableId,
-    metaOk: !!schema,
-    metaError,
-    metaStatus: metaRes.ok ? undefined : metaRes.status,
-    tableName: schema?.name,
-    schemaFieldNames,
-    resolvedFieldNames,
+    fieldNames,
   };
-}
-
-/** Resolve Airtable field name: env override, or match from schema, or default. */
-function resolveFieldName(
-  key: 'name' | 'email' | 'phone' | 'message' | 'form' | 'nip',
-  schemaFields: { name: string }[] | null
-): string {
-  const envKey = `AIRTABLE_FIELD_${key.toUpperCase()}` as keyof NodeJS.ProcessEnv;
-  const envVal = process.env[envKey];
-  if (typeof envVal === 'string' && envVal.trim()) return envVal.trim();
-
-  const lower = (s: string) => s.toLowerCase();
-  const defaults: Record<string, string[]> = {
-    name: ['imię', 'nazwisko', 'name'],
-    email: ['email'],
-    phone: ['telefon', 'phone'],
-    message: ['wiadomość', 'message'],
-    form: ['form'],
-    nip: ['nip'],
-  };
-  const keywords = defaults[key];
-  const match = schemaFields?.find((f) => keywords.some((k) => lower(f.name).includes(k)));
-  if (match) return match.name;
-
-  const fallbacks: Record<string, string> = {
-    name: 'Imię i Nazwisko',
-    email: 'Email',
-    phone: 'Telefon',
-    message: 'Wiadomość',
-    form: 'Form',
-    nip: 'NIP',
-  };
-  return fallbacks[key];
 }
 
 /**
- * Append a contact/CTA form submission to an Airtable table.
- * Uses table schema to get exact field names so data always maps to your columns.
+ * Create one record in Airtable. No Meta API – uses env or Polish defaults only.
+ * Form type is not sent to Airtable (no "Form" column).
  */
-export async function appendContactSubmission(
-  data: ContactSubmission,
-  formType: string = 'contact'
-): Promise<{ id: string } | null> {
+export async function appendContactSubmission(data: ContactSubmission): Promise<{ id: string } | null> {
   const config = getConfig();
-  if (!config) return null;
-
-  const schema = await getTableSchema(config);
-  const schemaFields = schema?.fields ?? null;
-
-  const nameKey = resolveFieldName('name', schemaFields);
-  const emailKey = resolveFieldName('email', schemaFields);
-  const messageKey = resolveFieldName('message', schemaFields);
-  const formKey = resolveFieldName('form', schemaFields);
-  const phoneKey = resolveFieldName('phone', schemaFields);
-  const nipKey = resolveFieldName('nip', schemaFields);
-
-  const schemaFieldSet = schemaFields ? new Set(schemaFields.map((f) => f.name)) : null;
-  const includeField = (key: string) => !schemaFieldSet || schemaFieldSet.has(key);
+  if (!config) {
+    console.error('[Airtable] Missing env: AIRTABLE_ACCESS_TOKEN, AIRTABLE_BASE_ID, AIRTABLE_TABLE_ID');
+    throw new Error('Airtable not configured');
+  }
 
   const fields: Record<string, string> = {
-    [nameKey]: data.name,
-    [emailKey]: data.email,
-    [messageKey]: data.message,
+    [getFieldName('name')]: data.name,
+    [getFieldName('email')]: data.email,
+    [getFieldName('message')]: data.message,
   };
-  if (includeField(formKey)) fields[formKey] = formType;
-  if (data.phone != null && data.phone !== '' && includeField(phoneKey)) fields[phoneKey] = data.phone;
-  if (data.nip != null && data.nip !== '' && includeField(nipKey)) fields[nipKey] = data.nip;
+  if (data.phone?.trim()) fields[getFieldName('phone')] = data.phone.trim();
+  if (data.nip?.trim()) fields[getFieldName('nip')] = data.nip.trim();
 
-  const tableIdEncoded = encodeURIComponent(config.tableId);
-  const url = `${BASE_URL}/${config.baseId}/${tableIdEncoded}`;
-  const body = { records: [{ fields }] };
+  const url = `${BASE_URL}/${config.baseId}/${encodeURIComponent(config.tableId)}`;
+  const body = JSON.stringify({ records: [{ fields }] });
 
-  if (process.env.NODE_ENV === 'development') {
-    console.log('[Airtable] Sending field keys:', Object.keys(fields));
-  }
+  console.log('[Airtable] POST', url, 'keys:', Object.keys(fields).join(', '));
 
   const res = await fetch(url, {
     method: 'POST',
@@ -193,20 +95,30 @@ export async function appendContactSubmission(
       Authorization: `Bearer ${config.token}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(body),
+    body,
   });
 
+  const resText = await res.text();
   if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    const msg = (err as { error?: { message?: string }; message?: string }).error?.message ?? (err as { message?: string }).message ?? `Airtable ${res.status}`;
-    console.error('[Airtable]', res.status, msg, 'field keys sent:', Object.keys(fields));
+    console.error('[Airtable]', res.status, resText);
+    let msg = `Airtable ${res.status}`;
+    try {
+      const err = JSON.parse(resText) as { error?: { message?: string }; message?: string };
+      msg = err.error?.message ?? err.message ?? msg;
+    } catch {
+      if (resText) msg = resText.slice(0, 200);
+    }
     throw new Error(msg);
   }
 
-  const json = (await res.json()) as { records?: { id: string }[] };
-  const id = json.records?.[0]?.id;
-  if (process.env.NODE_ENV === 'development' && id) {
-    console.log('[Airtable] Record created', id);
+  let json: { records?: { id: string }[] };
+  try {
+    json = JSON.parse(resText) as { records?: { id: string }[] };
+  } catch {
+    console.error('[Airtable] Invalid JSON', resText.slice(0, 200));
+    return null;
   }
+  const id = json.records?.[0]?.id ?? null;
+  console.log('[Airtable] Created', id ?? 'no id in response');
   return id ? { id } : null;
 }

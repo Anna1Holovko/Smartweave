@@ -38,13 +38,13 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
-function getFormspreeId(form: string): string | undefined {
-  const key = `FORMSPREE_FORM_ID_${form}`;
+function getFormspreeId(formKind: string): string | undefined {
+  const key = `FORMSPREE_FORM_ID_${formKind}`;
   return process.env[key] || process.env.FORMSPREE_FORM_ID;
 }
 
-function getEmailTo(form: string): string | undefined {
-  const key = `CONTACT_EMAIL_TO_${form}`;
+function getEmailTo(formKind: string): string | undefined {
+  const key = `CONTACT_EMAIL_TO_${formKind}`;
   return process.env[key] || process.env.CONTACT_EMAIL_TO;
 }
 
@@ -79,7 +79,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
   }
 
-  const form = (body.form?.trim() || DEFAULT_FORM).toLowerCase().replace(/\s+/g, '_');
+  const formKind = (body.form?.trim() || DEFAULT_FORM).toLowerCase().replace(/\s+/g, '_');
   const name = body.name?.trim();
   const email = body.email?.trim();
   const phone = body.phone?.trim() || undefined;
@@ -112,8 +112,8 @@ export async function POST(request: Request) {
     process.env.AIRTABLE_BASE_ID &&
     (process.env.AIRTABLE_TABLE_NAME || process.env.AIRTABLE_TABLE_ID)
   );
-  const formspreeId = getFormspreeId(form);
-  const emailTo = getEmailTo(form);
+  const formspreeId = getFormspreeId(formKind);
+  const emailTo = getEmailTo(formKind);
   const hasGmail = !!(GMAIL_USER && GMAIL_APP_PASSWORD && emailTo);
   const hasEmail = !!(RESEND_API_KEY && emailTo) || hasGmail || !!formspreeId;
 
@@ -134,24 +134,29 @@ export async function POST(request: Request) {
   }
 
   const payload = { name, email, phone, nip, message };
-  const storagePromise = useAirtable ? appendContactSubmission(payload, form) : Promise.resolve(null);
+  const storagePromise = useAirtable ? appendContactSubmission(payload) : Promise.resolve(null);
   const emailPromise = hasEmail
-    ? sendContactEmail(payload, form, formspreeId ?? undefined, emailTo)
+    ? sendContactEmail(payload, formKind, formspreeId ?? undefined, emailTo)
     : Promise.resolve();
 
   const [storageResult, emailResult] = await Promise.allSettled([storagePromise, emailPromise]);
 
-  const storageOk = storageResult.status === 'fulfilled';
+  const storageOk =
+    storageResult.status === 'fulfilled' &&
+    storageResult.value != null;
   const emailOk = emailResult.status === 'fulfilled';
 
-  if (!storageOk && storageResult.status === 'rejected') {
-    console.error('Contact form Airtable error:', storageResult.reason);
+  if (storageResult.status === 'rejected') {
+    console.error('Airtable storage error:', storageResult.reason);
+  }
+  if (storageResult.status === 'fulfilled' && storageResult.value == null && useAirtable) {
+    console.error('Airtable: no record id returned (check env and Vercel logs)');
   }
   let emailErr: string | undefined;
   if (!emailOk && emailResult.status === 'rejected') {
     const err = emailResult.reason;
     emailErr = err instanceof Error ? err.message : String(err);
-    console.error('Contact form email error:', emailErr);
+    console.error('Contact email error:', emailErr);
   }
 
   if (storageOk && emailOk) {
@@ -175,16 +180,16 @@ export async function POST(request: Request) {
 
 async function sendContactEmail(
   data: { name: string; email: string; phone?: string; nip?: string; message: string },
-  form: string,
+  formKind: string,
   formspreeId: string | undefined,
   emailTo: string | undefined
 ): Promise<void> {
   if (RESEND_API_KEY && emailTo) {
-    await sendViaResend(data, emailTo, form);
+    await sendViaResend(data, emailTo, formKind);
     return;
   }
   if (GMAIL_USER && GMAIL_APP_PASSWORD && emailTo) {
-    await sendViaGmail(data, emailTo, form);
+    await sendViaGmail(data, emailTo, formKind);
     return;
   }
   if (formspreeId) {
@@ -196,13 +201,13 @@ async function sendContactEmail(
 async function sendViaResend(
   data: { name: string; email: string; phone?: string; nip?: string; message: string },
   emailTo: string,
-  form: string
+  formKind: string
 ): Promise<void> {
   if (!RESEND_API_KEY) return;
 
   const resend = new Resend(RESEND_API_KEY);
   const to = emailTo.split(',').map((e) => e.trim()).filter(Boolean);
-  const prefix = form === 'cta' ? '[SmartWeave CTA]' : '[SmartWeave]';
+  const prefix = formKind === 'cta' ? '[SmartWeave CTA]' : '[SmartWeave]';
   const subject = `${prefix} Wiadomość od ${data.name}`;
   const html = [
     `<p><strong>Imię i Nazwisko / Nazwa firmy:</strong> ${escapeHtml(data.name)}</p>`,
@@ -230,11 +235,11 @@ async function sendViaResend(
 async function sendViaGmail(
   data: { name: string; email: string; phone?: string; nip?: string; message: string },
   emailTo: string,
-  form: string
+  formKind: string
 ): Promise<void> {
   if (!GMAIL_USER || !GMAIL_APP_PASSWORD) return;
 
-  const prefix = form === 'cta' ? '[SmartWeave CTA]' : '[SmartWeave]';
+  const prefix = formKind === 'cta' ? '[SmartWeave CTA]' : '[SmartWeave]';
   const subject = `${prefix} Wiadomość od ${data.name}`;
   const html = [
     `<p><strong>Imię i Nazwisko / Nazwa firmy:</strong> ${escapeHtml(data.name)}</p>`,
