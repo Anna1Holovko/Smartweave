@@ -12,9 +12,7 @@
   --accent: #d8f17b;
   --accent-muted: rgba(216, 241, 123, 0.15);
   --accent-glow: rgba(216, 241, 123, 0.25);
-  /* Typography */
-  --font-syne: var(--font-syne), system-ui, sans-serif;
-  --font-manrope: var(--font-manrope), system-ui, sans-serif;
+  /* Typography: --font-syne and --font-manrope are set by next/font on <html>; do not redefine here */
   --font-size: 16px;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
@@ -55,7 +53,7 @@
   html,
   body {
     font-size: var(--font-size);
-    font-family: var(--font-manrope);
+    font-family: var(--font-manrope), system-ui, sans-serif;
     background: var(--bg-graphite);
     color: #e4e4e7;
     margin: 0;
@@ -65,7 +63,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-syne);
+    font-family: var(--font-syne), system-ui, sans-serif;
     font-weight: var(--font-weight-semibold);
     line-height: 1.25;
     letter-spacing: -0.02em;
