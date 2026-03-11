@@ -237,7 +237,6 @@ export function Header() {
 
             {/* CTA */}
             <div className="hidden md:flex items-center gap-4">
-              <Link href="/e-booki" className="text-slate-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-slate-800/50" title="E-booki" aria-label="E-booki"><ShoppingCart className="w-4 h-4" /></Link>
               <Button
                 variant="primary"
                 onClick={(e) =>
@@ -246,6 +245,7 @@ export function Header() {
               >
                 Rozpocznij Projekt
               </Button>
+              <Link href="/e-booki" className="text-slate-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-slate-800/50" title="E-booki" aria-label="E-booki"><ShoppingCart className="w-4 h-4" /></Link>
             </div>
 
             {/* MOBILE BUTTON */}
