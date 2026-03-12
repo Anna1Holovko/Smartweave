@@ -8,7 +8,7 @@ type PageIntroProps = {
   backHref: string;
   backLabel: string;
   badge: string;
-  badgeVariant?: 'cyan' | 'blue' | 'purple';
+  badgeVariant?: 'cyan' | 'blue' | 'purple' | 'accent';
   title: React.ReactNode;
   description: string;
   className?: string;
@@ -18,6 +18,7 @@ const badgeStyles = {
   cyan: 'bg-cyan-500/10 border-cyan-500/30 text-cyan-300',
   blue: 'bg-blue-500/10 border-blue-500/30 text-blue-300',
   purple: 'bg-purple-500/10 border-purple-500/30 text-purple-300',
+  accent: 'bg-[#d8f17b]/10 border-[#d8f17b]/30 text-[#d8f17b]',
 };
 
 export function PageIntro({
@@ -40,7 +41,7 @@ export function PageIntro({
       >
         <Link
           href={backHref}
-          className="inline-flex items-center gap-2 text-slate-400 hover:text-purple-400 transition-colors min-h-[44px] min-w-[44px] items-center justify-center sm:min-h-0 sm:min-w-0 sm:justify-start"
+          className="inline-flex items-center gap-2 text-zinc-400 hover:text-[#d8f17b] transition-colors min-h-[44px] min-w-[44px] items-center justify-center sm:min-h-0 sm:min-w-0 sm:justify-start"
         >
           <ArrowLeft className="w-4 h-4 flex-shrink-0" />
           <span>{backLabel}</span>
@@ -61,7 +62,7 @@ export function PageIntro({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-3 sm:mb-4 lg:mb-6 px-2 sm:px-4 break-words"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-[#e4e4e7] mb-3 sm:mb-4 lg:mb-6 px-2 sm:px-4 break-words"
         >
           {title}
         </motion.h1>
@@ -70,7 +71,7 @@ export function PageIntro({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2"
+          className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto px-2"
         >
           {description}
         </motion.p>

@@ -29,29 +29,28 @@ export function UslugiServiceCards() {
           >
             <Link
               href={`/uslugi/${service.slug}`}
-              className="relative flex flex-col w-full h-full min-h-0 p-8 bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl transition-all duration-300 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(147,51,234,0.2)] overflow-hidden"
+              className="relative flex flex-col w-full h-full min-h-0 p-8 glass-card hover-lift rounded-2xl overflow-hidden"
+              style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
             >
               <div className="flex items-center gap-4 mb-6 flex-shrink-0 min-h-14">
-                <div className={`flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} p-0.5`}>
-                  <div className="w-full h-full bg-slate-900 rounded-xl flex items-center justify-center">
-                    <Icon className="w-7 h-7 text-white" />
-                  </div>
+                <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center">
+                  <Icon className="w-7 h-7 text-[#d8f17b]" />
                 </div>
-                <h2 className="text-xl font-bold text-white flex-1 min-w-0">{service.title}</h2>
-                <div className="flex-shrink-0 w-9 h-9 rounded-lg border border-slate-600/50 bg-slate-800/80 flex items-center justify-center text-slate-400 group-hover:text-purple-400 group-hover:border-purple-500/50 transition-colors" aria-hidden>
+                <h2 className="text-xl font-bold text-[#e4e4e7] flex-1 min-w-0">{service.title}</h2>
+                <div className="flex-shrink-0 w-9 h-9 rounded-lg border border-white/15 bg-white/5 flex items-center justify-center text-zinc-400 group-hover:text-[#d8f17b] group-hover:border-[#d8f17b]/50 transition-colors" aria-hidden>
                   <ArrowUpRight className="w-4 h-4" />
                 </div>
               </div>
-              <p className="text-slate-400 leading-relaxed flex-shrink-0">{service.description}</p>
+              <p className="text-zinc-400 leading-relaxed flex-shrink-0">{service.description}</p>
               <ul className="space-y-3 mt-6 flex-1 min-h-0">
                 {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm text-slate-400">
-                    <Check className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" aria-hidden />
+                  <li key={idx} className="flex items-start gap-3 text-sm text-zinc-400">
+                    <Check className="w-4 h-4 text-[#d8f17b] mt-0.5 flex-shrink-0" aria-hidden />
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
-              <div className={`absolute bottom-0 left-0 right-0 h-1 w-0 bg-gradient-to-r ${service.gradient} group-hover:w-full transition-all duration-500 rounded-b-2xl`} />
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 w-0 bg-[#d8f17b] group-hover:w-full transition-all duration-500 rounded-b-2xl" />
             </Link>
           </motion.div>
         );

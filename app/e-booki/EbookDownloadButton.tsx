@@ -50,7 +50,7 @@ export function EbookDownloadButton({ book }: Props) {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 text-white cta-gradient-animated hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]"
+          className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 cta-gradient-animated"
         >
           <ShoppingCart className="w-4 h-4" aria-hidden />
           Dodaj do koszyka
@@ -63,24 +63,25 @@ export function EbookDownloadButton({ book }: Props) {
             onClick={() => { setOpen(false); setError(''); setPassword(''); }}
           >
             <div
-              className="relative w-full max-w-sm rounded-2xl bg-slate-900 border border-slate-700/60 shadow-xl p-6"
+              className="relative w-full max-w-sm rounded-2xl glass-card shadow-xl p-6"
+              style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 type="button"
                 onClick={() => { setOpen(false); setError(''); setPassword(''); }}
-                className="absolute top-4 right-4 p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50"
+                className="absolute top-4 right-4 p-1 rounded-lg text-zinc-400 hover:text-[#d8f17b] hover:bg-white/5"
                 aria-label="Zamknij"
               >
                 <X className="w-5 h-5" />
               </button>
               <div className="flex items-center gap-2 mb-4">
-                <Lock className="w-5 h-5 text-purple-400" aria-hidden />
-                <h3 className="text-lg font-semibold text-white">Pobierz e-book</h3>
+                <Lock className="w-5 h-5 text-[#d8f17b]" aria-hidden />
+                <h3 className="text-lg font-semibold text-[#e4e4e7]">Pobierz e-book</h3>
               </div>
-              <p className="text-slate-400 text-sm mb-4">{book.title}</p>
+              <p className="text-zinc-400 text-sm mb-4">{book.title}</p>
               <form onSubmit={handleSubmit}>
-                <label htmlFor="ebook-password" className="block text-sm font-medium text-slate-300 mb-2">
+                <label htmlFor="ebook-password" className="block text-sm font-medium text-zinc-300 mb-2">
                   Hasło
                 </label>
                 <input
@@ -89,7 +90,7 @@ export function EbookDownloadButton({ book }: Props) {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Wprowadź hasło"
-                  className="w-full rounded-lg border border-slate-600 bg-slate-800/80 px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-[#e4e4e7] placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-[#d8f17b]/50"
                   autoComplete="current-password"
                   disabled={loading}
                 />
@@ -99,7 +100,7 @@ export function EbookDownloadButton({ book }: Props) {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-full font-semibold py-3 px-4 text-white bg-purple-600 hover:bg-purple-500 disabled:opacity-50 disabled:pointer-events-none"
+                  className="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-full font-semibold py-3 px-4 cta-gradient-animated disabled:opacity-50 disabled:pointer-events-none"
                 >
                   {loading ? 'Pobieranie…' : 'Pobierz'}
                 </button>
@@ -118,7 +119,7 @@ export function EbookDownloadButton({ book }: Props) {
         download
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 text-white cta-gradient-animated hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]"
+        className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 cta-gradient-animated"
       >
         <ShoppingCart className="w-4 h-4" aria-hidden />
         Dodaj do koszyka
@@ -131,7 +132,7 @@ export function EbookDownloadButton({ book }: Props) {
       href={book.buyUrl}
       target={book.buyUrl.startsWith('http') ? '_blank' : undefined}
       rel={book.buyUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
-      className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 text-white cta-gradient-animated hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]"
+      className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 cta-gradient-animated"
     >
       <ShoppingCart className="w-4 h-4" aria-hidden />
       Kup e-book
