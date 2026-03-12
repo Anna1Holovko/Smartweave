@@ -22,7 +22,7 @@ export function AiAnimationSection() {
     const interval = setInterval(() => {
       const card = cards[Math.floor(Math.random() * cards.length)];
       if (card) {
-        card.style.boxShadow = '0 8px 28px rgba(0,0,0,0.2), 0 0 24px rgba(34,211,238,0.4)';
+        card.style.boxShadow = '0 8px 28px rgba(0,0,0,0.2), 0 0 24px rgba(216,241,123,0.4)';
         setTimeout(() => {
           card.style.boxShadow = '';
         }, 1200);
@@ -42,9 +42,9 @@ export function AiAnimationSection() {
       >
         <defs>
           <linearGradient id="aiLineGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#67e8f9" />
-            <stop offset="50%" stopColor="#22d3ee" />
-            <stop offset="100%" stopColor="#06b6d4" />
+            <stop offset="0%" stopColor="rgba(216,241,123,0.5)" />
+            <stop offset="50%" stopColor="#d8f17b" />
+            <stop offset="100%" stopColor="rgba(216,241,123,0.5)" />
           </linearGradient>
         </defs>
         {/* Outer outline (reference diagram style) */}

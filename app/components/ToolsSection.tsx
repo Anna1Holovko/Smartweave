@@ -27,6 +27,7 @@ const tools = [
 export function ToolsSection() {
   return (
     <section id="tools" aria-labelledby="tools-heading" className="relative py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-hidden">
+      <div className="absolute inset-0 bg-[var(--bg-graphite)]" />
       <div className="relative z-10 max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <motion.div

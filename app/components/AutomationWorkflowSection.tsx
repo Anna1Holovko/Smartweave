@@ -117,7 +117,7 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
             <g key={i}>
               <path
                 d={path}
-                stroke={embedded ? 'rgba(203,213,225,0.4)' : '#e2e8f0'}
+                stroke={embedded ? 'rgba(216,241,123,0.35)' : 'rgba(255,255,255,0.15)'}
                 strokeWidth="2"
                 strokeDasharray="6 10"
                 fill="none"
@@ -158,12 +158,10 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
   }
 
   return (
-    <section
-      className="relative overflow-hidden py-20"
-      style={{ backgroundColor: '#FAFAFA' }}
-    >
-      <div className="max-w-[1400px] mx-auto px-6">
-        <h2 className="text-3xl font-semibold text-gray-900 mb-16">
+    <section className="relative overflow-hidden py-20">
+      <div className="absolute inset-0 bg-[var(--bg-graphite)]" />
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6">
+        <h2 className="text-3xl font-semibold text-[#e4e4e7] mb-16">
           Automatyzacja procesów biznesowych z wykorzystaniem AI
         </h2>
 
@@ -238,11 +236,11 @@ function FlowDot({
   return (
     <motion.circle
       r="4"
-      fill="#6366f1"
+      fill="#d8f17b"
       cx={x}
       cy={y}
       filter={`url(#${filterId})`}
-      className="drop-shadow-[0_0_6px_rgba(99,102,241,0.5)]"
+      className="drop-shadow-[0_0_6px_rgba(216,241,123,0.5)]"
     />
   );
 }

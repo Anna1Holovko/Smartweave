@@ -263,7 +263,7 @@ export function Header() {
       {/* MOBILE MENU */}
       {mobileMenuOpen && (
         <div className="fixed top-[64px] left-0 right-0 z-40 md:hidden">
-          <div className="mx-4 mt-2 p-6 glass-card">
+          <div className="mx-4 mt-2 p-6 rounded-2xl border border-white/10" style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}>
             <nav className="flex flex-col gap-4">
               <div>
                 <span className="block text-zinc-500 text-sm font-medium py-2 px-4">Usługi</span>
