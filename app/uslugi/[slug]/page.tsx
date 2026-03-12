@@ -7,12 +7,15 @@ import { Footer } from '@/app/components/Footer';
 import { ScrollToTop } from '@/app/components/ScrollToTop';
 import { MotionFadeIn } from '@/app/components/MotionFadeIn';
 import { SERVICES, getServiceBySlug, SERVICE_SLUGS } from '@/lib/services';
+import type { ServiceSlug } from '@/lib/services';
 import { SERVICE_PAGE_CONTENT } from '@/lib/service-page-content';
+import { USLUGI_PAGE_CONTENT } from '@/lib/uslugi-page-content';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS } from '@/lib/layout';
 import { ArrowLeft, Check, ExternalLink } from 'lucide-react';
 import { UslugiConsultationBlock } from '@/app/components/UslugiConsultationBlock';
 import { AutomationWorkflowSection } from '@/app/components/AutomationWorkflowSection';
+import { ServiceProblemCards } from '@/app/components/ServiceProblemCards';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 
 /** Page/SEO titles - aligned with search phrases (projektowanie stron www dla firm, automatyzacja procesów AI, strony pod leada B2B) */
@@ -90,12 +93,17 @@ export default async function UslugiSlugPage({
               </p>
             </MotionFadeIn>
 
+            {/* Problem cards grid – home-style 2x3 like PainPointsSection */}
+            <MotionFadeIn delay={0.12}>
+              <ServiceProblemCards
+                problems={USLUGI_PAGE_CONTENT[slug as ServiceSlug].problems}
+                slug={slug as ServiceSlug}
+                heading={pageContent?.problemHeading ?? 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?'}
+              />
+            </MotionFadeIn>
+
             {pageContent && (
               <>
-                <MotionFadeIn delay={0.15} className="mb-10 sm:mb-12 lg:mb-14">
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">{pageContent.problemHeading ?? 'Z jakim problemem wychodzimy?'}</h2>
-                  <p className="text-zinc-400 leading-relaxed max-w-[80ch]">{pageContent.problem}</p>
-                </MotionFadeIn>
                 <MotionFadeIn delay={0.2} className="mb-10 sm:mb-12 lg:mb-14">
                   <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Nasze podejście do rozwiązania</h2>
                   <div className="text-zinc-400 leading-relaxed max-w-[80ch] space-y-4">
