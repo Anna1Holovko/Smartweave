@@ -27,14 +27,6 @@ export const PORTFOLIO_ITEMS = [
     link: 'https://maisonbakery.figma.site',
   },
   {
-    title: 'Bagiety',
-    category: 'Design',
-    description: 'Kreatywna strona z interaktywnymi elementami oraz świeżym podejściem do brandu',
-    image: '/assets/bagiety-cover.png',
-    gradient: 'from-blue-500 to-cyan-500',
-    link: 'https://bagiety.figma.site',
-  },
-   {
     title: 'DentalMint',
     category: 'Design',
     description: 'Nowoczesna strona brandowa z unikalnym designem, premium animacjami i UX',
@@ -49,13 +41,5 @@ export const PORTFOLIO_ITEMS = [
     image: '/assets/aiyo-cover.png',
     gradient: 'from-cyan-500 to-blue-500',
     link: 'https://aiyo.figma.site/',
-  },
-  {
-    title: 'E-booki',
-    category: 'E-booki',
-    description: 'Sklep z e-bookami SmartWeave - publikacje dla firm: lead magnet, edukacja, autorytet',
-    image: '/assets/aiyo-cover.png',
-    gradient: 'from-amber-500 to-orange-500',
-    link: '/e-booki',
   },
 ] as const;
