@@ -4,9 +4,13 @@
 
 /* ─── AI Minimal Design System ─── */
 :root {
-  /* Graphite dark background (charcoal + subtle noise in body::before) */
-  --bg-graphite: #1a1a1a;
-  --bg-graphite-elevated: #1f1f1f;
+  /* Pure near-black neutral dark (no green tint) */
+  --bg: #0e0e0e;
+  --bg-2: #141414;
+  --bg-3: #1a1a1a;
+  /* Aliases for compatibility */
+  --bg-graphite: var(--bg);
+  --bg-graphite-elevated: var(--bg-2);
   --bg-graphite-card: rgba(26, 26, 26, 0.6);
   /* Main accent */
   --accent: #d8f17b;
@@ -267,13 +271,13 @@
     transform: translateY(-1px);
   }
 
-  /* Seamless gradient to footer (graphite) */
+  /* Seamless gradient to footer */
   .gradient-philosophy-to-footer {
     background: linear-gradient(
       to bottom,
-      var(--bg-graphite) 0%,
-      #0a0a0c 50%,
-      var(--bg-graphite) 100%
+      var(--bg) 0%,
+      var(--bg-2) 50%,
+      var(--bg) 100%
     );
   }
 
