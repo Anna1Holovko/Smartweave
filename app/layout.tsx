@@ -1,7 +1,19 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
+import { Syne, Manrope } from 'next/font/google';
 import './globals.css';
 import { ClientLayout } from './ClientLayout';
+
+const syne = Syne({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-syne',
+  display: 'swap',
+});
+const manrope = Manrope({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-manrope',
+  display: 'swap',
+});
 import {
   SITE_URL,
   SITE_NAME,
@@ -54,15 +66,15 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
 
-  // ✅ GOOGLE-FRIENDLY FAVICON SETUP
+  // ✅ GOOGLE-FRIENDLY FAVICON SETUP (redesign: W + sparkle icon)
   icons: {
     icon: [
-      { url: '/favicon.png?v=2', type: 'image/png', sizes: 'any' },
-      { url: '/favicon.ico?v=2', type: 'image/x-icon' },
-      { url: '/assets/smartweave-logo.png', type: 'image/png', sizes: '512x512' },
+      { url: '/favicon.png?v=3', type: 'image/png', sizes: 'any' },
+      { url: '/favicon.ico?v=3', type: 'image/x-icon' },
+      { url: '/assets/smartweave-logo-ai.png', type: 'image/png', sizes: '512x512' },
     ],
-    shortcut: '/favicon.ico?v=2',
-    apple: '/apple-touch-icon.png?v=2',
+    shortcut: '/favicon.ico?v=3',
+    apple: '/apple-touch-icon.png?v=3',
   },
 
   openGraph: {
@@ -102,7 +114,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0f172a',
+  themeColor: '#0d0d0f',
 };
 
 /* ============================= */
@@ -217,8 +229,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pl">
-      <body className="bg-slate-950 text-white antialiased">
+    <html lang="pl" className={`${syne.variable} ${manrope.variable}`}>
+      <body className="min-h-screen bg-[var(--bg-graphite)] text-[#e4e4e7] antialiased">
         <Script
           id="Cookiebot"
           src="https://consent.cookiebot.com/uc.js"

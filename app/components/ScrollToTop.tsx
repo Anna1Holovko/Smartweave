@@ -27,10 +27,9 @@ export function ScrollToTop() {
           aria-label="Scroll to top"
         >
           <div className="relative">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-slate-900/80 backdrop-blur-xl border border-purple-500/50 flex items-center justify-center transition-all duration-300 hover:border-purple-400 hover:shadow-[0_0_30px_rgba(147,51,234,0.5)] group-hover:scale-110">
-              <ArrowUp className="w-5 h-5 sm:w-6 sm:h-6 text-purple-400 group-hover:text-purple-300 transition-colors" />
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full glass-card border border-[#d8f17b]/30 flex items-center justify-center transition-all duration-300 hover:border-[#d8f17b]/60 hover:shadow-[0_0_30px_rgba(216,241,123,0.25)] group-hover:scale-110">
+              <ArrowUp className="w-5 h-5 sm:w-6 sm:h-6 text-[#d8f17b] transition-colors" />
             </div>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
           </div>
         </motion.button>
       )}

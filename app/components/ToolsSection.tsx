@@ -34,9 +34,9 @@ export function ToolsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-block mb-4 px-3 py-1.5 sm:px-4 sm:py-2 bg-purple-500/10 border border-purple-500/30 rounded-full"
+            className="inline-block mb-4 px-3 py-1.5 sm:px-4 sm:py-2 bg-[#d8f17b]/10 border border-[#d8f17b]/30 rounded-full"
           >
-            <span className="text-purple-300 text-xs sm:text-sm font-medium uppercase tracking-wider">
+            <span className="text-[#d8f17b] text-xs sm:text-sm font-medium uppercase tracking-wider">
               Nasze Narzędzia
             </span>
           </motion.div>
@@ -46,10 +46,10 @@ export function ToolsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 px-4"
+            className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#e4e4e7] mb-4 sm:mb-6 px-4"
           >
             Używamy narzędzi,{' '}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="text-[#d8f17b]">
               które działają
             </span>
           </motion.h2>
@@ -58,15 +58,15 @@ export function ToolsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2 mb-12"
+            className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto px-2 mb-12"
           >
             Sprawdzone aplikacje i integracje. Ty dostajesz gotowy efekt - bez stresu
           </motion.p>
         </div>
 
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-[var(--bg-graphite)] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-[var(--bg-graphite)] to-transparent z-10 pointer-events-none" />
           <div className="flex overflow-hidden py-8">
             <motion.div
               animate={{ x: ['0%', '-25%'] }}
@@ -90,7 +90,7 @@ export function ToolsSection() {
                       className="opacity-80 group-hover:opacity-100 transition-all duration-300 grayscale group-hover:grayscale-0 object-contain p-1"
                     />
                   </div>
-                  <span className="text-slate-400 group-hover:text-white font-medium text-sm sm:text-base whitespace-nowrap transition-colors duration-300">
+                  <span className="text-zinc-400 group-hover:text-[#d8f17b] font-medium text-sm sm:text-base whitespace-nowrap transition-colors duration-300">
                     {tool.name}
                   </span>
                 </div>

@@ -29,18 +29,15 @@ function PainPointCard({
       whileHover={{ y: -8 }}
       className="group relative"
     >
-      <div className="relative h-full p-8 bg-slate-900/40 backdrop-blur-xl border border-slate-700/50 rounded-2xl overflow-hidden transition-all duration-300 group-hover:border-purple-500/50 group-hover:shadow-[0_0_40px_rgba(147,51,234,0.2)]">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="glass-card hover-lift relative h-full p-8 rounded-2xl overflow-hidden" style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}>
         <div className="relative flex items-center gap-4 mb-6">
-          <div className={`flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br ${point.gradient} p-0.5`}>
-            <div className="w-full h-full bg-slate-900 rounded-xl flex items-center justify-center">
-              <Icon className="w-7 h-7 text-white" />
-            </div>
+          <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center">
+            <Icon className="w-7 h-7 text-[#d8f17b]" />
           </div>
-          <h3 className="text-xl font-bold text-white">{point.title}</h3>
+          <h3 className="text-xl font-bold text-[#e4e4e7]">{point.title}</h3>
         </div>
-        <p className="relative text-slate-400 leading-relaxed">{point.description}</p>
-        <div className={`absolute bottom-0 left-0 right-0 h-1 w-0 bg-gradient-to-r ${point.gradient} group-hover:w-full transition-all duration-500 rounded-b-2xl`} />
+        <p className="relative text-zinc-400 leading-relaxed">{point.description}</p>
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 w-0 bg-[#d8f17b] group-hover:w-full transition-all duration-500 rounded-b-2xl" />
       </div>
     </motion.div>
   );
@@ -49,17 +46,16 @@ function PainPointCard({
 export function PainPointsSection() {
   return (
     <section id="problems" aria-labelledby="pain-points-heading" className="relative py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950" />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] sm:w-[800px] sm:h-[800px] bg-red-500/10 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-[var(--bg-graphite)]" />
       <div className="relative z-10 max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="inline-block mb-4 px-3 py-1.5 sm:px-4 sm:py-2 bg-red-500/10 border border-red-500/30 rounded-full">
-            <span className="text-red-300 text-xs sm:text-sm font-medium uppercase tracking-wider">Co czujesz?</span>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="inline-block mb-4 px-3 py-1.5 sm:px-4 sm:py-2 bg-[#d8f17b]/10 border border-[#d8f17b]/30 rounded-full">
+            <span className="text-[#d8f17b] text-xs sm:text-sm font-medium uppercase tracking-wider">Co czujesz?</span>
           </motion.div>
-          <motion.h2 id="pain-points-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 px-4">
-            Znamy to <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">uczucie...</span>
+          <motion.h2 id="pain-points-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#e4e4e7] mb-4 sm:mb-6 px-4">
+            Znamy to <span className="text-[#d8f17b]">uczucie...</span>
           </motion.h2>
-          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-slate-400 max-w-[80ch] mx-auto px-2">
+          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto px-2">
             Te same zadania, chaos i stres. Samodzielnie trudno to uporządkować - pomożemy
           </motion.p>
         </div>

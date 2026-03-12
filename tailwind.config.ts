@@ -17,12 +17,22 @@ const config: Config = {
       '3xl': '1920px',
     },
     extend: {
-      boxShadow: {
-        soft: '0 10px 30px rgba(0,0,0,0.06)',
+      fontFamily: {
+        syne: ['var(--font-syne)', 'system-ui', 'sans-serif'],
+        manrope: ['var(--font-manrope)', 'system-ui', 'sans-serif'],
       },
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        accent: '#d8f17b',
+        'graphite': {
+          DEFAULT: '#0d0d0f',
+          elevated: '#141416',
+        },
+      },
+      boxShadow: {
+        soft: '0 10px 30px rgba(0,0,0,0.06)',
+        'accent-glow': '0 0 40px rgba(216, 241, 123, 0.2)',
       },
       maxWidth: {
         '8xl': '88rem',
