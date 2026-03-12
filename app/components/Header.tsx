@@ -13,6 +13,7 @@ const LOGO = '/assets/smartweave-logo-ai.png';
 
 const USLUGI_DROPDOWN_NAMES: Record<(typeof USLUGI_DISPLAY_ORDER)[number], string> = {
   automatyzacja: 'Automatyzacja procesów biznesowych',
+  'agenci-ai': 'Agenci AI',
   strony: 'Strony internetowe',
   branding: 'Logo i identyfikacja wizualna',
 };
