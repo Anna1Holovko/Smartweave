@@ -129,6 +129,7 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
   },
 
   'agenci-ai': {
+    problemHeading: 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?',
     problem:
       'Rutynowe zapytania, powtarzalna analiza dokumentów i ręczna kwalifikacja leadów pochłaniają czas zespołu. Tam, gdzie można wspomóc ludzi „rozumieniem” treści i szybką odpowiedzią, wchodzą agenci AI - asystenci, którzy wykonują zdefiniowane zadania 24/7 i przekazują sprawy ludziom tam, gdzie potrzebna jest decyzja lub relacja.',
     solution:

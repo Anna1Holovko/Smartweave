@@ -71,15 +71,37 @@ export const SERVICES = [
     ],
     gradient: 'from-purple-500 to-pink-500',
   },
+  {
+    number: '04',
+    slug: 'agenci-ai',
+    title: 'Agenci AI',
+    cardDescription: 'Asystenci AI, którzy odciążają zespół od powtarzalnych zadań i wspierają obsługę klienta',
+    cardPoints: [
+      'Odpowiedzi na zapytania i kwalifikacja leadów - pierwsza reakcja 24/7',
+      'Analiza dokumentów i ekstrakcja danych - bez ręcznego przetwarzania',
+      'Integracje z CRM, mailem i systemami - spójny przepływ informacji',
+    ],
+    description:
+      'Agenci AI wykonują zdefiniowane zadania 24/7 i przekazują sprawy ludziom tam, gdzie potrzebna jest decyzja lub relacja. Nie zastępują ludzi – odciążają od powtarzalnych zadań.',
+    features: [
+      'Odpowiedzi na zapytania klientów i pierwsza reakcja na leady',
+      'Kwalifikacja leadów i przekierowanie do odpowiednich osób',
+      'Analiza dokumentów i ekstrakcja danych',
+      'Bazy wiedzy i scenariusze dopasowane do Twoich procesów',
+      'Integracje z CRM, mailem i innymi systemami',
+      'Monitorowanie jakości i rozwój zakresu w miarę potrzeb',
+    ],
+    gradient: 'from-amber-500 to-orange-500',
+  },
 ] as const;
 
 export type ServiceItem = (typeof SERVICES)[number];
 
-export const SERVICE_SLUGS = ['strony', 'branding', 'automatyzacja'] as const;
+export const SERVICE_SLUGS = ['strony', 'branding', 'automatyzacja', 'agenci-ai'] as const;
 export type ServiceSlug = (typeof SERVICE_SLUGS)[number];
 
 /** Order used in Header dropdown and /uslugi. Home section uses first 3. */
-export const USLUGI_DISPLAY_ORDER = ['automatyzacja', 'strony', 'branding'] as const;
+export const USLUGI_DISPLAY_ORDER = ['automatyzacja', 'agenci-ai', 'strony', 'branding'] as const;
 
 export function getServiceBySlug(slug: string): (typeof SERVICES)[number] | undefined {
   return SERVICES.find((s) => s.slug === slug);

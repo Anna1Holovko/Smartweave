@@ -2,15 +2,16 @@
 
 import { motion } from 'motion/react';
 import Link from 'next/link';
-import { Globe, Workflow, Palette, ArrowRight, Check } from 'lucide-react';
+import { Globe, Workflow, Palette, Bot, ArrowRight, Check } from 'lucide-react';
 import { SERVICES, USLUGI_DISPLAY_ORDER, type ServiceItem } from '@/lib/services';
 
-/** Home: first 3 from dropdown order - Automatyzacja i agenci AI, Strony, Branding */
+/** Home: first 3 from dropdown order - Automatyzacja, Agenci AI, Strony */
 const HOME_SERVICES_ORDER = USLUGI_DISPLAY_ORDER.slice(0, 3);
 const SERVICE_ICONS: Record<string, typeof Globe> = {
   strony: Globe,
   branding: Palette,
   automatyzacja: Workflow,
+  'agenci-ai': Bot,
 };
 
 export function ServicesSection() {

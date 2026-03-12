@@ -20,6 +20,7 @@ const SLUG_TITLES: Record<string, string> = {
   strony: 'Projektowanie stron www dla firm',
   branding: 'Identyfikacja wizualna i branding',
   automatyzacja: 'Automatyzacja procesów biznesowych z wykorzystaniem AI',
+  'agenci-ai': 'Agenci AI',
 };
 
 export async function generateStaticParams() {

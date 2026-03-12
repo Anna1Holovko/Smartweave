@@ -42,6 +42,17 @@ export const USLUGI_PAGE_CONTENT: Record<ServiceSlug, UslugiPageContent> = {
     benefits: 'Mniej błędów, szybsze reakcje i oszczędność czasu. Zespół zajmuje się rozwojem i klientami zamiast powtarzalnymi zadaniami, a firma lepiej skaluje się bez proporcjonalnego wzrostu zatrudnienia.',
     process: 'Rozpoczynamy od mapowania procesów i ustalenia priorytetów. Następnie projektujemy i wdrażamy pierwszy scenariusz (np. synchronizacja danych, raporty, chatbot). Po testach rozwijamy kolejne automatyzacje i uczymy zespół korzystania z narzędzi.',
   },
+  'agenci-ai': {
+    problems: [
+      { title: 'Rutynowe zapytania i ręczna kwalifikacja leadów', description: 'Zespół traci czas na powtarzalne odpowiedzi i wstępną analizę - tam, gdzie można wspomóc ludzi „rozumieniem” treści, wchodzą agenci AI.' },
+      { title: 'Analiza dokumentów i ekstrakcja danych', description: 'Ręczne przetwarzanie dokumentów zabiera godziny i generuje ryzyko błędów.' },
+      { title: 'Presja na szybką reakcję 24/7', description: 'Klienci oczekują natychmiastowej odpowiedzi - trudno obsłużyć wszystko bez wsparcia AI.' },
+      { title: 'Chęć skalowania obsługi bez wzrostu zatrudnienia', description: 'Potrzeba obsłużyć więcej zapytań i leadów bez proporcjonalnego zwiększania zespołu.' },
+    ],
+    approach: 'Agenci AI to systemy oparte na modelach językowych i automatyzacji: odpowiadają na pytania, klasyfikują dokumenty, wspierają sprzedaż i obsługę klienta. Nie zastępują ludzi - odciążają od powtarzalnych zadań i błędów, dając czas na rozwój i budowanie relacji. Wdrażamy rozwiązania dopasowane do Twoich procesów i danych.',
+    benefits: 'Szybsza reakcja na zapytania klientów - pierwsza odpowiedź lub kwalifikacja bez oczekiwania. Oszczędność czasu na analizie dokumentów i ekstrakcji danych. Lepsze wykorzystanie leadów dzięki automatycznej kwalifikacji i przekierowaniu. Skalowalność obsługi bez proporcjonalnego wzrostu zatrudnienia.',
+    process: 'Określamy zakres i procesy, w których AI przyniesie największą wartość. Projektujemy scenariusze, bazy wiedzy i integracje z CRM, mailem lub innymi systemami. Budujemy agenta, testujemy na rzeczywistych przypadkach i dopracowujemy odpowiedzi oraz wyjątki. Uruchamiamy na produkcji, monitorujemy jakość i rozszerzamy zakres w miarę potrzeb.',
+  },
 };
 
 /** Generic content for main /uslugi listing (no single service context) */
