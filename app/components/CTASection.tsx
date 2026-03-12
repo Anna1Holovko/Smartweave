@@ -87,7 +87,7 @@ export function CTASection() {
           </div>
 
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} className="relative">
-            <div className="glass-card relative overflow-hidden rounded-3xl p-8">
+            <div className="glass-card relative overflow-hidden rounded-3xl p-8" style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}>
               <form onSubmit={handleSubmit} className="relative space-y-6" aria-label="Formularz kontaktowy SmartWeave">
                 <div className="absolute -left-[9999px] opacity-0 pointer-events-none h-0 overflow-hidden" aria-hidden="true">
                   <label htmlFor="website">Nie wypełniaj</label>

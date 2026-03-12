@@ -74,6 +74,7 @@ export function BlogSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group relative flex flex-col rounded-2xl glass-card hover-lift overflow-hidden"
+              style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
             >
               <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/5">

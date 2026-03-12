@@ -70,7 +70,7 @@ export function PortfolioSection() {
                 className="group relative flex-shrink-0 w-[85vw] sm:w-[calc(50%-1rem)] lg:w-[calc((100%-4rem)/3)] min-w-[280px] sm:min-w-[320px]"
               >
                 <a href={item.link} target="_blank" rel="noopener noreferrer" className="block h-full" title={`Zobacz realizację: ${item.title}`}>
-                  <div className="glass-card hover-lift relative overflow-hidden rounded-2xl flex flex-col h-full">
+                  <div className="glass-card hover-lift relative overflow-hidden rounded-2xl flex flex-col h-full" style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}>
                     <div className="relative flex-1 min-h-[200px] sm:min-h-[240px] p-3 sm:p-4">
                       <div className="relative w-full h-full min-h-[180px] sm:min-h-[220px] rounded-lg overflow-hidden bg-white/5 border border-white/10 shadow-inner">
                         <Image src={item.image} alt={item.title} fill className="object-cover" sizes="(max-width: 640px) 85vw, 50vw" />

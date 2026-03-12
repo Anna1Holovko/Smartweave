@@ -51,7 +51,7 @@ export function ServicesSection() {
                 transition={{ duration: 0.5, delay: index * 0.15 }}
                 className="relative group flex"
               >
-                <div className="glass-card hover-lift relative flex flex-col w-full h-full min-h-0 p-8 rounded-2xl overflow-hidden">
+                <div className="glass-card hover-lift relative flex flex-col w-full h-full min-h-0 p-8 rounded-2xl overflow-hidden" style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}>
                   <div className="flex items-center gap-4 mb-4 flex-shrink-0 min-h-14">
                     <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center">
                       <Icon className="w-7 h-7 text-[#d8f17b]" />

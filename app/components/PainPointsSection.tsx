@@ -29,7 +29,7 @@ function PainPointCard({
       whileHover={{ y: -8 }}
       className="group relative"
     >
-      <div className="glass-card hover-lift relative h-full p-8 rounded-2xl overflow-hidden">
+      <div className="glass-card hover-lift relative h-full p-8 rounded-2xl overflow-hidden" style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}>
         <div className="relative flex items-center gap-4 mb-6">
           <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center">
             <Icon className="w-7 h-7 text-[#d8f17b]" />

@@ -51,7 +51,7 @@ export function AutomationDetails() {
                       <>
                         <div className="flex justify-end">
                           <div className="relative group max-w-md w-full transition-transform duration-300 hover:-translate-y-2">
-                            <div className="glass-card hover-lift relative p-6 rounded-2xl overflow-hidden">
+                            <div className="glass-card hover-lift relative p-6 rounded-2xl overflow-hidden" style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}>
                               <div className="flex items-center gap-4 mb-4">
                                 <div className="w-12 h-12 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center flex-shrink-0">
                                   <Icon className="w-6 h-6 text-[#d8f17b]" />
@@ -84,7 +84,7 @@ export function AutomationDetails() {
                         </div>
                         <div className="flex justify-start">
                           <div className="relative group max-w-md w-full transition-transform duration-300 hover:-translate-y-2">
-                            <div className="glass-card hover-lift relative p-6 rounded-2xl overflow-hidden">
+                            <div className="glass-card hover-lift relative p-6 rounded-2xl overflow-hidden" style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}>
                               <div className="flex items-center gap-4 mb-4">
                                 <div className="w-12 h-12 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center flex-shrink-0">
                                   <Icon className="w-6 h-6 text-[#d8f17b]" />
@@ -101,7 +101,7 @@ export function AutomationDetails() {
                   </div>
 
                   <div className="lg:hidden relative group transition-transform duration-300 hover:-translate-y-2">
-                    <div className="glass-card hover-lift relative p-6 rounded-2xl overflow-hidden">
+                    <div className="glass-card hover-lift relative p-6 rounded-2xl overflow-hidden" style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}>
                       <div className="absolute -top-3 -left-3">
                         <div className="w-12 h-12 rounded-full bg-[#d8f17b]/20 border border-[#d8f17b]/40 flex items-center justify-center">
                           <span className="text-[#d8f17b] font-bold text-sm">{step.number}</span>

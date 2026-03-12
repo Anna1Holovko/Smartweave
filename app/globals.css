@@ -137,12 +137,12 @@
     overflow: visible;
   }
 
-  /* Glassmorphism card */
+  /* Glassmorphism card – same background design as header (graphite-card + blur) */
   .glass-card {
     background: var(--bg-graphite-card);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-xl);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
