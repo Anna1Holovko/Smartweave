@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Header } from '@/app/components/Header';
 import { Footer } from '@/app/components/Footer';
@@ -12,10 +11,16 @@ import { SERVICE_PAGE_CONTENT } from '@/lib/service-page-content';
 import { USLUGI_PAGE_CONTENT } from '@/lib/uslugi-page-content';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS } from '@/lib/layout';
-import { ArrowLeft, Check, ExternalLink } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { UslugiConsultationBlock } from '@/app/components/UslugiConsultationBlock';
 import { AutomationWorkflowSection } from '@/app/components/AutomationWorkflowSection';
+import { AiAnimationSection } from '@/app/components/AiAnimationSection';
 import { ServiceProblemCards } from '@/app/components/ServiceProblemCards';
+import { ServiceSolutionBlock } from '@/app/components/ServiceSolutionBlock';
+import { ServiceFeaturesList } from '@/app/components/ServiceFeaturesList';
+import { ServiceBenefitsList } from '@/app/components/ServiceBenefitsList';
+import { ServiceProcessSteps } from '@/app/components/ServiceProcessSteps';
+import { ServiceRealizacjeGrid } from '@/app/components/ServiceRealizacjeGrid';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 
 /** Page/SEO titles - aligned with search phrases (projektowanie stron www dla firm, automatyzacja procesów AI, strony pod leada B2B) */
@@ -106,36 +111,30 @@ export default async function UslugiSlugPage({
               <>
                 <MotionFadeIn delay={0.2} className="mb-10 sm:mb-12 lg:mb-14">
                   <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Nasze podejście do rozwiązania</h2>
-                  <div className="text-zinc-400 leading-relaxed max-w-[80ch] space-y-4">
-                    {pageContent.solution.split(/\n\n+/).map((paragraph, i) => (
-                      <p key={i}>{paragraph}</p>
-                    ))}
-                  </div>
+                  <ServiceSolutionBlock solution={pageContent.solution} />
                 </MotionFadeIn>
               </>
             )}
 
-            <div className={`grid gap-8 lg:gap-12 xl:gap-16 items-start ${slug === 'automatyzacja' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
-              <div className={slug === 'automatyzacja' ? 'order-2 lg:order-1 space-y-6 lg:space-y-8' : 'space-y-6 lg:space-y-8'}>
+            <div className={`grid gap-8 lg:gap-12 xl:gap-16 items-start ${slug === 'automatyzacja' || slug === 'agenci-ai' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
+              <div className={slug === 'automatyzacja' || slug === 'agenci-ai' ? 'order-2 lg:order-1 space-y-6 lg:space-y-8' : 'space-y-6 lg:space-y-8'}>
                 <MotionFadeIn delay={0.2}>
                   <div className="relative p-8 md:p-10 bg-transparent">
                     <h2 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-6">{slug === 'automatyzacja' || slug === 'branding' ? 'Co możemy zautomatyzować w Twojej firmie' : 'Co wdrażamy'}</h2>
-                    <ul className="space-y-4 text-zinc-400">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-3 text-sm sm:text-base">
-                          <Check className="w-5 h-5 text-[#d8f17b] mt-0.5 flex-shrink-0" aria-hidden />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <ServiceFeaturesList features={service.features} />
                   </div>
                 </MotionFadeIn>
               </div>
 
-              {/* Right: AI animation only on Automatyzacja procesów i agenci AI */}
+              {/* Right: workflow diagram on Automatyzacja, AI animation on Agenci AI */}
               {slug === 'automatyzacja' && (
                 <MotionFadeIn delay={0.15} className="order-1 lg:order-2 w-full lg:sticky lg:top-24 hidden lg:block cursor-auto">
                   <AutomationWorkflowSection embedded />
+                </MotionFadeIn>
+              )}
+              {slug === 'agenci-ai' && (
+                <MotionFadeIn delay={0.15} className="order-1 lg:order-2 w-full lg:sticky lg:top-24 hidden lg:block cursor-auto">
+                  <AiAnimationSection />
                 </MotionFadeIn>
               )}
             </div>
@@ -144,32 +143,11 @@ export default async function UslugiSlugPage({
               <>
                 <MotionFadeIn delay={0.25} className="mt-12 sm:mt-16 lg:mt-20 mb-10 sm:mb-12 lg:mb-14">
                   <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-6">Korzyści dla Twojej firmy</h2>
-                  <ul className="space-y-3 text-zinc-400 max-w-[80ch]">
-                    {pageContent.benefits.map((benefit, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-sm sm:text-base">
-                        <Check className="w-5 h-5 text-[#d8f17b] mt-0.5 flex-shrink-0" aria-hidden />
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <ServiceBenefitsList benefits={pageContent.benefits} />
                 </MotionFadeIn>
                 <MotionFadeIn delay={0.3} className="mb-10 sm:mb-12 lg:mb-14">
                   <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-6">Jak wygląda proces współpracy</h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                    {pageContent.process.map((item) => (
-                      <div
-                        key={item.step}
-                        className="glass-card relative p-5 sm:p-6 rounded-xl"
-                        style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
-                      >
-                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#d8f17b]/20 text-[#d8f17b] text-sm font-bold mb-3">
-                          {item.step}
-                        </span>
-                        <h3 className="text-[#e4e4e7] font-semibold mb-2">{item.title}</h3>
-                        <p className="text-zinc-400 text-sm leading-relaxed">{item.description}</p>
-                      </div>
-                    ))}
-                  </div>
+                  <ServiceProcessSteps process={pageContent.process} />
                 </MotionFadeIn>
                 <MotionFadeIn delay={0.35} className="mb-10 sm:mb-12 lg:mb-14">
                   <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Dlaczego SmartWeave?</h2>
@@ -182,61 +160,11 @@ export default async function UslugiSlugPage({
               </>
             )}
 
-            {/* Realizacje - full-width section, 3 columns (only on strony) */}
+            {/* Realizacje - full-width section with Framer stagger (only on strony) */}
             {slug === 'strony' && (
               <MotionFadeIn delay={0.25} className="w-full mt-12 sm:mt-16 lg:mt-20">
                 <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-6 sm:mb-8">Realizacje na stronach internetowych</h2>
-                <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                  {PORTFOLIO_ITEMS.map((item, index) => (
-                    <article
-                      key={index}
-                      className="group relative flex flex-col rounded-2xl glass-card hover-lift overflow-hidden"
-                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
-                    >
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex flex-col h-full"
-                        title={`Zobacz realizację: ${item.title}`}
-                      >
-                        <div className="relative flex-1 min-h-[200px] p-3 sm:p-4">
-                          <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-white/5 border border-white/10 shadow-inner">
-                            <Image
-                              src={item.image}
-                              alt={item.title}
-                              fill
-                              className="object-cover transition-transform duration-300 group-hover:scale-105"
-                              sizes="(max-width: 479px) 100vw, (max-width: 1023px) 50vw, 33.33vw"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)]/60 via-transparent to-transparent" />
-                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[var(--bg)]/40">
-                              <ExternalLink className="w-8 h-8 text-[#d8f17b]" />
-                            </div>
-                          </div>
-                        </div>
-                        <div className="relative bg-[var(--bg-2)] border-t border-white/10 px-4 sm:px-5 py-4 sm:py-5 flex flex-col">
-                          <span className="text-zinc-400 text-sm font-normal mb-1">{item.category}</span>
-                          <h3 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] group-hover:text-[#d8f17b] transition-colors pr-10">
-                            {item.title}
-                          </h3>
-                          <div className="absolute right-4 bottom-4 flex items-center justify-center w-9 h-9 rounded-lg border border-white/15 bg-white/5 text-[#e4e4e7] group-hover:border-[#d8f17b]/50 group-hover:text-[#d8f17b] transition-colors">
-                            <ExternalLink className="w-4 h-4" aria-hidden />
-                          </div>
-                        </div>
-                        <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-[#d8f17b] group-hover:w-full transition-all duration-500" />
-                      </a>
-                    </article>
-                  ))}
-                </div>
-                <div className="mt-8 sm:mt-10 text-center">
-                  <Link
-                    href="/realizacje"
-                    className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 cta-gradient-animated"
-                  >
-                    Zobacz wszystkie realizacje
-                  </Link>
-                </div>
+                <ServiceRealizacjeGrid items={PORTFOLIO_ITEMS} />
               </MotionFadeIn>
             )}
           </div>

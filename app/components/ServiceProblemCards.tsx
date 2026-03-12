@@ -60,6 +60,7 @@ export function ServiceProblemCards({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
+              whileHover={{ y: -8 }}
               className="group relative"
             >
               <div
