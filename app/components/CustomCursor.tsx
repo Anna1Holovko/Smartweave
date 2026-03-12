@@ -35,12 +35,12 @@ export function CustomCursor() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 #d8f17b rounded-full pointer-events-none z-[9999] mix-blend-screen"
+        className="fixed top-0 left-0 w-2 h-2 bg-[#d8f17b] rounded-full pointer-events-none z-[9999] mix-blend-screen"
         animate={{ x: mousePosition.x - 4, y: mousePosition.y - 4, scale: isHovering ? 1.5 : 1 }}
         transition={{ type: 'spring', stiffness: 500, damping: 28, mass: 0.5 }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border border-purple-400/50 rounded-full pointer-events-none z-[9999] mix-blend-screen"
+        className="fixed top-0 left-0 w-8 h-8 border border-[#d8f17b]/50 rounded-full pointer-events-none z-[9999] mix-blend-screen"
         animate={{ x: mousePosition.x - 16, y: mousePosition.y - 16, scale: isHovering ? 1.5 : 1 }}
         transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.5 }}
       />
