@@ -3,6 +3,19 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ChevronDown, ShoppingCart } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
+
+import { CART_STORAGE_KEY, CART_UPDATE_EVENT } from '@/lib/cart';
+
+function useHasCartInNav() {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const read = () => setShow(typeof window !== 'undefined' && window.localStorage?.getItem(CART_STORAGE_KEY) === '1');
+    read();
+    window.addEventListener(CART_UPDATE_EVENT, read);
+    return () => window.removeEventListener(CART_UPDATE_EVENT, read);
+  }, []);
+  return show;
+}
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
@@ -41,6 +54,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [uslugiDropdownOpen, setUslugiDropdownOpen] = useState(false);
   const [realizacjeDropdownOpen, setRealizacjeDropdownOpen] = useState(false);
+  const showCartInNav = useHasCartInNav();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const realizacjeDropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -246,7 +260,9 @@ export function Header() {
               >
                 Rozpocznij Projekt
               </Button>
-              <Link href="/e-booki" className="text-zinc-400 hover:text-[#d8f17b] transition-colors p-2 rounded-lg hover:bg-white/5" title="E-booki" aria-label="E-booki"><ShoppingCart className="w-4 h-4" /></Link>
+              {showCartInNav && (
+                <Link href="/e-booki" className="text-zinc-400 hover:text-[#d8f17b] transition-colors p-2 rounded-lg hover:bg-white/5" title="Koszyk" aria-label="Koszyk"><ShoppingCart className="w-4 h-4" /></Link>
+              )}
             </div>
 
             {/* MOBILE BUTTON */}
@@ -319,7 +335,9 @@ export function Header() {
               )}
 
               <div className="pt-4 border-t border-white/10 flex items-center gap-3">
-                <Link href="/e-booki" onClick={() => setMobileMenuOpen(false)} className="inline-flex items-center justify-center text-zinc-400 hover:text-[#d8f17b] p-3 rounded-lg border border-white/15 hover:bg-white/5 transition-colors" aria-label="E-booki"><ShoppingCart className="w-5 h-5" /></Link>
+                {showCartInNav && (
+                  <Link href="/e-booki" onClick={() => setMobileMenuOpen(false)} className="inline-flex items-center justify-center text-zinc-400 hover:text-[#d8f17b] p-3 rounded-lg border border-white/15 hover:bg-white/5 transition-colors" aria-label="Koszyk"><ShoppingCart className="w-5 h-5" /></Link>
+                )}
                 <Button
                   variant="primary"
                   fullWidth
