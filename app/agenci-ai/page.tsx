@@ -12,7 +12,6 @@ import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS } from '@/lib/layout';
 import { ArrowLeft } from 'lucide-react';
 import { UslugiConsultationBlock } from '@/app/components/UslugiConsultationBlock';
-import { AiAnimationSection } from '@/app/components/AiAnimationSection';
 import { ServiceProblemCards } from '@/app/components/ServiceProblemCards';
 import { ServiceSolutionBlock } from '@/app/components/ServiceSolutionBlock';
 import { ServiceFeaturesList } from '@/app/components/ServiceFeaturesList';
@@ -82,19 +81,10 @@ export default function AgenciAiPage() {
               <ServiceSolutionBlock solution={pageContent.solution} />
             </MotionFadeIn>
 
-            <div className="grid gap-8 lg:gap-12 xl:gap-16 items-start grid-cols-1 lg:grid-cols-2">
-              <div className="order-2 lg:order-1 space-y-6 lg:space-y-8">
-                <MotionFadeIn delay={0.2}>
-                  <div className="relative p-8 md:p-10 bg-transparent">
-                    <h2 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-6">Co wdrażamy</h2>
-                    <ServiceFeaturesList features={service.features} />
-                  </div>
-                </MotionFadeIn>
-              </div>
-              <MotionFadeIn delay={0.15} className="order-1 lg:order-2 w-full lg:sticky lg:top-24 hidden lg:block cursor-auto">
-                <AiAnimationSection />
-              </MotionFadeIn>
-            </div>
+            <MotionFadeIn delay={0.2} className="mb-10 sm:mb-12 lg:mb-14">
+              <h2 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-6">Co wdrażamy</h2>
+              <ServiceFeaturesList features={service.features} />
+            </MotionFadeIn>
 
             <MotionFadeIn delay={0.25} className="mt-12 sm:mt-16 lg:mt-20 mb-10 sm:mb-12 lg:mb-14">
               <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-6">Korzyści dla Twojej firmy</h2>
