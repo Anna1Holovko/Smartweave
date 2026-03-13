@@ -86,7 +86,7 @@ export function EbookCard({ book }: Props) {
           onClick={() => setDialogOpen(false)}
         >
           <div
-            className="relative w-full max-w-lg rounded-2xl glass-card shadow-xl p-6 max-h-[90vh] overflow-y-auto"
+            className="relative w-full max-w-3xl rounded-2xl glass-card shadow-xl p-6 max-h-[90vh] overflow-y-auto"
             style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
             onClick={(e) => e.stopPropagation()}
           >
