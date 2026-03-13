@@ -64,10 +64,10 @@ export function EbookCard({ book }: Props) {
                 e.stopPropagation();
                 setDialogOpen(true);
               }}
-              className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base border border-white/15 bg-white/5 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:text-[#d8f17b] transition-all h-11 min-h-[44px] px-5"
+              className="inline-flex items-center justify-center gap-2 font-medium text-sm sm:text-base text-[#d8f17b] hover:underline focus:outline-none focus:underline h-11 min-h-[44px] px-0"
             >
-              <Info className="w-4 h-4" aria-hidden />
-              Szczegóły
+              <Info className="w-4 h-4 shrink-0" aria-hidden />
+              <span>Szczegóły</span>
             </button>
             <div onClick={(e) => e.stopPropagation()}>
               <EbookDownloadButton book={book} />
@@ -104,7 +104,7 @@ export function EbookCard({ book }: Props) {
               </h2>
               <p className="text-zinc-500 text-sm mb-4">{book.price}</p>
               <p className="text-zinc-300 text-sm sm:text-base leading-relaxed whitespace-pre-wrap">
-                {book.description}
+                {book.modalDescription ?? book.description}
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-white/10" onClick={(e) => e.stopPropagation()}>
