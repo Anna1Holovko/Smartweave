@@ -33,7 +33,7 @@ const USLUGI_DROPDOWN_NAMES: Record<(typeof USLUGI_DISPLAY_ORDER)[number], strin
 
 const uslugiDropdownItems = USLUGI_DISPLAY_ORDER.map((slug) => ({
   name: USLUGI_DROPDOWN_NAMES[slug],
-  href: (slug === 'agenci-ai' ? '/agenci-ai' : `/uslugi/${slug}`) as const,
+  href: slug === 'agenci-ai' ? '/agenci-ai' : `/uslugi/${slug}`,
 }));
 
 const realizacjeDropdownItems = [
