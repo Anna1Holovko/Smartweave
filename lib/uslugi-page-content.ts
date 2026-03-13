@@ -50,16 +50,16 @@ export const USLUGI_PAGE_CONTENT: Record<ServiceSlug, UslugiPageContent> = {
   },
   'agenci-ai': {
     problems: [
-      { title: 'Opóźniona pierwsza odpowiedź', description: 'Zapytania wchodzą mailem i z formularzy – zespół nie nadąża, a leady czekają. Brak szybkiego odzewu to stracone szanse.' },
-      { title: 'Ręczna segregacja leadów', description: 'Każde zapytanie ktoś musi przeczytać, ocenić i przekazać do właściwej osoby. Godziny pracy i ryzyko przeoczeń.' },
-      { title: 'Chaos dokumentów i danych', description: 'Umowy, faktury i ankiety – dane trzeba wyciągać i przenosić do CRM lub arkuszy. Czasochłonne i narażone na pomyłki.' },
-      { title: 'Wszystko trwa za długo', description: 'Klienci oczekują odpowiedzi od razu. Ręczna obsługa każdego zapytania wydłuża czas reakcji i męczy zespół.' },
-      { title: 'Zbyt dużo stresu i powtarzalnych odpowiedzi', description: 'Te same pytania w kółko – agent może je obsłużyć na bazie Twojej wiedzy, a Ty skupiasz się na relacjach.' },
-      { title: 'Chcesz skalować obsługę bez etatów', description: 'Więcej zapytań i leadów bez zatrudniania kolejnych osób. Asystent AI weźmie na siebie pierwszy kontakt i przygotuje dane.' },
+      { title: 'Opóźniona pierwsza odpowiedź', description: 'Zapytania wchodzą mailem i z formularzy – zespół nie nadąża, a leady czekają. Agenci AI dają natychmiastowy odzew i nie tracisz szans.' },
+      { title: 'Ręczna segregacja leadów', description: 'Każde zapytanie ktoś musi przeczytać, ocenić i przekazać. Agenci AI kwalifikują leady według Twoich kryteriów i przekazują gotowe kontakty.' },
+      { title: 'Chaos dokumentów i danych', description: 'Umowy, faktury i ankiety – dane trzeba wyciągać i przenosić. Agenci AI przetwarzają dokumenty i uzupełniają CRM lub arkusze automatycznie.' },
+      { title: 'Powtarzalne odpowiedzi na te same pytania', description: 'FAQ i standardowe zapytania zajmują godziny. Agenci AI odpowiadają na bazie Twojej wiedzy; zespół skupia się na relacjach i sprzedaży.' },
+      { title: 'Chcesz skalować obsługę bez etatów', description: 'Więcej zapytań i leadów bez zatrudniania. Agenci AI obsługują pierwszy kontakt i przygotowują dane 24/7.' },
+      { title: 'Brak czasu na to, co naprawdę ważne', description: 'Zespół tonie w operacyjce zamiast w rozwoju i klientach. Agenci AI odciążają od rutynowych zadań i oddają czas na strategię i relacje.' },
     ],
-    approach: 'Agent AI to cyfrowy współpracownik: rozumie pytania, zna Twoją ofertę i procedury, a sprawy wymagające decyzji lub rozmowy oddaje zespołowi. Działa na stronie, w mailu lub w innym kanale i łączy się z CRM oraz innymi narzędziami. Nie zastępuje ludzi – odciąża ich od powtarzalnej pracy i daje czas na sprzedaż oraz relacje. W SmartWeave budujemy agentów pod konkretny proces, z jasnym podziałem ról i mierzalnym efektem.',
-    benefits: 'Szybka pierwsza odpowiedź – klient dostaje odzew w minutę, lead nie czeka w kolejce. Mniej pracy ręcznej przy wpisywaniu danych i powtarzaniu odpowiedzi na FAQ. Lepszy routing leadów – automatyczna kwalifikacja i przypisanie do handlowców. Większa przepustowość – agent obsługuje zapytania i dokumenty 24/7 bez dodatkowych etatów.',
-    process: 'Ustalamy cel agenta: pierwsza odpowiedź, kwalifikacja leadów, FAQ czy analiza dokumentów – oraz granice, gdzie wchodzi człowiek. Projektujemy scenariusze, bazę wiedzy i integracje z Twoimi systemami. Budujemy i testujemy agenta na prawdziwych przypadkach, dopracowujemy zasady przekazywania spraw do zespołu. Uruchamiamy na produkcji, monitorujemy jakość i w miarę potrzeb rozszerzamy zakres.',
+    approach: 'Agenci AI to systemy oparte na sztucznej inteligencji, które rozumieją język naturalny i Twoją wiedzę o firmie: prowadzą rozmowę z klientem, odpowiadają na zapytania, kwalifikują leady i przetwarzają dokumenty. Działają na stronie (chatbot), w mailu lub w innym kanale i łączą się z CRM oraz Twoimi narzędziami. W SmartWeave budujemy agenty AI pod konkretny proces – z jasnym zakresem i mierzalnym efektem – tak, aby odciążyć zespół, a nie zastępować ludzi.',
+    benefits: 'Natychmiastowa pierwsza odpowiedź – klient dostaje odzew w minutę. Oszczędność czasu – agenci AI obsługują powtarzalne zapytania i wpisywanie danych. Lepszy routing leadów – automatyczna kwalifikacja i przypisanie do handlowców. Większa przepustowość – agenci AI działają 24/7 bez dodatkowych etatów.',
+    process: 'Ustalamy cel agenta AI: pierwsza odpowiedź, kwalifikacja leadów, FAQ czy analiza dokumentów – oraz granice, gdzie wchodzi człowiek. Projektujemy scenariusze, bazę wiedzy i integracje z Twoimi systemami. Budujemy i testujemy agenta na prawdziwych przypadkach, dopracowujemy zasady przekazywania spraw do zespołu. Uruchamiamy na produkcji, monitorujemy jakość i w miarę potrzeb rozszerzamy zakres agenta AI.',
   },
 };
 

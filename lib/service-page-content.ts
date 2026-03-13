@@ -131,38 +131,38 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
   'agenci-ai': {
     problemHeading: 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?',
     problem:
-      'Zapytania wchodzą szybko – maile, formularze, wiadomości – a ręczna odpowiedź na każde z nich zabiera czas i opóźnia pierwszy kontakt. Leady czekają w kolejce, a powtarzalne pytania o ofertę, terminy czy dostawę zespół musi przepisywać w kółko. Do tego dochodzą stosy dokumentów: umowy, faktury, ankiety – dane trzeba wyciągać i wpisywać do CRM lub arkuszy. W efekcie ludzie zajmują się tym, co mógłby zrobić asystent: pierwszy odzew, wstępna kwalifikacja i przygotowanie informacji. Agent AI bierze to na siebie i oddaje zespołowi tylko to, co wymaga decyzji lub prawdziwej rozmowy.',
+      'Agenci AI to systemy oparte na sztucznej inteligencji, które rozumieją język naturalny i wykonują zadania w imieniu firmy: prowadzą rozmowę z klientem, odpowiadają na zapytania, kwalifikują leady i przetwarzają dokumenty. Bez nich zespół tonie w powtarzalnych czynnościach – pierwszy odzew na maile i formularze się opóźnia, leady czekają w kolejce, a dane z umów i faktur trzeba ręcznie wyciągać i wpisywać do CRM. To właśnie agenci AI przejmują: natychmiastowy kontakt, wstępną kwalifikację i przygotowanie informacji, oddając ludziom tylko to, co wymaga decyzji lub prawdziwej rozmowy.',
     solution:
-      'Agent AI to system, który rozumie język naturalny i Twoją wiedzę o firmie: rozmawia z klientem, odpowiada na typowe zapytania, kwalifikuje leady według ustalonych kryteriów i wyciąga dane z dokumentów. Może działać na stronie (chatbot), w mailu lub w innym kanale – i łączyć się z CRM oraz innymi narzędziami. Nie zastępuje ludzi: odbiera od nich powtarzalną pracę, skraca czas reakcji i zmniejsza ryzyko błędów, a handlowcy i obsługa skupiają się na sprzedaży i relacjach. W SmartWeave budujemy agentów pod konkretny proces – np. pierwszy kontakt, kwalifikacja leadów lub analiza dokumentów – z jasnym podziałem ról i mierzalnym efektem.',
+      'W SmartWeave budujemy agenty AI dopasowane do Twojego biznesu: rozumieją pytania w języku naturalnym, korzystają z Twojej bazy wiedzy (ofertę, FAQ, procedury) i działają tam, gdzie potrzebujesz – na stronie jako chatbot, w skrzynce e-mail lub w innym kanale. Łączymy ich z CRM, formularzami i narzędziami, które już używasz. Agenci AI nie zastępują zespołu: odciążają go z powtarzalnej pracy, skracają czas reakcji i zmniejszają ryzyko błędów, a handlowcy i obsługa mogą skupić się na sprzedaży i relacjach. Każdy agent ma jasno zdefiniowany zakres – np. pierwsza odpowiedź, kwalifikacja leadów lub analiza dokumentów – i mierzalny efekt w codziennej pracy.',
     benefits: [
-      'Szybka pierwsza odpowiedź – klient dostaje odzew w minutę, lead nie „wystyga” w kolejce.',
-      'Oszczędność czasu – mniej wpisywania danych i powtarzania tych samych odpowiedzi na FAQ.',
-      'Lepszy routing leadów – automatyczna kwalifikacja i przypisanie; handlowcy pracują na gotowych kontaktach.',
-      'Większa przepustowość – agent obsługuje zapytania i dokumenty 24/7 bez dodatkowych etatów.',
+      'Natychmiastowa pierwsza odpowiedź – klient dostaje odzew w minutę, lead nie czeka w kolejce.',
+      'Oszczędność czasu zespołu – agenci AI obsługują powtarzalne zapytania i wpisywanie danych; ludzie zajmują się tym, co wymaga wiedzy i relacji.',
+      'Lepszy routing leadów – automatyczna kwalifikacja i przypisanie do handlowców; pracujesz na gotowych, wstępnie przygotowanych kontaktach.',
+      'Większa przepustowość bez nowych etatów – agenci AI działają 24/7 i skalują obsługę zapytań oraz dokumentów.',
     ],
     process: [
       {
         step: 1,
-        title: 'Ustalenie celu i zakresu',
-        description: 'Decydujemy, co ma robić agent: pierwsza odpowiedź na stronie, kwalifikacja leadów z formularza, obsługa FAQ w mailu czy ekstrakcja danych z dokumentów. Określamy, gdzie kończy się agent, a gdzie wchodzi człowiek, oraz jakie dane mają trafiać do Twoich systemów.',
+        title: 'Cel i zakres agenta AI',
+        description: 'Ustalamy, co ma robić agent: pierwsza odpowiedź na stronie, kwalifikacja leadów, obsługa FAQ w mailu czy ekstrakcja danych z dokumentów. Określamy granice: gdzie kończy się agent, a gdzie wchodzi człowiek, oraz jakie dane trafiają do Twoich systemów (CRM, arkusze, zadania).',
       },
       {
         step: 2,
-        title: 'Projekt i integracje',
-        description: 'Tworzymy scenariusze rozmowy lub przetwarzania dokumentów, budujemy bazę wiedzy (ofertę, FAQ, procedury) i łączymy agenta z CRM, pocztą lub innymi narzędziami. Dopasowujemy ton i zakres tak, żeby agent działał w Twoim imieniu i w wybranych kanałach.',
+        title: 'Projekt agenta i integracje',
+        description: 'Tworzymy scenariusze rozmowy lub przetwarzania dokumentów, budujemy bazę wiedzy agenta (ofertę, FAQ, procedury) i łączymy go z CRM, pocztą i innymi narzędziami. Dopasowujemy ton i zakres tak, aby agent reprezentował Twoją firmę w wybranych kanałach.',
       },
       {
         step: 3,
-        title: 'Budowa i testy',
-        description: 'Wdrażamy agenta na środowisku testowym, sprawdzamy go na prawdziwych zapytaniach i dokumentach oraz dopracowujemy odpowiedzi i zasady eskalujące sprawę do człowieka. Przekazujemy zespołowi instrukcję: kiedy agent oddaje sprawę i jak z nim współpracować.',
+        title: 'Budowa i testy agenta AI',
+        description: 'Wdrażamy agenta na środowisku testowym, sprawdzamy go na prawdziwych zapytaniach i dokumentach. Dopracowujemy odpowiedzi oraz zasady przekazywania spraw do zespołu i przekazujemy instrukcję: kiedy agent oddaje kontakt człowiekowi i jak z nim współpracować.',
       },
       {
         step: 4,
         title: 'Uruchomienie i rozwój',
-        description: 'Włączamy agenta na produkcji, pilnujemy jakości odpowiedzi i przepływu leadów. W miarę potrzeb poszerzamy zakres – nowe typy zapytań, kolejne kanały lub dokumenty – tak, żeby AI dalej odciążało zespół i dawało wymierne rezultaty.',
+        description: 'Włączamy agenta AI w produkcji, monitorujemy jakość odpowiedzi i przepływ leadów. W miarę potrzeb rozszerzamy zakres – nowe typy zapytań, kolejne kanały lub dokumenty – tak, aby agenci AI dalej odciążali zespół i przynosili wymierne rezultaty.',
       },
     ],
     whySmartWeave:
-      'W SmartWeave stawiamy na konkret, nie na „magię AI”. Zaczynamy od jednego, dobrze określonego zadania – np. pierwsza odpowiedź na stronie albo kwalifikacja leadów – mierzymy efekt i dopiero potem rozszerzamy. Łączymy doświadczenie z automatyzacji procesów z wdrożeniami opartymi na modelach językowych, więc agent jest zaprojektowany tak, żeby realnie odciążyć zespół i działać przewidywalnie w codziennym użytkowaniu.',
+      'W SmartWeave traktujemy agenty AI jako narzędzie biznesowe, a nie ciekawostkę technologiczną. Zaczynamy od jednego, dobrze określonego zadania – np. pierwsza odpowiedź na stronie lub kwalifikacja leadów – mierzymy efekt i dopiero potem poszerzamy zakres. Łączymy doświadczenie z automatyzacji procesów z wdrożeniami opartymi na modelach językowych, więc każdy agent jest zaprojektowany tak, aby realnie odciążyć zespół i działać przewidywalnie na co dzień.',
   },
 };
