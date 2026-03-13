@@ -1,0 +1,118 @@
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+import { BookOpen, X, Info } from 'lucide-react';
+import type { Ebook } from '@/lib/ebooks';
+import { EbookDownloadButton } from './EbookDownloadButton';
+
+type Props = { book: Ebook };
+
+export function EbookCard({ book }: Props) {
+  const [dialogOpen, setDialogOpen] = useState(false);
+
+  return (
+    <>
+      <article
+        role="button"
+        tabIndex={0}
+        onClick={() => setDialogOpen(true)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setDialogOpen(true);
+          }
+        }}
+        className="group relative flex flex-col rounded-2xl glass-card hover-lift overflow-hidden cursor-pointer"
+        style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+        aria-label={`Szczegóły: ${book.title}`}
+      >
+        <div className="relative flex-1 min-h-[200px] p-3 sm:p-4">
+          <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden bg-white/5 border border-white/10 shadow-inner">
+            {book.image ? (
+              <Image
+                src={book.image}
+                alt={book.title}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                sizes="(max-width: 479px) 100vw, (max-width: 1023px) 50vw, 33.33vw"
+              />
+            ) : (
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${book.gradient} flex items-center justify-center`}
+              >
+                <BookOpen className="w-16 h-16 text-white/80" aria-hidden />
+              </div>
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)]/60 via-transparent to-transparent" />
+          </div>
+        </div>
+        <div className="relative bg-[var(--bg-2)] border-t border-white/10 px-4 sm:px-5 py-4 sm:py-5 flex flex-col flex-1">
+          <div className="flex items-baseline justify-between gap-3 mb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] group-hover:text-[#d8f17b] transition-colors min-w-0">
+              {book.title}
+            </h2>
+            <span className="text-xl sm:text-2xl font-bold text-[#e4e4e7] flex-shrink-0">{book.price}</span>
+          </div>
+          <p className="text-zinc-400 text-sm sm:text-base leading-relaxed flex-1 mb-4 line-clamp-2">
+            {book.description}
+          </p>
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setDialogOpen(true);
+              }}
+              className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base border border-white/15 bg-white/5 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:text-[#d8f17b] transition-all h-11 min-h-[44px] px-5"
+            >
+              <Info className="w-4 h-4" aria-hidden />
+              Szczegóły
+            </button>
+            <div onClick={(e) => e.stopPropagation()}>
+              <EbookDownloadButton book={book} />
+            </div>
+          </div>
+        </div>
+        <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-[#d8f17b] group-hover:w-full transition-all duration-500" />
+      </article>
+
+      {dialogOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70"
+          aria-modal="true"
+          role="dialog"
+          aria-labelledby="ebook-dialog-title"
+          onClick={() => setDialogOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-lg rounded-2xl glass-card shadow-xl p-6 max-h-[90vh] overflow-y-auto"
+            style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setDialogOpen(false)}
+              className="absolute top-4 right-4 p-1 rounded-lg text-zinc-400 hover:text-[#d8f17b] hover:bg-white/5"
+              aria-label="Zamknij"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <div className="pr-10">
+              <h2 id="ebook-dialog-title" className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-2">
+                {book.title}
+              </h2>
+              <p className="text-zinc-500 text-sm mb-4">{book.price}</p>
+              <p className="text-zinc-300 text-sm sm:text-base leading-relaxed whitespace-pre-wrap">
+                {book.description}
+              </p>
+            </div>
+            <div className="mt-6 pt-4 border-t border-white/10" onClick={(e) => e.stopPropagation()}>
+              <EbookDownloadButton book={book} />
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
