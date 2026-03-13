@@ -3,9 +3,7 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   async redirects() {
-    return [
-      { source: '/uslugi/agenci-ai', destination: '/uslugi/automatyzacja', permanent: true },
-    ];
+    return [];
   },
   images: {
     remotePatterns: [

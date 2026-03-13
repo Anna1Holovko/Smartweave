@@ -12,6 +12,7 @@ const SITE_URL = 'https://smartweave.pl';
 const routes = [
   { path: '', priority: 1, changeFrequency: 'weekly' },
   { path: 'uslugi', priority: 0.9, changeFrequency: 'weekly' },
+  { path: 'agenci-ai', priority: 0.9, changeFrequency: 'weekly' },
   { path: 'realizacje', priority: 0.9, changeFrequency: 'weekly' },
   { path: 'e-booki', priority: 0.9, changeFrequency: 'weekly' },
   { path: 'blog', priority: 0.9, changeFrequency: 'weekly' },

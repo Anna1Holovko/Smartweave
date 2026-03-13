@@ -37,16 +37,16 @@ export const USLUGI_PAGE_CONTENT: Record<ServiceSlug, UslugiPageContent> = {
   },
   automatyzacja: {
     problems: [
-      { title: 'Zbyt dużo pracy ręcznej', description: 'Przestań ręcznie przenosić dane między systemami. Automatycznie synchronizujemy i aktualizujemy dane – oszczędzasz godziny każdego dnia.' },
-      { title: 'Tracisz wiadomości i leady', description: 'Wszystkie ważne wiadomości automatycznie trafiają we właściwe miejsca – do CRM, tabel i zadań. Zero przeoczeń.' },
-      { title: 'Chaos dokumentów', description: 'Zbieramy wszystko w jeden uporządkowany system. Koniec z godzinami szukania – wszystko masz pod ręką w sekundy.' },
-      { title: 'Wszystko trwa za długo', description: 'Gdy każdy proces się ciągnie, trudno myśleć o rozwoju. Automatyzujemy powtarzalne zadania, żebyś odzyskał czas.' },
-      { title: 'Zbyt dużo stresu i błędów', description: 'Koniec z błędami i przeoczeniami. Automatyzacja dba o każdy szczegół, a Ty odzyskujesz spokój.' },
-      { title: 'Brak czasu na klientów i rozwój', description: 'Zespół tonie w operacyjce zamiast skupiać się na sprzedaży i relacjach – automatyzacja oddaje im ten czas.' },
+      { title: 'Zbyt dużo pracy ręcznej', description: 'Ręczne przenoszenie danych między systemami zabiera godziny. Workflowy i integracje synchronizują dane automatycznie – bez przepisywania.' },
+      { title: 'Tracisz wiadomości i leady', description: 'Ważne wiadomości i leady trafiają automatycznie do CRM, tabel i zadań. Workflow uruchamia się przy nowym wpisie – zero przeoczeń.' },
+      { title: 'Chaos w danych i dokumentach', description: 'Dane w wielu miejscach, brak jednej prawdy. Automatyzacja zbiera i porządkuje przepływ – wszystko w jednym systemie.' },
+      { title: 'Wszystko trwa za długo', description: 'Procesy ciągną się, bo każdy krok wymaga ręcznej akcji. Automatyzacja wykonuje powtarzalne kroki w tle – odzyskujesz czas.' },
+      { title: 'Zbyt dużo stresu i błędów', description: 'Ręczne przepisywanie rodzi pomyłki. Workflowy i integracje eliminują podwójne wpisy i rozjazdy danych.' },
+      { title: 'Brak czasu na klientów i rozwój', description: 'Zespół tonie w operacyjce. Automatyzacja procesów oddaje im czas na sprzedaż i relacje.' },
     ],
-    approach: 'Analizujemy Twoje procesy i wybieramy te, które można bezpiecznie zautomatyzować. Wdrażamy workflow, integracje i - tam gdzie to ma sens - asystentów AI, tak aby zespół mógł skupić się na tym, co wymaga wiedzy i kontaktu z klientem.',
-    benefits: 'Mniej błędów, szybsze reakcje i oszczędność czasu. Zespół zajmuje się rozwojem i klientami zamiast powtarzalnymi zadaniami, a firma lepiej skaluje się bez proporcjonalnego wzrostu zatrudnienia.',
-    process: 'Rozpoczynamy od mapowania procesów i ustalenia priorytetów. Następnie projektujemy i wdrażamy pierwszy scenariusz (np. synchronizacja danych, raporty, chatbot). Po testach rozwijamy kolejne automatyzacje i uczymy zespół korzystania z narzędzi.',
+    approach: 'Automatyzujemy procesy biznesowe przez workflowy i integracje między systemami (Make, n8n, API). Nie wdrażamy AI – projektujemy konkretne scenariusze: dane z formularza do CRM, zamówienie do powiadomienia, raport z wielu źródeł. Zespół przestaje przepisywać i śledzić każdy krok; procesy biegną w tle.',
+    benefits: 'Oszczędność czasu i mniej błędów – workflowy wykonują powtarzalne kroki. Szybsza reakcja – automatyczne potwierdzenia i przypomnienia. Firma skaluje się bez proporcjonalnego wzrostu zatrudnienia.',
+    process: 'Mapujemy procesy i ustalamy, co zautomatyzować. Projektujemy workflowy i integracje (Make, n8n), wdrażamy pierwszy scenariusz (np. formularz → CRM, raport, powiadomienia). Po testach rozwijamy kolejne procesy i przekazujemy wiedzę zespołowi.',
   },
   'agenci-ai': {
     problems: [

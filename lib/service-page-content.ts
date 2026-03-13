@@ -93,39 +93,39 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
   automatyzacja: {
     problemHeading: 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?',
     problem:
-      'Powtarzalne zadania pochłaniają cenne godziny pracy. Ręczne kopiowanie danych, wysyłanie tych samych wiadomości e-mail czy przygotowywanie raportów to ukryty koszt, który można zamienić na czas przeznaczony na obsługę klientów i rozwój firmy. Brak automatyzacji to nie tylko strata czasu, ale także większe ryzyko błędów oraz wolniejsza reakcja na nowe leady i zlecenia.',
+      'Powtarzalne procesy biznesowe – ręczne kopiowanie danych między systemami, wysyłanie tych samych wiadomości, zbieranie raportów z wielu źródeł – zabierają godziny pracy i generują błędy. Bez automatyzacji każdy taki krok wymaga człowieka: dane nie synchronizują się same, leady i zlecenia czekają na ręczne wpisanie do CRM, a powiadomienia i przypomnienia zależą od tego, czy ktoś pamięta. Automatyzacja procesów zamienia te czynności w zdefiniowane workflowy: system wykonuje kolejne kroki według ustalonych reguł, bez codziennego zaangażowania zespołu.',
     solution:
-      'Automatyzujemy procesy biznesowe oraz wdrażamy rozwiązania AI, które przejmują powtarzalne i czasochłonne zadania. Workflowy, integracje i inteligentne powiadomienia zastępują ręczną pracę, zapewniając płynny i przewidywalny przebieg działań.\n\nDzięki temu zespół może skupić się na tym, co naprawdę wymaga wiedzy, doświadczenia i budowania relacji, podczas gdy rutynowe czynności realizowane są według jasno zdefiniowanych scenariuszy.\n\nEfekt? Oszczędność czasu, mniej błędów oraz możliwość obsługi większego wolumenu zleceń bez konieczności proporcjonalnego zwiększania zatrudnienia.',
+      'Automatyzujemy procesy biznesowe za pomocą workflowów i integracji między systemami. Używamy narzędzi takich jak Make, n8n oraz dedykowane API: dane płyną automatycznie z formularza do CRM, z zamówienia do magazynu i raportu, z kalendarza do powiadomień. Nie wdrażamy „magii” – projektujemy konkretne scenariusze „jeśli X, to Y”: triggery, warunki, mapowanie pól i obsługa wyjątków. Dzięki temu zespół nie traci czasu na przepisywanie i sprawdzanie; procesy biegną w tle, a ludzie zajmują się tym, co wymaga wiedzy i kontaktu z klientem.',
     benefits: [
-      'Oszczędność czasu - powtarzalne zadania wykonuje system, a nie pracownicy.',
-      'Mniej błędów - automatyzacja eliminuje pomyłki przy przepisywaniu, synchronizacji i raportowaniu.',
-      'Szybsza reakcja - leady i zlecenia obsługiwane są natychmiast dzięki automatycznym potwierdzeniom, przypomnieniom i przekierowaniom.',
-      'Skalowalność - możesz obsłużyć większy wolumen pracy bez proporcjonalnego wzrostu kosztów operacyjnych.',
+      'Oszczędność czasu – powtarzalne kroki wykonują workflowy i integracje, a nie pracownicy.',
+      'Mniej błędów – jedna źródłowa prawda w systemie; brak ręcznego przepisywania i rozjazdów danych.',
+      'Szybsza reakcja – nowe leady, zlecenia i terminy uruchamiają automatyczne potwierdzenia, przypomnienia i przekierowania.',
+      'Skalowalność – większy wolumen procesów bez proporcjonalnego wzrostu zatrudnienia.',
     ],
     process: [
       {
         step: 1,
         title: 'Analiza procesów',
-        description: 'Przeprowadzamy szczegółową analizę wybranych procesów biznesowych: identyfikujemy kolejność działań, używane systemy oraz powtarzalne i czasochłonne zadania, które można zautomatyzować.',
+        description: 'Przeprowadzamy analizę wybranych procesów: które kroki są powtarzalne, w jakich systemach są dane i gdzie powstają opóźnienia lub błędy. Określamy, co ma się dziać automatycznie (np. formularz → CRM, zamówienie → powiadomienie, raport tygodniowy).',
       },
       {
         step: 2,
-        title: 'Projekt rozwiązania',
-        description: 'Na podstawie analizy opracowujemy scenariusze automatyzacji, dobieramy odpowiednie narzędzia (Make, n8n, dedykowane integracje) i definiujemy sposób ich integracji z istniejącymi systemami firmy.',
+        title: 'Projekt workflowów i integracji',
+        description: 'Projektujemy scenariusze automatyzacji i dobieramy narzędzia (Make, n8n, integracje). Definiujemy triggery, mapowanie danych i obsługę wyjątków oraz sposób połączenia z istniejącymi systemami firmy.',
       },
       {
         step: 3,
         title: 'Wdrożenie i testy',
-        description: 'Tworzymy workflowy, integrujemy systemy i testujemy rozwiązania na rzeczywistych danych. Dostosowujemy obsługę wyjątków i przekazujemy pełną dokumentację oraz wiedzę zespołowi, aby zapewnić płynne użytkowanie systemu.',
+        description: 'Budujemy workflowy, łączymy systemy i testujemy na rzeczywistych danych. Dopracowujemy edge case\'y i przekazujemy dokumentację oraz wiedzę zespołowi.',
       },
       {
         step: 4,
         title: 'Uruchomienie i rozwój',
-        description: 'Wdrażamy rozwiązanie w środowisku produkcyjnym, monitorujemy jego efektywność i stopniowo rozszerzamy automatyzację na kolejne procesy w firmie w miarę potrzeb.',
+        description: 'Wdrażamy automatyzację w produkcji, monitorujemy działanie i stopniowo dodajemy kolejne procesy według potrzeb firmy.',
       },
     ],
     whySmartWeave:
-      'SmartWeave to partner w pełnym procesie automatyzacji - nie sprzedajemy jedynie produktu, lecz projektujemy i wdrażamy rozwiązania dopasowane do specyfiki Twojej firmy. Rozpoczynamy od jednego, mierzalnego kroku, aby efekty - oszczędność czasu i redukcja błędów - były widoczne już na wczesnym etapie. Dla małych i średnich przedsiębiorstw to bezpieczna i kontrolowana ścieżka do skalowania procesów bez ryzyka chaosu.',
+      'SmartWeave projektuje i wdraża automatyzację procesów pod Twoją firmę – nie gotowe „pudełka”, tylko workflowy i integracje dopasowane do Twoich systemów i sposobu pracy. Zaczynamy od jednego, mierzalnego procesu (np. lead z formularza do CRM, raport z kilku źródeł), żeby efekt był szybko widoczny. Dla MŚP to bezpieczna ścieżka: mniej ręcznej pracy, mniej błędów, bez chaosu.',
   },
 
   'agenci-ai': {
