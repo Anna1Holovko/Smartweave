@@ -50,15 +50,15 @@ export const USLUGI_PAGE_CONTENT: Record<ServiceSlug, UslugiPageContent> = {
   },
   'agenci-ai': {
     problems: [
-      { title: 'Opóźniona pierwsza odpowiedź', description: 'Zapytania wchodzą mailem i z formularzy – zespół nie nadąża, a leady czekają. Agenci AI dają natychmiastowy odzew i nie tracisz szans.' },
+      { title: 'Opóźniona pierwsza odpowiedź', description: 'Zapytania wchodzą mailem i z formularzy – zespół nie nadąża, leady czekają. Agenci AI dają odzew w minutę, więc nie tracisz szans.' },
       { title: 'Ręczna segregacja leadów', description: 'Każde zapytanie ktoś musi przeczytać, ocenić i przekazać. Agenci AI kwalifikują leady według Twoich kryteriów i przekazują gotowe kontakty do handlowców.' },
       { title: 'Chaos dokumentów i danych', description: 'Umowy, faktury i ankiety – dane trzeba wyciągać i przenosić. Agenci AI przetwarzają dokumenty i uzupełniają CRM lub arkusze automatycznie.' },
       { title: 'Powtarzalne odpowiedzi na te same pytania', description: 'FAQ i standardowe zapytania zajmują godziny. Agenci AI odpowiadają na bazie Twojej wiedzy; zespół skupia się na relacjach i sprzedaży.' },
       { title: 'Chcesz skalować obsługę bez etatów', description: 'Więcej zapytań i leadów bez zatrudniania. Agenci AI obsługują pierwszy kontakt i przygotowują dane 24/7.' },
       { title: 'Brak czasu na to, co naprawdę ważne', description: 'Zespół tonie w operacyjce zamiast w rozwoju i klientach. Agenci AI odciążają od rutynowych zadań i oddają czas na strategię i relacje.' },
     ],
-    approach: 'Agenci AI to autonomiczne systemy oparte na sztucznej inteligencji: rozumieją język naturalny i Twoją wiedzę o firmie, prowadzą rozmowę z klientem, odpowiadają na zapytania, kwalifikują leady i przetwarzają dokumenty. Działają na stronie (chatbot), w mailu lub w innym kanale i łączą się z CRM oraz Twoimi narzędziami. W SmartWeave budujemy agenty AI pod konkretny proces – z jasnym zakresem i mierzalnym efektem – tak, aby odciążyć zespół, a nie zastępować ludzi.',
-    benefits: 'Dzięki agentom AI: natychmiastowa pierwsza odpowiedź – klient dostaje odzew w minutę; oszczędność czasu – agenci AI obsługują powtarzalne zapytania i wpisywanie danych; lepszy routing leadów – automatyczna kwalifikacja i przypisanie do handlowców; większa przepustowość – agenci AI działają 24/7 bez dodatkowych etatów.',
+    approach: 'Agenci AI to programy oparte na sztucznej inteligencji: rozumieją język naturalny i Twoją wiedzę o firmie, prowadzą rozmowę z klientem, odpowiadają na zapytania, kwalifikują leady i przetwarzają dokumenty. Działają na stronie (chatbot), w mailu lub w innym kanale i łączą się z CRM oraz Twoimi narzędziami. W SmartWeave budujemy agenty AI pod konkretny proces – z jasnym zakresem i mierzalnym efektem – tak, żeby odciążyć zespół, a nie zastępować ludzi.',
+    benefits: 'Dzięki agentom AI: szybsza pierwsza odpowiedź – klient dostaje odzew w minutę; więcej czasu dla zespołu – agenci AI obsługują powtarzalne zapytania i wpisywanie danych; lepszy przepływ leadów – automatyczna kwalifikacja i przypisanie do handlowców; większa przepustowość – agenci AI działają 24/7 bez dodatkowych etatów.',
     process: 'Ustalamy cel agenta AI: pierwsza odpowiedź, kwalifikacja leadów, FAQ czy analiza dokumentów – oraz granice, gdzie wchodzi człowiek. Projektujemy scenariusze, bazę wiedzy i integracje z Twoimi systemami. Budujemy i testujemy agenta AI na prawdziwych przypadkach, dopracowujemy zasady przekazywania spraw do zespołu. Uruchamiamy na produkcji, monitorujemy jakość i w miarę potrzeb rozszerzamy zakres agenta AI.',
   },
 };
