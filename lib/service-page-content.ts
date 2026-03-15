@@ -97,35 +97,35 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
     solution:
       'Automatyzujemy procesy biznesowe oraz wdrażamy rozwiązania AI, które przejmują powtarzalne i czasochłonne zadania. Workflowy, integracje i inteligentne powiadomienia zastępują ręczną pracę, zapewniając płynny i przewidywalny przebieg działań.\n\nDzięki temu zespół może skupić się na tym, co naprawdę wymaga wiedzy, doświadczenia i budowania relacji, podczas gdy rutynowe czynności realizowane są według jasno zdefiniowanych scenariuszy.\n\nEfekt? Oszczędność czasu, mniej błędów oraz możliwość obsługi większego wolumenu zleceń bez konieczności proporcjonalnego zwiększania zatrudnienia.',
     benefits: [
-      'Oszczędność czasu – powtarzalne kroki wykonują workflowy i integracje, a nie pracownicy.',
-      'Mniej błędów – jedna źródłowa prawda w systemie; brak ręcznego przepisywania i rozjazdów danych.',
-      'Szybsza reakcja – nowe leady, zlecenia i terminy uruchamiają automatyczne potwierdzenia, przypomnienia i przekierowania.',
-      'Skalowalność – większy wolumen procesów bez proporcjonalnego wzrostu zatrudnienia.',
+      'Oszczędność czasu - powtarzalne zadania wykonuje system, a nie pracownicy.',
+      'Mniej błędów - automatyzacja eliminuje pomyłki przy przepisywaniu, synchronizacji i raportowaniu.',
+      'Szybsza reakcja - leady i zlecenia obsługiwane są natychmiast dzięki automatycznym potwierdzeniom, przypomnieniom i przekierowaniom.',
+      'Skalowalność - możesz obsłużyć większy wolumen pracy bez proporcjonalnego wzrostu kosztów operacyjnych.',
     ],
     process: [
       {
         step: 1,
         title: 'Analiza procesów',
-        description: 'Przeprowadzamy analizę wybranych procesów: które kroki są powtarzalne, w jakich systemach są dane i gdzie powstają opóźnienia lub błędy. Określamy, co ma się dziać automatycznie (np. formularz → CRM, zamówienie → powiadomienie, raport tygodniowy).',
+        description: 'Przeprowadzamy szczegółową analizę wybranych procesów biznesowych: identyfikujemy kolejność działań, używane systemy oraz powtarzalne i czasochłonne zadania, które można zautomatyzować.',
       },
       {
         step: 2,
-        title: 'Projekt workflowów i integracji',
-        description: 'Projektujemy scenariusze automatyzacji i dobieramy narzędzia (Make, n8n, integracje). Definiujemy triggery, mapowanie danych i obsługę wyjątków oraz sposób połączenia z istniejącymi systemami firmy.',
+        title: 'Projekt rozwiązania',
+        description: 'Na podstawie analizy opracowujemy scenariusze automatyzacji, dobieramy odpowiednie narzędzia (Make, n8n, dedykowane integracje) i definiujemy sposób ich integracji z istniejącymi systemami firmy.',
       },
       {
         step: 3,
         title: 'Wdrożenie i testy',
-        description: 'Budujemy workflowy, łączymy systemy i testujemy na rzeczywistych danych. Dopracowujemy edge case\'y i przekazujemy dokumentację oraz wiedzę zespołowi.',
+        description: 'Tworzymy workflowy, integrujemy systemy i testujemy rozwiązania na rzeczywistych danych. Dostosowujemy obsługę wyjątków i przekazujemy pełną dokumentację oraz wiedzę zespołowi, aby zapewnić płynne użytkowanie systemu.',
       },
       {
         step: 4,
         title: 'Uruchomienie i rozwój',
-        description: 'Wdrażamy automatyzację w produkcji, monitorujemy działanie i stopniowo dodajemy kolejne procesy według potrzeb firmy.',
+        description: 'Wdrażamy rozwiązanie w środowisku produkcyjnym, monitorujemy jego efektywność i stopniowo rozszerzamy automatyzację na kolejne procesy w firmie w miarę potrzeb.',
       },
     ],
     whySmartWeave:
-      'SmartWeave projektuje i wdraża automatyzację procesów pod Twoją firmę – nie gotowe „pudełka”, tylko workflowy i integracje dopasowane do Twoich systemów i sposobu pracy. Zaczynamy od jednego, mierzalnego procesu (np. lead z formularza do CRM, raport z kilku źródeł), żeby efekt był szybko widoczny. Dla MŚP to bezpieczna ścieżka: mniej ręcznej pracy, mniej błędów, bez chaosu.',
+      'SmartWeave to partner w pełnym procesie automatyzacji - nie sprzedajemy jedynie produktu, lecz projektujemy i wdrażamy rozwiązania dopasowane do specyfiki Twojej firmy. Rozpoczynamy od jednego, mierzalnego kroku, aby efekty - oszczędność czasu i redukcja błędów - były widoczne już na wczesnym etapie. Dla małych i średnich przedsiębiorstw to bezpieczna i kontrolowana ścieżka do skalowania procesów bez ryzyka chaosu.',
   },
 
   'agenci-ai': {
