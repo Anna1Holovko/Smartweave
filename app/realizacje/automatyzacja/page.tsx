@@ -1,20 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { ScrollToTop } from '../../components/ScrollToTop';
 import { PageIntro } from '../../components/PageIntro';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
-import { Construction } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Realizacje — Automatyzacja procesów',
   description:
-    'Realizacje z zakresu automatyzacji procesów biznesowych — strona w przygotowaniu.',
+    'Case study: AI Lead Engine — automatyzacja kwalifikacji leadów i workflow sprzedaży z wykorzystaniem AI. Make, Airtable, HubSpot, OpenAI.',
   openGraph: {
-    title: 'Realizacje — Automatyzacja procesów | SmartWeave',
-    description: 'Strona w trakcie tworzenia.',
+    title: 'AI Lead Engine — Automatyzacja procesów | SmartWeave',
+    description: 'Automatyzacja kwalifikacji leadów i workflow sprzedaży z wykorzystaniem AI.',
     url: `${SITE_URL}/realizacje/automatyzacja`,
   },
 };
@@ -38,24 +38,241 @@ export default function RealizacjeAutomatyzacjaPage() {
               className={INTRO_MB_CLASS}
             />
 
-            <div
-              className="flex flex-col items-center justify-center py-16 sm:py-24 rounded-2xl glass-card"
+            <article
+              className="rounded-2xl glass-card overflow-hidden"
               style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
             >
-              <Construction className="w-16 h-16 sm:w-20 sm:h-20 text-[#d8f17b] mb-6" aria-hidden />
-              <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-3 text-center">
-                Strona w trakcie tworzenia
-              </h2>
-              <p className="text-zinc-400 text-center max-w-md mb-8">
-                Pracujemy nad tą sekcją. Wkrótce znajdziesz tu realizacje z zakresu automatyzacji procesów biznesowych.
-              </p>
-              <Link
-                href="/realizacje"
-                className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base border border-white/15 bg-white/5 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:text-[#d8f17b] transition-all h-12 min-h-12 px-6 sm:px-8"
-              >
-                Wróć do realizacji
-              </Link>
-            </div>
+              <div className="p-6 sm:p-8 lg:p-10 space-y-10 sm:space-y-12">
+                {/* Hero / example image */}
+                <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-white/5 border border-white/10">
+                  <Image
+                    src="/assets/realizacje/ai-lead-engine.png"
+                    alt="AI Lead Engine — schemat lub dashboard automatyzacji kwalifikacji leadów"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 80vw"
+                    priority
+                  />
+                </div>
+
+                <header>
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#e4e4e7] mb-2">
+                    AI Lead Engine
+                  </h1>
+                  <p className="text-lg sm:text-xl text-zinc-400">
+                    Automatyzacja kwalifikacji leadów i workflow sprzedaży z wykorzystaniem AI
+                  </p>
+                </header>
+
+                <section>
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Kontekst biznesowy</h2>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    W wielu firmach B2B proces obsługi nowych zapytań sprzedażowych nadal wygląda podobnie: lead trafia do bazy danych lub CRM, a następnie handlowiec musi ręcznie sprawdzić dane firmy, ocenić potencjał sprzedażowy oraz przygotować się do rozmowy.
+                  </p>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    U klienta, dla którego realizowany był projekt, proces ten był częściowo manualny i obejmował m.in.:
+                  </p>
+                  <ul className="list-disc list-inside text-zinc-400 space-y-2 mb-4">
+                    <li>analizę wiadomości od potencjalnego klienta,</li>
+                    <li>sprawdzanie czy firma istnieje już w bazie kontaktów,</li>
+                    <li>ocenę potencjału sprzedażowego zapytania,</li>
+                    <li>przygotowanie notatek do CRM,</li>
+                    <li>stworzenie kontekstu do rozmowy dla konsultanta.</li>
+                  </ul>
+                  <p className="text-zinc-400 leading-relaxed">
+                    W efekcie zespół sprzedaży poświęcał znaczną część czasu na czynności administracyjne zamiast na bezpośredni kontakt z klientem.
+                  </p>
+                </section>
+
+                <hr className="border-white/10" />
+
+                <section>
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Cel projektu</h2>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    Celem projektu było zaprojektowanie <em>systemu automatycznej kwalifikacji leadów</em>, który:
+                  </p>
+                  <ul className="list-disc list-inside text-zinc-400 space-y-2">
+                    <li>analizuje nowe zapytania klientów przy użyciu AI,</li>
+                    <li>ocenia potencjał sprzedażowy leada,</li>
+                    <li>automatycznie sprawdza duplikaty w bazie kontaktów,</li>
+                    <li>przygotowuje kontekst sprzedażowy dla handlowca,</li>
+                    <li>generuje skrypt rozmowy dla zespołu call center,</li>
+                    <li>tworzy zadania sprzedażowe w systemie CRM.</li>
+                  </ul>
+                  <p className="text-zinc-400 leading-relaxed mt-4">
+                    Rozwiązanie miało skrócić czas reakcji na nowe zapytania oraz zwiększyć efektywność pracy zespołu sprzedaży.
+                  </p>
+                </section>
+
+                <hr className="border-white/10" />
+
+                <section>
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Wdrożone rozwiązanie</h2>
+                  <p className="text-zinc-400 leading-relaxed mb-6">
+                    W ramach projektu powstał <em>AI Lead Engine</em> – zautomatyzowany workflow sprzedażowy oparty o automatyzacje i modele językowe. Proces działa w pełni automatycznie i składa się z kilku etapów.
+                  </p>
+
+                  <h3 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-3">1. Rejestracja nowego leada</h3>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    Nowy lead trafia do bazy danych prowadzonej w Airtable. Może on pochodzić np. z:
+                  </p>
+                  <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-6">
+                    <li>formularza na stronie internetowej,</li>
+                    <li>kampanii marketingowej,</li>
+                    <li>integracji z innymi systemami.</li>
+                  </ul>
+
+                  <h3 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-3">2. Automatyczna analiza leada przez AI</h3>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    Po pojawieniu się nowego rekordu uruchamiany jest scenariusz automatyzacji w Make. Dane leada są analizowane przez model językowy od OpenAI. AI wykonuje m.in.:
+                  </p>
+                  <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-6">
+                    <li>ocenę potencjału sprzedażowego (lead scoring),</li>
+                    <li>identyfikację branży klienta,</li>
+                    <li>analizę intencji zakupowej,</li>
+                    <li>stworzenie podsumowania do CRM.</li>
+                  </ul>
+
+                  <h3 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-3">3. Wykrywanie duplikatów kontaktów</h3>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    System automatycznie sprawdza, czy dana firma istnieje już w bazie kontaktów. Weryfikacja odbywa się na podstawie <em>numeru NIP</em>, co pozwala uniknąć duplikowania rekordów w bazie CRM.
+                  </p>
+                  <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-6">
+                    <li>jeśli kontakt istnieje → dane są aktualizowane,</li>
+                    <li>jeśli kontakt nie istnieje → tworzony jest nowy rekord kontaktu.</li>
+                  </ul>
+
+                  <h3 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-3">4. Generowanie kontekstu sprzedażowego</h3>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    Na podstawie analizy AI generowane są materiały wspierające pracę handlowca:
+                  </p>
+                  <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-2">
+                    <li>podsumowanie leada,</li>
+                    <li>najważniejsze informacje biznesowe,</li>
+                    <li><em>proponowany skrypt rozmowy sprzedażowej</em>.</li>
+                  </ul>
+                  <p className="text-zinc-400 leading-relaxed mb-6">
+                    Dzięki temu konsultant może rozpocząć rozmowę z klientem mając już przygotowany kontekst.
+                  </p>
+
+                  <h3 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-3">5. Automatyczne zadania sprzedażowe</h3>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    System automatycznie tworzy zadanie dla zespołu sprzedaży:
+                  </p>
+                  <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-2">
+                    <li>przypisuje priorytet leada na podstawie lead score,</li>
+                    <li>dodaje notatkę do rekordu klienta,</li>
+                    <li>przekazuje gotowy skrypt rozmowy.</li>
+                  </ul>
+                  <p className="text-zinc-400 leading-relaxed mb-6">
+                    Pozwala to znacząco skrócić czas przygotowania handlowca do pierwszego kontaktu.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Dashboard monitorujący proces</h2>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    Aby umożliwić bieżące monitorowanie procesu sprzedaży, przygotowany został również <em>dashboard operacyjny</em>. Dashboard umożliwia analizę m.in.:
+                  </p>
+                  <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-4">
+                    <li>liczby nowych leadów,</li>
+                    <li>jakości leadów (lead scoring),</li>
+                    <li>czasu reakcji zespołu sprzedaży,</li>
+                    <li>liczby kontaktów przetworzonych automatycznie.</li>
+                  </ul>
+                  <p className="text-zinc-400 leading-relaxed">
+                    Dzięki temu zespół zarządzający ma pełną widoczność procesu oraz może szybciej identyfikować wąskie gardła w sprzedaży.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Architektura rozwiązania</h2>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    Uproszczona architektura systemu:
+                  </p>
+                  <pre className="p-4 sm:p-6 rounded-xl bg-white/5 border border-white/10 text-zinc-300 text-sm sm:text-base whitespace-pre-wrap font-sans overflow-x-auto">
+{`Nowy lead
+↓
+Airtable (baza leadów)
+↓
+Automatyzacja workflow
+↓
+Analiza AI (lead scoring)
+↓
+Sprawdzenie duplikatów (NIP)
+↓
+Aktualizacja / utworzenie kontaktu
+↓
+HubSpot CRM (kontakt + zadanie sprzedażowe)
+↓
+Generowanie podsumowania i skryptu rozmowy
+↓
+Dashboard monitorujący proces`}
+                  </pre>
+                </section>
+
+                <section>
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Efekty wdrożenia</h2>
+                  <p className="text-zinc-400 leading-relaxed mb-6">
+                    Wdrożenie systemu automatyzacji przyniosło kilka kluczowych korzyści operacyjnych.
+                  </p>
+                  <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Skrócenie czasu kwalifikacji leadów</h3>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    Proces, który wcześniej wymagał ręcznej analizy przez handlowca, został skrócony do kilku sekund automatycznego przetwarzania.
+                  </p>
+                  <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Oszczędność czasu zespołu sprzedaży</h3>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    Automatyzacja pozwoliła ograniczyć pracę administracyjną handlowców o około <em>4–6 godzin tygodniowo</em>.
+                  </p>
+                  <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Szybsza reakcja na zapytania klientów</h3>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    Nowe leady są natychmiast analizowane i przekazywane do zespołu sprzedaży wraz z kontekstem rozmowy.
+                  </p>
+                  <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Lepsza jakość rozmów sprzedażowych</h3>
+                  <p className="text-zinc-400 leading-relaxed">
+                    Handlowcy otrzymują przygotowane wcześniej informacje o kliencie oraz sugestię sposobu prowadzenia rozmowy.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Technologie</h2>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    W projekcie wykorzystano:
+                  </p>
+                  <ul className="list-disc list-inside text-zinc-400 space-y-1">
+                    <li>Make – automatyzacja procesów i workflow</li>
+                    <li>Airtable – baza danych leadów i kontaktów</li>
+                    <li>HubSpot CRM – zarządzanie kontaktami i procesem sprzedaży</li>
+                    <li>OpenAI – analiza zapytań i generowanie treści</li>
+                    <li>dashboard analityczny do monitorowania procesu sprzedaży</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Podsumowanie</h2>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    Projekt pokazuje, jak połączenie automatyzacji procesów z modelami AI może znacząco usprawnić operacje sprzedażowe. Dzięki wdrożeniu AI Lead Engine firma uzyskała:
+                  </p>
+                  <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-4">
+                    <li>szybszą obsługę zapytań,</li>
+                    <li>lepszą organizację danych w CRM,</li>
+                    <li>większą efektywność pracy zespołu sprzedaży.</li>
+                  </ul>
+                  <p className="text-zinc-400 leading-relaxed">
+                    Automatyzacja pozwala handlowcom skupić się na tym, co najważniejsze – <em>rozmowie z klientem i zamykaniu sprzedaży</em>.
+                  </p>
+                </section>
+
+                <div className="pt-6 border-t border-white/10">
+                  <Link
+                    href="/realizacje"
+                    className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm border border-white/15 bg-white/5 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:text-[#d8f17b] transition-all h-12 min-h-12 px-6 sm:px-8"
+                  >
+                    Wróć do realizacji
+                  </Link>
+                </div>
+              </div>
+            </article>
           </div>
         </section>
         <div className="gradient-philosophy-to-footer">
