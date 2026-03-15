@@ -106,8 +106,6 @@ export default function RealizacjeAutomatyzacjaPage() {
                   </p>
                 </section>
 
-                <hr className="border-white/10" />
-
                 <section>
                   <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Cel projektu</h2>
                   <p className="text-zinc-400 leading-relaxed mb-4">
@@ -125,8 +123,6 @@ export default function RealizacjeAutomatyzacjaPage() {
                     Rozwiązanie miało skrócić czas reakcji na nowe zapytania oraz zwiększyć efektywność pracy zespołu sprzedaży.
                   </p>
                 </section>
-
-                <hr className="border-white/10" />
 
                 <section>
                   <div className="text-center mb-10 sm:mb-12">
@@ -176,7 +172,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                       className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
-                      <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Skrócenie czasu kwalifikacji leadów</h3>
+                      <h3 className="text-xl font-bold text-[#e4e4e7] mb-2">Skrócenie czasu kwalifikacji leadów</h3>
                       <p className="text-zinc-400 text-sm leading-relaxed">
                         Proces, który wcześniej wymagał ręcznej analizy przez handlowca, został skrócony do kilku sekund automatycznego przetwarzania.
                       </p>
@@ -185,7 +181,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                       className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
-                      <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Oszczędność czasu zespołu sprzedaży</h3>
+                      <h3 className="text-xl font-bold text-[#e4e4e7] mb-2">Oszczędność czasu zespołu sprzedaży</h3>
                       <p className="text-zinc-400 text-sm leading-relaxed">
                         Automatyzacja pozwoliła ograniczyć pracę administracyjną handlowców o około <em>4–6 godzin tygodniowo</em>.
                       </p>
@@ -194,7 +190,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                       className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
-                      <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Szybsza reakcja na zapytania klientów</h3>
+                      <h3 className="text-xl font-bold text-[#e4e4e7] mb-2">Szybsza reakcja na zapytania klientów</h3>
                       <p className="text-zinc-400 text-sm leading-relaxed">
                         Nowe leady są natychmiast analizowane i przekazywane do zespołu sprzedaży wraz z kontekstem rozmowy.
                       </p>
@@ -203,7 +199,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                       className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
-                      <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Lepsza jakość rozmów sprzedażowych</h3>
+                      <h3 className="text-xl font-bold text-[#e4e4e7] mb-2">Lepsza jakość rozmów sprzedażowych</h3>
                       <p className="text-zinc-400 text-sm leading-relaxed">
                         Handlowcy otrzymują przygotowane wcześniej informacje o kliencie oraz sugestię sposobu prowadzenia rozmowy.
                       </p>
