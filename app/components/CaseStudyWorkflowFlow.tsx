@@ -10,7 +10,8 @@ const steps = [
     title: 'Rejestracja nowego leada',
     description: (
       <>
-        Nowy lead trafia do bazy danych prowadzonej w Airtable. Może on pochodzić np. z:
+        Nowy lead trafia do bazy danych prowadzonej w Airtable.
+        <span className="block mt-2">Może on pochodzić np. z:</span>
         <ul className="list-disc list-inside text-zinc-400 mt-2 space-y-1">
           <li>formularza na stronie internetowej,</li>
           <li>kampanii marketingowej,</li>
@@ -25,11 +26,14 @@ const steps = [
     title: 'Automatyczna analiza leada przez AI',
     description: (
       <>
-        Scenariusz w Make; analiza przez OpenAI. AI wykonuje m.in.:
+        Po pojawieniu się nowego rekordu uruchamiany jest scenariusz automatyzacji w Make.
+        <span className="block mt-2">Dane leada są analizowane przez model językowy od OpenAI.</span>
+        <span className="block mt-2">AI wykonuje m.in.:</span>
         <ul className="list-disc list-inside text-zinc-400 mt-2 space-y-1">
-          <li>lead scoring, identyfikacja branży,</li>
-          <li>analiza intencji zakupowej,</li>
-          <li>podsumowanie do CRM.</li>
+          <li>ocenę potencjału sprzedażowego (lead scoring),</li>
+          <li>identyfikację branży klienta,</li>
+          <li>analizę intencji zakupowej,</li>
+          <li>stworzenie podsumowania do CRM.</li>
         </ul>
       </>
     ),
@@ -40,10 +44,11 @@ const steps = [
     title: 'Wykrywanie duplikatów kontaktów',
     description: (
       <>
-        Weryfikacja po <em>numerze NIP</em> – brak duplikatów w CRM.
+        System automatycznie sprawdza, czy dana firma istnieje już w bazie kontaktów.
+        <span className="block mt-2">Weryfikacja odbywa się na podstawie <em>numeru NIP</em>, co pozwala uniknąć duplikowania rekordów w bazie CRM.</span>
         <ul className="list-disc list-inside text-zinc-400 mt-2 space-y-1">
-          <li>kontakt istnieje → aktualizacja,</li>
-          <li>kontakt nowy → utworzenie rekordu.</li>
+          <li>jeśli kontakt istnieje → dane są aktualizowane,</li>
+          <li>jeśli kontakt nie istnieje → tworzony jest nowy rekord kontaktu.</li>
         </ul>
       </>
     ),
@@ -54,7 +59,13 @@ const steps = [
     title: 'Generowanie kontekstu sprzedażowego',
     description: (
       <>
-        AI generuje: podsumowanie leada, kluczowe informacje, <em>skrypt rozmowy</em>. Konsultant ma gotowy kontekst do pierwszego kontaktu.
+        Na podstawie analizy AI generowane są materiały wspierające pracę handlowca:
+        <ul className="list-disc list-inside text-zinc-400 mt-2 space-y-1">
+          <li>podsumowanie leada,</li>
+          <li>najważniejsze informacje biznesowe,</li>
+          <li><em>proponowany skrypt rozmowy sprzedażowej</em>.</li>
+        </ul>
+        <span className="block mt-2">Dzięki temu konsultant może rozpocząć rozmowę z klientem mając już przygotowany kontekst.</span>
       </>
     ),
   },
@@ -64,7 +75,13 @@ const steps = [
     title: 'Automatyczne zadania sprzedażowe',
     description: (
       <>
-        System tworzy zadanie: priorytet (lead score), notatka w CRM, gotowy skrypt. Czas przygotowania handlowca do kontaktu znacząco się skraca.
+        System automatycznie tworzy zadanie dla zespołu sprzedaży:
+        <ul className="list-disc list-inside text-zinc-400 mt-2 space-y-1">
+          <li>przypisuje priorytet leada na podstawie lead score,</li>
+          <li>dodaje notatkę do rekordu klienta,</li>
+          <li>przekazuje gotowy skrypt rozmowy.</li>
+        </ul>
+        <span className="block mt-2">Pozwala to znacząco skrócić czas przygotowania handlowca do pierwszego kontaktu.</span>
       </>
     ),
   },

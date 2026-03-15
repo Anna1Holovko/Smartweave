@@ -131,7 +131,10 @@ export default function RealizacjeAutomatyzacjaPage() {
                       Wdrożone rozwiązanie
                     </h2>
                     <p className="text-zinc-400 leading-relaxed max-w-[80ch] mx-auto">
-                      W ramach projektu powstał <em>AI Lead Engine</em> – zautomatyzowany workflow sprzedażowy oparty o automatyzacje i modele językowe. Proces działa w pełni automatycznie i składa się z kilku etapów.
+                      W ramach projektu powstał <em>AI Lead Engine</em> – zautomatyzowany workflow sprzedażowy oparty o automatyzacje i modele językowe.
+                    </p>
+                    <p className="text-zinc-400 leading-relaxed max-w-[80ch] mx-auto mt-2">
+                      Proces działa w pełni automatycznie i składa się z kilku etapów.
                     </p>
                   </div>
                   <CaseStudyWorkflowFlow />
@@ -140,7 +143,10 @@ export default function RealizacjeAutomatyzacjaPage() {
                 <section>
                   <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Dashboard monitorujący proces</h2>
                   <p className="text-zinc-400 leading-relaxed mb-4">
-                    Aby umożliwić bieżące monitorowanie procesu sprzedaży, przygotowany został również <em>dashboard operacyjny</em>. Dashboard umożliwia analizę m.in.:
+                    Aby umożliwić bieżące monitorowanie procesu sprzedaży, przygotowany został również <em>dashboard operacyjny</em>.
+                  </p>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    Dashboard umożliwia analizę m.in.:
                   </p>
                   <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-4">
                     <li>liczby nowych leadów,</li>
@@ -294,7 +300,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
                       <h3 className="text-xl font-bold text-[#e4e4e7]">Dashboard analityczny</h3>
-                      <p className="text-zinc-400 text-sm leading-relaxed">monitorowanie procesu sprzedaży</p>
+                      <p className="text-zinc-400 text-sm leading-relaxed">do monitorowania procesu sprzedaży</p>
                     </div>
                   </div>
                 </section>
@@ -302,7 +308,10 @@ export default function RealizacjeAutomatyzacjaPage() {
                 <section>
                   <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Podsumowanie</h2>
                   <p className="text-zinc-400 leading-relaxed mb-4">
-                    Projekt pokazuje, jak połączenie automatyzacji procesów z modelami AI może znacząco usprawnić operacje sprzedażowe. Dzięki wdrożeniu AI Lead Engine firma uzyskała:
+                    Projekt pokazuje, jak połączenie automatyzacji procesów z modelami AI może znacząco usprawnić operacje sprzedażowe.
+                  </p>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    Dzięki wdrożeniu AI Lead Engine firma uzyskała:
                   </p>
                   <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-4">
                     <li>szybszą obsługę zapytań,</li>
