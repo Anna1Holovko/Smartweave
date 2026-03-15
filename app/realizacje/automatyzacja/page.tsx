@@ -7,6 +7,7 @@ import { ScrollToTop } from '../../components/ScrollToTop';
 import { PageIntro } from '../../components/PageIntro';
 import { SITE_URL, CALENDLY_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
+import { CaseStudyWorkflowFlow } from '../../components/CaseStudyWorkflowFlow';
 
 export const metadata: Metadata = {
   title: 'Realizacje — Automatyzacja procesów',
@@ -136,72 +137,15 @@ export default function RealizacjeAutomatyzacjaPage() {
                 <hr className="border-white/10" />
 
                 <section>
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Wdrożone rozwiązanie</h2>
-                  <p className="text-zinc-400 leading-relaxed mb-6">
-                    W ramach projektu powstał <em>AI Lead Engine</em> – zautomatyzowany workflow sprzedażowy oparty o automatyzacje i modele językowe. Proces działa w pełni automatycznie i składa się z kilku etapów.
-                  </p>
-
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-                    <div
-                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift"
-                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
-                    >
-                      <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">1. Rejestracja nowego leada</h3>
-                      <p className="text-zinc-400 text-sm leading-relaxed mb-2">
-                        Nowy lead trafia do bazy danych prowadzonej w Airtable. Może on pochodzić np. z:
-                      </p>
-                      <ul className="list-disc list-inside text-zinc-400 text-sm space-y-1">
-                        <li>formularza na stronie internetowej,</li>
-                        <li>kampanii marketingowej,</li>
-                        <li>integracji z innymi systemami.</li>
-                      </ul>
-                    </div>
-                    <div
-                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift"
-                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
-                    >
-                      <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">2. Automatyczna analiza leada przez AI</h3>
-                      <p className="text-zinc-400 text-sm leading-relaxed mb-2">
-                        Scenariusz w Make; analiza przez OpenAI. AI wykonuje m.in.:
-                      </p>
-                      <ul className="list-disc list-inside text-zinc-400 text-sm space-y-1">
-                        <li>lead scoring, identyfikacja branży,</li>
-                        <li>analiza intencji zakupowej,</li>
-                        <li>podsumowanie do CRM.</li>
-                      </ul>
-                    </div>
-                    <div
-                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift"
-                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
-                    >
-                      <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">3. Wykrywanie duplikatów kontaktów</h3>
-                      <p className="text-zinc-400 text-sm leading-relaxed mb-2">
-                        Weryfikacja po <em>numerze NIP</em> – brak duplikatów w CRM.
-                      </p>
-                      <ul className="list-disc list-inside text-zinc-400 text-sm space-y-1">
-                        <li>kontakt istnieje → aktualizacja,</li>
-                        <li>kontakt nowy → utworzenie rekordu.</li>
-                      </ul>
-                    </div>
-                    <div
-                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift"
-                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
-                    >
-                      <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">4. Generowanie kontekstu sprzedażowego</h3>
-                      <p className="text-zinc-400 text-sm leading-relaxed mb-2">
-                        AI generuje: podsumowanie leada, kluczowe informacje, <em>skrypt rozmowy</em>. Konsultant ma gotowy kontekst do pierwszego kontaktu.
-                      </p>
-                    </div>
-                    <div
-                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift lg:col-span-2"
-                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
-                    >
-                      <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">5. Automatyczne zadania sprzedażowe</h3>
-                      <p className="text-zinc-400 text-sm leading-relaxed mb-2">
-                        System tworzy zadanie: priorytet (lead score), notatka w CRM, gotowy skrypt. Czas przygotowania handlowca do kontaktu znacząco się skraca.
-                      </p>
-                    </div>
+                  <div className="text-center mb-10 sm:mb-12">
+                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#e4e4e7] mb-2">
+                      Wdrożone rozwiązanie
+                    </h2>
+                    <p className="text-zinc-400 leading-relaxed max-w-[80ch] mx-auto">
+                      W ramach projektu powstał <em>AI Lead Engine</em> – zautomatyzowany workflow sprzedażowy oparty o automatyzacje i modele językowe. Proces działa w pełni automatycznie i składa się z kilku etapów.
+                    </p>
                   </div>
+                  <CaseStudyWorkflowFlow />
                 </section>
 
                 <section>
