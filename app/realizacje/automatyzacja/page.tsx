@@ -131,10 +131,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                       Wdrożone rozwiązanie
                     </h2>
                     <p className="text-zinc-400 leading-relaxed max-w-[80ch] mx-auto">
-                      W ramach projektu powstał <em>AI Lead Engine</em> – zautomatyzowany workflow sprzedażowy oparty o automatyzacje i modele językowe.
-                    </p>
-                    <p className="text-zinc-400 leading-relaxed max-w-[80ch] mx-auto mt-2">
-                      Proces działa w pełni automatycznie i składa się z kilku etapów.
+                      <em>AI Lead Engine</em> – zautomatyzowany workflow w 5 etapów. Automatyzacje + modele językowe.
                     </p>
                   </div>
                   <CaseStudyWorkflowFlow />
@@ -243,8 +240,8 @@ export default function RealizacjeAutomatyzacjaPage() {
 
                 <section>
                   <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-2">Technologie</h2>
-                  <p className="text-zinc-400 leading-relaxed mb-6">
-                    W projekcie wykorzystano:
+                  <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+                    Narzędzia użyte w projekcie
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                     <div
@@ -256,7 +253,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                         <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
                           <Image src="/assets/tools/make.png" alt="Make" width={32} height={32} className="object-contain p-0.5 opacity-90" />
                         </div>
-                        <p className="text-zinc-400 text-sm leading-relaxed min-w-0">automatyzacja procesów i workflow</p>
+                        <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Automatyzacja procesów i workflow</p>
                       </div>
                     </div>
                     <div
@@ -268,7 +265,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                         <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
                           <Image src="/assets/tools/airtable.png" alt="Airtable" width={32} height={32} className="object-contain p-0.5 opacity-90" />
                         </div>
-                        <p className="text-zinc-400 text-sm leading-relaxed min-w-0">baza danych leadów i kontaktów</p>
+                        <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Baza leadów i kontaktów</p>
                       </div>
                     </div>
                     <div
@@ -280,7 +277,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                         <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
                           <Image src="/assets/tools/hubspot.png" alt="HubSpot" width={32} height={32} className="object-contain p-0.5 opacity-90" />
                         </div>
-                        <p className="text-zinc-400 text-sm leading-relaxed min-w-0">zarządzanie kontaktami i procesem sprzedaży</p>
+                        <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Kontakty i proces sprzedaży</p>
                       </div>
                     </div>
                     <div
@@ -292,7 +289,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                         <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#74AA9C]">
                           <OpenAIIcon className="w-6 h-6" />
                         </div>
-                        <p className="text-zinc-400 text-sm leading-relaxed min-w-0">analiza zapytań i generowanie treści</p>
+                        <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Analiza zapytań i treści</p>
                       </div>
                     </div>
                     <div
@@ -300,7 +297,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
                       <h3 className="text-xl font-bold text-[#e4e4e7]">Dashboard analityczny</h3>
-                      <p className="text-zinc-400 text-sm leading-relaxed">do monitorowania procesu sprzedaży</p>
+                      <p className="text-zinc-400 text-sm leading-relaxed">Monitorowanie procesu sprzedaży</p>
                     </div>
                   </div>
                 </section>
