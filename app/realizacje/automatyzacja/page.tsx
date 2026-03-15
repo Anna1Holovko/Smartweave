@@ -30,8 +30,8 @@ export default function RealizacjeAutomatyzacjaPage() {
           <div className={CONTAINER_CLASS}>
             <PageIntro
               backHref="/realizacje"
-              backLabel="Realizacje"
-              badge="Realizacje"
+              backLabel="Case Studies"
+              badge="Case Studies"
               badgeVariant="accent"
               title="Automatyzacja procesów"
               description="Zobacz realizacje z zakresu automatyzacji"
