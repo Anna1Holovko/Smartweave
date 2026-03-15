@@ -5,7 +5,6 @@ import { SimpleCTASection } from '../components/SimpleCTASection';
 import { ScrollToTop } from '../components/ScrollToTop';
 import { PageIntro } from '../components/PageIntro';
 import { UslugiServiceCards } from '../components/UslugiServiceCards';
-import { UslugiConsultationBlock } from '../components/UslugiConsultationBlock';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 
@@ -46,12 +45,6 @@ export default function UslugiPage() {
             <UslugiServiceCards />
           </div>
         </section>
-
-        <UslugiConsultationBlock
-          variant="centered"
-          title="Zainteresowała Cię ta usługa?"
-          description="Umów bezpłatną konsultację - opowiemy o szczegółach i dopasujemy rozwiązanie"
-        />
 
         <div className="gradient-philosophy-to-footer">
           <SimpleCTASection />
