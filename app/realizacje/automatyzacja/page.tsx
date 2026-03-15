@@ -242,7 +242,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                   </p>
                   <div className="flex flex-row flex-nowrap gap-4 overflow-x-auto pb-2">
                     <div
-                      className="flex-shrink-0 w-[200px] sm:w-[220px] rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-col gap-3"
+                      className="flex-shrink-0 min-w-[200px] sm:min-w-[240px] rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-row items-center gap-3"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
                       <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
@@ -254,7 +254,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                       </div>
                     </div>
                     <div
-                      className="flex-shrink-0 w-[200px] sm:w-[220px] rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-col gap-3"
+                      className="flex-shrink-0 min-w-[200px] sm:min-w-[240px] rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-row items-center gap-3"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
                       <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
@@ -266,7 +266,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                       </div>
                     </div>
                     <div
-                      className="flex-shrink-0 w-[200px] sm:w-[220px] rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-col gap-3"
+                      className="flex-shrink-0 min-w-[200px] sm:min-w-[240px] rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-row items-center gap-3"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
                       <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
@@ -278,7 +278,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                       </div>
                     </div>
                     <div
-                      className="flex-shrink-0 w-[200px] sm:w-[220px] rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-col gap-3"
+                      className="flex-shrink-0 min-w-[200px] sm:min-w-[240px] rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-row items-center gap-3"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
                       <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#74AA9C]">
@@ -290,7 +290,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                       </div>
                     </div>
                     <div
-                      className="flex-shrink-0 w-[200px] sm:w-[220px] rounded-xl p-4 sm:p-5 border border-white/10 hover-lift"
+                      className="flex-shrink-0 min-w-[200px] sm:min-w-[240px] rounded-xl p-4 sm:p-5 border border-white/10 hover-lift"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
                       <div className="min-w-0">
