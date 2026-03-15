@@ -8,6 +8,7 @@ import { PageIntro } from '../../components/PageIntro';
 import { SITE_URL, CALENDLY_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 import { CaseStudyWorkflowFlow } from '../../components/CaseStudyWorkflowFlow';
+import { ArchitectureFlow } from '../../components/ArchitectureFlow';
 
 export const metadata: Metadata = {
   title: 'Realizacje — Automatyzacja procesów',
@@ -165,29 +166,13 @@ export default function RealizacjeAutomatyzacjaPage() {
                 </section>
 
                 <section>
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Architektura rozwiązania</h2>
-                  <p className="text-zinc-400 leading-relaxed mb-4">
-                    Uproszczona architektura systemu:
-                  </p>
-                  <pre className="p-4 sm:p-6 rounded-xl bg-white/5 border border-white/10 text-zinc-300 text-sm sm:text-base whitespace-pre-wrap font-sans overflow-x-auto">
-{`Nowy lead
-↓
-Airtable (baza leadów)
-↓
-Automatyzacja workflow
-↓
-Analiza AI (lead scoring)
-↓
-Sprawdzenie duplikatów (NIP)
-↓
-Aktualizacja / utworzenie kontaktu
-↓
-HubSpot CRM (kontakt + zadanie sprzedażowe)
-↓
-Generowanie podsumowania i skryptu rozmowy
-↓
-Dashboard monitorujący proces`}
-                  </pre>
+                  <div className="text-center mb-8">
+                    <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-2">Architektura rozwiązania</h2>
+                    <p className="text-zinc-400 leading-relaxed">
+                      Uproszczona architektura systemu:
+                    </p>
+                  </div>
+                  <ArchitectureFlow />
                 </section>
 
                 <section>
