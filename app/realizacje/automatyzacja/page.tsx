@@ -61,31 +61,26 @@ export default function RealizacjeAutomatyzacjaPage() {
                   </p>
                 </header>
 
-                {/* Key metrics – style from reference (dark grid + accent numbers) */}
+                {/* Key metrics – strip using site typography (Syne + Manrope, accent) */}
                 <section
-                  className="relative rounded-xl overflow-hidden border border-white/10"
-                  style={{
-                    background: 'var(--bg-2)',
-                    backgroundImage: 'linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)',
-                    backgroundSize: '24px 24px',
-                  }}
+                  className="relative rounded-xl overflow-hidden border border-white/10 bg-[var(--bg-2)]"
                 >
                   <div className="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 divide-x divide-white/10">
-                    <div className="py-6 sm:py-8 px-4 sm:px-6 text-center">
-                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#d8f17b] mb-1">4–6h</div>
-                      <div className="text-sm text-zinc-400">oszczędność tygodniowo</div>
+                    <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
+                      <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">4–6h</div>
+                      <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">oszczędność tygodniowo</div>
                     </div>
-                    <div className="py-6 sm:py-8 px-4 sm:px-6 text-center">
-                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#d8f17b] mb-1">~5 min</div>
-                      <div className="text-sm text-zinc-400">czas konfiguracji GPT</div>
+                    <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
+                      <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">~5 min</div>
+                      <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">czas konfiguracji GPT</div>
                     </div>
-                    <div className="py-6 sm:py-8 px-4 sm:px-6 text-center">
-                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#d8f17b] mb-1">90%</div>
-                      <div className="text-sm text-zinc-400">skuteczność klasyfikacji</div>
+                    <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
+                      <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">90%</div>
+                      <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">skuteczność klasyfikacji</div>
                     </div>
-                    <div className="py-6 sm:py-8 px-4 sm:px-6 text-center">
-                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#d8f17b] mb-1">2 kroki</div>
-                      <div className="text-sm text-zinc-400">zatwierdzenia człowieka</div>
+                    <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
+                      <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">2 kroki</div>
+                      <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">zatwierdzenia człowieka</div>
                     </div>
                   </div>
                 </section>
@@ -220,30 +215,23 @@ export default function RealizacjeAutomatyzacjaPage() {
                   <p className="text-zinc-400 leading-relaxed mb-6">
                     Możesz pokazać prostą kalkulację (50 leadów tygodniowo, 10 min na lead, 80 zł/h):
                   </p>
-                  <div
-                    className="relative rounded-xl overflow-hidden border border-white/10"
-                    style={{
-                      background: 'var(--bg-2)',
-                      backgroundImage: 'linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)',
-                      backgroundSize: '24px 24px',
-                    }}
-                  >
+                  <div className="relative rounded-xl overflow-hidden border border-white/10 bg-[var(--bg-2)]">
                     <div className="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 divide-x divide-white/10">
-                      <div className="py-6 sm:py-8 px-4 sm:px-6 text-center">
-                        <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#d8f17b] mb-1">8,3h</div>
-                        <div className="text-sm text-zinc-400">oszczędność tygodniowo</div>
+                      <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
+                        <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">8,3h</div>
+                        <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">oszczędność tygodniowo</div>
                       </div>
-                      <div className="py-6 sm:py-8 px-4 sm:px-6 text-center">
-                        <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#d8f17b] mb-1">~33h</div>
-                        <div className="text-sm text-zinc-400">miesięcznie</div>
+                      <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
+                        <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">~33h</div>
+                        <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">miesięcznie</div>
                       </div>
-                      <div className="py-6 sm:py-8 px-4 sm:px-6 text-center">
-                        <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#d8f17b] mb-1">2640 zł</div>
-                        <div className="text-sm text-zinc-400">oszczędność miesięcznie</div>
+                      <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
+                        <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">2640 zł</div>
+                        <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">oszczędność miesięcznie</div>
                       </div>
-                      <div className="py-6 sm:py-8 px-4 sm:px-6 text-center">
-                        <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#d8f17b] mb-1">3–4</div>
-                        <div className="text-sm text-zinc-400">miesiące do zwrotu z inwestycji</div>
+                      <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
+                        <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">3–4</div>
+                        <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">miesiące do zwrotu z inwestycji</div>
                       </div>
                     </div>
                   </div>
