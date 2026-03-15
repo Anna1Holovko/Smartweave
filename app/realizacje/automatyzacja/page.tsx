@@ -221,27 +221,37 @@ export default function RealizacjeAutomatyzacjaPage() {
                 </section>
 
                 <section>
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Jak uzasadnić ROI w case study</h2>
-                  <p className="text-zinc-400 leading-relaxed mb-4">
-                    Możesz pokazać prostą kalkulację:
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-2">Jak uzasadnić ROI w case study</h2>
+                  <p className="text-zinc-400 leading-relaxed mb-6">
+                    Możesz pokazać prostą kalkulację (50 leadów tygodniowo, 10 min na lead, 80 zł/h):
                   </p>
-                  <p className="text-zinc-400 leading-relaxed mb-2 font-medium text-[#e4e4e7]">Założenia:</p>
-                  <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-4">
-                    <li>50 leadów tygodniowo</li>
-                    <li>10 min pracy handlowca na lead</li>
-                  </ul>
-                  <p className="text-zinc-400 leading-relaxed mb-2 font-medium text-[#e4e4e7]">Oszczędność:</p>
-                  <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-2">
-                    <li>50 leadów × 10 min = 500 min = 8,3 h tygodniowo</li>
-                    <li>Czyli: ~33 h miesięcznie</li>
-                  </ul>
-                  <p className="text-zinc-400 leading-relaxed mb-2 font-medium text-[#e4e4e7]">Przy koszcie handlowca: 80 zł / h</p>
-                  <p className="text-zinc-400 leading-relaxed mb-4">
-                    Oszczędność: <strong className="text-[#d8f17b]">2640 zł miesięcznie</strong>
-                  </p>
-                  <p className="text-zinc-400 leading-relaxed">
-                    ➡ Zwrot z inwestycji w 3–4 miesiące
-                  </p>
+                  <div
+                    className="relative rounded-xl overflow-hidden border border-white/10"
+                    style={{
+                      background: 'var(--bg-2)',
+                      backgroundImage: 'linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)',
+                      backgroundSize: '24px 24px',
+                    }}
+                  >
+                    <div className="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 divide-x divide-white/10">
+                      <div className="py-6 sm:py-8 px-4 sm:px-6 text-center">
+                        <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#d8f17b] mb-1">8,3h</div>
+                        <div className="text-sm text-zinc-400">oszczędność tygodniowo</div>
+                      </div>
+                      <div className="py-6 sm:py-8 px-4 sm:px-6 text-center">
+                        <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#d8f17b] mb-1">~33h</div>
+                        <div className="text-sm text-zinc-400">miesięcznie</div>
+                      </div>
+                      <div className="py-6 sm:py-8 px-4 sm:px-6 text-center">
+                        <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#d8f17b] mb-1">2640 zł</div>
+                        <div className="text-sm text-zinc-400">oszczędność miesięcznie</div>
+                      </div>
+                      <div className="py-6 sm:py-8 px-4 sm:px-6 text-center">
+                        <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#d8f17b] mb-1">3–4</div>
+                        <div className="text-sm text-zinc-400">miesiące do zwrotu z inwestycji</div>
+                      </div>
+                    </div>
+                  </div>
                 </section>
 
                 <section>
