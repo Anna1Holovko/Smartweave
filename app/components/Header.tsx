@@ -37,7 +37,7 @@ const uslugiDropdownItems = USLUGI_DISPLAY_ORDER.map((slug) => ({
 }));
 
 const realizacjeDropdownItems = [
-  { name: 'Projekty', href: '/realizacje' },
+  { name: 'Strony Internetowe', href: '/realizacje' },
   { name: 'Automatyzacja procesów', href: '/realizacje/automatyzacja' },
 ];
 

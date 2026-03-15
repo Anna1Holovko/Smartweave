@@ -64,6 +64,35 @@ export default function RealizacjeAutomatyzacjaPage() {
                   </p>
                 </header>
 
+                {/* Key metrics – style from reference (dark grid + accent numbers) */}
+                <section
+                  className="relative rounded-xl overflow-hidden border border-white/10"
+                  style={{
+                    background: 'var(--bg-2)',
+                    backgroundImage: 'linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)',
+                    backgroundSize: '24px 24px',
+                  }}
+                >
+                  <div className="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 divide-x divide-white/10">
+                    <div className="py-6 sm:py-8 px-4 sm:px-6 text-center">
+                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#d8f17b] mb-1">4–6h</div>
+                      <div className="text-sm text-zinc-400">oszczędność tygodniowo</div>
+                    </div>
+                    <div className="py-6 sm:py-8 px-4 sm:px-6 text-center">
+                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#d8f17b] mb-1">~5 min</div>
+                      <div className="text-sm text-zinc-400">czas konfiguracji GPT</div>
+                    </div>
+                    <div className="py-6 sm:py-8 px-4 sm:px-6 text-center">
+                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#d8f17b] mb-1">90%</div>
+                      <div className="text-sm text-zinc-400">skuteczność klasyfikacji</div>
+                    </div>
+                    <div className="py-6 sm:py-8 px-4 sm:px-6 text-center">
+                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#d8f17b] mb-1">2 kroki</div>
+                      <div className="text-sm text-zinc-400">zatwierdzenia człowieka</div>
+                    </div>
+                  </div>
+                </section>
+
                 <section>
                   <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Kontekst biznesowy</h2>
                   <p className="text-zinc-400 leading-relaxed mb-4">
@@ -112,61 +141,67 @@ export default function RealizacjeAutomatyzacjaPage() {
                     W ramach projektu powstał <em>AI Lead Engine</em> – zautomatyzowany workflow sprzedażowy oparty o automatyzacje i modele językowe. Proces działa w pełni automatycznie i składa się z kilku etapów.
                   </p>
 
-                  <h3 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-3">1. Rejestracja nowego leada</h3>
-                  <p className="text-zinc-400 leading-relaxed mb-4">
-                    Nowy lead trafia do bazy danych prowadzonej w Airtable. Może on pochodzić np. z:
-                  </p>
-                  <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-6">
-                    <li>formularza na stronie internetowej,</li>
-                    <li>kampanii marketingowej,</li>
-                    <li>integracji z innymi systemami.</li>
-                  </ul>
-
-                  <h3 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-3">2. Automatyczna analiza leada przez AI</h3>
-                  <p className="text-zinc-400 leading-relaxed mb-4">
-                    Po pojawieniu się nowego rekordu uruchamiany jest scenariusz automatyzacji w Make. Dane leada są analizowane przez model językowy od OpenAI. AI wykonuje m.in.:
-                  </p>
-                  <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-6">
-                    <li>ocenę potencjału sprzedażowego (lead scoring),</li>
-                    <li>identyfikację branży klienta,</li>
-                    <li>analizę intencji zakupowej,</li>
-                    <li>stworzenie podsumowania do CRM.</li>
-                  </ul>
-
-                  <h3 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-3">3. Wykrywanie duplikatów kontaktów</h3>
-                  <p className="text-zinc-400 leading-relaxed mb-4">
-                    System automatycznie sprawdza, czy dana firma istnieje już w bazie kontaktów. Weryfikacja odbywa się na podstawie <em>numeru NIP</em>, co pozwala uniknąć duplikowania rekordów w bazie CRM.
-                  </p>
-                  <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-6">
-                    <li>jeśli kontakt istnieje → dane są aktualizowane,</li>
-                    <li>jeśli kontakt nie istnieje → tworzony jest nowy rekord kontaktu.</li>
-                  </ul>
-
-                  <h3 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-3">4. Generowanie kontekstu sprzedażowego</h3>
-                  <p className="text-zinc-400 leading-relaxed mb-4">
-                    Na podstawie analizy AI generowane są materiały wspierające pracę handlowca:
-                  </p>
-                  <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-2">
-                    <li>podsumowanie leada,</li>
-                    <li>najważniejsze informacje biznesowe,</li>
-                    <li><em>proponowany skrypt rozmowy sprzedażowej</em>.</li>
-                  </ul>
-                  <p className="text-zinc-400 leading-relaxed mb-6">
-                    Dzięki temu konsultant może rozpocząć rozmowę z klientem mając już przygotowany kontekst.
-                  </p>
-
-                  <h3 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-3">5. Automatyczne zadania sprzedażowe</h3>
-                  <p className="text-zinc-400 leading-relaxed mb-4">
-                    System automatycznie tworzy zadanie dla zespołu sprzedaży:
-                  </p>
-                  <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-2">
-                    <li>przypisuje priorytet leada na podstawie lead score,</li>
-                    <li>dodaje notatkę do rekordu klienta,</li>
-                    <li>przekazuje gotowy skrypt rozmowy.</li>
-                  </ul>
-                  <p className="text-zinc-400 leading-relaxed mb-6">
-                    Pozwala to znacząco skrócić czas przygotowania handlowca do pierwszego kontaktu.
-                  </p>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+                    <div
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift"
+                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+                    >
+                      <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">1. Rejestracja nowego leada</h3>
+                      <p className="text-zinc-400 text-sm leading-relaxed mb-2">
+                        Nowy lead trafia do bazy danych prowadzonej w Airtable. Może on pochodzić np. z:
+                      </p>
+                      <ul className="list-disc list-inside text-zinc-400 text-sm space-y-1">
+                        <li>formularza na stronie internetowej,</li>
+                        <li>kampanii marketingowej,</li>
+                        <li>integracji z innymi systemami.</li>
+                      </ul>
+                    </div>
+                    <div
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift"
+                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+                    >
+                      <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">2. Automatyczna analiza leada przez AI</h3>
+                      <p className="text-zinc-400 text-sm leading-relaxed mb-2">
+                        Scenariusz w Make; analiza przez OpenAI. AI wykonuje m.in.:
+                      </p>
+                      <ul className="list-disc list-inside text-zinc-400 text-sm space-y-1">
+                        <li>lead scoring, identyfikacja branży,</li>
+                        <li>analiza intencji zakupowej,</li>
+                        <li>podsumowanie do CRM.</li>
+                      </ul>
+                    </div>
+                    <div
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift"
+                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+                    >
+                      <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">3. Wykrywanie duplikatów kontaktów</h3>
+                      <p className="text-zinc-400 text-sm leading-relaxed mb-2">
+                        Weryfikacja po <em>numerze NIP</em> – brak duplikatów w CRM.
+                      </p>
+                      <ul className="list-disc list-inside text-zinc-400 text-sm space-y-1">
+                        <li>kontakt istnieje → aktualizacja,</li>
+                        <li>kontakt nowy → utworzenie rekordu.</li>
+                      </ul>
+                    </div>
+                    <div
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift"
+                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+                    >
+                      <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">4. Generowanie kontekstu sprzedażowego</h3>
+                      <p className="text-zinc-400 text-sm leading-relaxed mb-2">
+                        AI generuje: podsumowanie leada, kluczowe informacje, <em>skrypt rozmowy</em>. Konsultant ma gotowy kontekst do pierwszego kontaktu.
+                      </p>
+                    </div>
+                    <div
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift lg:col-span-2"
+                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+                    >
+                      <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">5. Automatyczne zadania sprzedażowe</h3>
+                      <p className="text-zinc-400 text-sm leading-relaxed mb-2">
+                        System tworzy zadanie: priorytet (lead score), notatka w CRM, gotowy skrypt. Czas przygotowania handlowca do kontaktu znacząco się skraca.
+                      </p>
+                    </div>
+                  </div>
                 </section>
 
                 <section>
@@ -216,22 +251,44 @@ Dashboard monitorujący proces`}
                   <p className="text-zinc-400 leading-relaxed mb-6">
                     Wdrożenie systemu automatyzacji przyniosło kilka kluczowych korzyści operacyjnych.
                   </p>
-                  <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Skrócenie czasu kwalifikacji leadów</h3>
-                  <p className="text-zinc-400 leading-relaxed mb-4">
-                    Proces, który wcześniej wymagał ręcznej analizy przez handlowca, został skrócony do kilku sekund automatycznego przetwarzania.
-                  </p>
-                  <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Oszczędność czasu zespołu sprzedaży</h3>
-                  <p className="text-zinc-400 leading-relaxed mb-4">
-                    Automatyzacja pozwoliła ograniczyć pracę administracyjną handlowców o około <em>4–6 godzin tygodniowo</em>.
-                  </p>
-                  <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Szybsza reakcja na zapytania klientów</h3>
-                  <p className="text-zinc-400 leading-relaxed mb-4">
-                    Nowe leady są natychmiast analizowane i przekazywane do zespołu sprzedaży wraz z kontekstem rozmowy.
-                  </p>
-                  <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Lepsza jakość rozmów sprzedażowych</h3>
-                  <p className="text-zinc-400 leading-relaxed">
-                    Handlowcy otrzymują przygotowane wcześniej informacje o kliencie oraz sugestię sposobu prowadzenia rozmowy.
-                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                    <div
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift"
+                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+                    >
+                      <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Skrócenie czasu kwalifikacji leadów</h3>
+                      <p className="text-zinc-400 text-sm leading-relaxed">
+                        Proces, który wcześniej wymagał ręcznej analizy przez handlowca, został skrócony do kilku sekund automatycznego przetwarzania.
+                      </p>
+                    </div>
+                    <div
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift"
+                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+                    >
+                      <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Oszczędność czasu zespołu sprzedaży</h3>
+                      <p className="text-zinc-400 text-sm leading-relaxed">
+                        Automatyzacja pozwoliła ograniczyć pracę administracyjną handlowców o około <em>4–6 godzin tygodniowo</em>.
+                      </p>
+                    </div>
+                    <div
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift"
+                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+                    >
+                      <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Szybsza reakcja na zapytania klientów</h3>
+                      <p className="text-zinc-400 text-sm leading-relaxed">
+                        Nowe leady są natychmiast analizowane i przekazywane do zespołu sprzedaży wraz z kontekstem rozmowy.
+                      </p>
+                    </div>
+                    <div
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift"
+                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+                    >
+                      <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Lepsza jakość rozmów sprzedażowych</h3>
+                      <p className="text-zinc-400 text-sm leading-relaxed">
+                        Handlowcy otrzymują przygotowane wcześniej informacje o kliencie oraz sugestię sposobu prowadzenia rozmowy.
+                      </p>
+                    </div>
+                  </div>
                 </section>
 
                 <section>
