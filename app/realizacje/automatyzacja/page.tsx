@@ -30,8 +30,8 @@ export default function RealizacjeAutomatyzacjaPage() {
           <div className={CONTAINER_CLASS}>
             <PageIntro
               backHref="/realizacje"
-              backLabel="Case Studies"
-              badge="Case Studies"
+              backLabel="Realizacji"
+              badge="Realizacji"
               badgeVariant="accent"
               title="Automatyzacja procesów"
               description="Zobacz realizacje z zakresu automatyzacji"
@@ -231,6 +231,30 @@ Dashboard monitorujący proces`}
                   <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Lepsza jakość rozmów sprzedażowych</h3>
                   <p className="text-zinc-400 leading-relaxed">
                     Handlowcy otrzymują przygotowane wcześniej informacje o kliencie oraz sugestię sposobu prowadzenia rozmowy.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Jak uzasadnić ROI w case study</h2>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    Możesz pokazać prostą kalkulację:
+                  </p>
+                  <p className="text-zinc-400 leading-relaxed mb-2 font-medium text-[#e4e4e7]">Założenia:</p>
+                  <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-4">
+                    <li>50 leadów tygodniowo</li>
+                    <li>10 min pracy handlowca na lead</li>
+                  </ul>
+                  <p className="text-zinc-400 leading-relaxed mb-2 font-medium text-[#e4e4e7]">Oszczędność:</p>
+                  <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-2">
+                    <li>50 leadów × 10 min = 500 min = 8,3 h tygodniowo</li>
+                    <li>Czyli: ~33 h miesięcznie</li>
+                  </ul>
+                  <p className="text-zinc-400 leading-relaxed mb-2 font-medium text-[#e4e4e7]">Przy koszcie handlowca: 80 zł / h</p>
+                  <p className="text-zinc-400 leading-relaxed mb-4">
+                    Oszczędność: <strong className="text-[#d8f17b]">2640 zł miesięcznie</strong>
+                  </p>
+                  <p className="text-zinc-400 leading-relaxed">
+                    ➡ Zwrot z inwestycji w 3–4 miesiące
                   </p>
                 </section>
 
