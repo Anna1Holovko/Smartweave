@@ -27,8 +27,6 @@ export default function RealizacjeAutomatyzacjaPage() {
       <Header />
       <main id="main-content" role="main" className="min-h-screen subpage-main">
         <section className={SECTION_CLASS}>
-          <div className="absolute inset-0 bg-[var(--bg)]" />
-
           <div className={CONTAINER_CLASS}>
             <PageIntro
               backHref="/realizacje"
@@ -40,10 +38,7 @@ export default function RealizacjeAutomatyzacjaPage() {
               className={INTRO_MB_CLASS}
             />
 
-            <article
-              className="rounded-2xl glass-card overflow-hidden"
-              style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
-            >
+            <article>
               <div className="p-6 sm:p-8 lg:p-10 space-y-10 sm:space-y-12">
                 {/* Hero / example image */}
                 <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-white/5 border border-white/10">
