@@ -9,6 +9,7 @@ import { SITE_URL, CALENDLY_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 import { CaseStudyWorkflowFlow } from '../../components/CaseStudyWorkflowFlow';
 import { ArchitectureFlow } from '../../components/ArchitectureFlow';
+import { OpenAIIcon } from '../../components/OpenAIIcon';
 
 export const metadata: Metadata = {
   title: 'Realizacje — Automatyzacja procesów',
@@ -239,64 +240,61 @@ export default function RealizacjeAutomatyzacjaPage() {
                   <p className="text-zinc-400 leading-relaxed mb-6">
                     W projekcie wykorzystano:
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  <div className="flex flex-row flex-nowrap gap-4 overflow-x-auto pb-2">
                     <div
-                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col sm:flex-row sm:items-start gap-4"
+                      className="flex-shrink-0 w-[200px] sm:w-[220px] rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-col gap-3"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
-                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
-                        <Image src="/assets/tools/make.png" alt="Make" width={40} height={40} className="object-contain p-1 opacity-90" />
+                      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
+                        <Image src="/assets/tools/make.png" alt="Make" width={32} height={32} className="object-contain p-0.5 opacity-90" />
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-xl font-bold text-[#e4e4e7] mb-1">Make</h3>
+                        <h3 className="text-xl font-bold text-[#e4e4e7] mb-0.5">Make</h3>
                         <p className="text-zinc-400 text-sm leading-relaxed">automatyzacja procesów i workflow</p>
                       </div>
                     </div>
                     <div
-                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col sm:flex-row sm:items-start gap-4"
+                      className="flex-shrink-0 w-[200px] sm:w-[220px] rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-col gap-3"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
-                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
-                        <Image src="/assets/tools/airtable.png" alt="Airtable" width={40} height={40} className="object-contain p-1 opacity-90" />
+                      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
+                        <Image src="/assets/tools/airtable.png" alt="Airtable" width={32} height={32} className="object-contain p-0.5 opacity-90" />
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-xl font-bold text-[#e4e4e7] mb-1">Airtable</h3>
+                        <h3 className="text-xl font-bold text-[#e4e4e7] mb-0.5">Airtable</h3>
                         <p className="text-zinc-400 text-sm leading-relaxed">baza danych leadów i kontaktów</p>
                       </div>
                     </div>
                     <div
-                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col sm:flex-row sm:items-start gap-4"
+                      className="flex-shrink-0 w-[200px] sm:w-[220px] rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-col gap-3"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
-                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
-                        <Image src="/assets/tools/hubspot.png" alt="HubSpot" width={40} height={40} className="object-contain p-1 opacity-90" />
+                      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
+                        <Image src="/assets/tools/hubspot.png" alt="HubSpot" width={32} height={32} className="object-contain p-0.5 opacity-90" />
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-xl font-bold text-[#e4e4e7] mb-1">HubSpot CRM</h3>
+                        <h3 className="text-xl font-bold text-[#e4e4e7] mb-0.5">HubSpot CRM</h3>
                         <p className="text-zinc-400 text-sm leading-relaxed">zarządzanie kontaktami i procesem sprzedaży</p>
                       </div>
                     </div>
                     <div
-                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col sm:flex-row sm:items-start gap-4"
+                      className="flex-shrink-0 w-[200px] sm:w-[220px] rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-col gap-3"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
-                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                        <span className="text-[#d8f17b] font-bold text-lg">AI</span>
+                      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#74AA9C]">
+                        <OpenAIIcon className="w-6 h-6" />
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-xl font-bold text-[#e4e4e7] mb-1">OpenAI</h3>
+                        <h3 className="text-xl font-bold text-[#e4e4e7] mb-0.5">OpenAI</h3>
                         <p className="text-zinc-400 text-sm leading-relaxed">analiza zapytań i generowanie treści</p>
                       </div>
                     </div>
                     <div
-                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col sm:flex-row sm:items-start gap-4 sm:col-span-2"
+                      className="flex-shrink-0 w-[200px] sm:w-[220px] rounded-xl p-4 sm:p-5 border border-white/10 hover-lift"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
-                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                        <span className="text-[#d8f17b] font-semibold text-xs uppercase tracking-wider">Dash</span>
-                      </div>
                       <div className="min-w-0">
-                        <h3 className="text-xl font-bold text-[#e4e4e7] mb-1">Dashboard analityczny</h3>
+                        <h3 className="text-xl font-bold text-[#e4e4e7] mb-0.5">Dashboard analityczny</h3>
                         <p className="text-zinc-400 text-sm leading-relaxed">monitorowanie procesu sprzedaży</p>
                       </div>
                     </div>
