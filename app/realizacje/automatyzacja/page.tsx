@@ -248,49 +248,49 @@ export default function RealizacjeAutomatyzacjaPage() {
                       className="rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
-                      <h3 className="text-xl font-bold text-[#e4e4e7]">Make</h3>
-                      <div className="flex flex-row items-start gap-3 min-w-0">
+                      <div className="flex flex-row items-center gap-3 min-w-0">
                         <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
                           <Image src="/assets/tools/make.png" alt="Make" width={32} height={32} className="object-contain p-0.5 opacity-90" />
                         </div>
-                        <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Automatyzacja procesów i workflow</p>
+                        <h3 className="text-xl font-bold text-[#e4e4e7]">Make</h3>
                       </div>
+                      <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Automatyzacja procesów i workflow</p>
                     </div>
                     <div
                       className="rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
-                      <h3 className="text-xl font-bold text-[#e4e4e7]">Airtable</h3>
-                      <div className="flex flex-row items-start gap-3 min-w-0">
+                      <div className="flex flex-row items-center gap-3 min-w-0">
                         <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
                           <Image src="/assets/tools/airtable.png" alt="Airtable" width={32} height={32} className="object-contain p-0.5 opacity-90" />
                         </div>
-                        <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Baza leadów i kontaktów</p>
+                        <h3 className="text-xl font-bold text-[#e4e4e7]">Airtable</h3>
                       </div>
+                      <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Baza leadów i kontaktów</p>
                     </div>
                     <div
                       className="rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
-                      <h3 className="text-xl font-bold text-[#e4e4e7]">HubSpot CRM</h3>
-                      <div className="flex flex-row items-start gap-3 min-w-0">
+                      <div className="flex flex-row items-center gap-3 min-w-0">
                         <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
                           <Image src="/assets/tools/hubspot.png" alt="HubSpot" width={32} height={32} className="object-contain p-0.5 opacity-90" />
                         </div>
-                        <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Kontakty i proces sprzedaży</p>
+                        <h3 className="text-xl font-bold text-[#e4e4e7]">HubSpot CRM</h3>
                       </div>
+                      <p className="text-zinc-400 text-sm leading-relaxed min-w-0">zarządzanie kontaktami i procesem sprzedaży</p>
                     </div>
                     <div
                       className="rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
-                      <h3 className="text-xl font-bold text-[#e4e4e7]">OpenAI</h3>
-                      <div className="flex flex-row items-start gap-3 min-w-0">
+                      <div className="flex flex-row items-center gap-3 min-w-0">
                         <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#74AA9C]">
                           <OpenAIIcon className="w-6 h-6" />
                         </div>
-                        <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Analiza zapytań i treści</p>
+                        <h3 className="text-xl font-bold text-[#e4e4e7]">OpenAI</h3>
                       </div>
+                      <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Analiza zapytań i treści</p>
                     </div>
                     <div
                       className="rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
