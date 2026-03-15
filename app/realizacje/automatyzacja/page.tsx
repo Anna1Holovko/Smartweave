@@ -235,17 +235,72 @@ export default function RealizacjeAutomatyzacjaPage() {
                 </section>
 
                 <section>
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Technologie</h2>
-                  <p className="text-zinc-400 leading-relaxed mb-4">
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-2">Technologie</h2>
+                  <p className="text-zinc-400 leading-relaxed mb-6">
                     W projekcie wykorzystano:
                   </p>
-                  <ul className="list-disc list-inside text-zinc-400 space-y-1">
-                    <li>Make – automatyzacja procesów i workflow</li>
-                    <li>Airtable – baza danych leadów i kontaktów</li>
-                    <li>HubSpot CRM – zarządzanie kontaktami i procesem sprzedaży</li>
-                    <li>OpenAI – analiza zapytań i generowanie treści</li>
-                    <li>dashboard analityczny do monitorowania procesu sprzedaży</li>
-                  </ul>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                    <div
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col sm:flex-row sm:items-start gap-4"
+                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+                    >
+                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
+                        <Image src="/assets/tools/make.png" alt="Make" width={40} height={40} className="object-contain p-1 opacity-90" />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="text-xl font-bold text-[#e4e4e7] mb-1">Make</h3>
+                        <p className="text-zinc-400 text-sm leading-relaxed">automatyzacja procesów i workflow</p>
+                      </div>
+                    </div>
+                    <div
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col sm:flex-row sm:items-start gap-4"
+                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+                    >
+                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
+                        <Image src="/assets/tools/airtable.png" alt="Airtable" width={40} height={40} className="object-contain p-1 opacity-90" />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="text-xl font-bold text-[#e4e4e7] mb-1">Airtable</h3>
+                        <p className="text-zinc-400 text-sm leading-relaxed">baza danych leadów i kontaktów</p>
+                      </div>
+                    </div>
+                    <div
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col sm:flex-row sm:items-start gap-4"
+                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+                    >
+                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
+                        <Image src="/assets/tools/hubspot.png" alt="HubSpot" width={40} height={40} className="object-contain p-1 opacity-90" />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="text-xl font-bold text-[#e4e4e7] mb-1">HubSpot CRM</h3>
+                        <p className="text-zinc-400 text-sm leading-relaxed">zarządzanie kontaktami i procesem sprzedaży</p>
+                      </div>
+                    </div>
+                    <div
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col sm:flex-row sm:items-start gap-4"
+                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+                    >
+                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                        <span className="text-[#d8f17b] font-bold text-lg">AI</span>
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="text-xl font-bold text-[#e4e4e7] mb-1">OpenAI</h3>
+                        <p className="text-zinc-400 text-sm leading-relaxed">analiza zapytań i generowanie treści</p>
+                      </div>
+                    </div>
+                    <div
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col sm:flex-row sm:items-start gap-4 sm:col-span-2"
+                      style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+                    >
+                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                        <span className="text-[#d8f17b] font-semibold text-xs uppercase tracking-wider">Dash</span>
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="text-xl font-bold text-[#e4e4e7] mb-1">Dashboard analityczny</h3>
+                        <p className="text-zinc-400 text-sm leading-relaxed">monitorowanie procesu sprzedaży</p>
+                      </div>
+                    </div>
+                  </div>
                 </section>
 
                 <section>
