@@ -72,7 +72,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                       <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">oszczędność tygodniowo</div>
                     </div>
                     <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
-                      <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">~5 min</div>
+                      <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight"><span className="font-manrope">&#126;</span>5 min</div>
                       <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">czas konfiguracji GPT</div>
                     </div>
                     <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
@@ -223,7 +223,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                         <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">oszczędność tygodniowo</div>
                       </div>
                       <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
-                        <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">~33h</div>
+                        <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight"><span className="font-manrope">&#126;</span>33h</div>
                         <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">miesięcznie</div>
                       </div>
                       <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
