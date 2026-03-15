@@ -69,12 +69,12 @@ export const metadata: Metadata = {
   // ✅ GOOGLE-FRIENDLY FAVICON SETUP (redesign: W + sparkle icon)
   icons: {
     icon: [
-      { url: '/favicon.png?v=3', type: 'image/png', sizes: 'any' },
-      { url: '/favicon.ico?v=3', type: 'image/x-icon' },
+      { url: '/favicon.png?v=4', type: 'image/png', sizes: 'any' },
+      { url: '/favicon.ico?v=4', type: 'image/x-icon' },
       { url: '/assets/smartweave-logo-ai.png', type: 'image/png', sizes: '512x512' },
     ],
-    shortcut: '/favicon.ico?v=3',
-    apple: '/apple-touch-icon.png?v=3',
+    shortcut: '/favicon.ico?v=4',
+    apple: '/apple-touch-icon.png?v=4',
   },
 
   openGraph: {
