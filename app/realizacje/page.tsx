@@ -35,7 +35,7 @@ export default function RealizacjePage() {
               backLabel="Strona główna"
               badge="Realizacje"
               badgeVariant="accent"
-              title="Zobacz, jak wspieramy rozwój innych firm"
+              title="Zobacz, jak wspieramy rozwój firm"
               description="Każdy projekt to wyjątkowa historia. Strony i automatyzacje, które realnie wspierają firmy"
               className={INTRO_MB_CLASS}
             />
