@@ -149,7 +149,7 @@ export function Header() {
             </Link>
 
             {/* DESKTOP NAV */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-8">
               {navItems.map((item, index) =>
                 item.dropdown === 'uslugi' ? (
                   <div key={item.name} ref={dropdownRef} className="relative">
@@ -251,7 +251,7 @@ export function Header() {
             </nav>
 
             {/* CTA */}
-            <div className="hidden md:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-4">
               <Button
                 variant="primary"
                 onClick={(e) =>
@@ -268,7 +268,7 @@ export function Header() {
             {/* MOBILE BUTTON */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center border border-white/15 rounded-full text-zinc-300 hover:text-[#d8f17b] hover:border-[#d8f17b]/30 transition-colors"
+              className="lg:hidden min-h-[44px] min-w-[44px] flex items-center justify-center border border-white/15 rounded-full text-zinc-300 hover:text-[#d8f17b] hover:border-[#d8f17b]/30 transition-colors"
             >
               {mobileMenuOpen ? (
                 <X className="w-5 h-5" />
@@ -282,7 +282,7 @@ export function Header() {
 
       {/* MOBILE MENU */}
       {mobileMenuOpen && (
-        <div className="fixed top-[64px] left-0 right-0 z-40 md:hidden">
+        <div className="fixed top-[64px] left-0 right-0 z-40 lg:hidden">
           <div className="mx-4 mt-2 p-6 rounded-2xl border border-white/10" style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}>
             <nav className="flex flex-col gap-4">
               <div>
