@@ -171,13 +171,13 @@ export default function RealizacjeAutomatyzacjaPage() {
                   <p className="text-zinc-400 leading-relaxed mb-6">
                     Wdrożenie systemu automatyzacji przyniosło kilka kluczowych korzyści operacyjnych.
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                     <div
                       className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
                       <h3 className="text-xl font-bold text-[#e4e4e7] mb-2">Skrócenie czasu kwalifikacji leadów</h3>
-                      <p className="text-zinc-400 text-sm leading-relaxed">
+                      <p className="text-zinc-400 text-base leading-relaxed">
                         Proces, który wcześniej wymagał ręcznej analizy przez handlowca, został skrócony do kilku sekund automatycznego przetwarzania.
                       </p>
                     </div>
@@ -186,7 +186,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
                       <h3 className="text-xl font-bold text-[#e4e4e7] mb-2">Oszczędność czasu zespołu sprzedaży</h3>
-                      <p className="text-zinc-400 text-sm leading-relaxed">
+                      <p className="text-zinc-400 text-base leading-relaxed">
                         Automatyzacja pozwoliła ograniczyć pracę administracyjną handlowców o około <em>4–6 godzin tygodniowo</em>.
                       </p>
                     </div>
@@ -195,7 +195,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
                       <h3 className="text-xl font-bold text-[#e4e4e7] mb-2">Szybsza reakcja na zapytania klientów</h3>
-                      <p className="text-zinc-400 text-sm leading-relaxed">
+                      <p className="text-zinc-400 text-base leading-relaxed">
                         Nowe leady są natychmiast analizowane i przekazywane do zespołu sprzedaży wraz z kontekstem rozmowy.
                       </p>
                     </div>
@@ -204,7 +204,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
                       <h3 className="text-xl font-bold text-[#e4e4e7] mb-2">Lepsza jakość rozmów sprzedażowych</h3>
-                      <p className="text-zinc-400 text-sm leading-relaxed">
+                      <p className="text-zinc-400 text-base leading-relaxed">
                         Handlowcy otrzymują przygotowane wcześniej informacje o kliencie oraz sugestię sposobu prowadzenia rozmowy.
                       </p>
                     </div>
@@ -243,9 +243,9 @@ export default function RealizacjeAutomatyzacjaPage() {
                   <p className="text-zinc-400 text-sm leading-relaxed mb-6">
                     Narzędzia użyte w projekcie
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
                     <div
-                      className="rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
                       <div className="flex flex-row items-center gap-3 min-w-0">
@@ -254,10 +254,10 @@ export default function RealizacjeAutomatyzacjaPage() {
                         </div>
                         <h3 className="text-xl font-bold text-[#e4e4e7]">Make</h3>
                       </div>
-                      <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Automatyzacja procesów i workflow</p>
+                      <p className="text-zinc-400 text-base leading-relaxed min-w-0">Automatyzacja procesów i workflow</p>
                     </div>
                     <div
-                      className="rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
                       <div className="flex flex-row items-center gap-3 min-w-0">
@@ -266,10 +266,10 @@ export default function RealizacjeAutomatyzacjaPage() {
                         </div>
                         <h3 className="text-xl font-bold text-[#e4e4e7]">Airtable</h3>
                       </div>
-                      <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Baza leadów i kontaktów</p>
+                      <p className="text-zinc-400 text-base leading-relaxed min-w-0">Baza leadów i kontaktów</p>
                     </div>
                     <div
-                      className="rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
                       <div className="flex flex-row items-center gap-3 min-w-0">
@@ -278,10 +278,10 @@ export default function RealizacjeAutomatyzacjaPage() {
                         </div>
                         <h3 className="text-xl font-bold text-[#e4e4e7]">HubSpot CRM</h3>
                       </div>
-                      <p className="text-zinc-400 text-sm leading-relaxed min-w-0">zarządzanie kontaktami i procesem sprzedaży</p>
+                      <p className="text-zinc-400 text-base leading-relaxed min-w-0">zarządzanie kontaktami i procesem sprzedaży</p>
                     </div>
                     <div
-                      className="rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
                       <div className="flex flex-row items-center gap-3 min-w-0">
@@ -290,14 +290,14 @@ export default function RealizacjeAutomatyzacjaPage() {
                         </div>
                         <h3 className="text-xl font-bold text-[#e4e4e7]">OpenAI</h3>
                       </div>
-                      <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Analiza zapytań i treści</p>
+                      <p className="text-zinc-400 text-base leading-relaxed min-w-0">Analiza zapytań i treści</p>
                     </div>
                     <div
-                      className="rounded-xl p-4 sm:p-5 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col gap-3 min-w-0 lg:col-span-2"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
                       <h3 className="text-xl font-bold text-[#e4e4e7]">Dashboard analityczny</h3>
-                      <p className="text-zinc-400 text-sm leading-relaxed">Monitorowanie procesu sprzedaży</p>
+                      <p className="text-zinc-400 text-base leading-relaxed">Monitorowanie procesu sprzedaży</p>
                     </div>
                   </div>
                 </section>
