@@ -276,6 +276,15 @@ export default function RealizacjeAutomatyzacjaPage() {
                 </section>
 
                 <section>
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Jak uzasadnić ROI w case study</h2>
+                  <div className="rounded-xl px-5 py-4 sm:px-6 sm:py-5 border border-white/10 bg-[var(--bg-2)]">
+                    <p className="text-[#e4e4e7] text-base sm:text-lg font-medium leading-relaxed">
+                      Założenia: <span className="text-accent font-semibold">50 leadów tygodniowo</span>, <span className="text-accent font-semibold">10 min na lead</span>, <span className="text-accent font-semibold">80 zł/h</span> przy koszcie handlowca
+                    </p>
+                  </div>
+                </section>
+
+                <section>
                   <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Podsumowanie</h2>
                   <p className="text-zinc-400 leading-relaxed mb-4">
                     Projekt pokazuje, jak połączenie automatyzacji procesów z modelami AI może znacząco usprawnić operacje sprzedażowe.
