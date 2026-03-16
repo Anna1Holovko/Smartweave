@@ -43,16 +43,58 @@ export default function RealizacjeAutomatyzacjaPage() {
             <article>
               <div className="p-6 sm:p-8 lg:p-10 space-y-10 sm:space-y-12">
                 {/* Hero — schemat automatyzacji leadów */}
-                <div className="relative w-full rounded-xl overflow-hidden bg-white/5 border border-white/10">
-                  <Image
-                    src="/assets/realizacje/lead-workflow-hero.png"
-                    alt="Automatyzacja leadów: Nowy lead → Airtable → OpenAI → Airtable → JSON → HubSpot CRM (kontakt + zadanie sprzedażowe) → Dashboard monitorujący proces"
-                    width={1200}
-                    height={400}
-                    className="w-full h-auto object-contain"
-                    sizes="(max-width: 1024px) 100vw, 80vw"
-                    priority
-                  />
+                <div className="relative w-full rounded-xl overflow-x-auto overflow-y-hidden border border-white/10 bg-white/5 py-6" aria-label="Automatyzacja leadów: Nowy lead → Airtable → OpenAI → Airtable → JSON → HubSpot CRM → Dashboard">
+                  <div className="w-[1111.58px] h-32 relative mx-auto min-h-[128px] flex-shrink-0 scale-[0.6] sm:scale-75 md:scale-90 lg:scale-100 origin-center">
+                    <div className="w-20 h-20 left-[415.36px] top-[95.97px] absolute origin-top-left rotate-[178.37deg] bg-slate-400 rounded-full" />
+                    <div className="w-10 h-10 left-[352.33px] top-[35px] absolute bg-slate-400 overflow-hidden">
+                      <div className="w-10 h-10 left-[0.02px] top-[0.02px] absolute bg-slate-400" />
+                      <div className="w-3.5 h-5 left-[10.81px] top-[4.97px] absolute bg-white" />
+                      <div className="w-3.5 h-5 left-[28.42px] top-[4.52px] absolute origin-top-left rotate-[60deg] bg-white" />
+                      <div className="w-3.5 h-5 left-[37.61px] top-[19.55px] absolute origin-top-left rotate-[120deg] bg-white" />
+                      <div className="w-3.5 h-5 left-[29.19px] top-[35.03px] absolute origin-top-left rotate-180 bg-white" />
+                      <div className="w-3.5 h-5 left-[11.58px] top-[35.48px] absolute origin-top-left rotate-[-120deg] bg-white" />
+                      <div className="w-3.5 h-5 left-[2.39px] top-[20.45px] absolute origin-top-left rotate-[-60deg] bg-white" />
+                    </div>
+                    <div className="left-[352px] top-[102px] absolute justify-start text-[#d8f17b] text-xs font-normal font-manrope">OpenAI</div>
+                    <div className="w-20 h-20 left-[665.35px] top-0 absolute bg-violet-400 rounded-full" />
+                    <div className="w-10 h-10 left-[687.65px] top-[22px] absolute bg-violet-400 overflow-hidden">
+                      <div className="w-2 h-7 left-[5px] top-[5px] absolute outline outline-2 outline-offset-[-1px] outline-white" />
+                      <div className="w-2 h-7 left-[26.67px] top-[5px] absolute outline outline-2 outline-offset-[-1px] outline-white" />
+                    </div>
+                    <div className="left-[692.35px] top-[88px] absolute justify-start text-[#d8f17b] text-xs font-normal font-manrope">JSON</div>
+                    <div className="w-20 h-20 left-[836.58px] top-[3px] absolute bg-red-400 rounded-full" />
+                    <div className="w-10 h-10 left-[858.21px] top-[25px] absolute bg-red-400 overflow-hidden">
+                      <div className="w-10 h-10 left-[0.91px] top-0 absolute bg-white" />
+                    </div>
+                    <div className="w-32 left-[822.58px] top-[91px] absolute text-center justify-start text-[#d8f17b] text-xs font-normal">HubSpot CRM (kontakt + zadanie sprzedażowe)</div>
+                    <div className="w-20 h-20 left-[1011.58px] top-[6px] absolute bg-red-400 rounded-full" />
+                    <div className="w-10 h-10 left-[1033.58px] top-[28px] absolute bg-red-400 overflow-hidden">
+                      <div className="w-10 h-10 left-[0.91px] top-0 absolute bg-white" />
+                    </div>
+                    <div className="w-28 left-[995.58px] top-[94px] absolute text-center justify-start text-[#d8f17b] text-xs font-normal">Dashboard monitorujący proces</div>
+                    <div className="w-20 h-20 left-[164.35px] top-[15px] absolute bg-cyan-400 rounded-full" />
+                    <div className="w-10 h-10 left-[186.84px] top-[36.64px] absolute overflow-hidden">
+                      <div className="w-10 h-8 left-0 top-[3.28px] absolute bg-white" />
+                    </div>
+                    <div className="left-[165.35px] top-[103px] absolute text-center justify-start text-[#d8f17b] text-xs font-normal">Airtable<br />(baza leadów)</div>
+                    <div className="w-20 h-20 left-[499px] top-[11px] absolute bg-cyan-400 rounded-full" />
+                    <div className="w-10 h-10 left-[521.49px] top-[32.64px] absolute overflow-hidden">
+                      <div className="w-10 h-8 left-0 top-[3.28px] absolute bg-white" />
+                    </div>
+                    <div className="w-24 left-[496px] top-[99px] absolute text-center justify-start text-[#d8f17b] text-xs font-normal">Airtable<br />(baza leadów)</div>
+                    <div className="w-20 h-7 left-[248.35px] top-[40px] absolute opacity-60 bg-gradient-to-l from-cyan-400 to-slate-400" />
+                    <div className="w-20 h-7 left-[415.36px] top-[42px] absolute opacity-60 bg-gradient-to-l from-slate-400 to-cyan-400" />
+                    <div className="w-20 h-7 left-[84px] top-[41px] absolute opacity-60 bg-gradient-to-l from-blue-500 to-cyan-400" />
+                    <div className="w-20 h-7 left-[585px] top-[39px] absolute opacity-60 bg-gradient-to-l from-cyan-400 to-violet-400" />
+                    <div className="w-20 h-7 left-[925.58px] top-[31px] absolute opacity-60 bg-gradient-to-l from-red-400 to-red-400" />
+                    <div className="w-20 h-7 left-[749.35px] top-[31px] absolute opacity-60 bg-gradient-to-l from-violet-400 to-red-400" />
+                    <div className="w-20 h-20 left-0 top-[15px] absolute bg-blue-500 rounded-full" />
+                    <div className="w-10 h-10 left-[22px] top-[37px] absolute overflow-hidden">
+                      <div className="w-6 h-2.5 left-[8.33px] top-[25px] absolute outline outline-2 outline-offset-[-1px] outline-white" />
+                      <div className="w-3.5 h-3.5 left-[13.33px] top-[5px] absolute outline outline-2 outline-offset-[-1px] outline-white" />
+                    </div>
+                    <div className="left-[14px] top-[103px] absolute text-center justify-start text-[#d8f17b] text-xs font-normal font-manrope">Nowy lead</div>
+                  </div>
                 </div>
 
                 <header>
