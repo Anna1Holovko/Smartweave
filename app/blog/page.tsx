@@ -5,7 +5,7 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ScrollToTop } from '../components/ScrollToTop';
 import { PageIntro } from '../components/PageIntro';
-import { BLOG_POSTS } from '@/lib/blog';
+import { getAllPosts } from '@/lib/blog-adapter';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 
@@ -20,7 +20,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  // Merges code posts + Airtable (published), sorted by publish_date DESC. Falls back to code-only if Airtable fails.
+  const posts = await getAllPosts();
+
   return (
     <>
       <Header />
@@ -40,7 +43,7 @@ export default function BlogPage() {
             />
 
             <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-              {BLOG_POSTS.map((post, index) => (
+              {posts.map((post) => (
                 <article
                   key={post.slug}
                   className="group relative flex flex-col rounded-2xl glass-card hover-lift overflow-hidden"

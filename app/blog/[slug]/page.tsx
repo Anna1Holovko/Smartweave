@@ -7,7 +7,7 @@ import { Footer } from '../../components/Footer';
 import { SimpleCTASection } from '../../components/SimpleCTASection';
 import { ScrollToTop } from '../../components/ScrollToTop';
 import { MotionFadeIn } from '../../components/MotionFadeIn';
-import { BLOG_POSTS, getBlogCoverUrl, getPostBySlug } from '@/lib/blog';
+import { getPostBySlug as getUnifiedPostBySlug, getUnifiedPostCoverUrl, getAllSlugs } from '@/lib/blog-adapter';
 import { BLOG_CONTENT, type ContentBlock } from '@/lib/blog-content';
 import { SITE_URL, CALENDLY_URL } from '@/lib/site';
 import { CONTAINER_CLASS } from '@/lib/layout';
@@ -16,23 +16,25 @@ import { ArrowLeft } from 'lucide-react';
 
 type Props = { params: Promise<{ slug: string }> };
 
+/** Static params: code slugs + Airtable slugs (when API available at build time). */
 export async function generateStaticParams() {
-  return BLOG_POSTS.map((post) => ({ slug: post.slug }));
+  const slugs = await getAllSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
+/** SEO metadata: uses Airtable meta_description when present, else excerpt. */
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getUnifiedPostBySlug(slug);
   if (!post) return { title: 'Nie znaleziono' };
-  const coverUrl = getBlogCoverUrl(post);
+  const coverUrl = getUnifiedPostCoverUrl(post);
   const canonicalUrl = `${SITE_URL}/blog/${post.slug}`;
-  const title = 'metaTitle' in post && post.metaTitle ? post.metaTitle : post.title;
-  const description = 'metaDescription' in post && post.metaDescription ? post.metaDescription : post.excerpt;
-  const keywords = 'keywords' in post && Array.isArray(post.keywords) ? post.keywords : undefined;
+  const title = post.metaTitle ?? post.title;
+  const description = post.metaDescription ?? post.excerpt;
   return {
     title,
     description,
-    keywords: keywords?.join(', '),
+    keywords: post.keywords?.join(', '),
     alternates: { canonical: canonicalUrl },
     openGraph: {
       title,
@@ -123,16 +125,21 @@ function ArticleBody({ slug }: { slug: string }) {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getUnifiedPostBySlug(slug);
   if (!post) notFound();
 
-  const jsonLd = {
+  const canonicalUrl = `${SITE_URL}/blog/${post.slug}`;
+  const description = post.metaDescription || post.excerpt;
+
+  // JSON-LD BlogPosting schema (headline, datePublished, description, url) for SEO.
+  const blogPostingJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: post.title,
-    description: post.excerpt,
-    image: getBlogCoverUrl(post),
     datePublished: post.date,
+    description,
+    url: canonicalUrl,
+    image: getUnifiedPostCoverUrl(post),
     author: { '@type': 'Organization', name: 'SmartWeave' },
     publisher: { '@type': 'Organization', name: 'SmartWeave', logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/smartweave-logo.png` } },
   };
@@ -151,9 +158,11 @@ export default async function BlogPostPage({ params }: Props) {
       }
     : null;
 
+  const isAirtable = post.source === 'airtable';
+
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }} />
       {faqJsonLd && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       )}
@@ -193,7 +202,14 @@ export default async function BlogPostPage({ params }: Props) {
                   </p>
                 </header>
               </MotionFadeIn>
-              <ArticleBody slug={slug} />
+              {isAirtable && post.content ? (
+                <div
+                  className="article-body prose prose-invert max-w-none text-zinc-400 [&_h2]:text-xl [&_h2]:sm:text-2xl [&_h2]:font-bold [&_h2]:text-[#e4e4e7] [&_h2]:mt-10 [&_h2]:mb-4 [&_h3]:text-lg [&_h3]:sm:text-xl [&_h3]:font-bold [&_h3]:text-zinc-200 [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:leading-relaxed [&_p]:mb-4 [&_a]:text-[#d8f17b] [&_a]:hover:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-1 [&_ul]:my-4"
+                  dangerouslySetInnerHTML={{ __html: post.content }}
+                />
+              ) : (
+                <ArticleBody slug={slug} />
+              )}
             </div>
           </div>
         </article>
