@@ -42,13 +42,14 @@ export default function RealizacjeAutomatyzacjaPage() {
 
             <article>
               <div className="p-6 sm:p-8 lg:p-10 space-y-10 sm:space-y-12">
-                {/* Hero / example image */}
-                <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-white/5 border border-white/10">
+                {/* Hero — schemat automatyzacji leadów */}
+                <div className="relative w-full rounded-xl overflow-hidden bg-white/5 border border-white/10">
                   <Image
-                    src="/assets/realizacje/ai-lead-engine.png"
-                    alt="AI Lead Engine — schemat lub dashboard automatyzacji kwalifikacji leadów"
-                    fill
-                    className="object-cover"
+                    src="/assets/realizacje/lead-workflow-hero.png"
+                    alt="Automatyzacja leadów: Nowy lead → Airtable → OpenAI → Airtable → JSON → HubSpot CRM (kontakt + zadanie sprzedażowe) → Dashboard monitorujący proces"
+                    width={1200}
+                    height={400}
+                    className="w-full h-auto object-contain"
                     sizes="(max-width: 1024px) 100vw, 80vw"
                     priority
                   />
