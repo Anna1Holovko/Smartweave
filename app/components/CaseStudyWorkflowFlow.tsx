@@ -85,6 +85,23 @@ const steps = [
       </>
     ),
   },
+  {
+    number: '06',
+    icon: ListChecks,
+    title: 'Dashboard monitorujący proces',
+    description: (
+      <>
+        Przygotowany został dashboard operacyjny, który na bieżąco pokazuje, jak działa cały workflow sprzedażowy.
+        <span className="block mt-2">Na dashboardzie zespół widzi m.in.:</span>
+        <ul className="list-disc list-inside text-zinc-400 mt-2 space-y-1">
+          <li>liczbę nowych leadów oraz ich jakość (lead scoring),</li>
+          <li>czas reakcji zespołu sprzedaży,</li>
+          <li>liczbę kontaktów przetworzonych automatycznie.</li>
+        </ul>
+        <span className="block mt-2">Dzięki temu zarządzający mają pełną widoczność procesu i szybciej wychwytują wąskie gardła.</span>
+      </>
+    ),
+  },
 ];
 
 export function CaseStudyWorkflowFlow() {
