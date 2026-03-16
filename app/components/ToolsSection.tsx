@@ -22,6 +22,7 @@ const tools = [
   { name: 'n8n', logo: '/assets/tools/n8n.png' },
   { name: 'ElevenLabs', logo: '/assets/tools/elevenlabs.png' },
   { name: 'BigQuery', logo: '/assets/tools/bigquery.png' },
+  { name: 'Looker Studio', logo: '/assets/tools/looker-studio.png' },
 ];
 
 export function ToolsSection() {

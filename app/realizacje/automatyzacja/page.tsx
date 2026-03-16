@@ -232,8 +232,13 @@ export default function RealizacjeAutomatyzacjaPage() {
                       className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
-                      <h3 className="text-xl font-bold text-[#e4e4e7]">Dashboard analityczny</h3>
-                      <p className="text-zinc-400 text-sm leading-relaxed">Monitorowanie procesu sprzedaży</p>
+                      <div className="flex flex-row items-center gap-3 min-w-0">
+                        <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
+                          <Image src="/assets/tools/looker-studio.png" alt="Looker Studio" width={32} height={32} className="object-contain p-0.5 opacity-90" />
+                        </div>
+                        <h3 className="text-xl font-bold text-[#e4e4e7]">Looker Studio</h3>
+                      </div>
+                      <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Monitorowanie procesu sprzedaży</p>
                     </div>
                   </div>
                 </section>
