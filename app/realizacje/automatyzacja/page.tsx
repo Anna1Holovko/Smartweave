@@ -60,15 +60,15 @@ export default function RealizacjeAutomatyzacjaPage() {
                 >
                   <div className="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 divide-x divide-white/10">
                     <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
-                      <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">8,3h</div>
+                      <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">8h</div>
                       <div className="font-manrope text-base text-zinc-400 leading-relaxed mt-3">Oszczędność tygodniowo</div>
                     </div>
                     <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
-                      <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight"><span className="font-manrope">&#126;</span>33h</div>
+                      <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">32h</div>
                       <div className="font-manrope text-base text-zinc-400 leading-relaxed mt-3">Miesięcznie</div>
                     </div>
                     <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
-                      <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">2640 zł</div>
+                      <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">2600 zł</div>
                       <div className="font-manrope text-base text-zinc-400 leading-relaxed mt-3">Oszczędność miesięcznie</div>
                     </div>
                     <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
@@ -128,35 +128,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                   <CaseStudyWorkflowFlow />
                 </section>
 
-                <section>
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Dashboard monitorujący proces</h2>
-                  <p className="text-zinc-400 leading-relaxed mb-4">
-                    Aby umożliwić bieżące monitorowanie procesu sprzedaży, przygotowany został również dashboard operacyjny.
-                  </p>
-                  <p className="text-zinc-400 leading-relaxed mb-4">
-                    Dashboard umożliwia analizę m.in.:
-                  </p>
-                  <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-4">
-                    <li>liczby nowych leadów,</li>
-                    <li>jakości leadów (lead scoring),</li>
-                    <li>czasu reakcji zespołu sprzedaży,</li>
-                    <li>liczby kontaktów przetworzonych automatycznie.</li>
-                  </ul>
-                  <p className="text-zinc-400 leading-relaxed">
-                    Dzięki temu zespół zarządzający ma pełną widoczność procesu oraz może szybciej identyfikować wąskie gardła w sprzedaży.
-                  </p>
-                </section>
-
-                <section>
-                  <div className="text-center mb-8">
-                    <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-2">Architektura rozwiązania</h2>
-                    <p className="text-zinc-400 leading-relaxed">
-                      Uproszczona architektura systemu:
-                    </p>
-                  </div>
-                  <ArchitectureFlow />
-                </section>
-
+                {/* Dashboard monitorujący proces został przeniesiony jako krok 06 w sekcji "Wdrożone rozwiązanie" */}
                 <section>
                   <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Efekty wdrożenia</h2>
                   <p className="text-zinc-400 leading-relaxed mb-6">
@@ -260,8 +232,13 @@ export default function RealizacjeAutomatyzacjaPage() {
                       className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
-                      <h3 className="text-xl font-bold text-[#e4e4e7]">Dashboard analityczny</h3>
-                      <p className="text-zinc-400 text-sm leading-relaxed">Monitorowanie procesu sprzedaży</p>
+                      <div className="flex flex-row items-center gap-3 min-w-0">
+                        <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
+                          <Image src="/assets/tools/looker-studio.png" alt="Looker Studio" width={32} height={32} className="object-contain p-0.5 opacity-90" />
+                        </div>
+                        <h3 className="text-xl font-bold text-[#e4e4e7]">Looker Studio</h3>
+                      </div>
+                      <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Monitorowanie procesu sprzedaży</p>
                     </div>
                   </div>
                 </section>
