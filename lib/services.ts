@@ -61,7 +61,7 @@ export const SERVICES = [
       'Inteligentne systemy automatyzujące powtarzalne procesy. Redukujemy koszty i dajemy czas na rozwój firmy.',
     features: [
       'Procesy operacyjne i administracyjne - powtarzalne zadania i przepływ danych',
-      'integracje systemów firmowych/biznesowych',
+      'Integracje systemów firmowych/biznesowych',
       'Raportowanie i analiza - zestawienia, KPI w czasie rzeczywistym',
       'Powiadomienia i alerty - leady, zlecenia, terminy',
       'Obiegi dokumentów i workflow - akceptacje, faktury, wnioski',
