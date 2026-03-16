@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { ShoppingCart, Lock, X } from 'lucide-react';
 import type { Ebook } from '@/lib/ebooks';
-import { setEbookCartFlag } from '@/lib/cart';
+import { addEbookToCart } from '@/lib/cart';
 
 type Props = { book: Ebook };
 
@@ -51,7 +51,7 @@ export function EbookDownloadButton({ book }: Props) {
         <button
           type="button"
           onClick={() => {
-            setEbookCartFlag();
+            addEbookToCart();
             setOpen(true);
           }}
           className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 cta-gradient-animated"
@@ -123,7 +123,7 @@ export function EbookDownloadButton({ book }: Props) {
         download
         target="_blank"
         rel="noopener noreferrer"
-        onClick={() => setEbookCartFlag()}
+        onClick={() => addEbookToCart()}
         className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 cta-gradient-animated"
       >
         <ShoppingCart className="w-4 h-4" aria-hidden />

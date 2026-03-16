@@ -4,17 +4,17 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ChevronDown, ShoppingCart } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
-import { CART_STORAGE_KEY, CART_UPDATE_EVENT } from '@/lib/cart';
+import { CART_UPDATE_EVENT, getCartCount } from '@/lib/cart';
 
-function useHasCartInNav() {
-  const [show, setShow] = useState(false);
+function useCartCount(): number {
+  const [count, setCount] = useState(0);
   useEffect(() => {
-    const read = () => setShow(typeof window !== 'undefined' && window.localStorage?.getItem(CART_STORAGE_KEY) === '1');
+    const read = () => setCount(getCartCount());
     read();
     window.addEventListener(CART_UPDATE_EVENT, read);
     return () => window.removeEventListener(CART_UPDATE_EVENT, read);
   }, []);
-  return show;
+  return count;
 }
 import Link from 'next/link';
 import Image from 'next/image';
@@ -54,7 +54,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [uslugiDropdownOpen, setUslugiDropdownOpen] = useState(false);
   const [realizacjeDropdownOpen, setRealizacjeDropdownOpen] = useState(false);
-  const showCartInNav = useHasCartInNav();
+  const cartCount = useCartCount();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const realizacjeDropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -260,8 +260,11 @@ export function Header() {
               >
                 Rozpocznij Projekt
               </Button>
-              {showCartInNav && (
-                <Link href="/e-booki" className="text-zinc-400 hover:text-[#d8f17b] transition-colors p-2 rounded-lg hover:bg-white/5" title="Koszyk" aria-label="Koszyk"><ShoppingCart className="w-4 h-4" /></Link>
+              {cartCount > 0 && (
+                <Link href="/e-booki" className="relative text-zinc-400 hover:text-[#d8f17b] transition-colors p-2 rounded-lg hover:bg-white/5" title="Koszyk" aria-label={`Koszyk (${cartCount})`}>
+                  <ShoppingCart className="w-4 h-4" />
+                  <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] flex items-center justify-center rounded-full bg-accent text-[#0e0e0e] text-xs font-bold px-1">{cartCount}</span>
+                </Link>
               )}
             </div>
 
@@ -335,8 +338,11 @@ export function Header() {
               )}
 
               <div className="pt-4 border-t border-white/10 flex items-center gap-3">
-                {showCartInNav && (
-                  <Link href="/e-booki" onClick={() => setMobileMenuOpen(false)} className="inline-flex items-center justify-center text-zinc-400 hover:text-[#d8f17b] p-3 rounded-lg border border-white/15 hover:bg-white/5 transition-colors" aria-label="Koszyk"><ShoppingCart className="w-5 h-5" /></Link>
+                {cartCount > 0 && (
+                  <Link href="/e-booki" onClick={() => setMobileMenuOpen(false)} className="relative inline-flex items-center justify-center text-zinc-400 hover:text-[#d8f17b] p-3 rounded-lg border border-white/15 hover:bg-white/5 transition-colors" aria-label={`Koszyk (${cartCount})`}>
+                    <ShoppingCart className="w-5 h-5" />
+                    <span className="absolute top-1.5 right-1.5 min-w-[20px] h-5 flex items-center justify-center rounded-full bg-accent text-[#0e0e0e] text-xs font-bold px-1">{cartCount}</span>
+                  </Link>
                 )}
                 <Button
                   variant="primary"
