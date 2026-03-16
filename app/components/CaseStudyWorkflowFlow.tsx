@@ -117,7 +117,7 @@ export function CaseStudyWorkflowFlow() {
                             </div>
                             <h3 className="text-xl font-bold text-[#e4e4e7]">{step.title}</h3>
                           </div>
-                          <div className="text-zinc-400 leading-relaxed text-sm">{step.description}</div>
+                          <div className="text-zinc-400 leading-relaxed text-base">{step.description}</div>
                           <div className="absolute bottom-0 left-0 right-0 h-0.5 w-0 bg-[#d8f17b] group-hover:w-full transition-all duration-500 rounded-b-2xl" />
                         </div>
                       </div>
@@ -150,7 +150,7 @@ export function CaseStudyWorkflowFlow() {
                             </div>
                             <h3 className="text-xl font-bold text-[#e4e4e7]">{step.title}</h3>
                           </div>
-                          <div className="text-zinc-400 leading-relaxed text-sm">{step.description}</div>
+                          <div className="text-zinc-400 leading-relaxed text-base">{step.description}</div>
                           <div className="absolute bottom-0 left-0 right-0 h-0.5 w-0 bg-[#d8f17b] group-hover:w-full transition-all duration-500 rounded-b-2xl" />
                         </div>
                       </div>
@@ -172,7 +172,7 @@ export function CaseStudyWorkflowFlow() {
                     </div>
                     <h3 className="text-xl font-bold text-[#e4e4e7]">{step.title}</h3>
                   </div>
-                  <div className="text-zinc-400 leading-relaxed text-sm">{step.description}</div>
+                  <div className="text-zinc-400 leading-relaxed text-base">{step.description}</div>
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 w-0 bg-[#d8f17b] group-hover:w-full transition-all duration-500 rounded-b-2xl" />
                 </div>
               </div>
