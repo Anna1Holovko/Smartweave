@@ -81,8 +81,8 @@ export default function RealizacjeAutomatyzacjaPage() {
                       <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">oszczędność miesięcznie</div>
                     </div>
                     <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
-                      <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">3–4</div>
-                      <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">miesiące do zwrotu z inwestycji</div>
+                      <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">3–4 miesiące</div>
+                      <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">do zwrotu z inwestycji</div>
                     </div>
                   </div>
                 </section>
@@ -216,7 +216,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                   <p className="text-zinc-400 text-sm leading-relaxed mb-6">
                     Narzędzia użyte w projekcie
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-6">
                     <div
                       className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
@@ -227,7 +227,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                         </div>
                         <h3 className="text-xl font-bold text-[#e4e4e7]">Make</h3>
                       </div>
-                      <p className="text-zinc-400 text-base leading-relaxed min-w-0">Automatyzacja procesów i workflow</p>
+                      <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Automatyzacja procesów i workflow</p>
                     </div>
                     <div
                       className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
@@ -239,7 +239,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                         </div>
                         <h3 className="text-xl font-bold text-[#e4e4e7]">Airtable</h3>
                       </div>
-                      <p className="text-zinc-400 text-base leading-relaxed min-w-0">Baza leadów i kontaktów</p>
+                      <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Baza leadów i kontaktów</p>
                     </div>
                     <div
                       className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
@@ -251,7 +251,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                         </div>
                         <h3 className="text-xl font-bold text-[#e4e4e7]">HubSpot CRM</h3>
                       </div>
-                      <p className="text-zinc-400 text-base leading-relaxed min-w-0">zarządzanie kontaktami i procesem sprzedaży</p>
+                      <p className="text-zinc-400 text-sm leading-relaxed min-w-0">zarządzanie kontaktami i procesem sprzedaży</p>
                     </div>
                     <div
                       className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
@@ -263,24 +263,44 @@ export default function RealizacjeAutomatyzacjaPage() {
                         </div>
                         <h3 className="text-xl font-bold text-[#e4e4e7]">OpenAI</h3>
                       </div>
-                      <p className="text-zinc-400 text-base leading-relaxed min-w-0">Analiza zapytań i treści</p>
+                      <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Analiza zapytań i treści</p>
                     </div>
                     <div
-                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col gap-3 min-w-0 lg:col-span-2"
+                      className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
                       style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
                     >
                       <h3 className="text-xl font-bold text-[#e4e4e7]">Dashboard analityczny</h3>
-                      <p className="text-zinc-400 text-base leading-relaxed">Monitorowanie procesu sprzedaży</p>
+                      <p className="text-zinc-400 text-sm leading-relaxed">Monitorowanie procesu sprzedaży</p>
                     </div>
                   </div>
                 </section>
 
                 <section>
                   <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Jak uzasadnić ROI w case study</h2>
-                  <div className="rounded-xl px-5 py-4 sm:px-6 sm:py-5 border border-white/10 bg-[var(--bg-2)]">
+                  <div className="rounded-xl px-5 py-4 sm:px-6 sm:py-5 border border-white/10 bg-[var(--bg-2)] mb-6">
                     <p className="text-[#e4e4e7] text-base sm:text-lg font-medium leading-relaxed">
                       Założenia: <span className="text-accent font-semibold">50 leadów tygodniowo</span>, <span className="text-accent font-semibold">10 min na lead</span>, <span className="text-accent font-semibold">80 zł/h</span> przy koszcie handlowca
                     </p>
+                  </div>
+                  <div className="relative rounded-xl overflow-hidden border border-white/10 bg-[var(--bg-2)]">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 divide-x divide-white/10">
+                      <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
+                        <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">8,3h</div>
+                        <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">oszczędność tygodniowo</div>
+                      </div>
+                      <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
+                        <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight"><span className="font-manrope">&#126;</span>33h</div>
+                        <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">miesięcznie</div>
+                      </div>
+                      <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
+                        <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">2640 zł</div>
+                        <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">oszczędność miesięcznie</div>
+                      </div>
+                      <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
+                        <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">3–4 miesiące</div>
+                        <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">do zwrotu z inwestycji</div>
+                      </div>
+                    </div>
                   </div>
                 </section>
 
