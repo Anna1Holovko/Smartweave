@@ -70,19 +70,19 @@ export default function RealizacjeAutomatyzacjaPage() {
                   <div className="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 divide-x divide-white/10">
                     <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
                       <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">8,3h</div>
-                      <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">oszczędność tygodniowo</div>
+                      <div className="font-manrope text-base text-zinc-400 leading-relaxed mt-3">Oszczędność tygodniowo</div>
                     </div>
                     <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
                       <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight"><span className="font-manrope">&#126;</span>33h</div>
-                      <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">miesięcznie</div>
+                      <div className="font-manrope text-base text-zinc-400 leading-relaxed mt-3">Miesięcznie</div>
                     </div>
                     <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
                       <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">2640 zł</div>
-                      <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">oszczędność miesięcznie</div>
+                      <div className="font-manrope text-base text-zinc-400 leading-relaxed mt-3">Oszczędność miesięcznie</div>
                     </div>
                     <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
                       <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">3–4 miesiące</div>
-                      <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">do zwrotu z inwestycji</div>
+                      <div className="font-manrope text-base text-zinc-400 leading-relaxed mt-3">Do zwrotu z inwestycji</div>
                     </div>
                   </div>
                 </section>
@@ -110,7 +110,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                 <section>
                   <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Cel projektu</h2>
                   <p className="text-zinc-400 leading-relaxed mb-4">
-                    Celem projektu było zaprojektowanie <em>systemu automatycznej kwalifikacji leadów</em>, który:
+                    Celem projektu było zaprojektowanie systemu automatycznej kwalifikacji leadów, który:
                   </p>
                   <ul className="list-disc list-inside text-zinc-400 space-y-2">
                     <li>analizuje nowe zapytania klientów przy użyciu AI,</li>
@@ -131,7 +131,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                       Wdrożone rozwiązanie
                     </h2>
                     <p className="text-zinc-400 leading-relaxed max-w-[80ch] mx-auto">
-                      <em>AI Lead Engine</em> – zautomatyzowany workflow w 5 etapów. Automatyzacje + modele językowe.
+                      AI Lead Engine – zautomatyzowany workflow w 5 etapów. Automatyzacje + modele językowe.
                     </p>
                   </div>
                   <CaseStudyWorkflowFlow />
@@ -140,7 +140,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                 <section>
                   <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Dashboard monitorujący proces</h2>
                   <p className="text-zinc-400 leading-relaxed mb-4">
-                    Aby umożliwić bieżące monitorowanie procesu sprzedaży, przygotowany został również <em>dashboard operacyjny</em>.
+                    Aby umożliwić bieżące monitorowanie procesu sprzedaży, przygotowany został również dashboard operacyjny.
                   </p>
                   <p className="text-zinc-400 leading-relaxed mb-4">
                     Dashboard umożliwia analizę m.in.:
@@ -187,7 +187,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                     >
                       <h3 className="text-xl font-bold text-[#e4e4e7] mb-2">Oszczędność czasu zespołu sprzedaży</h3>
                       <p className="text-zinc-400 text-base leading-relaxed">
-                        Automatyzacja pozwoliła ograniczyć pracę administracyjną handlowców o około <em>4–6 godzin tygodniowo</em>.
+                        Automatyzacja pozwoliła ograniczyć pracę administracyjną handlowców o około 4–6 godzin tygodniowo.
                       </p>
                     </div>
                     <div
@@ -249,9 +249,9 @@ export default function RealizacjeAutomatyzacjaPage() {
                         <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden">
                           <Image src="/assets/tools/hubspot.png" alt="HubSpot" width={32} height={32} className="object-contain p-0.5 opacity-90" />
                         </div>
-                        <h3 className="text-xl font-bold text-[#e4e4e7]">HubSpot CRM</h3>
+                        <h3 className="text-xl font-bold text-[#e4e4e7]">HubSpot</h3>
                       </div>
-                      <p className="text-zinc-400 text-sm leading-relaxed min-w-0">zarządzanie kontaktami i procesem sprzedaży</p>
+                      <p className="text-zinc-400 text-sm leading-relaxed min-w-0">Zarządzanie kontaktami i procesem sprzedaży</p>
                     </div>
                     <div
                       className="rounded-xl p-5 sm:p-6 border border-white/10 hover-lift flex flex-col gap-3 min-w-0"
@@ -277,28 +277,26 @@ export default function RealizacjeAutomatyzacjaPage() {
 
                 <section>
                   <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Jak uzasadnić ROI w case study</h2>
-                  <div className="rounded-xl px-5 py-4 sm:px-6 sm:py-5 border border-white/10 bg-[var(--bg-2)] mb-6">
-                    <p className="text-[#e4e4e7] text-base sm:text-lg font-medium leading-relaxed">
-                      Założenia: <span className="text-accent font-semibold">50 leadów tygodniowo</span>, <span className="text-accent font-semibold">10 min na lead</span>, <span className="text-accent font-semibold">80 zł/h</span> przy koszcie handlowca
-                    </p>
-                  </div>
+                  <p className="text-[#e4e4e7] text-base sm:text-lg font-medium leading-relaxed mb-6">
+                    Założenia: <span className="text-accent font-semibold">50 leadów tygodniowo</span>, <span className="text-accent font-semibold">10 min na lead</span>, <span className="text-accent font-semibold">80 zł/h</span> przy koszcie handlowca
+                  </p>
                   <div className="relative rounded-xl overflow-hidden border border-white/10 bg-[var(--bg-2)]">
                     <div className="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 divide-x divide-white/10">
                       <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
                         <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">8,3h</div>
-                        <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">oszczędność tygodniowo</div>
+                        <div className="font-manrope text-base text-zinc-400 leading-relaxed mt-3">Oszczędność tygodniowo</div>
                       </div>
                       <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
                         <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight"><span className="font-manrope">&#126;</span>33h</div>
-                        <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">miesięcznie</div>
+                        <div className="font-manrope text-base text-zinc-400 leading-relaxed mt-3">Miesięcznie</div>
                       </div>
                       <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
                         <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">2640 zł</div>
-                        <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">oszczędność miesięcznie</div>
+                        <div className="font-manrope text-base text-zinc-400 leading-relaxed mt-3">Oszczędność miesięcznie</div>
                       </div>
                       <div className="flex flex-col justify-between min-h-[100px] sm:min-h-[120px] py-5 sm:py-6 px-5 sm:px-6 text-left">
                         <div className="font-syne text-2xl sm:text-3xl font-semibold text-accent tracking-tight">3–4 miesiące</div>
-                        <div className="font-manrope text-sm text-zinc-400 leading-relaxed mt-3">do zwrotu z inwestycji</div>
+                        <div className="font-manrope text-base text-zinc-400 leading-relaxed mt-3">Do zwrotu z inwestycji</div>
                       </div>
                     </div>
                   </div>
@@ -318,7 +316,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                     <li>większą efektywność pracy zespołu sprzedaży.</li>
                   </ul>
                   <p className="text-zinc-400 leading-relaxed">
-                    Automatyzacja pozwala handlowcom skupić się na tym, co najważniejsze – <em>rozmowie z klientem i zamykaniu sprzedaży</em>.
+                    Automatyzacja pozwala handlowcom skupić się na tym, co najważniejsze – rozmowie z klientem i zamykaniu sprzedaży.
                   </p>
                 </section>
               </div>

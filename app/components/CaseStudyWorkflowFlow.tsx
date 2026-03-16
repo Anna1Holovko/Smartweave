@@ -45,7 +45,7 @@ const steps = [
     description: (
       <>
         System automatycznie sprawdza, czy dana firma istnieje już w bazie kontaktów.
-        <span className="block mt-2">Weryfikacja odbywa się na podstawie <em>numeru NIP</em>, co pozwala uniknąć duplikowania rekordów w bazie CRM.</span>
+        <span className="block mt-2">Weryfikacja odbywa się na podstawie numeru NIP, co pozwala uniknąć duplikowania rekordów w bazie CRM.</span>
         <ul className="list-disc list-inside text-zinc-400 mt-2 space-y-1">
           <li>jeśli kontakt istnieje → dane są aktualizowane,</li>
           <li>jeśli kontakt nie istnieje → tworzony jest nowy rekord kontaktu.</li>
@@ -63,7 +63,7 @@ const steps = [
         <ul className="list-disc list-inside text-zinc-400 mt-2 space-y-1">
           <li>podsumowanie leada,</li>
           <li>najważniejsze informacje biznesowe,</li>
-          <li><em>proponowany skrypt rozmowy sprzedażowej</em>.</li>
+          <li>proponowany skrypt rozmowy sprzedażowej.</li>
         </ul>
         <span className="block mt-2">Dzięki temu konsultant może rozpocząć rozmowę z klientem mając już przygotowany kontekst.</span>
       </>
