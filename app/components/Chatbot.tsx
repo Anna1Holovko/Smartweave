@@ -5,7 +5,7 @@ import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
 
 const FLOWISE_CHATBOT_URL =
   process.env.NEXT_PUBLIC_FLOWISE_CHATBOT_URL ||
-  'https://cloud.flowiseai.com/api/v1/prediction/03718d17-d782-4a3b-a192-04c39162bf9c';
+  'https://cloud.flowiseai.com/api/v1/prediction/1b5ce866-e8a2-4590-bb90-f98d4a5fc779';
 
 type Message = { role: 'user' | 'bot'; text: string };
 
