@@ -122,7 +122,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                       Wdrożone rozwiązanie
                     </h2>
                     <p className="text-zinc-400 leading-relaxed max-w-[80ch] mx-auto">
-                      Asystent Obsługi Leadów AI – zautomatyzowany workflow w 5 etapów. Automatyzacje + modele językowe.
+                      Asystent Obsługi Leadów AI – zautomatyzowany workflow w 6 etapów. Automatyzacje + modele językowe.
                     </p>
                   </div>
                   <CaseStudyWorkflowFlow />
