@@ -14,9 +14,9 @@ import { OpenAIIcon } from '../../components/OpenAIIcon';
 export const metadata: Metadata = {
   title: 'Realizacje — Automatyzacja procesów',
   description:
-    'Case study: AI Lead Engine — automatyzacja kwalifikacji leadów i workflow sprzedaży z wykorzystaniem AI. Make, Airtable, HubSpot, OpenAI.',
+    'Case study: Asystent Obsługi Leadów AI — automatyzacja kwalifikacji leadów i workflow sprzedaży z wykorzystaniem AI. Make, Airtable, HubSpot, OpenAI.',
   openGraph: {
-    title: 'AI Lead Engine — Automatyzacja procesów | SmartWeave',
+    title: 'Asystent Obsługi Leadów AI — Automatyzacja procesów | SmartWeave',
     description: 'Automatyzacja kwalifikacji leadów i workflow sprzedaży z wykorzystaniem AI.',
     url: `${SITE_URL}/realizacje/automatyzacja`,
   },
@@ -44,13 +44,13 @@ export default function RealizacjeAutomatyzacjaPage() {
               <div className="p-6 sm:p-8 lg:p-10 space-y-10 sm:space-y-12">
                 <header>
                   <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#e4e4e7] mb-2">
-                    AI Lead Engine
+                    Asystent Obsługi Leadów AI
                   </h1>
                   <p className="text-lg sm:text-xl text-zinc-400">
                     Automatyzacja kwalifikacji leadów i workflow sprzedaży z wykorzystaniem AI
                   </p>
                   <p className="text-base text-zinc-500 mt-2">
-                    Założenia: 50 leadów tygodniowo, 10 min na lead, 80 zł/h przy koszcie handlowca
+                    Założenia: 50 leadów tygodniowo
                   </p>
                 </header>
 
@@ -122,7 +122,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                       Wdrożone rozwiązanie
                     </h2>
                     <p className="text-zinc-400 leading-relaxed max-w-[80ch] mx-auto">
-                      AI Lead Engine – zautomatyzowany workflow w 5 etapów. Automatyzacje + modele językowe.
+                      Asystent Obsługi Leadów AI – zautomatyzowany workflow w 5 etapów. Automatyzacje + modele językowe.
                     </p>
                   </div>
                   <CaseStudyWorkflowFlow />
@@ -150,7 +150,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                     >
                       <h3 className="text-xl font-bold text-[#e4e4e7] mb-2">Oszczędność czasu zespołu sprzedaży</h3>
                       <p className="text-zinc-400 text-base leading-relaxed">
-                        Automatyzacja pozwoliła ograniczyć pracę administracyjną handlowców o około 4–6 godzin tygodniowo.
+                        Automatyzacja pozwoliła ograniczyć pracę administracyjną handlowców o około 8 godzin tygodniowo.
                       </p>
                     </div>
                     <div
@@ -249,7 +249,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                     Projekt pokazuje, jak połączenie automatyzacji procesów z modelami AI może znacząco usprawnić operacje sprzedażowe.
                   </p>
                   <p className="text-zinc-400 leading-relaxed mb-4">
-                    Dzięki wdrożeniu AI Lead Engine firma uzyskała:
+                    Dzięki wdrożeniu Asystent Obsługi Leadów AI firma uzyskała:
                   </p>
                   <ul className="list-disc list-inside text-zinc-400 space-y-1 mb-4">
                     <li>szybszą obsługę zapytań,</li>

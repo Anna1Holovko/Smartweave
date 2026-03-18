@@ -8,7 +8,7 @@ const steps = [
   'Airtable (baza leadów)',
   'Automatyzacja workflow',
   'Analiza AI (lead scoring)',
-  'Sprawdzenie duplikatów (NIP)',
+  'Sprawdzenie duplikatów (telefon)',
   'Aktualizacja / utworzenie kontaktu',
   'HubSpot CRM (kontakt + zadanie sprzedażowe)',
   'Generowanie podsumowania i skryptu rozmowy',
