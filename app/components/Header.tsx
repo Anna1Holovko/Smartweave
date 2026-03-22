@@ -170,7 +170,10 @@ export function Header() {
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
-                      onClick={() => setUslugiDropdownOpen((v) => !v)}
+                      onClick={() => {
+                        setRealizacjeDropdownOpen(false);
+                        setUslugiDropdownOpen((v) => !v);
+                      }}
                       className="flex items-center gap-1 text-zinc-400 hover:text-[#d8f17b] transition-colors cursor-pointer"
                     >
                       {item.name}
@@ -186,15 +189,18 @@ export function Header() {
                           className="absolute top-full left-0 mt-2 min-w-[220px] py-2 rounded-xl border border-white/10 shadow-xl z-50"
                           style={{
                             background: 'rgba(26, 26, 26, 0.78)',
-                            backdropFilter: 'blur(36px) saturate(1.1)',
-                            WebkitBackdropFilter: 'blur(36px) saturate(1.1)',
+                            backdropFilter: 'blur(64px) saturate(1.15)',
+                            WebkitBackdropFilter: 'blur(64px) saturate(1.15)',
                           }}
                         >
                           {uslugiDropdownItems.map((sub) => (
                             <Link
                               key={sub.href}
                               href={sub.href}
-                              onClick={() => setUslugiDropdownOpen(false)}
+                              onClick={() => {
+                                setUslugiDropdownOpen(false);
+                                setRealizacjeDropdownOpen(false);
+                              }}
                               className="block px-4 py-2.5 text-sm text-zinc-300 hover:text-[#d8f17b] hover:bg-white/5 transition-colors first:rounded-t-xl whitespace-nowrap"
                             >
                               {sub.name}
@@ -211,7 +217,10 @@ export function Header() {
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
-                      onClick={() => setRealizacjeDropdownOpen((v) => !v)}
+                      onClick={() => {
+                        setUslugiDropdownOpen(false);
+                        setRealizacjeDropdownOpen((v) => !v);
+                      }}
                       className="flex items-center gap-1 text-zinc-400 hover:text-[#d8f17b] transition-colors cursor-pointer"
                     >
                       {item.name}
@@ -227,15 +236,18 @@ export function Header() {
                           className="absolute top-full left-0 mt-2 min-w-[200px] py-2 rounded-xl border border-white/10 shadow-xl z-50"
                           style={{
                             background: 'rgba(26, 26, 26, 0.78)',
-                            backdropFilter: 'blur(36px) saturate(1.1)',
-                            WebkitBackdropFilter: 'blur(36px) saturate(1.1)',
+                            backdropFilter: 'blur(64px) saturate(1.15)',
+                            WebkitBackdropFilter: 'blur(64px) saturate(1.15)',
                           }}
                         >
                           {realizacjeDropdownItems.map((sub) => (
                             <Link
                               key={sub.href}
                               href={sub.href}
-                              onClick={() => setRealizacjeDropdownOpen(false)}
+                              onClick={() => {
+                                setUslugiDropdownOpen(false);
+                                setRealizacjeDropdownOpen(false);
+                              }}
                               className="block px-4 py-2.5 text-sm text-zinc-300 hover:text-[#d8f17b] hover:bg-white/5 transition-colors first:rounded-t-xl"
                             >
                               {sub.name}
@@ -320,8 +332,8 @@ export function Header() {
             className="mx-4 mt-2 p-6 rounded-2xl border border-white/10"
             style={{
               background: 'rgba(26, 26, 26, 0.82)',
-              backdropFilter: 'blur(36px) saturate(1.1)',
-              WebkitBackdropFilter: 'blur(36px) saturate(1.1)',
+              backdropFilter: 'blur(64px) saturate(1.15)',
+              WebkitBackdropFilter: 'blur(64px) saturate(1.15)',
             }}
           >
             <nav className="flex flex-col gap-4">
