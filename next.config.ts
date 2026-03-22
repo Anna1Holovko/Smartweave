@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
         destination: '/realizacje/chatboty',
         permanent: true,
       },
+      // Legacy / default browser requests → same asset as tab (public/favicon.png)
+      { source: '/favicon.ico', destination: '/favicon.png', permanent: false },
+      { source: '/apple-touch-icon.png', destination: '/favicon.png', permanent: false },
     ];
   },
   images: {

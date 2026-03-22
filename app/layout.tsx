@@ -67,15 +67,11 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
 
-  // ✅ GOOGLE-FRIENDLY FAVICON SETUP (redesign: W + sparkle icon)
+  // Single favicon everywhere (browser tab + Google Search). File: public/favicon.png
   icons: {
-    icon: [
-      { url: '/favicon.png?v=4', type: 'image/png', sizes: 'any' },
-      { url: '/favicon.ico?v=4', type: 'image/x-icon' },
-      { url: '/assets/smartweave-logo-ai.png', type: 'image/png', sizes: '512x512' },
-    ],
-    shortcut: '/favicon.ico?v=4',
-    apple: '/apple-touch-icon.png?v=4',
+    icon: [{ url: '/favicon.png', type: 'image/png', sizes: '128x128' }],
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
 
   openGraph: {

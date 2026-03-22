@@ -23,8 +23,14 @@ export function ScrollToTop() {
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           transition={{ duration: 0.3 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 group"
-          aria-label="Scroll to top"
+          className="fixed z-[9998] group"
+          style={{
+            /* Above chat FAB (h-14 = 3.5rem) + gap; aligned with Chatbot.tsx bottom/right */
+            bottom:
+              'calc(max(1.5rem, env(safe-area-inset-bottom, 0px)) + 3.5rem + 0.75rem)',
+            right: 'max(1.5rem, env(safe-area-inset-right, 0px))',
+          }}
+          aria-label="Przewiń na górę strony"
         >
           <div className="relative">
             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full glass-card border border-[#d8f17b]/30 flex items-center justify-center transition-all duration-300 hover:border-[#d8f17b]/60 hover:shadow-[0_0_30px_rgba(216,241,123,0.25)] group-hover:scale-110">

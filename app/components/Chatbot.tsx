@@ -50,30 +50,21 @@ export function Chatbot() {
 
   return (
     <>
-      {/* Top-right stack: avoids overlap with ScrollToTop (bottom-right) and matches common help/chat placement */}
+      {/* Bottom-right: FAB on the corner; panel opens above it. Scroll-to-top sits above FAB (see ScrollToTop). */}
       <div
-        className="fixed z-[9998] flex flex-col items-end gap-3"
+        className="fixed z-[9997] flex flex-col items-end gap-3"
         style={{
-          top: 'max(1.25rem, env(safe-area-inset-top, 0px))',
-          right: 'max(1.25rem, env(safe-area-inset-right, 0px))',
+          bottom: 'max(1.5rem, env(safe-area-inset-bottom, 0px))',
+          right: 'max(1.5rem, env(safe-area-inset-right, 0px))',
         }}
       >
-        {/* Launcher always first (top) — panel opens directly below (F-pattern, no overlap with scroll-to-top) */}
-        <button
-          type="button"
-          onClick={() => setOpen((o) => !o)}
-          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#d8f17b] text-[#0e0e0e] shadow-lg transition hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#d8f17b]/50"
-          aria-label={open ? 'Zamknij czat' : 'Otwórz czat'}
-        >
-          {open ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
-        </button>
-
         {open && (
           <div
-            className="flex w-[min(100vw-2.5rem,400px)] min-h-0 flex-col rounded-2xl border border-white/10 bg-[var(--bg-2)] shadow-xl"
+            className="flex w-[min(100vw-3rem,400px)] min-h-0 flex-col rounded-2xl border border-white/10 bg-[var(--bg-2)] shadow-xl"
             style={{
               height: 'min(70vh, 520px)',
-              maxHeight: 'calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 5.5rem)',
+              maxHeight:
+                'min(70vh, calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 10rem))',
             }}
           >
             <div className="flex shrink-0 items-start gap-3 border-b border-white/10 px-4 py-3">
@@ -143,6 +134,15 @@ export function Chatbot() {
           </form>
           </div>
         )}
+
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#d8f17b] text-[#0e0e0e] shadow-lg transition hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#d8f17b]/50"
+          aria-label={open ? 'Zamknij czat' : 'Otwórz czat'}
+        >
+          {open ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
+        </button>
       </div>
     </>
   );
