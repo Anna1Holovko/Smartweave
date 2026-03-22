@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { BookOpen, X, Info } from 'lucide-react';
 import type { Ebook } from '@/lib/ebooks';
-import { EbookDownloadButton } from './EbookDownloadButton';
+import { EbookCheckoutButton } from './EbookCheckoutButton';
 
 type Props = { book: Ebook };
 
@@ -70,7 +70,7 @@ export function EbookCard({ book }: Props) {
               <span>Szczegóły</span>
             </button>
             <div onClick={(e) => e.stopPropagation()}>
-              <EbookDownloadButton book={book} />
+              <EbookCheckoutButton book={book} />
             </div>
           </div>
         </div>
@@ -108,7 +108,7 @@ export function EbookCard({ book }: Props) {
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-white/10" onClick={(e) => e.stopPropagation()}>
-              <EbookDownloadButton book={book} />
+              <EbookCheckoutButton book={book} />
             </div>
           </div>
         </div>

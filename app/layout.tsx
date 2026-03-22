@@ -23,6 +23,7 @@ import {
   OG_TITLE,
   OG_DESCRIPTION,
 } from '@/lib/site';
+import { CART_STORAGE_KEY } from '@/lib/cart';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -231,6 +232,10 @@ export default function RootLayout({
   return (
     <html lang="pl" className={`${syne.variable} ${manrope.variable}`}>
       <body className="min-h-screen bg-[var(--bg-graphite)] text-[#e4e4e7] antialiased">
+        {/* E-book cart: reset stored count on each full page load (new entry to the site / refresh). */}
+        <Script id="smartweave-cart-reset" strategy="beforeInteractive">
+          {`try{localStorage.removeItem(${JSON.stringify(CART_STORAGE_KEY)});}catch(e){}`}
+        </Script>
         <Script
           id="Cookiebot"
           src="https://consent.cookiebot.com/uc.js"

@@ -1,5 +1,7 @@
 /**
- * E-books available for purchase. buyUrl can be Calendly, payment link, or /#contact for contact form.
+ * E-books shown on the site (catalog for koszyk / checkout).
+ * Pliki PDF/EPUB nie są udostępniane przez front — brak URL-i do pobrania w kliencie.
+ * Realizacja zamówienia: kontakt / płatność poza stroną (np. buyUrl → #contact).
  */
 export type Ebook = {
   id: string;
@@ -11,12 +13,8 @@ export type Ebook = {
   /** Optional cover image path (e.g. /assets/ebook-xyz.png). If empty, a gradient placeholder is shown. */
   image?: string;
   gradient: string;
-  /** URL for "Kup" button - e.g. Calendly, Stripe, or /#contact */
+  /** Optional link after checkout (e.g. /#contact). Not used for direct file download. */
   buyUrl: string;
-  /** Optional direct download URL for the EPUB file. When set and not protected, the main CTA becomes "Pobierz e-book". */
-  downloadUrl?: string;
-  /** When true, download is served via API and requires password (EBOOK_DOWNLOAD_PASSWORD). */
-  protected?: boolean;
 };
 
 export const EBOOKS: Ebook[] = [
@@ -43,6 +41,5 @@ Oszczędź 5–8 godzin tygodniowo już po pierwszym weekendzie wdrożenia.`,
     image: '/assets/ebook-firma-w-erze-ai.png',
     gradient: 'from-indigo-500 to-violet-600',
     buyUrl: '/#contact',
-    protected: true,
   },
 ];

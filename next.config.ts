@@ -3,7 +3,13 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   async redirects() {
-    return [];
+    return [
+      {
+        source: '/realizacje/chatboty-i-aplikacje-webowe',
+        destination: '/realizacje/chatboty',
+        permanent: true,
+      },
+    ];
   },
   images: {
     remotePatterns: [

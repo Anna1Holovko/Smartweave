@@ -40,6 +40,8 @@ export const SITEMAP_ROUTES = [
   { path: 'uslugi/branding', priority: 0.85, changeFrequency: 'weekly' as const },
   { path: 'uslugi/automatyzacja', priority: 0.85, changeFrequency: 'weekly' as const },
   { path: 'realizacje', priority: 0.9, changeFrequency: 'weekly' as const },
+  { path: 'realizacje/chatboty', priority: 0.85, changeFrequency: 'monthly' as const },
+  { path: 'realizacje/aplikacje-webowe', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: 'e-booki', priority: 0.9, changeFrequency: 'weekly' as const },
   { path: 'blog', priority: 0.9, changeFrequency: 'weekly' as const },
 ] as const;

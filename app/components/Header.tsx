@@ -4,7 +4,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ChevronDown, ShoppingCart } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
-import { CART_UPDATE_EVENT, getCartCount } from '@/lib/cart';
+import { CART_UPDATE_EVENT, CART_OPEN_DRAWER_EVENT, getCartCount } from '@/lib/cart';
+import { CartDrawer } from './CartDrawer';
 
 function useCartCount(): number {
   const [count, setCount] = useState(0);
@@ -39,6 +40,8 @@ const uslugiDropdownItems = USLUGI_DISPLAY_ORDER.map((slug) => ({
 const realizacjeDropdownItems = [
   { name: 'Strony Internetowe', href: '/realizacje' },
   { name: 'Automatyzacja procesów', href: '/realizacje/automatyzacja' },
+  { name: 'Chatboty', href: '/realizacje/chatboty' },
+  { name: 'Aplikacje webowe', href: '/realizacje/aplikacje-webowe' },
 ];
 
 const navItems = [
@@ -52,6 +55,7 @@ const navItems = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
   const [uslugiDropdownOpen, setUslugiDropdownOpen] = useState(false);
   const [realizacjeDropdownOpen, setRealizacjeDropdownOpen] = useState(false);
   const cartCount = useCartCount();
@@ -75,6 +79,12 @@ export function Header() {
       return () => document.removeEventListener('click', handleClickOutside);
     }
   }, [uslugiDropdownOpen, realizacjeDropdownOpen]);
+
+  useEffect(() => {
+    const openDrawer = () => setCartOpen(true);
+    window.addEventListener(CART_OPEN_DRAWER_EVENT, openDrawer);
+    return () => window.removeEventListener(CART_OPEN_DRAWER_EVENT, openDrawer);
+  }, []);
 
   // 🔥 smooth scroll function
   const scrollToSection = (hash: string) => {
@@ -260,12 +270,20 @@ export function Header() {
               >
                 Rozpocznij Projekt
               </Button>
-              {cartCount > 0 && (
-                <Link href="/e-booki" className="relative text-zinc-400 hover:text-[#d8f17b] transition-colors p-2 rounded-lg hover:bg-white/5" title="Koszyk" aria-label={`Koszyk (${cartCount})`}>
-                  <ShoppingCart className="w-4 h-4" />
-                  <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] flex items-center justify-center rounded-full bg-accent text-[#0e0e0e] text-xs font-bold px-1">{cartCount}</span>
-                </Link>
-              )}
+              <button
+                type="button"
+                onClick={() => setCartOpen(true)}
+                className="relative text-zinc-400 hover:text-[#d8f17b] transition-colors p-2 rounded-lg hover:bg-white/5"
+                title="Koszyk"
+                aria-label={cartCount > 0 ? `Otwórz koszyk, ${cartCount} pozycji` : 'Otwórz koszyk'}
+              >
+                <ShoppingCart className="w-4 h-4" />
+                {cartCount > 0 && (
+                  <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] flex items-center justify-center rounded-full bg-accent text-[#0e0e0e] text-xs font-bold px-1">
+                    {cartCount}
+                  </span>
+                )}
+              </button>
             </div>
 
             {/* MOBILE BUTTON */}
@@ -338,12 +356,22 @@ export function Header() {
               )}
 
               <div className="pt-4 border-t border-white/10 flex items-center gap-3">
-                {cartCount > 0 && (
-                  <Link href="/e-booki" onClick={() => setMobileMenuOpen(false)} className="relative inline-flex items-center justify-center text-zinc-400 hover:text-[#d8f17b] p-3 rounded-lg border border-white/15 hover:bg-white/5 transition-colors" aria-label={`Koszyk (${cartCount})`}>
-                    <ShoppingCart className="w-5 h-5" />
-                    <span className="absolute top-1.5 right-1.5 min-w-[20px] h-5 flex items-center justify-center rounded-full bg-accent text-[#0e0e0e] text-xs font-bold px-1">{cartCount}</span>
-                  </Link>
-                )}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    setCartOpen(true);
+                  }}
+                  className="relative inline-flex items-center justify-center text-zinc-400 hover:text-[#d8f17b] p-3 rounded-lg border border-white/15 hover:bg-white/5 transition-colors"
+                  aria-label={cartCount > 0 ? `Otwórz koszyk, ${cartCount} pozycji` : 'Otwórz koszyk'}
+                >
+                  <ShoppingCart className="w-5 h-5" />
+                  {cartCount > 0 && (
+                    <span className="absolute top-1.5 right-1.5 min-w-[20px] h-5 flex items-center justify-center rounded-full bg-accent text-[#0e0e0e] text-xs font-bold px-1">
+                      {cartCount}
+                    </span>
+                  )}
+                </button>
                 <Button
                   variant="primary"
                   fullWidth
@@ -358,6 +386,8 @@ export function Header() {
           </div>
         </div>
       )}
+
+      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );
 }
