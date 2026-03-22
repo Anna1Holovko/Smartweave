@@ -181,7 +181,12 @@ export function Header() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -8 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 min-w-[220px] py-2 rounded-xl border border-white/10 bg-[var(--bg-graphite-card)] backdrop-blur-xl shadow-xl z-50"
+                          className="absolute top-full left-0 mt-2 min-w-[220px] py-2 rounded-xl border border-white/10 shadow-xl z-50"
+                          style={{
+                            background: 'rgba(26, 26, 26, 0.78)',
+                            backdropFilter: 'blur(36px) saturate(1.1)',
+                            WebkitBackdropFilter: 'blur(36px) saturate(1.1)',
+                          }}
                         >
                           {uslugiDropdownItems.map((sub) => (
                             <Link
@@ -217,7 +222,12 @@ export function Header() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -8 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 min-w-[200px] py-2 rounded-xl border border-white/10 bg-[var(--bg-graphite-card)] backdrop-blur-xl shadow-xl z-50"
+                          className="absolute top-full left-0 mt-2 min-w-[200px] py-2 rounded-xl border border-white/10 shadow-xl z-50"
+                          style={{
+                            background: 'rgba(26, 26, 26, 0.78)',
+                            backdropFilter: 'blur(36px) saturate(1.1)',
+                            WebkitBackdropFilter: 'blur(36px) saturate(1.1)',
+                          }}
                         >
                           {realizacjeDropdownItems.map((sub) => (
                             <Link
@@ -304,7 +314,14 @@ export function Header() {
       {/* MOBILE MENU */}
       {mobileMenuOpen && (
         <div className="fixed top-[64px] left-0 right-0 z-40 lg:hidden">
-          <div className="mx-4 mt-2 p-6 rounded-2xl border border-white/10" style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}>
+          <div
+            className="mx-4 mt-2 p-6 rounded-2xl border border-white/10"
+            style={{
+              background: 'rgba(26, 26, 26, 0.82)',
+              backdropFilter: 'blur(36px) saturate(1.1)',
+              WebkitBackdropFilter: 'blur(36px) saturate(1.1)',
+            }}
+          >
             <nav className="flex flex-col gap-4">
               <div>
                 <span className="block text-zinc-500 text-sm font-medium py-2 px-4">Usługi</span>

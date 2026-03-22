@@ -31,8 +31,8 @@ export default function RealizacjeAutomatyzacjaPage() {
           <div className="absolute inset-0 bg-[var(--bg-graphite)]" aria-hidden />
           <div className={CONTAINER_CLASS}>
             <PageIntro
-              backHref="/realizacje"
-              backLabel="Case Studies"
+              backHref="/"
+              backLabel="Strona główna"
               badge="Case Studies"
               badgeVariant="accent"
               title="Automatyzacja procesów"

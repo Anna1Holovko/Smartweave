@@ -27,8 +27,8 @@ export default function RealizacjeChatbotyPage() {
           <div className="absolute inset-0 bg-[var(--bg-graphite)]" aria-hidden />
           <div className={CONTAINER_CLASS}>
             <PageIntro
-              backHref="/realizacje"
-              backLabel="Realizacje"
+              backHref="/"
+              backLabel="Strona główna"
               badge="Case Studies"
               badgeVariant="accent"
               title="Chatboty"
