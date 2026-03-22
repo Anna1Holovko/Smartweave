@@ -135,7 +135,7 @@ const jsonLd = {
         url: SITE_LOGO_URL,
       },
       description:
-        'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Design i wdrożenia dla biznesu',
+        'Automatyzacja procesów biznesowych, agenci AI, strony internetowe, chatboty i aplikacje webowe. Design i wdrożenia dla biznesu',
     },
     {
       '@type': 'WebSite',
@@ -181,7 +181,7 @@ const jsonLd = {
       '@id': `${SITE_URL}/#service`,
       name: `${SITE_NAME} - Design i automatyzacja`,
       description:
-        'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Branding, SEO',
+        'Automatyzacja procesów biznesowych, agenci AI, strony internetowe, chatboty i aplikacje webowe. Branding, SEO',
       url: SITE_URL,
       areaServed: {
         '@type': 'Country',
@@ -192,6 +192,8 @@ const jsonLd = {
         'Agenci AI',
         'Strony internetowe',
         'Identyfikacja wizualna i branding',
+        'Chatboty',
+        'Aplikacje webowe',
         'SEO',
       ],
     },
@@ -210,11 +212,14 @@ const jsonLd = {
       '@type': 'ItemList',
       name: 'Usługi SmartWeave',
       description:
-        'Automatyzacja procesów biznesowych, agenci AI, strony internetowe. Identyfikacja i branding',
+        'Automatyzacja procesów biznesowych, agenci AI, strony internetowe, identyfikacja wizualna, chatboty i aplikacje webowe',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Strony internetowe' },
-        { '@type': 'ListItem', position: 2, name: 'Identyfikacja wizualna i branding' },
-        { '@type': 'ListItem', position: 3, name: 'Automatyzacja procesów biznesowych z wykorzystaniem AI' },
+        { '@type': 'ListItem', position: 1, name: 'Automatyzacja procesów biznesowych z wykorzystaniem AI' },
+        { '@type': 'ListItem', position: 2, name: 'Agenci AI' },
+        { '@type': 'ListItem', position: 3, name: 'Strony internetowe' },
+        { '@type': 'ListItem', position: 4, name: 'Identyfikacja wizualna i branding' },
+        { '@type': 'ListItem', position: 5, name: 'Chatboty' },
+        { '@type': 'ListItem', position: 6, name: 'Aplikacje webowe' },
       ],
     },
   ],

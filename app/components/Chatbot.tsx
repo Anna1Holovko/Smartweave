@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
+import { MessageCircle, X, Send, Loader2, Bot } from 'lucide-react';
 
 const FLOWISE_CHATBOT_URL =
   process.env.NEXT_PUBLIC_FLOWISE_CHATBOT_URL ||
@@ -50,25 +50,45 @@ export function Chatbot() {
 
   return (
     <>
-      <button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        className="fixed bottom-6 right-6 z-[9998] flex h-14 w-14 items-center justify-center rounded-full bg-[#d8f17b] text-[#0e0e0e] shadow-lg transition hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#d8f17b]/50"
-        aria-label={open ? 'Zamknij czat' : 'Otwórz czat'}
+      {/* Top-right stack: avoids overlap with ScrollToTop (bottom-right) and matches common help/chat placement */}
+      <div
+        className="fixed z-[9998] flex flex-col items-end gap-3"
+        style={{
+          top: 'max(1.25rem, env(safe-area-inset-top, 0px))',
+          right: 'max(1.25rem, env(safe-area-inset-right, 0px))',
+        }}
       >
-        {open ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
-      </button>
-
-      {open && (
-        <div
-          className="fixed bottom-24 right-6 z-[9997] flex w-[min(100vw-3rem,400px)] flex-col rounded-2xl border border-white/10 bg-[var(--bg-2)] shadow-xl"
-          style={{ height: 'min(70vh, 520px)' }}
+        {/* Launcher always first (top) — panel opens directly below (F-pattern, no overlap with scroll-to-top) */}
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#d8f17b] text-[#0e0e0e] shadow-lg transition hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#d8f17b]/50"
+          aria-label={open ? 'Zamknij czat' : 'Otwórz czat'}
         >
-          <div className="border-b border-white/10 px-4 py-3">
-            <h2 className="font-semibold text-[#e4e4e7]">Czat z SmartWeave</h2>
-            <p className="text-xs text-zinc-500">Zadaj pytanie o automatyzację, AI lub nasze usługi.</p>
-          </div>
-          <div ref={listRef} className="flex-1 overflow-y-auto p-4 space-y-4">
+          {open ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
+        </button>
+
+        {open && (
+          <div
+            className="flex w-[min(100vw-2.5rem,400px)] min-h-0 flex-col rounded-2xl border border-white/10 bg-[var(--bg-2)] shadow-xl"
+            style={{
+              height: 'min(70vh, 520px)',
+              maxHeight: 'calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 5.5rem)',
+            }}
+          >
+            <div className="flex shrink-0 items-start gap-3 border-b border-white/10 px-4 py-3">
+              <div
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#d8f17b]/15 border border-[#d8f17b]/30"
+                aria-hidden
+              >
+                <Bot className="h-5 w-5 text-[#d8f17b]" />
+              </div>
+              <div className="min-w-0 flex-1 pt-0.5">
+                <h2 className="font-semibold text-[#e4e4e7]">Czat z SmartWeave</h2>
+                <p className="text-xs text-zinc-500">Zadaj pytanie o automatyzację, AI lub nasze usługi.</p>
+              </div>
+            </div>
+          <div ref={listRef} className="min-h-0 flex-1 overflow-y-auto p-4 space-y-4">
             {messages.length === 0 && (
               <p className="text-sm text-zinc-500">Napisz wiadomość, aby rozpocząć.</p>
             )}
@@ -121,8 +141,9 @@ export function Chatbot() {
               <Send className="h-4 w-4" />
             </button>
           </form>
-        </div>
-      )}
+          </div>
+        )}
+      </div>
     </>
   );
 }
