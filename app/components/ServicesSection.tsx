@@ -2,18 +2,15 @@
 
 import { motion } from 'motion/react';
 import Link from 'next/link';
-import { Globe, Workflow, Palette, Bot, ArrowRight, Check, MessageCircle, AppWindow } from 'lucide-react';
+import { Globe, Workflow, Bot, ArrowRight, Check } from 'lucide-react';
 import { SERVICES, USLUGI_DISPLAY_ORDER, type ServiceItem } from '@/lib/services';
 
-/** Home: ta sama kolejność co /uslugi i menu (wszystkie usługi, łącznie z chatbotami i aplikacjami webowymi) */
-const HOME_SERVICES_ORDER = USLUGI_DISPLAY_ORDER;
+/** Home: pierwsze 3 jak w menu Usługi (reszta na /uslugi – link „Zobacz pełną ofertę usług”) */
+const HOME_SERVICES_ORDER = USLUGI_DISPLAY_ORDER.slice(0, 3);
 const SERVICE_ICONS: Record<string, typeof Globe> = {
   strony: Globe,
-  branding: Palette,
   automatyzacja: Workflow,
   'agenci-ai': Bot,
-  chatboty: MessageCircle,
-  'aplikacje-webowe': AppWindow,
 };
 
 export function ServicesSection() {
@@ -30,7 +27,7 @@ export function ServicesSection() {
             Jak możemy <span className="text-[#d8f17b]">Ci pomóc?</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto px-2">
-            Strony, branding, automatyzacja i agenci AI, chatboty oraz aplikacje webowe. Ty na klientach i rozwoju – my dostarczamy narzędzia i wdrożenia
+            Automatyzacja procesów, agenci AI i strony internetowe – tu zaczynamy. Branding, chatboty, aplikacje webowe i reszta oferty znajdziesz w pełnej liście usług.
           </motion.p>
         </div>
 
@@ -43,11 +40,7 @@ export function ServicesSection() {
                 ? 'Strony internetowe'
                 : s.slug === 'automatyzacja'
                   ? 'Automatyzacja procesów biznesowych'
-                  : s.slug === 'chatboty'
-                    ? 'Chatboty'
-                    : s.slug === 'aplikacje-webowe'
-                      ? 'Aplikacje webowe'
-                      : s.title;
+                  : s.title;
             const points = (s as ServiceItem).cardPoints ?? [];
             return (
               <motion.div

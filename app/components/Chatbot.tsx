@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Loader2, Bot } from 'lucide-react';
+import { useChatbotUi } from '@/app/contexts/ChatbotUiContext';
 
 const FLOWISE_CHATBOT_URL =
   process.env.NEXT_PUBLIC_FLOWISE_CHATBOT_URL ||
@@ -22,7 +23,7 @@ async function query(question: string): Promise<string> {
 }
 
 export function Chatbot() {
-  const [open, setOpen] = useState(false);
+  const { chatOpen: open, setChatOpen: setOpen } = useChatbotUi();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -137,7 +138,7 @@ export function Chatbot() {
 
         <button
           type="button"
-          onClick={() => setOpen((o) => !o)}
+          onClick={() => setOpen(!open)}
           className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#d8f17b] text-[#0e0e0e] shadow-lg transition hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#d8f17b]/50"
           aria-label={open ? 'Zamknij czat' : 'Otwórz czat'}
         >

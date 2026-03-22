@@ -2,16 +2,28 @@
 
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUp } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import { useChatbotOpen } from '@/app/contexts/ChatbotUiContext';
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const chatOpen = useChatbotOpen();
 
   useEffect(() => {
     const toggleVisibility = () => setIsVisible(window.scrollY > 500);
     window.addEventListener('scroll', toggleVisibility);
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
+
+  /** Closed: above FAB. Open: above whole chat block (FAB + gap + panel, same heights as Chatbot.tsx). */
+  const bottomOffset = useMemo(() => {
+    const base =
+      'max(1.5rem, env(safe-area-inset-bottom, 0px)) + 3.5rem + 0.75rem';
+    if (chatOpen) {
+      return `calc(${base} + min(70vh, 520px) + 0.75rem)`;
+    }
+    return `calc(${base})`;
+  }, [chatOpen]);
 
   return (
     <AnimatePresence>
@@ -25,9 +37,7 @@ export function ScrollToTop() {
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="fixed z-[9998] group"
           style={{
-            /* Above chat FAB (h-14 = 3.5rem) + gap; aligned with Chatbot.tsx bottom/right */
-            bottom:
-              'calc(max(1.5rem, env(safe-area-inset-bottom, 0px)) + 3.5rem + 0.75rem)',
+            bottom: bottomOffset,
             right: 'max(1.5rem, env(safe-area-inset-right, 0px))',
           }}
           aria-label="Przewiń na górę strony"
