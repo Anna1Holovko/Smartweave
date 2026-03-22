@@ -2,13 +2,15 @@
 
 import { motion } from 'motion/react';
 import Link from 'next/link';
-import { Globe, Workflow, Palette, Bot, Check, ArrowUpRight } from 'lucide-react';
+import { Globe, Workflow, Palette, Bot, Check, ArrowUpRight, MessageCircle, AppWindow } from 'lucide-react';
 import { SERVICES, USLUGI_DISPLAY_ORDER } from '@/lib/services';
 const SERVICE_ICONS: Record<(typeof USLUGI_DISPLAY_ORDER)[number], typeof Globe> = {
   automatyzacja: Workflow,
   'agenci-ai': Bot,
   strony: Globe,
   branding: Palette,
+  chatboty: MessageCircle,
+  'aplikacje-webowe': AppWindow,
 };
 
 export function UslugiServiceCards() {

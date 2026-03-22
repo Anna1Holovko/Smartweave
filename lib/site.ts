@@ -27,7 +27,8 @@ export const OG_DESCRIPTION =
   'Automatyzacja procesów biznesowych, agenci AI i strony internetowe. Wdrożenia dla firm';
 
 /** Kolejność usług wszędzie: marketing, SEO, meta, OG, stopka, bio. */
-export const SERVICES_ORDER_LABEL = 'Automatyzacja procesów biznesowych • Agenci AI • Strony internetowe';
+export const SERVICES_ORDER_LABEL =
+  'Automatyzacja procesów biznesowych • Agenci AI • Strony internetowe • Branding • Chatboty • Aplikacje webowe';
 
 /** Calendly booking URL. Override with NEXT_PUBLIC_CALENDLY_URL in env. */
 export const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? 'https://calendly.com/hello-smartweave/30min';
@@ -39,6 +40,9 @@ export const SITEMAP_ROUTES = [
   { path: 'uslugi/strony', priority: 0.85, changeFrequency: 'weekly' as const },
   { path: 'uslugi/branding', priority: 0.85, changeFrequency: 'weekly' as const },
   { path: 'uslugi/automatyzacja', priority: 0.85, changeFrequency: 'weekly' as const },
+  { path: 'uslugi/agenci-ai', priority: 0.85, changeFrequency: 'weekly' as const },
+  { path: 'uslugi/chatboty', priority: 0.85, changeFrequency: 'weekly' as const },
+  { path: 'uslugi/aplikacje-webowe', priority: 0.85, changeFrequency: 'weekly' as const },
   { path: 'realizacje', priority: 0.9, changeFrequency: 'weekly' as const },
   { path: 'realizacje/chatboty', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: 'realizacje/aplikacje-webowe', priority: 0.85, changeFrequency: 'monthly' as const },

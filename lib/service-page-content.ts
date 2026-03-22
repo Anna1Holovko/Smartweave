@@ -165,4 +165,88 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
     whySmartWeave:
       'W SmartWeave agenci AI to narzędzie biznesowe, nie eksperyment. Zaczynamy od jednego, dobrze określonego zadania – np. pierwsza odpowiedź na stronie albo kwalifikacja leadów – mierzymy efekt i dopiero potem poszerzamy zakres. Łączymy doświadczenie z automatyzacji z wdrożeniami opartymi na modelach językowych, więc każdy agent AI jest zaprojektowany tak, żeby realnie odciążyć zespół i działać przewidywalnie na co dzień.',
   },
+
+  chatboty: {
+    problemHeading: 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?',
+    problem:
+      'Klienci oczekują natychmiastowej odpowiedzi – a zespół ma ograniczone godziny pracy. Bez chatbota zapytania czekają w skrzynce, proste pytania powtarzają się setki razy, a leady giną, jeśli nikt szybko nie oddzwoni. Chatbot na stronie lub w widżecie daje pierwszy kontakt na bazie Twojej oferty i procedur, zbiera dane i w jasnych momentach przekazuje rozmowę do człowieka.',
+    solution:
+      'Wdrażamy chatboty dopasowane do branży i tonu marki: budujemy bazę wiedzy z FAQ, oferty i wytycznych, projektujemy ścieżki (odpowiedź, formularz, umówienie kontaktu, eskalacja). Integrujemy chatbota z CRM, pocztą i formularzami, żeby każdy wartościowy kontakt trafiał do systemu, w którym już pracujesz.\n\nChatbot nie musi „udawać człowieka” – ma być przydatny, przewidywalny i zgodny z polityką firmy. Dzięki temu odciążasz obsługę, skracasz czas pierwszej reakcji i nie tracisz leadów poza godzinami pracy.',
+    benefits: [
+      'Dostępność 24/7 – odpowiedzi i zbieranie zapytań także wieczorem i w weekendy.',
+      'Mniej powtarzalnej pracy – FAQ i proste ścieżki obsługuje chatbot; zespół skupia się na sprzedaży i trudniejszych sprawach.',
+      'Lepszy przepływ leadów – rozmowa i dane kontaktowe trafiają do CRM lub maila według Twoich reguł.',
+      'Spójny komunikat – odpowiedzi wynikają z jednej, aktualnej bazy wiedzy.',
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Cel i kanał chatbota',
+        description:
+          'Określamy, co ma robić chatbot: FAQ, zbieranie leadów, umówienie rozmowy, kwalifikacja czy routing do działu. Wybieramy miejsce wdrożenia (strona, widget) oraz momenty, w których rozmowa przechodzi do człowieka.',
+      },
+      {
+        step: 2,
+        title: 'Baza wiedzy i scenariusze',
+        description:
+          'Zbieramy treści z oferty, dokumentów i rozmów z zespołem. Budujemy strukturę odpowiedzi, pytania pomocnicze i ścieżki bez „zapętleń”. Dopasowujemy styl do marki.',
+      },
+      {
+        step: 3,
+        title: 'Integracje i testy',
+        description:
+          'Łączymy chatbota z CRM, formularzami, pocztą lub innymi narzędziami. Testujemy na typowych i trudnych pytaniach, poprawiamy luki w wiedzy i komunikacie błędów.',
+      },
+      {
+        step: 4,
+        title: 'Uruchomienie i optymalizacja',
+        description:
+          'Włączamy chatbota na produkcji, śledzimy statystyki zapytań i konwersji. Na tej podstawie rozszerzamy bazę wiedzy i scenariusze, żeby narzędzie z czasem pracowało jeszcze skuteczniej.',
+      },
+    ],
+    whySmartWeave:
+      'Łączymy doświadczenie ze stron www, automatyzacji i rozwiązań AI – chatbot to często pierwszy krok do lepszego kontaktu z klientem bez przeładowania zespołu. Projektujemy go tak, żeby dał się utrzymać i rozwijać: jasna baza wiedzy, integracje z Twoimi systemami i realne metryki po starcie.',
+  },
+
+  'aplikacje-webowe': {
+    problemHeading: 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?',
+    problem:
+      'Gdy proces rośnie, arkusze, maile i luźne narzędzia przestają wystarczać. Dane są rozproszone, trudno nadać uprawnienia, a każda zmiana wymaga improwizacji. Dedykowana aplikacja webowa daje jeden punkt wejścia: logowanie, role, historia działań i logika dopasowana do Twojego modelu pracy – z możliwością integracji z zewnętrznymi API i systemami.',
+    solution:
+      'Projektujemy i budujemy aplikacje webowe „na miarę”: od paneli wewnętrznych i narzędzi dla klientów B2B po produkty z subskrypcją. Dbamy o UX, wydajność, bezpieczeństwo (uwierzytelnianie, uprawnienia, ochrona danych) oraz ścieżkę od MVP do dalszego rozwoju.\n\nWspółpracujemy z Tobą przy specyfikacji – żeby pierwsza wersja realizowała najważniejsze cele, a architektura nie blokowała kolejnych funkcji. Po wdrożeniu możesz liczyć na dokumentację i wsparcie utrzymaniowe.',
+    benefits: [
+      'Procesy w jednym miejscu – mniej chaosu i ręcznego przepisywania między narzędziami.',
+      'Skalowanie – więcej użytkowników i danych bez przebudowy „od zera”, gdy fundamenty są dobrze zaprojektowane.',
+      'Bezpieczeństwo i kontrola dostępu – role, logi, zgodność z potrzebami B2B.',
+      'Integracje – płatności, CRM, ERP, webhooki i API partnerów jako część systemu, nie dodatek „na końcu”.',
+    ],
+    process: [
+      {
+        step: 1,
+        title: 'Discovery i zakres MVP',
+        description:
+          'Ustalamy użytkowników, kluczowe scenariusze i kryteria sukcesu. Wybieramy funkcje na pierwszy release i plan integracji z istniejącymi systemami.',
+      },
+      {
+        step: 2,
+        title: 'UX/UI i architektura',
+        description:
+          'Projektujemy interfejs i przepływy pracy. Dobieramy stack (frontend, backend, baza), model danych i API pod skalowalność i bezpieczeństwo.',
+      },
+      {
+        step: 3,
+        title: 'Implementacja i testy',
+        description:
+          'Budujemy aplikację iteracyjnie, piszemy testy tam, gdzie to uzasadnione, przeprowadzamy testy akceptacyjne z Twoją stroną. Przygotowujemy środowisko produkcyjne i monitoring.',
+      },
+      {
+        step: 4,
+        title: 'Wdrożenie i rozwój',
+        description:
+          'Uruchamiamy produkcję, szkolimy zespół, przekazujemy dokumentację. Ustalamy model utrzymania: poprawki, nowe funkcje i aktualizacje zgodnie z roadmapą.',
+      },
+    ],
+    whySmartWeave:
+      'SmartWeave łączy projektowanie produktu z wdrożeniami technicznymi – od stron i automatyzacji po pełniejsze systemy webowe. Nie dostarczamy „czarnej skrzynki”: na każdym etapie wiesz, co powstaje, dlaczego tak, i jak to dalej rozwijać.',
+  },
 };

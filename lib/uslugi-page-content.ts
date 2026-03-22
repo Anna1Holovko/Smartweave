@@ -61,6 +61,38 @@ export const USLUGI_PAGE_CONTENT: Record<ServiceSlug, UslugiPageContent> = {
     benefits: 'Dzięki agentom AI: szybsza pierwsza odpowiedź – klient dostaje odzew w minutę; więcej czasu dla zespołu – agenci AI obsługują powtarzalne zapytania i wpisywanie danych; lepszy przepływ leadów – automatyczna kwalifikacja i przypisanie do handlowców; większa przepustowość – agenci AI działają 24/7 bez dodatkowych etatów.',
     process: 'Ustalamy cel agenta AI: pierwsza odpowiedź, kwalifikacja leadów, FAQ czy analiza dokumentów – oraz granice, gdzie wchodzi człowiek. Projektujemy scenariusze, bazę wiedzy i integracje z Twoimi systemami. Budujemy i testujemy agenta AI na prawdziwych przypadkach, dopracowujemy zasady przekazywania spraw do zespołu. Uruchamiamy na produkcji, monitorujemy jakość i w miarę potrzeb rozszerzamy zakres agenta AI.',
   },
+  chatboty: {
+    problems: [
+      { title: 'Klienci piszą poza godzinami pracy', description: 'Zapytania spływają wieczorem i w weekendy – bez odpowiedzi szybko wybierają konkurencję. Chatbot daje pierwszy kontakt i zbiera lead 24/7.' },
+      { title: 'Zespół odpowiada w kółko na to samo', description: 'FAQ i proste pytania zjadają czas handlowców i obsługi. Chatbot odpowiada na bazie Twojej wiedzy, ludzie zajmują się trudniejszymi sprawami.' },
+      { title: 'Brak spójnych odpowiedzi w kanałach', description: 'Różne osoby piszą inaczej o ofercie. Chatbot trzyma się ustalonych treści i tonu marki.' },
+      { title: 'Leady giną między czatem a CRM', description: 'Rozmowy zostają w widżecie zamiast w systemie. Wdrażamy chatbota z integracją – kontakt i notatka trafiają tam, gdzie pracuje sprzedaż.' },
+      { title: 'Chcesz kwalifikacji przed rozmową', description: 'Handlowcy tracą czas na niepasujące zapytania. Chatbot może zebrać kluczowe informacje i przekazać „gotowy” lead.' },
+      { title: 'Potrzebujesz czegoś lżejszego niż pełny agent AI', description: 'Szukasz skupionego rozwiązania: strona, FAQ, formularz i eskalacja do człowieka – bez rozbudowanej automatyzacji dokumentów.' },
+    ],
+    approach:
+      'Chatbot traktujemy jako produkt pod konkretny cel: odpowiedzi z Twojej bazy wiedzy, zbieranie zapytań, umówienie kontaktu lub przekazanie rozmowy do zespołu. Dobieramy kanał (strona, widget), scenariusze i integracje tak, żeby narzędzie realnie odciążyło obsługę i nie obciążało klientów zbędnymi krokami.',
+    benefits:
+      'Szybsza pierwsza odpowiedź i dostępność poza godzinami pracy. Mniej powtarzalnej pracy dla zespołu – proste pytania obsługuje chatbot. Lepszy przepływ leadów dzięki zapisowi rozmowy w CRM lub mailu. Spójny komunikat zgodny z ofertą i procedurami.',
+    process:
+      'Ustalamy rolę chatbota (FAQ, leady, rezerwacje) i kanał wdrożenia. Budujemy bazę wiedzy i scenariusze rozmowy, łączymy z formularzami, CRM lub pocztą. Testujemy na realnych pytaniach, uruchamiamy na produkcji i zbieramy statystyki – na tej podstawie dopracowujemy treści i ścieżki.',
+  },
+  'aplikacje-webowe': {
+    problems: [
+      { title: 'Excel i maile nie skalują procesu', description: 'Wzrost zamówień lub klientów rozrywa ręczne arkusze. Aplikacja webowa porządkuje dane i workflow w jednym miejscu.' },
+      { title: 'Brak jednego miejsca dla zespołu i klientów', description: 'Informacje rozproszone między narzędziami. Potrzebujesz panelu z logowaniem, rolami i historią działań.' },
+      { title: 'Gotowe SaaS-y nie pasują do procesu', description: 'Szablony wymuszają kompromisy. Dedykowana aplikacja webowa odzwierciedla Twój sposób pracy i integracje.' },
+      { title: 'Prototyp „na kolanie” nie wytrzymuje obciążenia', description: 'Chcesz stabilnego MVP z bezpieczeństwem, backupami i możliwością rozwoju – nie jednorazowego skryptu.' },
+      { title: 'Integracje z zewnętrznymi systemami', description: 'Płatności, CRM, magazyn, API partnerów – aplikacja musi się z nimi dogadać; projektujemy to od początku.' },
+      { title: 'Brak zespołu do utrzymania po wdrożeniu', description: 'Potrzebujesz partnera, który dostarczy kod, dokumentację i wsparcie po starcie – tak pracujemy w SmartWeave.' },
+    ],
+    approach:
+      'Zaczynamy od celu biznesowego i użytkowników (wewnętrzny zespół, klienci B2B, partnerzy). Projektujemy UX, model danych i API, wybieramy stack dopasowany do skali i budżetu. Budujemy iteracyjnie: MVP, testy z użytkownikami, potem rozszerzenia – z naciskiem na wydajność, bezpieczeństwo i możliwość rozwoju.',
+    benefits:
+      'Procesy i dane w jednym, bezpiecznym miejscu. Mniej ręcznej pracy i błędów – logika w aplikacji zamiast w mailach. Skalowanie – więcej użytkowników i transakcji bez przebudowy „od zera”. Integracje z narzędziami, których już używasz lub planujesz wdrożyć.',
+    process:
+      'Discovery i specyfikacja (zakres MVP, role, integracje). Projekt UX/UI i architektura (frontend, backend, baza). Implementacja, testy i wdrożenie na środowisko produkcyjne. Szkolenie, dokumentacja i umowa na utrzymanie lub dalszy rozwój według potrzeb.',
+  },
 };
 
 /** Generic content for main /uslugi listing (no single service context) */
@@ -71,7 +103,8 @@ export const USLUGI_LISTING_CONTENT: UslugiPageContent = {
     { title: 'Chaos w procesach i danych', description: 'Informacje w wielu miejscach, trudno nadążyć i nic nie umyka.' },
     { title: 'Potrzeba wsparcia w rozwoju firmy', description: 'Chęć profesjonalizacji bez zatrudniania całego działu IT lub marketingu.' },
   ],
-  approach: 'Słuchamy Twoich celów i ograniczeń, a następnie proponujemy konkretne kroki: od strony i identyfikacji wizualnej po automatyzację procesów i asystentów AI. Dopasowujemy zakres i tempo do Twojej firmy.',
+  approach:
+    'Słuchamy Twoich celów i ograniczeń, a następnie proponujemy konkretne kroki: od strony i identyfikacji wizualnej po automatyzację, agentów AI, chatboty i aplikacje webowe. Dopasowujemy zakres i tempo do Twojej firmy.',
   benefits: 'Oszczędność czasu, większa widoczność i spójny wizerunek. Zyskujesz narzędzia, które wspierają sprzedaż i rozwój bez niepotrzebnego obciążania zespołu.',
   process: 'Zaczynamy od bezpłatnej konsultacji - rozmawiamy o wyzwaniach i celach. Następnie proponujemy rozwiązanie (jedna usługa lub pakiet) i ustalamy harmonogram wdrożenia. Po wdrożeniu oferujemy wsparcie i rozwój na bieżąco.',
 };

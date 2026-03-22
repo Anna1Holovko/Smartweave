@@ -30,6 +30,8 @@ const USLUGI_DROPDOWN_NAMES: Record<(typeof USLUGI_DISPLAY_ORDER)[number], strin
   'agenci-ai': 'Agenci AI',
   strony: 'Strony internetowe',
   branding: 'Logo i identyfikacja wizualna',
+  chatboty: 'Chatboty',
+  'aplikacje-webowe': 'Aplikacje webowe',
 };
 
 const uslugiDropdownItems = USLUGI_DISPLAY_ORDER.map((slug) => ({

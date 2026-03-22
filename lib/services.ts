@@ -93,15 +93,75 @@ export const SERVICES = [
     ],
     gradient: 'from-amber-500 to-orange-500',
   },
+  {
+    number: '05',
+    slug: 'chatboty',
+    title: 'Chatboty na stronie i w kanałach komunikacji',
+    cardDescription:
+      'Inteligentne chatboty odpowiadające na podstawie Twojej wiedzy – pierwszy kontakt, FAQ i kwalifikacja 24/7.',
+    cardPoints: [
+      'Chatbot na stronie lub w widżecie – odpowiedzi z bazy wiedzy i płynne przejście do człowieka',
+      'Integracja z CRM i formularzami – leady i zapis rozmowy tam, gdzie pracuje zespół',
+      'Scenariusze FAQ, rezerwacji i zbierania danych – mniej powtarzalnej pracy dla obsługi',
+    ],
+    description:
+      'Projektujemy i wdrażamy chatboty dopasowane do Twojej oferty: odpowiadają na pytania klientów, zbierają zapytania i kwalifikują leady – zawsze w granicach, które ustalisz z zespołem.',
+    features: [
+      'Chatbot na stronie www lub w wybranym kanale (widget, komunikator)',
+      'Baza wiedzy z oferty, FAQ i procedur – odpowiedzi spójne z marką',
+      'Scenariusze: FAQ, umówienie kontaktu, zbieranie danych, routing do handlowca',
+      'Integracje z CRM, pocztą i narzędziami, których już używasz',
+      'Przekazywanie rozmowy do człowieka w określonych momentach',
+      'Analityka zapytań i optymalizacja treści bazy wiedzy',
+    ],
+    gradient: 'from-violet-500 to-fuchsia-500',
+  },
+  {
+    number: '06',
+    slug: 'aplikacje-webowe',
+    title: 'Aplikacje webowe na zamówienie',
+    cardDescription:
+      'Panele, narzędzia wewnętrzne i produkty w przeglądarce – od pomysłu do wdrożenia.',
+    cardPoints: [
+      'Panele dla zespołu i klientów – logowanie, role, dane w czasie rzeczywistym',
+      'Integracje z API, bazami i systemami zewnętrznymi',
+      'Nowoczesny stack, wydajność i bezpieczeństwo – skalowalne fundamenty',
+    ],
+    description:
+      'Budujemy dedykowane aplikacje webowe: od wewnętrznych paneli i narzędzi po rozwiązania dla klientów końcowych. Projekt, UX, frontend i backend w jednym zespole.',
+    features: [
+      'Aplikacje webowe i SPA – interfejsy dostępne z przeglądarki na każdym urządzeniu',
+      'Backend, API i bazy danych – logika biznesowa dopasowana do procesów',
+      'Uwierzytelnianie, role i uprawnienia – bezpieczny dostęp dla zespołu i partnerów',
+      'Integracje z zewnętrznymi usługami (płatności, CRM, ERP, webhooki)',
+      'Wdrożenie, hosting i utrzymanie – pełny cykl od MVP do produkcji',
+      'Dokumentacja i przekazanie wiedzy zespołowi',
+    ],
+    gradient: 'from-sky-500 to-indigo-500',
+  },
 ] as const;
 
 export type ServiceItem = (typeof SERVICES)[number];
 
-export const SERVICE_SLUGS = ['strony', 'branding', 'automatyzacja', 'agenci-ai'] as const;
+export const SERVICE_SLUGS = [
+  'strony',
+  'branding',
+  'automatyzacja',
+  'agenci-ai',
+  'chatboty',
+  'aplikacje-webowe',
+] as const;
 export type ServiceSlug = (typeof SERVICE_SLUGS)[number];
 
 /** Order used in Header dropdown and /uslugi. Home section uses first 3. */
-export const USLUGI_DISPLAY_ORDER = ['automatyzacja', 'agenci-ai', 'strony', 'branding'] as const;
+export const USLUGI_DISPLAY_ORDER = [
+  'automatyzacja',
+  'agenci-ai',
+  'strony',
+  'branding',
+  'chatboty',
+  'aplikacje-webowe',
+] as const;
 
 export function getServiceBySlug(slug: string): (typeof SERVICES)[number] | undefined {
   return SERVICES.find((s) => s.slug === slug);

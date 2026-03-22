@@ -29,6 +29,8 @@ const SLUG_TITLES: Record<string, string> = {
   branding: 'Identyfikacja wizualna i branding',
   automatyzacja: 'Automatyzacja procesów biznesowych z wykorzystaniem AI',
   'agenci-ai': 'Agenci AI',
+  chatboty: 'Chatboty na stronie i w kanałach komunikacji',
+  'aplikacje-webowe': 'Aplikacje webowe na zamówienie',
 };
 
 export async function generateStaticParams() {
@@ -120,7 +122,9 @@ export default async function UslugiSlugPage({
               <div className={slug === 'automatyzacja' || slug === 'agenci-ai' ? 'order-2 lg:order-1 space-y-6 lg:space-y-8' : 'space-y-6 lg:space-y-8'}>
                 <MotionFadeIn delay={0.2}>
                   <div className="relative p-8 md:p-10 bg-transparent">
-                    <h2 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-6">{slug === 'automatyzacja' || slug === 'branding' ? 'Co możemy zautomatyzować w Twojej firmie' : 'Co wdrażamy'}</h2>
+                    <h2 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-6">
+                      {slug === 'automatyzacja' ? 'Co możemy zautomatyzować w Twojej firmie' : 'Co wdrażamy'}
+                    </h2>
                     <ServiceFeaturesList features={service.features} />
                   </div>
                 </MotionFadeIn>
@@ -165,6 +169,22 @@ export default async function UslugiSlugPage({
               <MotionFadeIn delay={0.25} className="w-full mt-12 sm:mt-16 lg:mt-20">
                 <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-6 sm:mb-8">Realizacje na stronach internetowych</h2>
                 <ServiceRealizacjeGrid items={PORTFOLIO_ITEMS} />
+              </MotionFadeIn>
+            )}
+
+            {(slug === 'chatboty' || slug === 'aplikacje-webowe') && (
+              <MotionFadeIn delay={0.32} className="w-full mt-12 sm:mt-16 lg:mt-20">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Realizacje</h2>
+                <p className="text-zinc-400 max-w-[80ch] mb-6">
+                  Przykłady projektów w tej kategorii znajdziesz na dedykowanej podstronie realizacji.
+                </p>
+                <Link
+                  href={`/realizacje/${slug}`}
+                  className="inline-flex items-center gap-2 text-[#d8f17b] font-semibold hover:underline min-h-[44px]"
+                >
+                  {slug === 'chatboty' ? 'Realizacje — chatboty' : 'Realizacje — aplikacje webowe'}
+                  <span aria-hidden> →</span>
+                </Link>
               </MotionFadeIn>
             )}
           </div>
