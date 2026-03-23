@@ -55,15 +55,20 @@ export default function RealizacjeChatbotyIAplikacjeWebowePage() {
                   W trakcie przygotowania
                 </h2>
                 <p className="text-zinc-400 leading-relaxed">
-                  Pracujemy nad treścią tej podstrony. Tymczasem zapraszamy do{' '}
-                  <Link href="/realizacje/chatboty" className="text-[#d8f17b] font-medium hover:underline">
-                    realizacji — chatboty
-                  </Link>{' '}
-                  oraz{' '}
-                  <Link href="/realizacje/aplikacje-webowe" className="text-[#d8f17b] font-medium hover:underline">
-                    realizacji — aplikacje webowe
+                  Wszystkie trzy podstrony realizacji (chatboty, aplikacje webowe oraz ta łączona) są w przygotowaniu.
+                  Tymczasem zobacz{' '}
+                  <Link href="/uslugi/chatboty" className="text-[#d8f17b] font-medium hover:underline">
+                    usługę — chatboty
                   </Link>
-                  , albo napisz do nas — chętnie opowiemy o projektach na żywo.
+                  ,{' '}
+                  <Link href="/uslugi/aplikacje-webowe" className="text-[#d8f17b] font-medium hover:underline">
+                    usługę — aplikacje webowe
+                  </Link>{' '}
+                  lub{' '}
+                  <Link href="/realizacje" className="text-[#d8f17b] font-medium hover:underline">
+                    główną stronę realizacji
+                  </Link>
+                  . Napisz do nas — chętnie opowiemy o projektach na żywo.
                 </p>
               </div>
             </article>
