@@ -82,7 +82,7 @@ export function CTASection() {
               transition={{ duration: 0.6 }}
               className="inline-flex items-center gap-2 text-[#d8f17b] text-sm font-medium"
             >
-              <BrandMarkIcon className="w-4 h-4" />
+              <BrandMarkIcon />
               Chcesz spróbować?
             </motion.div>
             <motion.h2 id="contact-heading" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#e4e4e7] leading-tight">

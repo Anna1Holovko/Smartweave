@@ -56,7 +56,7 @@ export function HeroSection() {
       <div className="relative z-10 text-center max-w-4xl xl:max-w-5xl 2xl:max-w-6xl mx-auto">
         {/* Badge */}
         <p className="inline-flex items-center justify-center gap-2 mb-8 text-sm font-medium text-[#d8f17b]">
-          <BrandMarkIcon className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
+          <BrandMarkIcon />
           Design & Automatyzacja
         </p>
 

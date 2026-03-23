@@ -7,7 +7,7 @@ type BrandMarkIconProps = {
   title?: string;
 };
 
-export function BrandMarkIcon({ className = 'w-3.5 h-3.5 sm:w-4 sm:h-4', title }: BrandMarkIconProps) {
+export function BrandMarkIcon({ className = 'w-3 h-3', title }: BrandMarkIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
