@@ -107,20 +107,20 @@ export function EbookCard({ book }: Props) {
           onClick={() => setDialogOpen(false)}
         >
           <div
-            className="relative flex min-h-0 w-full max-w-3xl flex-1 flex-col overflow-hidden rounded-none sm:mx-auto sm:my-auto sm:h-[min(92dvh,90vh)] sm:max-h-[min(92dvh,90vh)] sm:flex-none sm:rounded-2xl glass-card shadow-xl"
+            className="relative flex min-h-0 w-full max-w-3xl flex-1 flex-col overflow-hidden rounded-none p-6 sm:p-8 sm:mx-auto sm:my-auto sm:h-[min(92dvh,90vh)] sm:max-h-[min(92dvh,90vh)] sm:flex-none sm:rounded-2xl glass-card shadow-xl"
             style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
             onClick={(e) => e.stopPropagation()}
           >
             <button
               type="button"
               onClick={() => setDialogOpen(false)}
-              className="absolute top-4 right-4 sm:top-5 sm:right-5 z-20 flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-zinc-400 hover:text-[#d8f17b] hover:bg-white/5"
+              className="absolute top-6 right-6 sm:top-8 sm:right-8 z-20 flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-zinc-400 hover:text-[#d8f17b] hover:bg-white/5"
               aria-label="Zamknij"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pb-4 pt-16 sm:px-6 sm:pb-5 sm:pt-20 [scrollbar-gutter:stable] touch-pan-y">
+            <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain [scrollbar-gutter:stable] touch-pan-y">
               <h2 id="ebook-dialog-title" className="text-lg sm:text-2xl font-bold text-[#e4e4e7] mb-1 pr-14 sm:pr-12">
                 {book.title}
               </h2>
@@ -134,7 +134,7 @@ export function EbookCard({ book }: Props) {
             </div>
 
             <div
-              className="flex-shrink-0 border-t border-white/10 px-4 py-4 sm:px-6 sm:py-5 bg-[var(--bg-graphite)]/80"
+              className="flex-shrink-0 border-t border-white/10 pt-4 mt-4 sm:pt-5 sm:mt-5"
               onClick={(e) => e.stopPropagation()}
             >
               <EbookCheckoutButton book={book} />
