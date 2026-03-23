@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { BookOpen, X, Info } from 'lucide-react';
 import type { Ebook } from '@/lib/ebooks';
@@ -10,6 +10,20 @@ type Props = { book: Ebook };
 
 export function EbookCard({ book }: Props) {
   const [dialogOpen, setDialogOpen] = useState(false);
+
+  useEffect(() => {
+    if (!dialogOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setDialogOpen(false);
+    };
+    document.addEventListener('keydown', onKeyDown);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [dialogOpen]);
 
   return (
     <>
@@ -79,35 +93,50 @@ export function EbookCard({ book }: Props) {
 
       {dialogOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70"
+          className="fixed inset-0 z-50 flex items-end justify-center sm:items-center p-0 sm:p-4 bg-black/70 backdrop-blur-[2px]"
+          style={{
+            paddingTop: 'max(0.75rem, env(safe-area-inset-top))',
+            paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))',
+            paddingLeft: 'max(0.75rem, env(safe-area-inset-left))',
+            paddingRight: 'max(0.75rem, env(safe-area-inset-right))',
+          }}
           aria-modal="true"
           role="dialog"
           aria-labelledby="ebook-dialog-title"
+          aria-describedby="ebook-dialog-description"
           onClick={() => setDialogOpen(false)}
         >
           <div
-            className="relative w-full max-w-3xl rounded-2xl glass-card shadow-xl p-6 max-h-[90vh] overflow-y-auto"
+            className="relative flex w-full max-w-3xl max-h-[min(92dvh,100svh)] sm:max-h-[min(90dvh,92vh)] flex-col rounded-t-2xl sm:rounded-2xl glass-card shadow-xl overflow-hidden"
             style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
             onClick={(e) => e.stopPropagation()}
           >
             <button
               type="button"
               onClick={() => setDialogOpen(false)}
-              className="absolute top-4 right-4 p-1 rounded-lg text-zinc-400 hover:text-[#d8f17b] hover:bg-white/5"
+              className="absolute top-2 right-2 sm:top-3 sm:right-3 z-20 flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-zinc-400 hover:text-[#d8f17b] hover:bg-white/5"
               aria-label="Zamknij"
             >
               <X className="w-5 h-5" />
             </button>
-            <div className="pr-10">
-              <h2 id="ebook-dialog-title" className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-2">
+
+            <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pb-4 pt-12 sm:px-6 sm:pb-5 sm:pt-14 [scrollbar-gutter:stable] touch-pan-y">
+              <h2 id="ebook-dialog-title" className="text-lg sm:text-2xl font-bold text-[#e4e4e7] mb-1 pr-12 sm:pr-10">
                 {book.title}
               </h2>
-              <p className="text-zinc-500 text-sm mb-4">{book.price}</p>
-              <p className="text-zinc-300 text-sm sm:text-base leading-relaxed whitespace-pre-wrap">
+              <p className="text-zinc-500 text-sm mb-3 sm:mb-4">{book.price}</p>
+              <p
+                id="ebook-dialog-description"
+                className="text-zinc-300 text-sm sm:text-base leading-relaxed whitespace-pre-wrap break-words"
+              >
                 {book.modalDescription ?? book.description}
               </p>
             </div>
-            <div className="mt-6 pt-4 border-t border-white/10" onClick={(e) => e.stopPropagation()}>
+
+            <div
+              className="flex-shrink-0 border-t border-white/10 px-4 py-4 sm:px-6 sm:py-5 bg-[var(--bg-graphite)]/80"
+              onClick={(e) => e.stopPropagation()}
+            >
               <EbookCheckoutButton book={book} />
             </div>
           </div>
