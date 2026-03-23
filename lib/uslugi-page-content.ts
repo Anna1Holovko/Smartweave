@@ -81,17 +81,14 @@ export const USLUGI_PAGE_CONTENT: Record<ServiceSlug, UslugiPageContent> = {
     problems: [
       { title: 'Excel i maile nie skalują procesu', description: 'Wzrost zamówień lub klientów rozrywa ręczne arkusze. Aplikacja webowa porządkuje dane i workflow w jednym miejscu.' },
       { title: 'Brak jednego miejsca dla zespołu i klientów', description: 'Informacje rozproszone między narzędziami. Potrzebujesz panelu z logowaniem, rolami i historią działań.' },
-      { title: 'Gotowe SaaS-y nie pasują do procesu', description: 'Szablony wymuszają kompromisy. Dedykowana aplikacja webowa odzwierciedla Twój sposób pracy i integracje.' },
-      { title: 'Prototyp „na kolanie” nie wytrzymuje obciążenia', description: 'Chcesz stabilnego MVP z bezpieczeństwem, backupami i możliwością rozwoju – nie jednorazowego skryptu.' },
-      { title: 'Integracje z zewnętrznymi systemami', description: 'Płatności, CRM, magazyn, API partnerów – aplikacja musi się z nimi dogadać; projektujemy to od początku.' },
-      { title: 'Brak zespołu do utrzymania po wdrożeniu', description: 'Potrzebujesz partnera, który dostarczy kod, dokumentację i wsparcie po starcie – tak pracujemy w SmartWeave.' },
+      { title: 'Gotowe SaaS-y nie pasują do procesu', description: 'Szablony wymuszają kompromisy. Dedykowana aplikacja webowa odzwierciedla Twój sposób pracy.' },
     ],
     approach:
-      'Zaczynamy od celu biznesowego i użytkowników (wewnętrzny zespół, klienci B2B, partnerzy). Projektujemy UX, model danych i API, wybieramy stack dopasowany do skali i budżetu. Budujemy iteracyjnie: MVP, testy z użytkownikami, potem rozszerzenia – z naciskiem na wydajność, bezpieczeństwo i możliwość rozwoju.',
+      'Zaczynamy od celu biznesowego i użytkowników (wewnętrzny zespół, klienci B2B, partnerzy). Projektujemy UX, model danych i architekturę aplikacji, wybieramy stack dopasowany do skali i budżetu. Budujemy iteracyjnie: MVP, testy z użytkownikami, potem rozszerzenia – z naciskiem na wydajność, bezpieczeństwo i możliwość rozwoju.',
     benefits:
-      'Procesy i dane w jednym, bezpiecznym miejscu. Mniej ręcznej pracy i błędów – logika w aplikacji zamiast w mailach. Skalowanie – więcej użytkowników i transakcji bez przebudowy „od zera”. Integracje z narzędziami, których już używasz lub planujesz wdrożyć.',
+      'Procesy i dane w jednym, bezpiecznym miejscu. Mniej ręcznej pracy i błędów – logika w aplikacji zamiast w mailach. Skalowanie – więcej użytkowników i transakcji bez przebudowy „od zera”.',
     process:
-      'Discovery i specyfikacja (zakres MVP, role, integracje). Projekt UX/UI i architektura (frontend, backend, baza). Implementacja, testy i wdrożenie na środowisko produkcyjne. Szkolenie, dokumentacja i umowa na utrzymanie lub dalszy rozwój według potrzeb.',
+      'Discovery i specyfikacja (zakres MVP, role). Projekt UX/UI i architektura (frontend, backend, baza). Implementacja, testy i wdrożenie na środowisko produkcyjne. Szkolenie, dokumentacja i umowa na utrzymanie lub dalszy rozwój według potrzeb.',
   },
 };
 

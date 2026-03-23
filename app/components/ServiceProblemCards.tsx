@@ -21,8 +21,6 @@ import {
   Bot,
   TrendingUp,
   AppWindow,
-  Code2,
-  Smartphone,
   type LucideIcon,
 } from 'lucide-react';
 import type { ServiceSlug } from '@/lib/services';
@@ -35,7 +33,7 @@ const ICONS_BY_SLUG: Record<ServiceSlug, LucideIcon[]> = {
   strony: [Globe, Search, MousePointer, FileEdit, Layout, Sparkles],
   branding: [Palette, Image, FileText, Type, RefreshCw, Sparkles],
   chatboty: [MessageSquare, Bot, Clock, Users, FileText, Sparkles],
-  'aplikacje-webowe': [AppWindow, Code2, Layout, Globe, Smartphone, Sparkles],
+  'aplikacje-webowe': [AppWindow, Layout, Globe],
 };
 
 export function ServiceProblemCards({

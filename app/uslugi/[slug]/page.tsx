@@ -31,7 +31,7 @@ const SLUG_TITLES: Record<string, string> = {
   automatyzacja: 'Automatyzacja procesów biznesowych z wykorzystaniem AI',
   'agenci-ai': 'Agenci AI',
   chatboty: 'Chatboty na stronie i w kanałach komunikacji',
-  'aplikacje-webowe': 'Aplikacje webowe na zamówienie',
+  'aplikacje-webowe': 'Aplikacje webowe',
 };
 
 export async function generateStaticParams() {

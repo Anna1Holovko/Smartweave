@@ -119,21 +119,20 @@ export const SERVICES = [
   {
     number: '06',
     slug: 'aplikacje-webowe',
-    title: 'Aplikacje webowe na zamówienie',
+    title: 'Aplikacje webowe',
     cardDescription:
       'Panele, narzędzia wewnętrzne i produkty w przeglądarce – od pomysłu do wdrożenia.',
     cardPoints: [
       'Panele dla zespołu i klientów – logowanie, role, dane w czasie rzeczywistym',
-      'Integracje z API, bazami i systemami zewnętrznymi',
+      'Spójna logika i dane w jednym miejscu zamiast rozproszonych arkuszy i maili',
       'Nowoczesny stack, wydajność i bezpieczeństwo – skalowalne fundamenty',
     ],
     description:
-      'Budujemy dedykowane aplikacje webowe: od wewnętrznych paneli i narzędzi po rozwiązania dla klientów końcowych. Projekt, UX, frontend i backend w jednym zespole.',
+      'Budujemy dedykowane aplikacje webowe: od wewnętrznych paneli i narzędzi po rozwiązania dla klientów końcowych. Projektujemy je tak, by były przejrzyste dla użytkowników i stabilne w codziennej pracy Twojej firmy.',
     features: [
-      'Aplikacje webowe i SPA – interfejsy dostępne z przeglądarki na każdym urządzeniu',
-      'Backend, API i bazy danych – logika biznesowa dopasowana do procesów',
+      'Interfejsy w przeglądarce – dostęp z komputera i urządzeń mobilnych',
+      'Warstwa serwerowa i bazy danych – logika biznesowa dopasowana do procesów',
       'Uwierzytelnianie, role i uprawnienia – bezpieczny dostęp dla zespołu i partnerów',
-      'Integracje z zewnętrznymi usługami (płatności, CRM, ERP, webhooki)',
       'Wdrożenie, hosting i utrzymanie – pełny cykl od MVP do produkcji',
       'Dokumentacja i przekazanie wiedzy zespołowi',
     ],

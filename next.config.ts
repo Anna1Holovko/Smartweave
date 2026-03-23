@@ -4,11 +4,6 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   async redirects() {
     return [
-      {
-        source: '/realizacje/chatboty-i-aplikacje-webowe',
-        destination: '/realizacje/chatboty',
-        permanent: true,
-      },
       // Legacy / default browser requests → same asset as tab (public/favicon.png)
       { source: '/favicon.ico', destination: '/favicon.png', permanent: false },
       { source: '/apple-touch-icon.png', destination: '/favicon.png', permanent: false },

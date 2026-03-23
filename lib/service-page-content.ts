@@ -211,33 +211,32 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
   'aplikacje-webowe': {
     problemHeading: 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?',
     problem:
-      'Gdy proces rośnie, arkusze, maile i luźne narzędzia przestają wystarczać. Dane są rozproszone, trudno nadać uprawnienia, a każda zmiana wymaga improwizacji. Dedykowana aplikacja webowa daje jeden punkt wejścia: logowanie, role, historia działań i logika dopasowana do Twojego modelu pracy – z możliwością integracji z zewnętrznymi API i systemami.',
+      'Gdy proces rośnie, arkusze, maile i luźne narzędzia przestają wystarczać. Dane są rozproszone, trudno nadać uprawnienia, a każda zmiana wymaga improwizacji. Dedykowana aplikacja webowa daje jeden punkt wejścia: logowanie, role, historia działań i logika dopasowana do Twojego modelu pracy.',
     solution:
       'Projektujemy i budujemy aplikacje webowe „na miarę”: od paneli wewnętrznych i narzędzi dla klientów B2B po produkty z subskrypcją. Dbamy o UX, wydajność, bezpieczeństwo (uwierzytelnianie, uprawnienia, ochrona danych) oraz ścieżkę od MVP do dalszego rozwoju.\n\nWspółpracujemy z Tobą przy specyfikacji – żeby pierwsza wersja realizowała najważniejsze cele, a architektura nie blokowała kolejnych funkcji. Po wdrożeniu możesz liczyć na dokumentację i wsparcie utrzymaniowe.',
     benefits: [
       'Procesy w jednym miejscu – mniej chaosu i ręcznego przepisywania między narzędziami.',
       'Skalowanie – więcej użytkowników i danych bez przebudowy „od zera”, gdy fundamenty są dobrze zaprojektowane.',
       'Bezpieczeństwo i kontrola dostępu – role, logi, zgodność z potrzebami B2B.',
-      'Integracje – płatności, CRM, ERP, webhooki i API partnerów jako część systemu, nie dodatek „na końcu”.',
     ],
     process: [
       {
         step: 1,
         title: 'Discovery i zakres MVP',
         description:
-          'Ustalamy użytkowników, kluczowe scenariusze i kryteria sukcesu. Wybieramy funkcje na pierwszy release i plan integracji z istniejącymi systemami.',
+          'Ustalamy użytkowników, kluczowe scenariusze i kryteria sukcesu. Wybieramy funkcje na pierwszy release.',
       },
       {
         step: 2,
         title: 'UX/UI i architektura',
         description:
-          'Projektujemy interfejs i przepływy pracy. Dobieramy stack (frontend, backend, baza), model danych i API pod skalowalność i bezpieczeństwo.',
+          'Projektujemy interfejs i przepływy pracy. Dobieramy stack (frontend, backend, baza) i model danych pod skalowalność i bezpieczeństwo.',
       },
       {
         step: 3,
         title: 'Implementacja i testy',
         description:
-          'Budujemy aplikację iteracyjnie, piszemy testy tam, gdzie to uzasadnione, przeprowadzamy testy akceptacyjne z Twoją stroną. Przygotowujemy środowisko produkcyjne i monitoring.',
+          'Budujemy aplikację iteracyjnie, przeprowadzamy testy akceptacyjne z Twoją stroną. Przygotowujemy środowisko produkcyjne i monitoring.',
       },
       {
         step: 4,
