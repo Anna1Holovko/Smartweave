@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { ArrowRight, Send } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { BrandMarkIcon } from './BrandMarkIcon';
 import { useState } from 'react';
 
 export function CTASection() {
@@ -74,9 +75,15 @@ export function CTASection() {
       <motion.div className="relative z-10 max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="space-y-6">
-            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="inline-flex items-center gap-2 px-4 py-2 bg-[#d8f17b]/10 border border-[#d8f17b]/30 rounded-full">
-              <Send className="w-4 h-4 text-[#d8f17b]" />
-              <span className="text-[#d8f17b] text-sm font-medium">Chcesz spróbować?</span>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 text-[#d8f17b] text-sm font-medium"
+            >
+              <BrandMarkIcon className="w-4 h-4" />
+              Chcesz spróbować?
             </motion.div>
             <motion.h2 id="contact-heading" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#e4e4e7] leading-tight">
               <span className="text-[#d8f17b]">Toniesz w codziennych zadaniach? Czas to zmienić.</span>

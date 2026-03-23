@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from './ui/Button';
-import { BrandShapeDecor } from './BrandShapeDecor';
+import { BrandMarkIcon } from './BrandMarkIcon';
 import { CALENDLY_URL } from '@/lib/site';
 
 const phrases = [
@@ -52,13 +52,11 @@ export function HeroSection() {
       {/* Grid */}
       <div className="absolute inset-0" style={gridStyle} />
 
-      {/* Brand shape decor — top right, subtle */}
-      <BrandShapeDecor className="absolute top-[18%] -right-[12%] sm:top-[14%] sm:right-0 md:right-[4%] lg:right-[6%] z-[1] opacity-[0.14] sm:opacity-[0.18] lg:opacity-[0.22]" />
-
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl xl:max-w-5xl 2xl:max-w-6xl mx-auto">
         {/* Badge */}
-        <p className="inline-flex items-center mb-8 px-4 py-2 rounded-full border border-[#d8f17b]/30 bg-[#d8f17b]/5 backdrop-blur-sm text-sm text-[#d8f17b]">
+        <p className="inline-flex items-center justify-center gap-2 mb-8 text-sm font-medium text-[#d8f17b]">
+          <BrandMarkIcon className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
           Design & Automatyzacja
         </p>
 

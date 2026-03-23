@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { BLOG_POSTS } from '@/lib/blog';
+import { BrandMarkIcon } from './BrandMarkIcon';
 
 export function BlogSection() {
   const featuredPosts = BLOG_POSTS.slice(0, 3);
@@ -20,11 +21,10 @@ export function BlogSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-block mb-3 sm:mb-4 px-3 py-1.5 sm:px-4 sm:py-2 bg-[#d8f17b]/10 border border-[#d8f17b]/30 rounded-full"
+            className="inline-flex items-center justify-center gap-2 mb-3 sm:mb-4 text-[#d8f17b] text-xs sm:text-sm font-medium uppercase tracking-wider"
           >
-            <span className="text-[#d8f17b] text-xs sm:text-sm font-medium uppercase tracking-wider">
-              Blog
-            </span>
+            <BrandMarkIcon />
+            Blog
           </motion.div>
           <motion.h2
             id="blog-heading"

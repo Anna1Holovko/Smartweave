@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+import { BrandMarkIcon } from './BrandMarkIcon';
 
 type PageIntroProps = {
   backHref: string;
@@ -15,10 +16,10 @@ type PageIntroProps = {
 };
 
 const badgeStyles = {
-  cyan: 'bg-cyan-500/10 border-cyan-500/30 text-cyan-300',
-  blue: 'bg-blue-500/10 border-blue-500/30 text-blue-300',
-  purple: 'bg-purple-500/10 border-purple-500/30 text-purple-300',
-  accent: 'bg-[#d8f17b]/10 border-[#d8f17b]/30 text-[#d8f17b]',
+  cyan: 'text-cyan-300',
+  blue: 'text-blue-300',
+  purple: 'text-purple-300',
+  accent: 'text-[#d8f17b]',
 };
 
 export function PageIntro({
@@ -53,8 +54,9 @@ export function PageIntro({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className={`inline-block mb-3 sm:mb-4 px-3 py-1.5 sm:px-4 sm:py-2 border rounded-full text-xs sm:text-sm font-medium uppercase tracking-wider ${badgeStyles[badgeVariant]}`}
+          className={`inline-flex items-center justify-center gap-2 mb-3 sm:mb-4 text-xs sm:text-sm font-medium uppercase tracking-wider ${badgeStyles[badgeVariant]}`}
         >
+          <BrandMarkIcon />
           {badge}
         </motion.div>
         <motion.h1

@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import { Globe, Workflow, Bot, ArrowRight, Check } from 'lucide-react';
+import { BrandMarkIcon } from './BrandMarkIcon';
 import { SERVICES, USLUGI_DISPLAY_ORDER, type ServiceItem } from '@/lib/services';
 
 /** Home: pierwsze 3 jak w menu Usługi (reszta na /uslugi – link „Zobacz pełną ofertę usług”) */
@@ -20,8 +21,15 @@ export function ServicesSection() {
 
       <div className="relative z-10 max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto">
         <div className="text-center mb-12 sm:mb-20">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="inline-block mb-4 px-3 py-1.5 sm:px-4 sm:py-2 bg-[#d8f17b]/10 border border-[#d8f17b]/30 rounded-full">
-            <span className="text-[#d8f17b] text-xs sm:text-sm font-medium uppercase tracking-wider">Nasze usługi</span>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center justify-center gap-2 mb-4 text-[#d8f17b] text-xs sm:text-sm font-medium uppercase tracking-wider"
+          >
+            <BrandMarkIcon />
+            Nasze usługi
           </motion.div>
           <motion.h2 id="services-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#e4e4e7] mb-4 sm:mb-6 px-4">
             Jak możemy <span className="text-[#d8f17b]">Ci pomóc?</span>

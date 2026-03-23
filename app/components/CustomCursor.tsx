@@ -3,6 +3,12 @@
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 
+import { BRAND_MARK_PATH } from './BrandMarkIcon';
+
+/** Inner follower size (px); offset centers hotspot near blob centroid */
+const INNER_SIZE = 16;
+const INNER_OFFSET = INNER_SIZE / 2;
+
 export function CustomCursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
@@ -35,14 +41,32 @@ export function CustomCursor() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-[#d8f17b] rounded-full pointer-events-none z-[9999] mix-blend-screen"
-        animate={{ x: mousePosition.x - 4, y: mousePosition.y - 4, scale: isHovering ? 1.5 : 1 }}
+        className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-screen text-[#d8f17b]"
+        style={{ width: INNER_SIZE, height: INNER_SIZE }}
+        animate={{
+          x: mousePosition.x - INNER_OFFSET,
+          y: mousePosition.y - INNER_OFFSET,
+          scale: isHovering ? 1.5 : 1,
+        }}
         transition={{ type: 'spring', stiffness: 500, damping: 28, mass: 0.5 }}
-      />
+        aria-hidden
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="168"
+          height="168"
+          viewBox="0 0 168 168"
+          fill="none"
+          className="h-full w-full"
+        >
+          <path d={BRAND_MARK_PATH} fill="currentColor" />
+        </svg>
+      </motion.div>
       <motion.div
         className="fixed top-0 left-0 w-8 h-8 border border-[#d8f17b]/50 rounded-full pointer-events-none z-[9999] mix-blend-screen"
         animate={{ x: mousePosition.x - 16, y: mousePosition.y - 16, scale: isHovering ? 1.5 : 1 }}
         transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.5 }}
+        aria-hidden
       />
     </>
   );

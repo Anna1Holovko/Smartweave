@@ -22,6 +22,7 @@ import { ServiceBenefitsList } from '@/app/components/ServiceBenefitsList';
 import { ServiceProcessSteps } from '@/app/components/ServiceProcessSteps';
 import { ServiceRealizacjeGrid } from '@/app/components/ServiceRealizacjeGrid';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
+import { BrandMarkIcon } from '@/app/components/BrandMarkIcon';
 
 /** Page/SEO titles - aligned with search phrases (projektowanie stron www dla firm, automatyzacja procesów AI, strony pod leada B2B) */
 const SLUG_TITLES: Record<string, string> = {
@@ -89,7 +90,8 @@ export default async function UslugiSlugPage({
 
             {/* Centred title and description */}
             <MotionFadeIn delay={0.1} className="text-center mb-10 sm:mb-12 lg:mb-14">
-              <span className="inline-block mb-3 sm:mb-4 px-3 py-1.5 sm:px-4 sm:py-2 bg-[#d8f17b]/10 border border-[#d8f17b]/30 rounded-full text-[#d8f17b] text-xs sm:text-sm font-medium uppercase tracking-wider">
+              <span className="inline-flex items-center justify-center gap-2 mb-3 sm:mb-4 text-[#d8f17b] text-xs sm:text-sm font-medium uppercase tracking-wider">
+                <BrandMarkIcon />
                 Oferta
               </span>
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-[#d8f17b] px-2 pb-[0.2em] break-words leading-snug mt-3 sm:mt-4">
