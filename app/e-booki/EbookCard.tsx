@@ -114,14 +114,14 @@ export function EbookCard({ book }: Props) {
             <button
               type="button"
               onClick={() => setDialogOpen(false)}
-              className="absolute top-2 right-2 sm:top-3 sm:right-3 z-20 flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-zinc-400 hover:text-[#d8f17b] hover:bg-white/5"
+              className="absolute top-4 right-4 sm:top-5 sm:right-5 z-20 flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-zinc-400 hover:text-[#d8f17b] hover:bg-white/5"
               aria-label="Zamknij"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pb-4 pt-12 sm:px-6 sm:pb-5 sm:pt-14 [scrollbar-gutter:stable] touch-pan-y">
-              <h2 id="ebook-dialog-title" className="text-lg sm:text-2xl font-bold text-[#e4e4e7] mb-1 pr-12 sm:pr-10">
+            <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pb-4 pt-16 sm:px-6 sm:pb-5 sm:pt-20 [scrollbar-gutter:stable] touch-pan-y">
+              <h2 id="ebook-dialog-title" className="text-lg sm:text-2xl font-bold text-[#e4e4e7] mb-1 pr-14 sm:pr-12">
                 {book.title}
               </h2>
               <p className="text-zinc-500 text-sm mb-3 sm:mb-4">{book.price}</p>
