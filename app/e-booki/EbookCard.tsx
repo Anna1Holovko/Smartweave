@@ -93,9 +93,10 @@ export function EbookCard({ book }: Props) {
 
       {dialogOpen && (
         <div
-          className="fixed inset-0 z-[60] flex min-h-0 flex-col justify-center sm:items-center sm:p-4 bg-black/70 backdrop-blur-[2px]"
+          className="fixed left-0 right-0 bottom-0 z-[60] flex min-h-0 flex-col justify-center sm:items-center sm:p-4 bg-black/70 backdrop-blur-[2px]"
           style={{
-            paddingTop: 'max(calc(var(--top-banner-height, 0px) + 6.5rem), env(safe-area-inset-top))',
+            top: 'calc(var(--top-banner-height, 0px) + 5.5rem)',
+            paddingTop: 'max(1rem, env(safe-area-inset-top))',
             paddingBottom: 'max(calc(var(--top-banner-height, 0px) + 6.5rem), env(safe-area-inset-bottom))',
             paddingLeft: 'max(0px, env(safe-area-inset-left))',
             paddingRight: 'max(0px, env(safe-area-inset-right))',
