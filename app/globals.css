@@ -198,14 +198,9 @@
     transform: translateY(-2px);
   }
 
-  /* Subpages with breadcrumb: on mobile push entire main below the fixed nav bar */
+  /* Subpages: offset for fixed header on all breakpoints (nav is always fixed) */
   #main-content.subpage-main {
-    padding-top: calc(var(--top-banner-height, 0px) + 64px);
-  }
-  @media (min-width: 768px) {
-    #main-content.subpage-main {
-      padding-top: 0;
-    }
+    padding-top: calc(var(--top-banner-height, 0px) + 4rem);
   }
 
   /* First section on subpages: smaller top padding on mobile (main already has offset) */

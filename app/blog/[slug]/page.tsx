@@ -167,7 +167,7 @@ export default async function BlogPostPage({ params }: Props) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       )}
       <Header />
-      <main id="main-content" role="main" className="min-h-screen">
+      <main id="main-content" role="main" className="min-h-screen subpage-main">
         <article className="relative py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-hidden">
           <div className="absolute inset-0 bg-[var(--bg)]" />
           <div className={CONTAINER_CLASS}>
