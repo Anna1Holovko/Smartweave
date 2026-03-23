@@ -60,12 +60,10 @@ export function ServicesSection() {
                 className="relative group flex"
               >
                 <div className="glass-card hover-lift relative flex flex-col w-full h-full min-h-0 p-8 rounded-2xl overflow-hidden" style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}>
-                  <div className="flex items-center gap-4 mb-4 flex-shrink-0 min-h-14">
-                    <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center">
-                      <Icon className="w-7 h-7 text-[#d8f17b]" />
-                    </div>
-                    <h3 className="text-xl font-bold text-[#e4e4e7] flex-1 min-w-0">{displayTitle}</h3>
+                  <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center mb-4">
+                    <Icon className="w-7 h-7 text-[#d8f17b]" />
                   </div>
+                  <h3 className="text-xl font-bold text-[#e4e4e7] mb-4 flex-shrink-0">{displayTitle}</h3>
                   <p className="text-zinc-400 text-sm leading-relaxed mb-4 flex-shrink-0">{(s as ServiceItem).cardDescription ?? (s as ServiceItem).description}</p>
                   {points.length > 0 && (
                     <ul className="space-y-2 mb-6 flex-shrink-0" aria-hidden>
@@ -79,7 +77,7 @@ export function ServicesSection() {
                   )}
                   <Link
                     href={`/uslugi/${s.slug}`}
-                    className="inline-flex items-center justify-center gap-2 mt-auto w-full sm:w-auto rounded-full font-semibold text-sm px-5 py-2.5 border border-[#d8f17b]/40 bg-[#d8f17b]/10 text-[#d8f17b] hover:bg-[#d8f17b]/20 hover:border-[#d8f17b]/60 transition-colors"
+                    className="inline-flex items-center justify-center gap-2 mt-auto w-full rounded-full font-semibold text-sm px-5 py-2.5 border border-[#d8f17b]/40 bg-[#d8f17b]/10 text-[#d8f17b] hover:bg-[#d8f17b]/20 hover:border-[#d8f17b]/60 transition-colors"
                   >
                     Czytaj więcej
                     <ArrowRight className="w-4 h-4" />

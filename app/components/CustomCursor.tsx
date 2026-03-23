@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { BRAND_MARK_PATH } from './BrandMarkIcon';
 
 /** Inner follower size (px); offset centers hotspot near blob centroid */
-const INNER_SIZE = 16;
+const INNER_SIZE = 12;
 const INNER_OFFSET = INNER_SIZE / 2;
 
 export function CustomCursor() {

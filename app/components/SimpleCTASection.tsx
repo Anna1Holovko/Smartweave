@@ -22,10 +22,10 @@ export function SimpleCTASection() {
         <p className="text-base sm:text-xl text-zinc-400 mb-8 px-2">
           Umów bezpłatną konsultację - porozmawiamy o wyzwaniach i zaproponujemy rozwiązanie
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-4">
+        <div className="flex flex-col items-stretch sm:items-center gap-3 max-w-sm mx-auto">
           <Link
             href="/#contact"
-            className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 cta-gradient-animated"
+            className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 cta-gradient-animated w-full sm:w-auto"
           >
             Napisz do nas
           </Link>
@@ -34,7 +34,7 @@ export function SimpleCTASection() {
               href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 bg-transparent border-2 border-white/15 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:bg-white/5"
+              className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 bg-transparent border-2 border-white/15 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:bg-white/5 w-full sm:w-auto"
             >
               Umów spotkanie
             </a>

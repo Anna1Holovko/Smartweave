@@ -73,8 +73,8 @@ export function CTASection() {
       <div className="absolute inset-0 bg-[var(--bg-graphite)]" />
 
       <motion.div className="relative z-10 max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="space-y-6">
+        <div className="flex flex-col gap-10 lg:gap-14">
+          <div className="space-y-6 max-w-[80ch] mx-auto lg:mx-0 text-center lg:text-left">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -93,7 +93,7 @@ export function CTASection() {
             </motion.p>
           </div>
 
-          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} className="relative">
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="relative w-full max-w-xl mx-auto">
             <div className="glass-card relative overflow-hidden rounded-3xl p-8" style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}>
               <form onSubmit={handleSubmit} className="relative space-y-6" aria-label="Formularz kontaktowy SmartWeave">
                 <div className="absolute -left-[9999px] opacity-0 pointer-events-none h-0 overflow-hidden" aria-hidden="true">

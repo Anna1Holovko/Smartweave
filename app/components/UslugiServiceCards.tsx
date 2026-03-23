@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react';
 import Link from 'next/link';
-import { Globe, Workflow, Palette, Bot, Check, ArrowUpRight, MessageCircle, AppWindow } from 'lucide-react';
+import { Globe, Workflow, Palette, Bot, Check, ArrowRight, MessageCircle, AppWindow } from 'lucide-react';
 import { SERVICES, USLUGI_DISPLAY_ORDER } from '@/lib/services';
 const SERVICE_ICONS: Record<(typeof USLUGI_DISPLAY_ORDER)[number], typeof Globe> = {
   automatyzacja: Workflow,
@@ -35,17 +35,12 @@ export function UslugiServiceCards() {
               className="relative flex flex-col w-full h-full min-h-0 p-8 glass-card hover-lift rounded-2xl overflow-hidden"
               style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
             >
-              <div className="flex items-center gap-4 mb-6 flex-shrink-0 min-h-14">
-                <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center">
-                  <Icon className="w-7 h-7 text-[#d8f17b]" />
-                </div>
-                <h2 className="text-xl font-bold text-[#e4e4e7] flex-1 min-w-0">{service.title}</h2>
-                <div className="flex-shrink-0 w-9 h-9 rounded-lg border border-white/15 bg-white/5 flex items-center justify-center text-zinc-400 group-hover:text-[#d8f17b] group-hover:border-[#d8f17b]/50 transition-colors" aria-hidden>
-                  <ArrowUpRight className="w-4 h-4" />
-                </div>
+              <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center mb-4">
+                <Icon className="w-7 h-7 text-[#d8f17b]" />
               </div>
+              <h2 className="text-xl font-bold text-[#e4e4e7] mb-4 flex-shrink-0">{service.title}</h2>
               <p className="text-zinc-400 leading-relaxed flex-shrink-0">{service.description}</p>
-              <ul className="space-y-3 mt-6 flex-1 min-h-0">
+              <ul className="space-y-3 mt-6 mb-6 flex-1 min-h-0">
                 {service.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-sm text-zinc-400">
                     <Check className="w-4 h-4 text-[#d8f17b] mt-0.5 flex-shrink-0" aria-hidden />
@@ -53,6 +48,10 @@ export function UslugiServiceCards() {
                   </li>
                 ))}
               </ul>
+              <span className="inline-flex items-center justify-center gap-2 mt-auto w-full rounded-full font-semibold text-sm px-5 py-2.5 border border-[#d8f17b]/40 bg-[#d8f17b]/10 text-[#d8f17b] group-hover:bg-[#d8f17b]/20 group-hover:border-[#d8f17b]/60 transition-colors">
+                Czytaj więcej
+                <ArrowRight className="w-4 h-4" aria-hidden />
+              </span>
               <div className="absolute bottom-0 left-0 right-0 h-0.5 w-0 bg-[#d8f17b] group-hover:w-full transition-all duration-500 rounded-b-2xl" />
             </Link>
           </motion.div>

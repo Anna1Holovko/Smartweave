@@ -25,16 +25,18 @@ export function UslugiConsultationBlock({ title, description, variant = 'split' 
             <p className="text-base sm:text-xl text-zinc-400 mb-8 px-2">
               {description}
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link href="/#contact">
-                <Button variant="primary">Napisz do nas</Button>
+            <div className="flex flex-col items-stretch sm:items-center gap-3 max-w-sm mx-auto">
+              <Link href="/#contact" className="w-full sm:w-auto">
+                <Button variant="primary" className="w-full sm:w-auto">
+                  Napisz do nas
+                </Button>
               </Link>
               {CALENDLY_URL && (
                 <a
                   href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 bg-transparent border-2 border-white/15 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:bg-white/5"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 bg-transparent border-2 border-white/15 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:bg-white/5"
                 >
                   Umów spotkanie
                 </a>
@@ -42,7 +44,7 @@ export function UslugiConsultationBlock({ title, description, variant = 'split' 
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="flex flex-col gap-8 lg:gap-10 max-w-3xl mx-auto text-center">
             <div className="space-y-6">
               <h2 id="uslugi-consultation-heading" className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#d8f17b] leading-tight">
                 {title}
@@ -50,24 +52,22 @@ export function UslugiConsultationBlock({ title, description, variant = 'split' 
               <p className="text-base sm:text-lg text-zinc-400 leading-relaxed">{description}</p>
             </div>
 
-            <div className="relative">
-              <div className="glass-card relative overflow-hidden rounded-3xl p-8" style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}>
-                <div className="relative flex flex-wrap items-center justify-center sm:justify-end gap-4">
-                  <Link href="/#contact">
-                    <Button variant="primary">Napisz do nas</Button>
-                  </Link>
-                  {CALENDLY_URL && (
-                    <a
-                      href={CALENDLY_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 bg-transparent border-2 border-white/15 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:bg-white/5"
-                    >
-                      Umów spotkanie
-                    </a>
-                  )}
-                </div>
-              </div>
+            <div className="flex flex-col items-stretch sm:items-center gap-3 max-w-sm mx-auto w-full">
+              <Link href="/#contact" className="w-full sm:w-auto">
+                <Button variant="primary" className="w-full sm:w-auto">
+                  Napisz do nas
+                </Button>
+              </Link>
+              {CALENDLY_URL && (
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 bg-transparent border-2 border-white/15 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:bg-white/5"
+                >
+                  Umów spotkanie
+                </a>
+              )}
             </div>
           </div>
         )}
