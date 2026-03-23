@@ -20,93 +20,72 @@ export type Ebook = {
 export const EBOOKS: Ebook[] = [
   {
     id: 'firma-w-erze-ai',
-    title: 'AI w firmie',
+    title: 'Firma w erze AI',
     description:
-      'Jak wdrożyć sztuczną inteligencję w biznesie krok po kroku: strategia, automatyzacja, dobór narzędzi i sensowne ROI — bez akademickiej teorii.',
-    modalDescription: `AI w firmie — jak skutecznie wdrożyć sztuczną inteligencję w biznesie
+      'SmartWeave: jak sensownie wdrożyć AI w firmie — strategia, automatyzacja, narzędzia, etyka i plan na 12 tygodni. Dla właścicieli i menedżerów MŚP.',
+    modalDescription: `Firma w erze AI — praktyczny przewodnik SmartWeave
 
-Kompletny przewodnik dla organizacji, które chcą wejść w AI bez chaosu i „pilotów bez końca”. Dla właścicieli firm, zarządu i managerów, którzy szukają konkretów, a nie slajdów z konferencji.
+E-book dla polskich przedsiębiorców, właścicieli firm i osób z zarządu, które chcą wejść w sztuczną inteligencję i automatyzację bez chaosu: najpierw proces i priorytety, potem narzędzia — nie odwrotnie.
 
-W skrócie:
-• ponad 80 stron praktycznej treści
-• 12 rozdziałów ułożonych jak plan działania
-• zestawienie 50+ narzędzi AI przydatnych w pracy firmowej
-• przykłady i ramy myślenia aktualne na 2026 rok
-
-
-DLACZEGO TO WAŻNE TERAZ
-
-Sztuczna inteligencja w biznesie przyspiesza: od obsługi klienta po analizę danych. Firmy, które świadomie wybiorą obszary i tempo wdrożeń, zyskują czas i jakość decyzji — te, które czekają „aż się wyklaruje rynek”, zostają w tyle za konkurencją i własnymi procesami.
-
-Najczęstszy błąd? Start od narzędzia z reklamy zamiast od procesu. Ten ebook odwraca kolejność: najpierw rozumiesz, gdzie jesteś, potem wybierasz miejsce na pierwszy sensowny krok.
-
-
-CO DOSTAJESZ W ŚRODKU
-
-Zamiast ogólników — ścieżka od diagnozy do pierwszych efektów:
-
-Strategia AI w skali firmy
-Model dojrzałości, priorytety (wartość vs nakład), roadmapa i jak mówić o AI w zespole, żeby nie wywołać oporu.
-
-Automatyzacja procesów
-Jak wyszukać procesy, które naprawdę warto odciążyć, jak liczyć prostą opłacalność i unikać projektów „na pokaz”.
-
-AI w marketingu i sprzedaży
-Personalizacja, treści, obsługa zapytań i leadów — bez przekraczania granic marki i danych osobowych.
-
-Narzędzia AI dla firm
-Jak dobierać stack pod realne zadania (nie pod logo na stronę), na co zwracać uwagę przy umowach i dostępie do danych.
-
-Plan działania na 12 tygodni
-Szablon kolejnych kroków: od proof of concept do skalowania tego, co się sprawdziło.
+Co znajdziesz w środku:
+• ok. 80 stron treści „pod wdrożenie”, bez akademickiego żargonu
+• 12 rozdziałów ułożonych jak ścieżka działania
+• test gotowości na AI + rozpisanie typowych barier w organizacji
+• strategia i roadmapa AI dopasowana do MŚP
+• automatyzacja w Make.com — gotowe schematy do wykorzystania
+• przykład agenta AI (m.in. w obsłudze e-maili) z myślą o realnym workflow
+• AI w marketingu, sprzedaży, HR i finansach — ramy, nie puste hasła
+• etyka AI, dane, RODO oraz kontekst europejskiego AI Act
+• plan na 12 tygodni z checklistami, wskaźnikami i kalkulacją ROI
+• przegląd 50+ narzędzi AI przydatnych w codziennej pracy firmy (aktualne na 2026 r.)
 
 
-DLA KOGO
+Dlaczego to teraz ma sens
 
-• właściciele i zarząd MŚP oraz większych firm
-• CEO, dyrektorzy i managerowie liniowi
+AI w firmie przyspiesza obsługę, treści i analizę — ale najwięcej tracą te organizacje, które kupują „kolejne narzędzie” bez mapy procesu. Ten ebook ustawia kolejność: diagnoza → pilot z KPI → skalowanie tego, co się sprawdza.
+
+Dla kogo
+
+• właściciele i zarząd MŚP
+• CEO, dyrektorzy, menedżerowie liniowi
 • osoby odpowiedzialne za operacje, marketing lub transformację cyfrową
-• zespoły planujące uporządkowane wejście w AI, a nie jednorazowy eksperyment
 
 
-BARIERY, KTÓRE ROZBIJAMY NA CZĘŚCI
+Najczęstsze bariery — i jak je rozbijamy
 
-Brak jasnego obrazu „co to właściwie znaczy AI u nas” — pokazujemy, jak to nazwać i ograniczyć zakres.
-
-Budżet i czas — jak zacząć małym pilotem z mierzalnym wynikiem, zamiast wielomiesięcznego „big bagna”.
-
-Bezpieczeństwo i dane — minimum dobrych praktyk, żeby nie wpaść w pułapkę wycieków i niezgodnego z RODO przetwarzania.
-
-Jakość danych — dlaczego bez porządku w wejściu nawet najlepszy model da słaby efekt.
+Niejasny zakres („AI u nas”) — uczymy go nazwać i ograniczyć do pierwszego sensownego kroku.
+Budżet i czas — start od małego pilota z mierzalnym efektem zamiast wielomiesięcznego projektu „na pokaz”.
+Bezpieczeństwo i dane — dobre praktyki, żeby uniknąć wycieków i błędów przy RODO.
+Jakość danych wejściowych — dlaczego bez porządku nawet najlepszy model da słaby wynik.
 
 
-5 KROKÓW SKUTECZNEJ ŚCIEŻKI AI
+5 kroków wdrożenia (w skrócie)
 
-1. Mapa procesów i decyzji — gdzie dziś ginie czas i pieniądz.
-2. Priorytetyzacja — maksymalna wartość przy akceptowalnym wysiłku.
+1. Analiza procesów i decyzji — gdzie ginie czas i pieniądz.
+2. Priorytetyzacja (wartość vs nakład wysiłku).
 3. Proof of concept — jeden wąski use case, jasne KPI.
-4. Skalowanie — powielenie tego, co się sprawdziło; ucinanie tego, co nie.
-5. Iteracja — regularny przegląd, aktualizacja polityk i narzędzi.
+4. Skalowanie rozwiązań, które przeszły test.
+5. Iteracja — przegląd, aktualizacja polityk i narzędzi.
 
 
-EFEKTY, NA KTÓRE CELUJEMY
+Jakie efekty są realne
 
-Krótszy czas realizacji powtarzalnych zadań, mniej błędów „ręcznych”, szybsze reakcje na rynek i klienta oraz spójniejsza komunikacja wewnątrz firmy — pod warunkiem, że idziesz według planu z ebooka, a nie według listy haseł z LinkedIna.
+Krótszy czas na powtarzalne zadania, mniej błędów ręcznych, szybsza reakcja na klienta i spójniejsza komunikacja w zespole — pod warunkiem konsekwentnego wdrożenia planu z publikacji.
 
 
 FAQ
 
 Jak wdrożyć AI w firmie?
-Zacznij od procesu, nie od narzędzia: wybierz jeden obszar z mierzalnym efektem, zrób krótki pilot, oceń wynik i dopiero wtedy planuj szerszy zakres.
+Od procesu i jednego pilota z mierzalnym celem — dokładnie ten schemat rozwijasz w kolejnych rozdziałach.
 
-Ile kosztuje wdrożenie AI?
-Zależy od skali — wiele sensownych pilotów mieści się w budżecie narzędziowym i czasu zespołu (rząd tysięcy złotych miesięcznie na start bywa realny), o ile nie budujesz od razu całego działu R&D.
+Ile to kosztuje?
+Zależy od skali; wiele pilotów mieści się w kosztach narzędzi i czasu zespołu (rząd tysięcy zł miesięcznie na start bywa realny), bez od razu budowania całego zaplecza R&D.
 
-Czy AI „zabierze” pracę zespołowi?
-W praktyce najczęściej zabiera najnudniejsze fragmenty pracy; ludzie zostają przy decyzjach, relacjach i jakości. Ebook podkreśla tę granicę, żeby uniknąć lęku i oporu.
+Czy AI zastąpi zespół?
+W praktyce odbiera najcięższe, powtarzalne fragmenty pracy; ludzie zostają przy decyzjach, relacjach i jakości — ten podział jest w ebooku wyraźnie zaznaczony.
 
 Od czego zacząć w poniedziałek?
-Od listy 3–5 powtarzalnych czynności tygodnia i wyboru jednej do pilota z jasnym kryterium sukcesu — dokładnie ten mechanizm rozwijasz w kolejnych rozdziałach.`,
+Wypisz 3–5 powtarzalnych czynności tygodnia i wybierz jedną pod pilota z jednym kryterium sukcesu — resztę domykasz planem 12-tygodniowym z książki.`,
     price: '89 zł',
     image: '/assets/ebook-firma-w-erze-ai.png',
     gradient: 'from-indigo-500 to-violet-600',
