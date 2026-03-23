@@ -93,12 +93,12 @@ export function EbookCard({ book }: Props) {
 
       {dialogOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-end justify-center sm:items-center p-0 sm:p-4 bg-black/70 backdrop-blur-[2px]"
+          className="fixed inset-0 z-50 flex min-h-0 flex-col justify-center sm:items-center sm:p-4 bg-black/70 backdrop-blur-[2px]"
           style={{
-            paddingTop: 'max(0.75rem, env(safe-area-inset-top))',
-            paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))',
-            paddingLeft: 'max(0.75rem, env(safe-area-inset-left))',
-            paddingRight: 'max(0.75rem, env(safe-area-inset-right))',
+            paddingTop: 'max(0px, env(safe-area-inset-top))',
+            paddingBottom: 'max(0px, env(safe-area-inset-bottom))',
+            paddingLeft: 'max(0px, env(safe-area-inset-left))',
+            paddingRight: 'max(0px, env(safe-area-inset-right))',
           }}
           aria-modal="true"
           role="dialog"
@@ -107,7 +107,7 @@ export function EbookCard({ book }: Props) {
           onClick={() => setDialogOpen(false)}
         >
           <div
-            className="relative flex w-full max-w-3xl max-h-[min(92dvh,100svh)] sm:max-h-[min(90dvh,92vh)] flex-col rounded-t-2xl sm:rounded-2xl glass-card shadow-xl overflow-hidden"
+            className="relative flex min-h-0 w-full max-w-3xl flex-1 flex-col overflow-hidden rounded-none sm:mx-auto sm:my-auto sm:h-[min(92dvh,90vh)] sm:max-h-[min(92dvh,90vh)] sm:flex-none sm:rounded-2xl glass-card shadow-xl"
             style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
             onClick={(e) => e.stopPropagation()}
           >
