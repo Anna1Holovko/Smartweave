@@ -200,7 +200,7 @@
 
   /* Subpages: offset for fixed header on all breakpoints (nav is always fixed) */
   #main-content.subpage-main {
-    padding-top: calc(var(--top-banner-height, 0px) + 4rem);
+    padding-top: calc(var(--top-banner-height, 0px) + 5.5rem);
   }
 
   /* First section on subpages: smaller top padding on mobile (main already has offset) */
