@@ -30,7 +30,7 @@ export default function RealizacjeChatbotyIAplikacjeWebowePage() {
             <PageIntro
               backHref="/"
               backLabel="Strona główna"
-              badge="Case Studies"
+              badge="W przygotowaniu"
               badgeVariant="accent"
               title={
                 <>
@@ -38,7 +38,7 @@ export default function RealizacjeChatbotyIAplikacjeWebowePage() {
                   <span className="text-[#d8f17b]">aplikacje webowe</span>
                 </>
               }
-              description="Asystenci konwersacyjni, chatboty oraz dedykowane narzędzia w przeglądarce — przegląd realizacji"
+              description="Ta strona jest w trakcie opracowania. Wkrótce opublikujemy tutaj case studies z wdrożeń chatbotów i aplikacji webowych."
               className={INTRO_MB_CLASS}
             />
 
@@ -52,11 +52,10 @@ export default function RealizacjeChatbotyIAplikacjeWebowePage() {
                   <Construction className="w-7 h-7" aria-hidden />
                 </div>
                 <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-3">
-                  Strona w przygotowaniu
+                  W trakcie przygotowania
                 </h2>
                 <p className="text-zinc-400 leading-relaxed">
-                  Ta podstrona jest w trakcie opracowania. Wkrótce opublikujemy tutaj wybrane case studies z wdrożeń
-                  chatbotów i aplikacji webowych. Tymczasem zapraszamy do{' '}
+                  Pracujemy nad treścią tej podstrony. Tymczasem zapraszamy do{' '}
                   <Link href="/realizacje/chatboty" className="text-[#d8f17b] font-medium hover:underline">
                     realizacji — chatboty
                   </Link>{' '}
