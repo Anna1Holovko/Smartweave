@@ -28,8 +28,8 @@ export const EBOOKS: Ebook[] = [
 E-book dla polskich przedsiębiorców, właścicieli firm i osób z zarządu, które chcą wejść w sztuczną inteligencję i automatyzację bez chaosu: najpierw proces i priorytety, potem narzędzia — nie odwrotnie.
 
 Co znajdziesz w środku:
-• ok. 80 stron treści „pod wdrożenie”, bez akademickiego żargonu
-• 12 rozdziałów ułożonych jak ścieżka działania
+• ponad 60 stron treści „pod wdrożenie” (bieżąca edycja: ok. 67 stron), bez akademickiego żargonu
+• 14 rozdziałów ułożonych jak ścieżka działania
 • test gotowości na AI + rozpisanie typowych barier w organizacji
 • strategia i roadmapa AI dopasowana do MŚP
 • automatyzacja w Make.com — gotowe schematy do wykorzystania
@@ -37,7 +37,7 @@ Co znajdziesz w środku:
 • AI w marketingu, sprzedaży, HR i finansach — ramy, nie puste hasła
 • etyka AI, dane, RODO oraz kontekst europejskiego AI Act
 • plan na 12 tygodni z checklistami, wskaźnikami i kalkulacją ROI
-• przegląd 50+ narzędzi AI przydatnych w codziennej pracy firmy (aktualne na 2026 r.)
+• przegląd 50+ narzędzi AI przydatnych w codziennej pracy firmy (aktualne dane na 2025 r.)
 
 
 Dlaczego to teraz ma sens

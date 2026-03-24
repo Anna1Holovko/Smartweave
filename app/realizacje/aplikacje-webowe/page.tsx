@@ -5,8 +5,9 @@ import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { ScrollToTop } from '../../components/ScrollToTop';
 import { PageIntro } from '../../components/PageIntro';
-import { SITE_URL, CALENDLY_URL } from '@/lib/site';
+import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
+import { SimilarSolutionCta } from '../../components/SimilarSolutionCta';
 
 export const metadata: Metadata = {
   title: 'Realizacje — Aplikacje webowe',
@@ -66,35 +67,7 @@ export default function RealizacjeAplikacjeWebowePage() {
         </section>
 
         <div className="gradient-philosophy-to-footer">
-          <section
-            aria-labelledby="realizacje-aplikacje-cta-heading"
-            className="relative py-10 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
-          >
-            <div className="absolute inset-0 bg-[var(--bg-graphite)]" aria-hidden />
-            <div className="relative z-10 max-w-7xl mx-auto text-center">
-              <h2 id="realizacje-aplikacje-cta-heading" className="text-2xl sm:text-3xl font-bold text-[#e4e4e7] mb-6">
-                Chcesz podobne rozwiązanie?
-              </h2>
-              <div className="flex flex-wrap items-center justify-center gap-4">
-                <Link
-                  href="/#contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 cta-gradient-animated"
-                >
-                  Napisz do nas
-                </Link>
-                {CALENDLY_URL && (
-                  <a
-                    href={CALENDLY_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 bg-transparent border-2 border-white/15 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:bg-white/5"
-                  >
-                    Umów spotkanie
-                  </a>
-                )}
-              </div>
-            </div>
-          </section>
+          <SimilarSolutionCta headingId="realizacje-aplikacje-cta-heading" />
           <Footer />
         </div>
       </main>
