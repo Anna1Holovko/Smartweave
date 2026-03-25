@@ -175,18 +175,14 @@ export function QuickAutomationCta({
           ))}
         </ul>
         <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3">
-          <Link href={contactHref}>
-            <Button variant="primary">Umów krótką diagnozę</Button>
-          </Link>
-          {CALENDLY_URL && (
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 whitespace-nowrap bg-transparent border-2 border-white/15 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:bg-white/5"
-            >
-              Umów spotkanie
+          {CALENDLY_URL ? (
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+              <Button variant="primary">Umów krótką diagnozę</Button>
             </a>
+          ) : (
+            <Link href={contactHref}>
+              <Button variant="primary">Umów krótką diagnozę</Button>
+            </Link>
           )}
           <Link
             href={finalSecondaryHref}
