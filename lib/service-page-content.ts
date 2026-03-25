@@ -87,7 +87,7 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
       },
     ],
     whySmartWeave:
-      'SmartWeave łączy branding z projektowaniem stron i automatyzacją procesów. Nie oferujemy „ładnych obrazków” - tworzymy konkretny system wizualny dopasowany do rozwoju firmy. Od logo i kolorów, przez stronę internetową, po materiały marketingowe - wszystko działa spójnie, budując rozpoznawalność i zaufanie klientów.',
+      'SmartWeave łączy branding z projektowaniem stron, automatyzacją procesów i rozwiązaniami AI tam, gdzie przyspieszają pracę bez rozjeżdżania marki. Nie oferujemy „ładnych obrazków” - tworzymy konkretny system wizualny dopasowany do rozwoju firmy. Od logo i kolorów, przez stronę internetową, po materiały marketingowe i procesy w tle - wszystko może działać spójnie, budując rozpoznawalność i zaufanie klientów.',
   },
 
   automatyzacja: {

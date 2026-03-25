@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Mail, MapPin, Linkedin, Instagram } from 'lucide-react';
 import Image from 'next/image';
 
@@ -28,8 +29,28 @@ export function Footer() {
             />
 
             <p className="text-sm sm:text-base text-zinc-400 leading-relaxed mb-3">
-              Automatyzacja procesów biznesowych • Agenci AI • Strony internetowe
+              Automatyzacja AI i procesów • Agenci AI • Strony www • Branding
             </p>
+            <p className="text-xs sm:text-sm text-zinc-500 leading-relaxed mb-3 max-w-md">
+              Łączymy identyfikację wizualną z automatyzacją AI i nowoczesnymi systemami cyfrowymi.
+            </p>
+            <nav aria-label="Automatyzacja AI i marketing" className="flex flex-wrap gap-x-4 gap-y-2 text-xs sm:text-sm mb-4">
+              <Link href="/automatyzacja-ai-dla-firm" className="text-zinc-500 hover:text-[#d8f17b] transition-colors">
+                Automatyzacja AI dla firm
+              </Link>
+              <Link href="/ai-w-marketingu-i-sprzedazy" className="text-zinc-500 hover:text-[#d8f17b] transition-colors">
+                AI w marketingu i sprzedaży
+              </Link>
+              <Link href="/automatyzacja-ai/wroclaw" className="text-zinc-500 hover:text-[#d8f17b] transition-colors">
+                Wrocław
+              </Link>
+              <Link href="/automatyzacja-ai/warszawa" className="text-zinc-500 hover:text-[#d8f17b] transition-colors">
+                Warszawa
+              </Link>
+              <Link href="/automatyzacja-ai/krakow" className="text-zinc-500 hover:text-[#d8f17b] transition-colors">
+                Kraków
+              </Link>
+            </nav>
             <p className="text-xs sm:text-sm text-zinc-500">
               © {currentYear} SmartWeave. Wszystkie prawa zastrzeżone.
             </p>

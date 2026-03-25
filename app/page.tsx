@@ -4,6 +4,7 @@ import { PainPointsSection } from './components/PainPointsSection';
 import { ServicesSection } from './components/ServicesSection';
 import { ToolsSection } from './components/ToolsSection';
 import { AutomationDetails } from './components/AutomationDetails';
+import { QuickAutomationCta } from './components/QuickAutomationCta';
 import { PortfolioSection } from './components/PortfolioSection';
 import { BlogSection } from './components/BlogSection';
 import { CTASection } from './components/CTASection';
@@ -20,6 +21,7 @@ export default function HomePage() {
         <ServicesSection />
         <ToolsSection />
         <AutomationDetails />
+        <QuickAutomationCta />
         <PortfolioSection />
         <BlogSection />
         <div className="gradient-philosophy-to-footer">

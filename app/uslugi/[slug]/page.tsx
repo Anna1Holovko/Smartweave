@@ -23,6 +23,8 @@ import { ServiceProcessSteps } from '@/app/components/ServiceProcessSteps';
 import { ServiceRealizacjeGrid } from '@/app/components/ServiceRealizacjeGrid';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 import { BrandMarkIcon } from '@/app/components/BrandMarkIcon';
+import { BrandingAiBridgeSection } from '@/app/components/BrandingAiBridgeSection';
+import { HybridServiceCrossLinks } from '@/app/components/HybridServiceCrossLinks';
 
 /** Page/SEO titles - aligned with search phrases (projektowanie stron www dla firm, automatyzacja procesów AI, strony pod leada B2B) */
 const SLUG_TITLES: Record<string, string> = {
@@ -187,6 +189,22 @@ export default async function UslugiSlugPage({
                   {slug === 'chatboty' ? 'Realizacje — chatboty' : 'Realizacje — aplikacje webowe'}
                   <span aria-hidden> →</span>
                 </Link>
+              </MotionFadeIn>
+            )}
+
+            {slug === 'branding' && (
+              <MotionFadeIn delay={0.34}>
+                <BrandingAiBridgeSection />
+              </MotionFadeIn>
+            )}
+
+            {(slug === 'strony' ||
+              slug === 'automatyzacja' ||
+              slug === 'agenci-ai' ||
+              slug === 'chatboty' ||
+              slug === 'aplikacje-webowe') && (
+              <MotionFadeIn delay={0.34}>
+                <HybridServiceCrossLinks slug={slug as ServiceSlug} />
               </MotionFadeIn>
             )}
           </div>

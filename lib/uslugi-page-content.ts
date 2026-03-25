@@ -31,7 +31,8 @@ export const USLUGI_PAGE_CONTENT: Record<ServiceSlug, UslugiPageContent> = {
       { title: 'Rozproszone wytyczne i brak brandbooka', description: 'Nikt nie ma w jednym miejscu zasad używania logo, kolorów i tonu komunikacji.' },
       { title: 'Słabe pierwsze wrażenie w B2B', description: 'Partnerzy i duzi klienci oceniają wiarygodność także po spójnym, profesjonalnym wizerunku.' },
     ],
-    approach: 'Budujemy spójny system identyfikacji wizualnej: od logo i kolorystyki po szablony i materiały. Wszystko dopasowujemy do Twojej branży, wartości i grupy docelowej, tak aby marka była rozpoznawalna i profesjonalna w każdym miejscu.',
+    approach:
+      'Budujemy spójny system identyfikacji wizualnej: od logo i kolorystyki po szablony i materiały. Wszystko dopasowujemy do Twojej branży, wartości i grupy docelowej, tak aby marka była rozpoznawalna i profesjonalna w każdym miejscu. Ten sam system wizualny i komunikacyjny wspiera później stronę www, kampanie oraz automatyzację i narzędzia AI — dzięki czemu treści generowane lub wysyłane przez procesy pozostają zgodne z charakterem marki.',
     benefits: 'Spójna identyfikacja wzmacnia zaufanie i rozpoznawalność. Oszczędzasz czas na codziennych materiałach dzięki gotowym szablonom i jasnym wytycznym w brandbooku.',
     process: 'Zaczynamy od rozmowy o marce, konkurencji i odbiorcach. Następnie proponujemy koncepcję (logo, kolory, typografia), po akceptacji rozwijamy system i dostarczamy materiały oraz wytyczne do dalszego korzystania.',
   },
@@ -44,7 +45,8 @@ export const USLUGI_PAGE_CONTENT: Record<ServiceSlug, UslugiPageContent> = {
       { title: 'Zbyt dużo stresu i błędów', description: 'Koniec z błędami i przeoczeniami. Automatyzacja dba o każdy szczegół, a Ty odzyskujesz spokój.' },
       { title: 'Brak czasu na klientów i rozwój', description: 'Zespół tonie w operacyjce zamiast skupiać się na sprzedaży i relacjach – automatyzacja oddaje im ten czas.' },
     ],
-    approach: 'Automatyzujemy procesy biznesowe przez workflowy i integracje między systemami (Make, n8n, API). Nie wdrażamy AI – projektujemy konkretne scenariusze: dane z formularza do CRM, zamówienie do powiadomienia, raport z wielu źródeł. Zespół przestaje przepisywać i śledzić każdy krok; procesy biegną w tle.',
+    approach:
+      'Automatyzujemy procesy biznesowe przez workflowy i integracje między systemami (Make, n8n, API): dane z formularza do CRM, zamówienie do powiadomienia, raport z wielu źródeł. Tam, gdzie proces wymaga rozumienia języka naturalnego, kwalifikacji lub ekstrakcji danych z dokumentów, dobieramy warstwę AI (agenty AI, modele językowe) z jasnym zakresem i nadzorem. Zespół przestaje przepisywać i śledzić każdy krok; procesy biegną w tle — spójnie z marką i narzędziami, których już używacie.',
     benefits: 'Oszczędność czasu i mniej błędów – workflowy wykonują powtarzalne kroki. Szybsza reakcja – automatyczne potwierdzenia i przypomnienia. Firma skaluje się bez proporcjonalnego wzrostu zatrudnienia.',
     process: 'Mapujemy procesy i ustalamy, co zautomatyzować. Projektujemy workflowy i integracje (Make, n8n), wdrażamy pierwszy scenariusz (np. formularz → CRM, raport, powiadomienia). Po testach rozwijamy kolejne procesy i przekazujemy wiedzę zespołowi.',
   },
@@ -101,7 +103,7 @@ export const USLUGI_LISTING_CONTENT: UslugiPageContent = {
     { title: 'Potrzeba wsparcia w rozwoju firmy', description: 'Chęć profesjonalizacji bez zatrudniania całego działu IT lub marketingu.' },
   ],
   approach:
-    'Słuchamy Twoich celów i ograniczeń, a następnie proponujemy konkretne kroki: od strony i identyfikacji wizualnej po automatyzację, agentów AI, chatboty i aplikacje webowe. Dopasowujemy zakres i tempo do Twojej firmy.',
+    'Słuchamy Twoich celów i ograniczeń, a następnie proponujemy konkretne kroki: od strony i identyfikacji wizualnej po automatyzację AI, agentów AI, chatboty i aplikacje webowe. Łączymy branding z systemami, które oszczędzają czas i skalują działania — dopasowujemy zakres i tempo do Twojej firmy.',
   benefits: 'Oszczędność czasu, większa widoczność i spójny wizerunek. Zyskujesz narzędzia, które wspierają sprzedaż i rozwój bez niepotrzebnego obciążania zespołu.',
   process: 'Zaczynamy od bezpłatnej konsultacji - rozmawiamy o wyzwaniach i celach. Następnie proponujemy rozwiązanie (jedna usługa lub pakiet) i ustalamy harmonogram wdrożenia. Po wdrożeniu oferujemy wsparcie i rozwój na bieżąco.',
 };

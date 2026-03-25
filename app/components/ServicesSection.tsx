@@ -35,7 +35,7 @@ export function ServicesSection() {
             Jak możemy <span className="text-[#d8f17b]">Ci pomóc?</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto px-2">
-            Automatyzacja procesów, agenci AI i strony internetowe – tu zaczynamy. Branding, chatboty, aplikacje webowe i reszta oferty znajdziesz w pełnej liście usług.
+            Budujemy marki i automatyzujemy ich rozwój dzięki AI: procesy, agenci AI i strony www to nasz punkt startu — pełna oferta obejmuje też branding, chatboty i aplikacje webowe.
           </motion.p>
         </div>
 

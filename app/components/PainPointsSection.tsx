@@ -10,7 +10,7 @@ const painPoints = [
   { icon: FileText, title: 'Zbyt dużo dokumentów', description: 'Zbieramy wszystko w jeden uporządkowany system. Koniec z godzinami szukania - wszystko masz pod ręką w kilka sekund', gradient: 'from-purple-500 to-indigo-500' },
   { icon: Clock, title: 'Wszystko trwa za długo', description: 'Gdy każdy proces ciągnie się w nieskończoność, trudno myśleć o rozwoju. Automatyzujemy powtarzalne zadania, żebyś odzyskał czas na to, co naprawdę ważne', gradient: 'from-amber-500 to-orange-500' },
   { icon: AlertCircle, title: 'Zbyt dużo stresu', description: 'Koniec z błędami i przeoczeniami. Automatyzacja dba o każdy szczegół, a Ty możesz skupić się na tym, co naprawdę ważne i odzyskać spokój', gradient: 'from-rose-500 to-red-500' },
-  { icon: Sparkles, title: 'Potrzebujesz profesjonalnego wyglądu', description: 'Zaprojektujemy nowoczesną stronę, która buduje zaufanie i robi wrażenie', gradient: 'from-emerald-500 to-teal-500' },
+  { icon: Sparkles, title: 'Potrzebujesz profesjonalnego wyglądu', description: 'Branding i strona, które budują zaufanie — gotowe też na automatyzację leadów i treści w ramach jednej spójnej marki', gradient: 'from-emerald-500 to-teal-500' },
 ];
 
 function PainPointCard({
@@ -64,7 +64,7 @@ export function PainPointsSection() {
             Znamy to <span className="text-[#d8f17b]">uczucie...</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto px-2">
-            Te same zadania, chaos i stres. Samodzielnie trudno to uporządkować - pomożemy
+            Te same zadania, chaos i stres — często przy braku spójnego wizerunku i bez automatyzacji AI w procesach. Samodzielnie trudno to uporządkować; pomożemy połączyć markę z systemem.
           </motion.p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
