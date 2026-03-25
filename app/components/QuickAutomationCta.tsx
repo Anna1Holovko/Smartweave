@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/app/components/ui/Button';
+import { CALENDLY_URL } from '@/lib/site';
 
 type Topic =
   | 'default'
@@ -39,10 +40,10 @@ export function QuickAutomationCta({
 }: Props) {
   const defaults: Record<Topic, { title: string; description: React.ReactNode; bullets: string[] }> = {
     default: {
-      title: 'Zobacz, co możesz zautomatyzować w 15 minut',
+      title: 'Zobacz, co możesz zautomatyzować w 30 minut',
       description: (
         <>
-          W 15 minut wskażemy powtarzalne kroki w mailach, formularzach, CRM i raportach. Od{' '}
+          W 30 minut wskażemy powtarzalne kroki w mailach, formularzach, CRM i raportach. Od{' '}
           <Link href="/uslugi/automatyzacja" className="text-[#d8f17b] hover:underline font-medium">
             automatyzacji procesów
           </Link>{' '}
@@ -56,7 +57,7 @@ export function QuickAutomationCta({
       bullets: ['oszczędność czasu zespołu', 'mniej błędów przy przepisywaniu danych', 'większa przepustowość bez nowych etatów'],
     },
     automatyzacja: {
-      title: 'Zobacz, co możesz zautomatyzować w 15 minut',
+      title: 'Zobacz, co możesz zautomatyzować w 30 minut',
       description: (
         <>
           Bierzemy jeden proces i pokazujemy, jak przenieść go do workflowu (Make/n8n/API) - bez ręcznego przepisywania danych.
@@ -68,14 +69,14 @@ export function QuickAutomationCta({
       title: 'Zobacz, gdzie agent AI zdejmie rutynę',
       description: (
         <>
-          W 15 minut wskażemy miejsca na pierwszy odzew, kwalifikację lub pracę na dokumentach - i gdzie potrzebna jest integracja z
+          W 30 minut wskażemy miejsca na pierwszy odzew, kwalifikację lub pracę na dokumentach - i gdzie potrzebna jest integracja z
           CRM.
         </>
       ),
       bullets: ['szybsza pierwsza odpowiedź', 'leady w CRM', 'mniej powtórek dla zespołu'],
     },
     chatboty: {
-      title: 'Zobacz, jak chatbot zbierze leady w 15 minut',
+      title: 'Zobacz, jak chatbot zbierze leady w 30 minut',
       description: (
         <>
           Podpowiemy, jak domknąć FAQ, zbieranie danych i przekazanie do człowieka - i jak to spiąć z CRM.
@@ -87,7 +88,7 @@ export function QuickAutomationCta({
       title: 'Zobacz, co strona może automatyzować',
       description: (
         <>
-          W 15 minut pokażemy, jak strona może zbierać leady i odpalać procesy w tle (CRM, follow-upy, raporty) - gotowe na AI.
+          W 30 minut pokażemy, jak strona może zbierać leady i odpalać procesy w tle (CRM, follow-upy, raporty) - gotowe na AI.
         </>
       ),
       bullets: ['więcej leadów', 'szybszy follow-up', 'mniej ręcznych kroków'],
@@ -105,7 +106,7 @@ export function QuickAutomationCta({
       title: 'Zobacz, gdzie AI podniesie konwersję',
       description: (
         <>
-          W 15 minut wskażemy powtarzalne kroki w leadach i CRM: od pierwszej odpowiedzi po routing do handlowca.
+          W 30 minut wskażemy powtarzalne kroki w leadach i CRM: od pierwszej odpowiedzi po routing do handlowca.
         </>
       ),
       bullets: ['szybszy odzew', 'leady uporządkowane w CRM', 'mniej ręcznego follow-upu'],
@@ -114,13 +115,13 @@ export function QuickAutomationCta({
       title: 'Zobacz, co da się zamknąć w systemie',
       description: (
         <>
-          W 15 minut wskażemy, co warto zautomatyzować workflowem, a co lepiej ubrać w prostą aplikację/panel.
+          W 30 minut wskażemy, co warto zautomatyzować workflowem, a co lepiej ubrać w prostą aplikację/panel.
         </>
       ),
       bullets: ['jedno miejsce na proces', 'mniej błędów', 'skalowanie bez chaosu'],
     },
     realizacje: {
-      title: 'Zobacz, co możesz zautomatyzować w 15 minut',
+      title: 'Zobacz, co możesz zautomatyzować w 30 minut',
       description: (
         <>
           Podaj przykład z Twojej firmy - podpowiemy pierwszy proces do pilota i kolejne kroki wdrożenia.
@@ -129,7 +130,7 @@ export function QuickAutomationCta({
       bullets: ['szybki start (pilot)', 'mierzalny efekt', 'rozwój krok po kroku'],
     },
     blog: {
-      title: 'Zobacz, co możesz zautomatyzować w 15 minut',
+      title: 'Zobacz, co możesz zautomatyzować w 30 minut',
       description: (
         <>
           Jeśli chcesz przełożyć wiedzę z artykułu na działający proces - wskażemy pierwszy scenariusz do wdrożenia.
@@ -138,7 +139,7 @@ export function QuickAutomationCta({
       bullets: ['konkret zamiast teorii', 'pierwszy proces do pilota', 'szybkie ROI w czasie zespołu'],
     },
     ebooki: {
-      title: 'Zobacz, co możesz zautomatyzować w 15 minut',
+      title: 'Zobacz, co możesz zautomatyzować w 30 minut',
       description: (
         <>
           Wskażemy procesy, które najszybciej oddadzą czas zespołowi - i jak je spiąć z narzędziami, których już używacie.
@@ -177,6 +178,16 @@ export function QuickAutomationCta({
           <Link href={contactHref}>
             <Button variant="primary">Umów krótką diagnozę</Button>
           </Link>
+          {CALENDLY_URL && (
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 whitespace-nowrap bg-transparent border-2 border-white/15 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:bg-white/5"
+            >
+              Umów spotkanie
+            </a>
+          )}
           <Link
             href={finalSecondaryHref}
             className="inline-flex items-center justify-center text-sm font-semibold text-[#d8f17b] hover:underline min-h-[44px] px-2"
