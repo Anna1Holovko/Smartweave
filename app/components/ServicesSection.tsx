@@ -31,8 +31,22 @@ export function ServicesSection() {
             <BrandMarkIcon />
             Nasze usługi
           </motion.div>
-          <motion.h2 id="services-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#e4e4e7] mb-4 sm:mb-6 px-4">
-            Jak możemy <span className="text-[#d8f17b]">Ci pomóc?</span>
+          <motion.h2
+            id="services-heading"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-4 sm:mb-6 px-4"
+          >
+            <span className="inline-flex items-center justify-center gap-3 text-3xl sm:text-5xl md:text-6xl font-bold text-[#e4e4e7]">
+              <span className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex-shrink-0">
+                <BrandMarkIcon />
+              </span>
+              <span>
+                Jak możemy <span className="text-[#d8f17b]">Ci pomóc?</span>
+              </span>
+            </span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto px-2">
             Nasz główny fokus to automatyzacja procesów biznesowych i wdrożenia AI: workflowy, integracje oraz agenci AI. Branding i strona www są dodatkiem, który domyka spójność komunikacji i konwersję — dlatego wszystko działa jako jeden ekosystem.
