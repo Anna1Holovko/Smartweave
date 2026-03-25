@@ -24,6 +24,8 @@ type Props = {
   bullets?: string[];
   secondaryHref?: string;
   secondaryLabel?: string;
+  secondaryButtonHref?: string;
+  secondaryButtonLabel?: string;
   tertiaryHref?: string;
   tertiaryLabel?: string;
 };
@@ -39,6 +41,8 @@ export function QuickAutomationCta({
   bullets,
   secondaryHref,
   secondaryLabel,
+  secondaryButtonHref,
+  secondaryButtonLabel,
   tertiaryHref,
   tertiaryLabel,
 }: Props) {
@@ -161,6 +165,8 @@ export function QuickAutomationCta({
   const finalSecondaryLabel = secondaryLabel ?? 'Automatyzacja procesów dla firm - przegląd oferty';
   const finalTertiaryHref = tertiaryHref;
   const finalTertiaryLabel = tertiaryLabel;
+  const finalSecondaryButtonHref = secondaryButtonHref;
+  const finalSecondaryButtonLabel = secondaryButtonLabel;
 
   return (
     <section
@@ -188,6 +194,14 @@ export function QuickAutomationCta({
           ) : (
             <Link href={contactHref}>
               <Button variant="primary">Umów krótką diagnozę</Button>
+            </Link>
+          )}
+          {finalSecondaryButtonHref && finalSecondaryButtonLabel && (
+            <Link
+              href={finalSecondaryButtonHref}
+              className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 whitespace-nowrap bg-transparent border-2 border-white/15 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:bg-white/5"
+            >
+              {finalSecondaryButtonLabel}
             </Link>
           )}
           <Link

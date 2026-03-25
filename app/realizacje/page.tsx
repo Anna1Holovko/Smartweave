@@ -95,7 +95,15 @@ export default function RealizacjePage() {
             </div>
           </div>
         </section>
-        <QuickAutomationCta topic="realizacje" />
+        <QuickAutomationCta
+          topic="realizacje"
+          title="Chcesz podobne rozwiązanie?"
+          description="W 30 minut wskażemy najlepszy pierwszy krok i dopasujemy wdrożenie do Twoich procesów."
+          secondaryButtonHref="/automatyzacja-ai-dla-firm"
+          secondaryButtonLabel="Automatyzacja procesów dla firm - przegląd oferty"
+          secondaryHref="/uslugi"
+          secondaryLabel="Więcej usług"
+        />
         <div className="gradient-philosophy-to-footer">
           <Footer />
         </div>

@@ -67,7 +67,15 @@ export default function RealizacjeChatbotyPage() {
           </div>
         </section>
 
-        <QuickAutomationCta topic="chatboty" />
+        <QuickAutomationCta
+          topic="chatboty"
+          title="Chcesz podobne rozwiązanie?"
+          description="W 30 minut dobierzemy scenariusz chatbota: leady, FAQ, przekazanie do człowieka i integrację z CRM."
+          secondaryButtonHref="/automatyzacja-ai-dla-firm"
+          secondaryButtonLabel="Automatyzacja procesów dla firm - przegląd oferty"
+          secondaryHref="/uslugi"
+          secondaryLabel="Więcej usług"
+        />
 
         <div className="gradient-philosophy-to-footer">
           <SimilarSolutionCta headingId="realizacje-chatboty-cta-heading" />

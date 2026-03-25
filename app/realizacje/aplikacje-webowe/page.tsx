@@ -67,7 +67,15 @@ export default function RealizacjeAplikacjeWebowePage() {
           </div>
         </section>
 
-        <QuickAutomationCta topic="aplikacje-webowe" />
+        <QuickAutomationCta
+          topic="aplikacje-webowe"
+          title="Chcesz podobne rozwiązanie?"
+          description="W 30 minut ocenimy, co warto zamknąć w panelu/aplikacji, a co zautomatyzować workflowem."
+          secondaryButtonHref="/automatyzacja-ai-dla-firm"
+          secondaryButtonLabel="Automatyzacja procesów dla firm - przegląd oferty"
+          secondaryHref="/uslugi"
+          secondaryLabel="Więcej usług"
+        />
 
         <div className="gradient-philosophy-to-footer">
           <SimilarSolutionCta headingId="realizacje-aplikacje-cta-heading" />
