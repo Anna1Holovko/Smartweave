@@ -11,12 +11,12 @@ import { USLUGI_PAGE_CONTENT } from '@/lib/uslugi-page-content';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS } from '@/lib/layout';
 import { ArrowLeft } from 'lucide-react';
-import { UslugiConsultationBlock } from '@/app/components/UslugiConsultationBlock';
 import { ServiceProblemCards } from '@/app/components/ServiceProblemCards';
 import { ServiceSolutionBlock } from '@/app/components/ServiceSolutionBlock';
 import { ServiceFeaturesList } from '@/app/components/ServiceFeaturesList';
 import { ServiceBenefitsList } from '@/app/components/ServiceBenefitsList';
 import { ServiceProcessSteps } from '@/app/components/ServiceProcessSteps';
+import { QuickAutomationCta } from '@/app/components/QuickAutomationCta';
 import { BrandMarkIcon } from '@/app/components/BrandMarkIcon';
 import { QuickAutomationCta } from '@/app/components/QuickAutomationCta';
 
@@ -110,12 +110,13 @@ export default function AgenciAiPage() {
           </div>
         </section>
 
-        <QuickAutomationCta topic="agenci-ai" />
-
-        <UslugiConsultationBlock
-          variant="centered"
+        <QuickAutomationCta
+          topic="agenci-ai"
           title="Zainteresowała Cię ta usługa?"
-          description="Umów bezpłatną konsultację - opowiemy o szczegółach i dopasujemy rozwiązanie"
+          description={`Krótko opowiedz o: ${service.title}. W 30 minut wskażemy najlepszy pierwszy krok i dopasujemy wdrożenie.`}
+          bullets={['więcej leadów', 'szybszy follow-up', 'mniej ręcznych kroków']}
+          secondaryHref="/uslugi"
+          secondaryLabel="Więcej usług"
         />
 
         <div className="gradient-philosophy-to-footer">

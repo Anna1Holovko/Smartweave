@@ -231,6 +231,7 @@ export default async function UslugiSlugPage({
           description={ctaDescription}
           secondaryHref="/uslugi"
           secondaryLabel="Więcej usług"
+          bullets={['więcej leadów', 'szybszy follow-up', 'mniej ręcznych kroków']}
         />
 
         <div className="gradient-philosophy-to-footer">
