@@ -90,7 +90,7 @@ export function CTASection() {
               <span className="text-[#d8f17b]">Toniesz w codziennych zadaniach? Czas to zmienić.</span>
             </motion.h2>
             <motion.p initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-lg text-zinc-400 leading-relaxed">
-              Powiedz, co zabiera czas. My zamienimy to w proces, który działa w tle.
+              Powiedz nam, co zabiera Ci najwięcej czasu - my zautomatyzujemy te procesy i przyspieszymy pracę Twojej firmy. Dzięki inteligentnym rozwiązaniom i AI odzyskasz godziny każdego dnia i skupisz się na tym, co naprawdę przynosi zysk.
             </motion.p>
             {CALENDLY_URL && (
               <a
