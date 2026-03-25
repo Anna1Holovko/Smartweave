@@ -39,13 +39,8 @@ export function ServicesSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mb-4 sm:mb-6 px-4"
           >
-            <span className="inline-flex items-center justify-center gap-3 text-3xl sm:text-5xl md:text-6xl font-bold text-[#e4e4e7]">
-              <span className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex-shrink-0">
-                <BrandMarkIcon />
-              </span>
-              <span>
-                Jak możemy <span className="text-[#d8f17b]">Ci pomóc?</span>
-              </span>
+            <span className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#e4e4e7]">
+              Jak możemy <span className="text-[#d8f17b]">Ci pomóc?</span>
             </span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto px-2">
@@ -78,7 +73,7 @@ export function ServicesSection() {
                     <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center">
                       <Icon className="w-7 h-7 text-[#d8f17b]" />
                     </div>
-                    <h3 className="text-xl font-bold text-[#e4e4e7] leading-tight flex-shrink-0">
+                    <h3 className="min-w-0 flex-1 text-lg sm:text-xl font-bold text-[#e4e4e7] leading-tight whitespace-normal break-words">
                       {displayTitle}
                     </h3>
                   </div>
