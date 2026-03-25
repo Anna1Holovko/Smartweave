@@ -12,7 +12,6 @@ import { USLUGI_PAGE_CONTENT } from '@/lib/uslugi-page-content';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS } from '@/lib/layout';
 import { ArrowLeft } from 'lucide-react';
-import { UslugiConsultationBlock } from '@/app/components/UslugiConsultationBlock';
 import { AutomationWorkflowSection } from '@/app/components/AutomationWorkflowSection';
 import { AiAnimationSection } from '@/app/components/AiAnimationSection';
 import { ServiceProblemCards } from '@/app/components/ServiceProblemCards';
@@ -232,14 +231,6 @@ export default async function UslugiSlugPage({
           description={ctaDescription}
           secondaryHref="/uslugi"
           secondaryLabel="Więcej usług"
-          tertiaryHref="/automatyzacja-ai-dla-firm"
-          tertiaryLabel="Automatyzacja procesów dla firm - przegląd oferty"
-        />
-
-        <UslugiConsultationBlock
-          variant="centered"
-          title="Zainteresowała Cię ta usługa?"
-          description="Umów bezpłatną konsultację - opowiemy o szczegółach i dopasujemy rozwiązanie"
         />
 
         <div className="gradient-philosophy-to-footer">
