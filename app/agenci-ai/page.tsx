@@ -116,6 +116,7 @@ export default function AgenciAiPage() {
           bullets={['więcej leadów', 'szybszy follow-up', 'mniej ręcznych kroków']}
           secondaryHref="/#contact"
           secondaryLabel="Napisz do nas"
+          secondaryOutlined
         />
 
         <div className="gradient-philosophy-to-footer">

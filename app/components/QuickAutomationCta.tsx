@@ -25,6 +25,7 @@ type Props = {
   primaryLabel?: string;
   secondaryHref?: string;
   secondaryLabel?: string;
+  secondaryOutlined?: boolean;
   secondaryButtonHref?: string;
   secondaryButtonLabel?: string;
   tertiaryHref?: string;
@@ -43,6 +44,7 @@ export function QuickAutomationCta({
   primaryLabel = 'Umów krótką rozmowę',
   secondaryHref,
   secondaryLabel,
+  secondaryOutlined = false,
   secondaryButtonHref,
   secondaryButtonLabel,
   tertiaryHref,
@@ -208,7 +210,11 @@ export function QuickAutomationCta({
           )}
           <Link
             href={finalSecondaryHref}
-            className="inline-flex items-center justify-center text-sm font-semibold text-[#d8f17b] hover:underline min-h-[44px] px-2"
+            className={
+              secondaryOutlined
+                ? 'inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 whitespace-nowrap bg-transparent border-2 border-white/15 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:bg-white/5'
+                : 'inline-flex items-center justify-center text-sm font-semibold text-[#d8f17b] hover:underline min-h-[44px] px-2'
+            }
           >
             {finalSecondaryLabel}
           </Link>

@@ -231,6 +231,7 @@ export default async function UslugiSlugPage({
           description={ctaDescription}
           secondaryHref="/#contact"
           secondaryLabel="Napisz do nas"
+          secondaryOutlined
           bullets={['więcej leadów', 'szybszy follow-up', 'mniej ręcznych kroków']}
         />
 
