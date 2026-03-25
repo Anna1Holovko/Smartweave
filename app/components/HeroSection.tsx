@@ -111,7 +111,7 @@ export function HeroSection() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 whitespace-nowrap bg-transparent border-2 border-white/15 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:bg-white/5"
             >
-              Umów spotkanie
+              Umów krótką diagnozę
             </a>
           )}
         </div>

@@ -75,7 +75,7 @@ Quick reference for the main UI areas. All hex unless noted.
 | **Badge border** | `#a855f7` @ 30% |
 | **Badge text** | `#d8b4fe` |
 | **Primary button ("Napisz do nas", "Wyślij wiadomość")** | Background: CTA gradient `#6BA1FB` → `#A18DFA` → `#EB75BD`; text `#ffffff`; hover shadow `rgba(167,139,250,0.4)` |
-| **Secondary button ("Umów spotkanie")** | Background transparent; border `#334155`; text `#ffffff`; hover border `#a855f7` @ 50%, hover bg `#1e293b` @ 30% |
+| **Secondary button ("Umów krótką diagnozę")** | Background transparent; border `#334155`; text `#ffffff`; hover border `#a855f7` @ 50%, hover bg `#1e293b` @ 30% |
 | **Form inputs bg** | `#1e293b` @ 50% |
 | **Form inputs border** | `#334155` |
 | **Form inputs focus border** | `#a855f7` @ 50% |
