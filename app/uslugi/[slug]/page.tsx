@@ -84,7 +84,7 @@ export default async function UslugiSlugPage({
               : slug === 'aplikacje-webowe'
                 ? 'aplikacje-webowe'
                 : 'default';
-  const ctaDescription = `Krótko opowiedz o: ${service.title}. W 30 minut wskażemy najlepszy pierwszy krok i dopasujemy wdrożenie.`;
+  const ctaDescription = `Opowiedz nam krótko o Twoich potrzebach w obszarze: ${service.title}. W 30 minut wskażemy najlepszy pierwszy krok i dopasujemy wdrożenie.`;
 
   return (
     <>

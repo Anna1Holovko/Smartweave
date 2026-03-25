@@ -112,7 +112,7 @@ export default function AgenciAiPage() {
         <QuickAutomationCta
           topic="agenci-ai"
           title="Zainteresowała Cię ta usługa?"
-          description={`Krótko opowiedz o: ${service.title}. W 30 minut wskażemy najlepszy pierwszy krok i dopasujemy wdrożenie.`}
+          description={`Opowiedz nam krótko o Twoich potrzebach w obszarze: ${service.title}. W 30 minut wskażemy najlepszy pierwszy krok i dopasujemy wdrożenie.`}
           bullets={['więcej leadów', 'szybszy follow-up', 'mniej ręcznych kroków']}
           secondaryHref="/uslugi"
           secondaryLabel="Więcej usług"
