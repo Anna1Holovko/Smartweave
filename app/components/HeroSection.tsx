@@ -40,7 +40,7 @@ export function HeroSection() {
 
   return (
     <section
-      aria-label="SmartWeave - Branding, automatyzacja AI i strony www"
+      aria-label="SmartWeave - Automatyzacja AI, systemy cyfrowe i branding"
       className="relative min-h-[100dvh] min-h-screen flex items-center justify-center overflow-hidden px-4 pt-20 pb-16 sm:px-6 sm:pt-28 sm:pb-24 lg:pt-24 lg:pb-20 lg:px-8 xl:pt-20 xl:pb-16 xl:px-10 2xl:px-12 3xl:px-16"
     >
       {/* Background */}
@@ -57,7 +57,7 @@ export function HeroSection() {
         {/* Badge */}
         <p className="inline-flex items-center justify-center gap-2 mb-8 text-xs sm:text-sm font-medium uppercase tracking-wider text-[#d8f17b]">
           <BrandMarkIcon />
-          Branding · Automatyzacja AI · Systemy cyfrowe
+          Automatyzacja AI · Systemy cyfrowe · Branding
         </p>
 
         {/* Headline */}
@@ -91,10 +91,10 @@ export function HeroSection() {
 
         {/* Description */}
         <p className="text-zinc-400 text-base sm:text-xl mx-auto mt-6 max-w-[80ch] leading-relaxed px-2">
-          Łączymy identyfikację wizualną z automatyzacją AI i nowoczesnymi stronami: powtarzalne procesy idą w tło — Ty weryfikujesz rezultaty i rozwijasz biznes.
+          Automatyzujemy procesy biznesowe i wdrażamy rozwiązania AI: powtarzalne kroki idą w tło — Ty weryfikujesz rezultaty i rozwijasz biznes. Branding i strona www domykają spójność oraz konwersję.
         </p>
         <p className="text-zinc-500 text-sm sm:text-base mx-auto mt-3 mb-10 px-2" aria-hidden="true">
-          Automatyzacja AI i procesów • Agenci AI • Strony www • Branding
+          Automatyzacja AI i procesów • Agenci AI • Branding • Strony www
         </p>
 
         {/* Buttons */}

@@ -8,7 +8,6 @@ import { QuickAutomationCta } from '@/app/components/QuickAutomationCta';
 import { Button } from '@/app/components/ui/Button';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
-import { AUTOMATYZACJA_AI_CITIES } from '@/lib/automatyzacja-ai-cities';
 
 const title = 'Automatyzacja AI dla firm';
 const description =
@@ -89,23 +88,6 @@ export default function AutomatyzacjaAiDlaFirmPage() {
                   </Link>{' '}
                   — leady, treści, obsługa zapytań
                 </li>
-              </ul>
-
-              <h2 className="text-xl font-bold text-[#e4e4e7] pt-4">Automatyzacja AI — wybrane miasta</h2>
-              <p className="text-sm">
-                Lokalne wejścia (SEO) z unikalnym kontekstem — pełna oferta jest zdalna i ogólnopolska:
-              </p>
-              <ul className="flex flex-wrap gap-3">
-                {AUTOMATYZACJA_AI_CITIES.map((c) => (
-                  <li key={c.slug}>
-                    <Link
-                      href={`/automatyzacja-ai/${c.slug}`}
-                      className="inline-flex items-center rounded-full border border-[#d8f17b]/35 px-4 py-2 text-sm font-medium text-[#d8f17b] hover:bg-[#d8f17b]/10 transition-colors"
-                    >
-                      Automatyzacja AI {c.name}
-                    </Link>
-                  </li>
-                ))}
               </ul>
             </div>
 
