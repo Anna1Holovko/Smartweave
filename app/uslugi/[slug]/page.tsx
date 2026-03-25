@@ -229,8 +229,8 @@ export default async function UslugiSlugPage({
           topic={ctaTopic}
           title="Zainteresowała Cię ta usługa?"
           description={ctaDescription}
-          secondaryHref="/uslugi"
-          secondaryLabel="Więcej usług"
+          secondaryHref="/#contact"
+          secondaryLabel="Napisz do nas"
           bullets={['więcej leadów', 'szybszy follow-up', 'mniej ręcznych kroków']}
         />
 

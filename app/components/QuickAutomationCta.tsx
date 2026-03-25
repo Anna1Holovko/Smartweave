@@ -22,6 +22,7 @@ type Props = {
   title?: string;
   description?: React.ReactNode;
   bullets?: string[];
+  primaryLabel?: string;
   secondaryHref?: string;
   secondaryLabel?: string;
   secondaryButtonHref?: string;
@@ -39,6 +40,7 @@ export function QuickAutomationCta({
   title,
   description,
   bullets,
+  primaryLabel = 'Umów krótką rozmowę',
   secondaryHref,
   secondaryLabel,
   secondaryButtonHref,
@@ -189,11 +191,11 @@ export function QuickAutomationCta({
         <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3">
           {CALENDLY_URL ? (
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-              <Button variant="primary">Umów krótką diagnozę</Button>
+              <Button variant="primary">{primaryLabel}</Button>
             </a>
           ) : (
             <Link href={contactHref}>
-              <Button variant="primary">Umów krótką diagnozę</Button>
+              <Button variant="primary">{primaryLabel}</Button>
             </Link>
           )}
           {finalSecondaryButtonHref && finalSecondaryButtonLabel && (
