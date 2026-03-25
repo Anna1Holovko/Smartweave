@@ -12,6 +12,7 @@ import { BLOG_CONTENT, type ContentBlock } from '@/lib/blog-content';
 import { SITE_URL, CALENDLY_URL } from '@/lib/site';
 import { CONTAINER_CLASS } from '@/lib/layout';
 import { Button } from '@/app/components/ui/Button';
+import { QuickAutomationCta } from '@/app/components/QuickAutomationCta';
 import { ArrowLeft } from 'lucide-react';
 
 type Props = { params: Promise<{ slug: string }> };
@@ -213,6 +214,7 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
           </div>
         </article>
+        <QuickAutomationCta topic="blog" />
         <div className="gradient-philosophy-to-footer">
           <SimpleCTASection />
           <Footer />

@@ -6,6 +6,7 @@ import { Footer } from '../components/Footer';
 import { ScrollToTop } from '../components/ScrollToTop';
 import { PageIntro } from '../components/PageIntro';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
+import { QuickAutomationCta } from '../components/QuickAutomationCta';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 import { ExternalLink } from 'lucide-react';
@@ -94,6 +95,7 @@ export default function RealizacjePage() {
             </div>
           </div>
         </section>
+        <QuickAutomationCta topic="realizacje" />
         <div className="gradient-philosophy-to-footer">
           <Footer />
         </div>

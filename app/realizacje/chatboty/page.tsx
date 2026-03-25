@@ -8,6 +8,7 @@ import { PageIntro } from '../../components/PageIntro';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 import { SimilarSolutionCta } from '../../components/SimilarSolutionCta';
+import { QuickAutomationCta } from '@/app/components/QuickAutomationCta';
 
 export const metadata: Metadata = {
   title: 'Realizacje — Chatboty',
@@ -65,6 +66,8 @@ export default function RealizacjeChatbotyPage() {
             </article>
           </div>
         </section>
+
+        <QuickAutomationCta topic="chatboty" />
 
         <div className="gradient-philosophy-to-footer">
           <SimilarSolutionCta headingId="realizacje-chatboty-cta-heading" />

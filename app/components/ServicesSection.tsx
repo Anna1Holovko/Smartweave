@@ -60,10 +60,14 @@ export function ServicesSection() {
                 className="relative group flex"
               >
                 <div className="glass-card hover-lift relative flex flex-col w-full h-full min-h-0 p-8 rounded-2xl overflow-hidden" style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}>
-                  <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center mb-4">
-                    <Icon className="w-7 h-7 text-[#d8f17b]" />
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center">
+                      <Icon className="w-7 h-7 text-[#d8f17b]" />
+                    </div>
+                    <h3 className="text-xl font-bold text-[#e4e4e7] leading-tight flex-shrink-0">
+                      {displayTitle}
+                    </h3>
                   </div>
-                  <h3 className="text-xl font-bold text-[#e4e4e7] mb-4 flex-shrink-0">{displayTitle}</h3>
                   <p className="text-zinc-400 text-sm leading-relaxed mb-4 flex-shrink-0">{(s as ServiceItem).cardDescription ?? (s as ServiceItem).description}</p>
                   {points.length > 0 && (
                     <ul className="space-y-2 mb-6 flex-shrink-0" aria-hidden>

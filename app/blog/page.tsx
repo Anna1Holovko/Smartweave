@@ -6,6 +6,7 @@ import { Footer } from '../components/Footer';
 import { ScrollToTop } from '../components/ScrollToTop';
 import { PageIntro } from '../components/PageIntro';
 import { getAllPosts } from '@/lib/blog-adapter';
+import { QuickAutomationCta } from '../components/QuickAutomationCta';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 
@@ -85,6 +86,7 @@ export default async function BlogPage() {
             </div>
           </div>
         </section>
+        <QuickAutomationCta topic="blog" />
         <div className="gradient-philosophy-to-footer">
           <Footer />
         </div>

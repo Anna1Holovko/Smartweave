@@ -97,7 +97,7 @@ export default function AutomatyzacjaAiDlaFirmPage() {
           </div>
         </section>
 
-        <QuickAutomationCta />
+        <QuickAutomationCta topic="automatyzacja" />
       </main>
       <Footer />
       <ScrollToTop />

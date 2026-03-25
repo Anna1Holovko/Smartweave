@@ -5,6 +5,7 @@ import { SimpleCTASection } from '../components/SimpleCTASection';
 import { ScrollToTop } from '../components/ScrollToTop';
 import { PageIntro } from '../components/PageIntro';
 import { UslugiServiceCards } from '../components/UslugiServiceCards';
+import { QuickAutomationCta } from '../components/QuickAutomationCta';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 
@@ -45,6 +46,8 @@ export default function UslugiPage() {
             <UslugiServiceCards />
           </div>
         </section>
+
+        <QuickAutomationCta topic="default" />
 
         <div className="gradient-philosophy-to-footer">
           <SimpleCTASection />

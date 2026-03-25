@@ -11,6 +11,7 @@ import { SimilarSolutionCta } from '../../components/SimilarSolutionCta';
 import { CaseStudyWorkflowFlow } from '../../components/CaseStudyWorkflowFlow';
 import { ArchitectureFlow } from '../../components/ArchitectureFlow';
 import { OpenAIIcon } from '../../components/OpenAIIcon';
+import { QuickAutomationCta } from '@/app/components/QuickAutomationCta';
 
 export const metadata: Metadata = {
   title: 'Realizacje — Automatyzacja procesów',
@@ -265,6 +266,8 @@ export default function RealizacjeAutomatyzacjaPage() {
             </article>
           </div>
         </section>
+
+        <QuickAutomationCta topic="automatyzacja" />
 
         <div className="gradient-philosophy-to-footer">
           <SimilarSolutionCta headingId="realizacje-cta-heading" />

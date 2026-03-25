@@ -18,6 +18,7 @@ import { ServiceFeaturesList } from '@/app/components/ServiceFeaturesList';
 import { ServiceBenefitsList } from '@/app/components/ServiceBenefitsList';
 import { ServiceProcessSteps } from '@/app/components/ServiceProcessSteps';
 import { BrandMarkIcon } from '@/app/components/BrandMarkIcon';
+import { QuickAutomationCta } from '@/app/components/QuickAutomationCta';
 
 const SLUG: ServiceSlug = 'agenci-ai';
 
@@ -108,6 +109,8 @@ export default function AgenciAiPage() {
             </MotionFadeIn>
           </div>
         </section>
+
+        <QuickAutomationCta topic="agenci-ai" />
 
         <UslugiConsultationBlock
           variant="centered"

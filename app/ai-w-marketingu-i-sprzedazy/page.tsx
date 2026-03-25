@@ -103,7 +103,7 @@ export default function AiMarketingSprzedazPage() {
           </div>
         </section>
 
-        <QuickAutomationCta />
+        <QuickAutomationCta topic="marketing-sprzedaz" />
       </main>
       <Footer />
       <ScrollToTop />

@@ -4,6 +4,7 @@ import { Footer } from '../components/Footer';
 import { ScrollToTop } from '../components/ScrollToTop';
 import { PageIntro } from '../components/PageIntro';
 import { EBOOKS } from '@/lib/ebooks';
+import { QuickAutomationCta } from '../components/QuickAutomationCta';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 import { EbookCard } from './EbookCard';
@@ -45,6 +46,7 @@ export default function EbookiPage() {
             </div>
           </div>
         </section>
+        <QuickAutomationCta topic="ebooki" />
       </main>
       <Footer />
       <ScrollToTop />

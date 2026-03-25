@@ -25,6 +25,7 @@ import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 import { BrandMarkIcon } from '@/app/components/BrandMarkIcon';
 import { BrandingAiBridgeSection } from '@/app/components/BrandingAiBridgeSection';
 import { HybridServiceCrossLinks } from '@/app/components/HybridServiceCrossLinks';
+import { QuickAutomationCta } from '@/app/components/QuickAutomationCta';
 
 /** Page/SEO titles - aligned with search phrases (projektowanie stron www dla firm, automatyzacja procesów AI, strony pod leada B2B) */
 const SLUG_TITLES: Record<string, string> = {
@@ -70,6 +71,20 @@ export default async function UslugiSlugPage({
   const service = getServiceBySlug(slug);
   if (!service) notFound();
   const pageContent = SERVICE_PAGE_CONTENT[slug];
+  const ctaTopic =
+    slug === 'strony'
+      ? 'strony'
+      : slug === 'branding'
+        ? 'branding'
+        : slug === 'automatyzacja'
+          ? 'automatyzacja'
+          : slug === 'agenci-ai'
+            ? 'agenci-ai'
+            : slug === 'chatboty'
+              ? 'chatboty'
+              : slug === 'aplikacje-webowe'
+                ? 'aplikacje-webowe'
+                : 'default';
 
   return (
     <>
@@ -209,6 +224,8 @@ export default async function UslugiSlugPage({
             )}
           </div>
         </section>
+
+        <QuickAutomationCta topic={ctaTopic} />
 
         <UslugiConsultationBlock
           variant="centered"
