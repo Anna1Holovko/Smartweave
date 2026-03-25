@@ -11,13 +11,13 @@ export function BrandingAiBridgeSection() {
       style={{ backdropFilter: 'blur(16px)' }}
     >
       <h2 id="branding-ai-bridge-heading" className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-6">
-        Branding i AI — jeden ekosystem, nie dwa światy
+        Branding i AI - jeden ekosystem, nie dwa światy
       </h2>
       <div className="space-y-8 text-zinc-400 leading-relaxed max-w-[80ch]">
         <div>
           <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Jak AI zmienia identyfikację wizualną</h3>
           <p>
-            Generowanie wariantów grafik, spójnych opisów produktów czy szkiców kampanii przyspiesza pracę — pod warunkiem, że
+            Generowanie wariantów grafik, spójnych opisów produktów czy szkiców kampanii przyspiesza pracę - pod warunkiem, że
             macie{' '}
             <strong className="text-zinc-300 font-semibold">jasny system wizualny i słownik marki</strong>. Identyfikacja
             wizualna i brandbook to „kompas”, dzięki któremu treści i materiały tworzone z udziałem AI pozostają rozpoznawalne i
@@ -27,7 +27,7 @@ export function BrandingAiBridgeSection() {
         <div>
           <h3 className="text-lg font-semibold text-[#e4e4e7] mb-2">Automatyzacja procesów marketingowych</h3>
           <p>
-            Lead z formularza w CRM, powiadomienie do zespołu, przypomnienie o follow-upie, zestawienie z wielu kanałów — to
+            Lead z formularza w CRM, powiadomienie do zespołu, przypomnienie o follow-upie, zestawienie z wielu kanałów - to
             procesy, które da się zbudować jako workflow (Make, n8n, integracje API) i połączyć z{' '}
             <Link href="/uslugi/agenci-ai" className="text-[#d8f17b] hover:underline font-medium">
               agentami AI
@@ -44,7 +44,7 @@ export function BrandingAiBridgeSection() {
             <Link href="/uslugi/automatyzacja" className="text-[#d8f17b] hover:underline font-medium">
               automatyzację procesów biznesowych
             </Link>{' '}
-            oraz — tam, gdzie to ma sens — rozwiązania AI, które wspierają sprzedaż i obsługę, zamiast je rozjeżdżać stylistycznie.
+            oraz - tam, gdzie to ma sens - rozwiązania AI, które wspierają sprzedaż i obsługę, zamiast je rozjeżdżać stylistycznie.
           </p>
           <p className="text-sm text-zinc-500">
             Powiązane:{' '}

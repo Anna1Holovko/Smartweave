@@ -39,7 +39,7 @@ export default function AiMarketingSprzedazPage() {
               badge="Marketing i sprzedaż"
               badgeVariant="accent"
               title={title}
-              description="Szybszy odzew, leady w CRM i mniej ręcznej pracy — bez utraty spójności marki."
+              description="Szybszy odzew, leady w CRM i mniej ręcznej pracy - bez utraty spójności marki."
               className={INTRO_MB_CLASS}
             />
 
@@ -84,7 +84,7 @@ export default function AiMarketingSprzedazPage() {
               </div>
 
               <div>
-                <h2 className="text-xl font-bold text-[#e4e4e7] mb-3">AI w biznesie — szerszy kontekst</h2>
+                <h2 className="text-xl font-bold text-[#e4e4e7] mb-3">AI w biznesie - szerszy kontekst</h2>
                 <p>
                   Jeśli szukasz przeglądu automatyzacji i sztucznej inteligencji w całej firmie (nie tylko marketing), zobacz{' '}
                   <Link href="/automatyzacja-ai-dla-firm" className="text-[#d8f17b] hover:underline font-medium">

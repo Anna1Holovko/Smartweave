@@ -11,12 +11,12 @@ import { SimilarSolutionCta } from '../../components/SimilarSolutionCta';
 import { QuickAutomationCta } from '@/app/components/QuickAutomationCta';
 
 export const metadata: Metadata = {
-  title: 'Realizacje — Chatboty i aplikacje webowe',
+  title: 'Realizacje - Chatboty i aplikacje webowe',
   description:
-    'Case studies: chatboty i aplikacje webowe dla firm — strona w przygotowaniu. SmartWeave',
+    'Case studies: chatboty i aplikacje webowe dla firm - strona w przygotowaniu. SmartWeave',
   openGraph: {
     title: 'Chatboty i aplikacje webowe | SmartWeave',
-    description: 'Realizacje w przygotowaniu — wkrótce case studies z chatbotów i aplikacji webowych',
+    description: 'Realizacje w przygotowaniu - wkrótce case studies z chatbotów i aplikacji webowych',
     url: `${SITE_URL}/realizacje/chatboty-i-aplikacje-webowe`,
   },
 };
@@ -60,17 +60,17 @@ export default function RealizacjeChatbotyIAplikacjeWebowePage() {
                   Wszystkie trzy podstrony realizacji (chatboty, aplikacje webowe oraz ta łączona) są w przygotowaniu.
                   Tymczasem zobacz{' '}
                   <Link href="/uslugi/chatboty" className="text-[#d8f17b] font-medium hover:underline">
-                    usługę — chatboty
+                    usługę - chatboty
                   </Link>
                   ,{' '}
                   <Link href="/uslugi/aplikacje-webowe" className="text-[#d8f17b] font-medium hover:underline">
-                    usługę — aplikacje webowe
+                    usługę - aplikacje webowe
                   </Link>{' '}
                   lub{' '}
                   <Link href="/realizacje" className="text-[#d8f17b] font-medium hover:underline">
                     główną stronę realizacji
                   </Link>
-                  . Napisz do nas — chętnie opowiemy o projektach na żywo.
+                  . Napisz do nas - chętnie opowiemy o projektach na żywo.
                 </p>
               </div>
             </article>

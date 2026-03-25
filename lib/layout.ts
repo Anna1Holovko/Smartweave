@@ -10,7 +10,7 @@ export const CONTAINER_CLASS =
 export const INTRO_MB_CLASS = 'mb-12 sm:mb-20';
 
 /**
- * Realizacje subpages — bottom CTA “Chcesz podobne rozwiązanie?”
+ * Realizacje subpages - bottom CTA “Chcesz podobne rozwiązanie?”
  * Single `py-*` scale so top and bottom padding match at every breakpoint.
  */
 export const SIMILAR_SOLUTION_CTA_SECTION_CLASS =

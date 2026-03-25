@@ -1,10 +1,10 @@
 /**
- * E-book cart (koszyk) — persisted in localStorage as JSON.
+ * E-book cart (koszyk) - persisted in localStorage as JSON.
  * Cleared on each full document load via `app/layout.tsx` (beforeInteractive script).
  *
  * Events:
- * - `CART_UPDATE_EVENT` — cart data changed (badge / drawer refresh).
- * - `CART_OPEN_DRAWER_EVENT` — open cart drawer (e.g. after „Dodaj do koszyka”).
+ * - `CART_UPDATE_EVENT` - cart data changed (badge / drawer refresh).
+ * - `CART_OPEN_DRAWER_EVENT` - open cart drawer (e.g. after „Dodaj do koszyka”).
  */
 
 import { EBOOKS, type Ebook } from '@/lib/ebooks';
@@ -59,7 +59,7 @@ function readPayload(): CartPayload {
         .filter((i) => i.quantity > 0);
       return { v: CART_VERSION, items };
     }
-    // Legacy: plain number — do not migrate into unknown SKU; start clean.
+    // Legacy: plain number - do not migrate into unknown SKU; start clean.
     return emptyPayload();
   } catch {
     return emptyPayload();

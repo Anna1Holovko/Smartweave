@@ -8,7 +8,7 @@ type Props = { book: Ebook };
 
 /**
  * Jedyna akcja zakupowa na stronie: dodanie do koszyka (checkout).
- * Brak pobierania pliku z przeglądarki — plik nie jest serwowany przez publiczne API.
+ * Brak pobierania pliku z przeglądarki - plik nie jest serwowany przez publiczne API.
  */
 export function EbookCheckoutButton({ book }: Props) {
   return (

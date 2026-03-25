@@ -201,7 +201,7 @@ export default async function UslugiSlugPage({
                   href={`/realizacje/${slug}`}
                   className="inline-flex items-center gap-2 text-[#d8f17b] font-semibold hover:underline min-h-[44px]"
                 >
-                  {slug === 'chatboty' ? 'Realizacje — chatboty' : 'Realizacje — aplikacje webowe'}
+                  {slug === 'chatboty' ? 'Realizacje - chatboty' : 'Realizacje - aplikacje webowe'}
                   <span aria-hidden> →</span>
                 </Link>
               </MotionFadeIn>

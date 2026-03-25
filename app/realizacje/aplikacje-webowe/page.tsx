@@ -11,12 +11,12 @@ import { SimilarSolutionCta } from '../../components/SimilarSolutionCta';
 import { QuickAutomationCta } from '@/app/components/QuickAutomationCta';
 
 export const metadata: Metadata = {
-  title: 'Realizacje — Aplikacje webowe',
+  title: 'Realizacje - Aplikacje webowe',
   description:
-    'Case studies: aplikacje webowe dla firm — strona w przygotowaniu. SmartWeave',
+    'Case studies: aplikacje webowe dla firm - strona w przygotowaniu. SmartWeave',
   openGraph: {
     title: 'Aplikacje webowe | SmartWeave',
-    description: 'Realizacje aplikacji webowych w przygotowaniu — wkrótce case studies',
+    description: 'Realizacje aplikacji webowych w przygotowaniu - wkrótce case studies',
     url: `${SITE_URL}/realizacje/aplikacje-webowe`,
   },
 };
@@ -54,13 +54,13 @@ export default function RealizacjeAplikacjeWebowePage() {
                 <p className="text-zinc-400 leading-relaxed">
                   Zbieramy i redagujemy case studies z aplikacji webowych. Tymczasem zobacz{' '}
                   <Link href="/uslugi/aplikacje-webowe" className="text-[#d8f17b] font-medium hover:underline">
-                    opis usługi — aplikacje webowe
+                    opis usługi - aplikacje webowe
                   </Link>
                   ,{' '}
                   <Link href="/realizacje" className="text-[#d8f17b] font-medium hover:underline">
                     pozostałe realizacje
                   </Link>{' '}
-                  lub napisz do nas — omówimy Twój pomysł.
+                  lub napisz do nas - omówimy Twój pomysł.
                 </p>
               </div>
             </article>

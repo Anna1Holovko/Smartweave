@@ -81,7 +81,7 @@ export function CartDrawer({ open, onClose }: Props) {
             exit={{ x: '100%', opacity: 0.96 }}
             transition={{ type: 'spring', damping: 30, stiffness: 340 }}
           >
-            {/* Mobile top handle — swipe affordance (tap outside / Esc still primary) */}
+            {/* Mobile top handle - swipe affordance (tap outside / Esc still primary) */}
             <div className="sm:hidden flex justify-center pt-2 pb-1" aria-hidden>
               <div className="w-10 h-1 rounded-full bg-white/20" />
             </div>
@@ -91,7 +91,7 @@ export function CartDrawer({ open, onClose }: Props) {
                 <h2 id="cart-drawer-title" className="text-lg font-semibold text-[#e4e4e7] truncate">
                   Koszyk
                 </h2>
-                <p className="text-xs text-zinc-500 mt-0.5">E-booki — podsumowanie przed zakupem</p>
+                <p className="text-xs text-zinc-500 mt-0.5">E-booki - podsumowanie przed zakupem</p>
               </div>
               <button
                 ref={closeBtnRef}
@@ -112,7 +112,7 @@ export function CartDrawer({ open, onClose }: Props) {
                   </div>
                   <p className="text-[#e4e4e7] font-medium mb-1">Koszyk jest pusty</p>
                   <p className="text-sm text-zinc-500 mb-6 max-w-xs">
-                    Dodaj e-booki na stronie E-booki — wrócimy tu z podsumowaniem i ceną.
+                    Dodaj e-booki na stronie E-booki - wrócimy tu z podsumowaniem i ceną.
                   </p>
                   <Link
                     href="/e-booki"

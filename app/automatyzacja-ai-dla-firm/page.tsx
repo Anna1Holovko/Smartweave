@@ -78,13 +78,13 @@ export default function AutomatyzacjaAiDlaFirmPage() {
                   <Link href="/uslugi/automatyzacja" className="text-[#d8f17b] hover:underline">
                     Automatyzacja procesów biznesowych
                   </Link>{' '}
-                  — pełny opis workflowów i integracji
+                  - pełny opis workflowów i integracji
                 </li>
                 <li>
                   <Link href="/ai-w-marketingu-i-sprzedazy" className="text-[#d8f17b] hover:underline">
                     AI w marketingu i sprzedaży
                   </Link>{' '}
-                  — leady, treści, obsługa zapytań
+                  - leady, treści, obsługa zapytań
                 </li>
               </ul>
             </div>

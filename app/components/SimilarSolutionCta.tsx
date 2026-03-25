@@ -8,7 +8,7 @@ type Props = {
 };
 
 /**
- * Bottom CTA used on realizacje subpages — symmetric padding top/bottom, consistent across routes.
+ * Bottom CTA used on realizacje subpages - symmetric padding top/bottom, consistent across routes.
  */
 export function SimilarSolutionCta({ headingId }: Props) {
   return (

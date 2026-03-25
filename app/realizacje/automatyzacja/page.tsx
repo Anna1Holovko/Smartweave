@@ -14,11 +14,11 @@ import { OpenAIIcon } from '../../components/OpenAIIcon';
 import { QuickAutomationCta } from '@/app/components/QuickAutomationCta';
 
 export const metadata: Metadata = {
-  title: 'Realizacje — Automatyzacja procesów',
+  title: 'Realizacje - Automatyzacja procesów',
   description:
-    'Case study: Asystent Obsługi Leadów AI — automatyzacja kwalifikacji leadów i workflow sprzedaży z wykorzystaniem AI. Make, Airtable, HubSpot, OpenAI.',
+    'Case study: Asystent Obsługi Leadów AI - automatyzacja kwalifikacji leadów i workflow sprzedaży z wykorzystaniem AI. Make, Airtable, HubSpot, OpenAI.',
   openGraph: {
-    title: 'Asystent Obsługi Leadów AI — Automatyzacja procesów | SmartWeave',
+    title: 'Asystent Obsługi Leadów AI - Automatyzacja procesów | SmartWeave',
     description: 'Automatyzacja kwalifikacji leadów i workflow sprzedaży z wykorzystaniem AI.',
     url: `${SITE_URL}/realizacje/automatyzacja`,
   },

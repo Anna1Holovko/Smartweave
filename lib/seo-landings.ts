@@ -39,7 +39,7 @@ export const SEO_LANDINGS: Record<SeoLandingId, SeoLandingDefinition> = {
     id: 'automatyzacja-ai-dla-firm',
     path: '/automatyzacja-ai-dla-firm',
     metadata: base(
-      'Automatyzacja AI dla firm — wdrożenia SmartWeave',
+      'Automatyzacja AI dla firm - wdrożenia SmartWeave',
       'Automatyzacja AI dla firm: workflowy, integracje i agenci AI. Oszczędność czasu, mniej błędów, skalowanie bez etatów. SmartWeave łączy branding z systemami.',
       '/automatyzacja-ai-dla-firm',
     ),
@@ -66,8 +66,8 @@ export const SEO_LANDINGS: Record<SeoLandingId, SeoLandingDefinition> = {
     id: 'automatyzacja-procesow-biznesowych',
     path: '/automatyzacja-procesow-biznesowych',
     metadata: base(
-      'Automatyzacja procesów biznesowych — integracje i workflowy',
-      'Automatyzacja procesów biznesowych: synchronizacja systemów, raporty, powiadomienia. Mniej ręcznej pracy, mniej błędów. SmartWeave — od analizy do wdrożenia.',
+      'Automatyzacja procesów biznesowych - integracje i workflowy',
+      'Automatyzacja procesów biznesowych: synchronizacja systemów, raporty, powiadomienia. Mniej ręcznej pracy, mniej błędów. SmartWeave - od analizy do wdrożenia.',
       '/automatyzacja-procesow-biznesowych',
     ),
     h1: 'Automatyzacja procesów biznesowych',
@@ -93,7 +93,7 @@ export const SEO_LANDINGS: Record<SeoLandingId, SeoLandingDefinition> = {
     id: 'ai-w-marketingu-i-sprzedazy',
     path: '/ai-w-marketingu-i-sprzedazy',
     metadata: base(
-      'AI w marketingu i sprzedaży — agenci, chatboty, leady',
+      'AI w marketingu i sprzedaży - agenci, chatboty, leady',
       'AI w marketingu i sprzedaży: szybsza pierwsza odpowiedź, kwalifikacja leadów, chatboty i agenci AI zintegrowani z CRM. SmartWeave.',
       '/ai-w-marketingu-i-sprzedazy',
     ),
@@ -120,7 +120,7 @@ export const SEO_LANDINGS: Record<SeoLandingId, SeoLandingDefinition> = {
     id: 'automatyzacja-ai-wroclaw',
     path: '/automatyzacja-ai-wroclaw',
     metadata: base(
-      'Automatyzacja AI Wrocław — wdrożenia dla firm | SmartWeave',
+      'Automatyzacja AI Wrocław - wdrożenia dla firm | SmartWeave',
       'Automatyzacja AI we Wrocławiu i online: procesy, integracje, agenci AI. Oszczędność czasu dla firm z Dolnego Śląska. Konsultacja zdalnie lub lokalnie.',
       '/automatyzacja-ai-wroclaw',
     ),
@@ -131,7 +131,7 @@ export const SEO_LANDINGS: Record<SeoLandingId, SeoLandingDefinition> = {
       {
         heading: 'Dlaczego lokalne słowo kluczowe ma sens przy B2B',
         paragraphs: [
-          'Część firm szuka wykonawcy „w zasięgu”. My wdrażamy głównie zdalnie — liczy się proces i systemy.',
+          'Część firm szuka wykonawcy „w zasięgu”. My wdrażamy głównie zdalnie - liczy się proces i systemy.',
         ],
       },
     ],
@@ -140,8 +140,8 @@ export const SEO_LANDINGS: Record<SeoLandingId, SeoLandingDefinition> = {
     id: 'automatyzacja-procesow-warszawa',
     path: '/automatyzacja-procesow-warszawa',
     metadata: base(
-      'Automatyzacja procesów Warszawa — firmy i zespoły | SmartWeave',
-      'Automatyzacja procesów biznesowych w Warszawie i zdalnie. Workflowy, integracje CRM, raporty. SmartWeave — branding + automatyzacja.',
+      'Automatyzacja procesów Warszawa - firmy i zespoły | SmartWeave',
+      'Automatyzacja procesów biznesowych w Warszawie i zdalnie. Workflowy, integracje CRM, raporty. SmartWeave - branding + automatyzacja.',
       '/automatyzacja-procesow-warszawa',
     ),
     h1: 'Automatyzacja procesów Warszawa',
@@ -151,7 +151,7 @@ export const SEO_LANDINGS: Record<SeoLandingId, SeoLandingDefinition> = {
       {
         heading: 'Co oferujemy firmom ze stolicy i okolic',
         paragraphs: [
-          'Workflowy, integracje, powiadomienia i raporty — z naciskiem na mierzalny efekt.',
+          'Workflowy, integracje, powiadomienia i raporty - z naciskiem na mierzalny efekt.',
         ],
       },
     ],
@@ -160,7 +160,7 @@ export const SEO_LANDINGS: Record<SeoLandingId, SeoLandingDefinition> = {
     id: 'ai-dla-firm-krakow',
     path: '/ai-dla-firm-krakow',
     metadata: base(
-      'AI dla firm Kraków — agenci, automatyzacja, strony | SmartWeave',
+      'AI dla firm Kraków - agenci, automatyzacja, strony | SmartWeave',
       'AI dla firm w Krakowie i online: agenci AI, chatboty, automatyzacja procesów, strony www. SmartWeave łączy design z wdrożeniami AI.',
       '/ai-dla-firm-krakow',
     ),

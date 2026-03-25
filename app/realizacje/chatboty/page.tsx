@@ -11,12 +11,12 @@ import { SimilarSolutionCta } from '../../components/SimilarSolutionCta';
 import { QuickAutomationCta } from '@/app/components/QuickAutomationCta';
 
 export const metadata: Metadata = {
-  title: 'Realizacje — Chatboty',
+  title: 'Realizacje - Chatboty',
   description:
-    'Case studies: chatboty i asystenci AI — strona w przygotowaniu. SmartWeave',
+    'Case studies: chatboty i asystenci AI - strona w przygotowaniu. SmartWeave',
   openGraph: {
     title: 'Chatboty | SmartWeave',
-    description: 'Realizacje chatbotów w przygotowaniu — wkrótce case studies',
+    description: 'Realizacje chatbotów w przygotowaniu - wkrótce case studies',
     url: `${SITE_URL}/realizacje/chatboty`,
   },
 };
@@ -54,13 +54,13 @@ export default function RealizacjeChatbotyPage() {
                 <p className="text-zinc-400 leading-relaxed">
                   Zbieramy i redagujemy case studies z chatbotów. Tymczasem zobacz{' '}
                   <Link href="/uslugi/chatboty" className="text-[#d8f17b] font-medium hover:underline">
-                    opis usługi — chatboty
+                    opis usługi - chatboty
                   </Link>
                   ,{' '}
                   <Link href="/realizacje" className="text-[#d8f17b] font-medium hover:underline">
                     pozostałe realizacje
                   </Link>{' '}
-                  lub napisz do nas — opowiemy o projektach na żywo.
+                  lub napisz do nas - opowiemy o projektach na żywo.
                 </p>
               </div>
             </article>

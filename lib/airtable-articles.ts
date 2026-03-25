@@ -4,7 +4,7 @@
  * Fetches from: GET https://api.airtable.com/v0/{BLOG_BASE_ID}/articles
  * Required env: AIRTABLE_BLOG_BASE_ID (blog base; contact form uses AIRTABLE_BASE_ID)
  * Token: AIRTABLE_BLOG_API_KEY or AIRTABLE_API_KEY / AIRTABLE_ACCESS_TOKEN (same key can access both bases)
- * Optional: AIRTABLE_ARTICLES_TABLE_ID — table name/ID (default: "articles")
+ * Optional: AIRTABLE_ARTICLES_TABLE_ID - table name/ID (default: "articles")
  *
  * Only records with status = "published" are returned.
  * Results are cached in memory for 5 minutes.

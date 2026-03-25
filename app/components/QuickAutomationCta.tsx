@@ -15,7 +15,7 @@ type Topic =
   | 'ebooki';
 
 type Props = {
-  /** e.g. on subpages — scroll to #contact on home */
+  /** e.g. on subpages - scroll to #contact on home */
   contactHref?: string;
   topic?: Topic;
   title?: string;
@@ -26,7 +26,7 @@ type Props = {
 };
 
 /**
- * Conversion strip: time savings, cost reduction, scale — ties to AI/automation without replacing main CTAs.
+ * Conversion strip: time savings, cost reduction, scale - ties to AI/automation without replacing main CTAs.
  */
 export function QuickAutomationCta({
   contactHref = '/#contact',
@@ -59,7 +59,7 @@ export function QuickAutomationCta({
       title: 'Zobacz, co możesz zautomatyzować w 15 minut',
       description: (
         <>
-          Bierzemy jeden proces i pokazujemy, jak przenieść go do workflowu (Make/n8n/API) — bez ręcznego przepisywania danych.
+          Bierzemy jeden proces i pokazujemy, jak przenieść go do workflowu (Make/n8n/API) - bez ręcznego przepisywania danych.
         </>
       ),
       bullets: ['mniej ręcznej pracy', 'mniej błędów', 'szybszy przepływ informacji'],
@@ -68,7 +68,7 @@ export function QuickAutomationCta({
       title: 'Zobacz, gdzie agent AI zdejmie rutynę',
       description: (
         <>
-          W 15 minut wskażemy miejsca na pierwszy odzew, kwalifikację lub pracę na dokumentach — i gdzie potrzebna jest integracja z
+          W 15 minut wskażemy miejsca na pierwszy odzew, kwalifikację lub pracę na dokumentach - i gdzie potrzebna jest integracja z
           CRM.
         </>
       ),
@@ -78,7 +78,7 @@ export function QuickAutomationCta({
       title: 'Zobacz, jak chatbot zbierze leady w 15 minut',
       description: (
         <>
-          Podpowiemy, jak domknąć FAQ, zbieranie danych i przekazanie do człowieka — i jak to spiąć z CRM.
+          Podpowiemy, jak domknąć FAQ, zbieranie danych i przekazanie do człowieka - i jak to spiąć z CRM.
         </>
       ),
       bullets: ['dostępność 24/7', 'mniej powtarzalnych pytań', 'leady w systemie'],
@@ -87,7 +87,7 @@ export function QuickAutomationCta({
       title: 'Zobacz, co strona może automatyzować',
       description: (
         <>
-          W 15 minut pokażemy, jak strona może zbierać leady i odpalać procesy w tle (CRM, follow-upy, raporty) — gotowe na AI.
+          W 15 minut pokażemy, jak strona może zbierać leady i odpalać procesy w tle (CRM, follow-upy, raporty) - gotowe na AI.
         </>
       ),
       bullets: ['więcej leadów', 'szybszy follow-up', 'mniej ręcznych kroków'],
@@ -123,7 +123,7 @@ export function QuickAutomationCta({
       title: 'Zobacz, co możesz zautomatyzować w 15 minut',
       description: (
         <>
-          Podaj przykład z Twojej firmy — podpowiemy pierwszy proces do pilota i kolejne kroki wdrożenia.
+          Podaj przykład z Twojej firmy - podpowiemy pierwszy proces do pilota i kolejne kroki wdrożenia.
         </>
       ),
       bullets: ['szybki start (pilot)', 'mierzalny efekt', 'rozwój krok po kroku'],
@@ -132,7 +132,7 @@ export function QuickAutomationCta({
       title: 'Zobacz, co możesz zautomatyzować w 15 minut',
       description: (
         <>
-          Jeśli chcesz przełożyć wiedzę z artykułu na działający proces — wskażemy pierwszy scenariusz do wdrożenia.
+          Jeśli chcesz przełożyć wiedzę z artykułu na działający proces - wskażemy pierwszy scenariusz do wdrożenia.
         </>
       ),
       bullets: ['konkret zamiast teorii', 'pierwszy proces do pilota', 'szybkie ROI w czasie zespołu'],
@@ -141,7 +141,7 @@ export function QuickAutomationCta({
       title: 'Zobacz, co możesz zautomatyzować w 15 minut',
       description: (
         <>
-          Wskażemy procesy, które najszybciej oddadzą czas zespołowi — i jak je spiąć z narzędziami, których już używacie.
+          Wskażemy procesy, które najszybciej oddadzą czas zespołowi - i jak je spiąć z narzędziami, których już używacie.
         </>
       ),
       bullets: ['oszczędność czasu', 'mniej błędów', 'skalowanie bez etatów'],
@@ -153,7 +153,7 @@ export function QuickAutomationCta({
   const finalDescription = description ?? copy.description;
   const finalBullets = bullets ?? copy.bullets;
   const finalSecondaryHref = secondaryHref ?? '/automatyzacja-ai-dla-firm';
-  const finalSecondaryLabel = secondaryLabel ?? 'Automatyzacja AI dla firm — przegląd oferty';
+  const finalSecondaryLabel = secondaryLabel ?? 'Automatyzacja AI dla firm - przegląd oferty';
 
   return (
     <section
