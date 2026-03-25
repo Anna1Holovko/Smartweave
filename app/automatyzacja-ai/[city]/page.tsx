@@ -57,31 +57,28 @@ export default async function AutomatyzacjaAiCityPage({
               badge="Lokalnie"
               badgeVariant="accent"
               title={`Automatyzacja AI dla firm ${row.phraseLocative}`}
-              description={`${row.localIntro} Działamy też zdalnie z całą Polską — miasto pomaga dopasować kontekst do Twojej firmy.`}
+              description={`${row.localIntro} Działamy też zdalnie w całej Polsce.`}
               className={INTRO_MB_CLASS}
             />
 
             <div className="max-w-[80ch] mx-auto space-y-6 text-zinc-400 leading-relaxed">
               <p>
-                Szukasz{' '}
-                <strong className="text-zinc-300">automatyzacji procesów</strong> z elementami AI (kwalifikacja leadów, dokumenty,
-                powtarzalna komunikacja)? Zaczynamy od mapy procesów i tego, co da się zamknąć w integracjach, a gdzie warto
-                dołożyć{' '}
+                Szukasz automatyzacji procesów z elementami AI? Zaczynamy od mapy procesu i dobieramy integracje oraz{' '}
                 <Link href="/uslugi/agenci-ai" className="text-[#d8f17b] hover:underline">
                   agentów AI
                 </Link>
                 .
               </p>
               <p>
-                Jednocześnie dbamy o to, by komunikacja i materiały były spójne z{' '}
+                Dbamy też o spójność komunikacji z{' '}
                 <Link href="/uslugi/branding" className="text-[#d8f17b] hover:underline">
                   identyfikacją wizualną
                 </Link>{' '}
-                — to część tego samego ekosystemu co{' '}
+                oraz{' '}
                 <Link href="/uslugi/strony" className="text-[#d8f17b] hover:underline">
                   strona www
                 </Link>{' '}
-                i kampanie.
+                .
               </p>
               <p>
                 <Link href="/automatyzacja-ai-dla-firm" className="text-[#d8f17b] hover:underline font-medium">

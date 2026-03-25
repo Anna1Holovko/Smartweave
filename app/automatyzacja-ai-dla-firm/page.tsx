@@ -39,17 +39,15 @@ export default function AutomatyzacjaAiDlaFirmPage() {
               badge="Automatyzacja AI"
               badgeVariant="accent"
               title={title}
-              description="Łączymy identyfikację wizualną z nowoczesnymi systemami: workflowy (Make, n8n), integracje API oraz agenci AI tam, gdzie potrzebny jest język naturalny i decyzje w czasie rzeczywistym."
+              description="Workflowy, integracje i agenci AI. Branding i strona www jako wsparcie spójności."
               className={INTRO_MB_CLASS}
             />
 
             <div className="max-w-[80ch] mx-auto space-y-6 text-zinc-400 leading-relaxed">
               <h2 className="text-xl font-bold text-[#e4e4e7]">Co rozumiemy przez „automatyzację AI”?</h2>
               <p>
-                <strong className="text-zinc-300">Automatyzacja procesów biznesowych</strong> to przewidywalne scenariusze: dane
-                płyną między systemami, powiadomienia wysyłają się same, raporty składają się bez ręcznego kopiowania.{' '}
-                <strong className="text-zinc-300">Warstwa AI</strong> dołączamy tam, gdzie trzeba rozumieć tekst, kwalifikować
-                zapytanie, wyciągnąć pola z dokumentu lub odpowiedzieć na FAQ — zawsze w granicach, które ustalicie z zespołem (
+                <strong className="text-zinc-300">Automatyzacja</strong> przenosi powtarzalne kroki do workflowów i integracji.{' '}
+                <strong className="text-zinc-300">AI</strong> dokładamy tam, gdzie trzeba rozumieć tekst lub dokumenty (
                 <Link href="/uslugi/agenci-ai" className="text-[#d8f17b] hover:underline">
                   agenci AI
                 </Link>
@@ -60,11 +58,11 @@ export default function AutomatyzacjaAiDlaFirmPage() {
                 ).
               </p>
               <p>
-                Dzięki temu{' '}
+                Dzięki temu komunikacja pozostaje spójna z{' '}
                 <Link href="/uslugi/branding" className="text-[#d8f17b] hover:underline">
-                  branding
-                </Link>{' '}
-                i komunikacja nie rozjadają się z technologią — procesy i treści trzymają jeden standard marki.
+                  brandingiem
+                </Link>
+                .
               </p>
 
               <h2 className="text-xl font-bold text-[#e4e4e7] pt-4">Dla kogo?</h2>

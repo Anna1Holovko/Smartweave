@@ -21,8 +21,7 @@ export function QuickAutomationCta({ contactHref = '/#contact' }: Props) {
           Zobacz, co możesz zautomatyzować w 15 minut
         </h2>
         <p className="text-zinc-400 text-sm sm:text-base max-w-[65ch] mx-auto mb-6 leading-relaxed">
-          Krótka rozmowa wystarczy, żeby wskazać powtarzalne kroki w mailach, formularzach, CRM i raportach. Oszczędzasz czas,
-          obniżasz koszty rutyny i przygotowujesz firmę do skalowania — od{' '}
+          W 15 minut wskażemy powtarzalne kroki w mailach, formularzach, CRM i raportach. Od{' '}
           <Link href="/uslugi/automatyzacja" className="text-[#d8f17b] hover:underline font-medium">
             automatyzacji procesów
           </Link>{' '}
@@ -30,7 +29,7 @@ export function QuickAutomationCta({ contactHref = '/#contact' }: Props) {
           <Link href="/uslugi/agenci-ai" className="text-[#d8f17b] hover:underline font-medium">
             agentów AI
           </Link>
-          , zgodnie z waszym brandingiem i procesami.
+          .
         </p>
         <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs sm:text-sm text-zinc-500 mb-8">
           <li>oszczędność czasu zespołu</li>

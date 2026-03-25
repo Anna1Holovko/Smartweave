@@ -32,7 +32,7 @@ export function Footer() {
               Automatyzacja AI i procesów • Agenci AI • Strony www • Branding
             </p>
             <p className="text-xs sm:text-sm text-zinc-500 leading-relaxed mb-3 max-w-md">
-              Łączymy identyfikację wizualną z automatyzacją AI i nowoczesnymi systemami cyfrowymi.
+              Automatyzacja procesów + AI. Branding i strona www jako wsparcie.
             </p>
             <nav aria-label="Automatyzacja AI i marketing" className="flex flex-wrap gap-x-4 gap-y-2 text-xs sm:text-sm mb-4">
               <Link href="/automatyzacja-ai-dla-firm" className="text-zinc-500 hover:text-[#d8f17b] transition-colors">

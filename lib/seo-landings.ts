@@ -45,19 +45,19 @@ export const SEO_LANDINGS: Record<SeoLandingId, SeoLandingDefinition> = {
     ),
     h1: 'Automatyzacja AI dla firm',
     lead:
-      'Łączymy identyfikację wizualną i doświadczenie projektowe z wdrożeniami AI oraz automatyzacją procesów. Dla właścicieli firm i zespołów operacyjnych oznacza to jedno: powtarzalna praca idzie do systemu, a ludzie skupiają się na relacjach, sprzedaży i rozwoju.',
+      'Workflowy, integracje i agenci AI. Branding i strona www jako wsparcie spójności i konwersji.',
     blocks: [
       {
         heading: 'Co rozumiemy przez automatyzację AI?',
         paragraphs: [
-          'Chodzi o zestaw narzędzi i procesów, w których sztuczna inteligencja wspiera lub przejmuje etapy wymagające języka naturalnego, klasyfikacji danych lub szybkiej reakcji — od pierwszej odpowiedzi klientowi po wyciąganie informacji z dokumentów. Równolegle stosujemy klasyczne automatyzacje (Make, n8n, API), gdzie reguły i integracje muszą być przewidywalne i audytowalne.',
-          'Dzięki temu możesz zacząć od jednego, mierzalnego procesu — np. formularz → CRM z kwalifikacją — i rozszerzać zakres, gdy widzisz efekt w czasie i kosztach.',
+          'Automatyzacja przenosi powtarzalne kroki do workflowów i integracji. AI dokładamy tam, gdzie trzeba rozumieć tekst lub dokumenty.',
+          'Zaczynamy od jednego procesu (pilot) i rozwijamy kolejne scenariusze.',
         ],
       },
       {
         heading: 'Dlaczego warto robić to z partnerem, który zna też branding?',
         paragraphs: [
-          'Komunikacja z klientem (strona, maile, chatbot) musi brzmieć jak Twoja marka. Automatyzacja AI bez spójnego tonu i design systemu generuje tarcie: technicznie działa, biznesowo osłabia zaufanie. W SmartWeave projektujemy ścieżki tak, by automatyzacja wspierała wizerunek, a nie go rozjeżdżała.',
+          'Bo komunikacja (strona, maile, chatbot) ma brzmieć jak Twoja marka. Spójne zasady skracają czas pracy i zwiększają zaufanie.',
         ],
       },
     ],
@@ -72,19 +72,19 @@ export const SEO_LANDINGS: Record<SeoLandingId, SeoLandingDefinition> = {
     ),
     h1: 'Automatyzacja procesów biznesowych',
     lead:
-      'Powtarzalne kroki — przenoszenie danych między arkuszami, CRM a pocztą, ręczne przypomnienia i raporty — kosztują czas i prowadzą do pomyłek. Projektujemy i wdrażamy automatyzację procesów biznesowych tak, by przepływ informacji był ciągły, a zespół widział efekt od pierwszego wdrożonego scenariusza.',
+      'Powtarzalne kroki kosztują czas i generują błędy. Zamieniamy je w workflowy i integracje, które działają w tle.',
     blocks: [
       {
         heading: 'Typowe obszary automatyzacji',
         paragraphs: [
-          'Formularze i leady, obiegi zatwierdzeń, faktury i powiadomienia, raporty zbiorcze z wielu źródeł, synchronizacja zamówień z narzędziami sprzedażowymi — to przykłady procesów, które dobrze się skalują, gdy opiszesz je raz, a potem powtarza system.',
-          'W razie potrzeby łączymy ten fundament z warstwą AI — np. wstępna kwalifikacja treści zgłoszenia czy ekstrakcja pól z załączników — zawsze w granicach, które ustalasz z zespołem.',
+          'Leady i CRM, obiegi, faktury, powiadomienia, raporty i synchronizacja danych.',
+          'AI dokładamy tam, gdzie potrzebny jest tekst/dokumenty (np. kwalifikacja, ekstrakcja pól).',
         ],
       },
       {
         heading: 'Jak zacząć',
         paragraphs: [
-          'Krótka rozmowa o tym, co dziś zajmuje najwięcej czasu, wystarczy, by wskazać pierwszy proces do automatyzacji. Proponujemy zakres, narzędzia i harmonogram; po uruchomieniu mierzysz czas i błędy, a my pomagamy rozszerzać automatyzację dalej.',
+          'Wybieramy jeden proces do pilota. Potem rozwijamy kolejne scenariusze.',
         ],
       },
     ],
@@ -99,19 +99,19 @@ export const SEO_LANDINGS: Record<SeoLandingId, SeoLandingDefinition> = {
     ),
     h1: 'AI w marketingu i sprzedaży',
     lead:
-      'Marketing i sprzedaż to miejsca, gdzie opóźnienie w odpowiedzi albo ręczne przekazywanie leadów bezpośrednio kosztuje konwersję. Agenci AI i inteligentne chatboty — spięte z Twoją ofertą i CRM — skracają czas reakcji i porządkują dane, które i tak musiałyby trafić do handlowców.',
+      'Szybszy odzew, leady w CRM i mniej ręcznej pracy. Agenci AI i chatboty działają 24/7.',
     blocks: [
       {
         heading: 'Co można wdrożyć praktycznie',
         paragraphs: [
-          'Pierwsza odpowiedź na stronie lub w mailu, baza FAQ zsynchronizowana z materiałami sprzedażowymi, scenariusze zbierania informacji przed rozmową z handlowcem, przekazywanie „gotowego” leadu do CRM — to elementy, które realnie odciążają zespół i podnoszą przepustowość bez zatrudniania kolejnych osób na pierwszą linię.',
-          'Warstwa wizualna i komunikacji (tone of voice) powinna być spójna z identyfikacją marki — dlatego przy tych wdrożeniach korzystamy z tego samego doświadczenia, co przy projektach brandingowych i stronach www.',
+          'Pierwsza odpowiedź, FAQ, kwalifikacja i przekazanie leada do CRM.',
+          'Branding trzyma spójny ton i komunikację.',
         ],
       },
       {
         heading: 'Powiązane usługi',
         paragraphs: [
-          'Szczegóły techniczne i przykłady znajdziesz na stronach: agenci AI, chatboty oraz automatyzacja procesów. Możemy też połączyć kilka elementów w jeden przepływ — od pierwszego kontaktu klienta po zapis w systemie.',
+          'Zobacz też: agenci AI, chatboty i automatyzacja procesów.',
         ],
       },
     ],
@@ -126,12 +126,12 @@ export const SEO_LANDINGS: Record<SeoLandingId, SeoLandingDefinition> = {
     ),
     h1: 'Automatyzacja AI Wrocław',
     lead:
-      'Obsługujemy firmy z Wrocławia i całej Polski — większość wdrożeń prowadzimy zdalnie, z pełnym onboardingiem i dokumentacją. Jeśli szukasz partnera od automatyzacji AI we Wrocławiu lub okolicach, zaczynamy od krótkiej analizy procesów i jednego pilotażowego scenariusza.',
+      'Wrocław i cała Polska (zdalnie). Zaczynamy od krótkiej analizy i pilota.',
     blocks: [
       {
         heading: 'Dlaczego lokalne słowo kluczowe ma sens przy B2B',
         paragraphs: [
-          'Wiele firm wciąż wpisuje w wyszukiwarkę miasto, żeby znaleźć wykonawcę „w zasięgu”. Dla nas ważniejsza jest jednak zdolność do pracy na Twoich systemach i języku biznesu — stąd oferta jest ta sama co w całej Polsce, a spotkania możliwe tam, gdzie ma to sens operacyjny.',
+          'Część firm szuka wykonawcy „w zasięgu”. My wdrażamy głównie zdalnie — liczy się proces i systemy.',
         ],
       },
     ],
@@ -146,12 +146,12 @@ export const SEO_LANDINGS: Record<SeoLandingId, SeoLandingDefinition> = {
     ),
     h1: 'Automatyzacja procesów Warszawa',
     lead:
-      'Zespoły w Warszawie i centrali często mają największy wolumen powtarzalnych operacji — stąd największy zwrot z automatyzacji procesów biznesowych. Pomagamy zmapować przepływy, wybrać narzędzia i wdrożyć pierwszy proces, potem skalować na kolejne działy.',
+      'Warszawa i okolice: automatyzujemy powtarzalne procesy. Start od pilota, potem skalowanie.',
     blocks: [
       {
         heading: 'Co oferujemy firmom ze stolicy i okolic',
         paragraphs: [
-          'Integracje między narzędziami, automatyczne powiadomienia i raporty, scenariusze sprzedażowe i operacyjne — zawsze z naciskiem na mierzalny efekt. Pracujemy zdalnie z pełną transparentnością postępu; konsultacje możemy dopasować do Twojego trybu pracy.',
+          'Workflowy, integracje, powiadomienia i raporty — z naciskiem na mierzalny efekt.',
         ],
       },
     ],
@@ -166,12 +166,12 @@ export const SEO_LANDINGS: Record<SeoLandingId, SeoLandingDefinition> = {
     ),
     h1: 'AI dla firm Kraków',
     lead:
-      'Kraków to silny ośrodek biznesu i technologii — firmy stąd często łączą rozwój produktu z potrzebą porządnej komunikacji wizualnej i automatyzacji zaplecza. Dostarczamy AI dla firm (agenci, automatyzacja, integracje) oraz spójny branding i strony, żeby całość działała jak jeden system.',
+      'Kraków i cała Polska: agenci AI, automatyzacja i integracje. Branding i strona www jako wsparcie.',
     blocks: [
       {
         heading: 'Jak zacząć współpracę',
         paragraphs: [
-          'Napisz lub umów krótką rozmowę — w 15–30 minut jesteśmy w stanie wskazać obszary, w których AI i automatyzacja najszybciej zwrócą się w czasie zespołu. Następnie proponujemy konkretny pierwszy krok wdrożeniowy.',
+          'Napisz lub umów krótką rozmowę. Wskażemy pierwszy proces do pilota.',
         ],
       },
     ],

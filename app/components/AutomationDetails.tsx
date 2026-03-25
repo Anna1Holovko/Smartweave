@@ -30,11 +30,11 @@ export function AutomationDetails() {
             Jak działamy
           </motion.div>
           <motion.h2 id="how-we-work-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#e4e4e7] mb-4 sm:mb-6 px-4">
-            <span className="text-[#e4e4e7]">Branding, automatyzacja AI</span>{' '}
-            <span className="text-[#d8f17b]">i strony pod Twój biznes</span>
+            <span className="text-[#e4e4e7]">Automatyzacja i AI,</span>{' '}
+            <span className="text-[#d8f17b]">które działają za Ciebie</span>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto px-2">
-            Od identyfikacji wizualnej po workflowy i narzędzia AI — projektujemy spójny ekosystem, który oszczędza czas i wspiera skalowanie.
+            Projektujemy workflowy, integracje i agentów AI, które zdejmują z zespołu rutynę. Branding i strona www domykają spójność komunikacji i konwersję.
           </motion.p>
         </div>
 

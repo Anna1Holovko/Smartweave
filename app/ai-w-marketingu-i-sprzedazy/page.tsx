@@ -39,7 +39,7 @@ export default function AiMarketingSprzedazPage() {
               badge="Marketing i sprzedaż"
               badgeVariant="accent"
               title={title}
-              description="Od pierwszej odpowiedzi na zapytanie po przepływ leada w CRM — projektujemy rozwiązania, które skracają czas reakcji, redukują koszt obsługi rutyny i pomagają skalować pipeline bez utraty spójności marki."
+              description="Szybszy odzew, leady w CRM i mniej ręcznej pracy — bez utraty spójności marki."
               className={INTRO_MB_CLASS}
             />
 
@@ -71,8 +71,7 @@ export default function AiMarketingSprzedazPage() {
               <div>
                 <h2 className="text-xl font-bold text-[#e4e4e7] mb-3">Branding nie jest „osobnym tematem”</h2>
                 <p>
-                  Ton, zasady wizualne i obietnice marki muszą być takie same w reklamie, na stronie i w odpowiedziach bota. Dlatego
-                  często zaczynamy od lub równolegle prowadzimy{' '}
+                  Ton i zasady marki muszą być spójne w reklamie, na stronie i w odpowiedziach bota. Dlatego często prowadzimy{' '}
                   <Link href="/uslugi/branding" className="text-[#d8f17b] hover:underline">
                     identyfikację wizualną i branding
                   </Link>
@@ -80,7 +79,7 @@ export default function AiMarketingSprzedazPage() {
                   <Link href="/uslugi/strony" className="text-[#d8f17b] hover:underline">
                     stronę www
                   </Link>{' '}
-                  traktujemy jako centrum konwersji i zaufania.
+                  traktujemy jako centrum konwersji.
                 </p>
               </div>
 
