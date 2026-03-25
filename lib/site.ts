@@ -12,16 +12,16 @@ export const SITE_LOGO_URL = `${SITE_URL}/assets/smartweave-logo.png`;
  * Meta title for default page. Google typically shows ~50-60 chars; keep under 60 for full display.
  */
 export const META_TITLE =
-  'SmartWeave - Automatyzacja AI, branding i strony www dla firm';
+  'SmartWeave - Automatyzacja procesów, branding i strony www dla firm';
 
 /**
  * Meta description. Google shows ~155-158 chars; keep in 150-158 for full snippet.
  */
 export const META_DESCRIPTION =
-  'Automatyzacja AI i procesów biznesowych, agenci AI, strony www oraz identyfikacja wizualna. Łączymy branding z inteligentnymi systemami.';
+  'Automatyzacja procesów biznesowych, agenci AI, strony www oraz identyfikacja wizualna. Łączymy branding z inteligentnymi systemami.';
 
 /** Open Graph / Twitter title (can be same or variant) */
-export const OG_TITLE = 'SmartWeave | Automatyzacja AI, branding i systemy cyfrowe dla firm';
+export const OG_TITLE = 'SmartWeave | Automatyzacja procesów, branding i systemy cyfrowe dla firm';
 
 /** Open Graph / Twitter description */
 export const OG_DESCRIPTION =
@@ -29,7 +29,7 @@ export const OG_DESCRIPTION =
 
 /** Kolejność usług wszędzie: marketing, SEO, meta, OG, stopka, bio. */
 export const SERVICES_ORDER_LABEL =
-  'Automatyzacja AI i procesów • Agenci AI • Strony www • Branding • Chatboty • Aplikacje webowe';
+  'Automatyzacja procesów • Agenci AI • Strony www • Branding • Chatboty • Aplikacje webowe';
 
 /** Calendly booking URL. Override with NEXT_PUBLIC_CALENDLY_URL in env. */
 export const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? 'https://calendly.com/hello-smartweave/30min';

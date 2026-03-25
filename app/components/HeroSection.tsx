@@ -40,7 +40,7 @@ export function HeroSection() {
 
   return (
     <section
-      aria-label="SmartWeave - Automatyzacja AI, systemy cyfrowe i branding"
+      aria-label="SmartWeave - Automatyzacja procesów, AI, systemy cyfrowe i branding"
       className="relative min-h-[100dvh] min-h-screen flex items-center justify-center overflow-hidden px-4 pt-20 pb-16 sm:px-6 sm:pt-28 sm:pb-24 lg:pt-24 lg:pb-20 lg:px-8 xl:pt-20 xl:pb-16 xl:px-10 2xl:px-12 3xl:px-16"
     >
       {/* Background */}
@@ -57,7 +57,7 @@ export function HeroSection() {
         {/* Badge */}
         <p className="inline-flex items-center justify-center gap-2 mb-8 text-xs sm:text-sm font-medium uppercase tracking-wider text-[#d8f17b]">
           <BrandMarkIcon />
-          Automatyzacja AI · Systemy cyfrowe · Branding
+          Automatyzacja procesów · AI · Systemy cyfrowe · Branding
         </p>
 
         {/* Headline */}
@@ -94,7 +94,7 @@ export function HeroSection() {
           Automatyzujemy to, co powtarzalne - Ty weryfikujesz rezultaty. Tworzymy strony internetowe gotowe na AI, abyś mógł skupić się na tym, co naprawdę ważne.
         </p>
         <p className="text-zinc-500 text-sm sm:text-base mx-auto mt-3 mb-10 px-2" aria-hidden="true">
-          Automatyzacja AI i procesów • Agenci AI • Branding • Strony www
+          Automatyzacja procesów • Agenci AI • Branding • Strony www
         </p>
 
         {/* Buttons */}

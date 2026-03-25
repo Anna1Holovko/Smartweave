@@ -49,7 +49,7 @@ export function BrandingAiBridgeSection() {
           <p className="text-sm text-zinc-500">
             Powiązane:{' '}
             <Link href="/automatyzacja-ai-dla-firm" className="text-[#d8f17b]/90 hover:underline">
-              Automatyzacja AI dla firm
+              Automatyzacja procesów dla firm
             </Link>
             {' · '}
             <Link href="/ai-w-marketingu-i-sprzedazy" className="text-[#d8f17b]/90 hover:underline">

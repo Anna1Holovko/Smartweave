@@ -23,7 +23,7 @@ export async function generateMetadata({
   const { city } = await params;
   const row = AUTOMATYZACJA_AI_CITIES.find((c) => c.slug === city);
   if (!row) return { title: 'SmartWeave' };
-  const title = `Automatyzacja AI dla firm ${row.name}`;
+  const title = `Automatyzacja procesów dla firm ${row.name}`;
   const description = row.metaDescription;
   const url = `${SITE_URL}/automatyzacja-ai/${city}`;
   return {
@@ -53,10 +53,10 @@ export default async function AutomatyzacjaAiCityPage({
           <div className={CONTAINER_CLASS}>
             <PageIntro
               backHref="/automatyzacja-ai-dla-firm"
-              backLabel="Automatyzacja AI dla firm"
+              backLabel="Automatyzacja procesów dla firm"
               badge="Lokalnie"
               badgeVariant="accent"
-              title={`Automatyzacja AI dla firm ${row.phraseLocative}`}
+              title={`Automatyzacja procesów dla firm ${row.phraseLocative}`}
               description={`${row.localIntro} Działamy też zdalnie w całej Polsce.`}
               className={INTRO_MB_CLASS}
             />

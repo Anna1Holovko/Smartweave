@@ -154,7 +154,7 @@ export function QuickAutomationCta({
   const finalDescription = description ?? copy.description;
   const finalBullets = bullets ?? copy.bullets;
   const finalSecondaryHref = secondaryHref ?? '/automatyzacja-ai-dla-firm';
-  const finalSecondaryLabel = secondaryLabel ?? 'Automatyzacja AI dla firm - przegląd oferty';
+  const finalSecondaryLabel = secondaryLabel ?? 'Automatyzacja procesów dla firm - przegląd oferty';
 
   return (
     <section

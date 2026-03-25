@@ -29,14 +29,14 @@ export function Footer() {
             />
 
             <p className="text-sm sm:text-base text-zinc-400 leading-relaxed mb-3">
-              Automatyzacja AI i procesów • Agenci AI • Strony www • Branding
+              Automatyzacja procesów • Agenci AI • Strony www • Branding
             </p>
             <p className="text-xs sm:text-sm text-zinc-500 leading-relaxed mb-3 max-w-md">
               Automatyzacja procesów + AI. Branding i strona www jako wsparcie.
             </p>
-            <nav aria-label="Automatyzacja AI i marketing" className="flex flex-wrap gap-x-4 gap-y-2 text-xs sm:text-sm mb-4">
+            <nav aria-label="Automatyzacja procesów i marketing" className="flex flex-wrap gap-x-4 gap-y-2 text-xs sm:text-sm mb-4">
               <Link href="/automatyzacja-ai-dla-firm" className="text-zinc-500 hover:text-[#d8f17b] transition-colors">
-                Automatyzacja AI dla firm
+                Automatyzacja procesów dla firm
               </Link>
               <Link href="/ai-w-marketingu-i-sprzedazy" className="text-zinc-500 hover:text-[#d8f17b] transition-colors">
                 AI w marketingu i sprzedaży

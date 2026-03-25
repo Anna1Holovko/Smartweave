@@ -39,11 +39,11 @@ export const SEO_LANDINGS: Record<SeoLandingId, SeoLandingDefinition> = {
     id: 'automatyzacja-ai-dla-firm',
     path: '/automatyzacja-ai-dla-firm',
     metadata: base(
-      'Automatyzacja AI dla firm - wdrożenia SmartWeave',
-      'Automatyzacja AI dla firm: workflowy, integracje i agenci AI. Oszczędność czasu, mniej błędów, skalowanie bez etatów. SmartWeave łączy branding z systemami.',
+      'Automatyzacja procesów dla firm - wdrożenia SmartWeave',
+      'Automatyzacja procesów dla firm: workflowy, integracje i agenci AI. Oszczędność czasu, mniej błędów, skalowanie bez etatów. SmartWeave łączy branding z systemami.',
       '/automatyzacja-ai-dla-firm',
     ),
-    h1: 'Automatyzacja AI dla firm',
+    h1: 'Automatyzacja procesów dla firm',
     lead:
       'Workflowy, integracje i agenci AI. Branding i strona www jako wsparcie spójności i konwersji.',
     blocks: [
@@ -120,11 +120,11 @@ export const SEO_LANDINGS: Record<SeoLandingId, SeoLandingDefinition> = {
     id: 'automatyzacja-ai-wroclaw',
     path: '/automatyzacja-ai-wroclaw',
     metadata: base(
-      'Automatyzacja AI Wrocław - wdrożenia dla firm | SmartWeave',
-      'Automatyzacja AI we Wrocławiu i online: procesy, integracje, agenci AI. Oszczędność czasu dla firm z Dolnego Śląska. Konsultacja zdalnie lub lokalnie.',
+      'Automatyzacja procesów Wrocław - wdrożenia dla firm | SmartWeave',
+      'Automatyzacja procesów we Wrocławiu i online: procesy, integracje, agenci AI. Oszczędność czasu dla firm z Dolnego Śląska. Konsultacja zdalnie lub lokalnie.',
       '/automatyzacja-ai-wroclaw',
     ),
-    h1: 'Automatyzacja AI Wrocław',
+    h1: 'Automatyzacja procesów Wrocław',
     lead:
       'Wrocław i cała Polska (zdalnie). Zaczynamy od krótkiej analizy i pilota.',
     blocks: [

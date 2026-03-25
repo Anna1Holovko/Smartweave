@@ -9,7 +9,7 @@ import { Button } from '@/app/components/ui/Button';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 
-const title = 'Automatyzacja AI dla firm';
+const title = 'Automatyzacja procesów dla firm';
 const description =
   'Automatyzacja procesów biznesowych z wykorzystaniem AI: workflowy, integracje, agenci AI. SmartWeave łączy to z brandingiem i stronami www dla firm w całej Polsce.';
 
@@ -36,7 +36,7 @@ export default function AutomatyzacjaAiDlaFirmPage() {
             <PageIntro
               backHref="/uslugi"
               backLabel="Wszystkie usługi"
-              badge="Automatyzacja AI"
+              badge="Automatyzacja procesów"
               badgeVariant="accent"
               title={title}
               description="Workflowy, integracje i agenci AI. Branding i strona www jako wsparcie spójności."

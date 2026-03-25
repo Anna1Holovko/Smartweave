@@ -88,7 +88,7 @@ export default function AiMarketingSprzedazPage() {
                 <p>
                   Jeśli szukasz przeglądu automatyzacji i sztucznej inteligencji w całej firmie (nie tylko marketing), zobacz{' '}
                   <Link href="/automatyzacja-ai-dla-firm" className="text-[#d8f17b] hover:underline font-medium">
-                    Automatyzacja AI dla firm
+                    Automatyzacja procesów dla firm
                   </Link>
                   .
                 </p>
