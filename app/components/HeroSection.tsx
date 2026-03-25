@@ -54,12 +54,6 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl xl:max-w-5xl 2xl:max-w-6xl mx-auto">
-        {/* Badge */}
-        <p className="inline-flex items-center justify-center gap-2 mb-8 text-xs sm:text-sm font-medium uppercase tracking-wider text-[#d8f17b]">
-          <BrandMarkIcon />
-          Automatyzacja procesów · AI · Systemy cyfrowe · Branding
-        </p>
-
         {/* Headline */}
         <h1
           className="text-[#e4e4e7] font-bold tracking-tight leading-[1.1]"
@@ -94,7 +88,7 @@ export function HeroSection() {
           Automatyzujemy to, co powtarzalne - Ty weryfikujesz rezultaty. Tworzymy strony internetowe gotowe na AI, abyś mógł skupić się na tym, co naprawdę ważne.
         </p>
         <p className="text-zinc-500 text-sm sm:text-base mx-auto mt-3 mb-10 px-2" aria-hidden="true">
-          Automatyzacja procesów • Agenci AI • Branding • Strony www
+          Automatyzacja procesów · Agenci AI · Systemy cyfrowe · Branding · Strony www
         </p>
 
         {/* Buttons */}
