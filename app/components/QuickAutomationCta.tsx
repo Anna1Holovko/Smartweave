@@ -24,6 +24,8 @@ type Props = {
   bullets?: string[];
   secondaryHref?: string;
   secondaryLabel?: string;
+  tertiaryHref?: string;
+  tertiaryLabel?: string;
 };
 
 /**
@@ -37,6 +39,8 @@ export function QuickAutomationCta({
   bullets,
   secondaryHref,
   secondaryLabel,
+  tertiaryHref,
+  tertiaryLabel,
 }: Props) {
   const defaults: Record<Topic, { title: string; description: React.ReactNode; bullets: string[] }> = {
     default: {
@@ -155,6 +159,8 @@ export function QuickAutomationCta({
   const finalBullets = bullets ?? copy.bullets;
   const finalSecondaryHref = secondaryHref ?? '/automatyzacja-ai-dla-firm';
   const finalSecondaryLabel = secondaryLabel ?? 'Automatyzacja procesów dla firm - przegląd oferty';
+  const finalTertiaryHref = tertiaryHref;
+  const finalTertiaryLabel = tertiaryLabel;
 
   return (
     <section
@@ -190,6 +196,14 @@ export function QuickAutomationCta({
           >
             {finalSecondaryLabel}
           </Link>
+          {finalTertiaryHref && finalTertiaryLabel && (
+            <Link
+              href={finalTertiaryHref}
+              className="inline-flex items-center justify-center text-sm font-semibold text-[#d8f17b] hover:underline min-h-[44px] px-2"
+            >
+              {finalTertiaryLabel}
+            </Link>
+          )}
         </div>
       </div>
     </section>

@@ -85,6 +85,7 @@ export default async function UslugiSlugPage({
               : slug === 'aplikacje-webowe'
                 ? 'aplikacje-webowe'
                 : 'default';
+  const ctaDescription = `Krótko opowiedz o: ${service.title}. W 30 minut wskażemy najlepszy pierwszy krok i dopasujemy wdrożenie.`;
 
   return (
     <>
@@ -225,7 +226,15 @@ export default async function UslugiSlugPage({
           </div>
         </section>
 
-        <QuickAutomationCta topic={ctaTopic} />
+        <QuickAutomationCta
+          topic={ctaTopic}
+          title="Zainteresowała Cię ta usługa?"
+          description={ctaDescription}
+          secondaryHref="/uslugi"
+          secondaryLabel="Więcej usług"
+          tertiaryHref="/automatyzacja-ai-dla-firm"
+          tertiaryLabel="Automatyzacja procesów dla firm - przegląd oferty"
+        />
 
         <UslugiConsultationBlock
           variant="centered"
