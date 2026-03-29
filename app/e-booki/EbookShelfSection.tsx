@@ -25,7 +25,7 @@ function ShelfTile({ book, featured }: TileProps) {
     <>
       <div className="relative flex flex-col items-center">
         <div
-          className="group relative w-full max-w-[240px] mx-auto aspect-square cursor-pointer rounded-xl overflow-hidden bg-white shadow-[0_16px_48px_rgba(15,23,42,0.12),0_4px_12px_rgba(15,23,42,0.06)] ring-1 ring-black/[0.04]"
+          className="group relative w-full max-w-[240px] mx-auto aspect-square cursor-pointer rounded-xl overflow-hidden bg-transparent shadow-[0_20px_50px_rgba(0,0,0,0.45),0_4px_16px_rgba(0,0,0,0.25)] ring-1 ring-white/12"
           role="button"
           tabIndex={0}
           onClick={() => setDetailOpen(true)}
@@ -38,7 +38,7 @@ function ShelfTile({ book, featured }: TileProps) {
           aria-label={`${book.title} - otwórz szczegóły`}
         >
           {featured && (
-            <div className="absolute left-3 top-3 z-20 flex h-16 w-16 items-center justify-center rounded-full border border-white/40 bg-white/90 text-[0.55rem] font-bold uppercase leading-tight text-zinc-800 shadow-md backdrop-blur-sm">
+            <div className="absolute left-3 top-3 z-20 flex h-16 w-16 items-center justify-center rounded-full border border-black/15 bg-[#d8f17b] text-[0.55rem] font-bold uppercase leading-tight text-zinc-900 shadow-lg shadow-black/25">
               <span className="px-1.5 text-center">Nowa pozycja</span>
             </div>
           )}
@@ -106,13 +106,18 @@ function ShelfRow({ books, shelfIndex }: { books: Ebook[]; shelfIndex: number })
         ))}
       </div>
 
-      <div
-        className="relative mx-1 mt-8 h-3.5 rounded-sm bg-white shadow-[0_12px_32px_rgba(15,23,42,0.14)] ring-1 ring-zinc-200/90 sm:mx-4 sm:h-4"
-        aria-hidden
-      />
+      <div className="relative mx-1 mt-8 sm:mx-4" aria-hidden>
+        <div
+          className="h-3.5 rounded-sm bg-[#d8f17b] shadow-[0_14px_32px_rgba(0,0,0,0.5),0_6px_16px_rgba(216,241,123,0.12)] ring-1 ring-black/25 sm:h-4"
+        />
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-2 rounded-b-sm bg-gradient-to-b from-black/20 to-transparent"
+          aria-hidden
+        />
+      </div>
 
       <div
-        className={`${gridClass} mt-10 border-t border-zinc-300/70 pt-8`}
+        className={`${gridClass} mt-10 border-t border-white/10 pt-8`}
         role="list"
         aria-label="Spis publikacji"
       >
@@ -121,8 +126,8 @@ function ShelfRow({ books, shelfIndex }: { books: Ebook[]; shelfIndex: number })
             <p className="text-[0.7rem] font-medium uppercase tracking-[0.14em] text-zinc-500 sm:text-xs">
               {book.editionLabel ?? 'SmartWeave'}
             </p>
-            <p className="mt-1.5 text-sm font-semibold leading-snug text-zinc-900 sm:text-base">{book.title}</p>
-            <p className="mt-1 text-xs text-zinc-600">{book.price}</p>
+            <p className="mt-1.5 text-sm font-semibold leading-snug text-[#e4e4e7] sm:text-base">{book.title}</p>
+            <p className="mt-1 text-xs text-zinc-400">{book.price}</p>
           </div>
         ))}
       </div>
@@ -139,32 +144,22 @@ export function EbookShelfSection({ books }: Props) {
 
   return (
     <div className="relative mt-6 sm:mt-10">
-      <div
-        className="relative overflow-hidden rounded-[1.75rem] border border-zinc-200/80 bg-zinc-100 px-4 py-12 shadow-[0_24px_80px_rgba(0,0,0,0.2)] sm:px-8 sm:py-16 lg:px-12 lg:py-20"
-        style={{
-          backgroundImage:
-            'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,255,255,0.85), transparent), linear-gradient(180deg, #f4f4f5 0%, #e4e4e7 100%)',
-        }}
-      >
-        <div className="pointer-events-none absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2240%22%20height=%2240%22%20viewBox=%220%200%2040%2040%22%3E%3Cg%20fill=%22%23000%22%20fill-opacity=%220.02%22%3E%3Cpath%20d=%22M0%2040h40v1H0zM0%200h1v40H0z%22/%3E%3C/g%3E%3C/svg%3E')]" />
+      <div className="relative mx-auto max-w-5xl px-0 py-2 sm:py-4">
+        <header className="mb-12 text-center sm:mb-16">
+          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-[#d8f17b]/90 sm:text-xs">
+            Katalog cyfrowy
+          </p>
+          <h2 className="mt-3 text-2xl font-bold tracking-tight text-[#e4e4e7] sm:text-3xl md:text-4xl">
+            Półka z publikacjami
+          </h2>
+          <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-zinc-400 sm:text-base">
+            Okładki jak albumy - wybierz pozycję, zobacz opis albo dodaj do koszyka.
+          </p>
+        </header>
 
-        <div className="relative mx-auto max-w-5xl">
-          <header className="mb-12 text-center sm:mb-16">
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-zinc-500 sm:text-xs">
-              Katalog cyfrowy
-            </p>
-            <h2 className="mt-3 text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl">
-              Półka z publikacjami
-            </h2>
-            <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-zinc-600 sm:text-base">
-              Okładki jak albumy - wybierz pozycję, zobacz opis albo dodaj do koszyka.
-            </p>
-          </header>
-
-          {rows.map((row, idx) => (
-            <ShelfRow key={idx} books={row} shelfIndex={idx} />
-          ))}
-        </div>
+        {rows.map((row, idx) => (
+          <ShelfRow key={idx} books={row} shelfIndex={idx} />
+        ))}
       </div>
     </div>
   );
