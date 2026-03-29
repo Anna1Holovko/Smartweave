@@ -35,7 +35,7 @@ function ShelfTile({ book, featured, imagePriority, onOpenDetails, onAddToCart }
   return (
     <div className="relative z-10 flex flex-col items-center">
       <div
-        className="group relative w-full max-w-[240px] mx-auto aspect-square cursor-pointer rounded-xl overflow-hidden bg-transparent shadow-[0_24px_56px_rgba(0,0,0,0.5),0_8px_24px_rgba(216,241,123,0.08)] ring-1 ring-white/15"
+        className="group relative w-full max-w-[240px] mx-auto aspect-square cursor-pointer rounded-xl overflow-hidden bg-transparent shadow-[0_24px_56px_rgba(0,0,0,0.5),0_8px_24px_rgba(216,241,123,0.08)] ring-2 ring-[#d8f17b]/35"
         role="button"
         tabIndex={0}
         onClick={onOpenDetails}
@@ -115,7 +115,7 @@ function SingleBookUx({ book }: { book: Ebook }) {
         >
           <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 lg:gap-10">
             {book.image ? (
-              <div className="relative mx-auto sm:mx-0 h-[220px] w-[165px] shrink-0 overflow-hidden rounded-xl ring-1 ring-white/12 shadow-[0_16px_40px_rgba(0,0,0,0.45)] sm:h-[260px] sm:w-[195px]">
+              <div className="relative mx-auto sm:mx-0 h-[220px] w-[165px] shrink-0 overflow-hidden rounded-xl ring-2 ring-[#d8f17b]/40 shadow-[0_16px_40px_rgba(0,0,0,0.45)] sm:h-[260px] sm:w-[195px]">
                 <Image
                   src={book.image}
                   alt={`Okładka: ${book.title}`}
@@ -127,7 +127,7 @@ function SingleBookUx({ book }: { book: Ebook }) {
               </div>
             ) : (
               <div
-                className={`mx-auto sm:mx-0 flex h-[220px] w-[165px] shrink-0 items-center justify-center rounded-xl ring-1 ring-white/12 bg-gradient-to-br ${book.gradient} sm:h-[260px] sm:w-[195px]`}
+                className={`mx-auto sm:mx-0 flex h-[220px] w-[165px] shrink-0 items-center justify-center rounded-xl ring-2 ring-[#d8f17b]/40 bg-gradient-to-br ${book.gradient} sm:h-[260px] sm:w-[195px]`}
               >
                 <BookOpen className="h-16 w-16 text-white/80" aria-hidden />
               </div>
