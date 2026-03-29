@@ -48,7 +48,7 @@ export function EbookDetailModal({ book, open, onClose }: Props) {
       onClick={onClose}
     >
       <div
-        className="relative flex min-h-0 w-full max-w-3xl flex-1 flex-col overflow-hidden rounded-none p-6 sm:p-8 sm:mx-auto sm:my-auto sm:h-[min(92dvh,90vh)] sm:max-h-[min(92dvh,90vh)] sm:flex-none sm:rounded-2xl glass-card shadow-xl"
+        className="relative flex min-h-0 w-full max-w-3xl flex-1 flex-col overflow-hidden rounded-none p-6 sm:p-8 sm:mx-auto sm:my-auto max-h-[min(76dvh,76dvh)] sm:max-h-[min(62dvh,560px)] sm:flex-none sm:rounded-2xl glass-card shadow-xl"
         style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
         onClick={(e) => e.stopPropagation()}
       >
