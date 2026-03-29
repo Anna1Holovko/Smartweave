@@ -68,7 +68,7 @@ export function StronyUslugaPage({
         </div>
       </header>
 
-      <ServiceProblemCards problems={problems} slug="strony" heading={problemHeading} variant="home" />
+      <ServiceProblemCards problems={problems} slug="strony" heading={problemHeading} />
 
       {/* Solution — inset panel */}
       <section className="py-16 sm:py-20 md:py-24 rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.02] to-transparent px-5 sm:px-8 md:px-12 lg:px-14">
