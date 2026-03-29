@@ -15,7 +15,7 @@ import { ServiceProblemCards } from '@/app/components/ServiceProblemCards';
 import { ServiceSolutionBlock } from '@/app/components/ServiceSolutionBlock';
 import { ServiceFeaturesList } from '@/app/components/ServiceFeaturesList';
 import { ServiceBenefitsList } from '@/app/components/ServiceBenefitsList';
-import { ServiceProcessSteps } from '@/app/components/ServiceProcessSteps';
+import { CollaborationProcessSection } from '@/app/components/CollaborationProcessSection';
 import { QuickAutomationCta } from '@/app/components/QuickAutomationCta';
 import { BrandMarkIcon } from '@/app/components/BrandMarkIcon';
 
@@ -92,12 +92,9 @@ export default function AgenciAiPage() {
               <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-6">Korzyści dla Twojej firmy</h2>
               <ServiceBenefitsList benefits={pageContent.benefits} />
             </MotionFadeIn>
-
-            <MotionFadeIn delay={0.3} className="mb-10 sm:mb-12 lg:mb-14">
-              <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-6">Jak wygląda proces współpracy</h2>
-              <ServiceProcessSteps process={pageContent.process} />
-            </MotionFadeIn>
           </div>
+
+          <CollaborationProcessSection process={pageContent.process} />
         </section>
 
         <QuickAutomationCta

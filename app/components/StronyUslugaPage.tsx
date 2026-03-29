@@ -18,6 +18,7 @@ import { ServiceFeaturesList } from '@/app/components/ServiceFeaturesList';
 import { ServiceBenefitsList } from '@/app/components/ServiceBenefitsList';
 import { ServiceRealizacjeGrid } from '@/app/components/ServiceRealizacjeGrid';
 import { HybridServiceCrossLinks } from '@/app/components/HybridServiceCrossLinks';
+import { CollaborationProcessSection } from '@/app/components/CollaborationProcessSection';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 
 const PROBLEM_ICONS: LucideIcon[] = [Globe, Search, MousePointer, FileEdit, Layout, Sparkles];
@@ -142,89 +143,10 @@ export function StronyUslugaPage({
         </div>
       </section>
 
-      {/* Process — path: center spine + alternating steps (desktop); vertical path (mobile) */}
-      <section className="py-16 sm:py-20 md:py-24 border-t border-white/[0.07]" aria-labelledby="strony-process-heading">
-        <div className="w-full flex flex-col items-center text-center px-2 mb-12 sm:mb-16">
-          <h2 id="strony-process-heading" className="text-xl sm:text-2xl font-bold text-[#e4e4e7] max-w-3xl">
-            Jak wygląda proces współpracy
-          </h2>
-        </div>
-
-        <div className="relative w-full max-w-5xl px-2 sm:px-4">
-          {/* Mobile: vertical dashed path */}
-          <div
-            className="absolute left-[22px] top-3 bottom-3 w-px border-l border-dashed border-[#d8f17b]/35 md:hidden"
-            aria-hidden
-          />
-          {/* Desktop: center spine */}
-          <div
-            className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 md:block bg-gradient-to-b from-[#d8f17b]/45 via-[#d8f17b]/20 to-[#d8f17b]/40"
-            aria-hidden
-          />
-
-          <ol className="relative space-y-10 md:space-y-0">
-            {process.map((item, i) => {
-              const isLeft = i % 2 === 0;
-              return (
-                <motion.li
-                  key={item.step}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ duration: 0.45, delay: i * 0.06 }}
-                  className="relative md:flex md:min-h-[100px] md:items-center md:justify-center md:py-8"
-                >
-                  {/* Mobile layout */}
-                  <div className="flex gap-5 pl-1 md:hidden">
-                    <span
-                      className="relative z-10 mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#d8f17b]/40 bg-[var(--bg)] text-xs font-bold text-[#d8f17b]"
-                      aria-hidden
-                    >
-                      {item.step}
-                    </span>
-                    <div className="min-w-0 pb-2 text-left">
-                      <h3 className="text-lg font-semibold text-[#e4e4e7]">{item.title}</h3>
-                      <p className="mt-2 text-zinc-400 text-sm leading-relaxed">{item.description}</p>
-                    </div>
-                  </div>
-
-                  {/* Desktop: path — węzeł na środkowym torze, treść na przemian lewo / prawo */}
-                  <div className="hidden w-full md:grid md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-6 lg:gap-10">
-                    <div className={`min-w-0 ${isLeft ? 'md:pr-6 md:text-right' : ''}`}>
-                      {isLeft ? (
-                        <>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-[#d8f17b]/85">Krok {item.step}</p>
-                          <h3 className="mt-1 text-lg font-semibold text-[#e4e4e7]">{item.title}</h3>
-                          <p className="mt-2 text-zinc-400 text-sm leading-relaxed lg:text-base">{item.description}</p>
-                        </>
-                      ) : null}
-                    </div>
-
-                    <div className="relative z-10 flex justify-center md:w-14">
-                      <span
-                        className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#d8f17b]/45 bg-[var(--bg)] text-sm font-bold text-[#d8f17b] shadow-[0_0_24px_rgba(216,241,123,0.12)]"
-                        aria-hidden
-                      >
-                        {item.step}
-                      </span>
-                    </div>
-
-                    <div className={`min-w-0 ${!isLeft ? 'md:pl-6 md:text-left' : ''}`}>
-                      {!isLeft ? (
-                        <>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-[#d8f17b]/85">Krok {item.step}</p>
-                          <h3 className="mt-1 text-lg font-semibold text-[#e4e4e7]">{item.title}</h3>
-                          <p className="mt-2 text-zinc-400 text-sm leading-relaxed lg:text-base">{item.description}</p>
-                        </>
-                      ) : null}
-                    </div>
-                  </div>
-                </motion.li>
-              );
-            })}
-          </ol>
-        </div>
-      </section>
+      {/* Process — same visual language as home „Jak działamy” (AutomationDetails) */}
+      <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 overflow-x-hidden border-t border-white/[0.07]">
+        <CollaborationProcessSection process={process} className="!pt-12 sm:!pt-16 md:!pt-20" />
+      </div>
 
       {/* Realizacje */}
       <section className="py-16 sm:py-20 md:py-24 border-t border-white/[0.07]">

@@ -18,7 +18,7 @@ import { ServiceProblemCards } from '@/app/components/ServiceProblemCards';
 import { ServiceSolutionBlock } from '@/app/components/ServiceSolutionBlock';
 import { ServiceFeaturesList } from '@/app/components/ServiceFeaturesList';
 import { ServiceBenefitsList } from '@/app/components/ServiceBenefitsList';
-import { ServiceProcessSteps } from '@/app/components/ServiceProcessSteps';
+import { CollaborationProcessSection } from '@/app/components/CollaborationProcessSection';
 import { BrandMarkIcon } from '@/app/components/BrandMarkIcon';
 import { BrandingAiBridgeSection } from '@/app/components/BrandingAiBridgeSection';
 import { HybridServiceCrossLinks } from '@/app/components/HybridServiceCrossLinks';
@@ -119,22 +119,24 @@ export default async function UslugiSlugPage({
         <section className={SECTION_CLASS}>
           <div className="absolute inset-0 bg-[var(--bg)]" />
 
-          <div className={CONTAINER_CLASS}>
             {slug === 'strony' && pageContent ? (
-              <StronyUslugaPage
-                title={service.title}
-                description={service.description}
-                problemHeading={
-                  pageContent.problemHeading ?? 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?'
-                }
-                problems={USLUGI_PAGE_CONTENT.strony.problems}
-                solution={pageContent.solution}
-                features={service.features}
-                benefits={pageContent.benefits}
-                process={pageContent.process}
-              />
+              <div className={CONTAINER_CLASS}>
+                <StronyUslugaPage
+                  title={service.title}
+                  description={service.description}
+                  problemHeading={
+                    pageContent.problemHeading ?? 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?'
+                  }
+                  problems={USLUGI_PAGE_CONTENT.strony.problems}
+                  solution={pageContent.solution}
+                  features={service.features}
+                  benefits={pageContent.benefits}
+                  process={pageContent.process}
+                />
+              </div>
             ) : (
               <>
+                <div className={CONTAINER_CLASS}>
                 <MotionFadeIn>
                   <Link
                     href="/uslugi"
@@ -208,18 +210,14 @@ export default async function UslugiSlugPage({
                 </div>
 
                 {pageContent && (
-                  <>
-                    <MotionFadeIn delay={0.25} className="mt-12 sm:mt-16 lg:mt-20 mb-10 sm:mb-12 lg:mb-14">
-                      <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-6">Korzyści dla Twojej firmy</h2>
-                      <ServiceBenefitsList benefits={pageContent.benefits} />
-                    </MotionFadeIn>
-                    <MotionFadeIn delay={0.3} className="mb-10 sm:mb-12 lg:mb-14">
-                      <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-6">Jak wygląda proces współpracy</h2>
-                      <ServiceProcessSteps process={pageContent.process} />
-                    </MotionFadeIn>
-                  </>
+                  <MotionFadeIn delay={0.25} className="mt-12 sm:mt-16 lg:mt-20 mb-10 sm:mb-12 lg:mb-14">
+                    <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-6">Korzyści dla Twojej firmy</h2>
+                    <ServiceBenefitsList benefits={pageContent.benefits} />
+                  </MotionFadeIn>
                 )}
-
+                </div>
+                {pageContent && <CollaborationProcessSection process={pageContent.process} />}
+                <div className={CONTAINER_CLASS}>
                 {(slug === 'chatboty' || slug === 'aplikacje-webowe') && (
                   <MotionFadeIn delay={0.32} className="w-full mt-12 sm:mt-16 lg:mt-20">
                     <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Realizacje</h2>
@@ -250,9 +248,9 @@ export default async function UslugiSlugPage({
                     <HybridServiceCrossLinks slug={slug as ServiceSlug} />
                   </MotionFadeIn>
                 )}
+                </div>
               </>
             )}
-          </div>
         </section>
 
         <QuickAutomationCta
