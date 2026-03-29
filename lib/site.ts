@@ -37,7 +37,7 @@ export const SERVICES_ORDER_LABEL =
 export const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? 'https://calendly.com/hello-smartweave/30min';
 
 /** CTA pod ofertą (/uslugi/…, /agenci-ai) — bez nazwy pojedynczej usługi w treści. */
-export const USLUGI_QUICK_CTA_TITLE = 'Zacznijmy od krótkiej rozmowy';
+export const USLUGI_QUICK_CTA_TITLE = 'Rozwiążmy Twoje codzienne problemy';
 export const USLUGI_QUICK_CTA_DESCRIPTION =
   'Opowiedz w kilku zdaniach, nad czym pracujesz lub co chcesz usprawnić. W około 30 minut wskażemy realny pierwszy krok i dopasujemy wdrożenie do Twojej sytuacji.';
 

@@ -50,7 +50,7 @@ export const SERVICES = [
   {
     number: '03',
     slug: 'automatyzacja',
-    title: 'Automatyzacja procesów biznesowych z wykorzystaniem AI',
+    title: 'Automatyzacja procesów biznesowych',
     cardDescription: 'Inteligentne systemy automatyzujące powtarzalne procesy. Redukujemy koszty i dajemy czas na rozwój firmy.',
     cardPoints: [
       'Workflowy i integracje (Make, n8n) – automatyczny przepływ danych między systemami',

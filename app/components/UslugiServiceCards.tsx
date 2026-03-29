@@ -35,10 +35,12 @@ export function UslugiServiceCards() {
               className="relative flex flex-col w-full h-full min-h-0 p-8 glass-card hover-lift rounded-2xl overflow-hidden"
               style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
             >
-              <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center mb-4">
-                <Icon className="w-7 h-7 text-[#d8f17b]" />
+              <div className="flex flex-row items-start gap-4 mb-4">
+                <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center">
+                  <Icon className="w-7 h-7 text-[#d8f17b]" aria-hidden />
+                </div>
+                <h2 className="text-xl font-bold text-[#e4e4e7] flex-1 min-w-0 leading-snug">{service.title}</h2>
               </div>
-              <h2 className="text-xl font-bold text-[#e4e4e7] mb-4 flex-shrink-0">{service.title}</h2>
               <p className="text-zinc-400 leading-relaxed flex-shrink-0">{service.description}</p>
               <ul className="space-y-3 mt-6 mb-6 flex-1 min-h-0">
                 {service.features.map((feature, idx) => (

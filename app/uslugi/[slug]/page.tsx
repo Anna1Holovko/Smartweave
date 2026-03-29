@@ -9,7 +9,7 @@ import { getServiceBySlug, SERVICE_SLUGS } from '@/lib/services';
 import type { ServiceSlug } from '@/lib/services';
 import { SERVICE_PAGE_CONTENT } from '@/lib/service-page-content';
 import { USLUGI_PAGE_CONTENT } from '@/lib/uslugi-page-content';
-import { SITE_URL, USLUGI_QUICK_CTA_DESCRIPTION, USLUGI_QUICK_CTA_TITLE } from '@/lib/site';
+import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS } from '@/lib/layout';
 import { ArrowLeft } from 'lucide-react';
 import { AutomationWorkflowSection } from '@/app/components/AutomationWorkflowSection';
@@ -29,7 +29,7 @@ import { StronyUslugaPage } from '@/app/components/StronyUslugaPage';
 const SLUG_TITLES: Record<string, string> = {
   strony: 'Projektowanie stron www dla firm',
   branding: 'Identyfikacja wizualna i branding',
-  automatyzacja: 'Automatyzacja procesów biznesowych z wykorzystaniem AI',
+  automatyzacja: 'Automatyzacja procesów biznesowych',
   'agenci-ai': 'Agenci AI',
   chatboty: 'Chatboty na stronie i w kanałach komunikacji',
   'aplikacje-webowe': 'Aplikacje webowe',
@@ -95,20 +95,6 @@ export default async function UslugiSlugPage({
   const service = getServiceBySlug(slug);
   if (!service) notFound();
   const pageContent = SERVICE_PAGE_CONTENT[slug];
-  const ctaTopic =
-    slug === 'strony'
-      ? 'strony'
-      : slug === 'branding'
-        ? 'branding'
-        : slug === 'automatyzacja'
-          ? 'automatyzacja'
-          : slug === 'agenci-ai'
-            ? 'agenci-ai'
-            : slug === 'chatboty'
-              ? 'chatboty'
-              : slug === 'aplikacje-webowe'
-                ? 'aplikacje-webowe'
-                : 'default';
   return (
     <>
       <Header />
@@ -252,9 +238,6 @@ export default async function UslugiSlugPage({
         </section>
 
         <QuickAutomationCta
-          topic={ctaTopic}
-          title={USLUGI_QUICK_CTA_TITLE}
-          description={USLUGI_QUICK_CTA_DESCRIPTION}
           secondaryHref="/#contact"
           secondaryLabel="Napisz do nas"
           secondaryOutlined

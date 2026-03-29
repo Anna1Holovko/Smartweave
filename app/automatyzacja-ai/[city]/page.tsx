@@ -95,7 +95,7 @@ export default async function AutomatyzacjaAiCityPage({
           </div>
         </section>
 
-        <QuickAutomationCta topic="automatyzacja" />
+        <QuickAutomationCta />
       </main>
       <Footer />
       <ScrollToTop />

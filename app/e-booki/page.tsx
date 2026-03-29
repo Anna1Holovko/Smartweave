@@ -55,7 +55,7 @@ export default function EbookiPage() {
             <EbookShelfSection books={EBOOKS} />
           </div>
         </section>
-        <QuickAutomationCta topic="ebooki" />
+        <QuickAutomationCta />
       </main>
       <Footer />
       <ScrollToTop />

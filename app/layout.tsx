@@ -219,7 +219,7 @@ const jsonLd = {
       description:
         'Automatyzacja procesów biznesowych, agenci AI, strony internetowe, identyfikacja wizualna, chatboty i aplikacje webowe',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Automatyzacja procesów biznesowych z wykorzystaniem AI' },
+        { '@type': 'ListItem', position: 1, name: 'Automatyzacja procesów biznesowych' },
         { '@type': 'ListItem', position: 2, name: 'Agenci AI' },
         { '@type': 'ListItem', position: 3, name: 'Strony internetowe' },
         { '@type': 'ListItem', position: 4, name: 'Identyfikacja wizualna i branding' },

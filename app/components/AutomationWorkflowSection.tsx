@@ -165,7 +165,7 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
       <div className="absolute inset-0 bg-[var(--bg-graphite)]" />
       <div className="relative z-10 max-w-[1400px] mx-auto px-6">
         <h2 className="text-3xl font-semibold text-[#e4e4e7] mb-16">
-          Automatyzacja procesów biznesowych z wykorzystaniem AI
+          Automatyzacja procesów biznesowych
         </h2>
 
         <div className="relative h-[720px] hidden md:block">{diagram}</div>

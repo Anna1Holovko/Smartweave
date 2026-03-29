@@ -268,9 +268,6 @@ export default function RealizacjeAutomatyzacjaPage() {
         </section>
 
         <QuickAutomationCta
-          topic="automatyzacja"
-          title="Chcesz podobne rozwiązanie?"
-          description="W 30 minut pokażemy, jak przenieść Twój proces do workflowu i gdzie ma sens dołożyć AI."
           secondaryButtonHref="/automatyzacja-ai-dla-firm"
           secondaryButtonLabel="Automatyzacja procesów dla firm - przegląd oferty"
           secondaryHref="/uslugi"

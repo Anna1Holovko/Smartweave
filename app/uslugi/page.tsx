@@ -47,10 +47,7 @@ export default function UslugiPage() {
           </div>
         </section>
 
-        <QuickAutomationCta
-          topic="default"
-          title="Nie jesteś pewien, które rozwiązanie jest dla Ciebie?"
-        />
+        <QuickAutomationCta />
 
         <div className="gradient-philosophy-to-footer">
           <SimpleCTASection />

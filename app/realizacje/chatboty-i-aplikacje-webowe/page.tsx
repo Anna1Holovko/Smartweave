@@ -80,9 +80,6 @@ export default function RealizacjeChatbotyIAplikacjeWebowePage() {
         </section>
 
         <QuickAutomationCta
-          topic="realizacje"
-          title="Chcesz podobne rozwiązanie?"
-          description="W 30 minut wskażemy najlepszy pierwszy krok i dopasujemy wdrożenie do Twoich procesów."
           secondaryButtonHref="/automatyzacja-ai-dla-firm"
           secondaryButtonLabel="Automatyzacja procesów dla firm - przegląd oferty"
           secondaryHref="/uslugi"

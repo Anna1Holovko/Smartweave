@@ -216,7 +216,7 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
           </div>
         </article>
-        <QuickAutomationCta topic="blog" />
+        <QuickAutomationCta />
         <div className="gradient-philosophy-to-footer">
           <SimpleCTASection />
           <Footer />

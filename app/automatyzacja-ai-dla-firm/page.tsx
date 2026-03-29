@@ -11,7 +11,7 @@ import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 
 const title = 'Automatyzacja procesów dla firm';
 const description =
-  'Automatyzacja procesów biznesowych z wykorzystaniem AI: workflowy, integracje, agenci AI. SmartWeave łączy to z brandingiem i stronami www dla firm w całej Polsce.';
+  'Automatyzacja procesów biznesowych: workflowy, integracje, agenci AI. SmartWeave łączy to z brandingiem i stronami www dla firm w całej Polsce.';
 
 const keywords = [
   'automatyzacja procesów',
@@ -106,7 +106,7 @@ export default function AutomatyzacjaAiDlaFirmPage() {
           </div>
         </section>
 
-        <QuickAutomationCta topic="automatyzacja" />
+        <QuickAutomationCta />
       </main>
       <Footer />
       <ScrollToTop />

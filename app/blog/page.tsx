@@ -86,7 +86,7 @@ export default async function BlogPage() {
             </div>
           </div>
         </section>
-        <QuickAutomationCta topic="blog" />
+        <QuickAutomationCta />
         <div className="gradient-philosophy-to-footer">
           <Footer />
         </div>
