@@ -40,53 +40,51 @@ export function ServiceProblemCards({
   problems,
   slug,
   heading = 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?',
+  headingId = 'service-problems-heading',
 }: {
   problems: ProblemCard[];
   slug: ServiceSlug;
   heading?: string;
+  /** Domyślnie `service-problems-heading`; nadpisz, gdy sekcja nadrzędna ma `aria-labelledby`. */
+  headingId?: string;
 }) {
   const icons = ICONS_BY_SLUG[slug] ?? ICONS_BY_SLUG.strony;
   const items = problems.slice(0, 6).map((p, i) => ({ ...p, icon: icons[i] ?? Sparkles }));
 
   return (
-    <div className="mb-10 sm:mb-12 lg:mb-14">
-      <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-6 sm:mb-8">
+    <section className="py-16 sm:py-20 md:py-24" aria-labelledby={headingId}>
+      <h2
+        id={headingId}
+        className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500 mb-10 sm:mb-14 max-w-2xl"
+      >
         {heading}
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+      <ul className="divide-y divide-white/[0.08] border-t border-white/[0.08]">
         {items.map((item, index) => {
           const Icon = item.icon;
           return (
-            <motion.div
+            <motion.li
               key={index}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: index * 0.08 }}
-              whileHover={{ y: -8 }}
-              className="group relative"
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.45, delay: index * 0.05 }}
+              className="py-8 sm:py-10 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start"
             >
-              <div
-                className="glass-card hover-lift relative h-full p-6 sm:p-8 rounded-2xl overflow-hidden"
-                style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
-              >
-                <div className="flex items-center gap-4 mb-4 sm:mb-5">
-                  <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center">
-                    <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-[#d8f17b]" aria-hidden />
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-[#e4e4e7] leading-tight">
-                    {item.title}
-                  </h3>
-                </div>
-                <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-                  {item.description}
-                </p>
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 w-0 bg-[#d8f17b] group-hover:w-full transition-all duration-500 rounded-b-2xl" />
+              <div className="md:col-span-1 flex md:flex-col items-center md:items-start gap-3 text-zinc-600 text-xs font-mono tabular-nums tracking-wider">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-[#d8f17b]">
+                  <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                </span>
+                <span className="hidden md:inline text-[10px]">{String(index + 1).padStart(2, '0')}</span>
               </div>
-            </motion.div>
+              <div className="md:col-span-4">
+                <h3 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] leading-snug">{item.title}</h3>
+              </div>
+              <p className="md:col-span-7 text-zinc-400 text-sm sm:text-base leading-relaxed">{item.description}</p>
+            </motion.li>
           );
         })}
-      </div>
-    </div>
+      </ul>
+    </section>
   );
 }

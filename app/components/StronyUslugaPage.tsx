@@ -2,17 +2,9 @@
 
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import {
-  ArrowLeft,
-  Globe,
-  Search,
-  MousePointer,
-  FileEdit,
-  Layout,
-  Sparkles,
-  type LucideIcon,
-} from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { BrandMarkIcon } from '@/app/components/BrandMarkIcon';
+import { ServiceProblemCards } from '@/app/components/ServiceProblemCards';
 import { ServiceSolutionBlock } from '@/app/components/ServiceSolutionBlock';
 import { ServiceFeaturesList } from '@/app/components/ServiceFeaturesList';
 import { ServiceBenefitsList } from '@/app/components/ServiceBenefitsList';
@@ -20,8 +12,6 @@ import { ServiceRealizacjeGrid } from '@/app/components/ServiceRealizacjeGrid';
 import { HybridServiceCrossLinks } from '@/app/components/HybridServiceCrossLinks';
 import { CollaborationProcessSection } from '@/app/components/CollaborationProcessSection';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
-
-const PROBLEM_ICONS: LucideIcon[] = [Globe, Search, MousePointer, FileEdit, Layout, Sparkles];
 
 type ProcessItem = { step: number; title: string; description: string };
 
@@ -46,11 +36,6 @@ export function StronyUslugaPage({
   benefits,
   process,
 }: StronyUslugaPageProps) {
-  const items = problems.slice(0, 6).map((p, i) => ({
-    ...p,
-    icon: PROBLEM_ICONS[i] ?? Sparkles,
-  }));
-
   return (
     <div className="strony-usluga">
       {/* Hero — back link left; Oferta / title / lead centered without mx-auto wrapper */}
@@ -83,41 +68,7 @@ export function StronyUslugaPage({
         </div>
       </header>
 
-      {/* Problems — full-width rows, not a 3-col card grid */}
-      <section className="py-16 sm:py-20 md:py-24" aria-labelledby="strony-problems-heading">
-        <h2
-          id="strony-problems-heading"
-          className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500 mb-10 sm:mb-14 max-w-2xl"
-        >
-          {problemHeading}
-        </h2>
-        <ul className="divide-y divide-white/[0.08] border-t border-white/[0.08]">
-          {items.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <motion.li
-                key={index}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.45, delay: index * 0.05 }}
-                className="py-8 sm:py-10 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start"
-              >
-                <div className="md:col-span-1 flex md:flex-col items-center md:items-start gap-3 text-zinc-600 text-xs font-mono tabular-nums tracking-wider">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-[#d8f17b]">
-                    <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
-                  </span>
-                  <span className="hidden md:inline text-[10px]">{String(index + 1).padStart(2, '0')}</span>
-                </div>
-                <div className="md:col-span-4">
-                  <h3 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] leading-snug">{item.title}</h3>
-                </div>
-                <p className="md:col-span-7 text-zinc-400 text-sm sm:text-base leading-relaxed">{item.description}</p>
-              </motion.li>
-            );
-          })}
-        </ul>
-      </section>
+      <ServiceProblemCards problems={problems} slug="strony" heading={problemHeading} />
 
       {/* Solution — inset panel */}
       <section className="py-16 sm:py-20 md:py-24 rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.02] to-transparent px-5 sm:px-8 md:px-12 lg:px-14">
