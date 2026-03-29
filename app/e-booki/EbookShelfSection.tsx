@@ -146,14 +146,12 @@ function SingleBookUx({ book }: { book: Ebook }) {
               <p className="mt-5 text-3xl sm:text-4xl font-bold text-[#e4e4e7] tabular-nums">{book.price}</p>
               <p className="mt-5 text-sm sm:text-base text-zinc-400 leading-relaxed max-w-prose">{book.description}</p>
 
-              <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
-                <div className="sm:flex-1 sm:min-w-[200px]">
-                  <EbookCheckoutButton book={book} />
-                </div>
+              <div className="mt-8 flex flex-row flex-wrap items-center gap-3 [&_button]:!w-auto">
+                <EbookCheckoutButton book={book} />
                 <button
                   type="button"
                   onClick={() => setDetailOpen(true)}
-                  className="inline-flex min-h-[44px] w-full sm:w-auto items-center justify-center gap-2 rounded-full border-2 border-white/15 px-6 font-semibold text-sm text-[#e4e4e7] transition hover:border-[#d8f17b]/50 hover:bg-white/5"
+                  className="inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 rounded-full border-2 border-white/15 px-6 font-semibold text-sm text-[#e4e4e7] transition hover:border-[#d8f17b]/50 hover:bg-white/5"
                 >
                   <Info className="h-4 w-4 shrink-0" aria-hidden />
                   Pełny opis
