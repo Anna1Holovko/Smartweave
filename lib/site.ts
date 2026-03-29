@@ -29,9 +29,9 @@ export const OG_TITLE =
 export const OG_DESCRIPTION =
   'Automatyzacja procesów biznesowych, agenci AI, strony www i e-booki. Mniej rutyny, szybsze leady, spójna marka — wdrożenia dla firm.';
 
-/** Kolejność usług wszędzie: marketing, SEO, meta, OG, stopka, bio. */
+/** Etykieta oferty (stopka, bio itd.). */
 export const SERVICES_ORDER_LABEL =
-  'Automatyzacja procesów • Agenci AI • Strony www • Branding • Chatboty • Aplikacje webowe';
+  'Automatyzacja procesów · Agenci AI · Systemy cyfrowe · Branding · Strony www';
 
 /** Calendly booking URL. Override with NEXT_PUBLIC_CALENDLY_URL in env. */
 export const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? 'https://calendly.com/hello-smartweave/30min';

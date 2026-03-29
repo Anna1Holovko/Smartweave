@@ -84,18 +84,14 @@ function ArticleBody({ slug }: { slug: string }) {
             <div key={i} className="mt-10 mb-8">
               <p className="text-zinc-400 leading-relaxed mb-6">{cta.text}</p>
               <div className="flex flex-wrap items-center gap-4">
-                <Link href="/#contact">
-                  <Button variant="primary">Napisz do nas</Button>
-                </Link>
-                {CALENDLY_URL && (
-                  <a
-                    href={CALENDLY_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 bg-transparent border-2 border-white/15 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:bg-white/5"
-                  >
-                    Umów krótką diagnozę
+                {CALENDLY_URL ? (
+                  <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+                    <Button variant="primary">Umów krótką rozmowę</Button>
                   </a>
+                ) : (
+                  <Link href="/#contact">
+                    <Button variant="primary">Umów krótką rozmowę</Button>
+                  </Link>
                 )}
               </div>
             </div>

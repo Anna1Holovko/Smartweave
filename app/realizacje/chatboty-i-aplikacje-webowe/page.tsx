@@ -7,7 +7,6 @@ import { ScrollToTop } from '../../components/ScrollToTop';
 import { PageIntro } from '../../components/PageIntro';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
-import { SimilarSolutionCta } from '../../components/SimilarSolutionCta';
 import { QuickAutomationCta } from '@/app/components/QuickAutomationCta';
 
 export const metadata: Metadata = {
@@ -71,7 +70,7 @@ export default function RealizacjeChatbotyIAplikacjeWebowePage() {
                   <Link href="/realizacje" className="text-[#d8f17b] font-medium hover:underline">
                     główną stronę realizacji
                   </Link>
-                  . Napisz do nas - chętnie opowiemy o projektach na żywo.
+                  . Chętnie opowiemy o projektach na żywo.
                 </p>
               </div>
               </div>
@@ -82,7 +81,6 @@ export default function RealizacjeChatbotyIAplikacjeWebowePage() {
         <QuickAutomationCta />
 
         <div className="gradient-philosophy-to-footer">
-          <SimilarSolutionCta headingId="realizacje-chatboty-web-cta-heading" />
           <Footer />
         </div>
       </main>

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Mail, MapPin, Linkedin, Instagram } from 'lucide-react';
 import Image from 'next/image';
+import { SERVICES_ORDER_LABEL } from '@/lib/site';
 
 const LOGO = '/assets/smartweave-logo-ai.png';
 
@@ -29,10 +30,7 @@ export function Footer() {
             />
 
             <p className="text-sm sm:text-base text-zinc-400 leading-relaxed mb-3">
-              Automatyzacja procesów • Agenci AI • Strony www • Branding
-            </p>
-            <p className="text-xs sm:text-sm text-zinc-500 leading-relaxed mb-3 max-w-md">
-              Automatyzacja procesów + AI. Branding i strona www jako wsparcie.
+              {SERVICES_ORDER_LABEL}
             </p>
             <nav aria-label="Automatyzacja procesów i marketing" className="flex flex-wrap gap-x-4 gap-y-2 text-xs sm:text-sm mb-4">
               <Link href="/automatyzacja-ai-dla-firm" className="text-zinc-500 hover:text-[#d8f17b] transition-colors">

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Image from 'next/image';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -83,15 +82,6 @@ export default function RealizacjePage() {
                   </a>
                 </article>
               ))}
-            </div>
-
-            <div className="mt-10 sm:mt-12 lg:mt-16 text-center">
-              <Link
-                href="/#contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 cta-gradient-animated"
-              >
-                Porozmawiajmy o Twoim projekcie
-              </Link>
             </div>
           </div>
         </section>

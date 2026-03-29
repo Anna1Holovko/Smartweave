@@ -4,7 +4,6 @@ import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { BrandMarkIcon } from './BrandMarkIcon';
 import { useState } from 'react';
-import { CALENDLY_URL } from '@/lib/site';
 
 export function CTASection() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', nip: '', message: '' });
@@ -92,16 +91,6 @@ export function CTASection() {
             <motion.p initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-lg text-zinc-400 leading-relaxed">
               Powiedz nam, co zabiera Ci najwięcej czasu - my zautomatyzujemy te procesy i przyspieszymy pracę Twojej firmy. Dzięki inteligentnym rozwiązaniom i AI odzyskasz godziny każdego dnia i skupisz się na tym, co naprawdę przynosi zysk.
             </motion.p>
-            {CALENDLY_URL && (
-              <a
-                href={CALENDLY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 whitespace-nowrap bg-transparent border-2 border-white/15 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:bg-white/5"
-              >
-                Umów krótką diagnozę
-              </a>
-            )}
           </div>
 
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="relative w-full">

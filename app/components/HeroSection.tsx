@@ -2,7 +2,6 @@
 
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { Button } from './ui/Button';
 import { BrandMarkIcon } from './BrandMarkIcon';
 import { CALENDLY_URL } from '@/lib/site';
@@ -91,24 +90,15 @@ export function HeroSection() {
           Automatyzacja procesów · Agenci AI · Systemy cyfrowe · Branding · Strony www
         </p>
 
-        {/* Buttons */}
-        <div className="flex flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 w-full mx-auto">
-          <Link href="/#contact">
-            <Button variant="primary" className="whitespace-nowrap">
-              Napisz do nas
-            </Button>
-          </Link>
-          {CALENDLY_URL && (
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 whitespace-nowrap bg-transparent border-2 border-white/15 text-[#e4e4e7] hover:border-[#d8f17b]/50 hover:bg-white/5"
-            >
-              Umów krótką diagnozę
+        {CALENDLY_URL && (
+          <div className="flex flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 w-full mx-auto">
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+              <Button variant="primary" className="whitespace-nowrap">
+                Umów krótką rozmowę
+              </Button>
             </a>
-          )}
-        </div>
+          </div>
+        )}
       </div>
 
       {/* Scroll indicator */}

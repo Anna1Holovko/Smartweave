@@ -7,7 +7,6 @@ import { ScrollToTop } from '../../components/ScrollToTop';
 import { PageIntro } from '../../components/PageIntro';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
-import { SimilarSolutionCta } from '../../components/SimilarSolutionCta';
 import { CaseStudyWorkflowFlow } from '../../components/CaseStudyWorkflowFlow';
 import { ArchitectureFlow } from '../../components/ArchitectureFlow';
 import { OpenAIIcon } from '../../components/OpenAIIcon';
@@ -270,7 +269,6 @@ export default function RealizacjeAutomatyzacjaPage() {
         <QuickAutomationCta />
 
         <div className="gradient-philosophy-to-footer">
-          <SimilarSolutionCta headingId="realizacje-cta-heading" />
           <Footer />
         </div>
       </main>
