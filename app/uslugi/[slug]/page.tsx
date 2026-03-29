@@ -9,7 +9,7 @@ import { getServiceBySlug, SERVICE_SLUGS } from '@/lib/services';
 import type { ServiceSlug } from '@/lib/services';
 import { SERVICE_PAGE_CONTENT } from '@/lib/service-page-content';
 import { USLUGI_PAGE_CONTENT } from '@/lib/uslugi-page-content';
-import { SITE_URL } from '@/lib/site';
+import { SITE_URL, USLUGI_QUICK_CTA_DESCRIPTION, USLUGI_QUICK_CTA_TITLE } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS } from '@/lib/layout';
 import { ArrowLeft } from 'lucide-react';
 import { AutomationWorkflowSection } from '@/app/components/AutomationWorkflowSection';
@@ -109,8 +109,6 @@ export default async function UslugiSlugPage({
               : slug === 'aplikacje-webowe'
                 ? 'aplikacje-webowe'
                 : 'default';
-  const ctaDescription = `Opowiedz nam krótko o Twoich potrzebach w obszarze: ${service.title}. W 30 minut wskażemy najlepszy pierwszy krok i dopasujemy wdrożenie.`;
-
   return (
     <>
       <Header />
@@ -255,8 +253,8 @@ export default async function UslugiSlugPage({
 
         <QuickAutomationCta
           topic={ctaTopic}
-          title="Zainteresowała Cię ta usługa?"
-          description={ctaDescription}
+          title={USLUGI_QUICK_CTA_TITLE}
+          description={USLUGI_QUICK_CTA_DESCRIPTION}
           secondaryHref="/#contact"
           secondaryLabel="Napisz do nas"
           secondaryOutlined

@@ -36,6 +36,11 @@ export const SERVICES_ORDER_LABEL =
 /** Calendly booking URL. Override with NEXT_PUBLIC_CALENDLY_URL in env. */
 export const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? 'https://calendly.com/hello-smartweave/30min';
 
+/** CTA pod ofertą (/uslugi/…, /agenci-ai) — bez nazwy pojedynczej usługi w treści. */
+export const USLUGI_QUICK_CTA_TITLE = 'Zacznijmy od krótkiej rozmowy';
+export const USLUGI_QUICK_CTA_DESCRIPTION =
+  'Opowiedz w kilku zdaniach, nad czym pracujesz lub co chcesz usprawnić. W około 30 minut wskażemy realny pierwszy krok i dopasujemy wdrożenie do Twojej sytuacji.';
+
 /** Routes included in the sitemap (path only, no leading slash for root) */
 export const SITEMAP_ROUTES = [
   { path: '', priority: 1, changeFrequency: 'weekly' as const },

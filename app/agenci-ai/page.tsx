@@ -8,7 +8,7 @@ import { getServiceBySlug } from '@/lib/services';
 import type { ServiceSlug } from '@/lib/services';
 import { SERVICE_PAGE_CONTENT } from '@/lib/service-page-content';
 import { USLUGI_PAGE_CONTENT } from '@/lib/uslugi-page-content';
-import { SITE_URL } from '@/lib/site';
+import { SITE_URL, USLUGI_QUICK_CTA_DESCRIPTION, USLUGI_QUICK_CTA_TITLE } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS } from '@/lib/layout';
 import { ArrowLeft } from 'lucide-react';
 import { ServiceProblemCards } from '@/app/components/ServiceProblemCards';
@@ -99,8 +99,8 @@ export default function AgenciAiPage() {
 
         <QuickAutomationCta
           topic="agenci-ai"
-          title="Zainteresowała Cię ta usługa?"
-          description={`Opowiedz nam krótko o Twoich potrzebach w obszarze: ${service.title}. W 30 minut wskażemy najlepszy pierwszy krok i dopasujemy wdrożenie.`}
+          title={USLUGI_QUICK_CTA_TITLE}
+          description={USLUGI_QUICK_CTA_DESCRIPTION}
           secondaryHref="/#contact"
           secondaryLabel="Napisz do nas"
           secondaryOutlined
