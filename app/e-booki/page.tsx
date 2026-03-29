@@ -8,8 +8,6 @@ import { QuickAutomationCta } from '../components/QuickAutomationCta';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 import { EbookShelfSection } from './EbookShelfSection';
-import { EbookPurchaseInfo } from './EbookPurchaseInfo';
-import { EbookHowItWorks } from './EbookHowItWorks';
 
 export const metadata: Metadata = {
   title: 'E-booki - SmartWeave',
@@ -42,11 +40,7 @@ export default function EbookiPage() {
               className={INTRO_MB_CLASS}
             />
 
-            <EbookPurchaseInfo />
-
             <EbookShelfSection books={EBOOKS} />
-
-            <EbookHowItWorks />
           </div>
         </section>
         <QuickAutomationCta topic="ebooki" />

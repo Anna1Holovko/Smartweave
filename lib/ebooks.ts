@@ -24,7 +24,7 @@ export const EBOOKS: Ebook[] = [
     id: 'firma-w-erze-ai',
     title: 'Firma w erze AI',
     description:
-      'SmartWeave: jak sensownie wdrożyć AI w firmie - strategia, automatyzacja, narzędzia, etyka i plan na 12 tygodni. Dla właścicieli i menedżerów MŚP.',
+      'SmartWeave: jak sensownie wdrożyć AI w firmie - strategia, automatyzacja, narzędzia, etyka i plan na 12 tygodni. Dla właścicieli i menedżerów firm.',
     modalDescription: `Firma w erze AI - praktyczny przewodnik SmartWeave
 
 E-book dla polskich przedsiębiorców, właścicieli firm i osób z zarządu, które chcą wejść w sztuczną inteligencję i automatyzację bez chaosu: najpierw proces i priorytety, potem narzędzia - nie odwrotnie.
@@ -33,7 +33,7 @@ Co znajdziesz w środku:
 • ponad 60 stron treści „pod wdrożenie” (bieżąca edycja: ok. 67 stron), bez akademickiego żargonu
 • 14 rozdziałów ułożonych jak ścieżka działania
 • test gotowości na AI + rozpisanie typowych barier w organizacji
-• strategia i roadmapa AI dopasowana do MŚP
+• strategia i roadmapa AI dopasowana do firm
 • automatyzacja w Make.com - gotowe schematy do wykorzystania
 • przykład agenta AI (m.in. w obsłudze e-maili) z myślą o realnym workflow
 • AI w marketingu, sprzedaży, HR i finansach - ramy, nie puste hasła
@@ -48,7 +48,7 @@ AI w firmie przyspiesza obsługę, treści i analizę - ale najwięcej tracą te
 
 Dla kogo
 
-• właściciele i zarząd MŚP
+• właściciele i zarząd firm
 • CEO, dyrektorzy, menedżerowie liniowi
 • osoby odpowiedzialne za operacje, marketing lub transformację cyfrową
 

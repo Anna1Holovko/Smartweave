@@ -159,9 +159,6 @@ function SingleBookUx({ book }: { book: Ebook }) {
                   Pełny opis
                 </button>
               </div>
-              <p className="mt-5 text-xs text-zinc-500 leading-relaxed max-w-prose">
-                W koszyku zobaczysz podsumowanie. Szczegóły dostawy i płatności ustalamy w kontakcie.
-              </p>
             </div>
           </div>
         </aside>
