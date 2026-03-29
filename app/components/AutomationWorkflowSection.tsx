@@ -22,11 +22,14 @@ import {
 const DIAGRAM_WIDTH = 1260;
 const DIAGRAM_HEIGHT = 620;
 
+/** Lucide + react-icons — wspólny nadbudowany typ SVG (IconType z react-icons nie pasuje do `{ className?: string }`). */
+type WorkflowIcon = React.ComponentType<React.SVGProps<SVGSVGElement>>;
+
 type NodeType = {
   id: string;
   x: number;
   y: number;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: WorkflowIcon;
   color: string;
 };
 
@@ -181,7 +184,7 @@ function Node({
 }: {
   x: number;
   y: number;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: WorkflowIcon;
   color: string;
   viewBoxWidth: number;
   viewBoxHeight: number;

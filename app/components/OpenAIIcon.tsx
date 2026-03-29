@@ -1,7 +1,8 @@
 'use client';
 
+import type { SVGProps } from 'react';
 import { SiOpenai } from 'react-icons/si';
 
-export function OpenAIIcon({ className }: { className?: string }) {
-  return <SiOpenai className={className} aria-hidden />;
+export function OpenAIIcon(props: SVGProps<SVGSVGElement>) {
+  return <SiOpenai {...props} />;
 }
