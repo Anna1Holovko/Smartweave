@@ -8,6 +8,8 @@ import { QuickAutomationCta } from '../components/QuickAutomationCta';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 import { EbookShelfSection } from './EbookShelfSection';
+import { EbookPurchaseInfo } from './EbookPurchaseInfo';
+import { EbookHowItWorks } from './EbookHowItWorks';
 
 export const metadata: Metadata = {
   title: 'E-booki - SmartWeave',
@@ -36,11 +38,15 @@ export default function EbookiPage() {
               badge="E-booki"
               badgeVariant="accent"
               title="E-booki dla firm"
-              description="Jedna pozycja w katalogu: przewodnik po wdrożeniu AI i automatyzacji. Okładka, koszyk, pełny opis w modalu."
+              description="Praktyczne przewodniki PDF: wdrożenie AI i automatyzacji bez chaosu. Dodaj do koszyka, potwierdzamy szczegóły w kontakcie."
               className={INTRO_MB_CLASS}
             />
 
+            <EbookPurchaseInfo />
+
             <EbookShelfSection books={EBOOKS} />
+
+            <EbookHowItWorks />
           </div>
         </section>
         <QuickAutomationCta topic="ebooki" />

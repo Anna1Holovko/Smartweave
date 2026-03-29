@@ -2,15 +2,25 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { BookOpen } from 'lucide-react';
+import { BookOpen, Info } from 'lucide-react';
 import type { Ebook } from '@/lib/ebooks';
 import { addEbookToCart, requestOpenCartDrawer } from '@/lib/cart';
 import { EbookDetailModal } from './EbookDetailModal';
+import { EbookCheckoutButton } from './EbookCheckoutButton';
 
 function chunk<T>(arr: T[], size: number): T[][] {
   const out: T[][] = [];
   for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
   return out;
+}
+
+function LemonShelfPlank({ className = '' }: { className?: string }) {
+  return (
+    <div className={`relative z-[1] -mt-3 sm:-mt-4 pt-1 ${className}`.trim()} aria-hidden>
+      <div className="h-3.5 rounded-sm bg-[#d8f17b] shadow-[0_16px_36px_rgba(0,0,0,0.55),0_6px_20px_rgba(216,241,123,0.15)] ring-1 ring-black/30 sm:h-4" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2 rounded-b-sm bg-gradient-to-b from-black/25 to-transparent" />
+    </div>
+  );
 }
 
 type TileProps = {
@@ -72,7 +82,7 @@ function ShelfTile({ book, featured, imagePriority, onOpenDetails, onAddToCart }
               e.stopPropagation();
               onAddToCart();
             }}
-            className="relative z-10 rounded-full bg-white px-4 py-2 text-xs font-semibold text-zinc-900 shadow-md transition hover:bg-zinc-50 sm:text-sm"
+            className="relative z-10 min-h-[44px] rounded-full bg-white px-4 py-2 text-xs font-semibold text-zinc-900 shadow-md transition hover:bg-zinc-50 sm:text-sm"
           >
             Do koszyka
           </button>
@@ -82,13 +92,73 @@ function ShelfTile({ book, featured, imagePriority, onOpenDetails, onAddToCart }
               e.stopPropagation();
               onOpenDetails();
             }}
-            className="relative z-10 rounded-full border border-white/40 bg-white/15 px-4 py-2 text-xs font-semibold text-white shadow-md backdrop-blur-md transition hover:bg-white/25 sm:text-sm"
+            className="relative z-10 min-h-[44px] rounded-full border border-white/40 bg-white/15 px-4 py-2 text-xs font-semibold text-white shadow-md backdrop-blur-md transition hover:bg-white/25 sm:text-sm"
           >
             Szczegóły
           </button>
         </div>
       </div>
     </div>
+  );
+}
+
+function SingleBookUx({ book }: { book: Ebook }) {
+  const [detailOpen, setDetailOpen] = useState(false);
+
+  return (
+    <>
+      <div className="grid lg:grid-cols-[minmax(240px,300px),minmax(0,1fr)] gap-10 lg:gap-14 xl:gap-16 max-w-6xl mx-auto items-start">
+        <section aria-label="Okładka na półce" className="w-full max-w-[280px] mx-auto lg:max-w-none lg:mx-0">
+          <div className="relative mx-auto w-full max-w-[240px]">
+            <ShelfTile
+              book={book}
+              featured
+              imagePriority
+              onOpenDetails={() => setDetailOpen(true)}
+              onAddToCart={() => {
+                addEbookToCart(book.id);
+                requestOpenCartDrawer();
+              }}
+            />
+          </div>
+          <LemonShelfPlank className="max-w-[240px] mx-auto" />
+        </section>
+
+        <aside
+          className="rounded-2xl border border-white/10 p-6 sm:p-8 lg:p-10 w-full min-w-0"
+          style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+          aria-labelledby="ebook-product-title"
+        >
+          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#d8f17b]/90">
+            {book.editionLabel ?? 'SmartWeave'}
+          </p>
+          <h2 id="ebook-product-title" className="mt-3 text-2xl sm:text-3xl font-bold text-[#e4e4e7] leading-tight tracking-tight">
+            {book.title}
+          </h2>
+          <p className="mt-5 text-3xl sm:text-4xl font-bold text-[#e4e4e7] tabular-nums">{book.price}</p>
+          <p className="mt-5 text-sm sm:text-base text-zinc-400 leading-relaxed max-w-prose">{book.description}</p>
+
+          <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
+            <div className="sm:flex-1 sm:min-w-[200px]">
+              <EbookCheckoutButton book={book} />
+            </div>
+            <button
+              type="button"
+              onClick={() => setDetailOpen(true)}
+              className="inline-flex min-h-[44px] w-full sm:w-auto items-center justify-center gap-2 rounded-full border-2 border-white/15 px-6 font-semibold text-sm text-[#e4e4e7] transition hover:border-[#d8f17b]/50 hover:bg-white/5"
+            >
+              <Info className="h-4 w-4 shrink-0" aria-hidden />
+              Pełny opis
+            </button>
+          </div>
+          <p className="mt-5 text-xs text-zinc-500 leading-relaxed max-w-prose">
+            W koszyku zobaczysz podsumowanie. Szczegóły dostawy i płatności ustalamy w kontakcie.
+          </p>
+        </aside>
+      </div>
+
+      <EbookDetailModal book={book} open={detailOpen} onClose={() => setDetailOpen(false)} />
+    </>
   );
 }
 
@@ -103,10 +173,7 @@ function ShelfRow({ books, shelfIndex }: { books: Ebook[]; shelfIndex: number })
 
   return (
     <div className="mb-14 sm:mb-20 last:mb-0">
-      <section
-        className="relative mx-1 sm:mx-4"
-        aria-label="Okładki na półce"
-      >
+      <section className="relative mx-1 sm:mx-4" aria-label="Okładki na półce">
         <div className={`${gridClass} relative z-10 px-1 sm:px-2`}>
           {books.map((book, i) => (
             <ShelfTile
@@ -123,13 +190,8 @@ function ShelfRow({ books, shelfIndex }: { books: Ebook[]; shelfIndex: number })
           ))}
         </div>
 
-        {/* Belka półki pod okładkami – okładka „stoi” na krawędzi */}
-        <div
-          className="relative z-[1] -mt-3 sm:-mt-4 pt-1"
-          aria-hidden
-        >
-          <div className="h-3.5 rounded-sm bg-[#d8f17b] shadow-[0_16px_36px_rgba(0,0,0,0.55),0_6px_20px_rgba(216,241,123,0.15)] ring-1 ring-black/30 sm:h-4" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2 rounded-b-sm bg-gradient-to-b from-black/25 to-transparent" />
+        <div className="mt-6 sm:mt-8">
+          <LemonShelfPlank className="mx-1 sm:mx-4" />
         </div>
       </section>
 
@@ -158,14 +220,14 @@ function ShelfRow({ books, shelfIndex }: { books: Ebook[]; shelfIndex: number })
                   addEbookToCart(book.id);
                   requestOpenCartDrawer();
                 }}
-                className="rounded-full bg-[#d8f17b] px-4 py-2 text-xs font-semibold text-zinc-900 shadow-md transition hover:bg-[#c5e066] sm:text-sm"
+                className="min-h-[44px] rounded-full bg-[#d8f17b] px-4 py-2 text-xs font-semibold text-zinc-900 shadow-md transition hover:bg-[#c5e066] sm:text-sm"
               >
                 Do koszyka
               </button>
               <button
                 type="button"
                 onClick={() => setDetailBookId(book.id)}
-                className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-semibold text-[#e4e4e7] transition hover:border-[#d8f17b]/50 hover:bg-white/10 sm:text-sm"
+                className="min-h-[44px] rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-semibold text-[#e4e4e7] transition hover:border-[#d8f17b]/50 hover:bg-white/10 sm:text-sm"
               >
                 Szczegóły
               </button>
@@ -191,6 +253,16 @@ type Props = {
 
 export function EbookShelfSection({ books }: Props) {
   const rows = chunk(books, 4);
+
+  if (books.length === 1) {
+    return (
+      <div className="relative mt-4 sm:mt-0">
+        <div className="relative mx-auto max-w-6xl px-0 py-2 sm:py-4">
+          <SingleBookUx book={books[0]} />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative mt-6 sm:mt-10">
