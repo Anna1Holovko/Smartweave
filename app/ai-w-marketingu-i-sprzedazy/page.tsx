@@ -11,11 +11,20 @@ import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 
 const title = 'AI w marketingu i sprzedaży';
 const description =
-  'AI w marketingu i sprzedaży: agenci AI, chatboty, automatyzacja leadów i CRM. SmartWeave łączy to z brandingiem i stronami www.';
+  'AI w marketingu i sprzedaży: agenci AI, chatboty, automatyzacja procesów, leady i CRM. SmartWeave łączy to z brandingiem i stronami www.';
+
+const keywords = [
+  'AI w marketingu i sprzedaży',
+  'agenci AI',
+  'automatyzacja procesów',
+  'automatyzacja marketingu',
+  'AI w sprzedaży',
+];
 
 export const metadata: Metadata = {
   title: `${title} | SmartWeave`,
   description,
+  keywords,
   openGraph: {
     title: `${title} | SmartWeave`,
     description,

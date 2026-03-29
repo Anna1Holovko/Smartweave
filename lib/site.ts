@@ -12,20 +12,22 @@ export const SITE_LOGO_URL = `${SITE_URL}/assets/smartweave-logo.png`;
  * Meta title for default page. Google typically shows ~50-60 chars; keep under 60 for full display.
  */
 export const META_TITLE =
-  'SmartWeave - Automatyzacja procesów, branding i strony www dla firm';
+  'SmartWeave | Automatyzacja procesów biznesowych, agenci AI, strony www';
 
 /**
  * Meta description. Google shows ~155-158 chars; keep in 150-158 for full snippet.
+ * Lead with target queries: automatyzacja procesów, agenci AI (GSC / organic).
  */
 export const META_DESCRIPTION =
-  'Automatyzacja procesów biznesowych, agenci AI, strony www oraz identyfikacja wizualna. Łączymy branding z inteligentnymi systemami.';
+  'Automatyzacja procesów biznesowych i agenci AI dla firm: workflowy, integracje, CRM. Strony www, branding, e-booki o AI. SmartWeave — cała Polska.';
 
 /** Open Graph / Twitter title (can be same or variant) */
-export const OG_TITLE = 'SmartWeave | Automatyzacja procesów, branding i systemy cyfrowe dla firm';
+export const OG_TITLE =
+  'SmartWeave | Automatyzacja procesów, agenci AI, branding i systemy dla firm';
 
 /** Open Graph / Twitter description */
 export const OG_DESCRIPTION =
-  'Łączymy identyfikację wizualną z automatyzacją AI i nowoczesnymi stronami. Oszczędność czasu, mniej rutyny, skalowalny biznes.';
+  'Automatyzacja procesów biznesowych, agenci AI, strony www i e-booki. Mniej rutyny, szybsze leady, spójna marka — wdrożenia dla firm.';
 
 /** Kolejność usług wszędzie: marketing, SEO, meta, OG, stopka, bio. */
 export const SERVICES_ORDER_LABEL =

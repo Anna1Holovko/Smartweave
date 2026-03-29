@@ -40,16 +40,21 @@ export const metadata: Metadata = {
   description: META_DESCRIPTION,
 
   keywords: [
-    'automatyzacja AI',
-    'automatyzacja AI dla firm',
     'automatyzacja procesów',
     'automatyzacja procesów biznesowych',
+    'automatyzacja procesów dla firm',
+    'agenci AI',
+    'agenci AI dla firm',
+    'automatyzacja AI',
+    'automatyzacja AI dla firm',
+    'AI w marketingu i sprzedaży',
     'AI w biznesie',
+    'e-booki',
+    'e-booki o AI',
     'branding i AI',
     'identyfikacja wizualna',
     'projektowanie stron www dla firm',
     'strony pod leada B2B',
-    'agenci AI',
     'strony WWW dla firm',
     'strony internetowe',
     'design',
@@ -135,7 +140,7 @@ const jsonLd = {
         url: SITE_LOGO_URL,
       },
       description:
-        'Automatyzacja procesów biznesowych, agenci AI, strony internetowe, chatboty i aplikacje webowe. Design i wdrożenia dla biznesu',
+        'Automatyzacja procesów biznesowych, agenci AI, automatyzacja dla firm, AI w marketingu i sprzedaży. Strony www, chatboty, e-booki, branding.',
     },
     {
       '@type': 'WebSite',
@@ -181,7 +186,7 @@ const jsonLd = {
       '@id': `${SITE_URL}/#service`,
       name: `${SITE_NAME} - Design i automatyzacja`,
       description:
-        'Automatyzacja procesów biznesowych, agenci AI, strony internetowe, chatboty i aplikacje webowe. Branding, SEO',
+        'Automatyzacja procesów biznesowych, agenci AI, AI w marketingu, strony www, e-booki, chatboty, branding, SEO',
       url: SITE_URL,
       areaServed: {
         '@type': 'Country',

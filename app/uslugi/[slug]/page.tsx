@@ -35,6 +35,24 @@ const SLUG_TITLES: Record<string, string> = {
   'aplikacje-webowe': 'Aplikacje webowe',
 };
 
+/** Richer meta descriptions for high-intent queries (GSC: automatyzacja procesów, agenci AI). */
+const SLUG_META_DESCRIPTION: Partial<Record<string, string>> = {
+  automatyzacja:
+    'Automatyzacja procesów biznesowych: workflowy, integracje Make i n8n, CRM, mniej ręcznej pracy. SmartWeave wdraża automatyzację z AI dla firm.',
+  'agenci-ai':
+    'Agenci AI dla firm: pierwsza odpowiedź, kwalifikacja leadów, dokumenty w CRM. Wdrożenia pod Twój proces — SmartWeave.',
+};
+
+const SLUG_KEYWORDS: Partial<Record<string, string[]>> = {
+  automatyzacja: [
+    'automatyzacja procesów',
+    'automatyzacja procesów biznesowych',
+    'automatyzacja procesów dla firm',
+    'automatyzacja AI',
+  ],
+  'agenci-ai': ['agenci AI', 'agenci AI dla firm', 'automatyzacja z AI', 'AI dla firm'],
+};
+
 export async function generateStaticParams() {
   return SERVICE_SLUGS.map((slug) => ({ slug }));
 }
@@ -48,15 +66,23 @@ export async function generateMetadata({
   const service = getServiceBySlug(slug);
   if (!service) return { title: 'Usługa | SmartWeave' };
   const shortTitle = SLUG_TITLES[slug] ?? service.title;
-  const metaDesc = service.description.replace(/\.$/, '').slice(0, 100);
+  const metaDesc =
+    SLUG_META_DESCRIPTION[slug] ??
+    service.description
+      .replace(/\.$/, '')
+      .trim()
+      .slice(0, 158);
+  const kw = SLUG_KEYWORDS[slug];
   return {
     title: `${shortTitle} - usługi`,
     description: metaDesc,
+    ...(kw ? { keywords: kw } : {}),
     openGraph: {
       title: `${shortTitle} - usługi`,
       description: metaDesc,
       url: `${SITE_URL}/uslugi/${slug}`,
     },
+    alternates: { canonical: `${SITE_URL}/uslugi/${slug}` },
   };
 }
 

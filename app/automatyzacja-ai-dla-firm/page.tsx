@@ -13,9 +13,18 @@ const title = 'Automatyzacja procesów dla firm';
 const description =
   'Automatyzacja procesów biznesowych z wykorzystaniem AI: workflowy, integracje, agenci AI. SmartWeave łączy to z brandingiem i stronami www dla firm w całej Polsce.';
 
+const keywords = [
+  'automatyzacja procesów',
+  'automatyzacja procesów biznesowych',
+  'automatyzacja procesów dla firm',
+  'agenci AI',
+  'automatyzacja AI',
+];
+
 export const metadata: Metadata = {
   title: `${title} | SmartWeave`,
   description,
+  keywords,
   openGraph: {
     title: `${title} | SmartWeave`,
     description,

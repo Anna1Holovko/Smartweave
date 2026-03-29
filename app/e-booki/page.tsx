@@ -9,16 +9,28 @@ import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 import { EbookShelfSection } from './EbookShelfSection';
 
+const title = 'E-booki o AI i automatyzacji';
+const description =
+  'E-booki dla firm: AI, automatyzacja procesów biznesowych, plan wdrożenia. SmartWeave — publikacje PDF, koszyk i kontakt w sprawie szczegółów.';
+
+const keywords = [
+  'e-booki',
+  'e-booki o AI',
+  'automatyzacja procesów',
+  'agenci AI',
+  'AI dla firm',
+];
+
 export const metadata: Metadata = {
-  title: 'E-booki - SmartWeave',
-  description:
-    'E-booki SmartWeave: AI, automatyzacja i plan wdrożenia w firmie. Kup w koszyku, szczegóły w opisie.',
+  title: `${title} | SmartWeave`,
+  description,
+  keywords,
   openGraph: {
-    title: 'E-booki | SmartWeave',
-    description:
-      'Publikacje cyfrowe: m.in. przewodnik „Firma w erze AI” - strategia, narzędzia, plan na 12 tygodni.',
+    title: `${title} | SmartWeave`,
+    description,
     url: `${SITE_URL}/e-booki`,
   },
+  alternates: { canonical: `${SITE_URL}/e-booki` },
 };
 
 export default function EbookiPage() {
