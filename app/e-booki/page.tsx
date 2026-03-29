@@ -12,10 +12,11 @@ import { EbookShelfSection } from './EbookShelfSection';
 export const metadata: Metadata = {
   title: 'E-booki - SmartWeave',
   description:
-    'Kup e-booki SmartWeave - publikacje dla firm: lead magnet, edukacja, budowanie autorytetu',
+    'E-booki SmartWeave: AI, automatyzacja i plan wdrożenia w firmie. Kup w koszyku, szczegóły w opisie.',
   openGraph: {
     title: 'E-booki | SmartWeave',
-    description: 'Profesjonalne e-booki dla firm - lead magnet, edukacja, budowanie autorytetu',
+    description:
+      'Publikacje cyfrowe: m.in. przewodnik „Firma w erze AI” - strategia, narzędzia, plan na 12 tygodni.',
     url: `${SITE_URL}/e-booki`,
   },
 };
@@ -35,7 +36,7 @@ export default function EbookiPage() {
               badge="E-booki"
               badgeVariant="accent"
               title="E-booki dla firm"
-              description="Profesjonalne publikacje cyfrowe - lead magnet, edukacja, budowanie autorytetu"
+              description="Jedna pozycja w katalogu: przewodnik po wdrożeniu AI i automatyzacji. Okładka, koszyk, pełny opis w modalu."
               className={INTRO_MB_CLASS}
             />
 

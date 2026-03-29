@@ -39,7 +39,7 @@ Co znajdziesz w środku:
 • AI w marketingu, sprzedaży, HR i finansach - ramy, nie puste hasła
 • etyka AI, dane, RODO oraz kontekst europejskiego AI Act
 • plan na 12 tygodni z checklistami, wskaźnikami i kalkulacją ROI
-• przegląd 50+ narzędzi AI przydatnych w codziennej pracy firmy (aktualne dane na 2025 r.)
+• przegląd 50+ narzędzi AI przydatnych w codziennej pracy firmy (przegląd na 2026 r.)
 
 
 Dlaczego to teraz ma sens

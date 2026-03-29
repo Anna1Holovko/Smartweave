@@ -16,9 +16,10 @@ function chunk<T>(arr: T[], size: number): T[][] {
 type TileProps = {
   book: Ebook;
   featured?: boolean;
+  imagePriority?: boolean;
 };
 
-function ShelfTile({ book, featured }: TileProps) {
+function ShelfTile({ book, featured, imagePriority }: TileProps) {
   const [detailOpen, setDetailOpen] = useState(false);
 
   return (
@@ -46,8 +47,9 @@ function ShelfTile({ book, featured }: TileProps) {
           {book.image ? (
             <Image
               src={book.image}
-              alt=""
+              alt={book.title}
               fill
+              priority={imagePriority}
               className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
               sizes="(max-width: 639px) 45vw, 200px"
             />
@@ -61,7 +63,7 @@ function ShelfTile({ book, featured }: TileProps) {
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent opacity-90 transition-opacity duration-300 group-hover:from-black/65 max-sm:from-black/60" />
 
-          <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-center justify-center gap-2 p-3 sm:inset-0 sm:items-center sm:justify-center sm:gap-3 sm:p-4 opacity-100 transition-all duration-300 sm:opacity-0 sm:group-hover:opacity-100">
+          <div className="absolute inset-x-0 bottom-0 z-10 flex flex-wrap items-center justify-center gap-2 bg-gradient-to-t from-black/75 via-black/40 to-transparent p-3 pt-10 sm:p-4 sm:pt-12">
             <button
               type="button"
               onClick={(e) => {
@@ -102,7 +104,12 @@ function ShelfRow({ books, shelfIndex }: { books: Ebook[]; shelfIndex: number })
     <div className="mb-14 sm:mb-20 last:mb-0">
       <div className={`${gridClass} px-1 sm:px-2`}>
         {books.map((book, i) => (
-          <ShelfTile key={book.id} book={book} featured={shelfIndex === 0 && i === 0} />
+          <ShelfTile
+            key={book.id}
+            book={book}
+            featured={shelfIndex === 0 && i === 0}
+            imagePriority={shelfIndex === 0 && i === 0}
+          />
         ))}
       </div>
 

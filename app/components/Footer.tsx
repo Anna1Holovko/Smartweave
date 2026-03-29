@@ -41,6 +41,9 @@ export function Footer() {
               <Link href="/ai-w-marketingu-i-sprzedazy" className="text-zinc-500 hover:text-[#d8f17b] transition-colors">
                 AI w marketingu i sprzedaży
               </Link>
+              <Link href="/e-booki" className="text-zinc-500 hover:text-[#d8f17b] transition-colors">
+                E-booki
+              </Link>
             </nav>
             <p className="text-xs sm:text-sm text-zinc-500">
               © {currentYear} SmartWeave. Wszystkie prawa zastrzeżone.
