@@ -129,31 +129,56 @@ function SingleBookUx({ book }: { book: Ebook }) {
           style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
           aria-labelledby="ebook-product-title"
         >
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#d8f17b]/90">
-            {book.editionLabel ?? 'SmartWeave'}
-          </p>
-          <h2 id="ebook-product-title" className="mt-3 text-2xl sm:text-3xl font-bold text-[#e4e4e7] leading-tight tracking-tight">
-            {book.title}
-          </h2>
-          <p className="mt-5 text-3xl sm:text-4xl font-bold text-[#e4e4e7] tabular-nums">{book.price}</p>
-          <p className="mt-5 text-sm sm:text-base text-zinc-400 leading-relaxed max-w-prose">{book.description}</p>
+          <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 lg:gap-10">
+            {book.image ? (
+              <div className="relative mx-auto sm:mx-0 h-[220px] w-[165px] shrink-0 overflow-hidden rounded-xl ring-1 ring-white/12 shadow-[0_16px_40px_rgba(0,0,0,0.45)] sm:h-[260px] sm:w-[195px]">
+                <Image
+                  src={book.image}
+                  alt={`Okładka: ${book.title}`}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 639px) 165px, 195px"
+                />
+              </div>
+            ) : (
+              <div
+                className={`mx-auto sm:mx-0 flex h-[220px] w-[165px] shrink-0 items-center justify-center rounded-xl ring-1 ring-white/12 bg-gradient-to-br ${book.gradient} sm:h-[260px] sm:w-[195px]`}
+              >
+                <BookOpen className="h-16 w-16 text-white/80" aria-hidden />
+              </div>
+            )}
 
-          <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
-            <div className="sm:flex-1 sm:min-w-[200px]">
-              <EbookCheckoutButton book={book} />
+            <div className="min-w-0 flex-1">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#d8f17b]/90">
+                {book.editionLabel ?? 'SmartWeave'}
+              </p>
+              <h2
+                id="ebook-product-title"
+                className="mt-3 text-2xl sm:text-3xl font-bold text-[#e4e4e7] leading-tight tracking-tight"
+              >
+                {book.title}
+              </h2>
+              <p className="mt-5 text-3xl sm:text-4xl font-bold text-[#e4e4e7] tabular-nums">{book.price}</p>
+              <p className="mt-5 text-sm sm:text-base text-zinc-400 leading-relaxed max-w-prose">{book.description}</p>
+
+              <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
+                <div className="sm:flex-1 sm:min-w-[200px]">
+                  <EbookCheckoutButton book={book} />
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setDetailOpen(true)}
+                  className="inline-flex min-h-[44px] w-full sm:w-auto items-center justify-center gap-2 rounded-full border-2 border-white/15 px-6 font-semibold text-sm text-[#e4e4e7] transition hover:border-[#d8f17b]/50 hover:bg-white/5"
+                >
+                  <Info className="h-4 w-4 shrink-0" aria-hidden />
+                  Pełny opis
+                </button>
+              </div>
+              <p className="mt-5 text-xs text-zinc-500 leading-relaxed max-w-prose">
+                W koszyku zobaczysz podsumowanie. Szczegóły dostawy i płatności ustalamy w kontakcie.
+              </p>
             </div>
-            <button
-              type="button"
-              onClick={() => setDetailOpen(true)}
-              className="inline-flex min-h-[44px] w-full sm:w-auto items-center justify-center gap-2 rounded-full border-2 border-white/15 px-6 font-semibold text-sm text-[#e4e4e7] transition hover:border-[#d8f17b]/50 hover:bg-white/5"
-            >
-              <Info className="h-4 w-4 shrink-0" aria-hidden />
-              Pełny opis
-            </button>
           </div>
-          <p className="mt-5 text-xs text-zinc-500 leading-relaxed max-w-prose">
-            W koszyku zobaczysz podsumowanie. Szczegóły dostawy i płatności ustalamy w kontakcie.
-          </p>
         </aside>
       </div>
 
