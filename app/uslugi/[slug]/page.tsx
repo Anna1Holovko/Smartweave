@@ -5,7 +5,7 @@ import { Header } from '@/app/components/Header';
 import { Footer } from '@/app/components/Footer';
 import { ScrollToTop } from '@/app/components/ScrollToTop';
 import { MotionFadeIn } from '@/app/components/MotionFadeIn';
-import { SERVICES, getServiceBySlug, SERVICE_SLUGS } from '@/lib/services';
+import { getServiceBySlug, SERVICE_SLUGS } from '@/lib/services';
 import type { ServiceSlug } from '@/lib/services';
 import { SERVICE_PAGE_CONTENT } from '@/lib/service-page-content';
 import { USLUGI_PAGE_CONTENT } from '@/lib/uslugi-page-content';
@@ -19,14 +19,11 @@ import { ServiceSolutionBlock } from '@/app/components/ServiceSolutionBlock';
 import { ServiceFeaturesList } from '@/app/components/ServiceFeaturesList';
 import { ServiceBenefitsList } from '@/app/components/ServiceBenefitsList';
 import { ServiceProcessSteps } from '@/app/components/ServiceProcessSteps';
-import { ServiceRealizacjeGrid } from '@/app/components/ServiceRealizacjeGrid';
-import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 import { BrandMarkIcon } from '@/app/components/BrandMarkIcon';
 import { BrandingAiBridgeSection } from '@/app/components/BrandingAiBridgeSection';
 import { HybridServiceCrossLinks } from '@/app/components/HybridServiceCrossLinks';
 import { QuickAutomationCta } from '@/app/components/QuickAutomationCta';
-import { StronyServicePremiumIntro } from '@/app/components/StronyServicePremiumIntro';
-import { StronyMotionSection } from '@/app/components/StronyMotionSection';
+import { StronyUslugaPage } from '@/app/components/StronyUslugaPage';
 
 /** Page/SEO titles - aligned with search phrases (projektowanie stron www dla firm, automatyzacja procesów AI, strony pod leada B2B) */
 const SLUG_TITLES: Record<string, string> = {
@@ -88,8 +85,6 @@ export default async function UslugiSlugPage({
                 : 'default';
   const ctaDescription = `Opowiedz nam krótko o Twoich potrzebach w obszarze: ${service.title}. W 30 minut wskażemy najlepszy pierwszy krok i dopasujemy wdrożenie.`;
 
-  const Section = slug === 'strony' ? StronyMotionSection : MotionFadeIn;
-
   return (
     <>
       <Header />
@@ -99,11 +94,22 @@ export default async function UslugiSlugPage({
           <div className="absolute inset-0 bg-[var(--bg)]" />
 
           <div className={CONTAINER_CLASS}>
-            {slug === 'strony' ? (
-              <StronyServicePremiumIntro title={service.title} description={service.description} />
+            {slug === 'strony' && pageContent ? (
+              <StronyUslugaPage
+                title={service.title}
+                description={service.description}
+                problemHeading={
+                  pageContent.problemHeading ?? 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?'
+                }
+                problems={USLUGI_PAGE_CONTENT.strony.problems}
+                solution={pageContent.solution}
+                features={service.features}
+                benefits={pageContent.benefits}
+                process={pageContent.process}
+              />
             ) : (
               <>
-                <Section>
+                <MotionFadeIn>
                   <Link
                     href="/uslugi"
                     className="inline-flex items-center gap-2 text-zinc-400 hover:text-[#d8f17b] transition-colors mb-6 sm:mb-8 lg:mb-12 min-h-[44px] min-w-[44px] items-center justify-center sm:min-h-0 sm:min-w-0 sm:justify-start"
@@ -111,9 +117,9 @@ export default async function UslugiSlugPage({
                     <ArrowLeft className="w-4 h-4 flex-shrink-0" />
                     <span>Wszystkie usługi</span>
                   </Link>
-                </Section>
+                </MotionFadeIn>
 
-                <Section delay={0.1} className="text-center mb-10 sm:mb-12 lg:mb-14">
+                <MotionFadeIn delay={0.1} className="text-center mb-10 sm:mb-12 lg:mb-14">
                   <span className="inline-flex items-center justify-center gap-2 mb-3 sm:mb-4 text-[#d8f17b] text-xs sm:text-sm font-medium uppercase tracking-wider">
                     <BrandMarkIcon />
                     Oferta
@@ -124,104 +130,101 @@ export default async function UslugiSlugPage({
                   <p className="text-base sm:text-xl text-zinc-400 max-w-[80ch]">
                     {service.description}
                   </p>
-                </Section>
-              </>
-            )}
+                </MotionFadeIn>
 
-            {/* Problem cards grid – home-style 2x3 like PainPointsSection */}
-            <Section delay={slug === 'strony' ? 0.08 : 0.12}>
-              <ServiceProblemCards
-                problems={USLUGI_PAGE_CONTENT[slug as ServiceSlug].problems}
-                slug={slug as ServiceSlug}
-                heading={pageContent?.problemHeading ?? 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?'}
-              />
-            </Section>
+                <MotionFadeIn delay={0.12}>
+                  <ServiceProblemCards
+                    problems={USLUGI_PAGE_CONTENT[slug as ServiceSlug].problems}
+                    slug={slug as ServiceSlug}
+                    heading={pageContent?.problemHeading ?? 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?'}
+                  />
+                </MotionFadeIn>
 
-            {pageContent && (
-              <>
-                <Section delay={0.2} className="mb-10 sm:mb-12 lg:mb-14">
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Nasze podejście do rozwiązania</h2>
-                  <ServiceSolutionBlock solution={pageContent.solution} />
-                </Section>
-              </>
-            )}
+                {pageContent && (
+                  <>
+                    <MotionFadeIn delay={0.2} className="mb-10 sm:mb-12 lg:mb-14">
+                      <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Nasze podejście do rozwiązania</h2>
+                      <ServiceSolutionBlock solution={pageContent.solution} />
+                    </MotionFadeIn>
+                  </>
+                )}
 
-            <div className={`grid gap-8 lg:gap-12 xl:gap-16 items-start ${slug === 'automatyzacja' || slug === 'agenci-ai' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
-              <div className={slug === 'automatyzacja' || slug === 'agenci-ai' ? 'order-2 lg:order-1 space-y-6 lg:space-y-8' : 'space-y-6 lg:space-y-8'}>
-                <Section delay={0.2}>
-                  <div className="relative p-8 md:p-10 bg-transparent">
-                    <h2 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-6">
-                      {slug === 'automatyzacja' ? 'Co możemy zautomatyzować w Twojej firmie' : 'Co wdrażamy'}
-                    </h2>
-                    <ServiceFeaturesList features={service.features} />
-                  </div>
-                </Section>
-              </div>
-
-              {/* Right: workflow diagram on Automatyzacja, AI animation on Agenci AI */}
-              {slug === 'automatyzacja' && (
-                <Section delay={0.15} className="order-1 lg:order-2 w-full lg:sticky lg:top-24 hidden lg:block cursor-auto">
-                  <AutomationWorkflowSection embedded />
-                </Section>
-              )}
-              {slug === 'agenci-ai' && (
-                <Section delay={0.15} className="order-1 lg:order-2 w-full lg:sticky lg:top-24 hidden lg:block cursor-auto">
-                  <AiAnimationSection />
-                </Section>
-              )}
-            </div>
-
-            {pageContent && (
-              <>
-                <Section delay={0.25} className="mt-12 sm:mt-16 lg:mt-20 mb-10 sm:mb-12 lg:mb-14">
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-6">Korzyści dla Twojej firmy</h2>
-                  <ServiceBenefitsList benefits={pageContent.benefits} />
-                </Section>
-                <Section delay={0.3} className="mb-10 sm:mb-12 lg:mb-14">
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-6">Jak wygląda proces współpracy</h2>
-                  <ServiceProcessSteps process={pageContent.process} />
-                </Section>
-              </>
-            )}
-
-            {/* Realizacje - full-width section with Framer stagger (only on strony) */}
-            {slug === 'strony' && (
-              <Section delay={0.25} className="w-full mt-12 sm:mt-16 lg:mt-20">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-6 sm:mb-8">Realizacje na stronach internetowych</h2>
-                <ServiceRealizacjeGrid items={PORTFOLIO_ITEMS} />
-              </Section>
-            )}
-
-            {(slug === 'chatboty' || slug === 'aplikacje-webowe') && (
-              <Section delay={0.32} className="w-full mt-12 sm:mt-16 lg:mt-20">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Realizacje</h2>
-                <p className="text-zinc-400 max-w-[80ch] mb-6">
-                  Przykłady projektów w tej kategorii znajdziesz na dedykowanej podstronie realizacji.
-                </p>
-                <Link
-                  href={`/realizacje/${slug}`}
-                  className="inline-flex items-center gap-2 text-[#d8f17b] font-semibold hover:underline min-h-[44px]"
+                <div
+                  className={`grid gap-8 lg:gap-12 xl:gap-16 items-start ${slug === 'automatyzacja' || slug === 'agenci-ai' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}
                 >
-                  {slug === 'chatboty' ? 'Realizacje - chatboty' : 'Realizacje - aplikacje webowe'}
-                  <span aria-hidden> →</span>
-                </Link>
-              </Section>
-            )}
+                  <div
+                    className={
+                      slug === 'automatyzacja' || slug === 'agenci-ai'
+                        ? 'order-2 lg:order-1 space-y-6 lg:space-y-8'
+                        : 'space-y-6 lg:space-y-8'
+                    }
+                  >
+                    <MotionFadeIn delay={0.2}>
+                      <div className="relative p-8 md:p-10 bg-transparent">
+                        <h2 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-6">
+                          {slug === 'automatyzacja' ? 'Co możemy zautomatyzować w Twojej firmie' : 'Co wdrażamy'}
+                        </h2>
+                        <ServiceFeaturesList features={service.features} />
+                      </div>
+                    </MotionFadeIn>
+                  </div>
 
-            {slug === 'branding' && (
-              <Section delay={0.34}>
-                <BrandingAiBridgeSection />
-              </Section>
-            )}
+                  {slug === 'automatyzacja' && (
+                    <MotionFadeIn delay={0.15} className="order-1 lg:order-2 w-full lg:sticky lg:top-24 hidden lg:block cursor-auto">
+                      <AutomationWorkflowSection embedded />
+                    </MotionFadeIn>
+                  )}
+                  {slug === 'agenci-ai' && (
+                    <MotionFadeIn delay={0.15} className="order-1 lg:order-2 w-full lg:sticky lg:top-24 hidden lg:block cursor-auto">
+                      <AiAnimationSection />
+                    </MotionFadeIn>
+                  )}
+                </div>
 
-            {(slug === 'strony' ||
-              slug === 'automatyzacja' ||
-              slug === 'agenci-ai' ||
-              slug === 'chatboty' ||
-              slug === 'aplikacje-webowe') && (
-              <Section delay={0.34}>
-                <HybridServiceCrossLinks slug={slug as ServiceSlug} />
-              </Section>
+                {pageContent && (
+                  <>
+                    <MotionFadeIn delay={0.25} className="mt-12 sm:mt-16 lg:mt-20 mb-10 sm:mb-12 lg:mb-14">
+                      <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-6">Korzyści dla Twojej firmy</h2>
+                      <ServiceBenefitsList benefits={pageContent.benefits} />
+                    </MotionFadeIn>
+                    <MotionFadeIn delay={0.3} className="mb-10 sm:mb-12 lg:mb-14">
+                      <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-6">Jak wygląda proces współpracy</h2>
+                      <ServiceProcessSteps process={pageContent.process} />
+                    </MotionFadeIn>
+                  </>
+                )}
+
+                {(slug === 'chatboty' || slug === 'aplikacje-webowe') && (
+                  <MotionFadeIn delay={0.32} className="w-full mt-12 sm:mt-16 lg:mt-20">
+                    <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Realizacje</h2>
+                    <p className="text-zinc-400 max-w-[80ch] mb-6">
+                      Przykłady projektów w tej kategorii znajdziesz na dedykowanej podstronie realizacji.
+                    </p>
+                    <Link
+                      href={`/realizacje/${slug}`}
+                      className="inline-flex items-center gap-2 text-[#d8f17b] font-semibold hover:underline min-h-[44px]"
+                    >
+                      {slug === 'chatboty' ? 'Realizacje - chatboty' : 'Realizacje - aplikacje webowe'}
+                      <span aria-hidden> →</span>
+                    </Link>
+                  </MotionFadeIn>
+                )}
+
+                {slug === 'branding' && (
+                  <MotionFadeIn delay={0.34}>
+                    <BrandingAiBridgeSection />
+                  </MotionFadeIn>
+                )}
+
+                {(slug === 'automatyzacja' ||
+                  slug === 'agenci-ai' ||
+                  slug === 'chatboty' ||
+                  slug === 'aplikacje-webowe') && (
+                  <MotionFadeIn delay={0.34}>
+                    <HybridServiceCrossLinks slug={slug as ServiceSlug} />
+                  </MotionFadeIn>
+                )}
+              </>
             )}
           </div>
         </section>
