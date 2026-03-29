@@ -172,14 +172,6 @@ export default async function UslugiSlugPage({
                   <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-6">Jak wygląda proces współpracy</h2>
                   <ServiceProcessSteps process={pageContent.process} />
                 </MotionFadeIn>
-                <MotionFadeIn delay={0.35} className="mb-10 sm:mb-12 lg:mb-14">
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">Dlaczego SmartWeave?</h2>
-                  <div className="text-zinc-400 leading-relaxed max-w-[80ch] space-y-4">
-                    {pageContent.whySmartWeave.split(/\n\n+/).map((paragraph, i) => (
-                      <p key={i}>{paragraph}</p>
-                    ))}
-                  </div>
-                </MotionFadeIn>
               </>
             )}
 

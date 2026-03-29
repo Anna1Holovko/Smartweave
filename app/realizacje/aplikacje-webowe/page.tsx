@@ -10,11 +10,10 @@ import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 
 export const metadata: Metadata = {
   title: 'Realizacje - Aplikacje webowe',
-  description:
-    'Case studies: aplikacje webowe dla firm - strona w przygotowaniu. SmartWeave',
+  description: 'Realizacje: aplikacje webowe i panele dla firm. SmartWeave',
   openGraph: {
     title: 'Aplikacje webowe | SmartWeave',
-    description: 'Realizacje aplikacji webowych w przygotowaniu - wkrótce case studies',
+    description: 'Wdrożenia aplikacji webowych i paneli dla firm — SmartWeave',
     url: `${SITE_URL}/realizacje/aplikacje-webowe`,
   },
 };
@@ -33,7 +32,6 @@ export default function RealizacjeAplikacjeWebowePage() {
               badge="W przygotowaniu"
               badgeVariant="accent"
               title="Aplikacje webowe"
-              description="Ta strona jest w trakcie opracowania. Wkrótce opublikujemy tutaj case studies z wdrożeń aplikacji webowych i paneli dla firm."
               className={INTRO_MB_CLASS}
             />
 

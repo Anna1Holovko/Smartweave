@@ -1,6 +1,6 @@
 /**
- * Treści sekcji na stronach usług: problem, rozwiązanie, korzyści, proces, dlaczego SmartWeave.
- * Struktura: nagłówek (w page) → problem → rozwiązanie → co wdrażamy (features) → korzyści → proces 1-4 → dlaczego SmartWeave → CTA.
+ * Treści sekcji na stronach usług: problem, rozwiązanie, korzyści, proces.
+ * Struktura: nagłówek (w page) → problem → rozwiązanie → co wdrażamy (features) → korzyści → proces 1-4 → CTA.
  */
 
 export type ServicePageContent = {
@@ -10,7 +10,6 @@ export type ServicePageContent = {
   solution: string;
   benefits: string[];
   process: { step: number; title: string; description: string }[];
-  whySmartWeave: string;
 };
 
 export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
@@ -48,8 +47,6 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
         description: 'Wdrażamy stronę w środowisku produkcyjnym, przekazujemy pełną dokumentację i oferujemy wsparcie techniczne oraz rozwój funkcjonalności w miarę potrzeb firmy.',
       },
     ],
-    whySmartWeave:
-      'SmartWeave łączy projektowanie profesjonalnych stron www z automatyzacją procesów i widocznością w wyszukiwarkach AI. Nie oferujemy „stron na szablonie" - każda strona jest projektowana pod Twoją ofertę, grupę docelową i cele biznesowe.\n\nOferujemy pełny proces: od analizy, przez projekt, wdrożenie, aż po integrację z systemami automatyzacji leadów. Efekt to strona, która generuje kontakty, buduje wizerunek i wspiera rozwój firmy w długim terminie.',
   },
 
   branding: {
@@ -86,8 +83,6 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
         description: 'Pomagamy wdrożyć nowy wizerunek na stronie i w kluczowych kanałach. Zostajesz z jasnymi zasadami, które zapewnią spójność marki na kolejne lata.',
       },
     ],
-    whySmartWeave:
-      'SmartWeave łączy branding z projektowaniem stron, automatyzacją procesów i rozwiązaniami AI tam, gdzie przyspieszają pracę bez rozjeżdżania marki. Nie oferujemy „ładnych obrazków” - tworzymy konkretny system wizualny dopasowany do rozwoju firmy. Od logo i kolorów, przez stronę internetową, po materiały marketingowe i procesy w tle - wszystko może działać spójnie, budując rozpoznawalność i zaufanie klientów.',
   },
 
   automatyzacja: {
@@ -124,8 +119,6 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
         description: 'Wdrażamy rozwiązanie w środowisku produkcyjnym, monitorujemy jego efektywność i stopniowo rozszerzamy automatyzację na kolejne procesy w firmie w miarę potrzeb.',
       },
     ],
-    whySmartWeave:
-      'SmartWeave to partner w pełnym procesie automatyzacji - nie sprzedajemy jedynie produktu, lecz projektujemy i wdrażamy rozwiązania dopasowane do specyfiki Twojej firmy. Rozpoczynamy od jednego, mierzalnego kroku, aby efekty - oszczędność czasu i redukcja błędów - były widoczne już na wczesnym etapie. Dla małych i średnich przedsiębiorstw to bezpieczna i kontrolowana ścieżka do skalowania procesów bez ryzyka chaosu.',
   },
 
   'agenci-ai': {
@@ -162,8 +155,6 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
         description: 'Włączamy agenta AI w produkcji, monitorujemy jakość odpowiedzi i przepływ leadów. W miarę potrzeb rozszerzamy zakres – nowe typy zapytań, kanały lub dokumenty – tak, żeby agenci AI dalej odciążali zespół i dawali wymierne rezultaty.',
       },
     ],
-    whySmartWeave:
-      'W SmartWeave agenci AI to narzędzie biznesowe, nie eksperyment. Zaczynamy od jednego, dobrze określonego zadania – np. pierwsza odpowiedź na stronie albo kwalifikacja leadów – mierzymy efekt i dopiero potem poszerzamy zakres. Łączymy doświadczenie z automatyzacji z wdrożeniami opartymi na modelach językowych, więc każdy agent AI jest zaprojektowany tak, żeby realnie odciążyć zespół i działać przewidywalnie na co dzień.',
   },
 
   chatboty: {
@@ -204,8 +195,6 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
           'Włączamy chatbota na produkcji, śledzimy statystyki zapytań i konwersji. Na tej podstawie rozszerzamy bazę wiedzy i scenariusze, żeby narzędzie z czasem pracowało jeszcze skuteczniej.',
       },
     ],
-    whySmartWeave:
-      'Łączymy doświadczenie ze stron www, automatyzacji i rozwiązań AI – chatbot to często pierwszy krok do lepszego kontaktu z klientem bez przeładowania zespołu. Projektujemy go tak, żeby dał się utrzymać i rozwijać: jasna baza wiedzy, integracje z Twoimi systemami i realne metryki po starcie.',
   },
 
   'aplikacje-webowe': {
@@ -245,7 +234,5 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
           'Uruchamiamy produkcję, szkolimy zespół, przekazujemy dokumentację. Ustalamy model utrzymania: poprawki, nowe funkcje i aktualizacje zgodnie z roadmapą.',
       },
     ],
-    whySmartWeave:
-      'SmartWeave łączy projektowanie produktu z wdrożeniami technicznymi – od stron i automatyzacji po pełniejsze systemy webowe. Nie dostarczamy „czarnej skrzynki”: na każdym etapie wiesz, co powstaje, dlaczego tak, i jak to dalej rozwijać.',
   },
 };

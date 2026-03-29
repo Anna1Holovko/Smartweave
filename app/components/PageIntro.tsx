@@ -11,7 +11,7 @@ type PageIntroProps = {
   badge: string;
   badgeVariant?: 'cyan' | 'blue' | 'purple' | 'accent';
   title: React.ReactNode;
-  description: string;
+  description?: string;
   className?: string;
 };
 
@@ -68,15 +68,17 @@ export function PageIntro({
         >
           {title}
         </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto px-2"
-        >
-          {description}
-        </motion.p>
+        {description ? (
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto px-2"
+          >
+            {description}
+          </motion.p>
+        ) : null}
       </div>
     </div>
   );

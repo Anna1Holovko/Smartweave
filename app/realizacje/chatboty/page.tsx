@@ -9,11 +9,10 @@ import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 export const metadata: Metadata = {
   title: 'Realizacje - Chatboty',
-  description:
-    'Case studies: chatboty i asystenci AI - strona w przygotowaniu. SmartWeave',
+  description: 'Realizacje: chatboty i asystenci AI dla firm. SmartWeave',
   openGraph: {
     title: 'Chatboty | SmartWeave',
-    description: 'Realizacje chatbotów w przygotowaniu - wkrótce case studies',
+    description: 'Wdrożenia chatbotów i asystentów AI — SmartWeave',
     url: `${SITE_URL}/realizacje/chatboty`,
   },
 };
@@ -32,7 +31,6 @@ export default function RealizacjeChatbotyPage() {
               badge="W przygotowaniu"
               badgeVariant="accent"
               title="Chatboty"
-              description="Ta strona jest w trakcie opracowania. Wkrótce opublikujemy tutaj case studies z wdrożeń chatbotów i asystentów AI."
               className={INTRO_MB_CLASS}
             />
 
