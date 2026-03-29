@@ -7,8 +7,6 @@ import { ScrollToTop } from '../../components/ScrollToTop';
 import { PageIntro } from '../../components/PageIntro';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
-import { SimilarSolutionCta } from '../../components/SimilarSolutionCta';
-import { QuickAutomationCta } from '@/app/components/QuickAutomationCta';
 
 export const metadata: Metadata = {
   title: 'Realizacje - Aplikacje webowe',
@@ -67,18 +65,7 @@ export default function RealizacjeAplikacjeWebowePage() {
           </div>
         </section>
 
-        <QuickAutomationCta
-          topic="aplikacje-webowe"
-          title="Chcesz podobne rozwiązanie?"
-          description="W 30 minut ocenimy, co warto zamknąć w panelu/aplikacji, a co zautomatyzować workflowem."
-          secondaryButtonHref="/automatyzacja-ai-dla-firm"
-          secondaryButtonLabel="Automatyzacja procesów dla firm - przegląd oferty"
-          secondaryHref="/uslugi"
-          secondaryLabel="Więcej usług"
-        />
-
         <div className="gradient-philosophy-to-footer">
-          <SimilarSolutionCta headingId="realizacje-aplikacje-cta-heading" />
           <Footer />
         </div>
       </main>
