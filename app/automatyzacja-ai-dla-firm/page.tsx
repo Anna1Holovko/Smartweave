@@ -43,7 +43,7 @@ export default function AutomatyzacjaAiDlaFirmPage() {
               className={INTRO_MB_CLASS}
             />
 
-            <div className="max-w-[80ch] mx-auto space-y-6 text-zinc-400 leading-relaxed">
+            <div className="max-w-[80ch] space-y-6 text-zinc-400 leading-relaxed">
               <h2 className="text-xl font-bold text-[#e4e4e7]">Co rozumiemy przez „automatyzację AI”?</h2>
               <p>
                 <strong className="text-zinc-300">Automatyzacja</strong> przenosi powtarzalne kroki do workflowów i integracji.{' '}

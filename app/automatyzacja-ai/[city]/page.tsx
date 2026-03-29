@@ -61,7 +61,7 @@ export default async function AutomatyzacjaAiCityPage({
               className={INTRO_MB_CLASS}
             />
 
-            <div className="max-w-[80ch] mx-auto space-y-6 text-zinc-400 leading-relaxed">
+            <div className="max-w-[80ch] space-y-6 text-zinc-400 leading-relaxed">
               <p>
                 Szukasz automatyzacji procesów z elementami AI? Zaczynamy od mapy procesu i dobieramy integracje oraz{' '}
                 <Link href="/uslugi/agenci-ai" className="text-[#d8f17b] hover:underline">

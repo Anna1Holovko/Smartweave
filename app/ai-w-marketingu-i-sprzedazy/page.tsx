@@ -43,7 +43,7 @@ export default function AiMarketingSprzedazPage() {
               className={INTRO_MB_CLASS}
             />
 
-            <div className="max-w-[80ch] mx-auto space-y-8 text-zinc-400 leading-relaxed">
+            <div className="max-w-[80ch] space-y-8 text-zinc-400 leading-relaxed">
               <div>
                 <h2 className="text-xl font-bold text-[#e4e4e7] mb-3">Gdzie AI realnie pomaga</h2>
                 <ul className="list-disc pl-6 space-y-2">

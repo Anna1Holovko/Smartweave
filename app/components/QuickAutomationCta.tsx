@@ -168,7 +168,7 @@ export function QuickAutomationCta({
         <h2 id="quick-automation-cta-heading" className="text-xl sm:text-2xl md:text-3xl font-bold text-[#e4e4e7] mb-3">
           {finalTitle}
         </h2>
-        <p className="text-zinc-400 text-sm sm:text-base max-w-[65ch] mx-auto mb-8 leading-relaxed">
+        <p className="text-zinc-400 text-sm sm:text-base max-w-[65ch] mb-8 leading-relaxed">
           {finalDescription}
         </p>
         <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3">

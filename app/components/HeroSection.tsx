@@ -84,10 +84,10 @@ export function HeroSection() {
         </h1>
 
         {/* Description */}
-        <p className="text-zinc-400 text-base sm:text-xl mx-auto mt-6 max-w-[80ch] leading-relaxed px-2">
+        <p className="text-zinc-400 text-base sm:text-xl mt-6 max-w-[80ch] leading-relaxed">
           Automatyzujemy to, co powtarzalne - Ty weryfikujesz rezultaty. Tworzymy strony internetowe gotowe na AI, abyś mógł skupić się na tym, co naprawdę ważne.
         </p>
-        <p className="text-zinc-500 text-sm sm:text-base mx-auto mt-3 mb-10 px-2" aria-hidden="true">
+        <p className="text-zinc-500 text-sm sm:text-base mt-3 mb-10" aria-hidden="true">
           Automatyzacja procesów · Agenci AI · Systemy cyfrowe · Branding · Strony www
         </p>
 

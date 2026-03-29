@@ -43,7 +43,7 @@ export function ServicesSection() {
               Jak możemy <span className="text-[#d8f17b]">Ci pomóc?</span>
             </span>
           </motion.h2>
-          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto px-2">
+          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-zinc-400 max-w-[80ch]">
             Nasz główny fokus to automatyzacja procesów biznesowych i wdrożenia AI: workflowy, integracje oraz agenci AI. Branding i strona www są dodatkiem, który domyka spójność komunikacji i konwersję - dlatego wszystko działa jako jeden ekosystem.
           </motion.p>
         </div>

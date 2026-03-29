@@ -74,7 +74,7 @@ export function PageIntro({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto px-2"
+            className="text-base sm:text-xl text-zinc-400 max-w-[80ch]"
           >
             {description}
           </motion.p>

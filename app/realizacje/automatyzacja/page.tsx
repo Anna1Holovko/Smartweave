@@ -123,7 +123,7 @@ export default function RealizacjeAutomatyzacjaPage() {
                     <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#e4e4e7] mb-2">
                       Wdrożone rozwiązanie
                     </h2>
-                    <p className="text-zinc-400 leading-relaxed max-w-[80ch] mx-auto">
+                    <p className="text-zinc-400 leading-relaxed max-w-[80ch]">
                       Asystent Obsługi Leadów AI – zautomatyzowany workflow w 6 etapów. Automatyzacje + modele językowe.
                     </p>
                   </div>

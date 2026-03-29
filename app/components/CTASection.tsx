@@ -75,7 +75,7 @@ export function CTASection() {
 
       <motion.div className="relative z-10 max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="space-y-6 text-center lg:text-left max-w-[80ch] mx-auto lg:mx-0">
+          <div className="space-y-6 text-center lg:text-left max-w-[80ch]">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
