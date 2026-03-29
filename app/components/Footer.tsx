@@ -77,13 +77,13 @@ export function Footer() {
               <li className="flex items-center gap-2">
                 <Linkedin className="w-4 h-4 text-[#d8f17b] flex-shrink-0" aria-hidden />
                 <a
-                  href="https://www.linkedin.com/in/smart-weave-72995a3b3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                  href="https://www.linkedin.com/company/smartweave-pl/posts/?feedView=all"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#d8f17b] transition-colors"
                   title="SmartWeave na LinkedIn"
                 >
-                  Smart Weave
+                  SmartWeave
                 </a>
               </li>
               <li className="flex items-center gap-2">

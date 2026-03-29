@@ -114,7 +114,7 @@ export default async function UslugiSlugPage({
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-[#d8f17b] px-2 pb-[0.2em] break-words leading-snug mt-3 sm:mt-4">
                 {service.title}
               </h1>
-              <p className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto px-2 mt-4">
+              <p className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto px-2">
                 {service.description}
               </p>
             </MotionFadeIn>
