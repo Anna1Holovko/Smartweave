@@ -232,7 +232,6 @@ export default async function UslugiSlugPage({
           secondaryHref="/#contact"
           secondaryLabel="Napisz do nas"
           secondaryOutlined
-          bullets={['więcej leadów', 'szybszy follow-up', 'mniej ręcznych kroków']}
         />
 
         <div className="gradient-philosophy-to-footer">
