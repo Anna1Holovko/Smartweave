@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { Globe, Layers, Palette, Workflow } from 'lucide-react';
+import { Globe, Palette, Workflow } from 'lucide-react';
 
 const pillars = [
   {
@@ -38,31 +38,17 @@ export function StronyHybridEcosystemSection() {
       <div className="absolute inset-0 bg-[var(--bg-graphite)]/40" aria-hidden />
 
       <div className="relative z-10 px-6 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12">
-        <div className="mb-8 md:mb-10 flex flex-row gap-4 sm:gap-5 md:gap-6 items-start">
-          <div
-            className="flex h-14 w-14 sm:h-[4.5rem] sm:w-[4.5rem] shrink-0 items-center justify-center rounded-2xl border border-[#d8f17b]/25 bg-[#d8f17b]/10"
-            aria-hidden
-          >
-            <Layers className="h-7 w-7 sm:h-9 sm:w-9 text-[#d8f17b]" strokeWidth={1.75} />
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45 }}
-            className="min-w-0 flex-1 pt-0.5"
-          >
-            <h2
-              id="hybrid-cross-strony-heading"
-              className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#e4e4e7]"
-            >
-              Strona, branding i AI
-            </h2>
-            <p className="mt-1.5 sm:mt-2 text-lg sm:text-xl md:text-2xl font-semibold leading-snug text-[#d8f17b]">
-              — spójny ekosystem
-            </p>
-          </motion.div>
-        </div>
+        <motion.h2
+          id="hybrid-cross-strony-heading"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.45 }}
+          className="mb-8 md:mb-10 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-balance"
+        >
+          <span className="text-[#e4e4e7]">Strona, branding i AI </span>
+          <span className="text-[#d8f17b]">— spójny ekosystem</span>
+        </motion.h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-8 md:mb-10">
           {pillars.map((item, index) => {
@@ -77,13 +63,19 @@ export function StronyHybridEcosystemSection() {
               >
                 <Link
                   href={item.href}
-                  className="group flex h-full flex-col rounded-xl border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5 transition-all hover:border-[#d8f17b]/35 hover:bg-white/[0.05]"
+                  className="group flex h-full flex-row items-center gap-3 sm:gap-4 rounded-xl border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5 text-left transition-all hover:border-[#d8f17b]/35 hover:bg-white/[0.05]"
                 >
-                  <span className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[#d8f17b]/20 bg-[#d8f17b]/10 text-[#d8f17b] transition-colors group-hover:border-[#d8f17b]/40">
+                  <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[#d8f17b]/20 bg-[#d8f17b]/10 text-[#d8f17b] transition-colors group-hover:border-[#d8f17b]/40">
                     <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
                   </span>
-                  <span className="font-semibold text-[#e4e4e7] group-hover:text-white">{item.label}</span>
-                  <span className="mt-1 text-sm text-zinc-500 group-hover:text-zinc-400">{item.hint}</span>
+                  <div className="min-w-0 flex-1">
+                    <span className="block font-semibold leading-snug text-[#e4e4e7] group-hover:text-white">
+                      {item.label}
+                    </span>
+                    <span className="mt-0.5 block text-sm leading-snug text-zinc-500 group-hover:text-zinc-400">
+                      {item.hint}
+                    </span>
+                  </div>
                 </Link>
               </motion.div>
             );
@@ -95,7 +87,6 @@ export function StronyHybridEcosystemSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45, delay: 0.15 }}
-          className="rounded-xl border border-white/[0.1] border-l-[3px] border-l-[#d8f17b]/65 bg-white/[0.03] p-5 sm:p-6 md:p-7"
         >
           <p className="text-base sm:text-lg text-zinc-400 leading-relaxed">
             Strona www to często pierwszy kontakt z marką — warto, żeby wygląd i komunikat były zgodne z{' '}
