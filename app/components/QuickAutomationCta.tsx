@@ -164,7 +164,8 @@ export function QuickAutomationCta({
       className="relative py-10 sm:py-14 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       <div className="absolute inset-0 bg-[var(--bg-graphite)]" />
-      <div className="relative z-10 max-w-4xl mx-auto text-center rounded-2xl border border-[#d8f17b]/25 bg-[#d8f17b]/5 px-6 py-8 sm:px-10 sm:py-10">
+      <div className="relative z-10 w-full flex justify-center">
+        <div className="w-full max-w-4xl text-center rounded-2xl border border-[#d8f17b]/25 bg-[#d8f17b]/5 px-6 py-8 sm:px-10 sm:py-10 flex flex-col items-center">
         <h2 id="quick-automation-cta-heading" className="text-xl sm:text-2xl md:text-3xl font-bold text-[#e4e4e7] mb-3">
           {finalTitle}
         </h2>
@@ -207,6 +208,7 @@ export function QuickAutomationCta({
               {finalTertiaryLabel}
             </Link>
           )}
+        </div>
         </div>
       </div>
     </section>

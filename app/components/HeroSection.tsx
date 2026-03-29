@@ -53,7 +53,7 @@ export function HeroSection() {
       <div className="absolute inset-0" style={gridStyle} />
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl xl:max-w-5xl 2xl:max-w-6xl mx-auto">
+      <div className="relative z-10 w-full max-w-4xl xl:max-w-5xl 2xl:max-w-6xl flex flex-col items-center text-center">
         {/* Headline */}
         <h1
           className="text-[#e4e4e7] font-bold tracking-tight leading-[1.1]"
@@ -84,7 +84,7 @@ export function HeroSection() {
         </h1>
 
         {/* Description */}
-        <p className="text-zinc-400 text-base sm:text-xl mt-6 max-w-[80ch] leading-relaxed">
+        <p className="text-zinc-400 text-base sm:text-xl mt-6 max-w-[80ch] leading-relaxed w-full">
           Automatyzujemy to, co powtarzalne - Ty weryfikujesz rezultaty. Tworzymy strony internetowe gotowe na AI, abyś mógł skupić się na tym, co naprawdę ważne.
         </p>
         <p className="text-zinc-500 text-sm sm:text-base mt-3 mb-10" aria-hidden="true">

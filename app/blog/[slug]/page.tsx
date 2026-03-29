@@ -172,7 +172,8 @@ export default async function BlogPostPage({ params }: Props) {
         <article className="relative py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-hidden">
           <div className="absolute inset-0 bg-[var(--bg)]" />
           <div className={CONTAINER_CLASS}>
-            <div className="max-w-3xl mx-auto">
+            <div className="w-full flex justify-center">
+            <div className="w-full max-w-3xl">
               <MotionFadeIn>
                 <Link
                   href="/blog"
@@ -211,6 +212,7 @@ export default async function BlogPostPage({ params }: Props) {
               ) : (
                 <ArticleBody slug={slug} />
               )}
+            </div>
             </div>
           </div>
         </article>

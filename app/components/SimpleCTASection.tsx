@@ -9,12 +9,13 @@ export function SimpleCTASection() {
     <section id="contact" aria-labelledby="simple-cta-heading" className="relative py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-hidden">
       <div className="absolute inset-0 bg-[var(--bg)]" />
 
+      <div className="relative z-10 w-full flex justify-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="relative z-10 max-w-3xl mx-auto text-center"
+        className="w-full max-w-3xl flex flex-col items-center text-center"
       >
         <h2 id="simple-cta-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#e4e4e7] mb-4 px-2">
           Nie jesteś pewien, które rozwiązanie jest dla Ciebie?
@@ -22,7 +23,7 @@ export function SimpleCTASection() {
         <p className="text-base sm:text-xl text-zinc-400 mb-8 px-2">
           Umów bezpłatną konsultację - porozmawiamy o wyzwaniach i zaproponujemy rozwiązanie
         </p>
-        <div className="flex flex-col items-stretch sm:items-center gap-3 max-w-sm mx-auto">
+        <div className="flex flex-col items-stretch sm:items-center gap-3 w-full max-w-sm">
           <Link
             href="/#contact"
             className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 cta-gradient-animated w-full sm:w-auto"
@@ -41,6 +42,7 @@ export function SimpleCTASection() {
           )}
         </div>
       </motion.div>
+      </div>
     </section>
   );
 }

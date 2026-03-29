@@ -52,13 +52,12 @@ export function StronyUslugaPage({
 
   return (
     <div className="strony-usluga">
-      {/* Hero — centered Oferta, title, lead */}
-      <header className="relative pb-14 sm:pb-20 md:pb-24 border-b border-white/[0.07] text-center">
+      {/* Hero — back link left; Oferta / title / lead centered without mx-auto wrapper */}
+      <header className="relative pb-14 sm:pb-20 md:pb-24 border-b border-white/[0.07]">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45 }}
-          className="flex justify-center"
         >
           <Link
             href="/uslugi"
@@ -69,15 +68,15 @@ export function StronyUslugaPage({
           </Link>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="w-full flex flex-col items-center text-center">
           <p className="flex items-center justify-center gap-2 text-[#d8f17b]/90 text-xs sm:text-sm font-medium uppercase tracking-[0.2em] mb-6">
             <BrandMarkIcon />
             Oferta
           </p>
-          <h1 className="text-[#d8f17b] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight px-2">
+          <h1 className="text-[#d8f17b] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight max-w-4xl">
             {title}
           </h1>
-          <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-zinc-400 leading-relaxed max-w-3xl mx-auto">
+          <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-zinc-400 leading-relaxed max-w-3xl">
             {description}
           </p>
         </div>
@@ -145,14 +144,13 @@ export function StronyUslugaPage({
 
       {/* Process — path: center spine + alternating steps (desktop); vertical path (mobile) */}
       <section className="py-16 sm:py-20 md:py-24 border-t border-white/[0.07]" aria-labelledby="strony-process-heading">
-        <h2
-          id="strony-process-heading"
-          className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-12 sm:mb-16 text-center max-w-3xl mx-auto px-2"
-        >
-          Jak wygląda proces współpracy
-        </h2>
+        <div className="w-full flex flex-col items-center text-center px-2 mb-12 sm:mb-16">
+          <h2 id="strony-process-heading" className="text-xl sm:text-2xl font-bold text-[#e4e4e7] max-w-3xl">
+            Jak wygląda proces współpracy
+          </h2>
+        </div>
 
-        <div className="relative mx-auto max-w-5xl px-2 sm:px-4">
+        <div className="relative w-full max-w-5xl px-2 sm:px-4">
           {/* Mobile: vertical dashed path */}
           <div
             className="absolute left-[22px] top-3 bottom-3 w-px border-l border-dashed border-[#d8f17b]/35 md:hidden"

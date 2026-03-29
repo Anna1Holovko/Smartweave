@@ -36,12 +36,13 @@ export default function RealizacjeAplikacjeWebowePage() {
             />
 
             <article className="p-6 sm:p-8 lg:p-10">
+              <div className="w-full flex justify-center">
               <div
-                className="max-w-3xl mx-auto rounded-2xl border border-[#d8f17b]/25 bg-[#d8f17b]/5 px-6 py-8 sm:px-8 sm:py-10 text-center"
+                className="w-full max-w-3xl rounded-2xl border border-[#d8f17b]/25 bg-[#d8f17b]/5 px-6 py-8 sm:px-8 sm:py-10 text-center flex flex-col items-center"
                 role="status"
                 aria-live="polite"
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/30 text-[#d8f17b] mb-5 mx-auto">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/30 text-[#d8f17b] mb-5">
                   <Construction className="w-7 h-7" aria-hidden />
                 </div>
                 <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-3">
@@ -58,6 +59,7 @@ export default function RealizacjeAplikacjeWebowePage() {
                   </Link>{' '}
                   lub napisz do nas - omówimy Twój pomysł.
                 </p>
+              </div>
               </div>
             </article>
           </div>

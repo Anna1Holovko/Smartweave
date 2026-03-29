@@ -48,7 +48,7 @@ export function PageIntro({
           <span>{backLabel}</span>
         </Link>
       </motion.div>
-      <div className="text-center">
+      <div className="w-full flex flex-col items-center text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ export function PageIntro({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-[#e4e4e7] mb-3 sm:mb-4 lg:mb-6 px-2 sm:px-4 break-words"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-[#e4e4e7] mb-3 sm:mb-4 lg:mb-6 px-2 sm:px-4 break-words max-w-[80ch]"
         >
           {title}
         </motion.h1>
