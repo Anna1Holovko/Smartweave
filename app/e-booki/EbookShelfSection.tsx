@@ -23,9 +23,9 @@ type TileProps = {
 
 function ShelfTile({ book, featured, imagePriority, onOpenDetails, onAddToCart }: TileProps) {
   return (
-    <div className="relative flex flex-col items-center">
+    <div className="relative z-10 flex flex-col items-center">
       <div
-        className="group relative w-full max-w-[240px] mx-auto aspect-square cursor-pointer rounded-xl overflow-hidden bg-transparent shadow-[0_20px_50px_rgba(0,0,0,0.45),0_4px_16px_rgba(0,0,0,0.25)] ring-1 ring-white/12"
+        className="group relative w-full max-w-[240px] mx-auto aspect-square cursor-pointer rounded-xl overflow-hidden bg-transparent shadow-[0_24px_56px_rgba(0,0,0,0.5),0_8px_24px_rgba(216,241,123,0.08)] ring-1 ring-white/15"
         role="button"
         tabIndex={0}
         onClick={onOpenDetails}
@@ -65,14 +65,14 @@ function ShelfTile({ book, featured, imagePriority, onOpenDetails, onAddToCart }
           aria-hidden
         />
 
-        <div className="absolute inset-x-0 bottom-0 z-10 flex flex-wrap items-center justify-center gap-2 bg-gradient-to-t from-black/75 via-black/40 to-transparent p-3 pt-10 sm:p-4 sm:pt-12">
+        <div className="absolute inset-x-0 bottom-0 z-30 flex flex-wrap items-center justify-center gap-2 bg-gradient-to-t from-black/80 via-black/45 to-transparent p-3 pt-10 sm:p-4 sm:pt-12">
           <button
             type="button"
             onClick={(e) => {
               e.stopPropagation();
               onAddToCart();
             }}
-            className="rounded-full bg-white px-4 py-2 text-xs font-semibold text-zinc-900 shadow-md transition hover:bg-zinc-50 sm:text-sm"
+            className="relative z-10 rounded-full bg-white px-4 py-2 text-xs font-semibold text-zinc-900 shadow-md transition hover:bg-zinc-50 sm:text-sm"
           >
             Do koszyka
           </button>
@@ -82,7 +82,7 @@ function ShelfTile({ book, featured, imagePriority, onOpenDetails, onAddToCart }
               e.stopPropagation();
               onOpenDetails();
             }}
-            className="rounded-full border border-white/40 bg-white/15 px-4 py-2 text-xs font-semibold text-white shadow-md backdrop-blur-md transition hover:bg-white/25 sm:text-sm"
+            className="relative z-10 rounded-full border border-white/40 bg-white/15 px-4 py-2 text-xs font-semibold text-white shadow-md backdrop-blur-md transition hover:bg-white/25 sm:text-sm"
           >
             Szczegóły
           </button>
@@ -103,29 +103,35 @@ function ShelfRow({ books, shelfIndex }: { books: Ebook[]; shelfIndex: number })
 
   return (
     <div className="mb-14 sm:mb-20 last:mb-0">
-      <div className={`${gridClass} px-1 sm:px-2`}>
-        {books.map((book, i) => (
-          <ShelfTile
-            key={book.id}
-            book={book}
-            featured={shelfIndex === 0 && i === 0}
-            imagePriority={shelfIndex === 0 && i === 0}
-            onOpenDetails={() => setDetailBookId(book.id)}
-            onAddToCart={() => {
-              addEbookToCart(book.id);
-              requestOpenCartDrawer();
-            }}
-          />
-        ))}
-      </div>
+      <section
+        className="relative mx-1 sm:mx-4"
+        aria-label="Okładki na półce"
+      >
+        <div className={`${gridClass} relative z-10 px-1 sm:px-2`}>
+          {books.map((book, i) => (
+            <ShelfTile
+              key={book.id}
+              book={book}
+              featured={shelfIndex === 0 && i === 0}
+              imagePriority={shelfIndex === 0 && i === 0}
+              onOpenDetails={() => setDetailBookId(book.id)}
+              onAddToCart={() => {
+                addEbookToCart(book.id);
+                requestOpenCartDrawer();
+              }}
+            />
+          ))}
+        </div>
 
-      <div className="relative mx-1 mt-8 sm:mx-4" aria-hidden>
-        <div className="h-3.5 rounded-sm bg-[#d8f17b] shadow-[0_14px_32px_rgba(0,0,0,0.5),0_6px_16px_rgba(216,241,123,0.12)] ring-1 ring-black/25 sm:h-4" />
+        {/* Belka półki pod okładkami – okładka „stoi” na krawędzi */}
         <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-2 rounded-b-sm bg-gradient-to-b from-black/20 to-transparent"
+          className="relative z-[1] -mt-3 sm:-mt-4 pt-1"
           aria-hidden
-        />
-      </div>
+        >
+          <div className="h-3.5 rounded-sm bg-[#d8f17b] shadow-[0_16px_36px_rgba(0,0,0,0.55),0_6px_20px_rgba(216,241,123,0.15)] ring-1 ring-black/30 sm:h-4" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2 rounded-b-sm bg-gradient-to-b from-black/25 to-transparent" />
+        </div>
+      </section>
 
       <div
         className={`${gridClass} mt-10 border-t border-white/10 pt-8 gap-y-8`}
