@@ -24,10 +24,10 @@ const config: Config = {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
-        accent: '#d8f17b',
+        accent: 'var(--accent)',
         'graphite': {
-          DEFAULT: '#0d0d0f',
-          elevated: '#141416',
+          DEFAULT: 'var(--bg-graphite)',
+          elevated: 'var(--bg-graphite-elevated)',
         },
       },
       boxShadow: {

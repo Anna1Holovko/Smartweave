@@ -98,10 +98,10 @@ export function ServiceUslugaPage({
             <BrandMarkIcon />
             Oferta
           </p>
-          <h1 className="text-[#d8f17b] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight max-w-4xl">
+          <h1 className="text-gradient-accent text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight max-w-4xl">
             {title}
           </h1>
-          <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-zinc-400 leading-relaxed max-w-3xl">
+          <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed max-w-3xl">
             {description}
           </p>
         </div>
@@ -109,8 +109,8 @@ export function ServiceUslugaPage({
 
       <ServiceProblemCards problems={problems} slug={slug} heading={problemHeading} listWithoutDividers />
 
-      <section className="py-16 sm:py-20 md:py-24 rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.02] to-transparent px-5 sm:px-8 md:px-12 lg:px-14">
-        <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-8 sm:mb-10 border-l-2 border-[#d8f17b] pl-4 sm:pl-5">
+      <section className="surface-panel py-16 sm:py-20 md:py-24 px-5 sm:px-8 md:px-12 lg:px-14">
+        <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-8 sm:mb-10 border-l-2 border-[var(--accent)] pl-4 sm:pl-5">
           Nasze podejście do rozwiązania
         </h2>
         <ServiceSolutionBlock solution={solution} />

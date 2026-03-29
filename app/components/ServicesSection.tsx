@@ -70,8 +70,8 @@ export function ServicesSection() {
               >
                 <div className="glass-card hover-lift relative flex flex-col w-full h-full min-h-0 p-8 rounded-2xl overflow-hidden" style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}>
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center">
-                      <Icon className="w-7 h-7 text-[#d8f17b]" />
+                    <div className="sw-icon-tile flex-shrink-0 w-14 h-14 flex items-center justify-center">
+                      <Icon className="w-7 h-7 text-[var(--accent)]" />
                     </div>
                     <h3 className="min-w-0 flex-1 text-lg sm:text-xl font-bold text-[#e4e4e7] leading-tight whitespace-normal break-words">
                       {displayTitle}

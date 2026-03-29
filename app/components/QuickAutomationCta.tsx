@@ -29,11 +29,11 @@ export function QuickAutomationCta({
     >
       <div className="absolute inset-0 bg-[var(--bg-graphite)]" />
       <div className="relative z-10 w-full flex justify-center">
-        <div className="w-full max-w-4xl text-center rounded-2xl border border-[#d8f17b]/25 bg-[#d8f17b]/5 px-6 py-8 sm:px-10 sm:py-10 flex flex-col items-center">
-          <h2 id="quick-automation-cta-heading" className="text-xl sm:text-2xl md:text-3xl font-bold text-[#e4e4e7] mb-3">
+        <div className="sw-cta-panel w-full max-w-4xl text-center px-6 py-8 sm:px-10 sm:py-10 flex flex-col items-center">
+          <h2 id="quick-automation-cta-heading" className="text-xl sm:text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-3">
             {finalTitle}
           </h2>
-          <p className="text-zinc-400 text-sm sm:text-base max-w-[65ch] mb-8 leading-relaxed">
+          <p className="text-[var(--text-secondary)] text-sm sm:text-base max-w-[65ch] mb-8 leading-relaxed">
             {finalDescription}
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3">

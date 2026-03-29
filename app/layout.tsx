@@ -120,7 +120,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0d0d0f',
+  themeColor: '#06070b',
 };
 
 /* ============================= */
@@ -241,7 +241,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pl" className={`${syne.variable} ${manrope.variable}`}>
-      <body className="min-h-screen bg-[var(--bg-graphite)] text-[#e4e4e7] antialiased">
+      <body className="min-h-screen bg-[var(--bg-graphite)] text-[var(--text-primary)] antialiased relative isolate">
         {/* E-book cart: reset stored count on each full page load (new entry to the site / refresh). */}
         <Script id="smartweave-cart-reset" strategy="beforeInteractive">
           {`try{localStorage.removeItem(${JSON.stringify(CART_STORAGE_KEY)});}catch(e){}`}

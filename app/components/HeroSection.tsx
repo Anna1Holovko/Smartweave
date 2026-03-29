@@ -18,12 +18,12 @@ const phrases = [
 
 const gridStyle = {
   backgroundImage:
-    'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
-  backgroundSize: '64px 64px',
+    'linear-gradient(rgba(255,255,255,0.028) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px)',
+  backgroundSize: '48px 48px',
   maskImage:
-    'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%)',
+    'linear-gradient(to right, transparent 0%, black 28%, black 72%, transparent 100%)',
   WebkitMaskImage:
-    'linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%)',
+    'linear-gradient(to right, transparent 0%, black 28%, black 72%, transparent 100%)',
 };
 
 export function HeroSection() {
@@ -45,8 +45,15 @@ export function HeroSection() {
       {/* Background */}
       <div className="absolute inset-0 bg-[var(--bg-graphite)]" />
 
-      {/* Glow */}
-      <div className="absolute left-1/2 top-1/2 w-[1000px] h-[1000px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[180px] opacity-30" style={{ background: 'var(--accent-glow)' }} />
+      {/* Ambient glows */}
+      <div
+        className="absolute left-1/2 top-[42%] w-[min(120vw,920px)] h-[min(120vw,920px)] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[140px] opacity-[0.45]"
+        style={{ background: 'radial-gradient(circle, rgba(216,241,123,0.2) 0%, transparent 68%)' }}
+      />
+      <div
+        className="absolute right-0 top-1/4 w-[min(80vw,520px)] h-[min(80vw,520px)] translate-x-1/4 blur-[120px] opacity-30 pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)' }}
+      />
 
       {/* Grid */}
       <div className="absolute inset-0" style={gridStyle} />
@@ -55,7 +62,7 @@ export function HeroSection() {
       <div className="relative z-10 w-full max-w-4xl xl:max-w-5xl 2xl:max-w-6xl flex flex-col items-center text-center">
         {/* Headline */}
         <h1
-          className="text-[#e4e4e7] font-bold tracking-tight leading-[1.1]"
+          className="text-[var(--text-primary)] font-bold tracking-tight leading-[1.08]"
           style={{ fontSize: 'var(--text-display)' }}
         >
           Pomożemy Ci{' '}
@@ -70,7 +77,7 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, y: -12, filter: 'blur(6px)' }}
                 transition={{ duration: 0.4 }}
-                className="inline-block whitespace-nowrap font-bold text-[#d8f17b] leading-[1.35] pb-0.5"
+                className="inline-block whitespace-nowrap font-bold text-gradient-accent leading-[1.35] pb-0.5"
                 aria-live="polite"
               >
                 {phrases[index]}
@@ -83,7 +90,7 @@ export function HeroSection() {
         </h1>
 
         {/* Description */}
-        <p className="text-zinc-400 text-base sm:text-xl mt-6 max-w-[80ch] leading-relaxed w-full">
+        <p className="text-[var(--text-secondary)] text-base sm:text-xl mt-6 max-w-[80ch] leading-relaxed w-full">
           Automatyzujemy to, co powtarzalne - Ty weryfikujesz rezultaty. Tworzymy strony internetowe gotowe na AI, abyś mógł skupić się na tym, co naprawdę ważne.
         </p>
         <p className="text-zinc-500 text-sm sm:text-base mt-3 mb-10" aria-hidden="true">

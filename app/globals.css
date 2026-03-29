@@ -2,20 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── AI Minimal Design System ─── */
+/* ─── SmartWeave design system (dark studio) ─── */
 :root {
-  /* Pure near-black neutral dark (no green tint) */
-  --bg: #0e0e0e;
-  --bg-2: #141414;
-  --bg-3: #1a1a1a;
-  /* Aliases for compatibility */
+  /* Cool charcoal base + layered surfaces */
+  --bg: #06070b;
+  --bg-2: #0c0e14;
+  --bg-3: #12151d;
   --bg-graphite: var(--bg);
   --bg-graphite-elevated: var(--bg-2);
-  --bg-graphite-card: rgba(26, 26, 26, 0.6);
-  /* Main accent */
+  --bg-graphite-card: rgba(18, 21, 29, 0.78);
+  /* Lime accent + glow */
   --accent: #d8f17b;
-  --accent-muted: rgba(216, 241, 123, 0.15);
-  --accent-glow: rgba(216, 241, 123, 0.25);
+  --accent-bright: #e9ff95;
+  --accent-deep: #b8cf5c;
+  --accent-muted: rgba(216, 241, 123, 0.12);
+  --accent-glow: rgba(216, 241, 123, 0.2);
+  --accent-border: rgba(216, 241, 123, 0.28);
+  /* Lines & text */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-soft: rgba(255, 255, 255, 0.1);
+  --text-primary: #eceef2;
+  --text-secondary: #a1a8b8;
   /* Typography: --font-syne and --font-manrope are set by next/font on <html>; do not redefine here */
   --font-size: 16px;
   --font-weight-normal: 400;
@@ -54,26 +61,35 @@
     box-sizing: border-box;
   }
 
+  html {
+    background: var(--bg-graphite);
+  }
+
   html,
   body {
     font-size: var(--font-size);
     font-family: var(--font-manrope), system-ui, sans-serif;
-    background: var(--bg-graphite);
-    color: #e4e4e7;
+    background-color: var(--bg-graphite);
+    background-image:
+      radial-gradient(ellipse 130% 70% at 50% -25%, rgba(216, 241, 123, 0.09), transparent 55%),
+      radial-gradient(ellipse 90% 60% at 110% 15%, rgba(99, 102, 241, 0.06), transparent 50%),
+      radial-gradient(ellipse 80% 50% at -15% 70%, rgba(216, 241, 123, 0.05), transparent 48%);
+    background-attachment: fixed;
+    color: var(--text-primary);
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
   }
 
-  /* Subtle noise texture over background (paper-like grain) */
+  /* Film grain */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
     background-repeat: repeat;
-    opacity: 0.04;
+    opacity: 0.035;
     pointer-events: none;
     z-index: 0;
   }
@@ -153,18 +169,66 @@
     overflow: visible;
   }
 
-  /* Glassmorphism card – same background design as header (graphite-card + blur) */
+  /* Glass cards — depth + soft inner highlight */
   .glass-card {
-    background: var(--bg-graphite-card);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, transparent 42%),
+      var(--bg-graphite-card);
+    backdrop-filter: blur(20px) saturate(1.1);
+    -webkit-backdrop-filter: blur(20px) saturate(1.1);
+    border: 1px solid var(--border-subtle);
     border-radius: var(--radius-xl);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+      0 28px 56px -20px rgba(0, 0, 0, 0.55);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
   }
   .glass-card:hover {
-    border-color: rgba(216, 241, 123, 0.2);
-    box-shadow: 0 0 40px var(--accent-muted);
+    border-color: var(--accent-border);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+      0 32px 64px -18px rgba(0, 0, 0, 0.6),
+      0 0 48px -8px var(--accent-muted);
+  }
+
+  /* Service page — solution / inset panels */
+  .surface-panel {
+    border-radius: 1.25rem;
+    border: 1px solid var(--border-subtle);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, transparent 38%),
+      rgba(12, 14, 20, 0.55);
+    box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.55);
+  }
+
+  /* CTA strip card */
+  .sw-cta-panel {
+    border-radius: 1.35rem;
+    border: 1px solid var(--accent-border);
+    background: linear-gradient(165deg, rgba(216, 241, 123, 0.11) 0%, rgba(18, 21, 29, 0.55) 42%, rgba(6, 7, 11, 0.92) 100%);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+      0 28px 72px -20px rgba(0, 0, 0, 0.55),
+      0 0 80px -30px rgba(216, 241, 123, 0.12);
+  }
+
+  /* Icon tile (services, cards) */
+  .sw-icon-tile {
+    border-radius: 0.875rem;
+    background: linear-gradient(145deg, rgba(216, 241, 123, 0.14) 0%, rgba(216, 241, 123, 0.05) 100%);
+    border: 1px solid var(--accent-border);
+    box-shadow: 0 0 24px -8px var(--accent-muted);
+  }
+
+  /* Display headline — lime gradient (WebKit + fallback) */
+  .text-gradient-accent {
+    background: linear-gradient(115deg, var(--accent-bright) 0%, var(--accent) 42%, var(--accent-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: var(--accent);
+  }
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    .text-gradient-accent {
+      color: transparent;
+    }
   }
 
   /* Accent soft glow */
@@ -257,23 +321,24 @@
     50% { background-position: 100% 50%; }
   }
   .cta-gradient-animated {
-    background: var(--accent);
-    color: var(--bg-graphite);
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent) 48%, var(--accent-deep) 100%);
+    color: #08090d;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.2) inset,
+      0 10px 36px -8px rgba(216, 241, 123, 0.35);
+    transition: box-shadow 0.2s ease, transform 0.2s ease, filter 0.2s ease;
   }
   .cta-gradient-animated:hover {
-    box-shadow: 0 0 32px var(--accent-glow);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.25) inset,
+      0 14px 44px -6px rgba(216, 241, 123, 0.45);
     transform: translateY(-1px);
+    filter: brightness(1.03);
   }
 
   /* Seamless gradient to footer */
   .gradient-philosophy-to-footer {
-    background: linear-gradient(
-      to bottom,
-      var(--bg) 0%,
-      var(--bg-2) 50%,
-      var(--bg) 100%
-    );
+    background: linear-gradient(to bottom, var(--bg) 0%, var(--bg-2) 38%, #0a0c12 100%);
   }
 
   /* AI animation section (service subpages - right column) */

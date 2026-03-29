@@ -133,10 +133,14 @@ export function Header() {
     <>
       {/* HEADER */}
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-card rounded-none border-x-0 border-t-0 ${
-          mobileMenuOpen ? 'border-b border-white/10' : ''
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 rounded-none border-x-0 border-t-0 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.65)] ${
+          mobileMenuOpen ? 'border-b border-[var(--border-soft)]' : 'border-b border-[var(--border-subtle)]'
         }`}
-        style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+        style={{
+          background: 'linear-gradient(180deg, rgba(18,21,29,0.92) 0%, rgba(12,14,20,0.88) 100%)',
+          backdropFilter: 'blur(20px) saturate(1.15)',
+          WebkitBackdropFilter: 'blur(20px) saturate(1.15)',
+        }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex items-center justify-between">
@@ -186,9 +190,9 @@ export function Header() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -8 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 min-w-[220px] py-2 rounded-xl border border-white/10 shadow-xl z-50"
+                          className="absolute top-full left-0 mt-2 min-w-[220px] py-2 rounded-xl border border-[var(--border-subtle)] shadow-2xl z-50"
                           style={{
-                            background: 'rgba(26, 26, 26, 0.78)',
+                            background: 'rgba(12, 14, 20, 0.92)',
                             backdropFilter: 'blur(64px) saturate(1.15)',
                             WebkitBackdropFilter: 'blur(64px) saturate(1.15)',
                           }}
@@ -233,9 +237,9 @@ export function Header() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -8 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 min-w-[200px] py-2 rounded-xl border border-white/10 shadow-xl z-50"
+                          className="absolute top-full left-0 mt-2 min-w-[200px] py-2 rounded-xl border border-[var(--border-subtle)] shadow-2xl z-50"
                           style={{
-                            background: 'rgba(26, 26, 26, 0.78)',
+                            background: 'rgba(12, 14, 20, 0.92)',
                             backdropFilter: 'blur(64px) saturate(1.15)',
                             WebkitBackdropFilter: 'blur(64px) saturate(1.15)',
                           }}
@@ -329,9 +333,9 @@ export function Header() {
       {mobileMenuOpen && (
         <div className="fixed top-[64px] left-0 right-0 z-40 lg:hidden">
           <div
-            className="mx-4 mt-2 p-6 rounded-2xl border border-white/10"
+            className="mx-4 mt-2 p-6 rounded-2xl border border-[var(--border-subtle)] shadow-2xl"
             style={{
-              background: 'rgba(26, 26, 26, 0.82)',
+              background: 'rgba(12, 14, 20, 0.92)',
               backdropFilter: 'blur(64px) saturate(1.15)',
               WebkitBackdropFilter: 'blur(64px) saturate(1.15)',
             }}

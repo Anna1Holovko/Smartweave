@@ -10,13 +10,17 @@ export function Footer() {
 
   return (
     <footer
-      className="relative border-t border-white/10 py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12"
+      className="relative border-t border-[var(--border-subtle)] py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-hidden"
       style={{
-        background: 'var(--bg-graphite-card)',
-        backdropFilter: 'blur(16px)',
+        background: 'linear-gradient(180deg, rgba(12,14,20,0.97) 0%, rgba(6,7,11,1) 100%)',
+        backdropFilter: 'blur(20px)',
       }}
     >
-      <div className="relative z-10 max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/25 to-transparent"
+        aria-hidden
+      />
+      <div className="relative z-[1] max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
           <div>
             <Image

@@ -36,8 +36,8 @@ export function UslugiServiceCards() {
               style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
             >
               <div className="flex flex-row items-start gap-4 mb-4">
-                <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center">
-                  <Icon className="w-7 h-7 text-[#d8f17b]" aria-hidden />
+                <div className="sw-icon-tile flex-shrink-0 w-14 h-14 flex items-center justify-center">
+                  <Icon className="w-7 h-7 text-[var(--accent)]" aria-hidden />
                 </div>
                 <h2 className="text-xl font-bold text-[#e4e4e7] flex-1 min-w-0 leading-snug">{service.title}</h2>
               </div>
