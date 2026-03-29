@@ -97,11 +97,7 @@ export default function AgenciAiPage() {
           <CollaborationProcessSection process={pageContent.process} />
         </section>
 
-        <QuickAutomationCta
-          secondaryHref="/#contact"
-          secondaryLabel="Napisz do nas"
-          secondaryOutlined
-        />
+        <QuickAutomationCta />
 
         <div className="gradient-philosophy-to-footer">
           <Footer />

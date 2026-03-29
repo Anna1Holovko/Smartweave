@@ -41,12 +41,15 @@ export function ServiceProblemCards({
   slug,
   heading = 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?',
   headingId = 'service-problems-heading',
+  listWithoutDividers = false,
 }: {
   problems: ProblemCard[];
   slug: ServiceSlug;
   heading?: string;
   /** Domyślnie `service-problems-heading`; nadpisz, gdy sekcja nadrzędna ma `aria-labelledby`. */
   headingId?: string;
+  /** Bez poziomych linii między kartami (np. strona stron www). */
+  listWithoutDividers?: boolean;
 }) {
   const icons = ICONS_BY_SLUG[slug] ?? ICONS_BY_SLUG.strony;
   const items = problems.slice(0, 6).map((p, i) => ({ ...p, icon: icons[i] ?? Sparkles }));
@@ -59,7 +62,11 @@ export function ServiceProblemCards({
       >
         {heading}
       </h2>
-      <ul className="divide-y divide-white/[0.08] border-t border-white/[0.08]">
+      <ul
+        className={
+          listWithoutDividers ? '' : 'divide-y divide-white/[0.08] border-t border-white/[0.08]'
+        }
+      >
         {items.map((item, index) => {
           const Icon = item.icon;
           return (

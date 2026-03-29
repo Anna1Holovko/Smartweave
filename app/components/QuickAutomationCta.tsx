@@ -18,7 +18,8 @@ type Props = {
 };
 
 /**
- * Conversion strip — domyślnie ten sam nagłówek i opis na całej stronie (lib/site).
+ * Conversion strip — jeden wzorzec na całej witrynie: treść w `USLUGI_QUICK_CTA_*` (lib/site),
+ * przyciski: Umów krótką rozmowę (Calendly) + Napisz do nas (/#contact).
  */
 export function QuickAutomationCta({
   contactHref = '/#contact',
@@ -27,7 +28,7 @@ export function QuickAutomationCta({
   primaryLabel = 'Umów krótką rozmowę',
   secondaryHref,
   secondaryLabel,
-  secondaryOutlined = false,
+  secondaryOutlined = true,
   secondaryButtonHref,
   secondaryButtonLabel,
   tertiaryHref,
@@ -35,8 +36,8 @@ export function QuickAutomationCta({
 }: Props) {
   const finalTitle = title ?? USLUGI_QUICK_CTA_TITLE;
   const finalDescription = description ?? USLUGI_QUICK_CTA_DESCRIPTION;
-  const finalSecondaryHref = secondaryHref ?? '/automatyzacja-ai-dla-firm';
-  const finalSecondaryLabel = secondaryLabel ?? 'Automatyzacja procesów dla firm';
+  const finalSecondaryHref = secondaryHref ?? '/#contact';
+  const finalSecondaryLabel = secondaryLabel ?? 'Napisz do nas';
   const finalTertiaryHref = tertiaryHref;
   const finalTertiaryLabel = tertiaryLabel;
   const finalSecondaryButtonHref = secondaryButtonHref;

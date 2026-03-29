@@ -39,7 +39,7 @@ export function StronyUslugaPage({
   return (
     <div className="strony-usluga">
       {/* Hero — back link left; Oferta / title / lead centered without mx-auto wrapper */}
-      <header className="relative pb-14 sm:pb-20 md:pb-24 border-b border-white/[0.07]">
+      <header className="relative pb-14 sm:pb-20 md:pb-24">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -68,7 +68,7 @@ export function StronyUslugaPage({
         </div>
       </header>
 
-      <ServiceProblemCards problems={problems} slug="strony" heading={problemHeading} />
+      <ServiceProblemCards problems={problems} slug="strony" heading={problemHeading} listWithoutDividers />
 
       {/* Solution — inset panel */}
       <section className="py-16 sm:py-20 md:py-24 rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.02] to-transparent px-5 sm:px-8 md:px-12 lg:px-14">
@@ -81,13 +81,13 @@ export function StronyUslugaPage({
       {/* Features + benefits — side-by-side */}
       <section className="py-16 sm:py-20 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 xl:gap-24">
         <div>
-          <h2 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-8 pb-3 border-b border-white/10">
+          <h2 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-8">
             Co wdrażamy
           </h2>
           <ServiceFeaturesList features={features} />
         </div>
         <div>
-          <h2 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-8 pb-3 border-b border-white/10">
+          <h2 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-8">
             Korzyści dla Twojej firmy
           </h2>
           <ServiceBenefitsList benefits={benefits} />
@@ -95,12 +95,12 @@ export function StronyUslugaPage({
       </section>
 
       {/* Process — same visual language as home „Jak działamy” (AutomationDetails) */}
-      <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 overflow-x-hidden border-t border-white/[0.07]">
+      <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 overflow-x-hidden">
         <CollaborationProcessSection process={process} className="!pt-12 sm:!pt-16 md:!pt-20" />
       </div>
 
       {/* Realizacje */}
-      <section className="py-16 sm:py-20 md:py-24 border-t border-white/[0.07]">
+      <section className="py-16 sm:py-20 md:py-24">
         <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-8 sm:mb-10">
           Realizacje na stronach internetowych
         </h2>

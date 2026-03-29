@@ -237,11 +237,7 @@ export default async function UslugiSlugPage({
             )}
         </section>
 
-        <QuickAutomationCta
-          secondaryHref="/#contact"
-          secondaryLabel="Napisz do nas"
-          secondaryOutlined
-        />
+        <QuickAutomationCta />
 
         <div className="gradient-philosophy-to-footer">
           <Footer />
