@@ -107,23 +107,7 @@ function SingleBookUx({ book }: { book: Ebook }) {
 
   return (
     <>
-      <div className="grid lg:grid-cols-[minmax(240px,300px),minmax(0,1fr)] gap-10 lg:gap-14 xl:gap-16 max-w-6xl mx-auto items-start">
-        <section aria-label="Okładka na półce" className="w-full max-w-[280px] mx-auto lg:max-w-none lg:mx-0">
-          <div className="relative mx-auto w-full max-w-[240px]">
-            <ShelfTile
-              book={book}
-              featured
-              imagePriority
-              onOpenDetails={() => setDetailOpen(true)}
-              onAddToCart={() => {
-                addEbookToCart(book.id);
-                requestOpenCartDrawer();
-              }}
-            />
-          </div>
-          <LemonShelfPlank className="max-w-[240px] mx-auto" />
-        </section>
-
+      <div className="max-w-6xl mx-auto">
         <aside
           className="rounded-2xl border border-white/10 p-6 sm:p-8 lg:p-10 w-full min-w-0"
           style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
@@ -136,6 +120,7 @@ function SingleBookUx({ book }: { book: Ebook }) {
                   src={book.image}
                   alt={`Okładka: ${book.title}`}
                   fill
+                  priority
                   className="object-cover object-top"
                   sizes="(max-width: 639px) 165px, 195px"
                 />
