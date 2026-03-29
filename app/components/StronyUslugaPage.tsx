@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import {
   ArrowLeft,
   Globe,
@@ -21,6 +21,9 @@ import { HybridServiceCrossLinks } from '@/app/components/HybridServiceCrossLink
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 
 const PROBLEM_ICONS: LucideIcon[] = [Globe, Search, MousePointer, FileEdit, Layout, Sparkles];
+
+/** Calm ease-out — short, minimal */
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 type ProcessItem = { step: number; title: string; description: string };
 
@@ -45,142 +48,183 @@ export function StronyUslugaPage({
   benefits,
   process,
 }: StronyUslugaPageProps) {
+  const reduce = useReducedMotion();
+
+  const fade = (delay = 0) =>
+    reduce
+      ? { initial: false as const }
+      : {
+          initial: { opacity: 0, y: 6 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.45, ease: EASE, delay },
+        };
+
+  const inView = (delay = 0) =>
+    reduce
+      ? { initial: false as const }
+      : {
+          initial: { opacity: 0, y: 8 },
+          whileInView: { opacity: 1, y: 0 },
+          transition: { duration: 0.48, ease: EASE, delay },
+        };
+
   const items = problems.slice(0, 6).map((p, i) => ({
     ...p,
     icon: PROBLEM_ICONS[i] ?? Sparkles,
   }));
 
   return (
-    <div className="strony-usluga">
-      {/* Hero — editorial strip, no mockup */}
-      <header className="relative pb-14 sm:pb-20 md:pb-24 border-b border-white/[0.07]">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45 }}
-        >
+    <div className="strony-usluga text-[15px] sm:text-base">
+      <header className="relative pb-16 sm:pb-20 md:pb-28">
+        <motion.div {...fade(0)}>
           <Link
             href="/uslugi"
-            className="inline-flex items-center gap-2 text-zinc-500 hover:text-[#d8f17b] transition-colors mb-10 sm:mb-12 text-sm tracking-wide"
+            className="inline-flex items-center gap-2 text-zinc-500 hover:text-zinc-300 transition-colors mb-12 sm:mb-16 text-[13px] tracking-wide"
           >
-            <ArrowLeft className="w-4 h-4 flex-shrink-0" aria-hidden />
+            <ArrowLeft className="w-3.5 h-3.5 flex-shrink-0 opacity-70" aria-hidden />
             Wszystkie usługi
           </Link>
         </motion.div>
 
-        <div className="max-w-4xl">
-          <p className="flex items-center gap-2 text-[#d8f17b]/90 text-xs sm:text-sm font-medium uppercase tracking-[0.2em] mb-6">
+        <div className="max-w-3xl">
+          <motion.p {...fade(reduce ? 0 : 0.05)} className="flex items-center gap-2.5 text-zinc-500 text-[11px] sm:text-xs font-normal uppercase tracking-[0.22em] mb-8">
             <BrandMarkIcon />
             Oferta
-          </p>
-          <h1 className="text-[#d8f17b] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight">
+          </motion.p>
+          <motion.h1
+            {...fade(reduce ? 0 : 0.1)}
+            className="text-[#d8f17b] text-3xl sm:text-4xl md:text-[2.75rem] lg:text-5xl font-semibold leading-[1.15] tracking-[-0.02em]"
+          >
             {title}
-          </h1>
-          <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-zinc-400 leading-relaxed max-w-3xl">
+          </motion.h1>
+          <motion.p {...fade(reduce ? 0 : 0.16)} className="mt-8 text-zinc-400 leading-[1.65] max-w-2xl font-normal">
             {description}
-          </p>
+          </motion.p>
         </div>
+        <div className="mt-16 sm:mt-20 h-px w-10 bg-white/[0.07]" aria-hidden />
       </header>
 
-      {/* Problems — full-width rows, not a 3-col card grid */}
-      <section className="py-16 sm:py-20 md:py-24" aria-labelledby="strony-problems-heading">
+      <motion.section
+        {...inView(0)}
+        viewport={{ once: true, margin: '-10%', amount: 0.2 }}
+        className="py-12 sm:py-16 md:py-20"
+        aria-labelledby="strony-problems-heading"
+      >
         <h2
           id="strony-problems-heading"
-          className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500 mb-10 sm:mb-14 max-w-2xl"
+          className="text-[11px] sm:text-xs font-normal uppercase tracking-[0.2em] text-zinc-500 mb-12 sm:mb-16"
         >
           {problemHeading}
         </h2>
-        <ul className="divide-y divide-white/[0.08] border-t border-white/[0.08]">
+        <ul className="flex flex-col gap-12 sm:gap-14 md:gap-16">
           {items.map((item, index) => {
             const Icon = item.icon;
             return (
               <motion.li
                 key={index}
-                initial={{ opacity: 0, y: 16 }}
+                initial={reduce ? false : { opacity: 0, y: 5 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.45, delay: index * 0.05 }}
-                className="py-8 sm:py-10 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start"
+                viewport={{ once: true, margin: '-8%' }}
+                transition={{ duration: 0.38, ease: EASE, delay: reduce ? 0 : index * 0.03 }}
+                className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8 items-start"
               >
-                <div className="md:col-span-1 flex md:flex-col items-center md:items-start gap-3 text-zinc-600 text-xs font-mono tabular-nums tracking-wider">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-[#d8f17b]">
-                    <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
-                  </span>
-                  <span className="hidden md:inline text-[10px]">{String(index + 1).padStart(2, '0')}</span>
+                <div className="md:col-span-1 flex items-start gap-4">
+                  <span className="mt-0.5 text-[10px] text-zinc-600 tabular-nums w-6">{String(index + 1).padStart(2, '0')}</span>
+                  <Icon className="h-4 w-4 text-zinc-500 shrink-0" strokeWidth={1.5} aria-hidden />
                 </div>
                 <div className="md:col-span-4">
-                  <h3 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] leading-snug">{item.title}</h3>
+                  <h3 className="text-base sm:text-lg font-medium text-zinc-200 leading-snug">{item.title}</h3>
                 </div>
-                <p className="md:col-span-7 text-zinc-400 text-sm sm:text-base leading-relaxed">{item.description}</p>
+                <p className="md:col-span-7 text-zinc-500 text-sm sm:text-[15px] leading-relaxed font-normal">{item.description}</p>
               </motion.li>
             );
           })}
         </ul>
-      </section>
+      </motion.section>
 
-      {/* Solution — inset panel */}
-      <section className="py-16 sm:py-20 md:py-24 rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.02] to-transparent px-5 sm:px-8 md:px-12 lg:px-14">
-        <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-8 sm:mb-10 border-l-2 border-[#d8f17b] pl-4 sm:pl-5">
-          Nasze podejście do rozwiązania
-        </h2>
-        <ServiceSolutionBlock solution={solution} />
-      </section>
+      <motion.section
+        {...inView(0)}
+        viewport={{ once: true, margin: '-10%', amount: 0.15 }}
+        className="py-12 sm:py-16 md:py-20 border-t border-white/[0.05]"
+      >
+        <div className="pl-5 sm:pl-6 border-l border-white/[0.1]">
+          <h2 className="text-base sm:text-lg font-medium text-zinc-200 mb-8 sm:mb-10 tracking-tight">Nasze podejście do rozwiązania</h2>
+          <div className="text-zinc-500 [&_p]:font-normal">
+            <ServiceSolutionBlock solution={solution} />
+          </div>
+        </div>
+      </motion.section>
 
-      {/* Features + benefits — side-by-side */}
-      <section className="py-16 sm:py-20 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 xl:gap-24">
+      <motion.section
+        {...inView(0.04)}
+        viewport={{ once: true, margin: '-10%', amount: 0.15 }}
+        className="py-12 sm:py-16 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 xl:gap-32"
+      >
         <div>
-          <h2 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-8 pb-3 border-b border-white/10">
-            Co wdrażamy
-          </h2>
-          <ServiceFeaturesList features={features} />
+          <h2 className="text-base sm:text-lg font-medium text-zinc-200 mb-10 tracking-tight">Co wdrażamy</h2>
+          <div className="opacity-[0.97] [&_svg]:opacity-80">
+            <ServiceFeaturesList features={features} />
+          </div>
         </div>
         <div>
-          <h2 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-8 pb-3 border-b border-white/10">
-            Korzyści dla Twojej firmy
-          </h2>
-          <ServiceBenefitsList benefits={benefits} />
+          <h2 className="text-base sm:text-lg font-medium text-zinc-200 mb-10 tracking-tight">Korzyści dla Twojej firmy</h2>
+          <div className="opacity-[0.97] [&_svg]:opacity-80">
+            <ServiceBenefitsList benefits={benefits} />
+          </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* Process — vertical timeline */}
-      <section className="py-16 sm:py-20 md:py-24 border-t border-white/[0.07]" aria-labelledby="strony-process-heading">
-        <h2 id="strony-process-heading" className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-10 sm:mb-14">
+      <motion.section
+        {...inView(0)}
+        viewport={{ once: true, margin: '-10%', amount: 0.15 }}
+        className="py-12 sm:py-16 md:py-20 border-t border-white/[0.05]"
+        aria-labelledby="strony-process-heading"
+      >
+        <h2 id="strony-process-heading" className="text-base sm:text-lg font-medium text-zinc-200 mb-12 sm:mb-16 tracking-tight">
           Jak wygląda proces współpracy
         </h2>
-        <ol className="relative ml-2 sm:ml-3 border-l border-[#d8f17b]/25 pl-8 sm:pl-10 space-y-12 sm:space-y-14">
-          {process.map((item) => (
+        <ol className="flex flex-col gap-0">
+          {process.map((item, i) => (
             <motion.li
               key={item.step}
-              initial={{ opacity: 0, x: -8 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-30px' }}
-              transition={{ duration: 0.4 }}
-              className="relative"
+              initial={reduce ? false : { opacity: 0, y: 4 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-10%' }}
+              transition={{ duration: 0.38, ease: EASE, delay: reduce ? 0 : i * 0.04 }}
+              className="flex gap-4 sm:gap-5 pb-10 sm:pb-12 last:pb-0"
             >
-              <span
-                className="absolute -left-[41px] sm:-left-[45px] top-0 flex h-7 w-7 items-center justify-center rounded-full border border-[#d8f17b]/35 bg-[var(--bg)] text-xs font-bold text-[#d8f17b] tabular-nums"
-                aria-hidden
-              >
-                {item.step}
-              </span>
-              <h3 className="text-lg font-semibold text-[#e4e4e7]">{item.title}</h3>
-              <p className="mt-2 text-zinc-400 text-sm sm:text-base leading-relaxed max-w-2xl">{item.description}</p>
+              <div className="flex flex-col items-center w-2 shrink-0">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#d8f17b]/35 mt-1.5" aria-hidden />
+                {i < process.length - 1 ? <span className="w-px flex-1 min-h-[3rem] bg-gradient-to-b from-white/15 to-transparent mt-3" aria-hidden /> : null}
+              </div>
+              <div className="min-w-0 flex-1 -mt-0.5">
+                <p className="text-[10px] uppercase tracking-[0.18em] text-zinc-600 mb-2 tabular-nums">Krok {item.step}</p>
+                <h3 className="text-base font-medium text-zinc-200">{item.title}</h3>
+                <p className="mt-2 text-zinc-500 text-sm sm:text-[15px] leading-relaxed max-w-2xl font-normal">{item.description}</p>
+              </div>
             </motion.li>
           ))}
         </ol>
-      </section>
+      </motion.section>
 
-      {/* Realizacje */}
-      <section className="py-16 sm:py-20 md:py-24 border-t border-white/[0.07]">
-        <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-8 sm:mb-10">
-          Realizacje na stronach internetowych
-        </h2>
+      <motion.section
+        {...inView(0)}
+        viewport={{ once: true, margin: '-10%', amount: 0.12 }}
+        className="py-12 sm:py-16 md:py-20 border-t border-white/[0.05]"
+      >
+        <h2 className="text-base sm:text-lg font-medium text-zinc-200 mb-10 sm:mb-12 tracking-tight">Realizacje na stronach internetowych</h2>
         <ServiceRealizacjeGrid items={PORTFOLIO_ITEMS} />
-      </section>
+      </motion.section>
 
-      <div className="pt-8 sm:pt-12">
+      <motion.div
+        initial={reduce ? false : { opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, ease: EASE }}
+        className="pt-6 sm:pt-10"
+      >
         <HybridServiceCrossLinks slug="strony" />
-      </div>
+      </motion.div>
     </div>
   );
 }
