@@ -152,18 +152,6 @@ export function EbookShelfSection({ books }: Props) {
   return (
     <div className="relative mt-6 sm:mt-10">
       <div className="relative mx-auto max-w-5xl px-0 py-2 sm:py-4">
-        <header className="mb-12 text-center sm:mb-16">
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-[#d8f17b]/90 sm:text-xs">
-            Katalog cyfrowy
-          </p>
-          <h2 className="mt-3 text-2xl font-bold tracking-tight text-[#e4e4e7] sm:text-3xl md:text-4xl">
-            Półka z publikacjami
-          </h2>
-          <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-zinc-400 sm:text-base">
-            Okładki jak albumy - wybierz pozycję, zobacz opis albo dodaj do koszyka.
-          </p>
-        </header>
-
         {rows.map((row, idx) => (
           <ShelfRow key={idx} books={row} shelfIndex={idx} />
         ))}
