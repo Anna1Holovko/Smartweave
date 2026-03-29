@@ -7,7 +7,7 @@ import { EBOOKS } from '@/lib/ebooks';
 import { QuickAutomationCta } from '../components/QuickAutomationCta';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
-import { EbookCard } from './EbookCard';
+import { EbookShelfSection } from './EbookShelfSection';
 
 export const metadata: Metadata = {
   title: 'E-booki - SmartWeave',
@@ -39,11 +39,7 @@ export default function EbookiPage() {
               className={INTRO_MB_CLASS}
             />
 
-            <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-              {EBOOKS.map((book) => (
-                <EbookCard key={book.id} book={book} />
-              ))}
-            </div>
+            <EbookShelfSection books={EBOOKS} />
           </div>
         </section>
         <QuickAutomationCta topic="ebooki" />

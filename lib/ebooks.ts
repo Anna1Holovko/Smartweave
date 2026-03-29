@@ -15,6 +15,8 @@ export type Ebook = {
   gradient: string;
   /** Optional link after checkout (e.g. /#contact). Not used for direct file download. */
   buyUrl: string;
+  /** Short line under the shelf, e.g. year or edition (Shopify-style index). */
+  editionLabel?: string;
 };
 
 export const EBOOKS: Ebook[] = [
@@ -90,5 +92,6 @@ Wypisz 3–5 powtarzalnych czynności tygodnia i wybierz jedną pod pilota z jed
     image: '/assets/ebook-firma-w-erze-ai.png',
     gradient: 'from-indigo-500 to-violet-600',
     buyUrl: '/#contact',
+    editionLabel: '2026 · Edycja cyfrowa',
   },
 ];
