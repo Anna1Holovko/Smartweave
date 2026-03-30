@@ -87,9 +87,10 @@ function curvedPath(x1: number, y1: number, x2: number, y2: number) {
 export function AutomationWorkflowSection({ embedded = false }: { embedded?: boolean }) {
   const progress = useMotionValue(0);
   const pathRefs = useRef<(SVGPathElement | null)[]>([]);
-  const filterId = embedded ? 'flow-dot-glow-embed' : 'flow-dot-glow';
+  const filterId = 'flow-dot-glow';
 
   useAnimationFrame((_, delta) => {
+    if (embedded) return;
     progress.set((progress.get() + delta * 0.00012) % 1);
   });
 
@@ -98,46 +99,49 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
       className="relative w-full min-w-0"
       style={{ aspectRatio: `${DIAGRAM_WIDTH}/${DIAGRAM_HEIGHT}` }}
     >
-      <svg
-        className="absolute inset-0 w-full h-full"
-        viewBox={`0 0 ${DIAGRAM_WIDTH} ${DIAGRAM_HEIGHT}`}
-      >
-        <defs>
-          <filter id={filterId} x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
+      {/* Na /uslugi/automatyzacja (embedded) ukrywamy linie i kropki SVG — zostają węzły z ikonami */}
+      {!embedded && (
+        <svg
+          className="absolute inset-0 w-full h-full"
+          viewBox={`0 0 ${DIAGRAM_WIDTH} ${DIAGRAM_HEIGHT}`}
+        >
+          <defs>
+            <filter id={filterId} x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
 
-        {connections.map(([from, to], i) => {
-          const a = nodes.find((n) => n.id === from)!;
-          const b = nodes.find((n) => n.id === to)!;
-          const path = curvedPath(a.x, a.y, b.x, b.y);
+          {connections.map(([from, to], i) => {
+            const a = nodes.find((n) => n.id === from)!;
+            const b = nodes.find((n) => n.id === to)!;
+            const path = curvedPath(a.x, a.y, b.x, b.y);
 
-          return (
-            <g key={i}>
-              <path
-                d={path}
-                stroke={embedded ? 'rgba(216,241,123,0.35)' : 'rgba(255,255,255,0.15)'}
-                strokeWidth="2"
-                strokeDasharray="6 10"
-                fill="none"
-                ref={(el) => {
-                  if (el) pathRefs.current[i] = el;
-                }}
-              />
-              <FlowDot
-                pathRef={() => pathRefs.current[i] ?? undefined}
-                progress={progress}
-                filterId={filterId}
-              />
-            </g>
-          );
-        })}
-      </svg>
+            return (
+              <g key={i}>
+                <path
+                  d={path}
+                  stroke="rgba(255,255,255,0.15)"
+                  strokeWidth="2"
+                  strokeDasharray="6 10"
+                  fill="none"
+                  ref={(el) => {
+                    if (el) pathRefs.current[i] = el;
+                  }}
+                />
+                <FlowDot
+                  pathRef={() => pathRefs.current[i] ?? undefined}
+                  progress={progress}
+                  filterId={filterId}
+                />
+              </g>
+            );
+          })}
+        </svg>
+      )}
 
       {nodes.map((node) => (
         <Node

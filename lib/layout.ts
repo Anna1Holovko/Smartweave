@@ -9,6 +9,6 @@ export const CONTAINER_CLASS =
 
 export const INTRO_MB_CLASS = 'mb-12 sm:mb-20';
 
-/** Nagłówki sekcji treści — ten sam rozmiar co „Nasze podejście do rozwiązania” na /uslugi/automatyzacja */
+/** Nagłówki sekcji (home, blog, usługi itd.) — większy akcent wizualny */
 export const SECTION_H2_CLASS =
-  'text-xl sm:text-2xl font-bold text-[var(--text-primary)]';
+  'text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] leading-tight tracking-tight';

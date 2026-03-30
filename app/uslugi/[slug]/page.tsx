@@ -29,6 +29,8 @@ const SLUG_META_DESCRIPTION: Partial<Record<string, string>> = {
     'Automatyzacja procesów biznesowych: workflowy, integracje Make i n8n, CRM, mniej ręcznej pracy. SmartWeave wdraża automatyzację z AI dla firm.',
   'agenci-ai':
     'Agenci AI dla firm: pierwsza odpowiedź, kwalifikacja leadów, dokumenty w CRM. Wdrożenia pod Twój proces — SmartWeave.',
+  chatboty:
+    'Chatboty dla firm: FAQ, leady 24/7, integracja z CRM, baza wiedzy i scenariusze. Wdrożenia pod Twoją markę — SmartWeave.',
 };
 
 const SLUG_KEYWORDS: Partial<Record<string, string[]>> = {
@@ -39,6 +41,7 @@ const SLUG_KEYWORDS: Partial<Record<string, string[]>> = {
     'automatyzacja AI',
   ],
   'agenci-ai': ['agenci AI', 'agenci AI dla firm', 'automatyzacja z AI', 'AI dla firm'],
+  chatboty: ['chatbot dla firm', 'chatbot na stronie', 'chatbot B2B', 'asystent AI na stronie'],
 };
 
 function realizacjeForSlug(slug: ServiceSlug): RealizacjeConfig {
@@ -54,6 +57,15 @@ function realizacjeForSlug(slug: ServiceSlug): RealizacjeConfig {
       linkLabel: 'Realizacje - aplikacje webowe',
     };
   }
+  if (slug === 'chatboty') {
+    return {
+      mode: 'link',
+      title: 'Realizacje',
+      description: 'Przykłady wdrożeń chatbotów i asystentów znajdziesz na dedykowanej podstronie realizacji.',
+      href: '/realizacje/chatboty',
+      linkLabel: 'Realizacje - chatboty',
+    };
+  }
   return { mode: 'none' };
 }
 
@@ -61,6 +73,7 @@ function showHybridCrossLinks(slug: ServiceSlug): boolean {
   return (
     slug === 'strony' ||
     slug === 'aplikacje-webowe' ||
+    slug === 'chatboty' ||
     slug === 'automatyzacja' ||
     slug === 'agenci-ai'
   );
@@ -120,28 +133,22 @@ export default async function UslugiSlugPage({
           <div className="absolute inset-0 bg-[var(--bg)]" />
 
           <div className={CONTAINER_CLASS}>
-            {slugTyped === 'chatboty' ? (
-              <div className="py-8 sm:py-10 md:py-12">
-                <h1 className="sr-only">{service.title}</h1>
-              </div>
-            ) : (
-              <ServiceUslugaPage
-                slug={slugTyped}
-                title={service.title}
-                description={service.description}
-                problemHeading={
-                  pageContent.problemHeading ?? 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?'
-                }
-                problems={USLUGI_PAGE_CONTENT[slugTyped].problems}
-                solution={pageContent.solution}
-                features={service.features}
-                benefits={pageContent.benefits}
-                process={pageContent.process}
-                realizacje={realizacjeForSlug(slugTyped)}
-                beforeCrossLinks={slugTyped === 'branding' ? <BrandingAiBridgeSection /> : undefined}
-                showHybridCrossLinks={showHybridCrossLinks(slugTyped)}
-              />
-            )}
+            <ServiceUslugaPage
+              slug={slugTyped}
+              title={service.title}
+              description={service.description}
+              problemHeading={
+                pageContent.problemHeading ?? 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?'
+              }
+              problems={USLUGI_PAGE_CONTENT[slugTyped].problems}
+              solution={pageContent.solution}
+              features={service.features}
+              benefits={pageContent.benefits}
+              process={pageContent.process}
+              realizacje={realizacjeForSlug(slugTyped)}
+              beforeCrossLinks={slugTyped === 'branding' ? <BrandingAiBridgeSection /> : undefined}
+              showHybridCrossLinks={showHybridCrossLinks(slugTyped)}
+            />
           </div>
         </section>
 
