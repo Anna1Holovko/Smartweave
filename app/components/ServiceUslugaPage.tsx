@@ -39,7 +39,7 @@ export type ServiceUslugaPageProps = {
   features: readonly string[];
   benefits: readonly string[];
   process: readonly ProcessItem[];
-  /** Domyślnie „Co wdrażamy”; dla automatyzacji dłuższy nagłówek */
+  /** Domyślnie „Co wdrażamy” */
   featuresHeading?: string;
   realizacje: RealizacjeConfig;
   /** Sekcja przed linkami powiązanymi (np. branding → AI) */
@@ -63,8 +63,7 @@ export function ServiceUslugaPage({
   beforeCrossLinks,
   showHybridCrossLinks,
 }: ServiceUslugaPageProps) {
-  const finalFeaturesHeading =
-    featuresHeading ?? (slug === 'automatyzacja' ? 'Co możemy zautomatyzować w Twojej firmie' : 'Co wdrażamy');
+  const finalFeaturesHeading = featuresHeading ?? 'Co wdrażamy';
 
   return (
     <div className="usluga-service">
