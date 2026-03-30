@@ -67,15 +67,6 @@ export function ServiceUslugaPage({
   const finalFeaturesHeading =
     featuresHeading ?? (slug === 'automatyzacja' ? 'Co możemy zautomatyzować w Twojej firmie' : 'Co wdrażamy');
 
-  const hasFeaturesAside = slug === 'automatyzacja' || slug === 'agenci-ai';
-
-  const featuresAside =
-    slug === 'automatyzacja' ? (
-      <AutomationWorkflowSection embedded />
-    ) : slug === 'agenci-ai' ? (
-      <AiAnimationSection />
-    ) : null;
-
   return (
     <div className="usluga-service">
       <header className="relative pb-14 sm:pb-20 md:pb-24">
@@ -93,15 +84,15 @@ export function ServiceUslugaPage({
           </Link>
         </motion.div>
 
-        <div className="w-full flex flex-col items-center text-center">
-          <p className="flex items-center justify-center gap-2 text-[#d8f17b]/90 text-xs sm:text-sm font-medium uppercase tracking-[0.2em] mb-6">
+        <div className="w-full flex flex-col items-stretch text-center">
+          <p className="flex items-center justify-center gap-2 self-center text-[#d8f17b]/90 text-xs sm:text-sm font-medium uppercase tracking-[0.2em] mb-6">
             <BrandMarkIcon />
             Oferta
           </p>
-          <h1 className="text-gradient-accent text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight max-w-4xl">
+          <h1 className="text-gradient-accent w-full text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight">
             {title}
           </h1>
-          <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed max-w-3xl">
+          <p className="mt-6 sm:mt-8 w-full text-base sm:text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed">
             {description}
           </p>
         </div>
@@ -116,34 +107,27 @@ export function ServiceUslugaPage({
         <ServiceSolutionBlock solution={solution} />
       </section>
 
-      {hasFeaturesAside ? (
-        <>
-          <section className="py-16 sm:py-20 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 xl:gap-24 items-start">
-            <div className="order-2 lg:order-1">
-              <h2 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-8">{finalFeaturesHeading}</h2>
-              <ServiceFeaturesList features={features} />
-            </div>
-            <div className="order-1 lg:order-2 w-full lg:sticky lg:top-24 hidden lg:block cursor-auto">
-              {featuresAside}
-            </div>
-          </section>
-          <section className="py-16 sm:py-20 md:py-24">
-            <h2 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-8">Korzyści dla Twojej firmy</h2>
-            <ServiceBenefitsList benefits={benefits} />
-          </section>
-        </>
-      ) : (
-        <section className="py-16 sm:py-20 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 xl:gap-24">
-          <div>
-            <h2 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-8">{finalFeaturesHeading}</h2>
-            <ServiceFeaturesList features={features} />
-          </div>
-          <div>
-            <h2 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] mb-8">Korzyści dla Twojej firmy</h2>
-            <ServiceBenefitsList benefits={benefits} />
-          </div>
+      {slug === 'automatyzacja' && (
+        <section className="py-12 sm:py-16 md:py-20" aria-label="Przykład automatyzacji procesów">
+          <AutomationWorkflowSection embedded />
         </section>
       )}
+      {slug === 'agenci-ai' && (
+        <section className="py-12 sm:py-16 md:py-20" aria-label="Wizualizacja agentów AI">
+          <AiAnimationSection />
+        </section>
+      )}
+
+      <section className="py-16 sm:py-20 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 xl:gap-24">
+        <div>
+          <h2 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-8">{finalFeaturesHeading}</h2>
+          <ServiceFeaturesList features={features} />
+        </div>
+        <div>
+          <h2 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-8">Korzyści dla Twojej firmy</h2>
+          <ServiceBenefitsList benefits={benefits} />
+        </div>
+      </section>
 
       <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 overflow-x-hidden">
         <CollaborationProcessSection process={process} className="!pt-12 sm:!pt-16 md:!pt-20" />
@@ -151,7 +135,7 @@ export function ServiceUslugaPage({
 
       {realizacje.mode === 'portfolio' && (
         <section className="py-16 sm:py-20 md:py-24">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-8 sm:mb-10">
+          <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-8 sm:mb-10">
             {realizacje.title ?? 'Realizacje na stronach internetowych'}
           </h2>
           <ServiceRealizacjeGrid items={PORTFOLIO_ITEMS} />
@@ -160,8 +144,8 @@ export function ServiceUslugaPage({
 
       {realizacje.mode === 'link' && (
         <section className="py-16 sm:py-20 md:py-24">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#e4e4e7] mb-4">{realizacje.title}</h2>
-          <p className="text-zinc-400 max-w-[80ch] mb-6">{realizacje.description}</p>
+          <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-4">{realizacje.title}</h2>
+          <p className="text-[var(--text-secondary)] max-w-[80ch] mb-6">{realizacje.description}</p>
           <Link
             href={realizacje.href}
             className="inline-flex items-center gap-2 text-[#d8f17b] font-semibold hover:underline min-h-[44px]"

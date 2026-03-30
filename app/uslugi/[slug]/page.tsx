@@ -45,15 +45,6 @@ function realizacjeForSlug(slug: ServiceSlug): RealizacjeConfig {
   if (slug === 'strony') {
     return { mode: 'portfolio', title: 'Realizacje na stronach internetowych' };
   }
-  if (slug === 'chatboty') {
-    return {
-      mode: 'link',
-      title: 'Realizacje',
-      description: 'Przykłady projektów w tej kategorii znajdziesz na dedykowanej podstronie realizacji.',
-      href: '/realizacje/chatboty',
-      linkLabel: 'Realizacje - chatboty',
-    };
-  }
   if (slug === 'aplikacje-webowe') {
     return {
       mode: 'link',
@@ -69,7 +60,6 @@ function realizacjeForSlug(slug: ServiceSlug): RealizacjeConfig {
 function showHybridCrossLinks(slug: ServiceSlug): boolean {
   return (
     slug === 'strony' ||
-    slug === 'chatboty' ||
     slug === 'aplikacje-webowe' ||
     slug === 'automatyzacja' ||
     slug === 'agenci-ai'
@@ -130,22 +120,28 @@ export default async function UslugiSlugPage({
           <div className="absolute inset-0 bg-[var(--bg)]" />
 
           <div className={CONTAINER_CLASS}>
-            <ServiceUslugaPage
-              slug={slugTyped}
-              title={service.title}
-              description={service.description}
-              problemHeading={
-                pageContent.problemHeading ?? 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?'
-              }
-              problems={USLUGI_PAGE_CONTENT[slugTyped].problems}
-              solution={pageContent.solution}
-              features={service.features}
-              benefits={pageContent.benefits}
-              process={pageContent.process}
-              realizacje={realizacjeForSlug(slugTyped)}
-              beforeCrossLinks={slugTyped === 'branding' ? <BrandingAiBridgeSection /> : undefined}
-              showHybridCrossLinks={showHybridCrossLinks(slugTyped)}
-            />
+            {slugTyped === 'chatboty' ? (
+              <div className="py-8 sm:py-10 md:py-12">
+                <h1 className="sr-only">{service.title}</h1>
+              </div>
+            ) : (
+              <ServiceUslugaPage
+                slug={slugTyped}
+                title={service.title}
+                description={service.description}
+                problemHeading={
+                  pageContent.problemHeading ?? 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?'
+                }
+                problems={USLUGI_PAGE_CONTENT[slugTyped].problems}
+                solution={pageContent.solution}
+                features={service.features}
+                benefits={pageContent.benefits}
+                process={pageContent.process}
+                realizacje={realizacjeForSlug(slugTyped)}
+                beforeCrossLinks={slugTyped === 'branding' ? <BrandingAiBridgeSection /> : undefined}
+                showHybridCrossLinks={showHybridCrossLinks(slugTyped)}
+              />
+            )}
           </div>
         </section>
 

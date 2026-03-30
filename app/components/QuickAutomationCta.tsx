@@ -11,7 +11,8 @@ type Props = {
 };
 
 /**
- * Conversion strip — treść w `USLUGI_QUICK_CTA_*` (lib/site), jeden przycisk: Umów krótką rozmowę (Calendly).
+ * Conversion strip — treść w `USLUGI_QUICK_CTA_*` (lib/site).
+ * Calendly (Umów krótką rozmowę) + link do sekcji kontaktowej (Napisz do nas).
  */
 export function QuickAutomationCta({
   contactHref = '/#contact',
@@ -38,9 +39,14 @@ export function QuickAutomationCta({
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3">
             {CALENDLY_URL ? (
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-                <Button variant="primary">{primaryLabel}</Button>
-              </a>
+              <>
+                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+                  <Button variant="primary">{primaryLabel}</Button>
+                </a>
+                <Link href={contactHref}>
+                  <Button variant="secondary">Napisz do nas</Button>
+                </Link>
+              </>
             ) : (
               <Link href={contactHref}>
                 <Button variant="primary">{primaryLabel}</Button>

@@ -3,6 +3,8 @@
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { BrandMarkIcon } from './BrandMarkIcon';
+import { Button } from './ui/Button';
+import { CALENDLY_URL } from '@/lib/site';
 import { useState } from 'react';
 
 export function CTASection() {
@@ -91,6 +93,19 @@ export function CTASection() {
             <motion.p initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-lg text-zinc-400 leading-relaxed">
               Powiedz nam, co zabiera Ci najwięcej czasu - my zautomatyzujemy te procesy i przyspieszymy pracę Twojej firmy. Dzięki inteligentnym rozwiązaniom i AI odzyskasz godziny każdego dnia i skupisz się na tym, co naprawdę przynosi zysk.
             </motion.p>
+            {CALENDLY_URL && (
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.25 }}
+                className="flex flex-wrap justify-center lg:justify-start gap-3 pt-2"
+              >
+                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+                  <Button variant="primary">Umów krótką rozmowę</Button>
+                </a>
+              </motion.div>
+            )}
           </div>
 
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="relative w-full">

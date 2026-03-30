@@ -48,13 +48,13 @@ export function PageIntro({
           <span>{backLabel}</span>
         </Link>
       </motion.div>
-      <div className="w-full flex flex-col items-center text-center">
+      <div className="w-full flex flex-col items-stretch text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className={`inline-flex items-center justify-center gap-2 mb-3 sm:mb-4 text-xs sm:text-sm font-medium uppercase tracking-wider ${badgeStyles[badgeVariant]}`}
+          className={`self-center inline-flex items-center justify-center gap-2 mb-3 sm:mb-4 text-xs sm:text-sm font-medium uppercase tracking-wider ${badgeStyles[badgeVariant]}`}
         >
           <BrandMarkIcon />
           {badge}
@@ -64,7 +64,7 @@ export function PageIntro({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-[#e4e4e7] mb-3 sm:mb-4 lg:mb-6 px-2 sm:px-4 break-words max-w-[80ch]"
+          className="w-full text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-[#e4e4e7] mb-3 sm:mb-4 lg:mb-6 px-2 sm:px-4 break-words"
         >
           {title}
         </motion.h1>
@@ -74,7 +74,7 @@ export function PageIntro({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-base sm:text-xl text-zinc-400 max-w-[80ch]"
+            className="w-full text-base sm:text-xl text-zinc-400"
           >
             {description}
           </motion.p>
