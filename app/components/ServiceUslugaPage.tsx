@@ -12,7 +12,6 @@ import { ServiceBenefitsList } from '@/app/components/ServiceBenefitsList';
 import { ServiceRealizacjeGrid } from '@/app/components/ServiceRealizacjeGrid';
 import { HybridServiceCrossLinks } from '@/app/components/HybridServiceCrossLinks';
 import { CollaborationProcessSection } from '@/app/components/CollaborationProcessSection';
-import { AutomationWorkflowSection } from '@/app/components/AutomationWorkflowSection';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 import type { ServiceSlug } from '@/lib/services';
 import { USLUGI_H2_CLASS } from '@/lib/layout';
@@ -107,11 +106,6 @@ export function ServiceUslugaPage({
         <ServiceSolutionBlock solution={solution} />
       </section>
 
-      {slug === 'automatyzacja' && (
-        <section className="py-12 sm:py-16 md:py-20" aria-label="Przykład automatyzacji procesów">
-          <AutomationWorkflowSection embedded />
-        </section>
-      )}
       <section className="py-16 sm:py-20 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 xl:gap-24">
         <div>
           <h2 className={`${USLUGI_H2_CLASS} mb-8`}>{finalFeaturesHeading}</h2>
