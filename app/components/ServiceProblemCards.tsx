@@ -23,6 +23,7 @@ import {
   AppWindow,
   type LucideIcon,
 } from 'lucide-react';
+import { BrandMarkIcon } from '@/app/components/BrandMarkIcon';
 import type { ServiceSlug } from '@/lib/services';
 
 type ProblemCard = { title: string; description: string };
@@ -36,62 +37,128 @@ const ICONS_BY_SLUG: Record<ServiceSlug, LucideIcon[]> = {
   'aplikacje-webowe': [AppWindow, Layout, Globe],
 };
 
+function renderHeadingWithAccent(heading: string, accentPhrase: string | null | undefined) {
+  if (accentPhrase == null || accentPhrase === '' || !heading.includes(accentPhrase)) {
+    return heading;
+  }
+  const i = heading.indexOf(accentPhrase);
+  return (
+    <>
+      {heading.slice(0, i)}
+      <span className="text-[#d8f17b]">{accentPhrase}</span>
+      {heading.slice(i + accentPhrase.length)}
+    </>
+  );
+}
+
+function ServiceProblemCard({
+  title,
+  description,
+  Icon,
+  index,
+}: {
+  title: string;
+  description: string;
+  Icon: LucideIcon;
+  index: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
+      whileHover={{ y: -8 }}
+      className="group relative"
+    >
+      <div
+        className="glass-card hover-lift relative h-full p-6 sm:p-8 rounded-2xl overflow-hidden"
+        style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+      >
+        <div className="relative flex items-center gap-4 mb-6">
+          <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#d8f17b]/15 border border-[#d8f17b]/20 flex items-center justify-center">
+            <Icon className="w-7 h-7 text-[#d8f17b]" strokeWidth={1.75} aria-hidden />
+          </div>
+          <h3 className="text-lg sm:text-xl font-bold text-[#e4e4e7] leading-snug">{title}</h3>
+        </div>
+        <p className="relative text-zinc-400 text-sm sm:text-base leading-relaxed">{description}</p>
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 w-0 bg-[#d8f17b] group-hover:w-full transition-all duration-500 rounded-b-2xl" />
+      </div>
+    </motion.div>
+  );
+}
+
 export function ServiceProblemCards({
   problems,
   slug,
   heading = 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?',
   headingId = 'service-problems-heading',
-  listWithoutDividers = false,
+  badgeLabel = 'Partnerzy biznesowi',
+  lead = 'Te same zadania, chaos i stres. Samodzielnie trudno to uporządkować - pomożemy',
+  headingAccent,
 }: {
   problems: ProblemCard[];
   slug: ServiceSlug;
   heading?: string;
-  /** Domyślnie `service-problems-heading`; nadpisz, gdy sekcja nadrzędna ma `aria-labelledby`. */
   headingId?: string;
-  /** Bez poziomych linii między kartami (np. strona stron www). */
-  listWithoutDividers?: boolean;
+  /** Mały tekst nad nagłówkiem (jak „Co czujesz?” na stronie głównej). */
+  badgeLabel?: string;
+  /** Akapit pod nagłówkiem. */
+  lead?: string;
+  /** Fragment `heading` podświetlony na limonkowo; `null` wyłącza akcent. Domyślnie „nasi Partnerzy Biznesowi?”. */
+  headingAccent?: string | null;
 }) {
+  const accentPhrase = headingAccent === undefined ? 'nasi Partnerzy Biznesowi?' : headingAccent;
   const icons = ICONS_BY_SLUG[slug] ?? ICONS_BY_SLUG.strony;
   const items = problems.slice(0, 6).map((p, i) => ({ ...p, icon: icons[i] ?? Sparkles }));
 
   return (
-    <section className="py-16 sm:py-20 md:py-24" aria-labelledby={headingId}>
-      <h2
-        id={headingId}
-        className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500 mb-10 sm:mb-14 max-w-2xl"
-      >
-        {heading}
-      </h2>
-      <ul
-        className={
-          listWithoutDividers ? '' : 'divide-y divide-white/[0.08] border-t border-white/[0.08]'
-        }
-      >
-        {items.map((item, index) => {
-          const Icon = item.icon;
-          return (
-            <motion.li
+    <section className="relative w-full py-10 sm:py-14 md:py-16 overflow-hidden" aria-labelledby={headingId}>
+      <div className="relative z-10 w-full">
+        <div className="text-center mb-12 sm:mb-14 md:mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center justify-center gap-2 mb-4 text-[#d8f17b] text-xs sm:text-sm font-medium uppercase tracking-wider"
+          >
+            <BrandMarkIcon />
+            {badgeLabel}
+          </motion.div>
+          <motion.h2
+            id={headingId}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-2xl sm:text-4xl md:text-5xl font-bold text-[#e4e4e7] mb-4 sm:mb-6 px-1 max-w-[90ch] mx-auto leading-tight"
+          >
+            {renderHeadingWithAccent(heading, accentPhrase)}
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto leading-relaxed"
+          >
+            {lead}
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {items.map((item, index) => (
+            <ServiceProblemCard
               key={index}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.45, delay: index * 0.05 }}
-              className="py-8 sm:py-10 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-start"
-            >
-              <div className="md:col-span-1 flex md:flex-col items-center md:items-start gap-3 text-zinc-600 text-xs font-mono tabular-nums tracking-wider">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-[#d8f17b]">
-                  <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
-                </span>
-                <span className="hidden md:inline text-[10px]">{String(index + 1).padStart(2, '0')}</span>
-              </div>
-              <div className="md:col-span-4">
-                <h3 className="text-lg sm:text-xl font-semibold text-[#e4e4e7] leading-snug">{item.title}</h3>
-              </div>
-              <p className="md:col-span-7 text-zinc-400 text-sm sm:text-base leading-relaxed">{item.description}</p>
-            </motion.li>
-          );
-        })}
-      </ul>
+              title={item.title}
+              description={item.description}
+              Icon={item.icon}
+              index={index}
+            />
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

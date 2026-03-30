@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-import { SimpleCTASection } from '../../components/SimpleCTASection';
 import { ScrollToTop } from '../../components/ScrollToTop';
 import { MotionFadeIn } from '../../components/MotionFadeIn';
 import { getPostBySlug as getUnifiedPostBySlug, getUnifiedPostCoverUrl, getAllSlugs } from '@/lib/blog-adapter';
@@ -214,7 +213,6 @@ export default async function BlogPostPage({ params }: Props) {
         </article>
         <QuickAutomationCta />
         <div className="gradient-philosophy-to-footer">
-          <SimpleCTASection />
           <Footer />
         </div>
       </main>

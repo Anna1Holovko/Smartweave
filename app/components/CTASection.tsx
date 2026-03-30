@@ -102,7 +102,7 @@ export function CTASection() {
                 className="flex flex-wrap justify-center lg:justify-start gap-3 pt-2"
               >
                 <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-                  <Button variant="primary">Umów krótką rozmowę</Button>
+                  <Button variant="secondary">Umów krótką rozmowę</Button>
                 </a>
               </motion.div>
             )}

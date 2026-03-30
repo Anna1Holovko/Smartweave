@@ -13,7 +13,6 @@ import { ServiceRealizacjeGrid } from '@/app/components/ServiceRealizacjeGrid';
 import { HybridServiceCrossLinks } from '@/app/components/HybridServiceCrossLinks';
 import { CollaborationProcessSection } from '@/app/components/CollaborationProcessSection';
 import { AutomationWorkflowSection } from '@/app/components/AutomationWorkflowSection';
-import { AiAnimationSection } from '@/app/components/AiAnimationSection';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 import type { ServiceSlug } from '@/lib/services';
 
@@ -98,7 +97,7 @@ export function ServiceUslugaPage({
         </div>
       </header>
 
-      <ServiceProblemCards problems={problems} slug={slug} heading={problemHeading} listWithoutDividers />
+      <ServiceProblemCards problems={problems} slug={slug} heading={problemHeading} />
 
       <section className="surface-panel py-16 sm:py-20 md:py-24 px-5 sm:px-8 md:px-12 lg:px-14">
         <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-8 sm:mb-10 border-l-2 border-[var(--accent)] pl-4 sm:pl-5">
@@ -112,12 +111,6 @@ export function ServiceUslugaPage({
           <AutomationWorkflowSection embedded />
         </section>
       )}
-      {slug === 'agenci-ai' && (
-        <section className="py-12 sm:py-16 md:py-20" aria-label="Wizualizacja agentów AI">
-          <AiAnimationSection />
-        </section>
-      )}
-
       <section className="py-16 sm:py-20 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 xl:gap-24">
         <div>
           <h2 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-8">{finalFeaturesHeading}</h2>

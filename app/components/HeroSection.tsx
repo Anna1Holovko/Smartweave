@@ -100,11 +100,18 @@ export function HeroSection() {
 
         <div className="flex flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 w-full mx-auto">
           {CALENDLY_URL ? (
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" className="whitespace-nowrap">
-                Umów krótką rozmowę
-              </Button>
-            </a>
+            <>
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+                <Button variant="primary" className="whitespace-nowrap">
+                  Umów krótką rozmowę
+                </Button>
+              </a>
+              <Link href="/#contact">
+                <Button variant="secondary" className="whitespace-nowrap">
+                  Napisz do nas
+                </Button>
+              </Link>
+            </>
           ) : (
             <Link href="/#contact">
               <Button variant="primary" className="whitespace-nowrap">

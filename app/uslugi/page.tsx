@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { SimpleCTASection } from '../components/SimpleCTASection';
 import { ScrollToTop } from '../components/ScrollToTop';
 import { PageIntro } from '../components/PageIntro';
 import { UslugiServiceCards } from '../components/UslugiServiceCards';
@@ -50,7 +49,6 @@ export default function UslugiPage() {
         <QuickAutomationCta />
 
         <div className="gradient-philosophy-to-footer">
-          <SimpleCTASection />
           <Footer />
         </div>
       </main>
