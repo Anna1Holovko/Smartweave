@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { SECTION_H2_CLASS } from '@/lib/layout';
+import { USLUGI_H2_CLASS } from '@/lib/layout';
 
 /**
  * Branding ↔ AI: jeden ekosystem (strona usługi branding).
@@ -16,7 +16,7 @@ export function BrandingAiBridgeSection() {
     >
       <h2
         id="branding-ai-bridge-heading"
-        className={`${SECTION_H2_CLASS} mb-8 tracking-tight`}
+        className={`${USLUGI_H2_CLASS} mb-8 tracking-tight`}
       >
         Branding i AI - jeden ekosystem, nie dwa światy
       </h2>

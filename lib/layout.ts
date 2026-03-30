@@ -9,6 +9,14 @@ export const CONTAINER_CLASS =
 
 export const INTRO_MB_CLASS = 'mb-12 sm:mb-20';
 
-/** Nagłówki sekcji (home, blog, usługi itd.) — większy akcent wizualny */
+/** Nagłówki sekcji (home, blog, landingi) — większy akcent wizualny */
 export const SECTION_H2_CLASS =
   'text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] leading-tight tracking-tight';
+
+/** Nagłówki h2 na /uslugi i w komponentach stron usług — mniejsze niż SECTION_H2 */
+export const USLUGI_H2_CLASS =
+  'text-xl sm:text-2xl md:text-3xl font-bold text-[var(--text-primary)] leading-tight tracking-tight';
+
+/** Nagłówek paska QuickAutomationCta („Rozwiążmy Twoje codzienne problemy”) — mniejszy od sekcji */
+export const QUICK_AUTOMATION_CTA_H2_CLASS =
+  'text-lg sm:text-xl md:text-2xl font-bold text-[var(--text-primary)] leading-snug tracking-tight';

@@ -24,7 +24,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import type { ServiceSlug } from '@/lib/services';
-import { SECTION_H2_CLASS } from '@/lib/layout';
+import { USLUGI_H2_CLASS } from '@/lib/layout';
 
 type ProblemCard = { title: string; description: string };
 
@@ -116,7 +116,7 @@ export function ServiceProblemCards({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className={`${SECTION_H2_CLASS} max-w-[90ch] leading-tight`}
+            className={`${USLUGI_H2_CLASS} max-w-[90ch] leading-tight`}
           >
             {renderHeadingWithAccent(heading, accentPhrase)}
           </motion.h2>

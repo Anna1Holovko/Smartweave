@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Button } from '@/app/components/ui/Button';
 import { CALENDLY_URL, USLUGI_QUICK_CTA_DESCRIPTION, USLUGI_QUICK_CTA_TITLE } from '@/lib/site';
-import { SECTION_H2_CLASS } from '@/lib/layout';
+import { QUICK_AUTOMATION_CTA_H2_CLASS } from '@/lib/layout';
 
 type Props = {
   /** Gdy brak Calendly — docelowy link pod głównym przyciskiem */
@@ -32,7 +32,7 @@ export function QuickAutomationCta({
       <div className="absolute inset-0 bg-[var(--bg-graphite)]" />
       <div className="relative z-10 w-full flex justify-center">
         <div className="sw-cta-panel w-full max-w-4xl text-center px-6 py-8 sm:px-10 sm:py-10 flex flex-col items-center">
-          <h2 id="quick-automation-cta-heading" className={`${SECTION_H2_CLASS} mb-3`}>
+          <h2 id="quick-automation-cta-heading" className={`${QUICK_AUTOMATION_CTA_H2_CLASS} mb-3`}>
             {finalTitle}
           </h2>
           <p className="text-[var(--text-secondary)] text-sm sm:text-base max-w-[65ch] mx-auto text-center mb-8 leading-relaxed">

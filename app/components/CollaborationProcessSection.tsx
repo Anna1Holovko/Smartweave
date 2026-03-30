@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react';
 import { MessageSquare, PenTool, Cpu, Search, Rocket, type LucideIcon } from 'lucide-react';
-import { SECTION_H2_CLASS } from '@/lib/layout';
+import { USLUGI_H2_CLASS } from '@/lib/layout';
 
 const PROCESS_ICONS: LucideIcon[] = [MessageSquare, PenTool, Cpu, Search, Rocket];
 
@@ -38,7 +38,7 @@ export function CollaborationProcessSection({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className={`${SECTION_H2_CLASS} mb-4 sm:mb-6 px-4`}
+            className={`${USLUGI_H2_CLASS} mb-4 sm:mb-6 px-4`}
           >
             <span className="text-[#e4e4e7]">Jak wygląda</span>{' '}
             <span className="text-[#d8f17b]">proces współpracy</span>
