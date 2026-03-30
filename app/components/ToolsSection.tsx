@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { BrandMarkIcon } from './BrandMarkIcon';
+import { SECTION_H2_CLASS } from '@/lib/layout';
 
 const tools = [
   { name: 'Figma', logo: '/assets/tools/figma.png' },
@@ -48,7 +49,7 @@ export function ToolsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#e4e4e7] mb-4 sm:mb-6 px-4"
+            className={`${SECTION_H2_CLASS} mb-4 sm:mb-6 px-4`}
           >
             Używamy narzędzi,{' '}
             <span className="text-[#d8f17b]">
@@ -60,7 +61,7 @@ export function ToolsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mb-12"
+            className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto text-center leading-relaxed mb-12"
           >
             Sprawdzone aplikacje i integracje. Ty dostajesz gotowy efekt - bez stresu
           </motion.p>

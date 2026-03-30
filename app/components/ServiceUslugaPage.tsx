@@ -15,6 +15,7 @@ import { CollaborationProcessSection } from '@/app/components/CollaborationProce
 import { AutomationWorkflowSection } from '@/app/components/AutomationWorkflowSection';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 import type { ServiceSlug } from '@/lib/services';
+import { SECTION_H2_CLASS } from '@/lib/layout';
 
 type ProcessItem = { step: number; title: string; description: string };
 
@@ -100,7 +101,7 @@ export function ServiceUslugaPage({
       <ServiceProblemCards problems={problems} slug={slug} heading={problemHeading} />
 
       <section className="surface-panel py-16 sm:py-20 md:py-24 px-5 sm:px-8 md:px-12 lg:px-14">
-        <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-8 sm:mb-10 border-l-2 border-[var(--accent)] pl-4 sm:pl-5">
+        <h2 className={`${SECTION_H2_CLASS} mb-8 sm:mb-10 border-l-2 border-[var(--accent)] pl-4 sm:pl-5`}>
           Nasze podejście do rozwiązania
         </h2>
         <ServiceSolutionBlock solution={solution} />
@@ -113,11 +114,11 @@ export function ServiceUslugaPage({
       )}
       <section className="py-16 sm:py-20 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 xl:gap-24">
         <div>
-          <h2 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-8">{finalFeaturesHeading}</h2>
+          <h2 className={`${SECTION_H2_CLASS} mb-8`}>{finalFeaturesHeading}</h2>
           <ServiceFeaturesList features={features} />
         </div>
         <div>
-          <h2 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-8">Korzyści dla Twojej firmy</h2>
+          <h2 className={`${SECTION_H2_CLASS} mb-8`}>Korzyści dla Twojej firmy</h2>
           <ServiceBenefitsList benefits={benefits} />
         </div>
       </section>
@@ -128,7 +129,7 @@ export function ServiceUslugaPage({
 
       {realizacje.mode === 'portfolio' && (
         <section className="py-16 sm:py-20 md:py-24">
-          <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-8 sm:mb-10">
+          <h2 className={`${SECTION_H2_CLASS} mb-8 sm:mb-10`}>
             {realizacje.title ?? 'Realizacje na stronach internetowych'}
           </h2>
           <ServiceRealizacjeGrid items={PORTFOLIO_ITEMS} />
@@ -137,7 +138,7 @@ export function ServiceUslugaPage({
 
       {realizacje.mode === 'link' && (
         <section className="py-16 sm:py-20 md:py-24">
-          <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-4">{realizacje.title}</h2>
+          <h2 className={`${SECTION_H2_CLASS} mb-4`}>{realizacje.title}</h2>
           <p className="text-[var(--text-secondary)] max-w-[80ch] mb-6">{realizacje.description}</p>
           <Link
             href={realizacje.href}

@@ -23,8 +23,8 @@ import {
   AppWindow,
   type LucideIcon,
 } from 'lucide-react';
-import { BrandMarkIcon } from '@/app/components/BrandMarkIcon';
 import type { ServiceSlug } from '@/lib/services';
+import { SECTION_H2_CLASS } from '@/lib/layout';
 
 type ProblemCard = { title: string; description: string };
 
@@ -93,18 +93,12 @@ export function ServiceProblemCards({
   slug,
   heading = 'Z jakimi problemami mierzą się nasi Partnerzy Biznesowi?',
   headingId = 'service-problems-heading',
-  badgeLabel = 'Partnerzy biznesowi',
-  lead = 'Te same zadania, chaos i stres. Samodzielnie trudno to uporządkować - pomożemy',
   headingAccent,
 }: {
   problems: ProblemCard[];
   slug: ServiceSlug;
   heading?: string;
   headingId?: string;
-  /** Mały tekst nad nagłówkiem (jak „Co czujesz?” na stronie głównej). */
-  badgeLabel?: string;
-  /** Akapit pod nagłówkiem. */
-  lead?: string;
   /** Fragment `heading` podświetlony na limonkowo; `null` wyłącza akcent. Domyślnie „nasi Partnerzy Biznesowi?”. */
   headingAccent?: string | null;
 }) {
@@ -115,36 +109,17 @@ export function ServiceProblemCards({
   return (
     <section className="relative w-full py-10 sm:py-14 md:py-16 overflow-hidden" aria-labelledby={headingId}>
       <div className="relative z-10 w-full">
-        <div className="text-center mb-12 sm:mb-14 md:mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center justify-center gap-2 mb-4 text-[#d8f17b] text-xs sm:text-sm font-medium uppercase tracking-wider"
-          >
-            <BrandMarkIcon />
-            {badgeLabel}
-          </motion.div>
+        <div className="text-left mb-12 sm:mb-14 md:mb-16">
           <motion.h2
             id={headingId}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-2xl sm:text-4xl md:text-5xl font-bold text-[#e4e4e7] mb-4 sm:mb-6 px-1 max-w-[90ch] mx-auto leading-tight"
+            className={`${SECTION_H2_CLASS} max-w-[90ch] leading-tight`}
           >
             {renderHeadingWithAccent(heading, accentPhrase)}
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto text-center leading-relaxed"
-          >
-            {lead}
-          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

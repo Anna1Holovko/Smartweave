@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react';
 import { MessageSquare, PenTool, Cpu, Search, Rocket, type LucideIcon } from 'lucide-react';
-import { BrandMarkIcon } from './BrandMarkIcon';
+import { SECTION_H2_CLASS } from '@/lib/layout';
 
 const PROCESS_ICONS: LucideIcon[] = [MessageSquare, PenTool, Cpu, Search, Rocket];
 
@@ -32,23 +32,13 @@ export function CollaborationProcessSection({
 
       <div className="relative z-10 max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto">
         <div className="text-center mb-12 sm:mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center justify-center gap-2 mb-4 text-[#d8f17b] text-xs sm:text-sm font-medium uppercase tracking-wider"
-          >
-            <BrandMarkIcon />
-            Proces współpracy
-          </motion.div>
           <motion.h2
             id="collaboration-process-heading"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#e4e4e7] mb-4 sm:mb-6 px-4"
+            className={`${SECTION_H2_CLASS} mb-4 sm:mb-6 px-4`}
           >
             <span className="text-[#e4e4e7]">Jak wygląda</span>{' '}
             <span className="text-[#d8f17b]">proces współpracy</span>

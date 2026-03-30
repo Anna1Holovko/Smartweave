@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'motion/react';
+import { SECTION_H2_CLASS } from '@/lib/layout';
 import { Globe, Palette, Workflow } from 'lucide-react';
 
 const pillars = [
@@ -44,7 +45,7 @@ export function StronyHybridEcosystemSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
-          className="mb-8 md:mb-10 text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-balance"
+          className={`${SECTION_H2_CLASS} mb-8 md:mb-10 tracking-tight text-balance`}
         >
           <span className="text-[#e4e4e7]">Strona, branding i AI </span>
           <span className="text-[#d8f17b]">— spójny ekosystem</span>

@@ -2,6 +2,7 @@
 
 import { motion, useAnimationFrame, useMotionValue } from 'motion/react';
 import { useRef } from 'react';
+import { SECTION_H2_CLASS } from '@/lib/layout';
 
 import {
   SiGooglesheets,
@@ -164,7 +165,7 @@ export function AutomationWorkflowSection({ embedded = false }: { embedded?: boo
     <section className="relative overflow-hidden py-20">
       <div className="absolute inset-0 bg-[var(--bg-graphite)]" />
       <div className="relative z-10 max-w-[1400px] mx-auto px-6">
-        <h2 className="text-3xl font-semibold text-[#e4e4e7] mb-16">
+        <h2 className={`${SECTION_H2_CLASS} mb-16`}>
           Automatyzacja procesów biznesowych
         </h2>
 

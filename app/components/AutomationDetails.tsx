@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import { MessageSquare, PenTool, Cpu, Search, Rocket } from 'lucide-react';
 import { BrandMarkIcon } from './BrandMarkIcon';
+import { SECTION_H2_CLASS } from '@/lib/layout';
 
 const workflowSteps = [
   { number: '01', icon: MessageSquare, title: 'Poznajemy Twoje potrzeby', description: 'Rozmawiamy z Tobą, aby dokładnie zrozumieć cele biznesowe, grupę docelową i oczekiwane efekty – zarówno w kontekście strony internetowej, jak i automatyzacji procesów w firmie', gradient: 'from-blue-500 to-cyan-500' },
@@ -29,11 +30,11 @@ export function AutomationDetails() {
             <BrandMarkIcon />
             Jak działamy
           </motion.div>
-          <motion.h2 id="how-we-work-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#e4e4e7] mb-4 sm:mb-6 px-4">
+          <motion.h2 id="how-we-work-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className={`${SECTION_H2_CLASS} mb-4 sm:mb-6 px-4`}>
             <span className="text-[#e4e4e7]">Automatyzacja i AI,</span>{' '}
             <span className="text-[#d8f17b]">które działają za Ciebie</span>
           </motion.h2>
-          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-zinc-400 max-w-[80ch]">
+          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto text-center leading-relaxed">
             Projektujemy workflowy, integracje i agentów AI, które zdejmują z zespołu rutynę. Branding i strona www domykają spójność komunikacji i konwersję.
           </motion.p>
         </div>

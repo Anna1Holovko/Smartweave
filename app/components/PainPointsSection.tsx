@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import { Copy, MessageSquare, FileText, Clock, AlertCircle, Sparkles } from 'lucide-react';
 import { BrandMarkIcon } from './BrandMarkIcon';
+import { SECTION_H2_CLASS } from '@/lib/layout';
 
 const painPoints = [
   {
@@ -95,7 +96,7 @@ export function PainPointsSection() {
             <BrandMarkIcon />
             Co czujesz?
           </motion.div>
-          <motion.h2 id="pain-points-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#e4e4e7] mb-4 sm:mb-6 px-4">
+          <motion.h2 id="pain-points-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className={`${SECTION_H2_CLASS} mb-4 sm:mb-6 px-4`}>
             Znamy to <span className="text-[#d8f17b]">uczucie...</span>
           </motion.h2>
           <motion.p

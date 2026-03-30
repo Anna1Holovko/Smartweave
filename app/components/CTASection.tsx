@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import { BrandMarkIcon } from './BrandMarkIcon';
 import { Button } from './ui/Button';
 import { CALENDLY_URL } from '@/lib/site';
+import { SECTION_H2_CLASS } from '@/lib/layout';
 import { useState } from 'react';
 
 export function CTASection() {
@@ -76,7 +77,7 @@ export function CTASection() {
 
       <motion.div className="relative z-10 max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="space-y-6 text-center lg:text-left max-w-[80ch]">
+          <div className="space-y-6 text-center max-w-[80ch] mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -87,10 +88,10 @@ export function CTASection() {
               <BrandMarkIcon />
               Chcesz spróbować?
             </motion.div>
-            <motion.h2 id="contact-heading" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#e4e4e7] leading-tight">
+            <motion.h2 id="contact-heading" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className={`${SECTION_H2_CLASS} leading-tight`}>
               <span className="text-[#d8f17b]">Toniesz w codziennych zadaniach? Czas to zmienić.</span>
             </motion.h2>
-            <motion.p initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-lg text-zinc-400 leading-relaxed">
+            <motion.p initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-lg text-zinc-400 leading-relaxed text-center">
               Powiedz nam, co zabiera Ci najwięcej czasu - my zautomatyzujemy te procesy i przyspieszymy pracę Twojej firmy. Dzięki inteligentnym rozwiązaniom i AI odzyskasz godziny każdego dnia i skupisz się na tym, co naprawdę przynosi zysk.
             </motion.p>
             {CALENDLY_URL && (
@@ -99,7 +100,7 @@ export function CTASection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.25 }}
-                className="flex flex-wrap justify-center lg:justify-start gap-3 pt-2"
+                className="flex flex-wrap justify-center gap-3 pt-2"
               >
                 <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
                   <Button variant="secondary">Umów krótką rozmowę</Button>

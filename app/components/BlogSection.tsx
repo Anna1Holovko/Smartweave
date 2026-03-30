@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { BLOG_POSTS } from '@/lib/blog';
 import { BrandMarkIcon } from './BrandMarkIcon';
+import { SECTION_H2_CLASS } from '@/lib/layout';
 
 export function BlogSection() {
   const featuredPosts = BLOG_POSTS.slice(0, 3);
@@ -32,7 +33,7 @@ export function BlogSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-[#e4e4e7] mb-3 sm:mb-4 lg:mb-6 px-2 sm:px-4"
+            className={`${SECTION_H2_CLASS} mb-3 sm:mb-4 lg:mb-6 px-2 sm:px-4`}
           >
             Zdobądź wiedzę na temat{' '}
             <span className="text-[#d8f17b]">
@@ -44,7 +45,7 @@ export function BlogSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-xl text-zinc-400 max-w-[80ch]"
+            className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto text-center leading-relaxed"
           >
             Praktyczne artykuły o wdrażaniu automatyzacji, narzędziach i procesach biznesowych
           </motion.p>

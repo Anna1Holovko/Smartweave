@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { ServiceSlug } from '@/lib/services';
+import { SECTION_H2_CLASS } from '@/lib/layout';
 import { StronyHybridEcosystemSection } from '@/app/components/StronyHybridEcosystemSection';
 
 type Props = { slug: ServiceSlug };
@@ -18,7 +19,7 @@ export function HybridServiceCrossLinks({ slug }: Props) {
         aria-labelledby="hybrid-cross-chat-heading"
         className="mt-12 sm:mt-16 rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8"
       >
-        <h2 id="hybrid-cross-chat-heading" className="text-lg sm:text-xl font-bold text-[#e4e4e7] mb-3">
+        <h2 id="hybrid-cross-chat-heading" className={`${SECTION_H2_CLASS} mb-3`}>
           Jedna marka - strona, automatyzacja i AI
         </h2>
         <p className="text-zinc-400 leading-relaxed max-w-[80ch]">
@@ -46,7 +47,7 @@ export function HybridServiceCrossLinks({ slug }: Props) {
         aria-labelledby="hybrid-cross-auto-heading"
         className="mt-12 sm:mt-16 rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8"
       >
-        <h2 id="hybrid-cross-auto-heading" className="text-lg sm:text-xl font-bold text-[#e4e4e7] mb-3">
+        <h2 id="hybrid-cross-auto-heading" className={`${SECTION_H2_CLASS} mb-3`}>
           Automatyzacja i AI pod Twoją markę
         </h2>
         <p className="text-zinc-400 leading-relaxed max-w-[80ch]">

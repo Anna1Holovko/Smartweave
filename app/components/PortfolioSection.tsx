@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PORTFOLIO_ITEMS } from '@/lib/portfolio';
 import { BrandMarkIcon } from './BrandMarkIcon';
+import { SECTION_H2_CLASS } from '@/lib/layout';
 
 export function PortfolioSection() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -57,10 +58,10 @@ export function PortfolioSection() {
             <BrandMarkIcon />
             Realizacje
           </motion.div>
-          <motion.h2 id="portfolio-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#e4e4e7] mb-4 sm:mb-6 px-4">
+          <motion.h2 id="portfolio-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className={`${SECTION_H2_CLASS} mb-4 sm:mb-6 px-4`}>
             <span className="text-[#d8f17b]">Zobacz, jak wspieramy rozwój firm</span>
           </motion.h2>
-          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mb-6">
+          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto text-center leading-relaxed mb-6">
             Każdy projekt to wyjątkowa historia. Strony i automatyzacje, które realnie wspierają firmy
           </motion.p>
         </div>
