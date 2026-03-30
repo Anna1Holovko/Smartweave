@@ -141,7 +141,7 @@ export function ServiceProblemCards({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto leading-relaxed"
+            className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto text-center leading-relaxed"
           >
             {lead}
           </motion.p>
