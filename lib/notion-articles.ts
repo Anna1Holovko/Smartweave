@@ -676,8 +676,14 @@ export async function getNotionArticles(): Promise<NotionArticle[]> {
 /**
  * Uncached read of current page properties — confirms the row still matches “published” rules.
  * Used for single-article routes so unpublishing removes the URL without waiting for list cache.
+ *
+ * @param treatErrorsAsPublished — if true, API/network errors keep the previous assumption (show card).
+ *   Use for list views so a Notion outage does not blank the whole blog.
  */
-export async function isNotionPagePublishedForBlog(pageId: string): Promise<boolean> {
+export async function isNotionPagePublishedForBlog(
+  pageId: string,
+  opts?: { treatErrorsAsPublished?: boolean },
+): Promise<boolean> {
   const token = getToken();
   if (!token) return false;
   const notion = new Client({ auth: token });
@@ -687,6 +693,6 @@ export async function isNotionPagePublishedForBlog(pageId: string): Promise<bool
     if (!isFullPage(res)) return false;
     return pageMatchesPublishedLabel(res, names);
   } catch {
-    return false;
+    return opts?.treatErrorsAsPublished === true;
   }
 }

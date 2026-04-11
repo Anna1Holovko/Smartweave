@@ -28,6 +28,15 @@ export type UnifiedPost = {
   content?: string;
 };
 
+/** Drop cards whose Status in Notion is no longer Published (live check; list cache can lag). */
+async function filterStillPublishedOnNotion(rows: NotionArticle[]): Promise<NotionArticle[]> {
+  if (rows.length === 0) return [];
+  const flags = await Promise.all(
+    rows.map((a) => isNotionPagePublishedForBlog(a.id, { treatErrorsAsPublished: true })),
+  );
+  return rows.filter((_, i) => flags[i]);
+}
+
 function notionToUnified(a: NotionArticle): UnifiedPost {
   return {
     source: 'notion',
@@ -43,7 +52,8 @@ function notionToUnified(a: NotionArticle): UnifiedPost {
 
 export async function getAllPosts(): Promise<UnifiedPost[]> {
   const notion = await getNotionArticles();
-  const merged = notion.map(notionToUnified);
+  const live = await filterStillPublishedOnNotion(notion);
+  const merged = live.map(notionToUnified);
   merged.sort((a, b) => (b.date < a.date ? -1 : b.date > a.date ? 1 : 0));
   return merged;
 }
@@ -63,5 +73,6 @@ export function getUnifiedPostCoverUrl(post: UnifiedPost): string {
 
 export async function getAllSlugs(): Promise<string[]> {
   const notion = await getNotionArticles();
-  return notion.map((a) => a.slug);
+  const live = await filterStillPublishedOnNotion(notion);
+  return live.map((a) => a.slug);
 }
