@@ -29,11 +29,14 @@ export type UnifiedPost = {
 };
 
 /**
- * Optional second pass: N× pages.retrieve per list load — can false-negative and empty the blog.
- * Default off; list still follows Notion via fetch + cache. Single-article URLs always re-check.
+ * Optional: N× pages.retrieve per list load — can false-negative; default off.
  */
 function liveVerifyListEnabled(): boolean {
   return process.env.NOTION_LIVE_VERIFY_LIST === '1' || process.env.NOTION_LIVE_VERIFY_LIST === 'true';
+}
+
+function liveVerifyArticleEnabled(): boolean {
+  return process.env.NOTION_LIVE_VERIFY_ARTICLE === '1' || process.env.NOTION_LIVE_VERIFY_ARTICLE === 'true';
 }
 
 /** Drop cards whose Status in Notion is no longer Published (only when NOTION_LIVE_VERIFY_LIST=1). */
@@ -84,8 +87,10 @@ export async function getPostBySlug(slug: string): Promise<UnifiedPost | undefin
   const notion = await getNotionArticles();
   const row = notion.find((a) => a.slug === slug);
   if (!row) return undefined;
-  const stillPublished = await isNotionPagePublishedForBlog(row.id);
-  if (!stillPublished) return undefined;
+  if (liveVerifyArticleEnabled()) {
+    const stillPublished = await isNotionPagePublishedForBlog(row.id);
+    if (!stillPublished) return undefined;
+  }
   return notionToUnified(row);
 }
 

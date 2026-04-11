@@ -20,9 +20,8 @@
  * Status to Published in Notion, the site picks up changes within about one minute — no redeploy.
  * Override with NOTION_CACHE_SECONDS (minimum 30).
  *
- * Unpublishing: rows are only included if Status matches NOTION_STATUS_PUBLISHED. Single-article
- * pages also re-check Notion live so /blog/[slug] becomes 404 soon after status changes, even if
- * the list cache is briefly stale.
+ * Unpublishing: rows come only from Notion’s published filter (or client-side match). Optional
+ * NOTION_LIVE_VERIFY_ARTICLE=1 re-checks each article page against Notion (can false-negative).
  */
 
 import { unstable_cache } from 'next/cache';
@@ -165,8 +164,8 @@ function pageMatchesPublishedLabel(page: PageObjectResponse, names: ReturnType<t
 }
 
 /**
- * Second-pass filter after query: if Status is missing from the page payload (Notion sometimes omits
- * properties on dataSources.query rows), do not treat as “unpublished” — that was wiping the whole blog.
+ * Client-side “is this row published?” — if Status property is missing from the payload, keep the row
+ * so we do not drop every card when Notion omits properties (same idea as former lenient second pass).
  */
 function pageMatchesPublishedLabelLenient(
   page: PageObjectResponse,
@@ -544,7 +543,7 @@ async function queryPublishedClientSide(
     if (all.length === 0) {
       all = await queryDataSourcePages(notion, dataSourceId, names, undefined, false);
     }
-    const filtered = all.filter((p) => pageMatchesPublishedLabel(p, names));
+    const filtered = all.filter((p) => pageMatchesPublishedLabelLenient(p, names));
     if (filtered.length && all.length > filtered.length) {
       console.warn(
         `[Notion articles] Client-side filter: ${filtered.length}/${all.length} rows match Status="${names.published}".`,
@@ -612,9 +611,6 @@ async function fetchNotionArticlesFromApi(): Promise<NotionArticle[]> {
       );
     }
 
-    /** Drop only rows that still expose Status and it is not Published (lenient if Status omitted in payload). */
-    rows = rows.filter((p) => pageMatchesPublishedLabelLenient(p, names));
-
     const articles: NotionArticle[] = [];
     const usedSlugs = new Set<string>();
 
@@ -667,7 +663,7 @@ async function fetchNotionArticlesFromApi(): Promise<NotionArticle[]> {
 
 const getNotionArticlesCached = unstable_cache(
   fetchNotionArticlesFromApi,
-  ['notion-blog-articles', 'v4-lenient-status-filter'],
+  ['notion-blog-articles', 'v5-no-second-pass'],
   {
     revalidate: NOTION_LIST_REVALIDATE_SECONDS,
     tags: ['notion-blog'],
