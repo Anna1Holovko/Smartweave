@@ -1,10 +1,12 @@
 import { MetadataRoute } from 'next';
 import { SITE_URL, SITEMAP_ROUTES } from '@/lib/site';
 import { getAllPosts } from '@/lib/blog-adapter';
+/** ISR: new /blog/* URLs appear in sitemap after Notion publish (~60s). */
+export const revalidate = 60;
 
 /**
  * Generates the XML sitemap for Google Search Console and other crawlers.
- * Includes code posts + Airtable articles (when API succeeds). Submit in GSC: https://smartweave.pl/sitemap.xml
+ * Blog URLs follow Notion Published posts (refreshed on the same schedule as pages).
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();

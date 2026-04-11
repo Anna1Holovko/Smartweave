@@ -1,4 +1,7 @@
 /**
+ * Legacy: pełna treść starych, statycznych wpisów (nieużywane przy blogu z Notion).
+ * Aktualne artykuły: baza Notion → lib/notion-articles.ts → lib/blog-adapter.ts.
+ *
  * Full article content for blog posts. SEO- and Google-oriented: clear headings,
  * keyword-rich intro, semantic structure (H2/H3), scannable paragraphs.
  * faq: for Google FAQ rich snippets. cta: prominent call-to-action with link.
@@ -13,6 +16,94 @@ export type ContentBlock =
   | { t: 'sources'; c: { label: string; url: string }[] };
 
 export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
+  'agenci-ai-w-firmie-od-eksperymentu-do-procesow': [
+    {
+      t: 'p',
+      c: 'Agenci AI – systemy, które wykonują sekwencje kroków (np. odpowiedź na zapytanie, podsumowanie, przygotowanie szkicu maila) – trafiają do coraz większej liczby firm. Różnica między udanym wdrożeniem a „fajnym demo” leży w procesie: jasno opisanym zadaniu, granicach i nadzorze. Poniżej praktyczny przewodnik od eksperymentu do powtarzalnego, kontrolowanego użycia w codziennej pracy.',
+    },
+    { t: 'h2', c: 'Czym jest „agent AI” w codziennej pracy firmy?' },
+    {
+      t: 'p',
+      c: 'W uproszczeniu to model językowy lub zestaw narzędzi połączony z logiką: na wejściu jest konkretna sytuacja (np. treść maila od klienta), na wyjściu – działanie lub treść zgodna z polityką firmy. Agent może być widoczny jako chatbot na stronie, wewnętrzny asystent w Slacku albo niewidoczny krok w automatyzacji (np. kwalifikacja leada przed przekazaniem do CRM).',
+    },
+    { t: 'h2', c: 'Kiedy wdrożenie agentów AI ma sens?' },
+    {
+      t: 'ul',
+      c: [
+        'Masz powtarzalny przypadek z dobrze opisanymi wejściami i wyjściami (np. FAQ, pierwsza odpowiedź na zapytanie ofertowe).',
+        'Zespół traci czas na kopiowanie, klasyfikowanie lub proste odpowiedzi, które można wspierać szablonem i weryfikacją.',
+        'Jesteś gotów pilotać na małej skali, mierzyć jakość i dopiero potem rozszerzać.',
+      ],
+    },
+    {
+      t: 'p',
+      c: 'Natomiast sam „kupmy AI do wszystkiego” bez procesu i właściciela domeny biznesowej zwykle kończy się rozczarowaniem. Zacznij od jednego obszaru z mierzalnym efektem (czas odpowiedzi, liczba obsłużonych zgłoszeń, satysfakcja).',
+    },
+    { t: 'h2', c: 'Jak zacząć: pilot zamiast wielkiego wdrożenia' },
+    {
+      t: 'p',
+      c: 'Wybierz jeden proces – np. obsługa zapytań z formularza, pierwsza linia wsparcia lub przygotowanie szkicu odpowiedzi dla handlowca. Opisz: kto zatwierdza treści, jakie dane agent może wykorzystać, co jest zakazane (np. podawanie cen bez akceptacji).',
+    },
+    {
+      t: 'h3',
+      c: 'Checklist przed startem',
+    },
+    {
+      t: 'ul',
+      c: [
+        'Dokumentacja: krótka baza wiedzy lub FAQ, z którą agent ma się zgadzać.',
+        'Testy: zestaw realnych przykładów wejść i oczekiwanych zachowań.',
+        'Eskalacja: jasna ścieżka „agent nie wie / sprawa wymaga człowieka”.',
+        'Metryki: np. odsetek poprawnie zamkniętych spraw, czas do pierwszej odpowiedzi.',
+      ],
+    },
+    { t: 'h2', c: 'Dane, bezpieczeństwo i zgodność' },
+    {
+      t: 'p',
+      c: 'Agent nie powinien mieć dostępu do więcej danych niż potrzebuje do zadania. W umowach i wewnętrznych politykach warto ustalić: czy treści mogą trafiać do modelu zewnętrznego, jak długo są przechowywane logi i kto może je przeglądać. W B2B często kluczowe jest pseudonimizowanie, separacja środowisk (test vs produkcja) oraz audyt odpowiedzi.',
+    },
+    { t: 'h2', c: 'Nadzór człowieka i jakość odpowiedzi' },
+    {
+      t: 'p',
+      c: 'Modele mogą się mylić lub „dopowiadać” fakty. Dlatego dla wielu firm sensowny jest model human-in-the-loop: agent proponuje, człowiek zatwierdza – zwłaszcza przy ofertach, reklamacjach i danych osobowych. Z czasem, przy stabilnej jakości, można automatyzować więcej – pod warunkiem monitoringu.',
+    },
+    { t: 'h2', c: 'Połączenie z automatyzacją i CRM' },
+    {
+      t: 'p',
+      c: 'Największą wartość daje połączenie agenta z istniejącymi narzędziami: nowy lead trafia do CRM z tagiem i podsumowaniem rozmowy, zadanie w task managerze powstaje tylko wtedy, gdy agent oznaczy eskalację. Dzięki temu AI nie jest wyspą, lecz warstwą na sprawdzonym przepływie pracy.',
+    },
+    { t: 'h2', c: 'Podsumowanie' },
+    {
+      t: 'p',
+      c: 'Skuteczni agenci AI w firmie to efekt dobrego procesu: wybranego use case’u, ograniczeń, pomiaru jakości i integracji z resztą stacku. SmartWeave pomaga przejść od pomysłu do stabilnego wdrożenia – od projektu chatbota i agentów po automatyzację przepływów i strony pod konwersję.',
+    },
+    {
+      t: 'cta',
+      c: {
+        text: 'Chcesz zaplanować pilota agenta AI lub połączyć go z automatyzacją i stroną firmową? Napisz do nas – wspólnie wybierzemy pierwszy proces i bezpieczny zakres.',
+        href: '/#contact',
+        label: 'Umów rozmowę o agentach AI',
+      },
+    },
+    {
+      t: 'faq',
+      c: [
+        {
+          q: 'Czy mała firma potrzebuje „agenta”, czy wystarczy zwykły chatbot?',
+          a: 'Często wystarczy prosty chatbot z FAQ i eskalacją. „Agent” ma sens, gdy potrzebujesz kilku kroków logiki (np. zebranie informacji, podsumowanie, przekazanie do CRM). Zaczynamy od potrzeby biznesowej, nie od nazwy produktu.',
+        },
+        {
+          q: 'Ile trwa typowy pilot?',
+          a: 'Prosty pilot z ograniczonym zakresem i istniejącą bazą wiedzy to zwykle od kilku tygodni do ok. dwóch miesięcy – w zależności od integracji i wymogów prawnych. Większe wdrożenia z wieloma systemami trwają dłużej.',
+        },
+        {
+          q: 'Jak ograniczyć halucynacje i błędne odpowiedzi?',
+          a: 'Poprzez: wąski zakres zadań, oparcie o zatwierdzoną wiedzę (RAG lub FAQ), testy regresyjne i nadzór przy wdrożeniu. Dla krytycznych treści – zawsze weryfikacja przez człowieka.',
+        },
+      ],
+    },
+  ],
+
   'czy-firma-potrzebuje-automatyzacji': [
     {
       t: 'p',

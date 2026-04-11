@@ -4,12 +4,23 @@ import { motion } from 'motion/react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
-import { BLOG_POSTS } from '@/lib/blog';
 import { BrandMarkIcon } from './BrandMarkIcon';
 import { SECTION_H2_CLASS } from '@/lib/layout';
 
-export function BlogSection() {
-  const featuredPosts = BLOG_POSTS.slice(0, 3);
+export type BlogSectionFeaturedPost = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  image: string;
+};
+
+type BlogSectionProps = {
+  /** Newest posts from Notion (server). May be empty if nothing is published yet. */
+  posts: BlogSectionFeaturedPost[];
+};
+
+export function BlogSection({ posts }: BlogSectionProps) {
+  const featuredPosts = posts.slice(0, 3);
 
   return (
     <section id="blog" aria-labelledby="blog-heading" className="relative py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-hidden">
@@ -51,41 +62,47 @@ export function BlogSection() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-          {featuredPosts.map((post, index) => (
-            <motion.article
-              key={post.slug}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative flex flex-col rounded-2xl glass-card hover-lift overflow-hidden"
-              style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
-            >
-              <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/5">
-                  <Image
-                    src={post.image}
-                    alt=""
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    sizes="(max-width: 479px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-graphite)]/60 via-transparent to-transparent" />
-                </div>
-                <div className="flex flex-col flex-1 p-4 sm:p-5 lg:p-6">
-                  <h3 className="text-base sm:text-lg font-bold text-[#e4e4e7] mb-1.5 sm:mb-2 group-hover:text-[#d8f17b] transition-colors line-clamp-2">
-                    {post.title}
-                  </h3>
-                  <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed line-clamp-3 flex-1">
-                    {post.excerpt}
-                  </p>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 w-0 bg-[#d8f17b] group-hover:w-full transition-all duration-500" />
-              </Link>
-            </motion.article>
-          ))}
-        </div>
+        {featuredPosts.length === 0 ? (
+          <p className="text-center text-zinc-500 text-base max-w-xl mx-auto leading-relaxed">
+            Wkrótce pojawią się nowe artykuły. Opublikowane wpisy z Notion wyświetlą się tutaj i na stronie bloga.
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            {featuredPosts.map((post, index) => (
+              <motion.article
+                key={post.slug}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group relative flex flex-col rounded-2xl glass-card hover-lift overflow-hidden"
+                style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+              >
+                <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/5">
+                    <Image
+                      src={post.image}
+                      alt=""
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 479px) 100vw, (max-width: 1023px) 50vw, 25vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-graphite)]/60 via-transparent to-transparent" />
+                  </div>
+                  <div className="flex flex-col flex-1 p-4 sm:p-5 lg:p-6">
+                    <h3 className="text-base sm:text-lg font-bold text-[#e4e4e7] mb-1.5 sm:mb-2 group-hover:text-[#d8f17b] transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+                    <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed line-clamp-3 flex-1">
+                      {post.excerpt}
+                    </p>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 w-0 bg-[#d8f17b] group-hover:w-full transition-all duration-500" />
+                </Link>
+              </motion.article>
+            ))}
+          </div>
+        )}
 
         <motion.div
           initial={{ opacity: 0, y: 10 }}

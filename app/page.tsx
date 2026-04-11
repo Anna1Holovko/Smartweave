@@ -10,8 +10,20 @@ import { BlogSection } from './components/BlogSection';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
+import { getAllPosts } from '@/lib/blog-adapter';
 
-export default function HomePage() {
+/** ISR: refetch Notion blog data for this page (~60s). Keep in sync with lib/notion-articles NOTION_LIST_REVALIDATE_SECONDS default. */
+export const revalidate = 60;
+
+export default async function HomePage() {
+  const allPosts = await getAllPosts();
+  const blogFeatured = allPosts.slice(0, 3).map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    excerpt: p.excerpt,
+    image: p.image,
+  }));
+
   return (
     <>
       <Header />
@@ -23,7 +35,7 @@ export default function HomePage() {
         <AutomationDetails />
         <QuickAutomationCta />
         <PortfolioSection />
-        <BlogSection />
+        <BlogSection posts={blogFeatured} />
         <div className="gradient-philosophy-to-footer">
           <CTASection />
           <Footer />

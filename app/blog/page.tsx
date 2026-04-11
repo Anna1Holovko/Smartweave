@@ -9,6 +9,8 @@ import { getAllPosts } from '@/lib/blog-adapter';
 import { QuickAutomationCta } from '../components/QuickAutomationCta';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
+/** ISR: blog listing from Notion (~60s). Sync with lib/notion-articles cache. */
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -22,7 +24,6 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogPage() {
-  // Merges code posts + Airtable (published), sorted by publish_date DESC. Falls back to code-only if Airtable fails.
   const posts = await getAllPosts();
 
   return (
@@ -43,38 +44,44 @@ export default async function BlogPage() {
               className={INTRO_MB_CLASS}
             />
 
-            <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-              {posts.map((post) => (
-                <article
-                  key={post.slug}
-                  className="group relative flex flex-col rounded-2xl glass-card hover-lift overflow-hidden"
-                  style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
-                >
-                  <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
-                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/5">
-                      <Image
-                        src={post.image}
-                        alt=""
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        sizes="(max-width: 479px) 100vw, (max-width: 1023px) 50vw, (max-width: 1535px) 33.33vw, (max-width: 1919px) 25vw, 20vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)]/60 via-transparent to-transparent" />
-                    </div>
-                    <div className="flex flex-col flex-1 p-4 sm:p-5 lg:p-6">
-                      <h2 className="text-base sm:text-lg lg:text-xl font-bold text-[#e4e4e7] mb-1.5 sm:mb-2 group-hover:text-[#d8f17b] transition-colors line-clamp-2">
-                        {post.title}
-                      </h2>
-                      <p className="text-zinc-400 text-xs sm:text-sm lg:text-base leading-relaxed line-clamp-3 flex-1">
-                        {post.excerpt}
-                      </p>
-                      <span className="text-zinc-500 text-xs mt-2 sm:mt-3">Dodano: {post.date}</span>
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 w-0 bg-[#d8f17b] group-hover:w-full transition-all duration-500" />
-                  </Link>
-                </article>
-              ))}
-            </div>
+            {posts.length === 0 ? (
+              <p className="text-center text-zinc-500 max-w-xl mx-auto leading-relaxed">
+                Nie ma jeszcze opublikowanych artykułów. Opublikuj wpisy w Notion (status „Published”) i podłącz integrację do bazy — wtedy pojawią się tutaj automatycznie.
+              </p>
+            ) : (
+              <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+                {posts.map((post) => (
+                  <article
+                    key={post.slug}
+                    className="group relative flex flex-col rounded-2xl glass-card hover-lift overflow-hidden"
+                    style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
+                  >
+                    <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
+                      <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/5">
+                        <Image
+                          src={post.image}
+                          alt=""
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          sizes="(max-width: 479px) 100vw, (max-width: 1023px) 50vw, (max-width: 1535px) 33.33vw, (max-width: 1919px) 25vw, 20vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)]/60 via-transparent to-transparent" />
+                      </div>
+                      <div className="flex flex-col flex-1 p-4 sm:p-5 lg:p-6">
+                        <h2 className="text-base sm:text-lg lg:text-xl font-bold text-[#e4e4e7] mb-1.5 sm:mb-2 group-hover:text-[#d8f17b] transition-colors line-clamp-2">
+                          {post.title}
+                        </h2>
+                        <p className="text-zinc-400 text-xs sm:text-sm lg:text-base leading-relaxed line-clamp-3 flex-1">
+                          {post.excerpt}
+                        </p>
+                        <span className="text-zinc-500 text-xs mt-2 sm:mt-3">Dodano: {post.date}</span>
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 h-0.5 w-0 bg-[#d8f17b] group-hover:w-full transition-all duration-500" />
+                    </Link>
+                  </article>
+                ))}
+              </div>
+            )}
 
             <div className="mt-10 sm:mt-12 lg:mt-16 text-center">
               <Link
