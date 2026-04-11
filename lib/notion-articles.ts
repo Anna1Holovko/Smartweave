@@ -200,10 +200,34 @@ function richTextToHtml(fragments: RichTextItemResponse[]): string {
     .join('');
 }
 
+/** Read plain text from a Notion page property (title / rich_text / formula string). */
+function textFromPageProperty(page: PageObjectResponse, propName: string): string {
+  const p = page.properties[propName];
+  if (!p) return '';
+  if (p.type === 'title') return p.title.map((x) => x.plain_text).join('');
+  if (p.type === 'rich_text') return p.rich_text.map((x) => x.plain_text).join('');
+  if (p.type === 'formula') {
+    if (p.formula.type === 'string') return p.formula.string ?? '';
+    if (p.formula.type === 'number' && p.formula.number != null) return String(p.formula.number);
+  }
+  return '';
+}
+
 function titleFromPage(page: PageObjectResponse): string {
+  const explicit = process.env.NOTION_PROP_TITLE?.trim();
+  if (explicit) {
+    const t = textFromPageProperty(page, explicit).trim();
+    if (t) return t;
+  }
   for (const key of Object.keys(page.properties)) {
     const p = page.properties[key];
     if (p.type === 'title' && p.title?.length) {
+      return p.title.map((x) => x.plain_text).join('');
+    }
+  }
+  for (const key of Object.keys(page.properties)) {
+    const p = page.properties[key];
+    if (p.type === 'title') {
       return p.title.map((x) => x.plain_text).join('');
     }
   }
@@ -573,25 +597,46 @@ async function fetchNotionArticlesFromApi(): Promise<NotionArticle[]> {
     }
 
     const articles: NotionArticle[] = [];
+    const usedSlugs = new Set<string>();
+
+    const uniqueSlug = (base: string): string => {
+      let s = base || 'wpis';
+      let n = 2;
+      while (usedSlugs.has(s)) {
+        s = `${base}-${n}`;
+        n += 1;
+      }
+      usedSlugs.add(s);
+      return s;
+    };
 
     for (const row of rows) {
-      const title = titleFromPage(row).trim();
-      const slugField = slugFromPage(row, names.slug).trim();
-      const slug = slugField || slugifyFromTitle(title);
-      if (!title) continue;
+      try {
+        const title = titleFromPage(row).trim();
+        const slugField = slugFromPage(row, names.slug).trim();
+        const slug = uniqueSlug(slugField || slugifyFromTitle(title));
+        if (!title) {
+          console.warn(
+            `[Notion articles] Pominięto wiersz (pusty tytuł). Uzupełnij kolumnę „Name” / tytuł lub ustaw NOTION_PROP_TITLE na właściwą nazwę pola w bazie. id=${row.id}`,
+          );
+          continue;
+        }
 
-      const html = await pageBlocksToHtml(notion, row.id);
-      const meta = metaFromPage(row, names.meta);
-      const publish_date = dateFromPage(row, names.date);
+        const html = await pageBlocksToHtml(notion, row.id);
+        const meta = metaFromPage(row, names.meta);
+        const publish_date = dateFromPage(row, names.date);
 
-      articles.push({
-        id: row.id,
-        title,
-        slug,
-        content: html,
-        meta_description: meta,
-        publish_date,
-      });
+        articles.push({
+          id: row.id,
+          title,
+          slug,
+          content: html,
+          meta_description: meta,
+          publish_date,
+        });
+      } catch (rowErr) {
+        console.error(`[Notion articles] Pominięto wiersz ${row.id} (błąd treści/strony)`, rowErr);
+      }
     }
 
     return articles;
@@ -603,7 +648,7 @@ async function fetchNotionArticlesFromApi(): Promise<NotionArticle[]> {
 
 const getNotionArticlesCached = unstable_cache(
   fetchNotionArticlesFromApi,
-  ['notion-blog-articles', 'v2-client-filter'],
+  ['notion-blog-articles', 'v3-title-slug-skip'],
   {
     revalidate: NOTION_LIST_REVALIDATE_SECONDS,
     tags: ['notion-blog'],
