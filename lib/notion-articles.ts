@@ -16,9 +16,9 @@
  *
  * Article body is the page content (blocks under each database row), rendered to HTML.
  *
- * Listing is cached with Next.js unstable_cache + route revalidate (default 60s). After you set
- * Status to Published in Notion, the site picks up changes within about one minute — no redeploy.
- * Override with NOTION_CACHE_SECONDS (minimum 30).
+ * Listing is cached with Next.js unstable_cache + route revalidate (default 60s). After edits in
+ * Notion, changes appear within ~NOTION_CACHE_SECONDS, or immediately after POST /api/revalidate-blog
+ * with NOTION_REVALIDATE_SECRET (no redeploy). Override NOTION_CACHE_SECONDS (minimum 30).
  *
  * Unpublishing: rows come only from Notion’s published filter (or client-side match). Optional
  * NOTION_LIVE_VERIFY_ARTICLE=1 re-checks each article page against Notion (can false-negative).
@@ -488,19 +488,30 @@ async function resolveDataSourceId(notion: Client): Promise<string | null> {
  * dataSources.query may return PartialPageObjectResponse (id only). isFullPage() requires `url`,
  * so without hydration the blog list was empty. Retrieve full page when needed.
  */
+function delay(ms: number): Promise<void> {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
 async function hydrateQueryPageRow(
   notion: Client,
   row: PageObjectResponse | { object: 'page'; id: string },
 ): Promise<PageObjectResponse | null> {
   if (isFullPage(row)) return row;
   if (row.object !== 'page' || !('id' in row) || typeof row.id !== 'string') return null;
-  try {
-    const full = await notion.pages.retrieve({ page_id: row.id });
-    return isFullPage(full) ? full : null;
-  } catch (e) {
-    console.warn('[Notion articles] Nie udało się pobrać pełnej strony (partial z query)', row.id, e);
-    return null;
+  const max = 3;
+  for (let attempt = 1; attempt <= max; attempt++) {
+    try {
+      const full = await notion.pages.retrieve({ page_id: row.id });
+      return isFullPage(full) ? full : null;
+    } catch (e) {
+      if (attempt === max) {
+        console.warn('[Notion articles] Nie udało się pobrać pełnej strony (partial z query)', row.id, e);
+        return null;
+      }
+      await delay(400 * attempt);
+    }
   }
+  return null;
 }
 
 async function queryDataSourcePages(
@@ -591,7 +602,11 @@ async function queryPublishedClientSide(
   }
 }
 
-async function fetchNotionArticlesFromApi(): Promise<NotionArticle[]> {
+/**
+ * Single fetch pass. Throws on hard API errors so unstable_cache does not store an empty list
+ * after a transient failure (which was hiding all articles until cache expiry).
+ */
+async function fetchNotionArticlesFromApiOnce(): Promise<NotionArticle[]> {
   const token = getToken();
   if (!token) {
     return [];
@@ -600,91 +615,113 @@ async function fetchNotionArticlesFromApi(): Promise<NotionArticle[]> {
   const notion = new Client({ auth: token });
   const names = propNames();
 
+  const dataSourceId = await resolveDataSourceId(notion);
+  if (!dataSourceId) {
+    return [];
+  }
+
+  let filter = await resolvePublishedRowFilter(notion, dataSourceId, names);
+  let rows = await queryAllPublishedPages(notion, dataSourceId, names, filter);
+
+  if (rows.length === 0 && !process.env.NOTION_STATUS_KIND) {
+    const alt = alternatePublishedFilter(filter, names);
+    if (alt) {
+      const tryRows = await queryAllPublishedPages(notion, dataSourceId, names, alt);
+      if (tryRows.length > 0) {
+        console.warn(
+          '[Notion articles] No rows with default Status filter; alternate type worked. Set NOTION_STATUS_KIND=status or select in .env.local.',
+        );
+        rows = tryRows;
+      }
+    }
+  }
+
+  if (rows.length === 0) {
+    rows = await queryPublishedClientSide(notion, dataSourceId, names);
+  }
+
+  if (rows.length === 0) {
+    console.warn(
+      `[Notion articles] 0 published pages. Check: integration connected to DB, Status="${names.published}" matches a row, title column filled, NOTION_PROP_* column names, NOTION_STATUS_KIND if needed.`,
+    );
+  }
+
+  const articles: NotionArticle[] = [];
+  const usedSlugs = new Set<string>();
+
+  const uniqueSlug = (base: string): string => {
+    let s = base || 'wpis';
+    let n = 2;
+    while (usedSlugs.has(s)) {
+      s = `${base}-${n}`;
+      n += 1;
+    }
+    usedSlugs.add(s);
+    return s;
+  };
+
+  for (const row of rows) {
+    try {
+      const title = titleFromPage(row).trim();
+      const slugField = slugFromPage(row, names.slug).trim();
+      const slug = uniqueSlug(slugField || slugifyFromTitle(title));
+      if (!title) {
+        console.warn(
+          `[Notion articles] Pominięto wiersz (pusty tytuł). Uzupełnij kolumnę „Name” / tytuł lub ustaw NOTION_PROP_TITLE na właściwą nazwę pola w bazie. id=${row.id}`,
+        );
+        continue;
+      }
+
+      const html = await pageBlocksToHtml(notion, row.id);
+      const meta = metaFromPage(row, names.meta);
+      const publish_date = dateFromPage(row, names.date);
+
+      articles.push({
+        id: row.id,
+        title,
+        slug,
+        content: html,
+        meta_description: meta,
+        publish_date,
+      });
+    } catch (rowErr) {
+      console.error(`[Notion articles] Pominięto wiersz ${row.id} (błąd treści/strony)`, rowErr);
+    }
+  }
+
+  return articles;
+}
+
+async function fetchNotionArticlesFromApi(): Promise<NotionArticle[]> {
+  if (!getToken()) return [];
+
   try {
-    const dataSourceId = await resolveDataSourceId(notion);
-    if (!dataSourceId) {
-      return [];
-    }
-
-    let filter = await resolvePublishedRowFilter(notion, dataSourceId, names);
-    let rows = await queryAllPublishedPages(notion, dataSourceId, names, filter);
-
-    if (rows.length === 0 && !process.env.NOTION_STATUS_KIND) {
-      const alt = alternatePublishedFilter(filter, names);
-      if (alt) {
-        const tryRows = await queryAllPublishedPages(notion, dataSourceId, names, alt);
-        if (tryRows.length > 0) {
-          console.warn(
-            '[Notion articles] No rows with default Status filter; alternate type worked. Set NOTION_STATUS_KIND=status or select in .env.local.',
-          );
-          rows = tryRows;
-        }
-      }
-    }
-
-    if (rows.length === 0) {
-      rows = await queryPublishedClientSide(notion, dataSourceId, names);
-    }
-
-    if (rows.length === 0) {
+    let articles = await fetchNotionArticlesFromApiOnce();
+    if (
+      articles.length === 0 &&
+      getDatabaseId() &&
+      process.env.NOTION_RETRY_EMPTY_FETCH !== '0' &&
+      process.env.NOTION_RETRY_EMPTY_FETCH !== 'false'
+    ) {
       console.warn(
-        `[Notion articles] 0 published pages. Check: integration connected to DB, Status="${names.published}" matches a row, title column filled, NOTION_PROP_* column names, NOTION_STATUS_KIND if needed.`,
+        '[Notion articles] 0 wpisów — ponawiam po 2,5 s (Notion czasem zwraca pusty wynik tuż po zmianie statusu).',
       );
-    }
-
-    const articles: NotionArticle[] = [];
-    const usedSlugs = new Set<string>();
-
-    const uniqueSlug = (base: string): string => {
-      let s = base || 'wpis';
-      let n = 2;
-      while (usedSlugs.has(s)) {
-        s = `${base}-${n}`;
-        n += 1;
-      }
-      usedSlugs.add(s);
-      return s;
-    };
-
-    for (const row of rows) {
-      try {
-        const title = titleFromPage(row).trim();
-        const slugField = slugFromPage(row, names.slug).trim();
-        const slug = uniqueSlug(slugField || slugifyFromTitle(title));
-        if (!title) {
-          console.warn(
-            `[Notion articles] Pominięto wiersz (pusty tytuł). Uzupełnij kolumnę „Name” / tytuł lub ustaw NOTION_PROP_TITLE na właściwą nazwę pola w bazie. id=${row.id}`,
-          );
-          continue;
-        }
-
-        const html = await pageBlocksToHtml(notion, row.id);
-        const meta = metaFromPage(row, names.meta);
-        const publish_date = dateFromPage(row, names.date);
-
-        articles.push({
-          id: row.id,
-          title,
-          slug,
-          content: html,
-          meta_description: meta,
-          publish_date,
-        });
-      } catch (rowErr) {
-        console.error(`[Notion articles] Pominięto wiersz ${row.id} (błąd treści/strony)`, rowErr);
+      await delay(2500);
+      const retry = await fetchNotionArticlesFromApiOnce();
+      if (retry.length > 0) {
+        return retry;
       }
     }
-
     return articles;
   } catch (err) {
-    console.error('[Notion articles]', err);
-    return [];
+    console.error('[Notion articles] Błąd pobierania (nie zapisujemy pustej listy w cache)', err);
+    throw err instanceof Error ? err : new Error(String(err));
   }
 }
 
 const getNotionArticlesCached = unstable_cache(
   fetchNotionArticlesFromApi,
-  ['notion-blog-articles', 'v6-hydrate-partial-pages'],
+  ['notion-blog-articles', 'v7-retry-and-throw'],
   {
     revalidate: NOTION_LIST_REVALIDATE_SECONDS,
     tags: ['notion-blog'],
@@ -696,10 +733,15 @@ const getNotionArticlesCached = unstable_cache(
  * Set NOTION_SKIP_CACHE=1 to bypass cache while debugging.
  */
 export async function getNotionArticles(): Promise<NotionArticle[]> {
-  if (process.env.NOTION_SKIP_CACHE === '1' || process.env.NOTION_SKIP_CACHE === 'true') {
-    return fetchNotionArticlesFromApi();
+  try {
+    if (process.env.NOTION_SKIP_CACHE === '1' || process.env.NOTION_SKIP_CACHE === 'true') {
+      return await fetchNotionArticlesFromApi();
+    }
+    return await getNotionArticlesCached();
+  } catch (e) {
+    console.error('[Notion articles] getNotionArticles', e);
+    return [];
   }
-  return getNotionArticlesCached();
 }
 
 /**

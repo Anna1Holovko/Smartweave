@@ -27,7 +27,6 @@ export const metadata: Metadata = {
 export default async function BlogPage() {
   const posts = await getAllPosts();
   const notionEnvOk = isNotionBlogEnvConfigured();
-  const publishedLabel = process.env.NOTION_STATUS_PUBLISHED?.trim() || 'Published';
 
   return (
     <>
@@ -60,10 +59,7 @@ export default async function BlogPage() {
                     tylko Production). Po zapisaniu odczekaj minutę lub wdróż ponownie.
                   </>
                 ) : (
-                  <>
-                    Nie ma jeszcze opublikowanych artykułów. Opublikuj wpisy w Notion (status „
-                    {publishedLabel}”) i podłącz integrację do bazy — wtedy pojawią się tutaj automatycznie.
-                  </>
+                  <>Nie ma jeszcze opublikowanych artykułów.</>
                 )}
               </p>
             ) : (

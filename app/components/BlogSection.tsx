@@ -64,7 +64,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
 
         {featuredPosts.length === 0 ? (
           <p className="text-center text-zinc-500 text-base max-w-xl mx-auto leading-relaxed">
-            Wkrótce pojawią się nowe artykuły. Opublikowane wpisy z Notion wyświetlą się tutaj i na stronie bloga.
+            Wkrótce pojawią się nowe artykuły.
           </p>
         ) : (
           <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
