@@ -28,13 +28,35 @@ export type UnifiedPost = {
   content?: string;
 };
 
-/** Drop cards whose Status in Notion is no longer Published (live check; list cache can lag). */
+/**
+ * Optional second pass: N× pages.retrieve per list load — can false-negative and empty the blog.
+ * Default off; list still follows Notion via fetch + cache. Single-article URLs always re-check.
+ */
+function liveVerifyListEnabled(): boolean {
+  return process.env.NOTION_LIVE_VERIFY_LIST === '1' || process.env.NOTION_LIVE_VERIFY_LIST === 'true';
+}
+
+/** Drop cards whose Status in Notion is no longer Published (only when NOTION_LIVE_VERIFY_LIST=1). */
 async function filterStillPublishedOnNotion(rows: NotionArticle[]): Promise<NotionArticle[]> {
   if (rows.length === 0) return [];
+  if (!liveVerifyListEnabled()) return rows;
+
   const flags = await Promise.all(
-    rows.map((a) => isNotionPagePublishedForBlog(a.id, { treatErrorsAsPublished: true })),
+    rows.map((a) =>
+      isNotionPagePublishedForBlog(a.id, {
+        treatErrorsAsPublished: true,
+        trustIfUnverifiable: true,
+      }),
+    ),
   );
-  return rows.filter((_, i) => flags[i]);
+  const out = rows.filter((_, i) => flags[i]);
+  if (out.length === 0 && rows.length > 0) {
+    console.warn(
+      '[blog-adapter] Live list verify removed all posts (likely API/property mismatch). Keeping cached list. Disable with NOTION_LIVE_VERIFY_LIST=0.',
+    );
+    return rows;
+  }
+  return out;
 }
 
 function notionToUnified(a: NotionArticle): UnifiedPost {

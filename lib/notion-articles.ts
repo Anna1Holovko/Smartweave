@@ -679,18 +679,26 @@ export async function getNotionArticles(): Promise<NotionArticle[]> {
  *
  * @param treatErrorsAsPublished — if true, API/network errors keep the previous assumption (show card).
  *   Use for list views so a Notion outage does not blank the whole blog.
+ * @param trustIfUnverifiable — if true, missing Status column or non-full page response keeps the card
+ *   (Notion sometimes omits properties; avoids wiping the whole list).
  */
 export async function isNotionPagePublishedForBlog(
   pageId: string,
-  opts?: { treatErrorsAsPublished?: boolean },
+  opts?: { treatErrorsAsPublished?: boolean; trustIfUnverifiable?: boolean },
 ): Promise<boolean> {
   const token = getToken();
-  if (!token) return false;
+  if (!token) return opts?.treatErrorsAsPublished === true ? true : false;
   const notion = new Client({ auth: token });
   const names = propNames();
   try {
     const res = await notion.pages.retrieve({ page_id: pageId });
-    if (!isFullPage(res)) return false;
+    if (!isFullPage(res)) {
+      return opts?.trustIfUnverifiable === true || opts?.treatErrorsAsPublished === true;
+    }
+    const st = res.properties[names.status];
+    if (!st && opts?.trustIfUnverifiable === true) {
+      return true;
+    }
     return pageMatchesPublishedLabel(res, names);
   } catch {
     return opts?.treatErrorsAsPublished === true;
