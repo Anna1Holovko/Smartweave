@@ -484,6 +484,25 @@ async function resolveDataSourceId(notion: Client): Promise<string | null> {
   return db.data_sources[0].id;
 }
 
+/**
+ * dataSources.query may return PartialPageObjectResponse (id only). isFullPage() requires `url`,
+ * so without hydration the blog list was empty. Retrieve full page when needed.
+ */
+async function hydrateQueryPageRow(
+  notion: Client,
+  row: PageObjectResponse | { object: 'page'; id: string },
+): Promise<PageObjectResponse | null> {
+  if (isFullPage(row)) return row;
+  if (row.object !== 'page' || !('id' in row) || typeof row.id !== 'string') return null;
+  try {
+    const full = await notion.pages.retrieve({ page_id: row.id });
+    return isFullPage(full) ? full : null;
+  } catch (e) {
+    console.warn('[Notion articles] Nie udało się pobrać pełnej strony (partial z query)', row.id, e);
+    return null;
+  }
+}
+
 async function queryDataSourcePages(
   notion: Client,
   dataSourceId: string,
@@ -503,7 +522,9 @@ async function queryDataSourcePages(
       page_size: 100,
     });
     for (const row of res.results) {
-      if (isFullPage(row)) pages.push(row);
+      if (row.object !== 'page') continue;
+      const full = await hydrateQueryPageRow(notion, row as PageObjectResponse);
+      if (full) pages.push(full);
     }
     cursor = res.has_more && res.next_cursor ? res.next_cursor : undefined;
   } while (cursor);
@@ -663,7 +684,7 @@ async function fetchNotionArticlesFromApi(): Promise<NotionArticle[]> {
 
 const getNotionArticlesCached = unstable_cache(
   fetchNotionArticlesFromApi,
-  ['notion-blog-articles', 'v5-no-second-pass'],
+  ['notion-blog-articles', 'v6-hydrate-partial-pages'],
   {
     revalidate: NOTION_LIST_REVALIDATE_SECONDS,
     tags: ['notion-blog'],
