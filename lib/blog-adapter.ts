@@ -4,7 +4,11 @@
  */
 
 import { SITE_URL } from '@/lib/site';
-import { getNotionArticles, type NotionArticle } from '@/lib/notion-articles';
+import {
+  getNotionArticles,
+  isNotionPagePublishedForBlog,
+  type NotionArticle,
+} from '@/lib/notion-articles';
 import { excerptFromContent } from '@/lib/airtable-articles';
 
 /** Fallback cover when Notion has no per-page cover (add Files/URL in Notion later). */
@@ -47,8 +51,10 @@ export async function getAllPosts(): Promise<UnifiedPost[]> {
 export async function getPostBySlug(slug: string): Promise<UnifiedPost | undefined> {
   const notion = await getNotionArticles();
   const row = notion.find((a) => a.slug === slug);
-  if (row) return notionToUnified(row);
-  return undefined;
+  if (!row) return undefined;
+  const stillPublished = await isNotionPagePublishedForBlog(row.id);
+  if (!stillPublished) return undefined;
+  return notionToUnified(row);
 }
 
 export function getUnifiedPostCoverUrl(post: UnifiedPost): string {

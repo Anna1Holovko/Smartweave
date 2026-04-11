@@ -19,6 +19,10 @@
  * Listing is cached with Next.js unstable_cache + route revalidate (default 60s). After you set
  * Status to Published in Notion, the site picks up changes within about one minute — no redeploy.
  * Override with NOTION_CACHE_SECONDS (minimum 30).
+ *
+ * Unpublishing: rows are only included if Status matches NOTION_STATUS_PUBLISHED. Single-article
+ * pages also re-check Notion live so /blog/[slug] becomes 404 soon after status changes, even if
+ * the list cache is briefly stale.
  */
 
 import { unstable_cache } from 'next/cache';
@@ -596,6 +600,9 @@ async function fetchNotionArticlesFromApi(): Promise<NotionArticle[]> {
       );
     }
 
+    /** Drop anything that no longer matches Published (defense if API filter drifts). */
+    rows = rows.filter((p) => pageMatchesPublishedLabel(p, names));
+
     const articles: NotionArticle[] = [];
     const usedSlugs = new Set<string>();
 
@@ -664,4 +671,22 @@ export async function getNotionArticles(): Promise<NotionArticle[]> {
     return fetchNotionArticlesFromApi();
   }
   return getNotionArticlesCached();
+}
+
+/**
+ * Uncached read of current page properties — confirms the row still matches “published” rules.
+ * Used for single-article routes so unpublishing removes the URL without waiting for list cache.
+ */
+export async function isNotionPagePublishedForBlog(pageId: string): Promise<boolean> {
+  const token = getToken();
+  if (!token) return false;
+  const notion = new Client({ auth: token });
+  const names = propNames();
+  try {
+    const res = await notion.pages.retrieve({ page_id: pageId });
+    if (!isFullPage(res)) return false;
+    return pageMatchesPublishedLabel(res, names);
+  } catch {
+    return false;
+  }
 }
