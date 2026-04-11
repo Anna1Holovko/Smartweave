@@ -6,6 +6,7 @@ import { Footer } from '../components/Footer';
 import { ScrollToTop } from '../components/ScrollToTop';
 import { PageIntro } from '../components/PageIntro';
 import { getAllPosts } from '@/lib/blog-adapter';
+import { isNotionBlogEnvConfigured } from '@/lib/notion-articles';
 import { QuickAutomationCta } from '../components/QuickAutomationCta';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
@@ -25,6 +26,8 @@ export const metadata: Metadata = {
 
 export default async function BlogPage() {
   const posts = await getAllPosts();
+  const notionEnvOk = isNotionBlogEnvConfigured();
+  const publishedLabel = process.env.NOTION_STATUS_PUBLISHED?.trim() || 'Published';
 
   return (
     <>
@@ -46,7 +49,22 @@ export default async function BlogPage() {
 
             {posts.length === 0 ? (
               <p className="text-center text-zinc-500 max-w-xl mx-auto leading-relaxed">
-                Nie ma jeszcze opublikowanych artykułów. Opublikuj wpisy w Notion (status „Published”) i podłącz integrację do bazy — wtedy pojawią się tutaj automatycznie.
+                {!notionEnvOk ? (
+                  <>
+                    Ten widok nie ma dostępu do Notion: ustaw na hostingu (np. Vercel → Settings →
+                    Environment Variables) te same zmienne co lokalnie —{' '}
+                    <code className="text-zinc-400">NOTION_API_KEY</code> oraz{' '}
+                    <code className="text-zinc-400">NOTION_BLOG_DATABASE_ID</code> lub{' '}
+                    <code className="text-zinc-400">NOTION_BLOG_DATA_SOURCE_ID</code> — i włącz je
+                    także dla środowiska <strong className="text-zinc-400">Preview</strong> (nie
+                    tylko Production). Po zapisaniu odczekaj minutę lub wdróż ponownie.
+                  </>
+                ) : (
+                  <>
+                    Nie ma jeszcze opublikowanych artykułów. Opublikuj wpisy w Notion (status „
+                    {publishedLabel}”) i podłącz integrację do bazy — wtedy pojawią się tutaj automatycznie.
+                  </>
+                )}
               </p>
             ) : (
               <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">

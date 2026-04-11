@@ -57,6 +57,17 @@ function getToken(): string | undefined {
   return process.env.NOTION_API_KEY || process.env.NOTION_TOKEN;
 }
 
+/**
+ * Used for empty-state copy. Preview deployments (e.g. Vercel) only see env vars that are enabled
+ * for Preview — if NOTION_* exist only for Production, the blog list is empty without a code bug.
+ */
+export function isNotionBlogEnvConfigured(): boolean {
+  if (!getToken()) return false;
+  if (getDataSourceId()) return true;
+  if (getDatabaseId()) return true;
+  return false;
+}
+
 function getDatabaseId(): string | undefined {
   return process.env.NOTION_BLOG_DATABASE_ID;
 }
