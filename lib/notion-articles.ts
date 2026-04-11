@@ -164,6 +164,18 @@ function pageMatchesPublishedLabel(page: PageObjectResponse, names: ReturnType<t
   return false;
 }
 
+/**
+ * Second-pass filter after query: if Status is missing from the page payload (Notion sometimes omits
+ * properties on dataSources.query rows), do not treat as “unpublished” — that was wiping the whole blog.
+ */
+function pageMatchesPublishedLabelLenient(
+  page: PageObjectResponse,
+  names: ReturnType<typeof propNames>,
+): boolean {
+  if (!page.properties[names.status]) return true;
+  return pageMatchesPublishedLabel(page, names);
+}
+
 function slugifyFromTitle(title: string): string {
   const s = title
     .trim()
@@ -600,8 +612,8 @@ async function fetchNotionArticlesFromApi(): Promise<NotionArticle[]> {
       );
     }
 
-    /** Drop anything that no longer matches Published (defense if API filter drifts). */
-    rows = rows.filter((p) => pageMatchesPublishedLabel(p, names));
+    /** Drop only rows that still expose Status and it is not Published (lenient if Status omitted in payload). */
+    rows = rows.filter((p) => pageMatchesPublishedLabelLenient(p, names));
 
     const articles: NotionArticle[] = [];
     const usedSlugs = new Set<string>();
@@ -655,7 +667,7 @@ async function fetchNotionArticlesFromApi(): Promise<NotionArticle[]> {
 
 const getNotionArticlesCached = unstable_cache(
   fetchNotionArticlesFromApi,
-  ['notion-blog-articles', 'v3-title-slug-skip'],
+  ['notion-blog-articles', 'v4-lenient-status-filter'],
   {
     revalidate: NOTION_LIST_REVALIDATE_SECONDS,
     tags: ['notion-blog'],
@@ -679,8 +691,7 @@ export async function getNotionArticles(): Promise<NotionArticle[]> {
  *
  * @param treatErrorsAsPublished — if true, API/network errors keep the previous assumption (show card).
  *   Use for list views so a Notion outage does not blank the whole blog.
- * @param trustIfUnverifiable — if true, missing Status column or non-full page response keeps the card
- *   (Notion sometimes omits properties; avoids wiping the whole list).
+ * @param trustIfUnverifiable — if true, non-full page response keeps the card (list-only safety).
  */
 export async function isNotionPagePublishedForBlog(
   pageId: string,
@@ -696,7 +707,7 @@ export async function isNotionPagePublishedForBlog(
       return opts?.trustIfUnverifiable === true || opts?.treatErrorsAsPublished === true;
     }
     const st = res.properties[names.status];
-    if (!st && opts?.trustIfUnverifiable === true) {
+    if (!st) {
       return true;
     }
     return pageMatchesPublishedLabel(res, names);
