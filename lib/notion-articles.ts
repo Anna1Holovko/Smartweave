@@ -28,6 +28,7 @@
  */
 
 import { unstable_cache } from 'next/cache';
+import { SITE_URL } from '@/lib/site';
 import {
   Client,
   collectPaginatedAPI,
@@ -272,6 +273,62 @@ function escapeAttr(s: string): string {
   return escapeHtml(s).replace(/'/g, '&#39;');
 }
 
+/** Home CTA form section (`app/components/CTASection.tsx` id="contact"). */
+const HOME_CONTACT_HASH = '/#contact';
+
+function siteHostnameNormalized(): string {
+  try {
+    return new URL(SITE_URL).hostname.replace(/^www\./i, '').toLowerCase();
+  } catch {
+    return 'smartweave.pl';
+  }
+}
+
+function isSameSiteHost(hostname: string): boolean {
+  return hostname.replace(/^www\./i, '').toLowerCase() === siteHostnameNormalized();
+}
+
+/**
+ * Rich-text links from Notion often point at the site root for “Skontaktuj się z nami”.
+ * Send those (and /kontakt) to the homepage contact section instead of opening a new tab.
+ */
+function resolveBlogContentLinkHref(
+  href: string,
+  plainText: string,
+): { href: string; newTab: boolean } {
+  const label = plainText.trim();
+  const looksLikeContactCta = /^skontaktuj\s+z\s+nami\.?$/i.test(label);
+
+  const tryParse = (h: string): URL | null => {
+    try {
+      return h.startsWith('http') ? new URL(h) : new URL(h, SITE_URL);
+    } catch {
+      return null;
+    }
+  };
+
+  const u = tryParse(href);
+  if (u && isSameSiteHost(u.hostname)) {
+    const path = (u.pathname || '/').replace(/\/+$/, '') || '/';
+    if (path === '/kontakt' || path === '/contact') {
+      return { href: HOME_CONTACT_HASH, newTab: false };
+    }
+    if (looksLikeContactCta && path === '/') {
+      return { href: HOME_CONTACT_HASH, newTab: false };
+    }
+  }
+
+  const h = href.trim();
+  if (h === '/kontakt' || h === '/contact') {
+    return { href: HOME_CONTACT_HASH, newTab: false };
+  }
+  if (looksLikeContactCta && (h === '/' || h === '')) {
+    return { href: HOME_CONTACT_HASH, newTab: false };
+  }
+
+  return { href, newTab: true };
+}
+
 function richTextToHtml(fragments: RichTextItemResponse[]): string {
   if (!fragments?.length) return '';
   return fragments
@@ -282,7 +339,12 @@ function richTextToHtml(fragments: RichTextItemResponse[]): string {
       if (f.annotations.italic) t = `<em>${t}</em>`;
       if (f.annotations.strikethrough) t = `<s>${t}</s>`;
       if (f.annotations.underline) t = `<u>${t}</u>`;
-      if (f.href) t = `<a href="${escapeAttr(f.href)}" class="text-[#d8f17b] underline underline-offset-2" target="_blank" rel="noopener noreferrer">${t}</a>`;
+      if (f.href) {
+        const { href: outHref, newTab } = resolveBlogContentLinkHref(f.href, f.plain_text);
+        const rel = newTab ? ' rel="noopener noreferrer"' : '';
+        const target = newTab ? ' target="_blank"' : '';
+        t = `<a href="${escapeAttr(outHref)}" class="text-[#d8f17b] underline underline-offset-2"${target}${rel}>${t}</a>`;
+      }
       return t;
     })
     .join('');
@@ -499,7 +561,10 @@ async function renderSingleBlock(notion: Client, block: BlockObjectResponse): Pr
     case 'bookmark': {
       const u = block.bookmark.url;
       const cap = block.bookmark.caption?.length ? richTextToHtml(block.bookmark.caption) : '';
-      return `<div class="my-4 rounded-xl border border-white/10 p-4"><a href="${escapeAttr(u)}" class="text-[#d8f17b] underline break-all" target="_blank" rel="noopener noreferrer">${escapeHtml(u)}</a>${cap ? `<div class="mt-2 text-sm text-zinc-400">${cap}</div>` : ''}</div>`;
+      const { href: outHref, newTab } = resolveBlogContentLinkHref(u, '');
+      const rel = newTab ? ' rel="noopener noreferrer"' : '';
+      const target = newTab ? ' target="_blank"' : '';
+      return `<div class="my-4 rounded-xl border border-white/10 p-4"><a href="${escapeAttr(outHref)}" class="text-[#d8f17b] underline break-all"${target}${rel}>${escapeHtml(u)}</a>${cap ? `<div class="mt-2 text-sm text-zinc-400">${cap}</div>` : ''}</div>`;
     }
     case 'video':
     case 'embed': {
