@@ -6,6 +6,7 @@
 import { SITE_URL } from '@/lib/site';
 import { blogCoverPublicPath } from '@/lib/blog-cover-urls';
 import {
+  fetchArticleHtmlFresh,
   getNotionArticles,
   isNotionPagePublishedForBlog,
   type NotionArticle,
@@ -38,6 +39,14 @@ function liveVerifyListEnabled(): boolean {
 
 function liveVerifyArticleEnabled(): boolean {
   return process.env.NOTION_LIVE_VERIFY_ARTICLE === '1' || process.env.NOTION_LIVE_VERIFY_ARTICLE === 'true';
+}
+
+/** Disable extra Notion blocks fetch on /blog/[slug] (saves API calls; inline images may break when cached URLs expire). */
+function freshArticleBodyEnabled(): boolean {
+  return (
+    process.env.NOTION_SKIP_FRESH_ARTICLE_HTML !== '1' &&
+    process.env.NOTION_SKIP_FRESH_ARTICLE_HTML !== 'true'
+  );
 }
 
 /** Drop cards whose Status in Notion is no longer Published (only when NOTION_LIVE_VERIFY_LIST=1). */
@@ -127,7 +136,16 @@ export async function getPostBySlug(slug: string): Promise<UnifiedPost | undefin
     const stillPublished = await isNotionPagePublishedForBlog(row.id);
     if (!stillPublished) return undefined;
   }
-  return notionToUnified(row);
+  let content = row.content;
+  if (freshArticleBodyEnabled()) {
+    try {
+      const fresh = await fetchArticleHtmlFresh(row.id);
+      if (fresh.trim()) content = fresh;
+    } catch (e) {
+      console.warn('[blog-adapter] Fresh article HTML failed, using list-cached body', e);
+    }
+  }
+  return notionToUnified({ ...row, content });
 }
 
 export function getUnifiedPostCoverUrl(post: UnifiedPost): string {

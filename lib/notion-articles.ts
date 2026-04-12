@@ -18,6 +18,8 @@
  * omits `cover`, we `pages.retrieve` to hydrate the URL. Fallback when still empty: `lib/blog-cover-urls.ts`.
  *
  * Article body is the page content (blocks under each database row), rendered to HTML.
+ * Image/file block URLs from Notion are **time-limited**; list-cached HTML can embed expired `src`.
+ * `/blog/[slug]` re-fetches blocks via `fetchArticleHtmlFresh` (opt out: NOTION_SKIP_FRESH_ARTICLE_HTML=1).
  *
  * Listing uses unstable_cache (tag `notion-blog`). Set NOTION_CACHE_SECONDS=0 to **always** fetch
  * Notion (no list cache — higher API usage). Manual: GET/POST /api/revalidate-blog with secret.
@@ -605,6 +607,17 @@ async function pageBlocksToHtml(notion: Client, pageId: string): Promise<string>
   });
   const full = children.filter(isFullBlock) as BlockObjectResponse[];
   return renderBlocks(notion, full);
+}
+
+/**
+ * Uncached blocks → HTML for one post. Notion signed URLs in image/file blocks expire (~1 hour);
+ * use this on article pages so inline images keep working while the list stays cached.
+ */
+export async function fetchArticleHtmlFresh(pageId: string): Promise<string> {
+  const token = getToken();
+  if (!token) return '';
+  const notion = new Client({ auth: token });
+  return pageBlocksToHtml(notion, pageId);
 }
 
 async function resolveDataSourceId(notion: Client): Promise<string | null> {
