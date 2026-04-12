@@ -73,11 +73,32 @@ function forceCodeOnlyCover(): boolean {
   return process.env.BLOG_COVER_FROM_CODE_ONLY === '1' || process.env.BLOG_COVER_FROM_CODE_ONLY === 'true';
 }
 
+/**
+ * Same-origin absolute URLs → path so `next/image` uses local files; remote Notion/CDN URLs unchanged.
+ */
+function imageSrcForNext(src: string): string {
+  const s = src.trim();
+  if (!s) return DEFAULT_BLOG_COVER;
+  if (s.startsWith('/')) return s;
+  if (!/^https?:\/\//i.test(s)) return s.startsWith('/') ? s : `/${s}`;
+  try {
+    const origin = new URL(SITE_URL).origin;
+    const u = new URL(s);
+    if (u.origin === origin) {
+      return `${u.pathname}${u.search}${u.hash}`;
+    }
+  } catch {
+    /* keep remote URL */
+  }
+  return s;
+}
+
 function notionToUnified(a: NotionArticle): UnifiedPost {
   const fromCode = blogCoverPublicPath(a.slug);
   const notionUrl = a.cover_url?.trim();
-  const image =
+  const raw =
     !forceCodeOnlyCover() && notionUrl && /^https?:\/\//i.test(notionUrl) ? notionUrl : fromCode;
+  const image = imageSrcForNext(raw);
   return {
     source: 'notion',
     slug: a.slug,

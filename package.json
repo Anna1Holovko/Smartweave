@@ -10,7 +10,8 @@
     "lint": "next lint",
     "migrate:notion": "tsx scripts/migrate-blog-to-notion.ts",
     "sync:notion-covers": "tsx scripts/sync-blog-covers-to-notion.ts",
-    "sync:notion-covers:from-code": "tsx scripts/sync-blog-covers-to-notion.ts --from-code"
+    "sync:notion-covers:from-code": "tsx scripts/sync-blog-covers-to-notion.ts --from-code",
+    "upload:notion-covers": "tsx scripts/upload-public-blog-covers-to-notion.ts"
   },
   "dependencies": {
     "@notionhq/client": "^5.17.0",
@@ -31,6 +32,7 @@
     "eslint": "^9.16.0",
     "eslint-config-next": "15.0.7",
     "postcss": "^8.4.49",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.16",
     "tsx": "^4.21.0",
     "typescript": "5.9.3"
