@@ -14,8 +14,8 @@
  *   - Publish date: date
  *   - Meta description: rich text (optional)
  *
- * Covers: the site prefers **Notion** page cover (⋯ → Add cover) or NOTION_PROP_COVER; fallback is
- * `lib/blog-cover-urls.ts` + `public/assets/blog/`. One-time push from repo URLs: `sync-blog-covers-to-notion --from-code`.
+ * Covers: listing and hero use **Notion** (page cover or NOTION_PROP_COVER). If the database query
+ * omits `cover`, we `pages.retrieve` to hydrate the URL. Fallback when still empty: `lib/blog-cover-urls.ts`.
  *
  * Article body is the page content (blocks under each database row), rendered to HTML.
  *
@@ -204,7 +204,26 @@ function coverUrlFromProperty(page: PageObjectResponse): string | null {
 }
 
 function resolveCoverUrl(page: PageObjectResponse): string | null {
-  return coverUrlFromProperty(page) || coverUrlFromPage(page);
+  const propertyFirst =
+    process.env.NOTION_COVER_PROPERTY_FIRST === '1' || process.env.NOTION_COVER_PROPERTY_FIRST === 'true';
+  if (propertyFirst) return coverUrlFromProperty(page) || coverUrlFromPage(page);
+  return coverUrlFromPage(page) || coverUrlFromProperty(page);
+}
+
+/** Query rows often omit `cover`; retrieve full page so listing/hero get Notion-hosted URLs. */
+async function resolveCoverUrlWithHydrate(
+  notion: Client,
+  row: PageObjectResponse,
+): Promise<string | null> {
+  const direct = resolveCoverUrl(row);
+  if (direct) return direct;
+  try {
+    const full = await notion.pages.retrieve({ page_id: row.id });
+    if (!isFullPage(full)) return null;
+    return resolveCoverUrl(full);
+  } catch {
+    return null;
+  }
 }
 
 function slugifyFromTitle(title: string): string {
@@ -709,7 +728,7 @@ async function fetchNotionArticlesFromApiOnce(): Promise<NotionArticle[]> {
       const meta = metaFromPage(row, names.meta);
       const publish_date = dateFromPage(row, names.date);
 
-      const cover = resolveCoverUrl(row);
+      const cover = await resolveCoverUrlWithHydrate(notion, row);
       articles.push({
         id: row.id,
         title,
@@ -757,7 +776,7 @@ export async function fetchNotionArticlesFromApi(): Promise<NotionArticle[]> {
 
 const getNotionArticlesCached = unstable_cache(
   fetchNotionArticlesFromApi,
-  ['notion-blog-articles', 'v9-cover'],
+  ['notion-blog-articles', 'v11-cover-hydrate'],
   {
     revalidate: NOTION_LIST_REVALIDATE_SECONDS,
     tags: ['notion-blog'],
