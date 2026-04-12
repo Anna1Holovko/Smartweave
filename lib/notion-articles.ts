@@ -555,7 +555,7 @@ async function renderSingleBlock(notion: Client, block: BlockObjectResponse): Pr
         img.type === 'external' ? img.external.url : img.type === 'file' ? img.file.url : '';
       if (!url) return '';
       const caption = img.caption?.length ? richTextToHtml(img.caption) : '';
-      return `<figure class="my-6"><img src="${escapeAttr(url)}" alt="" class="rounded-xl border border-white/10 w-full max-h-[480px] object-contain bg-black/20" loading="lazy" />${caption ? `<figcaption class="mt-2 text-sm text-zinc-500">${caption}</figcaption>` : ''}</figure>`;
+      return `<figure class="my-6"><img src="${escapeAttr(url)}" alt="" class="block h-auto w-full max-h-[480px] rounded-xl border border-white/10 object-contain bg-black/20" loading="lazy" decoding="async" />${caption ? `<figcaption class="mt-2 text-sm text-zinc-500">${caption}</figcaption>` : ''}</figure>`;
     }
     case 'bookmark': {
       const u = block.bookmark.url;

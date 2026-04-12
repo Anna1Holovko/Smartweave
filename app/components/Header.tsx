@@ -57,6 +57,8 @@ const navItems = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileUslugiExpanded, setMobileUslugiExpanded] = useState(false);
+  const [mobileRealizacjeExpanded, setMobileRealizacjeExpanded] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [uslugiDropdownOpen, setUslugiDropdownOpen] = useState(false);
   const [realizacjeDropdownOpen, setRealizacjeDropdownOpen] = useState(false);
@@ -88,6 +90,21 @@ export function Header() {
     return () => window.removeEventListener(CART_OPEN_DRAWER_EVENT, openDrawer);
   }, []);
 
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setMobileUslugiExpanded(false);
+    setMobileRealizacjeExpanded(false);
+  };
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mobileMenuOpen]);
+
   // 🔥 smooth scroll function
   const scrollToSection = (hash: string) => {
     const element = document.querySelector(hash);
@@ -113,9 +130,9 @@ export function Header() {
         router.push(`/${item.href}`);
       }
 
-      setMobileMenuOpen(false);
+      closeMobileMenu();
     } else {
-      setMobileMenuOpen(false);
+      closeMobileMenu();
     }
   };
 
@@ -316,7 +333,18 @@ export function Header() {
 
             {/* MOBILE BUTTON */}
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              type="button"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-nav-panel"
+              onClick={() =>
+                setMobileMenuOpen((wasOpen) => {
+                  if (wasOpen) {
+                    setMobileUslugiExpanded(false);
+                    setMobileRealizacjeExpanded(false);
+                  }
+                  return !wasOpen;
+                })
+              }
               className="lg:hidden min-h-[44px] min-w-[44px] flex items-center justify-center border border-white/15 rounded-full text-zinc-300 hover:text-[#d8f17b] hover:border-[#d8f17b]/30 transition-colors"
             >
               {mobileMenuOpen ? (
@@ -329,98 +357,161 @@ export function Header() {
         </div>
       </motion.header>
 
-      {/* MOBILE MENU */}
-      {mobileMenuOpen && (
-        <div className="fixed top-[64px] left-0 right-0 z-40 lg:hidden">
-          <div
-            className="mx-4 mt-2 p-6 rounded-2xl border border-[var(--border-subtle)] shadow-2xl"
-            style={{
-              background: 'rgba(12, 14, 20, 0.92)',
-              backdropFilter: 'blur(64px) saturate(1.15)',
-              WebkitBackdropFilter: 'blur(64px) saturate(1.15)',
-            }}
-          >
-            <nav className="flex flex-col gap-4">
-              <div>
-                <span className="block text-zinc-500 text-sm font-medium py-2 px-4">Usługi</span>
-                {uslugiDropdownItems.map((sub) => (
-                  <Link
-                    key={sub.href}
-                    href={sub.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block text-zinc-300 hover:text-[#d8f17b] py-2 px-4 pl-6 rounded-lg transition-colors"
+      {/* MOBILE MENU: backdrop + scrollable panel, accordion for Usługi / Realizacje */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            <motion.button
+              key="mobile-menu-backdrop"
+              type="button"
+              aria-label="Zamknij menu"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
+              className="fixed inset-x-0 bottom-0 top-14 z-[38] bg-black/55 backdrop-blur-[2px] lg:hidden"
+              onClick={closeMobileMenu}
+            />
+            <motion.div
+              key="mobile-menu-panel"
+              id="mobile-nav-panel"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Menu nawigacji"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2 }}
+              className="fixed left-4 right-4 z-[45] flex max-h-[calc(100dvh-4.5rem-env(safe-area-inset-bottom,0px))] min-h-0 flex-col overflow-hidden rounded-2xl border border-[var(--border-subtle)] shadow-2xl lg:hidden"
+              style={{
+                top: 'max(4.25rem, calc(env(safe-area-inset-top, 0px) + 3.5rem))',
+                background: 'rgba(12, 14, 20, 0.96)',
+                backdropFilter: 'blur(64px) saturate(1.15)',
+                WebkitBackdropFilter: 'blur(64px) saturate(1.15)',
+              }}
+            >
+              <nav className="flex min-h-0 flex-1 flex-col gap-1 overflow-y-auto overscroll-contain p-4 pb-[max(1rem,env(safe-area-inset-bottom))] touch-pan-y sm:p-6 [-webkit-overflow-scrolling:touch]">
+                <div className="rounded-xl border border-white/10 bg-white/[0.03] overflow-hidden">
+                  <button
+                    type="button"
+                    className="flex w-full items-center justify-between gap-3 min-h-[48px] px-4 py-3 text-left text-zinc-200 font-medium hover:bg-white/5 transition-colors"
+                    onClick={() => {
+                      setMobileUslugiExpanded((v) => !v);
+                      setMobileRealizacjeExpanded(false);
+                    }}
+                    aria-expanded={mobileUslugiExpanded}
                   >
-                    {sub.name}
-                  </Link>
-                ))}
-              </div>
-              <div>
-                <span className="block text-zinc-500 text-sm font-medium py-2 px-4">Realizacje</span>
-                {realizacjeDropdownItems.map((sub) => (
-                  <Link
-                    key={sub.href}
-                    href={sub.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block text-zinc-300 hover:text-[#d8f17b] py-2 px-4 pl-6 rounded-lg transition-colors"
-                  >
-                    {sub.name}
-                  </Link>
-                ))}
-              </div>
-              {navItems.filter((i) => !i.dropdown).map((item) =>
-                item.href.startsWith('/') ? (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <span className="block text-zinc-300 hover:text-[#d8f17b] py-2 px-4 rounded-lg transition-colors">
-                      {item.name}
-                    </span>
-                  </Link>
-                ) : (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={(e) => handleNavClick(e, item)}
-                    className="text-zinc-300 hover:text-[#d8f17b] py-2 px-4 rounded-lg transition-colors"
-                  >
-                    {item.name}
-                  </a>
-                )
-              )}
-
-              <div className="pt-4 border-t border-white/10 flex items-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    setCartOpen(true);
-                  }}
-                  className="relative inline-flex items-center justify-center text-zinc-400 hover:text-[#d8f17b] p-3 rounded-lg border border-white/15 hover:bg-white/5 transition-colors"
-                  aria-label={cartCount > 0 ? `Otwórz koszyk, ${cartCount} pozycji` : 'Otwórz koszyk'}
-                >
-                  <ShoppingCart className="w-5 h-5" />
-                  {cartCount > 0 && (
-                    <span className="absolute top-1.5 right-1.5 min-w-[20px] h-5 flex items-center justify-center rounded-full bg-accent text-[#0e0e0e] text-xs font-bold px-1">
-                      {cartCount}
-                    </span>
+                    Usługi
+                    <ChevronDown
+                      className={`w-5 h-5 shrink-0 text-zinc-500 transition-transform duration-200 ${mobileUslugiExpanded ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                  {mobileUslugiExpanded && (
+                    <div className="border-t border-white/10">
+                      <div className="py-1 pb-2">
+                        {uslugiDropdownItems.map((sub) => (
+                          <Link
+                            key={sub.href}
+                            href={sub.href}
+                            onClick={closeMobileMenu}
+                            className="block py-2.5 pl-5 pr-4 text-sm text-zinc-400 transition-colors hover:text-[#d8f17b]"
+                          >
+                            {sub.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   )}
-                </button>
-                <Button
-                  variant="primary"
-                  fullWidth
-                  onClick={(e) =>
-                    handleNavClick(e as React.MouseEvent<HTMLButtonElement>, { name: 'Kontakt', href: '#contact' })
-                  }
-                >
-                  Rozpocznij Projekt
-                </Button>
-              </div>
-            </nav>
-          </div>
-        </div>
-      )}
+                </div>
+
+                <div className="rounded-xl border border-white/10 bg-white/[0.03] overflow-hidden">
+                  <button
+                    type="button"
+                    className="flex w-full items-center justify-between gap-3 min-h-[48px] px-4 py-3 text-left text-zinc-200 font-medium hover:bg-white/5 transition-colors"
+                    onClick={() => {
+                      setMobileRealizacjeExpanded((v) => !v);
+                      setMobileUslugiExpanded(false);
+                    }}
+                    aria-expanded={mobileRealizacjeExpanded}
+                  >
+                    Realizacje
+                    <ChevronDown
+                      className={`w-5 h-5 shrink-0 text-zinc-500 transition-transform duration-200 ${mobileRealizacjeExpanded ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                  {mobileRealizacjeExpanded && (
+                    <div className="border-t border-white/10">
+                      <div className="py-1 pb-2">
+                        {realizacjeDropdownItems.map((sub) => (
+                          <Link
+                            key={sub.href}
+                            href={sub.href}
+                            onClick={closeMobileMenu}
+                            className="block py-2.5 pl-5 pr-4 text-sm text-zinc-400 transition-colors hover:text-[#d8f17b]"
+                          >
+                            {sub.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {navItems.filter((i) => !i.dropdown).map((item) =>
+                  item.href.startsWith('/') ? (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={closeMobileMenu}
+                      className="block min-h-[48px] flex items-center text-zinc-300 hover:text-[#d8f17b] px-4 rounded-xl transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  ) : (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      onClick={(e) => handleNavClick(e, item)}
+                      className="block min-h-[48px] flex items-center text-zinc-300 hover:text-[#d8f17b] px-4 rounded-xl transition-colors"
+                    >
+                      {item.name}
+                    </a>
+                  )
+                )}
+
+                <div className="pt-3 mt-1 border-t border-white/10 flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      closeMobileMenu();
+                      setCartOpen(true);
+                    }}
+                    className="relative inline-flex items-center justify-center self-start text-zinc-400 hover:text-[#d8f17b] p-3 rounded-xl border border-white/15 hover:bg-white/5 transition-colors min-h-[48px] min-w-[48px]"
+                    aria-label={cartCount > 0 ? `Otwórz koszyk, ${cartCount} pozycji` : 'Otwórz koszyk'}
+                  >
+                    <ShoppingCart className="w-5 h-5" />
+                    {cartCount > 0 && (
+                      <span className="absolute top-1.5 right-1.5 min-w-[20px] h-5 flex items-center justify-center rounded-full bg-accent text-[#0e0e0e] text-xs font-bold px-1">
+                        {cartCount}
+                      </span>
+                    )}
+                  </button>
+                  <Button
+                    variant="primary"
+                    fullWidth
+                    className="sm:flex-1"
+                    onClick={(e) =>
+                      handleNavClick(e as React.MouseEvent<HTMLButtonElement>, { name: 'Kontakt', href: '#contact' })
+                    }
+                  >
+                    Rozpocznij Projekt
+                  </Button>
+                </div>
+              </nav>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>

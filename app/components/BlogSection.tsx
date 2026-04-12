@@ -7,6 +7,9 @@ import { ArrowRight } from 'lucide-react';
 import { BrandMarkIcon } from './BrandMarkIcon';
 import { SECTION_H2_CLASS } from '@/lib/layout';
 
+/** Mobile Safari: generous margin helps IntersectionObserver fire with scroll/layout quirks. */
+const inView = { once: true as const, amount: 0.05, margin: '0px 0px -12% 0px' as const };
+
 export type BlogSectionFeaturedPost = {
   slug: string;
   title: string;
@@ -23,7 +26,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
   const featuredPosts = posts.slice(0, 3);
 
   return (
-    <section id="blog" aria-labelledby="blog-heading" className="relative py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-hidden">
+    <section id="blog" aria-labelledby="blog-heading" className="relative py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-x-hidden">
       <div className="absolute inset-0 bg-[var(--bg-graphite)]" />
 
       <div className="relative z-10 max-w-7xl 2xl:max-w-8xl 3xl:max-w-9xl mx-auto">
@@ -31,7 +34,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={inView}
             transition={{ duration: 0.6 }}
             className="inline-flex items-center justify-center gap-2 mb-3 sm:mb-4 text-[#d8f17b] text-xs sm:text-sm font-medium uppercase tracking-wider"
           >
@@ -42,7 +45,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
             id="blog-heading"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={inView}
             transition={{ duration: 0.6, delay: 0.1 }}
             className={`${SECTION_H2_CLASS} mb-3 sm:mb-4 lg:mb-6 px-2 sm:px-4`}
           >
@@ -54,7 +57,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={inView}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto text-center leading-relaxed"
           >
@@ -73,13 +76,13 @@ export function BlogSection({ posts }: BlogSectionProps) {
                 key={post.slug}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={inView}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative flex flex-col rounded-2xl glass-card hover-lift overflow-hidden"
                 style={{ background: 'var(--bg-graphite-card)', backdropFilter: 'blur(16px)' }}
               >
                 <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
-                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/5">
+                  <div className="relative z-[1] aspect-[16/10] w-full overflow-hidden bg-white/5">
                     <Image
                       src={post.image}
                       alt=""
@@ -107,7 +110,7 @@ export function BlogSection({ posts }: BlogSectionProps) {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={inView}
           transition={{ duration: 0.5, delay: 0.15 }}
           className="flex justify-center mt-10 sm:mt-12 lg:mt-14"
         >

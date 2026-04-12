@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const articleBodyClass =
-  'article-body prose prose-invert max-w-none text-zinc-400 [&_h2]:text-xl [&_h2]:sm:text-2xl [&_h2]:font-bold [&_h2]:text-[#e4e4e7] [&_h2]:mt-10 [&_h2]:mb-4 [&_h3]:text-lg [&_h3]:sm:text-xl [&_h3]:font-bold [&_h3]:text-zinc-200 [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:leading-relaxed [&_p]:mb-4 [&_a]:text-[#d8f17b] [&_a]:hover:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-1 [&_ul]:my-4 [&_figure_img]:max-w-full [&_img]:max-w-full';
+  'article-body prose prose-invert max-w-none text-zinc-400 relative z-[1] [&_h2]:text-xl [&_h2]:sm:text-2xl [&_h2]:font-bold [&_h2]:text-[#e4e4e7] [&_h2]:mt-10 [&_h2]:mb-4 [&_h3]:text-lg [&_h3]:sm:text-xl [&_h3]:font-bold [&_h3]:text-zinc-200 [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:leading-relaxed [&_p]:mb-4 [&_a]:text-[#d8f17b] [&_a]:hover:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-1 [&_ul]:my-4 [&_figure]:my-6 [&_figure_img]:max-w-full [&_figure_img]:h-auto [&_figure_img]:block [&_img]:max-w-full [&_img]:h-auto [&_img]:block';
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
@@ -85,12 +85,12 @@ export default async function BlogPostPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }} />
       <Header />
       <main id="main-content" role="main" className="min-h-screen subpage-main">
-        <article className="relative py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-hidden">
+        <article className="relative py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12 overflow-x-hidden">
           <div className="absolute inset-0 bg-[var(--bg)]" />
           <div className={CONTAINER_CLASS}>
             <div className="w-full flex justify-center">
               <div className="w-full max-w-3xl">
-                <MotionFadeIn>
+                <MotionFadeIn variant="mount">
                   <Link
                     href="/blog"
                     className="inline-flex items-center gap-2 min-h-[44px] items-center text-zinc-400 hover:text-[#d8f17b] transition-colors mb-6 sm:mb-8 lg:mb-12"
@@ -99,15 +99,15 @@ export default async function BlogPostPage({ params }: Props) {
                     Wróć do bloga
                   </Link>
                 </MotionFadeIn>
-                <MotionFadeIn delay={0.1}>
-                  <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 mb-8">
+                <MotionFadeIn delay={0.1} variant="mount">
+                  <div className="relative z-[1] aspect-[16/10] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 mb-8">
                     <Image
                       src={post.image}
                       alt=""
                       fill
                       className="object-cover"
                       priority
-                      sizes="(max-width: 768px) 100vw, 48rem"
+                      sizes="(max-width: 768px) 100vw, min(100vw, 48rem)"
                     />
                   </div>
                   <header>
