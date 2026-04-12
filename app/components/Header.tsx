@@ -394,7 +394,7 @@ export function Header() {
               {/* Single scroll surface: whole drawer (nav + actions) on short screens */}
               <div className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden overscroll-contain px-4 py-4 touch-pan-y [-webkit-overflow-scrolling:touch] sm:px-5 sm:py-5">
                 <nav className="flex flex-col" aria-label="Menu główne">
-                  <div className="border-b border-white/[0.08]">
+                  <div>
                     <button
                       type="button"
                       className="flex w-full min-h-[48px] items-center justify-between gap-3 py-3 text-left text-base font-medium text-zinc-300 transition-colors hover:text-[#d8f17b]"
@@ -416,7 +416,7 @@ export function Header() {
                             key={sub.href}
                             href={sub.href}
                             onClick={closeMobileMenu}
-                            className="flex min-h-[44px] items-center border-l border-white/10 py-2.5 pl-4 text-sm text-zinc-400 transition-colors hover:text-[#d8f17b]"
+                            className="flex min-h-[44px] items-center py-2.5 pl-3 text-sm text-zinc-400 transition-colors hover:text-[#d8f17b]"
                           >
                             {sub.name}
                           </Link>
@@ -425,7 +425,7 @@ export function Header() {
                     )}
                   </div>
 
-                  <div className="border-b border-white/[0.08]">
+                  <div>
                     <button
                       type="button"
                       className="flex w-full min-h-[48px] items-center justify-between gap-3 py-3 text-left text-base font-medium text-zinc-300 transition-colors hover:text-[#d8f17b]"
@@ -447,7 +447,7 @@ export function Header() {
                             key={sub.href}
                             href={sub.href}
                             onClick={closeMobileMenu}
-                            className="flex min-h-[44px] items-center border-l border-white/10 py-2.5 pl-4 text-sm text-zinc-400 transition-colors hover:text-[#d8f17b]"
+                            className="flex min-h-[44px] items-center py-2.5 pl-3 text-sm text-zinc-400 transition-colors hover:text-[#d8f17b]"
                           >
                             {sub.name}
                           </Link>
@@ -462,7 +462,7 @@ export function Header() {
                         key={item.name}
                         href={item.href}
                         onClick={closeMobileMenu}
-                        className="flex min-h-[48px] items-center border-b border-white/[0.08] py-3 text-base font-medium text-zinc-300 transition-colors last:border-b-0 hover:text-[#d8f17b]"
+                        className="flex min-h-[48px] items-center py-3 text-base font-medium text-zinc-300 transition-colors hover:text-[#d8f17b]"
                       >
                         {item.name}
                       </Link>
@@ -471,7 +471,7 @@ export function Header() {
                         key={item.name}
                         href={item.href}
                         onClick={(e) => handleNavClick(e, item)}
-                        className="flex min-h-[48px] items-center border-b border-white/[0.08] py-3 text-base font-medium text-zinc-300 transition-colors last:border-b-0 hover:text-[#d8f17b]"
+                        className="flex min-h-[48px] items-center py-3 text-base font-medium text-zinc-300 transition-colors hover:text-[#d8f17b]"
                       >
                         {item.name}
                       </a>
@@ -479,7 +479,7 @@ export function Header() {
                   )}
                 </nav>
 
-                <div className="mt-4 flex flex-col gap-3 border-t border-white/10 pt-4 sm:flex-row sm:items-center">
+                <div className="mt-4 flex flex-col gap-3 pt-2 sm:flex-row sm:items-center">
                   <button
                     type="button"
                     onClick={() => {
