@@ -20,8 +20,7 @@
  * Article body is the page content (blocks under each database row), rendered to HTML.
  *
  * Listing uses unstable_cache (tag `notion-blog`). Set NOTION_CACHE_SECONDS=0 to **always** fetch
- * Notion (no list cache — higher API usage). Optional: Vercel Cron → /api/cron/revalidate-blog every
- * few minutes for near-live updates without 0. Manual: POST /api/revalidate-blog with secret.
+ * Notion (no list cache — higher API usage). Manual: GET/POST /api/revalidate-blog with secret.
  *
  * Unpublishing: rows come only from Notion’s published filter (or client-side match). Optional
  * NOTION_LIVE_VERIFY_ARTICLE=1 re-checks each article page against Notion (can false-negative).
