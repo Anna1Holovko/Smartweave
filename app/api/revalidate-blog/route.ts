@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { revalidatePath, revalidateTag } from 'next/cache';
+import { revalidateBlogCache } from '@/lib/revalidate-blog-cache';
 
 export const dynamic = 'force-dynamic';
 
@@ -17,17 +17,6 @@ function getSecretFromRequest(request: Request): string | undefined {
   const auth = request.headers.get('authorization')?.replace(/^Bearer\s+/i, '').trim();
   if (auth) return auth;
   return undefined;
-}
-
-async function runRevalidate(): Promise<{ ok: true; revalidated: string[] }> {
-  revalidateTag('notion-blog');
-  revalidatePath('/blog');
-  revalidatePath('/');
-  revalidatePath('/sitemap.xml');
-  return {
-    ok: true,
-    revalidated: ['tag:notion-blog', '/blog', '/', '/sitemap.xml'],
-  };
 }
 
 /**
@@ -65,7 +54,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const result = await runRevalidate();
+    const result = await revalidateBlogCache();
     return NextResponse.json(result, { headers: NO_STORE });
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
@@ -86,7 +75,7 @@ export async function GET(request: Request) {
     return NextResponse.json({ ok: false, error: 'Unauthorized' }, { status: 401, headers: NO_STORE });
   }
   try {
-    const result = await runRevalidate();
+    const result = await revalidateBlogCache();
     return NextResponse.json(result, { headers: NO_STORE });
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);

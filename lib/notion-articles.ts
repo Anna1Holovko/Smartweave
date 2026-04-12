@@ -19,9 +19,9 @@
  *
  * Article body is the page content (blocks under each database row), rendered to HTML.
  *
- * Listing is cached with Next.js unstable_cache + route revalidate (default 60s). After edits in
- * Notion, changes appear within ~NOTION_CACHE_SECONDS, or immediately after POST /api/revalidate-blog
- * with NOTION_REVALIDATE_SECRET (no redeploy). Override NOTION_CACHE_SECONDS (minimum 30).
+ * Listing uses unstable_cache (tag `notion-blog`). Set NOTION_CACHE_SECONDS=0 to **always** fetch
+ * Notion (no list cache — higher API usage). Optional: Vercel Cron → /api/cron/revalidate-blog every
+ * few minutes for near-live updates without 0. Manual: POST /api/revalidate-blog with secret.
  *
  * Unpublishing: rows come only from Notion’s published filter (or client-side match). Optional
  * NOTION_LIVE_VERIFY_ARTICLE=1 re-checks each article page against Notion (can false-negative).
@@ -42,12 +42,34 @@ import type {
   RichTextItemResponse,
 } from '@notionhq/client';
 /**
- * Seconds (Next `unstable_cache`). Default 30; align with `revalidate` on blog routes + NOTION_CACHE_SECONDS.
+ * Seconds for Next `unstable_cache` revalidate. Default 30. Minimum 15 when using a positive value.
+ * **NOTION_CACHE_SECONDS=0** disables the list cache entirely (always fresh from Notion).
  */
-export const NOTION_LIST_REVALIDATE_SECONDS = Math.max(
-  15,
-  Number(process.env.NOTION_CACHE_SECONDS ?? 30) || 30,
-);
+function parseNotionCacheSecondsEnv(): number {
+  const raw = process.env.NOTION_CACHE_SECONDS;
+  if (raw === undefined || raw.trim() === '') return 30;
+  const n = Number(raw.trim());
+  if (!Number.isFinite(n) || n < 0) return 30;
+  if (n === 0) return 0;
+  return Math.max(15, n);
+}
+
+/** Used by unstable_cache `revalidate` (ignored when list cache is bypassed). */
+export const NOTION_LIST_REVALIDATE_SECONDS = (() => {
+  const v = parseNotionCacheSecondsEnv();
+  return v === 0 ? 30 : v;
+})();
+
+export function shouldBypassNotionListCache(): boolean {
+  if (process.env.NOTION_SKIP_CACHE === '1' || process.env.NOTION_SKIP_CACHE === 'true') return true;
+  if (process.env.NOTION_NO_LIST_CACHE === '1' || process.env.NOTION_NO_LIST_CACHE === 'true') return true;
+  return parseNotionCacheSecondsEnv() === 0;
+}
+
+/** Parsed `NOTION_CACHE_SECONDS` (0 = list cache bypassed). Default 30. */
+export function getNotionCacheSecondsFromEnv(): number {
+  return parseNotionCacheSecondsEnv();
+}
 
 export type NotionArticle = {
   id: string;
@@ -776,7 +798,7 @@ export async function fetchNotionArticlesFromApi(): Promise<NotionArticle[]> {
 
 const getNotionArticlesCached = unstable_cache(
   fetchNotionArticlesFromApi,
-  ['notion-blog-articles', 'v11-cover-hydrate'],
+  ['notion-blog-articles', 'v12-cache-bypass'],
   {
     revalidate: NOTION_LIST_REVALIDATE_SECONDS,
     tags: ['notion-blog'],
@@ -788,13 +810,8 @@ const getNotionArticlesCached = unstable_cache(
  * Set NOTION_SKIP_CACHE=1 or NOTION_NO_LIST_CACHE=1 to bypass unstable_cache (always hit Notion API).
  */
 export async function getNotionArticles(): Promise<NotionArticle[]> {
-  const bypassListCache =
-    process.env.NOTION_SKIP_CACHE === '1' ||
-    process.env.NOTION_SKIP_CACHE === 'true' ||
-    process.env.NOTION_NO_LIST_CACHE === '1' ||
-    process.env.NOTION_NO_LIST_CACHE === 'true';
   try {
-    if (bypassListCache) {
+    if (shouldBypassNotionListCache()) {
       return await fetchNotionArticlesFromApi();
     }
     return await getNotionArticlesCached();

@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server';
 import {
   fetchNotionArticlesFromApi,
+  getNotionCacheSecondsFromEnv,
   isNotionBlogEnvConfigured,
   NOTION_LIST_REVALIDATE_SECONDS,
+  shouldBypassNotionListCache,
 } from '@/lib/notion-articles';
 
 export const dynamic = 'force-dynamic';
@@ -69,7 +71,9 @@ export async function GET(request: Request) {
         notionConfigured: isNotionBlogEnvConfigured(),
         statusPublished: process.env.NOTION_STATUS_PUBLISHED?.trim() || 'Published',
         titleProperty: process.env.NOTION_PROP_TITLE || null,
-        listCacheSeconds: NOTION_LIST_REVALIDATE_SECONDS,
+        listCacheBypass: shouldBypassNotionListCache(),
+        notionCacheSecondsEnv: getNotionCacheSecondsFromEnv(),
+        listCacheRevalidateSeconds: NOTION_LIST_REVALIDATE_SECONDS,
         hint:
           articles.length === 0 && isNotionBlogEnvConfigured()
             ? 'Sprawdź w Notion: Status jak NOTION_STATUS_PUBLISHED, ta sama baza, integracja. Strona używa cache listy — POST /api/revalidate-blog lub ?secret= na revalidate (ten sam co tutaj).'

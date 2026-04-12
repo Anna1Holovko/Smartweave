@@ -12,7 +12,7 @@ import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
 import { getAllPosts } from '@/lib/blog-adapter';
 
-/** ISR: refetch Notion blog data for this page (~60s). Keep in sync with lib/notion-articles NOTION_LIST_REVALIDATE_SECONDS default. */
+/** ISR: refetch Notion blog data for this page. Align with `revalidate` on /blog and NOTION_CACHE_SECONDS. */
 export const revalidate = 30;
 
 export default async function HomePage() {
