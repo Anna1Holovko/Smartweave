@@ -382,116 +382,116 @@ export function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2 }}
-              className="fixed left-4 right-4 z-[45] flex max-h-[calc(100dvh-4.5rem-env(safe-area-inset-bottom,0px))] min-h-0 flex-col overflow-hidden rounded-2xl border border-[var(--border-subtle)] shadow-2xl lg:hidden"
+              className="fixed left-4 right-4 z-[45] flex min-h-0 flex-col overflow-hidden rounded-2xl border border-[var(--border-subtle)] shadow-2xl lg:hidden"
               style={{
-                top: 'max(4.25rem, calc(env(safe-area-inset-top, 0px) + 3.5rem))',
+                top: 'max(4rem, calc(env(safe-area-inset-top, 0px) + 3.25rem))',
+                bottom: 'max(0.5rem, env(safe-area-inset-bottom, 0px))',
                 background: 'rgba(12, 14, 20, 0.96)',
                 backdropFilter: 'blur(64px) saturate(1.15)',
                 WebkitBackdropFilter: 'blur(64px) saturate(1.15)',
               }}
             >
-              <nav className="flex min-h-0 flex-1 flex-col gap-1 overflow-y-auto overscroll-contain p-4 pb-[max(1rem,env(safe-area-inset-bottom))] touch-pan-y sm:p-6 [-webkit-overflow-scrolling:touch]">
-                <div className="rounded-xl border border-white/10 bg-white/[0.03] overflow-hidden">
-                  <button
-                    type="button"
-                    className="flex w-full items-center justify-between gap-3 min-h-[48px] px-4 py-3 text-left text-zinc-200 font-medium hover:bg-white/5 transition-colors"
-                    onClick={() => {
-                      setMobileUslugiExpanded((v) => !v);
-                      setMobileRealizacjeExpanded(false);
-                    }}
-                    aria-expanded={mobileUslugiExpanded}
-                  >
-                    Usługi
-                    <ChevronDown
-                      className={`w-5 h-5 shrink-0 text-zinc-500 transition-transform duration-200 ${mobileUslugiExpanded ? 'rotate-180' : ''}`}
-                    />
-                  </button>
-                  {mobileUslugiExpanded && (
-                    <div className="border-t border-white/10">
-                      <div className="py-1 pb-2">
+              {/* Single scroll surface: whole drawer (nav + actions) on short screens */}
+              <div className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden overscroll-contain px-4 py-4 touch-pan-y [-webkit-overflow-scrolling:touch] sm:px-5 sm:py-5">
+                <nav className="flex flex-col" aria-label="Menu główne">
+                  <div className="border-b border-white/[0.08]">
+                    <button
+                      type="button"
+                      className="flex w-full min-h-[48px] items-center justify-between gap-3 py-3 text-left text-base font-medium text-zinc-300 transition-colors hover:text-[#d8f17b]"
+                      onClick={() => {
+                        setMobileUslugiExpanded((v) => !v);
+                        setMobileRealizacjeExpanded(false);
+                      }}
+                      aria-expanded={mobileUslugiExpanded}
+                    >
+                      Usługi
+                      <ChevronDown
+                        className={`h-5 w-5 shrink-0 text-zinc-500 transition-transform duration-200 ${mobileUslugiExpanded ? 'rotate-180' : ''}`}
+                      />
+                    </button>
+                    {mobileUslugiExpanded && (
+                      <div className="space-y-0 pb-3">
                         {uslugiDropdownItems.map((sub) => (
                           <Link
                             key={sub.href}
                             href={sub.href}
                             onClick={closeMobileMenu}
-                            className="block py-2.5 pl-5 pr-4 text-sm text-zinc-400 transition-colors hover:text-[#d8f17b]"
+                            className="flex min-h-[44px] items-center border-l border-white/10 py-2.5 pl-4 text-sm text-zinc-400 transition-colors hover:text-[#d8f17b]"
                           >
                             {sub.name}
                           </Link>
                         ))}
                       </div>
-                    </div>
-                  )}
-                </div>
+                    )}
+                  </div>
 
-                <div className="rounded-xl border border-white/10 bg-white/[0.03] overflow-hidden">
-                  <button
-                    type="button"
-                    className="flex w-full items-center justify-between gap-3 min-h-[48px] px-4 py-3 text-left text-zinc-200 font-medium hover:bg-white/5 transition-colors"
-                    onClick={() => {
-                      setMobileRealizacjeExpanded((v) => !v);
-                      setMobileUslugiExpanded(false);
-                    }}
-                    aria-expanded={mobileRealizacjeExpanded}
-                  >
-                    Realizacje
-                    <ChevronDown
-                      className={`w-5 h-5 shrink-0 text-zinc-500 transition-transform duration-200 ${mobileRealizacjeExpanded ? 'rotate-180' : ''}`}
-                    />
-                  </button>
-                  {mobileRealizacjeExpanded && (
-                    <div className="border-t border-white/10">
-                      <div className="py-1 pb-2">
+                  <div className="border-b border-white/[0.08]">
+                    <button
+                      type="button"
+                      className="flex w-full min-h-[48px] items-center justify-between gap-3 py-3 text-left text-base font-medium text-zinc-300 transition-colors hover:text-[#d8f17b]"
+                      onClick={() => {
+                        setMobileRealizacjeExpanded((v) => !v);
+                        setMobileUslugiExpanded(false);
+                      }}
+                      aria-expanded={mobileRealizacjeExpanded}
+                    >
+                      Realizacje
+                      <ChevronDown
+                        className={`h-5 w-5 shrink-0 text-zinc-500 transition-transform duration-200 ${mobileRealizacjeExpanded ? 'rotate-180' : ''}`}
+                      />
+                    </button>
+                    {mobileRealizacjeExpanded && (
+                      <div className="space-y-0 pb-3">
                         {realizacjeDropdownItems.map((sub) => (
                           <Link
                             key={sub.href}
                             href={sub.href}
                             onClick={closeMobileMenu}
-                            className="block py-2.5 pl-5 pr-4 text-sm text-zinc-400 transition-colors hover:text-[#d8f17b]"
+                            className="flex min-h-[44px] items-center border-l border-white/10 py-2.5 pl-4 text-sm text-zinc-400 transition-colors hover:text-[#d8f17b]"
                           >
                             {sub.name}
                           </Link>
                         ))}
                       </div>
-                    </div>
+                    )}
+                  </div>
+
+                  {navItems.filter((i) => !i.dropdown).map((item) =>
+                    item.href.startsWith('/') ? (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={closeMobileMenu}
+                        className="flex min-h-[48px] items-center border-b border-white/[0.08] py-3 text-base font-medium text-zinc-300 transition-colors last:border-b-0 hover:text-[#d8f17b]"
+                      >
+                        {item.name}
+                      </Link>
+                    ) : (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        onClick={(e) => handleNavClick(e, item)}
+                        className="flex min-h-[48px] items-center border-b border-white/[0.08] py-3 text-base font-medium text-zinc-300 transition-colors last:border-b-0 hover:text-[#d8f17b]"
+                      >
+                        {item.name}
+                      </a>
+                    )
                   )}
-                </div>
+                </nav>
 
-                {navItems.filter((i) => !i.dropdown).map((item) =>
-                  item.href.startsWith('/') ? (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      onClick={closeMobileMenu}
-                      className="block min-h-[48px] flex items-center text-zinc-300 hover:text-[#d8f17b] px-4 rounded-xl transition-colors"
-                    >
-                      {item.name}
-                    </Link>
-                  ) : (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      onClick={(e) => handleNavClick(e, item)}
-                      className="block min-h-[48px] flex items-center text-zinc-300 hover:text-[#d8f17b] px-4 rounded-xl transition-colors"
-                    >
-                      {item.name}
-                    </a>
-                  )
-                )}
-
-                <div className="pt-3 mt-1 border-t border-white/10 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <div className="mt-4 flex flex-col gap-3 border-t border-white/10 pt-4 sm:flex-row sm:items-center">
                   <button
                     type="button"
                     onClick={() => {
                       closeMobileMenu();
                       setCartOpen(true);
                     }}
-                    className="relative inline-flex items-center justify-center self-start text-zinc-400 hover:text-[#d8f17b] p-3 rounded-xl border border-white/15 hover:bg-white/5 transition-colors min-h-[48px] min-w-[48px]"
+                    className="relative inline-flex min-h-[48px] min-w-[48px] items-center justify-center self-start rounded-xl border border-white/15 p-3 text-zinc-400 transition-colors hover:bg-white/5 hover:text-[#d8f17b]"
                     aria-label={cartCount > 0 ? `Otwórz koszyk, ${cartCount} pozycji` : 'Otwórz koszyk'}
                   >
-                    <ShoppingCart className="w-5 h-5" />
+                    <ShoppingCart className="h-5 w-5" />
                     {cartCount > 0 && (
-                      <span className="absolute top-1.5 right-1.5 min-w-[20px] h-5 flex items-center justify-center rounded-full bg-accent text-[#0e0e0e] text-xs font-bold px-1">
+                      <span className="absolute right-1.5 top-1.5 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-accent px-1 text-xs font-bold text-[#0e0e0e]">
                         {cartCount}
                       </span>
                     )}
@@ -507,7 +507,7 @@ export function Header() {
                     Rozpocznij Projekt
                   </Button>
                 </div>
-              </nav>
+              </div>
             </motion.div>
           </>
         )}
