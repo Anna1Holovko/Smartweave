@@ -10,8 +10,8 @@ import { isNotionBlogEnvConfigured } from '@/lib/notion-articles';
 import { QuickAutomationCta } from '../components/QuickAutomationCta';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
-/** ISR: blog listing from Notion (~60s). Sync with lib/notion-articles cache. */
-export const revalidate = 60;
+/** ISR: blog listing. Align with NOTION_CACHE_SECONDS (default 30). */
+export const revalidate = 30;
 
 export const metadata: Metadata = {
   title: 'Blog',

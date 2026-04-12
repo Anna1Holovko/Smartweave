@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'logo.clearbit.com', pathname: '/**' },
       { protocol: 'https', hostname: 'cdn.worldvectorlogo.com', pathname: '/**' },
       { protocol: 'https', hostname: 'upload.wikimedia.org', pathname: '/**' },
+      { protocol: 'https', hostname: 'www.notion.so', pathname: '/**' },
+      { protocol: 'https', hostname: 'notion.so', pathname: '/**' },
+      { protocol: 'https', hostname: 'images.unsplash.com', pathname: '/**' },
+      { protocol: 'https', hostname: '*.amazonaws.com', pathname: '/**' },
     ],
   },
 };

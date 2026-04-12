@@ -14,6 +14,9 @@
  *   - Publish date: date
  *   - Meta description: rich text (optional)
  *
+ * Covers: the site prefers **Notion** page cover (⋯ → Add cover) or NOTION_PROP_COVER; fallback is
+ * `lib/blog-cover-urls.ts` + `public/assets/blog/`. One-time push from repo URLs: `sync-blog-covers-to-notion --from-code`.
+ *
  * Article body is the page content (blocks under each database row), rendered to HTML.
  *
  * Listing is cached with Next.js unstable_cache + route revalidate (default 60s). After edits in
@@ -39,12 +42,11 @@ import type {
   RichTextItemResponse,
 } from '@notionhq/client';
 /**
- * Seconds (Next `unstable_cache`). Default 60 matches `export const revalidate = 60` on blog routes.
- * If you change one, align the other (NOTION_CACHE_SECONDS).
+ * Seconds (Next `unstable_cache`). Default 30; align with `revalidate` on blog routes + NOTION_CACHE_SECONDS.
  */
 export const NOTION_LIST_REVALIDATE_SECONDS = Math.max(
-  30,
-  Number(process.env.NOTION_CACHE_SECONDS ?? 60) || 60,
+  15,
+  Number(process.env.NOTION_CACHE_SECONDS ?? 30) || 30,
 );
 
 export type NotionArticle = {
@@ -54,6 +56,8 @@ export type NotionArticle = {
   content: string;
   meta_description: string;
   publish_date: string;
+  /** Absolute https URL from Notion page cover or NOTION_PROP_COVER; omitted when none. */
+  cover_url?: string;
 };
 
 function getToken(): string | undefined {
@@ -175,6 +179,34 @@ function pageMatchesPublishedLabelLenient(
   return pageMatchesPublishedLabel(page, names);
 }
 
+/** Notion page cover (⋯ → Add cover) or uploaded cover file. */
+function coverUrlFromPage(page: PageObjectResponse): string | null {
+  const c = page.cover;
+  if (!c) return null;
+  if (c.type === 'external') return c.external.url;
+  if (c.type === 'file') return c.file.url;
+  return null;
+}
+
+/** Optional DB column: URL or Files (first file). Env NOTION_PROP_COVER = exact property name. */
+function coverUrlFromProperty(page: PageObjectResponse): string | null {
+  const prop = process.env.NOTION_PROP_COVER?.trim();
+  if (!prop) return null;
+  const p = page.properties[prop];
+  if (!p) return null;
+  if (p.type === 'url' && p.url) return p.url;
+  if (p.type === 'files' && p.files?.length) {
+    const f = p.files[0];
+    if (f.type === 'external') return f.external.url;
+    if (f.type === 'file') return f.file.url;
+  }
+  return null;
+}
+
+function resolveCoverUrl(page: PageObjectResponse): string | null {
+  return coverUrlFromProperty(page) || coverUrlFromPage(page);
+}
+
 function slugifyFromTitle(title: string): string {
   const s = title
     .trim()
@@ -266,7 +298,8 @@ function normalizeSlug(raw: string): string {
   return s;
 }
 
-function slugFromPage(page: PageObjectResponse, slugProp: string): string {
+/** Same slug rules as blog list (rich text / URL / formula). Used by sync-blog-covers-to-notion script. */
+export function slugFromPage(page: PageObjectResponse, slugProp: string): string {
   const p = page.properties[slugProp];
   if (!p) return '';
   let raw = '';
@@ -676,6 +709,7 @@ async function fetchNotionArticlesFromApiOnce(): Promise<NotionArticle[]> {
       const meta = metaFromPage(row, names.meta);
       const publish_date = dateFromPage(row, names.date);
 
+      const cover = resolveCoverUrl(row);
       articles.push({
         id: row.id,
         title,
@@ -683,6 +717,7 @@ async function fetchNotionArticlesFromApiOnce(): Promise<NotionArticle[]> {
         content: html,
         meta_description: meta,
         publish_date,
+        ...(cover ? { cover_url: cover } : {}),
       });
     } catch (rowErr) {
       console.error(`[Notion articles] Pominięto wiersz ${row.id} (błąd treści/strony)`, rowErr);
@@ -692,7 +727,8 @@ async function fetchNotionArticlesFromApiOnce(): Promise<NotionArticle[]> {
   return articles;
 }
 
-async function fetchNotionArticlesFromApi(): Promise<NotionArticle[]> {
+/** Direct Notion → articles (retries + throws on hard errors). No unstable_cache — use for debug / webhooks. */
+export async function fetchNotionArticlesFromApi(): Promise<NotionArticle[]> {
   if (!getToken()) return [];
 
   try {
@@ -721,7 +757,7 @@ async function fetchNotionArticlesFromApi(): Promise<NotionArticle[]> {
 
 const getNotionArticlesCached = unstable_cache(
   fetchNotionArticlesFromApi,
-  ['notion-blog-articles', 'v7-retry-and-throw'],
+  ['notion-blog-articles', 'v9-cover'],
   {
     revalidate: NOTION_LIST_REVALIDATE_SECONDS,
     tags: ['notion-blog'],
@@ -730,11 +766,16 @@ const getNotionArticlesCached = unstable_cache(
 
 /**
  * Published rows from Notion (Status = Published). Cached ~NOTION_LIST_REVALIDATE_SECONDS.
- * Set NOTION_SKIP_CACHE=1 to bypass cache while debugging.
+ * Set NOTION_SKIP_CACHE=1 or NOTION_NO_LIST_CACHE=1 to bypass unstable_cache (always hit Notion API).
  */
 export async function getNotionArticles(): Promise<NotionArticle[]> {
+  const bypassListCache =
+    process.env.NOTION_SKIP_CACHE === '1' ||
+    process.env.NOTION_SKIP_CACHE === 'true' ||
+    process.env.NOTION_NO_LIST_CACHE === '1' ||
+    process.env.NOTION_NO_LIST_CACHE === 'true';
   try {
-    if (process.env.NOTION_SKIP_CACHE === '1' || process.env.NOTION_SKIP_CACHE === 'true') {
+    if (bypassListCache) {
       return await fetchNotionArticlesFromApi();
     }
     return await getNotionArticlesCached();

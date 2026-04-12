@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { SITE_URL, SITEMAP_ROUTES } from '@/lib/site';
 import { getAllPosts } from '@/lib/blog-adapter';
 /** ISR: new /blog/* URLs appear in sitemap after Notion publish (~60s). */
-export const revalidate = 60;
+export const revalidate = 30;
 
 /**
  * Generates the XML sitemap for Google Search Console and other crawlers.

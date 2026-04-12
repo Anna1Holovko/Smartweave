@@ -11,8 +11,8 @@ import { SITE_URL } from '@/lib/site';
 import { CONTAINER_CLASS } from '@/lib/layout';
 import { QuickAutomationCta } from '@/app/components/QuickAutomationCta';
 import { ArrowLeft } from 'lucide-react';
-/** ISR: article HTML from Notion (~60s). Sync with lib/notion-articles cache. */
-export const revalidate = 60;
+/** ISR: article HTML from Notion. Align with NOTION_CACHE_SECONDS (default 30). */
+export const revalidate = 30;
 
 /** Slugs not in this list (e.g. new Notion posts after deploy) still render — default dynamicParams. */
 export const dynamicParams = true;
