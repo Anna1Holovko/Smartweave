@@ -43,8 +43,8 @@ export function ScrollToTop() {
           aria-label="Przewiń na górę strony"
         >
           <div className="relative">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full glass-card border border-[#d8f17b]/30 flex items-center justify-center transition-all duration-300 hover:border-[#d8f17b]/60 hover:shadow-[0_0_30px_rgba(216,241,123,0.25)] group-hover:scale-110">
-              <ArrowUp className="w-5 h-5 sm:w-6 sm:h-6 text-[#d8f17b] transition-colors" />
+            <div className="w-14 h-14 rounded-full glass-card border border-[#d8f17b]/30 flex items-center justify-center transition-all duration-300 hover:border-[#d8f17b]/60 hover:shadow-[0_0_30px_rgba(216,241,123,0.25)] group-hover:scale-110">
+              <ArrowUp className="w-6 h-6 text-[#d8f17b] transition-colors" />
             </div>
           </div>
         </motion.button>
