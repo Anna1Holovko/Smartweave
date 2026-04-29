@@ -340,4 +340,13 @@
   .gradient-philosophy-to-footer {
     background: linear-gradient(to bottom, var(--bg) 0%, var(--bg-2) 38%, #0a0c12 100%);
   }
+
+  /* Align Cookiebot widget with our Chatbot FAB (one horizontal row). */
+  #CookiebotWidget,
+  .CookiebotWidget {
+    bottom: max(1.5rem, env(safe-area-inset-bottom, 0px)) !important;
+    /* Chatbot FAB is 56px wide + gap-3 (12px). */
+    right: calc(max(1.5rem, env(safe-area-inset-right, 0px)) + 3.5rem + 0.75rem) !important;
+    z-index: 9998 !important;
+  }
 }
