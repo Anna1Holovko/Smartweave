@@ -54,7 +54,7 @@ export const BLOG_STATIC_META: BlogStaticMeta[] = [
   },
   {
     slug: 'design-na-ai-strona-branding-wyszukiwarki-ai',
-    title: 'Design na AI: strona i branding pod wyszukiwarki AI',
+    title: 'Web Development na AI: strona i branding pod wyszukiwarki AI',
     date: '2026-02-01',
     metaDescription:
       'Jak przygotować stronę i branding pod ChatGPT i Perplexity. Widoczność w erze wyszukiwarek AI',
@@ -89,7 +89,7 @@ export const BLOG_STATIC_META: BlogStaticMeta[] = [
   },
   {
     slug: 'design-i-automatyzacja-dla-sme',
-    title: 'Design i automatyzacja dla małych firm - od czego zacząć',
+    title: 'Web Development i automatyzacja dla małych firm - od czego zacząć',
     date: '2025-12-17',
     metaDescription:
       'Strona, branding i pierwsze automatyzacje bez nadwyrężania budżetu. Kroki dla SME od SmartWeave',

@@ -362,7 +362,7 @@ export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
       t: 'p',
       c: 'Małe i średnie firmy często odkładają inwestycję w design i automatyzację, uznając je za domenę dużych korporacji. Tymczasem dobra strona internetowa, spójna prezentacja i proste automatyzacje są dziś w zasięgu budżetu SME i mogą realnie wpłynąć na wizerunek, liczbę leadów oraz oszczędność czasu. Poniżej praktyczne kroki, od których warto zacząć.',
     },
-    { t: 'h2', c: 'Design dla małych firm - od czego zacząć?' },
+    { t: 'h2', c: 'Web Development dla małych firm - od czego zacząć?' },
     { t: 'h3', c: 'Strona internetowa' },
     {
       t: 'p',
@@ -401,7 +401,7 @@ export const BLOG_CONTENT: Record<string, ContentBlock[]> = {
     { t: 'h2', c: 'Podsumowanie' },
     {
       t: 'p',
-      c: 'Design i automatyzacja dla małych firm to nie luksus, tylko narzędzia wspierające rozwój i codzienną pracę. Od dobrej strony i jednego, prostego workflowu można zacząć już dziś - bez wielkich nakładów - i stopniowo dodawać kolejne elementy w miarę potrzeb i budżetu. W SmartWeave łączymy projektowanie stron, branding i wdrożenia automatyzacji pod jednym dachem - tak, żeby firma mogła rozwijać się spójnie.',
+      c: 'Web Development i automatyzacja dla małych firm to nie luksus, tylko narzędzia wspierające rozwój i codzienną pracę. Od dobrej strony i jednego, prostego workflowu można zacząć już dziś - bez wielkich nakładów - i stopniowo dodawać kolejne elementy w miarę potrzeb i budżetu. W SmartWeave łączymy projektowanie stron, branding i wdrożenia automatyzacji pod jednym dachem - tak, żeby firma mogła rozwijać się spójnie.',
     },
     {
       t: 'cta',

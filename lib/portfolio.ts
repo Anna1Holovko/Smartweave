@@ -4,7 +4,7 @@
 export const PORTFOLIO_ITEMS = [
   {
     title: 'Kepller',
-    category: 'Design',
+    category: 'Web Development',
     description: 'Profesjonalna strona dla firmy telekomunikacyjnej z nowoczesnym designem i strukturą',
     image: '/assets/kepller-cover.png',
     gradient: 'from-slate-500 to-zinc-600',
@@ -12,7 +12,7 @@ export const PORTFOLIO_ITEMS = [
   },
   {
     title: 'OrthoMedica',
-    category: 'Design',
+    category: 'Web Development',
     description: 'Nowoczesna strona brandowa z unikalnym designem, premium animacjami i UX',
     image: '/assets/orthomedicaCover.png',
     gradient: 'from-purple-500 to-pink-500',
@@ -20,7 +20,7 @@ export const PORTFOLIO_ITEMS = [
   },
   {
     title: 'Maison - Baked with Soul',
-    category: 'Design',
+    category: 'Web Development',
     description: 'Elegancka strona dla piekarni z artystyczną prezentacją produktów i ciepłą atmosferą',
     image: '/assets/maison-cover.png',
     gradient: 'from-amber-500 to-orange-500',
@@ -28,7 +28,7 @@ export const PORTFOLIO_ITEMS = [
   },
   {
     title: 'DentalMint',
-    category: 'Design',
+    category: 'Web Development',
     description: 'Nowoczesna strona brandowa z unikalnym designem, premium animacjami i UX',
     image: '/assets/dentalmint-cover.png',
     gradient: 'from-purple-500 to-pink-500',
@@ -36,7 +36,7 @@ export const PORTFOLIO_ITEMS = [
   },
   {
     title: 'AIYO',
-    category: 'Design',
+    category: 'Web Development',
     description: 'Agencja łącząca AI automation, design stron i vibe coding - dla firm, które chcą skalować',
     image: '/assets/aiyo-cover.png',
     gradient: 'from-cyan-500 to-blue-500',
