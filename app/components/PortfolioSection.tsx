@@ -61,7 +61,13 @@ export function PortfolioSection() {
           <motion.h2 id="portfolio-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className={`${SECTION_H2_CLASS} mb-4 sm:mb-6 px-4`}>
             <span className="text-[#d8f17b]">Zobacz, jak wspieramy rozwój firm</span>
           </motion.h2>
-          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="text-base sm:text-xl text-zinc-400 max-w-[80ch] mx-auto text-center leading-relaxed mb-6">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-base sm:text-xl text-zinc-300 max-w-[80ch] mx-auto text-center leading-relaxed mb-6"
+          >
             Każdy projekt to wyjątkowa historia. Strony i automatyzacje, które realnie wspierają firmy
           </motion.p>
         </div>
@@ -112,10 +118,10 @@ export function PortfolioSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
               whileHover={{ scale: 1.1 }}
-              className="group/arrow absolute right-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center gap-3 h-12 min-h-12 px-4 bg-[#d8f17b]/10 border border-[#d8f17b]/30 rounded-full backdrop-blur-xl transition-all duration-300 hover:border-[#d8f17b]/50 hover:shadow-[0_0_30px_rgba(216,241,123,0.2)]"
+              className="group/arrow absolute right-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center gap-3 h-12 min-h-12 px-4 bg-[#d8f17b]/16 border border-[#d8f17b]/45 rounded-full backdrop-blur-xl transition-all duration-300 hover:border-[#d8f17b]/65 hover:shadow-[0_0_30px_rgba(216,241,123,0.25)]"
             >
-              <span className="text-[#d8f17b] font-semibold text-sm">+{hiddenItemsRight}</span>
-              <ArrowRight className="w-6 h-6 text-[#d8f17b]" />
+              <span className="text-[#e9ff95] font-semibold text-sm">+{hiddenItemsRight}</span>
+              <ArrowRight className="w-6 h-6 text-[#e9ff95]" />
             </motion.button>
           )}
           {hiddenItemsLeft > 0 && (
@@ -127,10 +133,10 @@ export function PortfolioSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
               whileHover={{ scale: 1.1 }}
-              className="group/arrow absolute left-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center gap-3 h-12 min-h-12 px-4 bg-[#d8f17b]/10 border border-[#d8f17b]/30 rounded-full backdrop-blur-xl transition-all duration-300 hover:border-[#d8f17b]/50 hover:shadow-[0_0_30px_rgba(216,241,123,0.2)]"
+              className="group/arrow absolute left-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center gap-3 h-12 min-h-12 px-4 bg-[#d8f17b]/16 border border-[#d8f17b]/45 rounded-full backdrop-blur-xl transition-all duration-300 hover:border-[#d8f17b]/65 hover:shadow-[0_0_30px_rgba(216,241,123,0.25)]"
             >
-              <ArrowLeft className="w-6 h-6 text-[#d8f17b]" />
-              <span className="text-[#d8f17b] font-semibold text-sm">+{hiddenItemsLeft}</span>
+              <ArrowLeft className="w-6 h-6 text-[#e9ff95]" />
+              <span className="text-[#e9ff95] font-semibold text-sm">+{hiddenItemsLeft}</span>
             </motion.button>
           )}
         </div>
