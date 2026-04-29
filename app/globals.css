@@ -349,4 +349,21 @@
     right: calc(max(1.5rem, env(safe-area-inset-right, 0px)) + 3.5rem + 0.75rem) !important;
     z-index: 9998 !important;
   }
+
+  /* Cookiebot modal: tighter spacing to hug the window */
+  .cm {
+    padding: 0 !important;
+  }
+  .cm__content {
+    padding: 0 !important;
+  }
+  .cm__header {
+    padding: 1rem !important;
+  }
+  .cm__body {
+    padding: 1rem !important;
+  }
+  .cm__footer {
+    padding: 1rem !important;
+  }
 }
