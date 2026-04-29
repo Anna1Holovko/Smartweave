@@ -112,7 +112,7 @@ export function PortfolioSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
               whileHover={{ scale: 1.1 }}
-              className="group/arrow absolute right-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center gap-3 h-12 min-h-12 px-4 bg-[#d8f17b]/10 border border-[#d8f17b]/30 rounded-full backdrop-blur-xl transition-all duration-300 hover:border-[#d8f17b]/50 hover:shadow-[0_0_30px_rgba(216,241,123,0.2)]"
+              className="group/arrow absolute right-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center gap-3 h-12 min-h-12 px-4 bg-[#06070b] border border-[#d8f17b]/30 rounded-full backdrop-blur-xl transition-all duration-300 hover:border-[#d8f17b]/50 hover:shadow-[0_0_30px_rgba(216,241,123,0.2)]"
             >
               <span className="text-[#d8f17b] font-semibold text-sm">+{hiddenItemsRight}</span>
               <ArrowRight className="w-6 h-6 text-[#d8f17b]" />
@@ -127,7 +127,7 @@ export function PortfolioSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
               whileHover={{ scale: 1.1 }}
-              className="group/arrow absolute left-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center gap-3 h-12 min-h-12 px-4 bg-[#d8f17b]/10 border border-[#d8f17b]/30 rounded-full backdrop-blur-xl transition-all duration-300 hover:border-[#d8f17b]/50 hover:shadow-[0_0_30px_rgba(216,241,123,0.2)]"
+              className="group/arrow absolute left-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center gap-3 h-12 min-h-12 px-4 bg-[#06070b] border border-[#d8f17b]/30 rounded-full backdrop-blur-xl transition-all duration-300 hover:border-[#d8f17b]/50 hover:shadow-[0_0_30px_rgba(216,241,123,0.2)]"
             >
               <ArrowLeft className="w-6 h-6 text-[#d8f17b]" />
               <span className="text-[#d8f17b] font-semibold text-sm">+{hiddenItemsLeft}</span>
