@@ -125,7 +125,7 @@ export default async function BlogPostPage({ params }: Props) {
                 {post.content ? (
                   <div className={articleBodyClass} dangerouslySetInnerHTML={{ __html: post.content }} />
                 ) : (
-                  <p className="text-zinc-500">Treść artykułu jest pusta. Uzupełnij treść strony w Notion.</p>
+                  <p className="text-zinc-500">Treść artykułu jest pusta. Uzupełnij treść w Airtable.</p>
                 )}
               </div>
             </div>

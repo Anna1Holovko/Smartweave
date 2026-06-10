@@ -1,16 +1,16 @@
 /**
- * Airtable CMS for blog articles (separate base from contact form).
+ * Airtable CMS for blog articles.
  *
- * Fetches from: GET https://api.airtable.com/v0/{BLOG_BASE_ID}/articles
- * Required env: AIRTABLE_BLOG_BASE_ID (blog base; contact form uses AIRTABLE_BASE_ID)
- * Token: AIRTABLE_BLOG_API_KEY or AIRTABLE_API_KEY / AIRTABLE_ACCESS_TOKEN (same key can access both bases)
- * Optional: AIRTABLE_ARTICLES_TABLE_ID - table name/ID (default: "articles")
+ * Required env:
+ *   AIRTABLE_BLOG_BASE_ID - Base ID (default: app9YUgvYfBCLgsjq)
+ *   AIRTABLE_BLOG_TABLE_ID - Table ID (default: tblZaKZwgmco4vAns)
+ *   AIRTABLE_BLOG_API_KEY or AIRTABLE_API_KEY - API token
  *
  * Only records with status = "published" are returned.
- * Results are cached in memory for 5 minutes.
+ * Uses Next.js unstable_cache for caching.
  */
 
-const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
+import { unstable_cache } from 'next/cache';
 
 type AirtableRecord = {
   id: string;
@@ -29,75 +29,132 @@ export type AirtableArticle = {
   title: string;
   slug: string;
   content: string;
+  contentHtml: string;
   meta_description: string;
-  publish_date: string; // YYYY-MM-DD
+  publish_date: string;
 };
 
-let cache: { articles: AirtableArticle[]; expiresAt: number } | null = null;
+/** Cache revalidate time in seconds */
+export const AIRTABLE_CACHE_SECONDS = 30;
 
 function getConfig(): { token: string; baseId: string; tableId: string } | null {
   const token = process.env.AIRTABLE_BLOG_API_KEY || process.env.AIRTABLE_API_KEY || process.env.AIRTABLE_ACCESS_TOKEN;
-  const baseId = process.env.AIRTABLE_BLOG_BASE_ID;
-  const tableId = process.env.AIRTABLE_ARTICLES_TABLE_ID || process.env.AIRTABLE_ARTICLES_TABLE_NAME || 'articles';
-  if (!token || !baseId) return null;
+  const baseId = process.env.AIRTABLE_BLOG_BASE_ID || 'app9YUgvYfBCLgsjq';
+  const tableId = process.env.AIRTABLE_BLOG_TABLE_ID || 'tblZaKZwgmco4vAns';
+  if (!token) return null;
   return { token, baseId, tableId };
 }
 
-/**
- * Fetch all published articles from Airtable. Uses in-memory cache for 5 minutes.
- * On API failure: returns [] and logs; does not throw, so the site keeps working with code-only posts.
- */
-export async function getAirtableArticles(): Promise<AirtableArticle[]> {
-  if (cache && Date.now() < cache.expiresAt) {
-    return cache.articles;
-  }
+export function isAirtableBlogConfigured(): boolean {
+  return getConfig() !== null;
+}
 
+/** Convert markdown to HTML */
+function markdownToHtml(markdown: string): string {
+  if (!markdown) return '';
+
+  let html = markdown
+    // Escape HTML first
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    // Headers
+    .replace(/^### (.+)$/gm, '<h3 class="text-lg sm:text-xl font-bold text-zinc-200 mt-6 mb-3">$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2 class="text-xl sm:text-2xl font-bold text-[#e4e4e7] mt-10 mb-4">$1</h2>')
+    .replace(/^# (.+)$/gm, '<h2 class="text-xl sm:text-2xl font-bold text-[#e4e4e7] mt-10 mb-4">$1</h2>')
+    // Bold and italic
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    // Links
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-[#d8f17b] underline underline-offset-2" target="_blank" rel="noopener noreferrer">$1</a>')
+    // Unordered lists
+    .replace(/^- (.+)$/gm, '<li class="my-1">$1</li>')
+    // Paragraphs (lines that aren't already wrapped)
+    .split('\n\n')
+    .map(block => {
+      block = block.trim();
+      if (!block) return '';
+      if (block.startsWith('<h') || block.startsWith('<li')) return block;
+      if (block.includes('<li')) {
+        return `<ul class="list-disc pl-6 space-y-1 my-4 text-zinc-400">${block}</ul>`;
+      }
+      return `<p class="text-zinc-400 leading-relaxed mb-4">${block}</p>`;
+    })
+    .join('\n');
+
+  return html;
+}
+
+/** Fetch articles directly from Airtable API */
+async function fetchAirtableArticlesFromApi(): Promise<AirtableArticle[]> {
   const config = getConfig();
   if (!config) {
+    console.warn('[Airtable articles] Missing AIRTABLE_BLOG_API_KEY');
     return [];
   }
 
-  const url = `https://api.airtable.com/v0/${config.baseId}/${encodeURIComponent(config.tableId)}`;
+  const url = `https://api.airtable.com/v0/${config.baseId}/${config.tableId}`;
 
   try {
     const res = await fetch(url, {
       headers: {
         Authorization: `Bearer ${config.token}`,
       },
-      next: { revalidate: 0 }, // we handle cache ourselves for consistent TTL
+      cache: 'no-store',
     });
 
-    const text = await res.text();
     if (!res.ok) {
+      const text = await res.text();
       console.error('[Airtable articles]', res.status, text.slice(0, 300));
-      return cache?.articles ?? [];
+      throw new Error(`Airtable API error: ${res.status}`);
     }
 
-    let data: { records?: AirtableRecord[] };
-    try {
-      data = JSON.parse(text) as { records?: AirtableRecord[] };
-    } catch {
-      console.error('[Airtable articles] Invalid JSON');
-      return cache?.articles ?? [];
-    }
-
+    const data = await res.json() as { records?: AirtableRecord[] };
     const records = data.records ?? [];
+
     const articles: AirtableArticle[] = records
       .filter((r) => r.fields?.status === 'published' && r.fields?.slug && r.fields?.title)
-      .map((r) => ({
-        id: r.id,
-        title: String(r.fields.title ?? ''),
-        slug: String(r.fields.slug ?? '').trim(),
-        content: String(r.fields.content ?? ''),
-        meta_description: String(r.fields.meta_description ?? '').trim(),
-        publish_date: formatPublishDate(r.fields.publish_date),
-      }));
+      .map((r) => {
+        const content = String(r.fields.content ?? '');
+        return {
+          id: r.id,
+          title: String(r.fields.title ?? ''),
+          slug: String(r.fields.slug ?? '').trim(),
+          content,
+          contentHtml: markdownToHtml(content),
+          meta_description: String(r.fields.meta_description ?? '').trim(),
+          publish_date: formatPublishDate(r.fields.publish_date),
+        };
+      });
 
-    cache = { articles, expiresAt: Date.now() + CACHE_TTL_MS };
+    // Sort by date descending
+    articles.sort((a, b) => (b.publish_date < a.publish_date ? -1 : b.publish_date > a.publish_date ? 1 : 0));
+
     return articles;
   } catch (err) {
     console.error('[Airtable articles]', err);
-    return cache?.articles ?? [];
+    throw err;
+  }
+}
+
+const getAirtableArticlesCached = unstable_cache(
+  fetchAirtableArticlesFromApi,
+  ['airtable-blog-articles'],
+  {
+    revalidate: AIRTABLE_CACHE_SECONDS,
+    tags: ['airtable-blog'],
+  },
+);
+
+/**
+ * Fetch all published articles from Airtable. Uses Next.js cache.
+ */
+export async function getAirtableArticles(): Promise<AirtableArticle[]> {
+  try {
+    return await getAirtableArticlesCached();
+  } catch (e) {
+    console.error('[Airtable articles] getAirtableArticles', e);
+    return [];
   }
 }
 

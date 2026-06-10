@@ -5,8 +5,7 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ScrollToTop } from '../components/ScrollToTop';
 import { PageIntro } from '../components/PageIntro';
-import { getAllPosts } from '@/lib/blog-adapter';
-import { isNotionBlogEnvConfigured } from '@/lib/notion-articles';
+import { getAllPosts, isNotionBlogEnvConfigured } from '@/lib/blog-adapter';
 import { QuickAutomationCta } from '../components/QuickAutomationCta';
 import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
@@ -50,11 +49,9 @@ export default async function BlogPage() {
               <p className="text-center text-zinc-500 max-w-xl mx-auto leading-relaxed">
                 {!notionEnvOk ? (
                   <>
-                    Ten widok nie ma dostępu do Notion: ustaw na hostingu (np. Vercel → Settings →
-                    Environment Variables) te same zmienne co lokalnie —{' '}
-                    <code className="text-zinc-400">NOTION_API_KEY</code> oraz{' '}
-                    <code className="text-zinc-400">NOTION_BLOG_DATABASE_ID</code> lub{' '}
-                    <code className="text-zinc-400">NOTION_BLOG_DATA_SOURCE_ID</code> — i włącz je
+                    Ten widok nie ma dostępu do Airtable: ustaw na hostingu (np. Vercel → Settings →
+                    Environment Variables) zmienną{' '}
+                    <code className="text-zinc-400">AIRTABLE_BLOG_API_KEY</code> — i włącz ją
                     także dla środowiska <strong className="text-zinc-400">Preview</strong> (nie
                     tylko Production). Po zapisaniu odczekaj minutę lub wdróż ponownie.
                   </>

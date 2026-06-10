@@ -12,7 +12,7 @@ function getSecretFromRequest(request: Request): string | undefined {
   const url = new URL(request.url);
   const q = url.searchParams.get('secret')?.trim();
   if (q) return q;
-  const h = request.headers.get('x-notion-revalidate-secret')?.trim();
+  const h = request.headers.get('x-revalidate-secret')?.trim();
   if (h) return h;
   const auth = request.headers.get('authorization')?.replace(/^Bearer\s+/i, '').trim();
   if (auth) return auth;
@@ -20,18 +20,18 @@ function getSecretFromRequest(request: Request): string | undefined {
 }
 
 /**
- * Odświeżenie cache bloga **bez deploya** (po edycji w Notion).
+ * Odświeżenie cache bloga **bez deploya** (po zmianie statusu w Airtable).
  *
- * **POST** — nagłówek `x-notion-revalidate-secret` lub JSON `{ "secret": "..." }`
+ * **POST** — nagłówek `x-revalidate-secret` lub JSON `{ "secret": "..." }`
  * **GET** — `?secret=...` (wygodne w przeglądarce; nie udostępniaj publicznie URL z sekretem)
  *
- * Wymaga NOTION_REVALIDATE_SECRET w env (jeden deploy konfiguracji na Vercelu).
+ * Wymaga BLOG_REVALIDATE_SECRET w env (lub NOTION_REVALIDATE_SECRET dla kompatybilności).
  */
 export async function POST(request: Request) {
-  const expected = process.env.NOTION_REVALIDATE_SECRET?.trim();
+  const expected = process.env.BLOG_REVALIDATE_SECRET?.trim() || process.env.NOTION_REVALIDATE_SECRET?.trim();
   if (!expected) {
     return NextResponse.json(
-      { ok: false, error: 'NOTION_REVALIDATE_SECRET is not set' },
+      { ok: false, error: 'BLOG_REVALIDATE_SECRET is not set' },
       { status: 503, headers: NO_STORE },
     );
   }
@@ -39,7 +39,7 @@ export async function POST(request: Request) {
   const url = new URL(request.url);
   let provided =
     url.searchParams.get('secret')?.trim() ||
-    request.headers.get('x-notion-revalidate-secret')?.trim();
+    request.headers.get('x-revalidate-secret')?.trim();
   if (!provided) {
     try {
       const body = (await request.json()) as { secret?: string };
@@ -63,10 +63,10 @@ export async function POST(request: Request) {
 }
 
 export async function GET(request: Request) {
-  const expected = process.env.NOTION_REVALIDATE_SECRET?.trim();
+  const expected = process.env.BLOG_REVALIDATE_SECRET?.trim() || process.env.NOTION_REVALIDATE_SECRET?.trim();
   if (!expected) {
     return NextResponse.json(
-      { ok: false, error: 'NOTION_REVALIDATE_SECRET is not set' },
+      { ok: false, error: 'BLOG_REVALIDATE_SECRET is not set' },
       { status: 503, headers: NO_STORE },
     );
   }

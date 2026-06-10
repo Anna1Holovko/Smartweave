@@ -2,16 +2,16 @@ import { revalidatePath, revalidateTag } from 'next/cache';
 import { getAllSlugs } from '@/lib/blog-adapter';
 
 /**
- * Invalidates Notion `unstable_cache` (tag `notion-blog`) and full route cache for:
+ * Invalidates Airtable `unstable_cache` (tag `airtable-blog`) and full route cache for:
  * - `/` (home blog strip), `/blog` (listing), every `/blog/[slug]` (posts), `/sitemap.xml`.
  *
  * Important: `revalidatePath('/blog')` alone does **not** invalidate dynamic `/blog/[slug]` in the
  * App Router — those pages keep serving stale HTML until per-slug paths or a layout revalidation.
  */
 export async function revalidateBlogCache(): Promise<{ ok: true; revalidated: string[] }> {
-  const revalidated: string[] = ['tag:notion-blog'];
+  const revalidated: string[] = ['tag:airtable-blog'];
 
-  revalidateTag('notion-blog');
+  revalidateTag('airtable-blog');
 
   // Blog subtree (listing + every post). `/blog` page-only would not cover `/blog/[slug]`.
   revalidatePath('/blog', 'layout');
