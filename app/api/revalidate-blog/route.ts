@@ -36,10 +36,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const url = new URL(request.url);
-  let provided =
-    url.searchParams.get('secret')?.trim() ||
-    request.headers.get('x-revalidate-secret')?.trim();
+  let provided = getSecretFromRequest(request);
   if (!provided) {
     try {
       const body = (await request.json()) as { secret?: string };
