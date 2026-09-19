@@ -25,17 +25,16 @@ import { USLUGI_DISPLAY_ORDER } from '@/lib/services';
 
 const LOGO = '/assets/smartweave-logo-ai.png';
 
-const USLUGI_DROPDOWN_NAMES: Record<(typeof USLUGI_DISPLAY_ORDER)[number], string> = {
+const USLUGI_DROPDOWN_NAMES: Partial<Record<(typeof USLUGI_DISPLAY_ORDER)[number], string>> = {
   automatyzacja: 'Automatyzacja procesów biznesowych',
   'agenci-ai': 'Agenci AI',
   strony: 'Strony internetowe',
   branding: 'Logo i identyfikacja wizualna',
   chatboty: 'Chatboty',
-  'aplikacje-webowe': 'Aplikacje webowe',
 };
 
-const uslugiDropdownItems = USLUGI_DISPLAY_ORDER.map((slug) => ({
-  name: USLUGI_DROPDOWN_NAMES[slug],
+const uslugiDropdownItems = USLUGI_DISPLAY_ORDER.filter((slug) => slug !== 'aplikacje-webowe').map((slug) => ({
+  name: USLUGI_DROPDOWN_NAMES[slug]!,
   href: slug === 'agenci-ai' ? '/agenci-ai' : `/uslugi/${slug}`,
 }));
 
@@ -43,7 +42,6 @@ const realizacjeDropdownItems = [
   { name: 'Strony Internetowe', href: '/realizacje' },
   { name: 'Automatyzacja procesów', href: '/realizacje/automatyzacja' },
   { name: 'Chatboty', href: '/realizacje/chatboty' },
-  { name: 'Aplikacje webowe', href: '/realizacje/aplikacje-webowe' },
 ];
 
 const navItems = [
