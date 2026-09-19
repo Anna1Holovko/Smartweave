@@ -9,12 +9,12 @@ import { SITE_URL } from '@/lib/site';
 import { SECTION_CLASS, CONTAINER_CLASS, INTRO_MB_CLASS } from '@/lib/layout';
 
 export const metadata: Metadata = {
-  title: 'Usługi - Automatyzacja, agenci AI, strony, chatboty',
+  title: 'Usługi - Automatyzacja, agenci AI, strony, chatboty, aplikacje webowe',
   description:
-    'Automatyzacja procesów, agenci AI, strony internetowe, branding, chatboty. Pełna oferta dla firm',
+    'Automatyzacja procesów, agenci AI, strony internetowe, branding, chatboty i aplikacje webowe. Pełna oferta dla firm',
   openGraph: {
-    title: 'Usługi - Automatyzacja, agenci AI, strony, chatboty',
-    description: 'Automatyzacja, agenci AI, strony, branding, chatboty',
+    title: 'Usługi - Automatyzacja, agenci AI, strony, chatboty, aplikacje webowe',
+    description: 'Automatyzacja, agenci AI, strony, branding, chatboty i aplikacje webowe',
     url: `${SITE_URL}/uslugi`,
   },
 };
@@ -38,7 +38,7 @@ export default function UslugiPage() {
                   Pełna oferta <span className="text-[#d8f17b]">usług</span>
                 </>
               }
-              description="Automatyzacja, agenci AI, strony, branding, chatboty. Wszystko, czego potrzebuje Twoja firma"
+              description="Automatyzacja, agenci AI, strony, branding, chatboty i aplikacje webowe. Wszystko, czego potrzebuje Twoja firma"
               className={INTRO_MB_CLASS}
             />
 

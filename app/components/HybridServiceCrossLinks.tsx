@@ -13,7 +13,7 @@ export function HybridServiceCrossLinks({ slug }: Props) {
     return <StronyHybridEcosystemSection />;
   }
 
-  if (slug === 'chatboty') {
+  if (slug === 'chatboty' || slug === 'aplikacje-webowe') {
     return (
       <section
         aria-labelledby="hybrid-cross-chat-heading"

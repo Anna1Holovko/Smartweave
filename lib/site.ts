@@ -50,6 +50,7 @@ export const SITEMAP_ROUTES = [
   { path: 'uslugi/automatyzacja', priority: 0.85, changeFrequency: 'weekly' as const },
   { path: 'uslugi/agenci-ai', priority: 0.85, changeFrequency: 'weekly' as const },
   { path: 'uslugi/chatboty', priority: 0.85, changeFrequency: 'weekly' as const },
+  { path: 'uslugi/aplikacje-webowe', priority: 0.85, changeFrequency: 'weekly' as const },
   { path: 'automatyzacja-ai-dla-firm', priority: 0.88, changeFrequency: 'weekly' as const },
   { path: 'automatyzacja-ai/wroclaw', priority: 0.82, changeFrequency: 'monthly' as const },
   { path: 'automatyzacja-ai/warszawa', priority: 0.82, changeFrequency: 'monthly' as const },
@@ -57,6 +58,12 @@ export const SITEMAP_ROUTES = [
   { path: 'ai-w-marketingu-i-sprzedazy', priority: 0.86, changeFrequency: 'weekly' as const },
   { path: 'realizacje', priority: 0.9, changeFrequency: 'weekly' as const },
   { path: 'realizacje/chatboty', priority: 0.85, changeFrequency: 'monthly' as const },
+  { path: 'realizacje/aplikacje-webowe', priority: 0.85, changeFrequency: 'monthly' as const },
+  {
+    path: 'realizacje/chatboty-i-aplikacje-webowe',
+    priority: 0.75,
+    changeFrequency: 'monthly' as const,
+  },
   { path: 'e-booki', priority: 0.9, changeFrequency: 'weekly' as const },
   { path: 'blog', priority: 0.9, changeFrequency: 'weekly' as const },
 ] as const;

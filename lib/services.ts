@@ -116,6 +116,28 @@ export const SERVICES = [
     ],
     gradient: 'from-violet-500 to-fuchsia-500',
   },
+  {
+    number: '06',
+    slug: 'aplikacje-webowe',
+    title: 'Aplikacje webowe',
+    cardDescription:
+      'Panele, narzędzia wewnętrzne i produkty w przeglądarce – od pomysłu do wdrożenia.',
+    cardPoints: [
+      'Panele dla zespołu i klientów – logowanie, role, dane w czasie rzeczywistym',
+      'Spójna logika i dane w jednym miejscu zamiast rozproszonych arkuszy i maili',
+      'Nowoczesny stack, wydajność i bezpieczeństwo – skalowalne fundamenty',
+    ],
+    description:
+      'Budujemy dedykowane aplikacje webowe: od wewnętrznych paneli i narzędzi po rozwiązania dla klientów końcowych. Projektujemy je tak, by były przejrzyste dla użytkowników i stabilne w codziennej pracy Twojej firmy.',
+    features: [
+      'Interfejsy w przeglądarce – dostęp z komputera i urządzeń mobilnych',
+      'Warstwa serwerowa i bazy danych – logika biznesowa dopasowana do procesów',
+      'Uwierzytelnianie, role i uprawnienia – bezpieczny dostęp dla zespołu i partnerów',
+      'Wdrożenie, hosting i utrzymanie – pełny cykl od MVP do produkcji',
+      'Dokumentacja i przekazanie wiedzy zespołowi',
+    ],
+    gradient: 'from-sky-500 to-indigo-500',
+  },
 ] as const;
 
 export type ServiceItem = (typeof SERVICES)[number];
@@ -126,6 +148,7 @@ export const SERVICE_SLUGS = [
   'automatyzacja',
   'agenci-ai',
   'chatboty',
+  'aplikacje-webowe',
 ] as const;
 export type ServiceSlug = (typeof SERVICE_SLUGS)[number];
 
@@ -136,6 +159,7 @@ export const USLUGI_DISPLAY_ORDER = [
   'strony',
   'branding',
   'chatboty',
+  'aplikacje-webowe',
 ] as const;
 
 export function getServiceBySlug(slug: string): (typeof SERVICES)[number] | undefined {

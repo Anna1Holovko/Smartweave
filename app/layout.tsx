@@ -198,6 +198,7 @@ const jsonLd = {
         'Strony internetowe',
         'Identyfikacja wizualna i branding',
         'Chatboty',
+        'Aplikacje webowe',
         'SEO',
       ],
     },
@@ -216,13 +217,14 @@ const jsonLd = {
       '@type': 'ItemList',
       name: 'Usługi SmartWeave',
       description:
-        'Automatyzacja procesów biznesowych, agenci AI, strony internetowe, identyfikacja wizualna, chatboty',
+        'Automatyzacja procesów biznesowych, agenci AI, strony internetowe, identyfikacja wizualna, chatboty i aplikacje webowe',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Automatyzacja procesów biznesowych' },
         { '@type': 'ListItem', position: 2, name: 'Agenci AI' },
         { '@type': 'ListItem', position: 3, name: 'Strony internetowe' },
         { '@type': 'ListItem', position: 4, name: 'Identyfikacja wizualna i branding' },
         { '@type': 'ListItem', position: 5, name: 'Chatboty' },
+        { '@type': 'ListItem', position: 6, name: 'Aplikacje webowe' },
       ],
     },
   ],

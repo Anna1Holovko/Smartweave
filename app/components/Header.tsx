@@ -31,6 +31,7 @@ const USLUGI_DROPDOWN_NAMES: Record<(typeof USLUGI_DISPLAY_ORDER)[number], strin
   strony: 'Strony internetowe',
   branding: 'Logo i identyfikacja wizualna',
   chatboty: 'Chatboty',
+  'aplikacje-webowe': 'Aplikacje webowe',
 };
 
 const uslugiDropdownItems = USLUGI_DISPLAY_ORDER.map((slug) => ({
@@ -42,6 +43,7 @@ const realizacjeDropdownItems = [
   { name: 'Strony Internetowe', href: '/realizacje' },
   { name: 'Automatyzacja procesów', href: '/realizacje/automatyzacja' },
   { name: 'Chatboty', href: '/realizacje/chatboty' },
+  { name: 'Aplikacje webowe', href: '/realizacje/aplikacje-webowe' },
 ];
 
 const navItems = [

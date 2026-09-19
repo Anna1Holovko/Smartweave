@@ -20,6 +20,7 @@ import {
   Users,
   Bot,
   TrendingUp,
+  AppWindow,
   type LucideIcon,
 } from 'lucide-react';
 import type { ServiceSlug } from '@/lib/services';
@@ -33,6 +34,7 @@ const ICONS_BY_SLUG: Record<ServiceSlug, LucideIcon[]> = {
   strony: [Globe, Search, MousePointer, FileEdit, Layout, Sparkles],
   branding: [Palette, Image, FileText, Type, RefreshCw, Sparkles],
   chatboty: [MessageSquare, Bot, Clock, Users, FileText, Sparkles],
+  'aplikacje-webowe': [AppWindow, Layout, Globe],
 };
 
 function renderHeadingWithAccent(heading: string, accentPhrase: string | null | undefined) {
