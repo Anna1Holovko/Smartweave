@@ -50,4 +50,12 @@ export const PORTFOLIO_ITEMS = [
     gradient: 'from-cyan-500 to-blue-500',
     link: 'https://aiyo.figma.site/',
   },
+  {
+    title: 'Lumière',
+    category: 'Web Development',
+    description: 'Elegancka strona dla salonu urody premium z eleganckim designem i prezentacją usług',
+    image: '/assets/lumiere-cover.png',
+    gradient: 'from-amber-200 to-stone-400',
+    link: 'https://deaf-broil-44422386.figma.site/',
+  },
 ] as const;
