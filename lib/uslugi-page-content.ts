@@ -78,16 +78,6 @@ export const USLUGI_PAGE_CONTENT: Record<ServiceSlug, UslugiPageContent> = {
     benefits: 'Szybsza odpowiedź, mniej powtórek i leady w CRM.',
     process: 'Cel → baza wiedzy → wdrożenie → testy → optymalizacja.',
   },
-  'aplikacje-webowe': {
-    problems: [
-      { title: 'Excel i maile nie skalują procesu', description: 'Wzrost zamówień lub klientów rozrywa ręczne arkusze. Aplikacja webowa porządkuje dane i workflow w jednym miejscu.' },
-      { title: 'Brak jednego miejsca dla zespołu i klientów', description: 'Informacje rozproszone między narzędziami. Potrzebujesz panelu z logowaniem, rolami i historią działań.' },
-      { title: 'Gotowe SaaS-y nie pasują do procesu', description: 'Szablony wymuszają kompromisy. Dedykowana aplikacja webowa odzwierciedla Twój sposób pracy.' },
-    ],
-    approach: 'Budujemy aplikacje webowe pod proces: UX, dane, bezpieczeństwo i rozwój od MVP.',
-    benefits: 'Jedno miejsce na dane i procesy. Mniej błędów i łatwiejsze skalowanie.',
-    process: 'Discovery → MVP → wdrożenie → utrzymanie i rozwój.',
-  },
 };
 
 /** Generic content for main /uslugi listing (no single service context) */

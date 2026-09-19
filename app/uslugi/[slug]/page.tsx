@@ -20,7 +20,6 @@ const SLUG_TITLES: Record<string, string> = {
   automatyzacja: 'Automatyzacja procesów biznesowych',
   'agenci-ai': 'Agenci AI',
   chatboty: 'Chatboty na stronie i w kanałach komunikacji',
-  'aplikacje-webowe': 'Aplikacje webowe',
 };
 
 /** Richer meta descriptions for high-intent queries (GSC: automatyzacja procesów, agenci AI). */
@@ -48,15 +47,6 @@ function realizacjeForSlug(slug: ServiceSlug): RealizacjeConfig {
   if (slug === 'strony') {
     return { mode: 'portfolio', title: 'Realizacje na stronach internetowych' };
   }
-  if (slug === 'aplikacje-webowe') {
-    return {
-      mode: 'link',
-      title: 'Realizacje',
-      description: 'Przykłady projektów w tej kategorii znajdziesz na dedykowanej podstronie realizacji.',
-      href: '/realizacje/aplikacje-webowe',
-      linkLabel: 'Realizacje - aplikacje webowe',
-    };
-  }
   if (slug === 'chatboty') {
     return {
       mode: 'link',
@@ -72,7 +62,6 @@ function realizacjeForSlug(slug: ServiceSlug): RealizacjeConfig {
 function showHybridCrossLinks(slug: ServiceSlug): boolean {
   return (
     slug === 'strony' ||
-    slug === 'aplikacje-webowe' ||
     slug === 'chatboty' ||
     slug === 'automatyzacja' ||
     slug === 'agenci-ai'
