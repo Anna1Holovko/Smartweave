@@ -11,6 +11,14 @@ export const PORTFOLIO_ITEMS = [
     link: 'https://cork-merge-98211723.figma.site/',
   },
   {
+    title: 'Gōsei',
+    category: 'Web Development',
+    description: 'Ekskluzywny sklep z diamentami hodowanymi w laboratorium, z minimalistycznym designem i pełnym procesem zakupowym',
+    image: '/assets/gosei-cover.png',
+    gradient: 'from-rose-900 to-red-800',
+    link: 'https://claude.ai/artifact/KziCvxYh44x6WY7M3qnLJF',
+  },
+  {
     title: 'Kepller',
     category: 'Web Development',
     description: 'Profesjonalna strona dla firmy telekomunikacyjnej z nowoczesnym designem i strukturą',
