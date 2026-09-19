@@ -28,7 +28,7 @@ export default function HomePage() {
         <AutomationDetails />
         <PortfolioSection />
         <BlogSection />
-        <div className="gradient-philosophy-to-footer">
+        <div className="v2-gradient-philosophy-to-footer">
           <CTASection />
           <Footer />
         </div>

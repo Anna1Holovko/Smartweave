@@ -225,7 +225,7 @@ export default async function UslugiSlugPage({
                 <div className="mt-8 sm:mt-10 text-center">
                   <Link
                     href={`${V2_BASE}/realizacje`}
-                    className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 text-white cta-gradient-animated hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]"
+                    className="inline-flex items-center justify-center gap-2 rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 text-white v2-cta-gradient hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]"
                   >
                     Zobacz wszystkie realizacje
                   </Link>
@@ -241,7 +241,7 @@ export default async function UslugiSlugPage({
           description="Umów bezpłatną konsultację - opowiemy o szczegółach i dopasujemy rozwiązanie"
         />
 
-        <div className="gradient-philosophy-to-footer">
+        <div className="v2-gradient-philosophy-to-footer">
           <Footer />
         </div>
       </main>

@@ -5,7 +5,7 @@ const base =
 
 const variants = {
   primary:
-    'cta-gradient-animated text-white hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]',
+    'v2-cta-gradient text-white hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]',
   secondary:
     'bg-transparent border-2 border-slate-700 text-white hover:border-purple-500/50 hover:bg-slate-800/30 rounded-full',
 };

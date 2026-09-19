@@ -52,14 +52,14 @@ export function UslugiConsultationBlock({ title, description, variant = 'split' 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="space-y-6">
               <h2 id="uslugi-consultation-heading" className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
-                <span className="cta-gradient-animated bg-clip-text text-transparent">{title}</span>
+                <span className="v2-cta-gradient bg-clip-text text-transparent">{title}</span>
               </h2>
               <p className="text-base sm:text-lg text-slate-400 leading-relaxed">{description}</p>
             </div>
 
             <div className="relative">
               <div className="relative overflow-hidden rounded-3xl border border-slate-700/50 bg-slate-900/60 backdrop-blur-xl p-8 shadow-2xl">
-                <div className="absolute inset-0 cta-gradient-animated opacity-[0.08] pointer-events-none" />
+                <div className="absolute inset-0 v2-cta-gradient opacity-[0.08] pointer-events-none" />
                 <div className="relative flex flex-wrap items-center justify-center sm:justify-end gap-4">
                   <Link href={`${V2_BASE}/#contact`}>
                     <Button variant="primary">Napisz do nas</Button>

@@ -57,7 +57,7 @@ export default function UslugiPage() {
           description="Umów bezpłatną konsultację - opowiemy o szczegółach i dopasujemy rozwiązanie"
         />
 
-        <div className="gradient-philosophy-to-footer">
+        <div className="v2-gradient-philosophy-to-footer">
           <SimpleCTASection />
           <Footer />
         </div>

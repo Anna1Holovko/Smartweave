@@ -1,0 +1,187 @@
+/*
+ * Styles restored from commit ac7eb2f (pre-redesign globals.css) for the /smartweave-v2
+ * archive only. `.cta-gradient-animated` and `.gradient-philosophy-to-footer` still exist
+ * in app/globals.css but were repainted with the current lime/graphite accent during the
+ * later redesign — so they're renamed here (v2- prefix) to avoid picking up those new
+ * colors. `.ai-*` classes never migrated to app/globals.css at all after the redesign.
+ */
+
+@keyframes v2-cta-gradient-flow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.v2-cta-gradient {
+  background: linear-gradient(110deg, #6ba1fb 0%, #a18dfa 50%, #eb75bd 100%);
+  background-size: 200% 100%;
+  animation: v2-cta-gradient-flow 12s ease-in-out infinite;
+}
+
+.v2-gradient-philosophy-to-footer {
+  background: linear-gradient(
+    to bottom,
+    #0f172a 0%,
+    #0d1424 5%,
+    #0f1528 10%,
+    #12162c 16%,
+    #151730 22%,
+    #171836 28%,
+    #191a3b 35%,
+    #1a1a3c 42%,
+    #1a193a 50%,
+    #181836 58%,
+    #161632 65%,
+    #14142e 72%,
+    #111328 80%,
+    #0e1226 88%,
+    #0c1124 94%,
+    #020617 100%
+  );
+}
+
+/* AI animation section (service subpages - right column) */
+.ai-animation-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  aspect-ratio: 1000 / 600;
+  max-height: 520px;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: transparent;
+}
+.ai-animation-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0;
+  animation: aiGridFade 1.5s ease forwards;
+}
+@keyframes aiGridFade {
+  to { opacity: 0.15; }
+}
+.ai-animation-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.ai-outer-ring {
+  stroke: rgba(34,211,238,0.4);
+  stroke-width: 1.5;
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: aiDrawLine 2s ease forwards 0.5s;
+}
+.ai-conn {
+  stroke: url(#aiLineGlow);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  opacity: 0.85;
+  animation: aiDrawLine 1.5s ease forwards 1.5s, aiPulseLine 6s linear infinite 3s;
+}
+@keyframes aiDrawLine {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes aiPulseLine {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -600; }
+}
+.ai-core-node {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgba(0,229,255,0.35), rgba(123,97,255,0.4));
+  border: 1px solid rgba(0,229,255,0.5);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(0,229,255,0.4), 0 0 60px rgba(123,97,255,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: white;
+  animation: aiCoreAppear 1.2s ease forwards 1s, aiFloatCore 6s ease-in-out infinite;
+}
+@keyframes aiCoreAppear {
+  to { transform: translate(-50%, -50%) scale(1); }
+}
+@keyframes aiFloatCore {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-6px); }
+}
+.ai-float-card {
+  position: absolute;
+  left: var(--ai-x, 50%);
+  top: var(--ai-y, 50%);
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px 10px 12px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(230,220,255,0.9) 100%);
+  border: 1px solid rgba(0,229,255,0.35);
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.15),
+    0 0 0 1px rgba(255,255,255,0.5) inset;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: #1e1b4b;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: aiFloatCard 7s ease-in-out infinite;
+}
+.ai-float-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(0,229,255,0.2), rgba(123,97,255,0.2));
+  color: #5b21b6;
+}
+.ai-float-card-label {
+  line-height: 1.2;
+}
+.ai-float-card:hover {
+  transform: translate(-50%, -50%) translateY(-6px) scale(1.03);
+  box-shadow:
+    0 8px 28px rgba(0,0,0,0.2),
+    0 0 24px rgba(0,229,255,0.25);
+}
+@keyframes aiFloatCard {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-4px); }
+}
+@media (min-width: 1024px) {
+  .ai-animation-wrap {
+    min-height: 480px;
+    max-height: 560px;
+  }
+  .ai-float-card {
+    font-size: 13px;
+    padding: 12px 18px 12px 14px;
+    gap: 10px;
+  }
+  .ai-float-card-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .ai-core-node {
+    width: 100px;
+    height: 100px;
+    font-size: 1.5rem;
+  }
+}

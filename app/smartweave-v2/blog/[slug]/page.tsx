@@ -201,7 +201,7 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
           </div>
         </article>
-        <div className="gradient-philosophy-to-footer">
+        <div className="v2-gradient-philosophy-to-footer">
           <SimpleCTASection />
           <Footer />
         </div>

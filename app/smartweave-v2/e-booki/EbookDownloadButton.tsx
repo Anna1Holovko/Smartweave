@@ -50,7 +50,7 @@ export function EbookDownloadButton({ book }: Props) {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 text-white cta-gradient-animated hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]"
+          className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 text-white v2-cta-gradient hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]"
         >
           <ShoppingCart className="w-4 h-4" aria-hidden />
           Dodaj do koszyka
@@ -118,7 +118,7 @@ export function EbookDownloadButton({ book }: Props) {
         download
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 text-white cta-gradient-animated hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]"
+        className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 text-white v2-cta-gradient hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]"
       >
         <ShoppingCart className="w-4 h-4" aria-hidden />
         Dodaj do koszyka
@@ -131,7 +131,7 @@ export function EbookDownloadButton({ book }: Props) {
       href={book.buyUrl}
       target={book.buyUrl.startsWith('http') ? '_blank' : undefined}
       rel={book.buyUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
-      className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 text-white cta-gradient-animated hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]"
+      className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-full font-semibold text-sm sm:text-base transition-all h-12 min-h-12 px-6 sm:px-8 text-white v2-cta-gradient hover:scale-105 hover:shadow-[0_0_28px_rgba(167,139,250,0.4)]"
     >
       <ShoppingCart className="w-4 h-4" aria-hidden />
       Kup e-book
