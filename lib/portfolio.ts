@@ -42,4 +42,12 @@ export const PORTFOLIO_ITEMS = [
     gradient: 'from-cyan-500 to-blue-500',
     link: 'https://aiyo.figma.site/',
   },
+  {
+    title: 'Wrocław Walks',
+    category: 'Web Development',
+    description: 'Strona dla przewodnika miejskiego z ofertą wycieczek pieszych po Wrocławiu, kalendarzem i rezerwacją',
+    image: '/assets/wroclaw-walks-cover.png',
+    gradient: 'from-emerald-500 to-teal-600',
+    link: 'https://cork-merge-98211723.figma.site/',
+  },
 ] as const;
