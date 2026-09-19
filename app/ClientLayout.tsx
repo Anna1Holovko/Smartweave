@@ -6,7 +6,7 @@ import { ChatbotUiProvider } from './contexts/ChatbotUiContext';
 
 export function ClientLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isArchive = pathname?.startsWith('/smartweave-v1');
+  const isArchive = pathname?.startsWith('/smartweave-v1') || pathname?.startsWith('/smartweave-v2');
 
   return (
     <ChatbotUiProvider>
