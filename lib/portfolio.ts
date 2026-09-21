@@ -35,7 +35,7 @@ export const PORTFOLIO_ITEMS = [
     link: 'https://orthomedicav5.figma.site/',
   },
   {
-    title: 'OrthoMedica V4',
+    title: 'OrthoMedica - Klinika',
     category: 'Web Development',
     description: 'Alternatywna wersja strony kliniki ortodontycznej dla dzieci i dorosłych',
     image: '/assets/orthomedica-v4-cover.png',
